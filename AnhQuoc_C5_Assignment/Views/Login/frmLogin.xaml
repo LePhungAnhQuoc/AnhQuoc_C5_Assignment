@@ -1,0 +1,82 @@
+﻿<Window x:Class="AnhQuoc_C5_Assignment.frmLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        WindowStyle="SingleBorderWindow"
+        Style="{StaticResource wdStyleGeneral}"
+        WindowStartupLocation="{StaticResource WSL}">
+    <Border BorderBrush="Black"
+            BorderThickness="1"
+            Background="#d4ebff">
+        <Border BorderBrush="Black"
+                CornerRadius="0"
+                BorderThickness="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <StackPanel Background="#e6f3ff"
+                        Margin="20 30">
+                <Label VerticalContentAlignment="Center" 
+                       HorizontalContentAlignment="Left" 
+                       Padding="40 0"
+                       FontSize="50"
+                       Margin="0 10"
+                       TabIndex="-1"
+                       Foreground="Black">Sign in</Label>
+
+                <Label Style="{StaticResource lblStyle1}"
+                       Margin="40 10 40 0" Padding="0"
+                       Content="Username"
+                       FontSize="20"
+                       HorizontalAlignment="Left" />
+                <TextBox Name="txtUsername"  
+                         Margin="40 10 40 0"  Padding="10"
+                         Height="50" Width="300"
+                         FontSize="20"
+                         Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
+                         TabIndex="0">
+                    <TextBox.Text>
+                        <Binding Path="Account.Username" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label Name="lbPassword" 
+                       Style="{StaticResource lblStyle1}"
+                       HorizontalAlignment="Left"
+                       Margin="40 20 40 0" 
+                       Padding="0"
+                       FontSize="20"
+                       Content="Password" />
+                <PasswordBox Name="boxPassword" 
+                             Margin="40 10 40 0" 
+                             Height="50" 
+                             Padding="10"
+                             TabIndex="1"
+                             FontSize="20"/>
+                <StackPanel Orientation="Vertical"
+                            HorizontalAlignment="Center"
+                            Margin="60 30">
+                    <Button Name="btnSignIn"
+                            Style="{StaticResource btnConfirm}"
+                            FontSize="20"
+                            Padding="20 8"
+                            TabIndex="2"
+                            HorizontalAlignment="Stretch">Sign in</Button>
+                    <Button Name="btnOpenConnectform"
+                            Style="{StaticResource btnConfirm}"
+                            Content="Login to the connection system"
+                            FontSize="17"
+                            FontStyle="Italic"
+                            Margin="0 10 0 0" Padding="20 8"
+                            TabIndex="2"
+                            HorizontalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Border>
+</Window>

@@ -1,0 +1,127 @@
+﻿<UserControl x:Class="AnhQuoc_C5_Assignment.ucAddBookISBN"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+             mc:Ignorable="d" d:DesignWidth="410" d:DesignHeight="430">
+    <StackPanel Width="400"
+                Background="White">
+        <!-- Title -->
+        <Label Style="{StaticResource lblTitle}"
+               Margin="0 20 0 10"
+               Content="Book ISBN Information" />
+        
+        <!-- Body -->
+        <StackPanel Margin="20 0">
+            <StackPanel.Resources>
+                <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
+            </StackPanel.Resources>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="ISBN: " />
+                <TextBox Grid.Column="1"
+                         Name="txtISBN"
+                         Text="{Binding Item.ISBN}"
+                         IsEnabled="False" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Book title: " />
+                <ComboBox Grid.Column="1"
+                          Name="cbBookTitle"
+                          ItemsSource="{Binding AllBookTitleDtos}"
+                          DisplayMemberPath="Name"
+                          Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                    <ComboBox.SelectedItem>
+                        <Binding Path="SelectedBookTitleDto" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <local:SelectedItemRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </ComboBox.SelectedItem>
+                </ComboBox>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Author: " />
+                <ComboBox Grid.Column="1"
+                          Name="cbAuthor" 
+                          ItemsSource="{Binding AllAuthorDtos}"
+                          DisplayMemberPath="Name"
+                          Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                    <ComboBox.SelectedItem>
+                        <Binding Path="SelectedAuthorDto" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <local:SelectedItemRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </ComboBox.SelectedItem>
+                </ComboBox>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Publish Date: " />
+                <DatePicker Grid.Column="1"
+                            Name="datePublishDate"
+                            HorizontalAlignment="Stretch"
+                            Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                    <DatePicker.SelectedDate>
+                        <Binding 
+                            Path="SelectedPublishDate"         
+                            UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <local:SelectedItemRule />
+                                <local:InputDateRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </DatePicker.SelectedDate>
+                </DatePicker>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Language: " />
+                <ComboBox Grid.Column="1"
+                          Name="cbLanguage"
+                          ItemsSource="{Binding AllLanguages}"
+                          Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                    <ComboBox.SelectedItem>
+                        <Binding Path="SelectedLanguage" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <local:SelectedItemRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </ComboBox.SelectedItem>
+                </ComboBox>
+            </Grid>
+        </StackPanel>
+
+        <!-- Footer -->
+        <StackPanel Style="{StaticResource stkWrapButton}">
+            <Button Name="btnConfirm" Content="Confirm"
+                    Style="{StaticResource btnConfirm}" />
+            <Button Name="btnCancel" Content="Cancel" 
+                    Style="{StaticResource btnCancel}"
+                    Margin="10 0 0 0"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

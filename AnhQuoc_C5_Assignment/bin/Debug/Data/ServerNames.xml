@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServerNames Count="0">
+  <ServerName>
+    <Id>SV1</Id>
+    <Name>DESKTOP-D7CFQLS\SQLEXPRESS</Name>
+    <Status>False</Status>
+  </ServerName>
+  <ServerName>
+    <Id>SV2</Id>
+    <Name>DESKTOP-D7CFQLS</Name>
+    <Status>True</Status>
+  </ServerName>
+</ServerNames>

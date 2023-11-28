@@ -1,0 +1,12 @@
+<DatabaseNames Count="0">
+  <DatabaseName>
+    <Id>DB1</Id>
+    <Name>QuanLyThuVien</Name>
+    <Status>True</Status>
+  </DatabaseName>
+  <DatabaseName>
+    <Id>DB2</Id>
+    <Name>QuanLy</Name>
+    <Status>False</Status>
+  </DatabaseName>
+</DatabaseNames>

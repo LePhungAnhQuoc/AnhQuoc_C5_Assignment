@@ -1,0 +1,808 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{903764DE-6428-414A-9E76-B28B4D5D4380}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AnhQuoc_C5_Assignment</RootNamespace>
+    <AssemblyName>AnhQuoc_C5_Assignment</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFCustomMessageBox, Version=1.0.7.39267, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFCustomMessageBox.1.0.7\lib\WPFCustomMessageBox.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Animations\frmLoadingSpinnerControl.xaml.cs">
+      <DependentUpon>frmLoadingSpinnerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Animations\ucLoadingSpinnerControl.xaml.cs">
+      <DependentUpon>ucLoadingSpinnerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\HalfLengthConverter.cs" />
+    <Compile Include="Converters\Others\AdminUserConverter.cs" />
+    <Compile Include="Converters\Others\EmptyContentConverter.cs" />
+    <Compile Include="Converters\Others\InverseBoolConverter.cs" />
+    <Compile Include="Converters\Others\Ulties\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\Others\Ulties\IndexDataGridItemConverter.cs" />
+    <Compile Include="Converters\StatusConvert\AdultStatusConverter.cs" />
+    <Compile Include="Converters\StatusConvert\AuthorStatusConverter.cs" />
+    <Compile Include="Converters\StatusConvert\BookISBNStatusConverter.cs" />
+    <Compile Include="Converters\StatusConvert\BookStatusConverter.cs" />
+    <Compile Include="Converters\Others\Ulties\CalculatePercentValueConverter.cs" />
+    <Compile Include="Converters\StatusConvert\ChildStatusConverter.cs" />
+    <Compile Include="Converters\StatusConvert\ColorStatusConverter.cs" />
+    <Compile Include="Converters\StatusConvert\FunctionStatusConverter.cs" />
+    <Compile Include="Converters\Others\Ulties\IndexListViewItemConverter.cs" />
+    <Compile Include="Converters\StatusConvert\RoleStatusConverter.cs" />
+    <Compile Include="Converters\StatusConvert\UserStatusConverter.cs" />
+    <Compile Include="Converters\StatusConvert\ReaderStatusConverter.cs" />
+    <Compile Include="Converters\StatusConvert\ChildsQuantityConverter.cs" />
+    <Compile Include="Converters\Others\boFToAgeConverter.cs" />
+    <Compile Include="Converters\StatusConvert\StatusConverter.cs" />
+    <Compile Include="DataProvider\DatabaseFirst.cs" />
+    <Compile Include="DataProvider\UnitOfWork\UnitOfForm.cs" />
+    <Compile Include="DataProvider\UnitOfWork\UnitOfMap.cs" />
+    <Compile Include="DataProvider\UnitOfWork\UnitOfRepository.cs" />
+    <Compile Include="DataProvider\UnitOfWork\UnitOfViewModel.cs" />
+    <Compile Include="DataProvider\XmlProvider.cs" />
+    <Compile Include="DTOs\AdultDto.cs" />
+    <Compile Include="DTOs\AuthorDto.cs" />
+    <Compile Include="DTOs\BookDto.cs" />
+    <Compile Include="DTOs\BookISBNDto.cs" />
+    <Compile Include="DTOs\BookTitleDto.cs" />
+    <Compile Include="DTOs\ChildDto.cs" />
+    <Compile Include="DTOs\FunctionChildDto.cs" />
+    <Compile Include="DTOs\Interfaces\IDtoBase.cs" />
+    <Compile Include="DTOs\ProvinceDto.cs" />
+    <Compile Include="DTOs\FunctionDto.cs" />
+    <Compile Include="DTOs\RoleDto.cs" />
+    <Compile Include="DTOs\RoleFunctionDto.cs" />
+    <Compile Include="DTOs\UserDtos\UserDto.cs" />
+    <Compile Include="DTOs\ReaderDto.cs" />
+    <Compile Include="DTOs\UserDtos\UserAccountLogIn.cs" />
+    <Compile Include="DTOs\UserRoleDto.cs" />
+    <Compile Include="Enums\Others\CheckPropertyType.cs" />
+    <Compile Include="Enums\ReaderType.cs" />
+    <Compile Include="ExtensionMethods\BoolExtend.cs" />
+    <Compile Include="ExtensionMethods\ControlExtend.cs" />
+    <Compile Include="ExtensionMethods\EnumExtend.cs" />
+    <Compile Include="ExtensionMethods\ListExtend.cs" />
+    <Compile Include="ExtensionMethods\ObservableCollectionExtend.cs" />
+    <Compile Include="ExtensionMethods\StringExtension.cs" />
+    <Compile Include="Mapping\AuthorMap.cs" />
+    <Compile Include="Mapping\Base\MapBase.cs" />
+    <Compile Include="Mapping\RoleMap.cs" />
+    <Compile Include="Mapping\ProvinceMap.cs" />
+    <Compile Include="Mapping\BookMap.cs" />
+    <Compile Include="Mapping\BookTitleMap.cs" />
+    <Compile Include="Mapping\FunctionMap.cs" />
+    <Compile Include="Mapping\RoleFunctionMap.cs" />
+    <Compile Include="Mapping\UserRoleMap.cs" />
+    <Compile Include="Mapping\UserMap.cs" />
+    <Compile Include="Mapping\ReaderMap.cs" />
+    <Compile Include="Models\Adult.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Author.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Book.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookISBN.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookTitle.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Child.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Enroll.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Function.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoanDetail.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoanDetailHistory.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoanHistory.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoanSlip.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OtherModels\Base\IModelBase.cs" />
+    <Compile Include="Models\OtherModels\DatabaseName.cs" />
+    <Compile Include="Models\OtherModels\ServerName.cs" />
+    <Compile Include="Models\Parameter.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Province.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Publisher.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyThuVienModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVienModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyThuVienModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyThuVienModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reader.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoleFunction.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserInfo.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRole.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\LoanDetailRepository.cs" />
+    <Compile Include="Repositories\AuthorRepository.cs" />
+    <Compile Include="Repositories\BookISBNRepository.cs" />
+    <Compile Include="Repositories\FunctionRepository.cs" />
+    <Compile Include="Repositories\LoanSlipRepository.cs" />
+    <Compile Include="Repositories\Others\Base\IXmlRepositoryBase.cs" />
+    <Compile Include="Repositories\RoleFunctionRepository.cs" />
+    <Compile Include="Repositories\UserRoleRepository.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\UserInfoRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\Others\DatabaseNameRepository.cs" />
+    <Compile Include="Repositories\ProvinceRepository.cs" />
+    <Compile Include="Repositories\BookTitleRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\Others\ServerNameRepository.cs" />
+    <Compile Include="Repositories\ParameterRepository.cs" />
+    <Compile Include="Repositories\AdultRepository.cs" />
+    <Compile Include="Repositories\ChildRepository.cs" />
+    <Compile Include="Repositories\BookRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase\IRepositoryBase.cs" />
+    <Compile Include="Repositories\ReaderRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase\Repository.cs" />
+    <Compile Include="UserControls\Author-Information\ucAuthorsTable.xaml.cs">
+      <DependentUpon>ucAuthorsTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Book-ISBN-information\ucAddBookISBN.xaml.cs">
+      <DependentUpon>ucAddBookISBN.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Book-Title-Information\ucAddBookTitle.xaml.cs">
+      <DependentUpon>ucAddBookTitle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Book-Title-Information\ucBookTitlesTable.xaml.cs">
+      <DependentUpon>ucBookTitlesTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Book-Title-Information\ucBookTitleManagement.xaml.cs">
+      <DependentUpon>ucBookTitleManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Function-Information\ucDisplayFunction.xaml.cs">
+      <DependentUpon>ucDisplayFunction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Function-Information\ucFunctionInformation.xaml.cs">
+      <DependentUpon>ucFunctionInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Function-Information\ucFunctionManagement.xaml.cs">
+      <DependentUpon>ucFunctionManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Function-Information\ucFunctionsTable.xaml.cs">
+      <DependentUpon>ucFunctionsTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Pagination-Uti\ucButtonCircle.xaml.cs">
+      <DependentUpon>ucButtonCircle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Others\ucLogOut.xaml.cs">
+      <DependentUpon>ucLogOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Pagination-Uti\ucPagination.xaml.cs">
+      <DependentUpon>ucPagination.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Readers-information\Add-Adult-Child\ucAddChild.xaml.cs">
+      <DependentUpon>ucAddChild.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Book-ISBN-information\ucBookISBNManagement.xaml.cs">
+      <DependentUpon>ucBookISBNManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Book-ISBN-information\ucBookISBNsTable.xaml.cs">
+      <DependentUpon>ucBookISBNsTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Books-Information\ucBooksTable.xaml.cs">
+      <DependentUpon>ucBooksTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DashBoard-Menu\ucLibrarianDashBoard.xaml.cs">
+      <DependentUpon>ucLibrarianDashBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Books-Information\ucBookManagement.xaml.cs">
+      <DependentUpon>ucBookManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Readers-information\Readers-Table\ucChildsTable.xaml.cs">
+      <DependentUpon>ucChildsTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Readers-information\ucReaderManagement.xaml.cs">
+      <DependentUpon>ucReaderManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Readers-information\Readers-Table\ucReadersTable.xaml.cs">
+      <DependentUpon>ucReadersTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Readers-information\Add-Adult-Child\ucAddAdult.xaml.cs">
+      <DependentUpon>ucAddAdult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Books-Information\ucAddBook.xaml.cs">
+      <DependentUpon>ucAddBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Role-Information\ucRolesTable.xaml.cs">
+      <DependentUpon>ucRolesTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Role-Information\ucRoleManagement.xaml.cs">
+      <DependentUpon>ucRoleManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RoleFunction-Information\ucRoleFunctionManagement.xaml.cs">
+      <DependentUpon>ucRoleFunctionManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\User-Information\ucUserInformation.xaml.cs">
+      <DependentUpon>ucUserInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\User-Information\ucUserManagement.xaml.cs">
+      <DependentUpon>ucUserManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\User-Information\ucUsersTable.xaml.cs">
+      <DependentUpon>ucUsersTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserRole-Information\ucUserRoleManagement.xaml.cs">
+      <DependentUpon>ucUserRoleManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserRole-Information\ucUserRolesTable.xaml.cs">
+      <DependentUpon>ucUserRolesTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Constants.cs" />
+    <Compile Include="Utilities\ItemHelper.cs" />
+    <Compile Include="Utilities\Utilities.cs" />
+    <Compile Include="Validations\Basic-Validations\FixLengthRule.cs" />
+    <Compile Include="Validations\Basic-Validations\FormNotEmptyRule.cs" />
+    <Compile Include="Validations\Basic-Validations\InputDateRule.cs" />
+    <Compile Include="Validations\Basic-Validations\InputNumberRangeRule.cs" />
+    <Compile Include="Validations\Basic-Validations\InputNumberRule.cs" />
+    <Compile Include="Validations\Basic-Validations\InputParagraphRule.cs" />
+    <Compile Include="Validations\Basic-Validations\InputUnicodeTextNumberRule.cs" />
+    <Compile Include="Validations\Basic-Validations\InputUnicodeTextRule.cs" />
+    <Compile Include="Validations\Basic-Validations\InputNumberLengthRangeRule.cs" />
+    <Compile Include="Validations\Basic-Validations\SelectedItemRule.cs" />
+    <Compile Include="Validations\Particular-Validations\InputDataSourceRule.cs" />
+    <Compile Include="Validations\Particular-Validations\InputNameRule.cs" />
+    <Compile Include="Validations\Particular-Validations\InputBoFRule.cs" />
+    <Compile Include="Validations\Particular-Validations\InputQuantityRule.cs" />
+    <Compile Include="Validations\Particular-Validations\InputPhoneRule.cs" />
+    <Compile Include="Validations\Particular-Validations\InputIdentifyRule.cs" />
+    <Compile Include="Validations\Particular-Validations\LoginRule.cs" />
+    <Compile Include="Mapping\ChildMap.cs" />
+    <Compile Include="Mapping\AdultMap.cs" />
+    <Compile Include="Mapping\BookISBNMap.cs" />
+    <Compile Include="Mapping\Base\IMap.cs" />
+    <Compile Include="ViewModels\AdultViewModel.cs" />
+    <Compile Include="ViewModels\AuthorViewModel.cs" />
+    <Compile Include="ViewModels\Base\ViewModelBase.cs" />
+    <Compile Include="ViewModels\BookISBNViewModel.cs" />
+    <Compile Include="ViewModels\BookTitleViewModel.cs" />
+    <Compile Include="ViewModels\BookViewModel.cs" />
+    <Compile Include="ViewModels\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\ChildViewModel.cs" />
+    <Compile Include="ViewModels\FunctionViewModel.cs" />
+    <Compile Include="ViewModels\LoanDetailViewModel.cs" />
+    <Compile Include="ViewModels\LoanSlipViewModel.cs" />
+    <Compile Include="ViewModels\Others\DatabaseNameViewModel.cs" />
+    <Compile Include="ViewModels\Others\ServerNameViewModel.cs" />
+    <Compile Include="ViewModels\ParameterViewModel.cs" />
+    <Compile Include="ViewModels\ProvinceViewModel.cs" />
+    <Compile Include="ViewModels\ReaderViewModel.cs" />
+    <Compile Include="ViewModels\RoleFunctionViewModel.cs" />
+    <Compile Include="ViewModels\RoleViewModel.cs" />
+    <Compile Include="ViewModels\UserInfoViewModel.cs" />
+    <Compile Include="ViewModels\UserRoleViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="Views\Book-Manage\frmBorrowBook.xaml.cs">
+      <DependentUpon>frmBorrowBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Book\frmBookISBNInformation.xaml.cs">
+      <DependentUpon>frmBookISBNInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Function\frmAddFunction.xaml.cs">
+      <DependentUpon>frmAddFunction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Function\frmChildFunctionInformation.xaml.cs">
+      <DependentUpon>frmChildFunctionInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\frmLogin.xaml.cs">
+      <DependentUpon>frmLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\frmInputServerName.xaml.cs">
+      <DependentUpon>frmInputServerName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reader\frmChildReaderInformation.xaml.cs">
+      <DependentUpon>frmChildReaderInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reader\frmAdultReaderInformation.xaml.cs">
+      <DependentUpon>frmAdultReaderInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reader\frmAddReader.xaml.cs">
+      <DependentUpon>frmAddReader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Readers-information\Uc-Information\ucChildInformation.xaml.cs">
+      <DependentUpon>ucChildInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Readers-information\Uc-Information\ucReaderInformation.xaml.cs">
+      <DependentUpon>ucReaderInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Readers-information\Uc-Information\ucAdultInformation.xaml.cs">
+      <DependentUpon>ucAdultInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reader\frmTransferGuardian.xaml.cs">
+      <DependentUpon>frmTransferGuardian.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Role\frmAddRole.xaml.cs">
+      <DependentUpon>frmAddRole.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserRole\frmAddUserRole.xaml.cs">
+      <DependentUpon>frmAddUserRole.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\frmAddUser.xaml.cs">
+      <DependentUpon>frmAddUser.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Animations\frmLoadingSpinnerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Animations\ucLoadingSpinnerControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Images\Others\icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Styles\Border.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\CheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\DataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\DatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Ellipse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Grid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Label.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\RadioButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ScrollViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\StackPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Author-Information\ucAuthorsTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Book-ISBN-information\ucAddBookISBN.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Book-Title-Information\ucAddBookTitle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Book-Title-Information\ucBookTitlesTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Book-Title-Information\ucBookTitleManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Function-Information\ucDisplayFunction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Function-Information\ucFunctionInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Function-Information\ucFunctionManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Function-Information\ucFunctionsTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Pagination-Uti\ucButtonCircle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Others\ucLogOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Pagination-Uti\ucPagination.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Readers-information\Add-Adult-Child\ucAddChild.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Book-ISBN-information\ucBookISBNManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Book-ISBN-information\ucBookISBNsTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Books-Information\ucBooksTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DashBoard-Menu\ucLibrarianDashBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Books-Information\ucBookManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Readers-information\Readers-Table\ucChildsTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Readers-information\ucReaderManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Readers-information\Readers-Table\ucReadersTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Readers-information\Add-Adult-Child\ucAddAdult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Books-Information\ucAddBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Role-Information\ucRolesTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Role-Information\ucRoleManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\RoleFunction-Information\ucRoleFunctionManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\User-Information\ucUserInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\User-Information\ucUserManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\User-Information\ucUsersTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UserRole-Information\ucUserRoleManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UserRole-Information\ucUserRolesTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Book-Manage\frmBorrowBook.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Book\frmBookISBNInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Function\frmAddFunction.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Function\frmChildFunctionInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Login\frmLogin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Login\frmInputServerName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reader\frmChildReaderInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Reader\frmAdultReaderInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reader\frmAddReader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Readers-information\Uc-Information\ucChildInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Readers-information\Uc-Information\ucReaderInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Readers-information\Uc-Information\ucAdultInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reader\frmTransferGuardian.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Role\frmAddRole.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserRole\frmAddUserRole.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\User\frmAddUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Models\QuanLyThuVienModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyThuVienModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\QuanLyThuVienModel.edmx.diagram">
+      <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\10.png" />
+    <Resource Include="Images\12.png" />
+    <Resource Include="Images\3.png" />
+    <Resource Include="Images\4.png" />
+    <Resource Include="Images\5.png" />
+    <Resource Include="Images\6.png" />
+    <Resource Include="Images\7.png" />
+    <Resource Include="Images\8.png" />
+    <Resource Include="Images\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\14.png" />
+    <Resource Include="Images\18.png" />
+    <Resource Include="Images\19.png" />
+    <Resource Include="Images\Others\delete-icon.png" />
+    <Resource Include="Images\Others\edit-icon.png" />
+    <Resource Include="Images\Others\human.png" />
+    <Resource Include="Images\Others\info %281%29.png" />
+    <Resource Include="Images\Others\info-icon.png" />
+    <Resource Include="Images\Others\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\QuanLyThuVienModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>
+      <LastGenOutput>QuanLyThuVienModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\QuanLyThuVienModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>
+      <LastGenOutput>QuanLyThuVienModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

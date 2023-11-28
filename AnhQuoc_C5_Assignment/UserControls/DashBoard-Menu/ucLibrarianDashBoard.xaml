@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="AnhQuoc_C5_Assignment.ucLibrarianDashBoard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="260">
+    <Grid Width="230"
+          Background="#4e73de">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Ellipse Margin="0 30 0 10"
+                     Height="56"
+                     Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/Images/Others/human.png" />
+                </Ellipse.Fill>
+            </Ellipse>
+            <Label Name="lblAccount" Content="User role"
+                   Style="{StaticResource lblGeneral}"
+                   Foreground="White" HorizontalAlignment="Center"
+                   Margin="0 0 0 10"/>
+        </StackPanel>
+        <TreeView Grid.Row="1" 
+                  Name="tvDashBoard"
+                  Style="{StaticResource treeGeneral}"
+                  BorderThickness="0"
+                  >
+            <TreeView.Resources>
+                <Style TargetType="TreeViewItem" BasedOn="{StaticResource tvItemStyle1}" />
+            </TreeView.Resources>
+        </TreeView>
+        <local:ucLogOut Grid.Row="2"
+                        x:Name="ucLogOut"
+                        HorizontalAlignment="Center"
+                        Margin="0 20 0 30"/>
+    </Grid>
+</UserControl>

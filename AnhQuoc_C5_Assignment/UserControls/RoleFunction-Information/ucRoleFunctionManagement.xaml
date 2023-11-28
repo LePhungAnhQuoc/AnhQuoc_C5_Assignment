@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="AnhQuoc_C5_Assignment.ucRoleFunctionManagement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <local:InverseBoolConverter x:Key="inverseBoolConverter" />
+    </UserControl.Resources>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <!-- Header -->
+            <Label Style="{StaticResource lblTitle}"
+                   Content="Role Functions Management"/>
+        
+            <!-- Function Bar -->
+            <Grid Margin="30 0 0 0"
+                  HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+            
+                <Grid Grid.Column="0">
+                    <TextBox Name="txtSearch"
+                             Style="{StaticResource txtStyleSearch}"/>
+                    <TextBlock Text="Search by name here...">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolder}">
+                                <Setter Property="Visibility" Value="Hidden" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=txtSearch, Path=Text}" Value="">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            Margin="30 0 0 0">
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        
+        <!-- Table -->
+        <Grid Grid.Row="1"
+              Margin="0 30 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <local:ucRolesTable Grid.Column="0"
+                                x:Name="ucRolesTable"
+                                Style="{StaticResource ucStyleVertical}"
+                                Margin="0"
+                                Height="auto"
+                                AllowPagination="False"
+                                NumberItems="7" />
+            <Grid Name="gdListFeature"
+                        Grid.Column="1"
+                        Style="{x:Null}"
+                        IsEnabled="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <TreeView Grid.Row="0" 
+                          x:Name="tvFunctions" 
+                          Style="{x:Null}"
+                          ItemsSource="{Binding Functions}">
+                    <TreeView.Resources>
+                        <HierarchicalDataTemplate DataType="{x:Type local:FunctionDto}" 
+                                                  ItemsSource="{Binding Childs}">
+                            <CheckBox Tag="{Binding Id}"
+                                      Content="{Binding Name}" 
+                                      IsChecked="{Binding Path=(local:ItemHelper.IsChecked), 
+                                Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                      Checked="CheckBox_CheckedChanged"
+                                      Unchecked="CheckBox_CheckedChanged">
+                                <CheckBox.Style>
+                                    <Style TargetType="{x:Type CheckBox}">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=(local:ItemHelper.IsChecked)}" Value="False" >
+                                                <Setter Property="Foreground" Value="LightGray"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </CheckBox.Style>
+                            </CheckBox>
+                        </HierarchicalDataTemplate>
+                        <DataTemplate DataType="{x:Type local:FunctionChildDto}" >
+                            <CheckBox Tag="{Binding Id}"
+                                      Content="{Binding Name}"
+                                      IsEnabled="{Binding IsSeal, Converter={StaticResource inverseBoolConverter}}"
+                                      IsChecked="{Binding Path=(local:ItemHelper.IsChecked), 
+                                Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      Checked="CheckBox_CheckedChanged"
+                                      Unchecked="CheckBox_CheckedChanged">
+                                <CheckBox.Style>
+                                    <Style TargetType="{x:Type CheckBox}">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=(local:ItemHelper.IsChecked)}" Value="False" >
+                                                <Setter Property="Foreground" Value="LightGray"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </CheckBox.Style>
+                            </CheckBox>
+                        </DataTemplate>
+                    </TreeView.Resources>
+                    <TreeView.ItemContainerStyle>
+                        <Style TargetType="{x:Type TreeViewItem}">
+                            <Setter Property="IsExpanded" Value="True"/>
+                        </Style>
+                    </TreeView.ItemContainerStyle>
+                </TreeView>
+                <StackPanel Grid.Row="1"
+                            Style="{StaticResource stkWrapButton}">
+                    <Button Name="btnSaveFunc" 
+                            Style="{StaticResource btnConfirm}"
+                            Width="80"/>
+                    <Button Name="btnResetFunc" 
+                            Style="{StaticResource btnReset}" 
+                            Width="80"
+                            Margin="10 0 0 0" />
+                    <Button Name="btnCancelFunc" 
+                            Style="{StaticResource btnCancel}" 
+                            Width="80" Margin="10 0 0 0" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

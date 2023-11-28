@@ -1,0 +1,40 @@
+﻿<Window x:Class="AnhQuoc_C5_Assignment.frmChildReaderInformation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+        mc:Ignorable="d"
+        Title="Child Information Form"
+        WindowStartupLocation="{StaticResource WSL}"
+        Style="{StaticResource wdStyleGeneral}">
+    <Window.Resources>
+        <local:ChildStatusConverter x:Key="childStatusConverter" />
+    </Window.Resources>
+    <StackPanel Width="1200">
+        <Grid Height="auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <local:ucReaderInformation Grid.Column="0"
+                                       x:Name="ucReaderInformation" />
+            <local:ucChildInformation Grid.Column="1"
+                                      x:Name="ucChildInformation" />
+            <local:ucAdultInformation Grid.Column="2"
+                                      x:Name="ucAdultInformation" />
+            <local:ucReaderInformation Visibility="Collapsed"
+                                       Grid.Row="1" Grid.Column="0"
+                                       x:Name="ucAdultReaderInformation" />
+        </Grid>
+
+        <!-- Footer -->
+        <StackPanel Name="stkFooter"
+                    Style="{StaticResource stkWrapButton}">
+            <Button Name="btnBack" 
+                    Style="{StaticResource btnBack}" />
+        </StackPanel>
+    </StackPanel>
+</Window>

@@ -1,0 +1,1142 @@
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csprojResolveAssemblyReference.cache
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.Cache
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csprojResolveAssemblyReference.cache
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.Cache
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Views\frmAdultInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Views\frmAdultInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Views\frmChildInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Views\frmChildInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddAdult.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Views\frnAddReader.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddAdult.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Views\frnAddReader.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddAdult.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Views\frmChildInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Views\frmAdultInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddAdult.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Views\frmChildInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Views\frmAdultInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Views\frmAddReader.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\Views\frmAddReader.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddChild.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddChild.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csprojResolveAssemblyReference.cache
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddChild.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddAdult.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Views\frmChildInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Views\frmAdultInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Views\frmAddReader.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddChild.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddAdult.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Views\frmChildInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Views\frmAdultInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Views\frmAddReader.baml
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\quocl\OneDrive\Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.Cache
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csprojResolveAssemblyReference.cache
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddChild.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddAdult.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddChild.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddAdult.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.Cache
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Styles\ComboBox.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddChild.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddAdult.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Styles\ComboBox.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Styles\DatePicker.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddChild.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\AddReader\ucAddAdult.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.Cache
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Styles\UserControl.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Styles\StackPanel.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Styles\Window.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Styles\RadioButton.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Styles\Grid.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csprojResolveAssemblyReference.cache
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Child-Information\ucChildsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Child-Information\ucChildsTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Styles\ComboBox.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Styles\DatePicker.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Styles\Grid.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Styles\RadioButton.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Styles\StackPanel.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Styles\UserControl.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Styles\Window.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.Cache
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Views\frmInputDataSource.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Views\frmInputDataSource.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csprojResolveAssemblyReference.cache
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\AddReader\ucAddChild.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Child-Information\ucChildsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\AddReader\ucAddAdult.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\Styles\Border.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\AddReader\ucAddChild.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Child-Information\ucChildsTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\AddReader\ucAddAdult.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1+++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csprojResolveAssemblyReference.cache
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\AddReader\ucAddChild.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Child-Information\ucChildsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\AddReader\ucAddAdult.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Views\frmInputDataSource.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Border.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\ComboBox.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\DatePicker.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Grid.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\RadioButton.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\StackPanel.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\UserControl.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Window.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\AddReader\ucAddChild.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Child-Information\ucChildsTable.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\AddReader\ucAddAdult.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Views\frmInputDataSource.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.Cache
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucConfirmCancel.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\Styles\ScrollViewer.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1+++_Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucConfirmCancel.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csprojResolveAssemblyReference.cache
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucConfirmCancel.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\AddReader\ucAddChild.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Child-Information\ucChildsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\AddReader\ucAddAdult.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\frmInputDataSource.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Border.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\ComboBox.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\DatePicker.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Grid.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\RadioButton.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\ScrollViewer.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\StackPanel.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\UserControl.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Window.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucConfirmCancel.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\AddReader\ucAddChild.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Child-Information\ucChildsTable.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReadersTable.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\AddReader\ucAddAdult.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\frmInputDataSource.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.baml
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\quocl\OneDrive\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.Cache
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucConfirmCancel.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Border.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\ComboBox.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\DatePicker.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Grid.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\RadioButton.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\ScrollViewer.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\StackPanel.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\UserControl.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Window.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucConfirmCancel.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.Cache
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucAdultsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucAdultsTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.baml
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucConfirmCancel.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucAdultsTable.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Border.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\ComboBox.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\DatePicker.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Grid.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\RadioButton.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\ScrollViewer.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\StackPanel.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\UserControl.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Window.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucConfirmCancel.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucAdultsTable.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.baml
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.cache
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\DELL\Desktop\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Dữ liệu Desktop\Projects\AllProjects\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucConfirmCancel.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucAdultsTable.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Border.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\ComboBox.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\DatePicker.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Grid.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\RadioButton.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\ScrollViewer.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\StackPanel.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\UserControl.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Window.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucConfirmCancel.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucAdultsTable.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.baml
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\Admin\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucConfirmCancel.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Border.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\ComboBox.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\DatePicker.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Grid.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\RadioButton.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\ScrollViewer.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\StackPanel.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\UserControl.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Window.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucConfirmCancel.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.Cache
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.AssemblyReference.cache
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Border.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\ComboBox.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\DatePicker.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Grid.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\RadioButton.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\ScrollViewer.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\StackPanel.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\UserControl.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Window.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.baml
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.cache
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.CoreCompileInputs.cache
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucAddBookISBN.g.cs
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucAddBookISBN.baml
+C:\Users\quocl\OneDrive\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csprojResolveAssemblyReference.cache
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucAddBookISBN.g.cs
+C:\Users\duy\Desktop\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucAddBookISBN.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucAddBookISBN.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucPagination.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Border.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\ComboBox.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\DatePicker.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Grid.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\RadioButton.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\ScrollViewer.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\StackPanel.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\UserControl.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Styles\Window.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucAddBookISBN.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucPagination.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.baml
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.Cache
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csprojResolveAssemblyReference.cache
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csprojResolveAssemblyReference.cache
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucAddBookISBN.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucPagination.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Login\frmLogin.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\quocl\OneDrive\Desktop\New_Visual\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.AssemblyReference.cache
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucAddBookISBN.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucPagination.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Login\frmLogin.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Border.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\ComboBox.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\DatePicker.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Grid.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\RadioButton.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\ScrollViewer.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\StackPanel.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\UserControl.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Window.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucAddBookISBN.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucPagination.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.baml
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\duy\Desktop\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe.config
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\MainWindow.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucAddBookISBN.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucPagination.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Login\frmLogin.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\App.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.cache
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1_MarkupCompile.lref
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.exe
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\bin\Debug\AnhQuoc_C3_B1.pdb
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\App.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\MainWindow.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Border.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Button.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\ComboBox.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\DataGrid.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\DatePicker.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Grid.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Label.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\RadioButton.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\ScrollViewer.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\StackPanel.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\TextBlock.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\TextBox.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\TreeView.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\UserControl.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Styles\Window.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Author-Information\ucAuthorsTable.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucAddBookISBN.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucAddBookTitle.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucPagination.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddChild.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLibrarianDashBoard.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucChildsTable.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Readers-Table\ucReadersTable.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Books-Information\ucAddBook.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Book\frmBookISBNInformation.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Login\frmLogin.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Others\frmInputServerName.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmChildReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAdultReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\Reader\frmAddReader.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucChildInformation.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucReaderInformation.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Readers-information\Form-Information\ucAdultInformation.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.g.resources
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.Properties.Resources.resources
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csproj.GenerateResource.Cache
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\AnhQuoc_C3_B1.csprojResolveAssemblyReference.cache
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\User-Information\ucUsersTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\User-Information\ucUsersTable.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\User-Information\ucUserInformation.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\User-Information\ucUserManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\User\frmAddUser.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\User-Information\ucUserInformation.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\User-Information\ucUserManagement.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\Views\User\frmAddUser.baml
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLogOut.g.cs
+C:\Users\quocl\OneDrive\Desktop\New-Bai_Tai_Hien_Tai\Bai_Tai_Hien_Tai\Visual\AnhQuoc_C3_B1++++ - Copy\AnhQuoc_C3_B1\obj\Debug\UserControls\Others\ucLogOut.baml

@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyThuVienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Adult">
+    <Key>
+      <PropertyRef Name="IdReader" />
+    </Key>
+    <Property Name="IdReader" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Identify" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ExpireDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Reader" Relationship="Self.FK__Adult__IdReader__07020F21" FromRole="Adult" ToRole="Reader" />
+    <NavigationProperty Name="Children" Relationship="Self.FK__Child__IdAdult__0DAF0CB0" FromRole="Adult" ToRole="Child" />
+  </EntityType>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="boF" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="BookISBNs" Relationship="Self.FK__BookISBN__IdAuth__239E4DCF" FromRole="Author" ToRole="BookISBN" />
+    <NavigationProperty Name="BookTitles" Relationship="Self.FK__BookTitle__IdAut__1CF15040" FromRole="Author" ToRole="BookTitle" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ISBN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="BookISBN" Relationship="Self.FK__Book__ISBN__29572725" FromRole="Book" ToRole="BookISBN" />
+  </EntityType>
+  <EntityType Name="BookISBN">
+    <Key>
+      <PropertyRef Name="ISBN" />
+    </Key>
+    <Property Name="ISBN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdBookTitle" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdAuthor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PublishDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Language" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Author" Relationship="Self.FK__BookISBN__IdAuth__239E4DCF" FromRole="BookISBN" ToRole="Author" />
+    <NavigationProperty Name="Books" Relationship="Self.FK__Book__ISBN__29572725" FromRole="BookISBN" ToRole="Book" />
+    <NavigationProperty Name="BookTitle" Relationship="Self.FK__BookISBN__IdBook__22AA2996" FromRole="BookISBN" ToRole="BookTitle" />
+  </EntityType>
+  <EntityType Name="BookTitle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdCategory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdAuthor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Author" Relationship="Self.FK__BookTitle__IdAut__1CF15040" FromRole="BookTitle" ToRole="Author" />
+    <NavigationProperty Name="BookISBNs" Relationship="Self.FK__BookISBN__IdBook__22AA2996" FromRole="BookTitle" ToRole="BookISBN" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__BookTitle__IdCat__1BFD2C07" FromRole="BookTitle" ToRole="Category" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="BookTitles" Relationship="Self.FK__BookTitle__IdCat__1BFD2C07" FromRole="Category" ToRole="BookTitle" />
+  </EntityType>
+  <EntityType Name="Child">
+    <Key>
+      <PropertyRef Name="IdReader" />
+    </Key>
+    <Property Name="IdReader" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdAdult" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Adult" Relationship="Self.FK__Child__IdAdult__0DAF0CB0" FromRole="Child" ToRole="Adult" />
+    <NavigationProperty Name="Reader" Relationship="Self.FK__Child__IdReader__0CBAE877" FromRole="Child" ToRole="Reader" />
+  </EntityType>
+  <EntityType Name="Function">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdParent" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UrlImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Function1" Relationship="Self.FK__Function__IdPare__4D94879B" FromRole="Function" ToRole="Function1" />
+    <NavigationProperty Name="Function2" Relationship="Self.FK__Function__IdPare__4D94879B" FromRole="Function1" ToRole="Function" />
+    <NavigationProperty Name="RoleFunctions" Relationship="Self.FK__RoleFunct__IdFun__534D60F1" FromRole="Function" ToRole="RoleFunction" />
+  </EntityType>
+  <EntityType Name="Parameter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reader">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="boF" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ReaderType" Type="Boolean" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Adult" Relationship="Self.FK__Adult__IdReader__07020F21" FromRole="Reader" ToRole="Adult" />
+    <NavigationProperty Name="Child" Relationship="Self.FK__Child__IdReader__0CBAE877" FromRole="Reader" ToRole="Child" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Group" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="RoleFunctions" Relationship="Self.FK__RoleFunct__IdRol__52593CB8" FromRole="Role" ToRole="RoleFunction" />
+    <NavigationProperty Name="UserRoles" Relationship="Self.FK__UserRole__IdRole__46E78A0C" FromRole="Role" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="RoleFunction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdRole" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdFunction" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Function" Relationship="Self.FK__RoleFunct__IdFun__534D60F1" FromRole="RoleFunction" ToRole="Function" />
+    <NavigationProperty Name="Role" Relationship="Self.FK__RoleFunct__IdRol__52593CB8" FromRole="RoleFunction" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="UserInfo" Relationship="Self.FK__UserInfo__IdUser__3C69FB99" FromRole="User" ToRole="UserInfo" />
+    <NavigationProperty Name="UserRoles" Relationship="Self.FK__UserRole__IdUser__45F365D3" FromRole="User" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK__UserInfo__IdUser__3C69FB99" FromRole="UserInfo" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdUser" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdRole" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="Self.FK__UserRole__IdRole__46E78A0C" FromRole="UserRole" ToRole="Role" />
+    <NavigationProperty Name="User" Relationship="Self.FK__UserRole__IdUser__45F365D3" FromRole="UserRole" ToRole="User" />
+  </EntityType>
+  <Association Name="FK__Adult__IdReader__07020F21">
+    <End Role="Reader" Type="Self.Reader" Multiplicity="1" />
+    <End Role="Adult" Type="Self.Adult" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Reader">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Adult">
+        <PropertyRef Name="IdReader" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Child__IdAdult__0DAF0CB0">
+    <End Role="Adult" Type="Self.Adult" Multiplicity="1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adult">
+        <PropertyRef Name="IdReader" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="IdAdult" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookISBN__IdAuth__239E4DCF">
+    <End Role="Author" Type="Self.Author" Multiplicity="1" />
+    <End Role="BookISBN" Type="Self.BookISBN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BookISBN">
+        <PropertyRef Name="IdAuthor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookTitle__IdAut__1CF15040">
+    <End Role="Author" Type="Self.Author" Multiplicity="1" />
+    <End Role="BookTitle" Type="Self.BookTitle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BookTitle">
+        <PropertyRef Name="IdAuthor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Book__ISBN__29572725">
+    <End Role="BookISBN" Type="Self.BookISBN" Multiplicity="1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookISBN">
+        <PropertyRef Name="ISBN" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="ISBN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookISBN__IdBook__22AA2996">
+    <End Role="BookTitle" Type="Self.BookTitle" Multiplicity="1" />
+    <End Role="BookISBN" Type="Self.BookISBN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookTitle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BookISBN">
+        <PropertyRef Name="IdBookTitle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookTitle__IdCat__1BFD2C07">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="BookTitle" Type="Self.BookTitle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BookTitle">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Child__IdReader__0CBAE877">
+    <End Role="Reader" Type="Self.Reader" Multiplicity="1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Reader">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="IdReader" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Function__IdPare__4D94879B">
+    <End Role="Function" Type="Self.Function" Multiplicity="0..1" />
+    <End Role="Function1" Type="Self.Function" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Function">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Function1">
+        <PropertyRef Name="IdParent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RoleFunct__IdFun__534D60F1">
+    <End Role="Function" Type="Self.Function" Multiplicity="1" />
+    <End Role="RoleFunction" Type="Self.RoleFunction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Function">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RoleFunction">
+        <PropertyRef Name="IdFunction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RoleFunct__IdRol__52593CB8">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="RoleFunction" Type="Self.RoleFunction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RoleFunction">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserRole__IdRole__46E78A0C">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__IdUser__3C69FB99">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserRole__IdUser__45F365D3">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyThuVienEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Adults" EntityType="Self.Adult" />
+    <EntitySet Name="Authors" EntityType="Self.Author" />
+    <EntitySet Name="Books" EntityType="Self.Book" />
+    <EntitySet Name="BookISBNs" EntityType="Self.BookISBN" />
+    <EntitySet Name="BookTitles" EntityType="Self.BookTitle" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Children" EntityType="Self.Child" />
+    <EntitySet Name="Functions" EntityType="Self.Function" />
+    <EntitySet Name="Parameters" EntityType="Self.Parameter" />
+    <EntitySet Name="Provinces" EntityType="Self.Province" />
+    <EntitySet Name="Readers" EntityType="Self.Reader" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="RoleFunctions" EntityType="Self.RoleFunction" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+    <AssociationSet Name="FK__Adult__IdReader__07020F21" Association="Self.FK__Adult__IdReader__07020F21">
+      <End Role="Reader" EntitySet="Readers" />
+      <End Role="Adult" EntitySet="Adults" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Child__IdAdult__0DAF0CB0" Association="Self.FK__Child__IdAdult__0DAF0CB0">
+      <End Role="Adult" EntitySet="Adults" />
+      <End Role="Child" EntitySet="Children" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookISBN__IdAuth__239E4DCF" Association="Self.FK__BookISBN__IdAuth__239E4DCF">
+      <End Role="Author" EntitySet="Authors" />
+      <End Role="BookISBN" EntitySet="BookISBNs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookTitle__IdAut__1CF15040" Association="Self.FK__BookTitle__IdAut__1CF15040">
+      <End Role="Author" EntitySet="Authors" />
+      <End Role="BookTitle" EntitySet="BookTitles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Book__ISBN__29572725" Association="Self.FK__Book__ISBN__29572725">
+      <End Role="BookISBN" EntitySet="BookISBNs" />
+      <End Role="Book" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookISBN__IdBook__22AA2996" Association="Self.FK__BookISBN__IdBook__22AA2996">
+      <End Role="BookTitle" EntitySet="BookTitles" />
+      <End Role="BookISBN" EntitySet="BookISBNs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookTitle__IdCat__1BFD2C07" Association="Self.FK__BookTitle__IdCat__1BFD2C07">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="BookTitle" EntitySet="BookTitles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Child__IdReader__0CBAE877" Association="Self.FK__Child__IdReader__0CBAE877">
+      <End Role="Reader" EntitySet="Readers" />
+      <End Role="Child" EntitySet="Children" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Function__IdPare__4D94879B" Association="Self.FK__Function__IdPare__4D94879B">
+      <End Role="Function" EntitySet="Functions" />
+      <End Role="Function1" EntitySet="Functions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RoleFunct__IdFun__534D60F1" Association="Self.FK__RoleFunct__IdFun__534D60F1">
+      <End Role="Function" EntitySet="Functions" />
+      <End Role="RoleFunction" EntitySet="RoleFunctions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RoleFunct__IdRol__52593CB8" Association="Self.FK__RoleFunct__IdRol__52593CB8">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="RoleFunction" EntitySet="RoleFunctions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserRole__IdRole__46E78A0C" Association="Self.FK__UserRole__IdRole__46E78A0C">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__IdUser__3C69FB99" Association="Self.FK__UserInfo__IdUser__3C69FB99">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserInfo" EntitySet="UserInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserRole__IdUser__45F365D3" Association="Self.FK__UserRole__IdUser__45F365D3">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

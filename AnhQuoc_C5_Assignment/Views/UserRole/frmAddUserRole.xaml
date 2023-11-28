@@ -1,0 +1,155 @@
+﻿<Window x:Class="AnhQuoc_C5_Assignment.frmAddUserRole"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+        mc:Ignorable="d"
+        Title="Add New User Role Form"
+        WindowStartupLocation="{StaticResource WSL}"
+        Style="{StaticResource wdStyleGeneral}">
+    <StackPanel Width="400">
+        <!-- Title -->
+        <Label Name="lblTitle"
+               Style="{StaticResource lblTitle}" /> <!-- Content set in code behind -->
+
+        <!-- Body -->
+        <Grid Margin="20 0 20 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+            </Grid.Resources>
+            <StackPanel Grid.Column="0">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                        <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                        <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                        <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                        <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
+                    </StackPanel.Resources>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="User Role Id: " />
+                        <TextBox Grid.Column="1"
+                                 Text="{Binding Item.Id}" 
+                                 IsEnabled="False"/>
+                    </Grid>
+                    <Grid Name="gdCbUser">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="User: " />
+                        <ComboBox Grid.Column="1"
+                                  Name="cbUser"
+                                  HorizontalAlignment="Stretch"
+                                  ItemsSource="{Binding AllUsers}"
+                                  DisplayMemberPath="Username"
+                                  Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                            <ComboBox.SelectedItem>
+                                <Binding Path="Item.User" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <local:SelectedItemRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ComboBox.SelectedItem>
+                        </ComboBox>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Username: " />
+                        <TextBox Name="txtUserName"
+                                 Grid.Column="1"
+                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
+                                 IsEnabled="False">
+                            <TextBox.Text>
+                                <Binding Path="Item.User.Username" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <local:FormNotEmptyRule />
+                                        <local:InputUnicodeTextRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Password: " />
+                        <TextBox Name="txtPassword"
+                                 Grid.Column="1"
+                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
+                                 IsEnabled="False">
+                            <TextBox.Text>
+                                <Binding Path="Item.User.Password" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <local:FormNotEmptyRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </Grid>
+                    <Grid Margin="0 15 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Role: " />
+                        <ComboBox Grid.Column="1"
+                                  Name="cbRole"
+                                  HorizontalAlignment="Stretch"
+                                  ItemsSource="{Binding AllRoles}"
+                                  DisplayMemberPath="Name"
+                                  Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                            <ComboBox.SelectedItem>
+                                <Binding Path="Item.Role" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <local:SelectedItemRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ComboBox.SelectedItem>
+                        </ComboBox>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <!-- Footer -->
+        <StackPanel Style="{StaticResource stkWrapButton}">
+            <Button Name="btnConfirm" Content="Confirm"
+                    Visibility="Visible"
+                    Width="80">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource btnConfirm}">
+                    </Style>
+                </Button.Style>
+            </Button>
+            <StackPanel Name="stkUpdateButton"
+                        Style="{StaticResource stkWrapButton}"
+                        Margin="0"
+                        Visibility="Collapsed">
+                <Button Name="btnUpdate" Content="Update"
+                        Style="{StaticResource btnUpdate}" 
+                        Width="80"/>
+                <Button Name="btnReset" Content="Reset"
+                        Style="{StaticResource btnReset}"
+                        Margin="10 0 0 0"
+                        Width="80"/>
+            </StackPanel>
+            <Button Name="btnCancel" Content="Cancel" 
+                    Style="{StaticResource btnCancel}"
+                    Margin="10 0 0 0"
+                    Width="80"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

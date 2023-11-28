@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="AnhQuoc_C5_Assignment.ucBookISBNManagement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1000">
+    <StackPanel Background="White">
+        <!-- Header -->
+        <Label Style="{StaticResource lblTitle}"
+               Content="Book ISBN Management" />
+        
+        <!-- Function Bar -->
+        <Grid Margin="30 0 0 0"
+              HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            
+            <Grid Grid.Column="0"
+                  Margin="10 0 0 0">
+                <ComboBox Name="cbBookTitles"
+                          Style="{StaticResource cbStyle2}"
+                          ItemsSource="{Binding BookTitles}"
+                          SelectedItem="{Binding SelectedBookTitle}"
+                          DisplayMemberPath="Name" />
+                <TextBlock Text="Select Book Title">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolderComboBox}">
+                            <Setter Property="Visibility" Value="Hidden" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=cbBookTitles, Path=SelectedIndex}" Value="-1">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <Button Name="btnClearComboBox"
+                        Style="{StaticResource btnClearComboBox}" />
+            </Grid>
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        Margin="30 0 0 0">
+                <Button Name="btnAdd"
+                        Style="{StaticResource btnAdd}"
+                        Content="New Book ISBN" />
+            </StackPanel>
+        </Grid>
+
+        <!-- Table -->
+        <local:ucBookISBNsTable x:Name="ucBookISBNsTable"
+                                Style="{StaticResource ucStyleVertical}"/>
+    </StackPanel>
+</UserControl>

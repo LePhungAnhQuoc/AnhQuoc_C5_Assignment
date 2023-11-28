@@ -1,0 +1,408 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Data.Entity;
+using System.Data.SqlClient;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Globalization;
+using System.Threading;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+namespace AnhQuoc_C5_Assignment
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+
+    public partial class MainWindow : Window, INotifyPropertyChanged
+    {
+        #region Fields
+        public static UnitOfRepository UnitOfRepo;
+        public static UnitOfForm UnitOfForm;
+        public static ObservableCollection<string> RoleGroups;        
+        
+
+        private ucLibrarianDashBoard _ucLibrarianDashBoard;
+        private frmLogin frmLogin;
+        private User loginUser;
+
+        private ServerName serverName;
+        private DatabaseName databaseName;
+        #endregion
+
+        #region ViewModels
+        private FunctionViewModel functionVM;
+        private UserRoleViewModel userRoleVM;
+        private RoleFunctionViewModel roleFunctionVM;
+        private RoleViewModel roleVM;
+
+        private ServerNameViewModel serverNameVM;
+        private DatabaseNameViewModel databaseNameVM;
+        #endregion
+
+        #region PropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        // Create the OnPropertyChanged method to raise the event
+        // The calling member's name will be used as the parameter.
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        #endregion
+
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            serverName = null;
+            databaseName = null;
+
+            #region Settings
+            CultureInfo vietnameseCulture = new CultureInfo(Constants.Culture);
+            Thread.CurrentThread.CurrentCulture = vietnameseCulture;
+            Thread.CurrentThread.CurrentCulture.DateTimeFormat = vietnameseCulture.DateTimeFormat;
+            #endregion
+
+            #region LoadUnit1
+            UnitOfRepo = new UnitOfRepository();
+            UnitOfRepo.LoadServerNameRepo();
+
+            UnitOfViewModel.Instance._UnitOfRepo = UnitOfRepo;
+            UnitOfViewModel.Instance.LoadServerName();
+
+            serverNameVM = UnitOfViewModel.Instance.ServerNameViewModel;
+            databaseNameVM = UnitOfViewModel.Instance.DatabaseNameViewModel;
+
+            UnitOfForm = new UnitOfForm(UnitOfRepo);
+            UnitOfForm.LoadServerNameForm();
+            #endregion
+
+            GetServerNameAndLoading();
+            
+            this.Loaded += MainWindow_Loaded;
+            this.Closed += MainWindow_Closed;
+        }
+
+        private void ResetServerName()
+        {
+            if (serverName != null && databaseName != null)
+            {
+                serverName.Status = false; // Giao diện
+                UnitOfRepo.ServerNameRepo.WriteUpdate(serverName); // Database
+
+                databaseName.Status = false;
+                UnitOfRepo.DatabaseNameRepo.WriteUpdate(databaseName);
+            }
+        }
+
+        public void SetUpServerName()
+        {
+            ResetServerName();
+
+            bool isCheckConnectionString = false;
+            while (!isCheckConnectionString)
+            {
+                if (DatabaseFirst.Instance != null && DatabaseFirst.Instance.dbSource != null)
+                {
+                    DatabaseFirst.Instance.dbSource.Dispose();
+                    DatabaseFirst.Instance.dbSource = null;
+                }
+
+                DatabaseFirst.Instance = null;
+                DatabaseFirst.IsConnectValid = false;
+
+                OpenFormServerNameInformation(ref serverName, ref databaseName);
+                DatabaseFirst.ConnStr = ModifyAppConfig(serverName.Name, databaseName.Name);
+
+                DatabaseFirst.IsConnectValid = true;
+
+                //// Show loading animation
+                //SetLoadAnimation("Checking the connection...", true);
+
+                isCheckConnectionString = CheckIsRightConnection();
+
+                //// Hide loading animation
+                //SetLoadAnimation("", false);
+
+                if (!isCheckConnectionString)
+                {
+                    Utilities.ShowMessageBox1("Invalid Connections string!", "Error Connection", MessageBoxImage.Error);
+                    ResetServerName();
+                    continue;
+                }
+            }
+        }
+
+        private bool CheckIsRightConnection()
+        {
+            try
+            {
+                // Access the database or perform other operations
+                var dbSource = DatabaseFirst.Instance.dbSource;
+
+                dbSource.Adults.ToList();
+                dbSource.Authors.ToList();
+                dbSource.BookISBNs.ToList();
+                dbSource.Books.ToList();
+                dbSource.BookTitles.ToList();
+                dbSource.Categories.ToList();
+                dbSource.Children.ToList();
+                dbSource.Functions.ToList();
+                dbSource.Parameters.ToList();
+                dbSource.Provinces.ToList();
+                dbSource.Readers.ToList();
+                dbSource.RoleFunctions.ToList();
+                dbSource.Roles.ToList();
+                dbSource.UserInfoes.ToList();
+                dbSource.UserRoles.ToList();
+                dbSource.Users.ToList();
+
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions here
+                // Log the exception or take appropriate actions
+                return false;
+            }
+        }
+
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            Loading();
+        }
+
+        public void GetServerNameAndLoading()
+        {
+            SetUpServerName();
+
+            //frmLoadingSpinnerControl.ucLoadingSpinnerControl.lblContent.Content = "Load data...";
+
+            #region LoadUnit2
+            UnitOfRepo.Load();
+
+            UnitOfViewModel.Instance._UnitOfRepo = UnitOfRepo;
+            UnitOfViewModel.Instance.Load();
+
+            UnitOfMap.Instance.UnitOfRepo = UnitOfRepo;
+            UnitOfMap.Instance.Load();
+
+            UnitOfForm.Load();
+            #endregion
+
+            #region ViewModels
+            roleVM = UnitOfViewModel.Instance.RoleViewModel;
+            functionVM = UnitOfViewModel.Instance.FunctionViewModel;
+            userRoleVM = UnitOfViewModel.Instance.UserRoleViewModel;
+            roleFunctionVM = UnitOfViewModel.Instance.RoleFunctionViewModel;
+            #endregion
+
+            RoleGroups = roleVM.GetGroups();
+
+            //SetLoadAnimation("", false);
+        }
+
+        public void Loading()
+        {
+            this.Hide();
+        Goto:
+            frmLogin = UnitOfForm.FrmLogin(true);
+            frmLogin.getFrmMain = () => this;
+            frmLogin.ClearLogin();
+
+            do
+            {
+                frmLogin.IsOpenConnectForm = false;
+                frmLogin.ShowDialog();
+
+                if (frmLogin.IsOpenConnectForm)
+                {
+                    GetServerNameAndLoading();                   
+                }
+            } while (frmLogin.IsOpenConnectForm);
+
+            loginUser = frmLogin.User;
+
+            if (GoToAccount(loginUser))
+            {
+                this.Show();
+            }
+            else
+            {
+                goto Goto;
+            }
+        }
+
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private string ModifyAppConfig(string dataSource, string databaseName)
+        {
+            string sectionConfig = "connectionStrings";
+            int indexDataSource = 2;
+            int indexInitCatalog = 1;
+
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var connectionStringsSection = (ConnectionStringsSection)config.GetSection(sectionConfig);
+            
+            string connectStr = ConfigurationManager.ConnectionStrings[Constants.DatabaseNameConfig].ConnectionString
+                .Clone() as string;
+            string[] connectSplit = connectStr.Split(';');
+
+            #region DataSource
+            string dataSourcePart = connectSplit.FirstOrDefault(item => item.Contains("Data Source", true));
+            var dataSourceSplit = dataSourcePart.Split('=').ToList();
+            string dataSourceValue = dataSourceSplit[indexDataSource];
+
+            string newDataSourceValue = dataSource;
+
+            dataSourceSplit.RemoveAt(indexDataSource);
+            dataSourceSplit.Insert(indexDataSource, newDataSourceValue);
+
+            string newDataSourcePart = string.Join("=", dataSourceSplit);
+            connectStr = connectStr.Replace(dataSourcePart, newDataSourcePart);
+            #endregion
+
+            #region initCatalogPart
+            string initCatalogPart = connectSplit.FirstOrDefault(item => item.Contains("Initial Catalog", true));
+            var initCatalogSplit = initCatalogPart.Split('=').ToList();
+            string initCatalogValue = initCatalogSplit[indexInitCatalog];
+
+            string newInitCatalogValue = databaseName;
+
+            initCatalogSplit.RemoveAt(indexInitCatalog);
+            initCatalogSplit.Insert(indexInitCatalog, newInitCatalogValue);
+
+            string newInitCatalogPart = string.Join("=", initCatalogSplit);
+            connectStr = connectStr.Replace(initCatalogPart, newInitCatalogPart);
+            #endregion
+
+            config.ConnectionStrings.ConnectionStrings[Constants.DatabaseNameConfig].ConnectionString = connectStr;
+            config.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection(sectionConfig);
+
+            return connectStr;
+        }
+
+        private void OpenFormServerNameInformation(ref ServerName serverName, ref DatabaseName databaseName)
+        {
+            frmInputServerName frmInputServerName = UnitOfForm.FrmInputServerName(true);
+            frmInputServerName.ShowDialog();
+          
+            if (frmInputServerName.IsNewServerName)
+            {
+                string serverNameId = serverNameVM.GetId();
+                serverName = new ServerName(serverNameId);
+                serverName.Name = frmInputServerName.txtServerName.Text;
+                serverName.Status = false;
+
+                UnitOfRepo.ServerNameRepo.WriteAdd(serverName);
+            }
+            else
+            {
+                serverName = frmInputServerName.ServerName;
+            }
+            
+            if (frmInputServerName.IsNewDatabaseName)
+            {
+                string id = databaseNameVM.GetId();
+                databaseName = new DatabaseName(id);
+                databaseName.Name = frmInputServerName.txtDatabaseName.Text;
+                databaseName.Status = false;
+
+                UnitOfRepo.DatabaseNameRepo.WriteAdd(databaseName);
+            }
+            else
+            {
+                databaseName = frmInputServerName.DatabaseName;
+            }
+
+            if (frmInputServerName.IsRememberMe == true)
+            {
+                serverName.Status = true;
+                UnitOfRepo.ServerNameRepo.WriteUpdate(serverName);
+
+                databaseName.Status = true;
+                UnitOfRepo.DatabaseNameRepo.WriteUpdate(databaseName);
+            }
+        }
+
+        public bool GoToAccount(User user)
+        {
+            IEnumerable<RoleFunction> functionsByRole = null;
+
+            if (!IsCheckValidAccount(user, ref functionsByRole))
+            {
+                return false;
+            }
+
+            // Get ucDashBoard ...
+            var dsTinhNang = functionsByRole;
+
+            var layThongTinDsTinhNang = functionVM.getFunctionsByListId(dsTinhNang.Select(i => i.IdFunction));
+
+            LoadUcDashBoard(layThongTinDsTinhNang);
+            return true;
+        }
+
+        private bool IsCheckValidAccount(User user, ref IEnumerable<RoleFunction> functionsByRole)
+        {
+            UserRole userRoleFinded = userRoleVM.FindByIdUser(user.Id);
+            if (userRoleFinded == null)
+            {
+                Utilities.ShowMessageBox1(Utilities.NotifyNotHaveRole());
+                return false;
+            }
+
+            // Check Role Status
+            Role role = roleVM.FindById(userRoleFinded.IdRole);
+            if (role.Status == false)
+            {
+                Utilities.ShowMessageBox1(Utilities.NotifyRoleLock());
+                return false;
+            }
+
+            functionsByRole = roleFunctionVM.GetListFunctionByRole(userRoleFinded.IdRole);
+            if (functionsByRole.Count() == 0)
+            {
+                Utilities.ShowMessageBox1(Utilities.NotifyNotHaveFunctions("user"));
+                return false;
+            }
+            return true;
+        }
+
+        private void LoadUcDashBoard(ObservableCollection<Function> dsTinhNang)
+        {
+            _ucLibrarianDashBoard = UnitOfForm.UcLibrarianDashBoard(true);
+            _ucLibrarianDashBoard.getFunctions = () => dsTinhNang;
+
+            _ucLibrarianDashBoard.getLoginUser = () => loginUser;
+            _ucLibrarianDashBoard.getGdView = () => gdContent;
+            _ucLibrarianDashBoard.getFrmMain = () => this;
+            
+            _ucLibrarianDashBoard.HorizontalAlignment = HorizontalAlignment.Stretch;
+            _ucLibrarianDashBoard.VerticalAlignment = VerticalAlignment.Stretch;
+
+            gdDashBoard.Children.Clear();
+            gdDashBoard.Children.Add(_ucLibrarianDashBoard);
+        }
+    }
+}

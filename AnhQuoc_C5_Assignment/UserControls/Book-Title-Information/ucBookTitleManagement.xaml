@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="AnhQuoc_C5_Assignment.ucBookTitleManagement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1000">
+    <StackPanel Background="White">
+        <!-- Header -->
+        <Label Style="{StaticResource lblTitle}"
+               Content="Book Title Management"/>
+        
+        <!-- Function Bar -->
+        <Grid Margin="30 0 0 0"
+              HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0"
+                  Margin="30 0 0 0"
+                  HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- TextBox search by Id -->
+                <Border Grid.Column="0"
+                        Style="{StaticResource bdStyle1}">
+                    <Grid>
+                        <TextBox Name="txtSearch"
+                                 Style="{StaticResource txtStyleSearch}"
+                                 BorderThickness="0">
+                        </TextBox>
+                        <TextBlock Text="Search by name here...">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolder}">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=txtSearch, Path=Text}" Value="">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+                </Border>
+
+                <!-- Features buttons -->
+                <StackPanel Grid.Column="1"
+                            Name="stkFeatures"
+                            Style="{StaticResource stkWrapButton}"                           
+                            Margin="30 0 0 0">
+                    <Border Name="borderBtnAdd"
+                            Style="{StaticResource bdStyle1}"
+                            Visibility="Visible">
+                        <Button Name="btnAdd"
+                                Style="{StaticResource btnAdd}"
+                                BorderThickness="0"
+                                Content="Add new book title"/>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <!-- Table -->
+        <local:ucBookTitlesTable x:Name="ucBookTitlesTable"
+                                 Style="{StaticResource ResourceKey=ucStyleVertical}" />
+    </StackPanel>
+</UserControl>

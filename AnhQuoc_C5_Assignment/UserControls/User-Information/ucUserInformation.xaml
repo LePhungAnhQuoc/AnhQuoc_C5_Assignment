@@ -1,0 +1,141 @@
+﻿<UserControl x:Class="AnhQuoc_C5_Assignment.ucUserInformation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+             mc:Ignorable="d" 
+             d:DesignHeight="380" d:DesignWidth="515">
+    <UserControl.Resources>
+        <local:UserStatusConverter x:Key="userStatusConverter" />
+    </UserControl.Resources>
+    <StackPanel>
+        <!-- Title -->
+        <Label Style="{StaticResource lblTitle}"
+               Content="User Information" />
+
+        <!-- Body -->
+        <Grid Height="auto"
+              Margin="20 0 20 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0"
+                        Margin="0 0 20 0">
+                <StackPanel.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}" />
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}" />
+                </StackPanel.Resources>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Id: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.Id}" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Last name: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.LName}" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="First name: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.FName}" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Username: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.Username}" />
+                </Grid>
+                <Grid Margin="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Password: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.Password}" />
+                </Grid>
+            </StackPanel>
+            <StackPanel Grid.Column="1"
+                        Margin="20 0 0 0">
+                <StackPanel.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}" />
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}" />
+                </StackPanel.Resources>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Phone: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.Phone}" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Address: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.Address}" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Status: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.Status, Converter={StaticResource userStatusConverter}}" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Created At: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.CreatedAt}" />
+                </Grid>
+                <Grid Margin="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Modified At: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.ModifiedAt}" />
+                </Grid>
+            </StackPanel>
+        </Grid>
+        
+        <!-- Footer -->
+        <StackPanel Name="stkWrapButton"
+                    Style="{StaticResource stkWrapButton}">
+            <Button Name="btnBack" 
+                    Style="{StaticResource btnBack}" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>
