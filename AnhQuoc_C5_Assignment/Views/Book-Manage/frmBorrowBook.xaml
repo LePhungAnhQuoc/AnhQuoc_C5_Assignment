@@ -41,7 +41,8 @@
                     <StackPanel>
                         <Border Margin="0"
                                 Style="{StaticResource bdStyle1}">
-                            <StackPanel Margin="10">
+                            <StackPanel Margin="10"
+                                        Height="170">
                                 <Grid Margin="20 10 0 10"
                                       HorizontalAlignment="Left">
                                     <ComboBox Name="cbSelectReaderType"
@@ -69,56 +70,88 @@
                                         <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
                                         <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
                                     </StackPanel.Resources>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="100" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
-                                        <Label Content="Identify: " />
-                                        <Grid Style="{x:Null}"
+                                    
+                                    <!-- Adult -->
+                                    <StackPanel Name="stkAdultInformation"
+                                                Visibility="Collapsed">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Content="Identify: " />
+                                            <Grid Style="{x:Null}"
                                               Grid.Column="1">
-                                            <ComboBox Name="cbTxtIdentify"
+                                                <ComboBox Name="cbAdultTxtIdentify"
                                                       Style="{StaticResource cbGeneral}"
                                                       DisplayMemberPath="Identify">
-                                            </ComboBox>
-                                            <TextBox Name="txtInputIdentify"
+                                                </ComboBox>
+                                                <TextBox Name="txtAdultInputIdentify"
                                                      Grid.Column="1">
-                                                <TextBox.Text>
-                                                    <Binding Path="InputIdentify" UpdateSourceTrigger="PropertyChanged">
-                                                        <Binding.ValidationRules>
-                                                            <local:InputNumberRule />
-                                                        </Binding.ValidationRules>
-                                                    </Binding>
-                                                </TextBox.Text>
-                                            </TextBox>
+                                                    <TextBox.Text>
+                                                        <Binding Path="InputIdentify" UpdateSourceTrigger="PropertyChanged">
+                                                            <Binding.ValidationRules>
+                                                                <local:InputNumberRule />
+                                                            </Binding.ValidationRules>
+                                                        </Binding>
+                                                    </TextBox.Text>
+                                                </TextBox>
+                                            </Grid>
                                         </Grid>
-                                    </Grid>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="100" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
-                                        <Label Content="Name: " />
-                                        <Grid Style="{x:Null}"
+                                    </StackPanel>
+
+                                    <!-- Child -->
+                                    <StackPanel Name="stkChildInformation"
+                                                Visibility="Visible">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Content="Child name: " />
+                                            <Grid Style="{x:Null}"
                                               Grid.Column="1">
-                                            <ComboBox Name="cbTxtReaderName"
+                                                <ComboBox Name="cbChildTxtReaderName"
                                                       Style="{StaticResource cbGeneral}"
                                                       DisplayMemberPath="FullName"
                                                       SelectedValuePath="FullName">
-                                            </ComboBox>
-                                            <TextBox Name="txtInputReaderName">
-                                                <TextBox.Text>
-                                                    <Binding Path="InputFullName" UpdateSourceTrigger="PropertyChanged">
-                                                        <Binding.ValidationRules>
-                                                            <local:InputUnicodeTextRule />
-                                                        </Binding.ValidationRules>
-                                                    </Binding>
-                                                </TextBox.Text>
-                                            </TextBox>
+                                                </ComboBox>
+                                                <TextBox Name="txtChildInputReaderName">
+                                                    <TextBox.Text>
+                                                        <Binding Path="InputFullName" UpdateSourceTrigger="PropertyChanged">
+                                                            <Binding.ValidationRules>
+                                                                <local:InputUnicodeTextRule />
+                                                            </Binding.ValidationRules>
+                                                        </Binding>
+                                                    </TextBox.Text>
+                                                </TextBox>
+                                            </Grid>
                                         </Grid>
-                                    </Grid>
-                                   
-
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Content="Guardian ID: " />
+                                            <Grid Style="{x:Null}"
+                                              Grid.Column="1">
+                                                <ComboBox Name="cbGuardianTxtIdentify"
+                                                      Style="{StaticResource cbGeneral}"
+                                                      DisplayMemberPath="Identify">
+                                                </ComboBox>
+                                                <TextBox Name="txtGuardianInputIdentify"
+                                                     Grid.Column="1">
+                                                    <TextBox.Text>
+                                                        <Binding Path="InputIdentify" UpdateSourceTrigger="PropertyChanged">
+                                                            <Binding.ValidationRules>
+                                                                <local:InputNumberRule />
+                                                            </Binding.ValidationRules>
+                                                        </Binding>
+                                                    </TextBox.Text>
+                                                </TextBox>
+                                            </Grid>
+                                        </Grid>
+                                    </StackPanel>
                                 </StackPanel>
                             </StackPanel>
                         </Border>
@@ -250,10 +283,6 @@
                                         Margin="0 10 0 0"/>
                             </StackPanel>
                         </Grid>
-                        
-
-                        
-
                     </Border>
                     <StackPanel>
 

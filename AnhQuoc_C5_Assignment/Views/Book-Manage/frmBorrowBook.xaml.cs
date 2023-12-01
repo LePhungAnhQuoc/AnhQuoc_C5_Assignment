@@ -177,16 +177,23 @@ namespace AnhQuoc_C5_Assignment
             //txtFName.MaxLength = maxLength;
             #endregion
 
-            //btnConfirm.Click += BtnConfirm_Click;
-            //btnBookDetailConfirm.Click += BtnBookDetailConfirm_Click;
-            //btnCancel.Click += BtnCancel_Click;
+            btnConfirm.Click += BtnConfirm_Click;
+            btnBookDetailConfirm.Click += BtnBookDetailConfirm_Click;
+            btnCancel.Click += BtnCancel_Click;
 
-            //cbSelectReaderType.SelectionChanged += CbSelectReaderType_SelectionChanged;
-            //txtInputIdentify.TextChanged += TxtInputIdentify_TextChanged;
-            //cbTxtReaderName.SelectionChanged += CbTxt_SelectionChanged;
+            cbSelectReaderType.SelectionChanged += CbSelectReaderType_SelectionChanged;
+            txtAdultInputIdentify.TextChanged += TxtInputIdentify_TextChanged;
 
             this.Loaded += frmBorrowBook_Loaded;
             this.DataContext = this;
+        }
+
+        private void frmBorrowBook_Loaded(object sender, RoutedEventArgs e)
+        {
+            NewItem();
+
+            ucTemporaryBooksTable.getBooks = () => new ObservableCollection<BookDto>();
+            cbSelectReaderType.SelectedItem = ReaderType.Adult;
         }
 
         private void NewItem()
@@ -207,13 +214,6 @@ namespace AnhQuoc_C5_Assignment
             LoanDetail.IdLoan = LoanSlip.Id;
         }
 
-        private void frmBorrowBook_Loaded(object sender, RoutedEventArgs e)
-        {
-            NewItem();
-
-            ucTemporaryBooksTable.getBooks = () => new ObservableCollection<BookDto>();
-        }
-        
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
@@ -340,41 +340,16 @@ namespace AnhQuoc_C5_Assignment
         #region Filter
         private void TxtInputIdentify_TextChanged(object sender, TextChangedEventArgs e)
         {
-            return;
             var listSource = FillReaderByType;
             bool ignoreCase = true;
-            if (cbSelectReaderType.SelectedIndex == -1)
-            {
-                Utilities.ShowMessageBox1("Please select reader type");
-                txtInputIdentify.Text = string.Empty;
-                return;
-            }
-
-            if (Utilities.IsCheckEmptyString(txtInputIdentify.Text))
-            {
-                cbTxtIdentify.IsDropDownOpen = false;
-                return;
-            }
-
-
-
-
-            //if (txtInputIdentify.Text.Equals(adultFind.Identify))
-            //{
-            //    cbTxtIdentify.IsDropDownOpen = false;
-            //}
-
+            
             var adultListSource = adultVM.GetListFromReaders(listSource, StatusValue);
 
-            ObservableCollection<Adult> getfillList = adultVM.FillContainsIdentify(adultListSource, txtInputIdentify.Text, ignoreCase, StatusValue);
+            ObservableCollection<Adult> getfillList = adultVM.FillContainsIdentify(adultListSource, txtAdultInputIdentify.Text, ignoreCase, StatusValue);
             ObservableCollection<AdultDto> getfillListDto = adultMap.ConvertToDto(getfillList);
-            cbTxtIdentify.ItemsSource = getfillListDto;
+            cbAdultTxtIdentify.ItemsSource = getfillListDto;
         }
-
-        private void CbTxt_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-        }
-
+        
         #endregion
 
         // Others methods
@@ -400,7 +375,7 @@ namespace AnhQuoc_C5_Assignment
             var adults = adultVM.GetListFromReaders(FillReaderByType, StatusValue);
             var adultDTOs = adultMap.ConvertToDto(adults);
 
-            cbTxtIdentify.ItemsSource = adultDTOs;
+            cbAdultTxtIdentify.ItemsSource = adultDTOs;
         }
     }
 }
