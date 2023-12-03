@@ -318,7 +318,7 @@ namespace AnhQuoc_C5_Assignment
             message = Utilities.NotifyDeleteSuccessfullyParentFunction(isHasChild);
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
 
-            ucFunctionsTable.RefreshDataGrid();
+            ucFunctionsTable.ModifiedPagination();
         }
 
         private void DeleteChildFunc(Function functionSelect, bool updateStatus)
@@ -334,7 +334,7 @@ namespace AnhQuoc_C5_Assignment
             message = Utilities.NotifyDeleteSuccessfully("function");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
 
-            ucFunctionsTable.RefreshDataGrid();
+            ucFunctionsTable.ModifiedPagination();
         }
 
 
@@ -391,7 +391,7 @@ namespace AnhQuoc_C5_Assignment
                     message = Utilities.NotifyRestoreSuccessfullyParentFunction(true);
                     MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
 
-                    ucFunctionsTable.RefreshDataGrid();
+                    ucFunctionsTable.ModifiedPagination();
                     frmChildFunctionInformation.Close();
                 };
                 #endregion
@@ -434,7 +434,7 @@ namespace AnhQuoc_C5_Assignment
             string message = Utilities.NotifyRestoreSuccessfully("function");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
 
-            ucFunctionsTable.RefreshDataGrid();
+            ucFunctionsTable.ModifiedPagination();
         }
 
 
@@ -466,7 +466,7 @@ namespace AnhQuoc_C5_Assignment
             getFunctionRepo().WriteUpdate(getFunction);
             #endregion
 
-            ucFunctionsTable.RefreshDataGrid();
+            ucFunctionsTable.ModifiedPagination();
 
             string message = Utilities.NotifyUpdateSuccessfully("function");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
@@ -481,7 +481,7 @@ namespace AnhQuoc_C5_Assignment
         private void AddItemsToDataGrid(ObservableCollection<Function> items)
         {
             ucFunctionsTable.getFunctions = () => items;
-            ucFunctionsTable.RefreshDataGrid();
+            ucFunctionsTable.ModifiedPagination();
         }
     }
 }

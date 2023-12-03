@@ -49,6 +49,26 @@ namespace AnhQuoc_C5_Assignment
             return result;
         }
 
+        public ObservableCollection<Adult> GetListFromChilds(ObservableCollection<Child> childs, bool? statusValue)
+        {
+            var readerVM = (UnitOfViewModel.Instance.ReaderViewModel);
+            var childVM = (UnitOfViewModel.Instance.ChildViewModel);
+
+            var childReaders = readerVM.GetListFromChilds(childs);
+            childReaders = Utilities.FillByStatus(childReaders, statusValue);
+            childs = childVM.GetListFromReaders(childReaders, statusValue);
+
+            ObservableCollection<Adult> newList = new ObservableCollection<Adult>();
+            foreach (Child child in childs)
+            {
+                Adult newAdult = FindByIdReader(child.IdAdult, statusValue);
+
+                if (!newList.Contains(newAdult))
+                    newList.Add(newAdult);
+            }
+            return newList;
+        }
+
         public ObservableCollection<Adult> GetListFromReaders(ObservableCollection<Reader> adultReaders, bool? statusValue)
         {
             adultReaders = Utilities.FillByStatus(adultReaders, statusValue);
@@ -74,6 +94,11 @@ namespace AnhQuoc_C5_Assignment
             }
             newList = FillByStatus(newList, statusValue);
             return newList;
+        }
+
+        public ObservableCollection<Adult> FillContainsIdentify(ObservableCollection<AdultDto> source, string valueName, bool igNoreCase, bool? statusValue)
+        {
+            return FillContainsIdentify(CreateByDto(source), valueName, igNoreCase, statusValue);
         }
 
         public DateTime GetExpireDate(Parameter parameter, DateTime createdAt)
@@ -111,6 +136,40 @@ namespace AnhQuoc_C5_Assignment
                 return false;
             }
             return true;
+        }
+
+        public void Copy(Adult dest, AdultDto source)
+        {
+            dest.IdReader = source.IdReader;
+            dest.Identify = source.Identify;
+            dest.Address = source.Address;
+            dest.City = source.City;
+            dest.Phone = source.Phone;
+            dest.ExpireDate = source.ExpireDate;
+
+            dest.Status = source.Status;
+            dest.CreatedAt = source.CreatedAt;
+            dest.ModifiedAt = source.ModifiedAt;
+        }
+
+        public Adult CreateByDto(AdultDto source)
+        {
+            var result = new Adult();
+            result.IdReader = source.IdReader;
+
+            Copy(result, source);
+            return result;
+        }
+
+
+        public ObservableCollection<Adult> CreateByDto(ObservableCollection<AdultDto> source)
+        {
+            var dest = new ObservableCollection<Adult>();
+            foreach (AdultDto item in source)
+            {
+                dest.Add(CreateByDto(item));
+            }
+            return dest;
         }
     }
 }

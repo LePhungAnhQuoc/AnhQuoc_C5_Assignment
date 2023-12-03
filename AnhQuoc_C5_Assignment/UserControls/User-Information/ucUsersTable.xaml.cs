@@ -195,7 +195,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (getUsers != null)
             {
-                RefreshDataGrid();
+                ModifiedPagination();
             }
 
             if (!AllowPagination)
@@ -239,7 +239,7 @@ namespace AnhQuoc_C5_Assignment
             btnInfo_Click(dgDatas, null);
         }
 
-        public void RefreshDataGrid()
+        public void ModifiedPagination()
         {
             var allUsers = getUsers();
             var listFillStatusUser = userVM.FillByStatus(allUsers, getItem_Status());

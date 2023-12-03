@@ -296,7 +296,7 @@ namespace AnhQuoc_C5_Assignment
             userSelect.Status = updateStatus;
             getUserRepo().WriteUpdateStatus(userSelect, updateStatus);
 
-            ucUsersTable.RefreshDataGrid();
+            ucUsersTable.ModifiedPagination();
 
             if (updateStatus == false)
                 message = Utilities.NotifyDeleteSuccessfully("user");
@@ -339,7 +339,7 @@ namespace AnhQuoc_C5_Assignment
 
             #endregion
 
-            ucUsersTable.RefreshDataGrid();
+            ucUsersTable.ModifiedPagination();
         }
 
         private void AddToListFill(ObservableCollection<User> items)
@@ -351,7 +351,7 @@ namespace AnhQuoc_C5_Assignment
         private void AddItemsToDataGrid(ObservableCollection<User> items)
         {
             ucUsersTable.getUsers = () => items;
-            ucUsersTable.RefreshDataGrid();
+            ucUsersTable.ModifiedPagination();
         }
     }
 }

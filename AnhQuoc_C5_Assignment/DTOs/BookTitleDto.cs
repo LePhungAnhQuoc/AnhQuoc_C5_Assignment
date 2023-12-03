@@ -40,21 +40,7 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-
-        private Author _Author;
-        public Author Author
-        {
-            get
-            {
-                return _Author;
-            }
-            set
-            {
-                _Author = value;
-                OnPropertyChanged();
-            }
-        }
-
+        
         private string _Summary;
         public string Summary
         {

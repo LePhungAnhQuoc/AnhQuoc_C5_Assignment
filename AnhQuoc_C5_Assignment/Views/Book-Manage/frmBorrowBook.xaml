@@ -80,11 +80,12 @@
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
                                             <Label Content="Identify: " />
-                                            <Grid Style="{x:Null}"
-                                              Grid.Column="1">
+                                            <Grid Name="gdInputAdultIndentify"
+                                                  Style="{x:Null}"
+                                                  Grid.Column="1">
                                                 <ComboBox Name="cbAdultTxtIdentify"
-                                                      Style="{StaticResource cbGeneral}"
-                                                      DisplayMemberPath="Identify">
+                                                          Style="{StaticResource cbGeneral}"
+                                                          DisplayMemberPath="Identify">
                                                 </ComboBox>
                                                 <TextBox Name="txtAdultInputIdentify"
                                                      Grid.Column="1">
@@ -108,33 +109,11 @@
                                                 <ColumnDefinition Width="100" />
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
-                                            <Label Content="Child name: " />
-                                            <Grid Style="{x:Null}"
-                                              Grid.Column="1">
-                                                <ComboBox Name="cbChildTxtReaderName"
-                                                      Style="{StaticResource cbGeneral}"
-                                                      DisplayMemberPath="FullName"
-                                                      SelectedValuePath="FullName">
-                                                </ComboBox>
-                                                <TextBox Name="txtChildInputReaderName">
-                                                    <TextBox.Text>
-                                                        <Binding Path="InputFullName" UpdateSourceTrigger="PropertyChanged">
-                                                            <Binding.ValidationRules>
-                                                                <local:InputUnicodeTextRule />
-                                                            </Binding.ValidationRules>
-                                                        </Binding>
-                                                    </TextBox.Text>
-                                                </TextBox>
-                                            </Grid>
-                                        </Grid>
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="100" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
                                             <Label Content="Guardian ID: " />
-                                            <Grid Style="{x:Null}"
-                                              Grid.Column="1">
+                                            <Grid Name="gdGuardianInput"
+                                                  Style="{x:Null}"
+                                                  Grid.Column="1"
+                                                  IsEnabled="True">
                                                 <ComboBox Name="cbGuardianTxtIdentify"
                                                       Style="{StaticResource cbGeneral}"
                                                       DisplayMemberPath="Identify">
@@ -151,12 +130,40 @@
                                                 </TextBox>
                                             </Grid>
                                         </Grid>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Content="Child name: " />
+                                            <Grid Name="gdInputChildName"
+                                                  Style="{x:Null}"
+                                                  Grid.Column="1"
+                                                  IsEnabled="False">
+                                                <ComboBox Name="cbChildTxtReaderName"
+                                                      Style="{StaticResource cbGeneral}"
+                                                      DisplayMemberPath="FullName"
+                                                      SelectedValuePath="FullName">
+                                                </ComboBox>
+                                                <TextBox Name="txtChildInputReaderName">
+                                                    <TextBox.Text>
+                                                        <Binding Path="InputFullName" UpdateSourceTrigger="PropertyChanged">
+                                                            <Binding.ValidationRules>
+                                                                <local:InputUnicodeTextRule />
+                                                            </Binding.ValidationRules>
+                                                        </Binding>
+                                                    </TextBox.Text>
+                                                </TextBox>
+                                            </Grid>
+                                        </Grid>
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
                         </Border>
-                        <Border Margin="0 30 0 0"
-                                Style="{StaticResource bdStyle1}">
+                        <Border Name="bdInputBookInformation"
+                                Margin="0 30 0 0"
+                                Style="{StaticResource bdStyle1}"
+                                IsEnabled="False">
                             <StackPanel Margin="10">
                                 <StackPanel.Resources>
                                     <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
@@ -171,14 +178,23 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Label Content="Book name: " />
-                                    <TextBox Grid.Column="1">
-                                        <TextBox.Text>
-                                            <Binding Path="InputBookName" UpdateSourceTrigger="PropertyChanged">
-                                                <Binding.ValidationRules>
-                                                </Binding.ValidationRules>
-                                            </Binding>
-                                        </TextBox.Text>
-                                    </TextBox>
+                                    <Grid Grid.Column="1"
+                                          Name="gdInputBookName"
+                                          Style="{x:Null}"
+                                          IsEnabled="False">
+                                        <ComboBox Name="cbTxtBookName"
+                                                  DisplayMemberPath="Name">
+                                        </ComboBox>
+                                        <TextBox Name="txtInputBookName"
+                                                 Grid.Column="1">
+                                            <TextBox.Text>
+                                                <Binding Path="InputBookName" UpdateSourceTrigger="PropertyChanged">
+                                                    <Binding.ValidationRules>
+                                                    </Binding.ValidationRules>
+                                                </Binding>
+                                            </TextBox.Text>
+                                        </TextBox>
+                                    </Grid>
                                 </Grid>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -186,14 +202,10 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Label Content="Language: " />
-                                    <TextBox Grid.Column="1">
-                                        <TextBox.Text>
-                                            <Binding Path="InputLanguage" UpdateSourceTrigger="PropertyChanged">
-                                                <Binding.ValidationRules>
-                                                </Binding.ValidationRules>
-                                            </Binding>
-                                        </TextBox.Text>
-                                    </TextBox>
+                                    <ComboBox Name="cbSelectLanguage"
+                                              Grid.Column="1"
+                                              ItemsSource="{Binding AllLanguages}"
+                                              SelectedItem="{Binding SelectedLanguage}"></ComboBox>
                                 </Grid>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -201,7 +213,8 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Label Content="Book ISBN: " />
-                                    <TextBox Grid.Column="1"
+                                    <TextBox Name="txtDisplayBookISBN"
+                                             Grid.Column="1"
                                              Text="{Binding DisplayBookISBN}"
                                              IsEnabled="False">
                                     </TextBox>
@@ -212,7 +225,8 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Label Content="Status: " />
-                                    <TextBox Grid.Column="1"
+                                    <TextBox Name="txtDisplayBookISBNStatus"
+                                             Grid.Column="1"
                                              Text="{Binding DisplayBookISBNStatus}"
                                              IsEnabled="False">
                                     </TextBox>
@@ -244,7 +258,8 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Label Content="Deposit: " />
-                                    <TextBox Grid.Column="1">
+                                    <TextBox Name="txtDeposit"
+                                             Grid.Column="1">
                                         <TextBox.Text>
                                             <Binding Path="InputDeposit" UpdateSourceTrigger="PropertyChanged">
                                                 <Binding.ValidationRules>
@@ -257,25 +272,9 @@
                             <!-- Footer -->
                             <StackPanel Grid.Column="1"
                                         Style="{StaticResource stkWrapButtonVertical}">
-                                <Button Name="btnConfirm" Content="Pay"
-                                        HorizontalAlignment="Stretch">
-                                    <Button.Style>
-                                        <Style TargetType="Button" BasedOn="{StaticResource btnConfirm}">
-                                            <Setter Property="IsEnabled" Value="False" />
-                                            <Style.Triggers>
-                                                <MultiDataTrigger>
-                                                    <MultiDataTrigger.Conditions>
-                                                        <Condition Binding="{Binding ElementName=txtLName, Path=(Validation.HasError)}" Value="False" />
-                                                        <Condition Binding="{Binding ElementName=txtFName, Path=(Validation.HasError)}" Value="False" />
-                                                        <Condition Binding="{Binding ElementName=dateboF, Path=(Validation.HasError)}" Value="False" />
-                                                    </MultiDataTrigger.Conditions>
-                                                    <MultiDataTrigger.Setters>
-                                                        <Setter Property="IsEnabled" Value="True" />
-                                                    </MultiDataTrigger.Setters>
-                                                </MultiDataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Button.Style>
+                                <Button Name="btnConfirm" Content="Confirm"
+                                        HorizontalAlignment="Stretch"
+                                        Style="{StaticResource btnConfirm}">
                                 </Button>
                                 <Button Name="btnCancel" Content="Cancel" 
                                         Style="{StaticResource btnCancel}"
@@ -319,10 +318,10 @@
                                        Content="Saved book list" 
                                        VerticalAlignment="Center"/>
                             </Grid>
-                            <local:ucBooksTable x:Name="ucSavedBooksTable"
-                                                Style="{StaticResource ucStyleHorizontal}"
-                                                Height="150" 
-                                                AllowPagination="False"/>
+                            <local:ucLoanDetailsTable x:Name="ucLoanDetailsTable"
+                                                      Style="{StaticResource ucStyleHorizontal}"
+                                                      Height="150" 
+                                                      AllowPagination="False"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>

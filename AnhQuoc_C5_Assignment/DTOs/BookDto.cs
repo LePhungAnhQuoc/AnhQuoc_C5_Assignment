@@ -87,6 +87,51 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private Publisher _Publisher;
+        public Publisher Publisher
+        {
+            get { return _Publisher; }
+            set
+            {
+                _Publisher = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private DateTime _PublishDate;
+        public DateTime PublishDate
+        {
+            get { return _PublishDate; }
+            set
+            {
+                _PublishDate = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private decimal _Price;
+        public decimal Price
+        {
+            get { return _Price; }
+            set
+            {
+                _Price = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private decimal _PriceCurrent;
+        public decimal PriceCurrent
+        {
+            get { return _PriceCurrent; }
+            set
+            {
+                _PriceCurrent = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         private bool _Status;
         public bool Status
         {

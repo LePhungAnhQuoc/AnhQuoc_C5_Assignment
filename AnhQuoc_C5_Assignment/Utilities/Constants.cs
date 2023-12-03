@@ -70,6 +70,7 @@ namespace AnhQuoc_C5_Assignment
         public static string prefixParameter = "QD";
         public static string prefixProvince = string.Empty;
         public static string prefixReader = "R";
+        public static string prefixEnroll = "E";
         public static string prefixRoleFunction = "RF";
         public static string prefixRole = "R";
         public static string prefixUserInfo = string.Empty;
@@ -79,6 +80,7 @@ namespace AnhQuoc_C5_Assignment
         public static string prefixDatabaseName = "DB";
         public static string prefixLoanDetail = "LDT";
         public static string prefixLoan = "L";
+        public static string prefixPublisher = "P";
 
         #endregion
 
@@ -97,6 +99,8 @@ namespace AnhQuoc_C5_Assignment
 
         #region ExceptDataGrid-Display
         public static string[] exceptDtgChilds = new string[] { "Id", "boF", "LName", "FName", "ReaderType", "ChildsQuantity", "Status", "CreatedAt", "ModifiedAt" };
+
+        public static string[] exceptDtgBorrowBook = new string[] { "ISBN", "CreatedAt", "ModifiedAt", "PublishDate" };
         #endregion
 
         #region Style-String

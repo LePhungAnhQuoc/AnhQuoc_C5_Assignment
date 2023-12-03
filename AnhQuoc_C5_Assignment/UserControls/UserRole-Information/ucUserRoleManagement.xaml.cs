@@ -242,7 +242,7 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             #region Refresh-listFill
-            ucUserRolesTable.RefreshDataGrid();
+            ucUserRolesTable.ModifiedPagination();
             #endregion
         }
 
@@ -255,7 +255,7 @@ namespace AnhQuoc_C5_Assignment
         private void AddItemsToDataGrid(ObservableCollection<UserRole> items)
         {
             ucUserRolesTable.getUserRoles = () => (items);
-            ucUserRolesTable.RefreshDataGrid();
+            ucUserRolesTable.ModifiedPagination();
         }
     }
 }

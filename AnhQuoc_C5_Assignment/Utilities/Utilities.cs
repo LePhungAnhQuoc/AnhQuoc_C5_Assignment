@@ -8,6 +8,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -42,6 +43,11 @@ namespace AnhQuoc_C5_Assignment
         public static MessageBoxResult ShowMessageBox2(string message)
         {
             return MessageBox.Show(message, string.Empty, MessageBoxButton.OKCancel, MessageBoxImage.Information, MessageBoxResult.Cancel);
+        }
+
+        public static string NotifyBookStatus()
+        {
+            return string.Format("This book is already borrow!");
         }
 
         public static string NotifyNotHaveRole()
@@ -656,32 +662,28 @@ namespace AnhQuoc_C5_Assignment
         }
     }
 
-    #endregion
+        #endregion
 
-        #region OtherMethods
-        public static Brush GetColorFromCode(string colorCode)
+
+        #region ViewModelBase-Uti
+        public static ObservableCollection<T> FillByStatus<T>(ObservableCollection<T> items, bool? statusValue)
         {
-            return (new BrushConverter()).ConvertFrom(colorCode) as Brush;
+            ObservableCollection<T> result = new ObservableCollection<T>();
+            foreach (T item in items)
+            {
+                PropertyInfo statusProp = item.GetType().GetProperty("Status");
+                if (statusValue == null || (bool)statusProp.GetValue(item) == statusValue)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
         }
 
-        public static ObservableCollection<T> FillByStatus<T>(ObservableCollection<T> items, bool? statusValue)
-            {
-                ObservableCollection<T> result = new ObservableCollection<T>();
-                foreach (T item in items)
-                {
-                    PropertyInfo statusProp = item.GetType().GetProperty("Status");
-                    if (statusValue == null || (bool)statusProp.GetValue(item) == statusValue)
-                    {
-                        result.Add(item);
-                    }
-                }
-                return result;
-            }
-        
         public static T FindInList<T>(IEnumerable<T> source, T findItem)
-            {
-                return source.FirstOrDefault(item => item.Equals(findItem));
-            }
+        {
+            return source.FirstOrDefault(item => item.Equals(findItem));
+        }
 
         public static bool Copy<T>(T item1, T item2, params string[] checkProperties)
         {
@@ -720,6 +722,95 @@ namespace AnhQuoc_C5_Assignment
             return true;
         }
 
+        public static IEnumerable<T> OrderBy<T>(IEnumerable<T> source, PropertyInfo Tkey)
+        {
+            return source.OrderBy(item =>
+            {
+                return Tkey.GetValue(item);
+            });
+        }
+
+
+        public static bool IsExistInformation<T>(ObservableCollection<T> items, T itemCheck, bool igNoreCase = true, params string[] checkProperties)
+        {
+            foreach (T item in items)
+            {
+                bool isEqual = IsExistInformation(item, itemCheck, igNoreCase, checkProperties);
+                if (isEqual)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static bool IsExistInformation<T>(T item, T itemCheck, bool igNoreCase = true, params string[] checkProperties)
+        {
+            return IsEqual(item, itemCheck, igNoreCase, checkProperties);
+        }
+
+        public static bool IsEqual<T>(T item1, T item2, bool igNoreCase = true, params string[] checkProperties)
+        {
+            var item1_props = getPropsFromType(item1);
+            var item2_props = getPropsFromType(item2);
+            for (int i = 0; i < item1_props.Count(); i++)
+            {
+                PropertyInfo item1_prop = item1_props[i];
+                PropertyInfo item2_prop = item2_props[i];
+
+                var itemCheck = FindPropertyByName(checkProperties.ToList(), item1_prop.Name);
+                if (itemCheck == null)
+                {
+                    continue;
+                }
+                object value1 = getValueFromProperty(item1_prop, item1);
+                object value2 = getValueFromProperty(item2_prop, item2);
+
+                if (value1 == null && value2 != null)
+                {
+                    return false;
+                }
+                if (value1 != null && value2 == null)
+                {
+                    return false;
+                }
+
+
+                if (value1 != null && value2 != null)
+                {
+                    if (value1 is string && value2 is string)
+                    {
+                        var tempValue1 = (value1 as string);
+                        var tempValue2 = (value2 as string);
+                        if (igNoreCase)
+                        {
+                            tempValue1 = tempValue1.ToLower();
+                            tempValue2 = tempValue2.ToLower();
+                        }
+
+                        if (!tempValue1.Equals(tempValue2))
+                        {
+                            return false;
+                        }
+                        continue;
+                    }
+                    if (!value1.Equals(value2))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        #endregion
+
+        #region OtherMethods
+        public static Brush GetColorFromCode(string colorCode)
+        {
+            return (new BrushConverter()).ConvertFrom(colorCode) as Brush;
+        }
+
         public static void MoveComboBox(ComboBox comboBox, KeyEventArgs e)
             {
                 if (e.Key == Key.Up)
@@ -746,22 +837,6 @@ namespace AnhQuoc_C5_Assignment
                 return true;
             }
             return false;
-        }
-
-        public static IEnumerable<T> OrderBy<T>(IEnumerable<T> source, PropertyInfo Tkey)
-        {
-            return source.OrderBy(item =>
-            {
-                return Tkey.GetValue(item);
-            });
-        }
-
-        public static object ConvertFromString(string tempValue, Type getType)
-        {
-            TypeConverter typeConverter = TypeDescriptor.GetConverter(getType);
-
-            object result = typeConverter.ConvertFromString(tempValue);
-            return result;
         }
 
         public static List<int> GetIndex(List<string> first, List<string> second)
@@ -824,6 +899,146 @@ namespace AnhQuoc_C5_Assignment
             MessageBox.Show("Unknown error in the program.", "Error Program", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
+        public static ObservableCollection<string> GetListAllLanguages()
+        {
+            ObservableCollection<string> result = new ObservableCollection<string>();
+
+            CultureInfo[] cinfo = CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures);
+
+            foreach (CultureInfo cul in cinfo)
+            {
+                result.Add(cul.DisplayName);
+            }
+            return result;
+        }
+
+        public static TreeViewItem FindTreeViewItemByName(ItemCollection lst, string name)
+        {
+            foreach (var item in lst)
+            {
+                TreeViewItem itemTreeView = item as TreeViewItem;
+                if (string.Compare(itemTreeView.Name, name, false) == 0)
+                {
+                    return itemTreeView;
+                }
+            }
+            return null;
+        }
+
+        public static FrameworkElementFactory FindComboBoxItemByName(ItemCollection lst, string name)
+        {
+            foreach (var item in lst)
+            {
+                TreeViewItem itemTreeView = item as TreeViewItem;
+                if (string.Compare(itemTreeView.Name, name, false) == 0)
+                {
+                    var dataTemplate = itemTreeView.HeaderTemplate;
+
+                    FrameworkElementFactory gdHeader = dataTemplate.VisualTree as FrameworkElementFactory;
+                    var child = gdHeader.FirstChild;
+                    for (int i = 0; i < 2; i++)
+                    {
+                        child = child.NextSibling;
+                    }
+                    var comboBox = child;
+                    return comboBox;
+                }
+            }
+            return null;
+        }
+
+        public static void GetTreeView(TreeView treeView, ObservableCollection<Function> lst, MouseButtonEventHandler implementMethod)
+        {
+            foreach (Function function in lst)
+            {
+                TreeViewItem newTreeView = new TreeViewItem();
+                newTreeView.Name = function.Id;
+                newTreeView.Header = function.Name;
+                newTreeView.Tag = function.UrlImage;
+
+                if (IsCheckEmptyString(function.IdParent))
+                {
+                    newTreeView.MouseLeftButtonUp += implementMethod;
+                    treeView.Items.Add(newTreeView);
+                    continue;
+                }
+                else
+                {
+                    continue;
+                    TreeViewItem findedItem = Utilities.FindTreeViewItemByName(treeView.Items, function.IdParent);
+
+                    newTreeView.MouseLeftButtonUp += implementMethod;
+                    findedItem.Items.Add(newTreeView);
+                }
+            }
+        }
+        
+        public static int ExtractNumberFromAString(string str)
+        {
+            string temp = string.Empty;
+            int result = -1;
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (char.IsDigit(str[i]))
+                    temp += str[i];
+            }
+
+            if (temp.Length > 0)
+                result = int.Parse(temp);
+            return result;
+        }
+        #endregion
+
+        #region Enum-Uti
+        public static IEnumerable<T> GetListFromEnum<T>() where T : struct, IConvertible
+        {
+            return Enum.GetValues(typeof(T)).Cast<T>();
+        }
+        #endregion
+
+        #region Property-Uti
+
+        public static List<PropertyInfo> getPropsFromType(Type type)
+        {
+            return type.GetProperties().OrderBy(item => item.Name).ToList();
+        }
+
+        public static List<PropertyInfo> getPropsFromType(object obj)
+        {
+            return getPropsFromType(obj.GetType());
+        }
+
+        public static void SetValueFromProperty(string propName, object item, object value)
+        {
+            PropertyInfo prop = item.GetType().GetProperty(propName);
+            SetValueFromProperty(prop, item, value);
+        }
+
+        public static void SetValueFromProperty(PropertyInfo prop, object item, object value)
+        {
+            prop.SetValue(item, value);
+        }
+
+        public static object getValueFromProperty(string propName, object item)
+        {
+            PropertyInfo prop = item.GetType().GetProperty(propName);
+            return getValueFromProperty(prop, item);
+        }
+
+        public static object getValueFromProperty(PropertyInfo prop, object item)
+        {
+            return prop.GetValue(item, null);
+        }
+
+        public static object ConvertFromString(string tempValue, Type getType)
+        {
+            TypeConverter typeConverter = TypeDescriptor.GetConverter(getType);
+
+            object result = typeConverter.ConvertFromString(tempValue);
+            return result;
+        }
+
         public static void SetExceptPropertiesForDataGrid(DataGrid dataGrid, List<PropertyInfo> ExceptProperties)
         {
             foreach (PropertyInfo propItem in ExceptProperties)
@@ -868,7 +1083,7 @@ namespace AnhQuoc_C5_Assignment
             }
             return null;
         }
-     
+
         public static string FindPropertyByName(List<string> properties, string propertyName)
         {
             foreach (string item in properties)
@@ -881,292 +1096,6 @@ namespace AnhQuoc_C5_Assignment
             return null;
         }
 
-        public static ObservableCollection<string> GetListAllLanguages()
-        {
-            ObservableCollection<string> result = new ObservableCollection<string>();
-
-            CultureInfo[] cinfo = CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures);
-
-            foreach (CultureInfo cul in cinfo)
-            {
-                result.Add(cul.DisplayName);
-            }
-            return result;
-        }
-
-        public static bool IsExistInformation<T>(ObservableCollection<T> items, T itemCheck, bool igNoreCase = true, params string[] checkProperties)
-        {
-            foreach (T item in items)
-            {
-                bool isEqual = IsExistInformation(item, itemCheck, igNoreCase, checkProperties);
-                if (isEqual)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public static bool IsExistInformation<T>(T item, T itemCheck, bool igNoreCase = true, params string[] checkProperties)
-        {
-            return IsEqual(item, itemCheck, igNoreCase, checkProperties);
-        }
-
-        public static bool IsEqual<T>(T item1, T item2, bool igNoreCase = true, params string[] checkProperties)
-        {
-            var item1_props = getPropsFromType(item1);
-            var item2_props = getPropsFromType(item2);
-            for (int i = 0; i < item1_props.Count(); i++)
-            {
-                PropertyInfo item1_prop = item1_props[i];
-                PropertyInfo item2_prop = item2_props[i];
-
-                var itemCheck = FindPropertyByName(checkProperties.ToList(), item1_prop.Name);
-                if (itemCheck == null)
-                {
-                    continue;
-                }
-                object value1 = getValueFromProperty(item1_prop, item1);
-                object value2 = getValueFromProperty(item2_prop, item2);
-
-                if (value1 == null && value2 != null)
-                {
-                    return false;
-                }
-                if (value1 != null && value2 == null)
-                {
-                    return false;
-                }
-               
-
-                if (value1 != null && value2 != null)
-                {
-                    if (value1 is string && value2 is string)
-                    {
-                        var tempValue1 = (value1 as string);
-                        var tempValue2 = (value2 as string);
-                        if (igNoreCase)
-                        {
-                            tempValue1 = tempValue1.ToLower();
-                            tempValue2 = tempValue2.ToLower();
-                        }
-
-                        if (!tempValue1.Equals(tempValue2))
-                        {
-                            return false;
-                        }
-                        continue;
-                    }
-                    if (!value1.Equals(value2))
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
-
-        public static List<PropertyInfo> getPropsFromType(Type type)
-            {
-                return type.GetProperties().OrderBy(item => item.Name).ToList();
-            }
-
-        public static List<PropertyInfo> getPropsFromType(object obj)
-        {
-            return getPropsFromType(obj.GetType());
-        }
-
-        public static object getValueFromProperty(string propName, object item)
-        {
-            PropertyInfo prop = item.GetType().GetProperty(propName);
-            return getValueFromProperty(prop, item);
-        }
-
-        public static object getValueFromProperty(PropertyInfo prop, object item)
-        {
-            return prop.GetValue(item, null);
-        }
-
-        public static void SetValueFromProperty(string propName, object item, object value)
-        {
-            PropertyInfo prop = item.GetType().GetProperty(propName);
-            SetValueFromProperty(prop, item, value);
-        }
-
-        public static void SetValueFromProperty(PropertyInfo prop, object item, object value)
-        {
-            prop.SetValue(item, value);
-        }
-
-        public static TreeViewItem FindTreeViewItemByName(ItemCollection lst, string name)
-        {
-            foreach (var item in lst)
-            {
-                TreeViewItem itemTreeView = item as TreeViewItem;
-                if (string.Compare(itemTreeView.Name, name, false) == 0)
-                {
-                    return itemTreeView;
-                }
-            }
-            return null;
-        }
-
-        public static FrameworkElementFactory FindComboBoxItemByName(ItemCollection lst, string name)
-        {
-            foreach (var item in lst)
-            {
-                TreeViewItem itemTreeView = item as TreeViewItem;
-                if (string.Compare(itemTreeView.Name, name, false) == 0)
-                {
-                    var dataTemplate = itemTreeView.HeaderTemplate;
-
-                    FrameworkElementFactory gdHeader = dataTemplate.VisualTree as FrameworkElementFactory;
-                    var child = gdHeader.FirstChild;
-                    for (int i = 0; i < 2; i++)
-                    {
-                        child = child.NextSibling;
-                    }
-                    var comboBox = child;
-                    return comboBox;
-                }
-            }
-            return null;
-        }
-
-        public static bool? IsCheckComboBoxItem(ItemCollection lst)
-        {
-            foreach (var item in lst)
-            {
-                TreeViewItem itemTreeView = item as TreeViewItem;
-
-                var dataTemplate = itemTreeView.HeaderTemplate;
-
-                FrameworkElementFactory gdHeader = dataTemplate.VisualTree as FrameworkElementFactory;
-                var child = gdHeader.FirstChild;
-                for (int i = 0; i < 2; i++)
-                {
-                    child = child.NextSibling;
-                }
-                var comboBox = child;
-
-                // comboBox.get
-
-                return null;
-                
-            }
-            return null;
-        }
-
-        public static void GetTreeView(TreeView treeView, ObservableCollection<Function> lst, MouseButtonEventHandler implementMethod)
-        {
-            foreach (Function function in lst)
-            {
-                TreeViewItem newTreeView = new TreeViewItem();
-                newTreeView.Name = function.Id;
-                newTreeView.Header = function.Name;
-                newTreeView.Tag = function.UrlImage;
-
-                if (IsCheckEmptyString(function.IdParent))
-                {
-                    newTreeView.MouseLeftButtonUp += implementMethod;
-                    treeView.Items.Add(newTreeView);
-                    continue;
-                }
-                else
-                {
-                    continue;
-                    TreeViewItem findedItem = Utilities.FindTreeViewItemByName(treeView.Items, function.IdParent);
-
-                    newTreeView.MouseLeftButtonUp += implementMethod;
-                    findedItem.Items.Add(newTreeView);
-                }
-            }
-        }
-
-        public static void GetTreeViewHeaderTemplate(TreeView treeView, ObservableCollection<Function> lst, RoutedEventHandler implementMethod)
-        {
-            foreach (Function function in lst)
-            {
-                TreeViewItem newTreeView = new TreeViewItem();
-                newTreeView.Name = function.Id;
-
-                DataTemplate dataTemplate = new DataTemplate();
-
-                FrameworkElementFactory gdHeader = new FrameworkElementFactory(typeof(Grid));
-                FrameworkElementFactory colDef = null;
-
-                colDef = new FrameworkElementFactory(typeof(ColumnDefinition));
-                colDef.SetValue(ColumnDefinition.WidthProperty, new GridLength(0, GridUnitType.Auto));
-                gdHeader.AppendChild(colDef);
-
-                colDef = new FrameworkElementFactory(typeof(ColumnDefinition));
-                colDef.SetValue(ColumnDefinition.WidthProperty, new GridLength(1, GridUnitType.Star));
-                gdHeader.AppendChild(colDef);
-
-                FrameworkElementFactory chk = new FrameworkElementFactory(typeof(CheckBox));
-
-                Binding newBind = new Binding("IsSelected");
-                newBind.Source = newTreeView;
-                newBind.Mode = BindingMode.TwoWay;
-                newBind.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-
-                chk.SetBinding(CheckBox.IsCheckedProperty, newBind);
-
-                //chk.SetValue(CheckBox.NameProperty, function.Id);
-                chk.SetValue(CheckBox.NameProperty, "myCBox");
-
-                chk.AddHandler(CheckBox.ClickEvent, implementMethod);
-
-                chk.SetValue(Grid.ColumnProperty, 0);
-
-
-                FrameworkElementFactory tbl = new FrameworkElementFactory(typeof(TextBlock));
-                tbl.SetValue(TextBlock.MarginProperty, new Thickness(10, 0, 0, 0));
-                tbl.SetValue(TextBlock.TextProperty, function.Name);
-
-                tbl.SetValue(Grid.ColumnProperty, 1);
-
-                gdHeader.AppendChild(chk);
-                gdHeader.AppendChild(tbl);
-
-                dataTemplate.VisualTree = gdHeader;
-                newTreeView.HeaderTemplate = dataTemplate;
-
-                if (IsCheckEmptyString(function.IdParent))
-                {
-                    treeView.Items.Add(newTreeView);
-                    continue;
-                }
-                else
-                {
-                    TreeViewItem findedItem = FindTreeViewItemByName(treeView.Items, function.IdParent);
-                    findedItem.Items.Add(newTreeView);
-                }
-            }
-        }
-
-        public static int ExtractNumberFromAString(string str)
-        {
-            string temp = string.Empty;
-            int result = -1;
-
-            for (int i = 0; i < str.Length; i++)
-            {
-                if (char.IsDigit(str[i]))
-                    temp += str[i];
-            }
-
-            if (temp.Length > 0)
-                result = int.Parse(temp);
-            return result;
-        }
-        #endregion
-
-        #region Enum-Uti
-        public static IEnumerable<T> GetListFromEnum<T>() where T : struct, IConvertible
-        {
-            return Enum.GetValues(typeof(T)).Cast<T>();
-        }
         #endregion
 
         #region UserControl-Form-Utilities
@@ -1385,6 +1314,27 @@ namespace AnhQuoc_C5_Assignment
         }
         #endregion
 
+        #endregion
+
+        #region Hash-Password
+        public static string Base64Encode(string plainText)
+        {
+            if (plainText == string.Empty || plainText == null)
+                return string.Empty;
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+
+        public static string MD5Hash(string input)
+        {
+            StringBuilder hash = new StringBuilder();
+            MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();
+            byte[] bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(input));
+
+            for (int i = 0; i < bytes.Length; i++)
+                hash.Append(bytes[i].ToString("x2"));
+            return hash.ToString();
+        }
         #endregion
     }
 }

@@ -40,21 +40,7 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-
-        private DateTime _PublishDate;
-        public DateTime PublishDate
-        {
-            get
-            {
-                return _PublishDate;
-            }
-            set
-            {
-                _PublishDate = value;
-                OnPropertyChanged();
-            }
-        }
-
+        
         private string _Language;
         public string Language
         {

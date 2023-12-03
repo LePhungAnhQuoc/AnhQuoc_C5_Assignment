@@ -167,7 +167,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (getFunctions != null)
             {
-                RefreshDataGrid();
+                ModifiedPagination();
             }
 
             if (!AllowPagination)
@@ -201,7 +201,7 @@ namespace AnhQuoc_C5_Assignment
             btnInfo_Click(dgDatas, null);
         }
 
-        public void RefreshDataGrid()
+        public void ModifiedPagination()
         {
             var allFunctions = getFunctions();
             var listFillStatusFunction = functionVM.FillByStatus(allFunctions, getItem_Status?.Invoke());

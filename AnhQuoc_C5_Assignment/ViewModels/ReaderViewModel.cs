@@ -124,6 +124,17 @@ namespace AnhQuoc_C5_Assignment
             return newList;
         }
 
+        public ObservableCollection<Reader> GetListFromChilds(ObservableCollection<Child> childs)
+        {
+            ObservableCollection<Reader> newList = new ObservableCollection<Reader>();
+            foreach (Child child in childs)
+            {
+                Reader newReader = FindById(child.IdReader);
+                newList.Add(newReader);
+            }
+            return newList;
+        }
+
         public ObservableCollection<Reader> GetListFromAdults(ObservableCollection<AdultDto> adultDtos)
         {
             ObservableCollection<Reader> newList = new ObservableCollection<Reader>();
@@ -133,6 +144,38 @@ namespace AnhQuoc_C5_Assignment
                 newList.Add(newReader);
             }
             return newList;
+        }
+        public void Copy(Reader dest, ReaderDto source)
+        {
+            dest.Id = source.Id;
+            dest.LName = source.LName;
+            dest.FName = source.FName;
+            dest.boF = source.boF;
+            dest.ReaderType = source.ReaderType.ConvertValue();
+
+            dest.Status = source.Status;
+            dest.CreatedAt = source.CreatedAt;
+            dest.ModifiedAt = source.ModifiedAt;
+        }
+
+        public Reader CreateByDto(ReaderDto source)
+        {
+            var result = new Reader();
+            result.Id = source.Id;
+
+            Copy(result, source);
+            return result;
+        }
+
+
+        public ObservableCollection<Reader> CreateByDto(ObservableCollection<ReaderDto> source)
+        {
+            var dest = new ObservableCollection<Reader>();
+            foreach (ReaderDto item in source)
+            {
+                dest.Add(CreateByDto(item));
+            }
+            return dest;
         }
     }
 }

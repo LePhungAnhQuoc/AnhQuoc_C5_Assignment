@@ -19,6 +19,18 @@ namespace AnhQuoc_C5_Assignment
                 return _LoanDetailRepo;
             }
         }
+
+        private PublisherRepository _PublisherRepo;
+        public PublisherRepository PublisherRepo
+        {
+            get
+            {
+                if (_PublisherRepo == null)
+                    _PublisherRepo = new PublisherRepository();
+                return _PublisherRepo;
+            }
+        }
+
         private LoanSlipRepository _LoanSlipRepo;
         public LoanSlipRepository LoanSlipRepo
         {
@@ -49,6 +61,17 @@ namespace AnhQuoc_C5_Assignment
                 if (_AdultRepo == null)
                     _AdultRepo = new AdultRepository();
                 return _AdultRepo;
+            }
+        }
+
+        private EnrollRepository _EnrollRepo;
+        public EnrollRepository EnrollRepo
+        {
+            get
+            {
+                if (_EnrollRepo == null)
+                    _EnrollRepo = new EnrollRepository();
+                return _EnrollRepo;
             }
         }
 
@@ -262,6 +285,10 @@ namespace AnhQuoc_C5_Assignment
         {
             _LoanDetailRepo = new LoanDetailRepository();
             _LoanDetailRepo.LoadList();
+
+            _PublisherRepo = new PublisherRepository();
+            _PublisherRepo.LoadList();
+
             _LoanSlipRepo = new LoanSlipRepository();
             _LoanSlipRepo.LoadList();
 
@@ -312,6 +339,10 @@ namespace AnhQuoc_C5_Assignment
 
             _RoleFunctionRepo = new RoleFunctionRepository();
             _RoleFunctionRepo.LoadList();
+
+            _EnrollRepo = new EnrollRepository();
+            _EnrollRepo.LoadList();
+
         }
     }
 }

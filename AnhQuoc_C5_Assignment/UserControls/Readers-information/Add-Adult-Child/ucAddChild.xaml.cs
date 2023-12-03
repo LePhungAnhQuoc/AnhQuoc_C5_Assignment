@@ -164,7 +164,7 @@ namespace AnhQuoc_C5_Assignment
         public void AddItemsToDataGrid(ObservableCollection<Reader> source)
         {
             ucReadersTable.getReaders = () => source;
-            ucReadersTable.RefreshDataGrid();
+            ucReadersTable.ModifiedPagination();
         }
     }
 }

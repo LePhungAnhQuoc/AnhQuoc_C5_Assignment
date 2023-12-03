@@ -177,7 +177,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (getUserRoles != null)
             {
-                RefreshDataGrid();
+                ModifiedPagination();
             }
 
             if (!AllowPagination)
@@ -211,7 +211,7 @@ namespace AnhQuoc_C5_Assignment
             btnInfo_Click(dgDatas, null);
         }
 
-        public void RefreshDataGrid()
+        public void ModifiedPagination()
         {
             var allUserRoles = getUserRoles();
             UserRoleDtos = userRoleMap.ConvertToDto(allUserRoles);

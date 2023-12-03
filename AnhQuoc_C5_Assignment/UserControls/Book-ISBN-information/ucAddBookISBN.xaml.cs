@@ -72,17 +72,6 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        private DateTime? _SelectedPublishDate;
-        public DateTime? SelectedPublishDate
-        {
-            get { return _SelectedPublishDate; }
-            set
-            {
-                _SelectedPublishDate = value;
-                OnPropertyChanged();
-            }
-        }
-
 
         private ObservableCollection<BookTitleDto> _AllBookTitleDtos;
         public ObservableCollection<BookTitleDto> AllBookTitleDtos
@@ -213,7 +202,7 @@ namespace AnhQuoc_C5_Assignment
 
             // Truyền dữ liệu
             Author selectedAuthor = authorVM.FindById(SelectedAuthorDto.Id);
-            PassValueToItem(Item, SelectedBookTitleDto, selectedAuthor, SelectedLanguage, SelectedPublishDate);
+            PassValueToItem(Item, SelectedBookTitleDto, selectedAuthor, SelectedLanguage);
 
             // Kiểm tra sự trùng lặp
             bool isExistInformation = Utilities.IsExistInformation(getBookISBNRepo().Gets(), Item, true, Constants.checkPropBookISBN);
@@ -240,12 +229,11 @@ namespace AnhQuoc_C5_Assignment
             getBookISBNRepo().WriteAdd(newItem);
         }
 
-        private void PassValueToItem(BookISBN item, BookTitleDto selectedBookTitleDto, Author selectedAuthor, string selectedLanguage, DateTime? selectedPublishDate)
+        private void PassValueToItem(BookISBN item, BookTitleDto selectedBookTitleDto, Author selectedAuthor, string selectedLanguage)
         {
             item.IdBookTitle = selectedBookTitleDto.Id;
             item.IdAuthor = selectedAuthor.Id;
             item.Language = selectedLanguage;
-            item.PublishDate = (DateTime)selectedPublishDate;
         }
 
         private bool IsAllSelecting()
@@ -265,12 +253,6 @@ namespace AnhQuoc_C5_Assignment
             if (SelectedLanguage == null)
             {
                 Utilities.ShowMessageBox1("Please select language");
-                return false;
-            }
-
-            if (SelectedPublishDate == null)
-            {
-                Utilities.ShowMessageBox1("Please select publish date");
                 return false;
             }
             return true;

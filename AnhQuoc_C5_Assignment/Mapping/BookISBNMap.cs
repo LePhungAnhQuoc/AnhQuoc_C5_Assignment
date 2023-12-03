@@ -20,7 +20,6 @@ namespace AnhQuoc_C5_Assignment
             newItem.Author = authorVM.FindById(sourceItem.IdAuthor);
 
             newItem.Language = sourceItem.Language;
-            newItem.PublishDate = sourceItem.PublishDate;
             newItem.Status = sourceItem.Status;
 
             newItem.Books = bookVM.FillByBookISBN(sourceItem.ISBN, null);

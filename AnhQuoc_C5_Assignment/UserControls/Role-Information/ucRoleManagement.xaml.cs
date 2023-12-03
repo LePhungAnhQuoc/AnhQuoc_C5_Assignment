@@ -244,7 +244,7 @@ namespace AnhQuoc_C5_Assignment
             roleSelect.Status = updateStatus;
             getRoleRepo().WriteUpdateStatus(roleSelect, updateStatus);
 
-            ucRolesTable.RefreshDataGrid();
+            ucRolesTable.ModifiedPagination();
 
             message = Utilities.NotifyDeleteSuccessfully("role");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
@@ -279,7 +279,7 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             #region Refresh-listFill
-            ucRolesTable.RefreshDataGrid();
+            ucRolesTable.ModifiedPagination();
             #endregion
         }
 
@@ -292,7 +292,7 @@ namespace AnhQuoc_C5_Assignment
         private void AddItemsToDataGrid(ObservableCollection<Role> items)
         {
             ucRolesTable.getRoles = () => items;
-            ucRolesTable.RefreshDataGrid();
+            ucRolesTable.ModifiedPagination();
         }
     }
 }

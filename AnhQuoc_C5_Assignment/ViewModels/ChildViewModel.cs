@@ -45,7 +45,44 @@ namespace AnhQuoc_C5_Assignment
             childsResult = FillByStatus(childsResult, status);
 
             return childsResult;
-        }      
+        }
+
+
+        public ObservableCollection<Child> GetListFromReaders(ObservableCollection<Reader> childReaders, bool? statusValue)
+        {
+            childReaders = Utilities.FillByStatus(childReaders, statusValue);
+
+            ObservableCollection<Child> newList = new ObservableCollection<Child>();
+            foreach (Reader reader in childReaders)
+            {
+                Child newChild = FindByIdReader(reader.Id, statusValue);
+                newList.Add(newChild);
+            }
+            return newList;
+        }
+
+        public ObservableCollection<Child> FillContainsFullName(ObservableCollection<Child> source, string valueName, bool igNoreCase, bool? statusValue)
+        {
+            ObservableCollection<Child> newList = new ObservableCollection<Child>();
+            foreach (Child item in source)
+            {
+                ReaderViewModel readerVM = UnitOfViewModel.Instance.ReaderViewModel;
+                Reader reader = readerVM.FindById(item.IdReader);
+                ReaderDto readerDto = (UnitOfMap.Instance.ReaderMap).ConvertToDto(reader);
+
+                if (readerDto.FullName.ContainsCorrectly(valueName, igNoreCase))
+                {
+                    newList.Add(item);
+                }
+            }
+            newList = FillByStatus(newList, statusValue);
+            return newList;
+        }
+
+        public ObservableCollection<Child> FillContainsFullName(ObservableCollection<ChildDto> source, string valueName, bool igNoreCase, bool? statusValue)
+        {
+            return FillContainsFullName(CreateByDto(source), valueName, igNoreCase, statusValue);
+        }
 
         public Child CreateByDto(ChildDto source)
         {
@@ -53,6 +90,16 @@ namespace AnhQuoc_C5_Assignment
             result.IdReader = source.IdReader;
             Copy(result, source);
             return result;
+        }
+
+        public ObservableCollection<Child> CreateByDto(ObservableCollection<ChildDto> source)
+        {
+            var dest = new ObservableCollection<Child>();
+            foreach (ChildDto item in source)
+            {
+                dest.Add(CreateByDto(item));
+            }
+            return dest;
         }
 
         public void Copy(Child dest, ChildDto source)

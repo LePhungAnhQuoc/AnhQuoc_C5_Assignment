@@ -138,4 +138,5 @@ C:\Users\quocl\OneDrive\Desktop\Bai-Tap\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignm
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csproj.GenerateResource.Cache
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.exe
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.pdb
-C:\Users\quocl\OneDrive\Desktop\Bai-Tap\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csprojResolveAssemblyReference.cache
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetail-Information\ucLoanDetailsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetail-Information\ucLoanDetailsTable.baml

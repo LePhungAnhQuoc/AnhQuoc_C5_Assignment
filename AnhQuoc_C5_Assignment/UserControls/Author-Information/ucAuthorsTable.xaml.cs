@@ -25,6 +25,7 @@ namespace AnhQuoc_C5_Assignment
     {
         #region GetDatas
         public Func<ObservableCollection<Author>> getAuthors { get; set; }
+     
         #endregion
 
         #region Properties

@@ -18,6 +18,7 @@ namespace AnhQuoc_C5_Assignment
         public string Name { get; set; }
         public string Description { get; set; }
         public string Value { get; set; }
-        public bool Status { get; set; }
+        public System.DateTime CreatedAt { get; set; }
+        public System.DateTime ModifiedAt { get; set; }
     }
 }

@@ -15,12 +15,14 @@ namespace AnhQuoc_C5_Assignment
             var bookISBNVM = UnitOfViewModel.Instance.BookISBNViewModel;
             var categoryVM = UnitOfViewModel.Instance.CategoryViewModel;
             var authorVM = UnitOfViewModel.Instance.AuthorViewModel;
+            var publisherVM = UnitOfViewModel.Instance.PublisherViewModel;
 
             BookISBN bookISBN = bookISBNVM.FindByISBN(sourceItem.ISBN, null);
             BookTitle bookTitle = bookTitleVM.FindById(bookISBN.IdBookTitle);
             Category bookCategory = categoryVM.FindById(bookTitle.IdCategory);
-            Author bookAuthor = authorVM.FindById(bookTitle.IdAuthor);
+            Author bookAuthor = authorVM.FindById(bookISBN.IdAuthor);
             Author bookTranslator = authorVM.FindById(bookISBN.IdAuthor);
+            Publisher publisher = publisherVM.FindById(sourceItem.IdPublisher);
 
             BookDto newItem = new BookDto(sourceItem.Id);
 
@@ -30,8 +32,14 @@ namespace AnhQuoc_C5_Assignment
             newItem.Author = bookAuthor.Name;
             newItem.Translator = bookTranslator.Name;
             newItem.Language = bookISBN.Language;
-            newItem.Status = sourceItem.Status;
 
+            newItem.Publisher = publisher;
+            newItem.PublishDate = sourceItem.PublishDate;
+
+            newItem.Price = sourceItem.Price;
+            newItem.PriceCurrent  = sourceItem.PriceCurrent;
+
+            newItem.Status = sourceItem.Status;
             newItem.CreatedAt = sourceItem.CreatedAt;
             newItem.ModifiedAt = sourceItem.ModifiedAt;
 

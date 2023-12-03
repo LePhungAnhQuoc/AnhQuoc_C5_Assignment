@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace AnhQuoc_C5_Assignment
     public partial class ucBooksTable : UserControl, INotifyPropertyChanged
     {
         #region GetDatas
-        public Func<ObservableCollection<BookDto>> getBooks { get; set; }
+        public Func<List<PropertyInfo>> getExceptProperties { get; set; }
         #endregion
 
         #region prop-dp
@@ -109,15 +110,15 @@ namespace AnhQuoc_C5_Assignment
         }
 
         private void UcBooksTable_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (getBooks != null)
-            {
-                Books = getBooks();
-            }
-
+        { 
             if (!AllowPagination)
             {
                 ucPagination.Visibility = Visibility.Collapsed;
+            }
+
+            if (getExceptProperties != null)
+            {
+                Utilities.SetExceptPropertiesForDataGrid(dgBooks, getExceptProperties());
             }
         }
 

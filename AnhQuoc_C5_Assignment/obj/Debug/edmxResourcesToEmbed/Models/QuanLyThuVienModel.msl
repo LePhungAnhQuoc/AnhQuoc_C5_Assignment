@@ -35,11 +35,15 @@
         <MappingFragment StoreEntitySet="Book">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="IdPublisher" ColumnName="IdPublisher" />
+          <ScalarProperty Name="IdTranslator" ColumnName="IdTranslator" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PriceCurrent" ColumnName="PriceCurrent" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
           <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
-          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
-          <ScalarProperty Name="DonGiaHienTai" ColumnName="DonGiaHienTai" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -49,11 +53,8 @@
           <ScalarProperty Name="ISBN" ColumnName="ISBN" />
           <ScalarProperty Name="IdBookTitle" ColumnName="IdBookTitle" />
           <ScalarProperty Name="IdAuthor" ColumnName="IdAuthor" />
-          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
           <ScalarProperty Name="Language" ColumnName="Language" />
           <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="BookPrice" ColumnName="BookPrice" />
-          <ScalarProperty Name="IdPublisher" ColumnName="IdPublisher" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -63,7 +64,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="IdAuthor" ColumnName="IdAuthor" />
           <ScalarProperty Name="Summary" ColumnName="Summary" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -96,10 +96,10 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="ISBN" ColumnName="ISBN" />
           <ScalarProperty Name="IdReader" ColumnName="IdReader" />
-          <ScalarProperty Name="EnrolDate" ColumnName="EnrolDate" />
-          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
-          <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="IdBook" ColumnName="IdBook" />
+          <ScalarProperty Name="EnrolDate" ColumnName="EnrolDate" />
+          <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -133,8 +133,8 @@
           <ScalarProperty Name="IdLoanHistory" ColumnName="IdLoanHistory" />
           <ScalarProperty Name="IdBook" ColumnName="IdBook" />
           <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
-          <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="PaidMoney" ColumnName="PaidMoney" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -176,7 +176,8 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Value" ColumnName="Value" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -229,6 +230,20 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdRole" ColumnName="IdRole" />
           <ScalarProperty Name="IdFunction" ColumnName="IdFunction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Translators">
+      <EntityTypeMapping TypeName="QuanLyThuVienModel.Translator">
+        <MappingFragment StoreEntitySet="Translator">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="boF" ColumnName="boF" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

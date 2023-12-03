@@ -52,6 +52,28 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private PublisherViewModel _PublisherViewModel;
+        public PublisherViewModel PublisherViewModel
+        {
+            get
+            {
+                if (_PublisherViewModel == null)
+                    _PublisherViewModel = new PublisherViewModel();
+                return _PublisherViewModel;
+            }
+        }
+
+        private EnrollViewModel _EnrollViewModel;
+        public EnrollViewModel EnrollViewModel
+        {
+            get
+            {
+                if (_EnrollViewModel == null)
+                    _EnrollViewModel = new EnrollViewModel();
+                return _EnrollViewModel;
+            }
+        }
+
         private LoanSlipViewModel _LoanSlipViewModel;
         public LoanSlipViewModel LoanSlipViewModel
         {
@@ -256,6 +278,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Load()
         {
+            _PublisherViewModel = new PublisherViewModel();
+            _PublisherViewModel.Repo = _UnitOfRepo.PublisherRepo;
+
+            _EnrollViewModel = new EnrollViewModel();
+            _EnrollViewModel.Repo = _UnitOfRepo.EnrollRepo;
+
             _LoanSlipViewModel = new LoanSlipViewModel();
             _LoanSlipViewModel.Repo = _UnitOfRepo.LoanSlipRepo;
 

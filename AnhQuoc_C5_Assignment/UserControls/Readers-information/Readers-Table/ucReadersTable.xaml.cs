@@ -161,7 +161,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (getReaders != null)
             {
-                RefreshDataGrid();
+                ModifiedPagination();
             }
 
             if (!AllowPagination)
@@ -200,7 +200,7 @@ namespace AnhQuoc_C5_Assignment
             btnInfo_Click(dgReaders, null);
         }
 
-        public void RefreshDataGrid()
+        public void ModifiedPagination()
         {
             var allReaders = getReaders();
             var listFilledReader = readerVM.FillByStatus(allReaders, getItem_Status());

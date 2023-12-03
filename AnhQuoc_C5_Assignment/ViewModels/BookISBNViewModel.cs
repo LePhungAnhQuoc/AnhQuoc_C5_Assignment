@@ -40,6 +40,24 @@ namespace AnhQuoc_C5_Assignment
             return null;
         }
 
+        public BookISBN Find(string idBookTitle, string language, bool ignoreCase, bool? statusValue)
+        {
+            var source = Repo.Gets();
+            source = FillByStatus(source, statusValue);
+
+            foreach (BookISBN item in source)
+            {
+                if (string.Compare(item.IdBookTitle, idBookTitle, ignoreCase) == 0)
+                {
+                    if (string.Compare(item.Language, language, ignoreCase) == 0)
+                    {
+                       return item;
+                    }
+                }
+            }
+            return null;
+        }
+
         public ObservableCollection<BookISBN> FillByIdBookTitle(string bookTitleId, bool? statusValue)
         {
             var source = Repo.Gets();
@@ -55,5 +73,11 @@ namespace AnhQuoc_C5_Assignment
             }
             return result;
         }
-       }
+
+        public ObservableCollection<string> FillLanguages(ObservableCollection<BookISBN> source, bool? statusValue)
+        {
+            source = Utilities.FillByStatus(source, statusValue);
+            return source.Select(item => item.Language).ToObservableCollection();
+        }
+    }
 }

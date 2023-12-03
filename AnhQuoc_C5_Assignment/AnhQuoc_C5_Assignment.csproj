@@ -219,6 +219,9 @@
     <Compile Include="Models\RoleFunction.cs">
       <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Translator.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
     </Compile>
@@ -228,6 +231,8 @@
     <Compile Include="Models\UserRole.cs">
       <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\PublisherRepository.cs" />
+    <Compile Include="Repositories\EnrollRepository.cs" />
     <Compile Include="Repositories\LoanDetailRepository.cs" />
     <Compile Include="Repositories\AuthorRepository.cs" />
     <Compile Include="Repositories\BookISBNRepository.cs" />
@@ -277,6 +282,9 @@
     </Compile>
     <Compile Include="UserControls\Function-Information\ucFunctionsTable.xaml.cs">
       <DependentUpon>ucFunctionsTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LoanDetail-Information\ucLoanDetailsTable.xaml.cs">
+      <DependentUpon>ucLoanDetailsTable.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Pagination-Uti\ucButtonCircle.xaml.cs">
       <DependentUpon>ucButtonCircle.xaml</DependentUpon>
@@ -376,6 +384,7 @@
     <Compile Include="ViewModels\BookViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\ChildViewModel.cs" />
+    <Compile Include="ViewModels\EnrollVIewModel.cs" />
     <Compile Include="ViewModels\FunctionViewModel.cs" />
     <Compile Include="ViewModels\LoanDetailViewModel.cs" />
     <Compile Include="ViewModels\LoanSlipViewModel.cs" />
@@ -383,6 +392,7 @@
     <Compile Include="ViewModels\Others\ServerNameViewModel.cs" />
     <Compile Include="ViewModels\ParameterViewModel.cs" />
     <Compile Include="ViewModels\ProvinceViewModel.cs" />
+    <Compile Include="ViewModels\PublisherViewModel.cs" />
     <Compile Include="ViewModels\ReaderViewModel.cs" />
     <Compile Include="ViewModels\RoleFunctionViewModel.cs" />
     <Compile Include="ViewModels\RoleViewModel.cs" />
@@ -566,6 +576,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\Function-Information\ucFunctionsTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\LoanDetail-Information\ucLoanDetailsTable.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

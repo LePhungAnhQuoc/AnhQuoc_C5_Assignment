@@ -439,7 +439,7 @@ namespace AnhQuoc_C5_Assignment
                     }
                     UpdateReadersStatus(readerSelect, updateStatus);
 
-                    ucReadersTable.RefreshDataGrid();
+                    ucReadersTable.ModifiedPagination();
 
                     bool isAdultHasChild = listFilledChild.Count > 0;
                     var message2 = Utilities.NotifyDeleteSuccessfullyAdultReader(isAdultHasChild);
@@ -477,7 +477,7 @@ namespace AnhQuoc_C5_Assignment
 
                 UpdateReadersStatus(readerSelect, updateStatus);
 
-                ucReadersTable.RefreshDataGrid();
+                ucReadersTable.ModifiedPagination();
 
                 message = Utilities.NotifyDeleteSuccessfully("Child Reader");
                 MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
@@ -513,7 +513,7 @@ namespace AnhQuoc_C5_Assignment
                     Reader childReader = readerVM.FindById(childFinded.IdReader);
                     UpdateReadersStatus(childReader, updateStatus);
 
-                    ucReadersTable.RefreshDataGrid();
+                    ucReadersTable.ModifiedPagination();
 
                     message = Utilities.NotifyRestoreSuccessfullyAdultReader(false);
                     MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
@@ -539,7 +539,7 @@ namespace AnhQuoc_C5_Assignment
                     Reader childReader = readerVM.FindById(childFinded.IdReader);
                     UpdateReadersStatus(childReader, updateStatus);
 
-                    ucReadersTable.RefreshDataGrid();
+                    ucReadersTable.ModifiedPagination();
 
                     message = Utilities.NotifyRestoreSuccessfullyAdultReader(true);
                     MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
@@ -573,7 +573,7 @@ namespace AnhQuoc_C5_Assignment
             {
                 UpdateReadersStatus(readerSelect, updateStatus);
 
-                ucReadersTable.RefreshDataGrid();
+                ucReadersTable.ModifiedPagination();
 
                 message = Utilities.NotifyRestoreSuccessfully("Adult Reader");
                 MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
@@ -664,7 +664,7 @@ namespace AnhQuoc_C5_Assignment
         private void AddItemsToDataGrid(ObservableCollection<Reader> items)
         {
             ucReadersTable.getReaders = () => items;
-            ucReadersTable.RefreshDataGrid();
+            ucReadersTable.ModifiedPagination();
         }
     }
 }

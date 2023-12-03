@@ -44,12 +44,5 @@ namespace AnhQuoc_C5_Assignment
 
             dbSource.SaveChanges();
         }
-
-        public override void WriteUpdateStatus(Parameter item, bool status)
-        {
-            Parameter itemSource = dbSource.Parameters.FirstOrDefault(sourceItem => sourceItem.Id == item.Id);
-            itemSource.Status = status;
-            dbSource.SaveChanges();
-        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,9 +23,14 @@ namespace AnhQuoc_C5_Assignment
             return base.GetId(index);
         }
 
-        public bool IsCheckEmptyItem(LoanSlip item)
+        public ObservableCollection<LoanSlip> FillByIdReader(string idReader, bool ignoreCase = false)
         {
-            return true;
+            return FillByIdReader(Repo.Gets(), idReader, ignoreCase);
+        }
+
+        public ObservableCollection<LoanSlip> FillByIdReader(ObservableCollection<LoanSlip> source, string idReader, bool ignoreCase = false)
+        {
+            return source.Where(item => string.Compare(item.IdReader , idReader, ignoreCase) == 0).ToObservableCollection();
         }
     }
 }

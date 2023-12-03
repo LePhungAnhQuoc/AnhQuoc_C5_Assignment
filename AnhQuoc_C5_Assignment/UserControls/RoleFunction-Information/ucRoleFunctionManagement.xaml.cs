@@ -199,7 +199,7 @@ namespace AnhQuoc_C5_Assignment
         private void AddItemsToDataGrid(ObservableCollection<Role> items)
         {
             ucRolesTable.getRoles = () => items;
-            ucRolesTable.RefreshDataGrid();
+            ucRolesTable.ModifiedPagination();
         }
 
         private void DgDatas_SelectionChanged(object sender, SelectionChangedEventArgs e)

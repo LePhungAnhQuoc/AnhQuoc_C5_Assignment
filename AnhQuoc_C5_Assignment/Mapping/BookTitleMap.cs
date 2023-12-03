@@ -17,14 +17,12 @@ namespace AnhQuoc_C5_Assignment
             var authorVM = UnitOfViewModel.Instance.AuthorViewModel;
 
             Category category = categoryVM.FindById(sourceItem.IdCategory);
-            Author author = authorVM.FindById(sourceItem.IdAuthor);
 
             BookTitleDto newItem = new BookTitleDto(sourceItem.Id);
 
             newItem.Category = category;
             newItem.Name = sourceItem.Name;
 
-            newItem.Author = author;
             newItem.Summary = sourceItem.Summary;
 
             newItem.BookISBNs = bookISBNVM.FillByIdBookTitle(sourceItem.Id, null);

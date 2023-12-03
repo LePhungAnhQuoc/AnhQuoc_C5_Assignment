@@ -34,7 +34,11 @@ namespace AnhQuoc_C5_Assignment
 
         public Book FindById(int id, bool? statusValue)
         {
-            var source = Repo.Gets();
+            return FindById(Repo.Gets(), id, statusValue);
+        }
+
+        public Book FindById(ObservableCollection<Book> source, int id, bool? statusValue)
+        {
             source = Utilities.FillByStatus(source, statusValue);
             foreach (Book item in source)
             {
@@ -60,6 +64,38 @@ namespace AnhQuoc_C5_Assignment
                 }
             }
             return result;
+        }
+
+        public ObservableCollection<Book> GetBooksInLoanSlip(LoanSlip loan)
+        {
+            var loanDetailVM = UnitOfViewModel.Instance.LoanDetailViewModel;
+            var details = loanDetailVM.FillListByIdLoan(loan.Id);
+
+            ObservableCollection<Book> result = GetBooksInLoanDetails(details);
+            return result;
+        }
+
+        public ObservableCollection<Book> GetBooksInLoanSlips(ObservableCollection<LoanSlip> loans)
+        {
+            var result = new ObservableCollection<Book>();
+            foreach (LoanSlip loan in loans)
+            {
+                result.AddRange(GetBooksInLoanSlip(loan));
+            }
+            return result;
+        }
+
+
+        public ObservableCollection<Book> GetBooksInLoanDetails(ObservableCollection<LoanDetail> source)
+        {
+            var lstId = source.Select(item => item.IdBook).ToObservableCollection();
+            var books = getListFromIds(lstId);
+            return books;
+        }
+
+        public ObservableCollection<Book> getListFromIds(ObservableCollection<int> lstId)
+        {
+            return lstId.Select(item => FindById(item, null)).ToObservableCollection();
         }
     }
 }

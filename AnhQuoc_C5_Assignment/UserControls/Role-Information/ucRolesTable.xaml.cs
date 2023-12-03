@@ -149,7 +149,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (getRoles != null)
             {
-                RefreshDataGrid();
+                ModifiedPagination();
             }
 
             if (!AllowPagination)
@@ -168,7 +168,7 @@ namespace AnhQuoc_C5_Assignment
             btnUpdateClick?.Invoke(sender, e);
         }
         
-        public void RefreshDataGrid()
+        public void ModifiedPagination()
         {
             var allItems = getRoles();
             var listFillStatus = roleVM.FillByStatus(allItems, getItem_Status());

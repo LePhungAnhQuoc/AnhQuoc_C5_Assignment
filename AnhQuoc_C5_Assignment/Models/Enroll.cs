@@ -17,10 +17,10 @@ namespace AnhQuoc_C5_Assignment
         public string Id { get; set; }
         public string ISBN { get; set; }
         public string IdReader { get; set; }
-        public System.DateTime EnrolDate { get; set; }
-        public Nullable<System.DateTime> ExpiryDate { get; set; }
-        public string Note { get; set; }
         public Nullable<int> IdBook { get; set; }
+        public System.DateTime EnrolDate { get; set; }
+        public Nullable<System.DateTime> ExpDate { get; set; }
+        public string Note { get; set; }
     
         public virtual Book Book { get; set; }
         public virtual BookISBN BookISBN { get; set; }

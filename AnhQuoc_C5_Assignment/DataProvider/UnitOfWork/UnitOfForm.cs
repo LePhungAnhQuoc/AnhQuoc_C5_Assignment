@@ -644,6 +644,10 @@ namespace AnhQuoc_C5_Assignment
                     frmBorrowBook.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
                     frmBorrowBook.getLoanDetailRepo = () => _UnitOfRepo.LoanDetailRepo;
                     frmBorrowBook.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
+                    frmBorrowBook.getBookTitleRepo = () => _UnitOfRepo.BookTitleRepo;
+                    frmBorrowBook.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
+                    frmBorrowBook.getBookRepo = () => _UnitOfRepo.BookRepo;
+                    frmBorrowBook.getEnrollRepo = () => _UnitOfRepo.EnrollRepo;
                 }
                 return frmBorrowBook;
             };

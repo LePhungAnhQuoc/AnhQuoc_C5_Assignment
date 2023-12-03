@@ -49,21 +49,6 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        private Author _SelectedAuthor;
-        public Author SelectedAuthor
-        {
-            get
-            {
-                return _SelectedAuthor;
-            }
-            set
-            {
-                _SelectedAuthor = value;
-                OnPropertyChanged();
-            }
-        }
-
-
         private ObservableCollection<Category> _Categories;
         public ObservableCollection<Category> Categories
         {
@@ -184,7 +169,7 @@ namespace AnhQuoc_C5_Assignment
             }
             
             // Truyền dữ liệu
-            PassValueToItem(Item, SelectedAuthor, SelectedCategory);
+            PassValueToItem(Item, SelectedCategory);
 
             // Kiểm tra sự trùng lặp
             bool isExistInformation = Utilities.IsExistInformation(allBookTitles, Item, true, Constants.checkPropBookTitle);
@@ -211,10 +196,9 @@ namespace AnhQuoc_C5_Assignment
             getBookTitleRepo().WriteAdd(newItem);
         }
 
-        private void PassValueToItem(BookTitle item, Author selectedAuthor, Category selectedCategory)
+        private void PassValueToItem(BookTitle item, Category selectedCategory)
         {
             item.IdCategory = selectedCategory.Id;
-            item.IdAuthor = selectedAuthor.Id;
         }
 
         private bool IsAllSelecting()
@@ -222,11 +206,6 @@ namespace AnhQuoc_C5_Assignment
             if (SelectedCategory == null)
             {
                 Utilities.ShowMessageBox1("Please select category");
-                return false;
-            }
-            if (SelectedAuthor == null)
-            {
-                Utilities.ShowMessageBox1("Please select author");
                 return false;
             }
             return true;
