@@ -74,14 +74,7 @@ namespace AnhQuoc_C5_Assignment
 
         public ObservableCollection<Reader> FillListByType(ObservableCollection<Reader> source, ReaderType type, bool? statusValue)
         {
-            ObservableCollection<Reader> newList = new ObservableCollection<Reader>();
-            foreach (Reader item in source)
-            {
-                if (item.ReaderType.ConvertValue() == type)
-                {
-                    newList.Add(item);
-                }
-            }
+            ObservableCollection<Reader> newList = source.Where(item => item.ReaderType.ConvertValue() == type).ToObservableCollection();
             newList = FillByStatus(newList, statusValue);
 
             return newList;

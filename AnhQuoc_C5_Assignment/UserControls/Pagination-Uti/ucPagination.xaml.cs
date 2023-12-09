@@ -42,6 +42,7 @@ namespace AnhQuoc_C5_Assignment
         public Func<ucUserRolesTable> getUcUserRolesTable { get; set; }
         public Func<ucFunctionsTable> getUcFunctionsTable { get; set; }
         public Func<ucRolesTable> getUcRolesTable { get; set; }
+        public Func<ucLoanSlipsTable> getUcLoanSlipsTable { get; set; }
         public Func<ucLoanDetailsTable> getUcLoanDetailsTable { get; set; }
         #endregion
 
@@ -205,6 +206,10 @@ namespace AnhQuoc_C5_Assignment
             if (getUcUserRolesTable != null)
             {
                 getUcUserRolesTable().dgDatas.ItemsSource = result;
+            }
+            if (getUcLoanSlipsTable != null)
+            {
+                getUcLoanSlipsTable().dgDatas.ItemsSource = result;
             }
             if (getUcLoanDetailsTable != null)
             {

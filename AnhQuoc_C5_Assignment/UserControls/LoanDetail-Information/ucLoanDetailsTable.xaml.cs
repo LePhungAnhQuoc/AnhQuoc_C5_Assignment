@@ -25,6 +25,18 @@ namespace AnhQuoc_C5_Assignment
     public partial class ucLoanDetailsTable : UserControl, INotifyPropertyChanged
     {
         #region GetDatas
+        private Func<ObservableCollection<LoanDetail>> _getLoanDetails;
+        public Func<ObservableCollection<LoanDetail>> getLoanDetails
+        {
+            get
+            {
+                return _getLoanDetails;
+            }
+            set
+            {
+                _getLoanDetails = value;
+            }
+        }
         public Func<List<PropertyInfo>> getExceptProperties { get; set; }
         #endregion
 
@@ -62,8 +74,8 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Properties
-        private LoanDetail _SelectedDto;
-        public LoanDetail SelectedDto
+        private LoanDetailDto _SelectedDto;
+        public LoanDetailDto SelectedDto
         {
             get { return _SelectedDto; }
             set
@@ -74,8 +86,8 @@ namespace AnhQuoc_C5_Assignment
         }
 
 
-        private ObservableCollection<LoanDetail> _LoanDetails;
-        public ObservableCollection<LoanDetail> LoanDetails
+        private ObservableCollection<LoanDetailDto> _LoanDetails;
+        public ObservableCollection<LoanDetailDto> LoanDetails
         {
             get
             {
@@ -85,10 +97,12 @@ namespace AnhQuoc_C5_Assignment
             {
                 _LoanDetails = value;
                 OnPropertyChanged();
-
-                Modified_Pagination();
             }
         }
+        #endregion
+
+        #region Mapping
+        private LoanDetailMap loanDetailMap;
         #endregion
 
         #region PropertyChanged
@@ -105,6 +119,7 @@ namespace AnhQuoc_C5_Assignment
         public ucLoanDetailsTable()
         {
             InitializeComponent();
+            loanDetailMap = UnitOfMap.Instance.LoanDetailMap;
             Loaded += ucLoanDetailsTable_Loaded;
             this.DataContext = this;
         }
@@ -137,8 +152,13 @@ namespace AnhQuoc_C5_Assignment
             btnDeleteClick?.Invoke(sender, e);
         }
 
-        private void Modified_Pagination()
+        private void ModifiedPagination()
         {
+            var allDatas = getLoanDetails();
+
+            var listFilledStatus = allDatas;
+            LoanDetails = loanDetailMap.ConvertToDto(listFilledStatus);
+
             dgDatas.ItemsSource = LoanDetails;
 
             if (AllowPagination == true)

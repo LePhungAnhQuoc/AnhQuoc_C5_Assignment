@@ -117,6 +117,8 @@
     <Compile Include="DTOs\ChildDto.cs" />
     <Compile Include="DTOs\FunctionChildDto.cs" />
     <Compile Include="DTOs\Interfaces\IDtoBase.cs" />
+    <Compile Include="DTOs\LoanDetailDto.cs" />
+    <Compile Include="DTOs\LoanSlipDto.cs" />
     <Compile Include="DTOs\ProvinceDto.cs" />
     <Compile Include="DTOs\FunctionDto.cs" />
     <Compile Include="DTOs\RoleDto.cs" />
@@ -135,6 +137,8 @@
     <Compile Include="ExtensionMethods\StringExtension.cs" />
     <Compile Include="Mapping\AuthorMap.cs" />
     <Compile Include="Mapping\Base\MapBase.cs" />
+    <Compile Include="Mapping\LoanDetailMap.cs" />
+    <Compile Include="Mapping\LoanSlipMap.cs" />
     <Compile Include="Mapping\RoleMap.cs" />
     <Compile Include="Mapping\ProvinceMap.cs" />
     <Compile Include="Mapping\BookMap.cs" />
@@ -282,6 +286,18 @@
     </Compile>
     <Compile Include="UserControls\Function-Information\ucFunctionsTable.xaml.cs">
       <DependentUpon>ucFunctionsTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LoanSlip-Information\ucLoanSlipsTable.xaml.cs">
+      <DependentUpon>ucLoanSlipsTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LoanSlip-Information\ucLoanSlipInformation.xaml.cs">
+      <DependentUpon>ucLoanSlipInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LoanSlip-Information\ucLoanSlipInformationStyle2.xaml.cs">
+      <DependentUpon>ucLoanSlipInformationStyle2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LoanSlip-Information\ucLoanSlipManagement.xaml.cs">
+      <DependentUpon>ucLoanSlipManagement.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\LoanDetail-Information\ucLoanDetailsTable.xaml.cs">
       <DependentUpon>ucLoanDetailsTable.xaml</DependentUpon>
@@ -576,6 +592,22 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\Function-Information\ucFunctionsTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\LoanSlip-Information\ucLoanSlipsTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\LoanSlip-Information\ucLoanSlipInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\LoanSlip-Information\ucLoanSlipInformationStyle2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LoanSlip-Information\ucLoanSlipManagement.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

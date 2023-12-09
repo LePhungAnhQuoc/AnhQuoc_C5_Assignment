@@ -203,9 +203,9 @@ namespace AnhQuoc_C5_Assignment
         public void ModifiedPagination()
         {
             var allReaders = getReaders();
-            var listFilledReader = readerVM.FillByStatus(allReaders, getItem_Status());
+            var listFilledStatusReader = readerVM.FillByStatus(allReaders, getItem_Status());
 
-            ReaderDtos = readerMap.ConvertToDto(listFilledReader);
+            ReaderDtos = readerMap.ConvertToDto(listFilledStatusReader);
             dgReaders.ItemsSource = ReaderDtos;
 
             if (AllowPagination == true)

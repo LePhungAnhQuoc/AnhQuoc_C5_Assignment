@@ -17,25 +17,7 @@ namespace AnhQuoc_C5_Assignment
         public LoanDetailRepository(ObservableCollection<LoanDetail> items) : base(items)
         {
         }
-
-        public override void LoadList()
-        {
-            _Items = dbSource.LoanDetails.ToObservableCollection();
-        }
-
-        public override void WriteAdd(LoanDetail item)
-        {
-            dbSource.LoanDetails.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(LoanDetail item)
-        {
-            dbSource.LoanDetails.Remove(item);
-
-            dbSource.SaveChanges();
-        }
-
+        
         public override void WriteUpdate(LoanDetail updated)
         {
             var LoanDetailViewModel = UnitOfViewModel.Instance.LoanDetailViewModel;

@@ -12,6 +12,7 @@ namespace AnhQuoc_C5_Assignment
     {
         #region Fields
         protected string prefix = string.Empty;
+        protected int numberPrefix = 2;
         #endregion
 
         #region Properties
@@ -47,7 +48,7 @@ namespace AnhQuoc_C5_Assignment
         public string GetId(int index)
         {
             string result = string.Empty;
-            result = prefix + (index + 1).ToString();
+            result = prefix + (index + 1).ToString(string.Format("D{0}", numberPrefix));
             
             return result;
         }
@@ -66,6 +67,5 @@ namespace AnhQuoc_C5_Assignment
         {
             Utilities.Copy(dest, source);
         }
-
     }
 }

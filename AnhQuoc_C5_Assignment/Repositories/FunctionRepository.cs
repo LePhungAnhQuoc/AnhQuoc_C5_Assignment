@@ -20,23 +20,6 @@ namespace AnhQuoc_C5_Assignment
         {
         }
 
-        public override void LoadList()
-        {
-            _Items = dbSource.Functions.ToObservableCollection();
-        }
-
-        public override void WriteAdd(Function item)
-        {
-            dbSource.Functions.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(Function item)
-        {
-            dbSource.Functions.Remove(item);
-            dbSource.SaveChanges();
-        }
-
         public override void WriteUpdate(Function updated)
         {
             var FunctionViewModel = UnitOfViewModel.Instance.FunctionViewModel;

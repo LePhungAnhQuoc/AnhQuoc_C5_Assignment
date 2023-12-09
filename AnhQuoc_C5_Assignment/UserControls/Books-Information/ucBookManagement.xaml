@@ -25,7 +25,6 @@
                     <ColumnDefinition Width="auto" />
                     <ColumnDefinition Width="auto" />
                     <ColumnDefinition Width="auto" />
-                    <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
 
                 <!-- Text Search -->
@@ -73,22 +72,8 @@
                             Style="{StaticResource btnClearComboBox}" />
                 </Grid>
 
-                <StackPanel Grid.Column="2"
-                            Style="{StaticResource stkWrapButton}"                           
-                            Margin="30 0 0 0">
-                    <Border Name="bdBorrowBook"
-                            Style="{StaticResource bdStyle1}"
-                            Visibility="Visible">
-                        <Button Name="btnBorrowBook"
-                                Style="{StaticResource btnAdd}"
-                                BorderThickness="0"
-                                Content="Borrow Book"
-                                Click="btnBorrowBook_Click"/>
-                    </Border>
-                </StackPanel>
-
                 <!-- Add more books -->
-                <StackPanel Grid.Column="3"
+                <StackPanel Grid.Column="2"
                             Name="stkFeatures"
                             Style="{StaticResource stkWrapButton}"                           
                             Margin="30 0 0 0">

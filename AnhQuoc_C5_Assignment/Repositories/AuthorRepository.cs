@@ -17,24 +17,7 @@ namespace AnhQuoc_C5_Assignment
         public AuthorRepository(ObservableCollection<Author> items) : base(items)
         {
         }
-
-        public override void LoadList()
-        {
-            _Items = dbSource.Authors.ToObservableCollection();
-        }
-
-        public override void WriteAdd(Author item)
-        {
-            dbSource.Authors.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(Author item)
-        {
-            dbSource.Authors.Remove(item);
-            dbSource.SaveChanges();
-        }
-
+        
         public override void WriteUpdate(Author updated)
         {
             var authorViewModel = UnitOfViewModel.Instance.AuthorViewModel;

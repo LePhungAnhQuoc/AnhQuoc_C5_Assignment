@@ -18,24 +18,7 @@ namespace AnhQuoc_C5_Assignment
         public ReaderRepository(ObservableCollection<Reader> items): base(items)
         {
         }
-
-        public override void LoadList()
-        {
-            _Items = dbSource.Readers.ToObservableCollection();
-        }
-
-        public override void WriteAdd(Reader item)
-        {
-            dbSource.Readers.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(Reader item)
-        {
-            dbSource.Readers.Remove(item);
-            dbSource.SaveChanges();
-        }
-
+        
         public override void WriteUpdate(Reader updated)
         {
             var ReaderViewModel = UnitOfViewModel.Instance.ReaderViewModel;

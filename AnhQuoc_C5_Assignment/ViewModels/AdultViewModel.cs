@@ -161,7 +161,6 @@ namespace AnhQuoc_C5_Assignment
             return result;
         }
 
-
         public ObservableCollection<Adult> CreateByDto(ObservableCollection<AdultDto> source)
         {
             var dest = new ObservableCollection<Adult>();

@@ -18,24 +18,7 @@ namespace AnhQuoc_C5_Assignment
         public ProvinceRepository(ObservableCollection<Province> items): base(items)
         {
         }
-
-        public override void LoadList()
-        {
-            _Items = dbSource.Provinces.ToObservableCollection();
-        }
-
-        public override void WriteAdd(Province item)
-        {
-            dbSource.Provinces.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(Province item)
-        {
-            dbSource.Provinces.Remove(item);
-            dbSource.SaveChanges();
-        }
-
+        
         public override void WriteUpdate(Province updated)
         {
             var ProvinceViewModel = UnitOfViewModel.Instance.ProvinceViewModel;

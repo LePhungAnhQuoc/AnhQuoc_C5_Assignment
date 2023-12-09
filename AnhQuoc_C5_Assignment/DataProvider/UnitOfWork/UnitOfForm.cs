@@ -30,6 +30,7 @@ namespace AnhQuoc_C5_Assignment
         private ucBookISBNManagement ucBookISBNManagement;
         private ucBookManagement ucBookManagement;
         private ucBookTitleManagement ucBookTitleManagement;
+        private ucLoanSlipManagement ucLoanSlipManagement;
 
         // Form
         private frmTransferGuardian frmTransferGuardian;
@@ -45,6 +46,7 @@ namespace AnhQuoc_C5_Assignment
         private frmBookISBNInformation frmBookISBNInformation;
         private frmAddFunction frmAddFunction;
         private frmBorrowBook frmBorrowBook;
+        
 
 
         #endregion
@@ -55,6 +57,12 @@ namespace AnhQuoc_C5_Assignment
         public Func<bool, ucFunctionInformation> UcFunctionInformation
         {
             get { return _UcFunctionInformation; }
+        }
+
+        private Func<bool, ucLoanSlipManagement> _UcLoanSlipManagement;
+        public Func<bool, ucLoanSlipManagement> UcLoanSlipManagement
+        {
+            get { return _UcLoanSlipManagement; }
         }
 
         private Func<bool, ucLibrarianDashBoard> _UcLibrarianDashBoard;
@@ -297,6 +305,17 @@ namespace AnhQuoc_C5_Assignment
                     ucBookManagement.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
                 }
                 return ucBookManagement;
+            };
+
+            _UcLoanSlipManagement = (isReAllocate) =>
+            {
+                if (isReAllocate)
+                {
+                    ucLoanSlipManagement = new ucLoanSlipManagement();
+                    ucLoanSlipManagement.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
+                    ucLoanSlipManagement.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
+                }
+                return ucLoanSlipManagement;
             };
 
             _UcBookISBNManagement = (isReAllocate) =>
@@ -675,6 +694,7 @@ namespace AnhQuoc_C5_Assignment
             ucBookTitleManagement = UcBookTitleManagement(true);
             ucBookManagement = UcBookManagement(true);
             ucBookISBNManagement = UcBookISBNManagement(true);
+            ucLoanSlipManagement = UcLoanSlipManagement(true);
             ucReaderManagement = UcReaderManagement(true);
             ucLibrarianDashBoard = UcLibrarianDashBoard(true);
 

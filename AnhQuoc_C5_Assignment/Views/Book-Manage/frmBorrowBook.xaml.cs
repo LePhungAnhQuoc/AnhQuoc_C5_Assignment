@@ -163,6 +163,7 @@ namespace AnhQuoc_C5_Assignment
         private BookTitleMap bookTitleMap;
         private BookISBNMap bookISBNMap;
         private BookMap bookMap;
+        private LoanDetailMap loanDetailMap;
         #endregion
 
         #region ResultProperty
@@ -235,7 +236,7 @@ namespace AnhQuoc_C5_Assignment
             bookTitleMap = UnitOfMap.Instance.BookTitleMap;
             bookISBNMap = UnitOfMap.Instance.BookISBNMap;
             bookMap = UnitOfMap.Instance.BookMap;
-
+            loanDetailMap = UnitOfMap.Instance.LoanDetailMap;
 
             adultVM = UnitOfViewModel.Instance.AdultViewModel;
             childVM = UnitOfViewModel.Instance.ChildViewModel;
@@ -255,18 +256,22 @@ namespace AnhQuoc_C5_Assignment
             cbAdultTxtIdentify.DropDownClosed += CbAdultTxtIdentify_DropDownClosed;
             cbAdultTxtIdentify.SelectionChanged += CbAdultTxtIdentify_SelectionChanged;
             txtAdultInputIdentify.TextChanged += TxtInputIdentify_TextChanged;
+            txtAdultInputIdentify.GotFocus += TxtAdultInputIdentify_GotFocus;
 
             cbGuardianTxtIdentify.DropDownClosed += CbGuardianTxtIdentify_DropDownClosed;
             cbGuardianTxtIdentify.SelectionChanged += CbGuardianTxtIdentify_SelectionChanged;
             txtGuardianInputIdentify.TextChanged += TxtGuardianInputIdentify_TextChanged;
+            txtGuardianInputIdentify.GotFocus += TxtGuardianInputIdentify_GotFocus;
 
             cbChildTxtReaderName.DropDownClosed += CbChildTxtReaderName_DropDownClosed;
             cbChildTxtReaderName.SelectionChanged += CbChildTxtReaderName_SelectionChanged;
             txtChildInputReaderName.TextChanged += TxtChildInputReaderName_TextChanged;
+            txtChildInputReaderName.GotFocus += TxtChildInputReaderName_GotFocus;
 
             cbTxtBookName.DropDownClosed += CbTxtBookName_DropDownClosed;
             cbTxtBookName.SelectionChanged += CbTxtBookName_SelectionChanged;
             txtInputBookName.TextChanged += TxtInputBookName_TextChanged;
+            txtInputBookName.GotFocus += TxtInputBookName_GotFocus;
 
             gdInputChildName.IsEnabledChanged += GdInputChildName_IsEnabledChanged;
             gdInputBookName.IsEnabledChanged += GdInputBookName_IsEnabledChanged;
@@ -283,7 +288,8 @@ namespace AnhQuoc_C5_Assignment
         private void frmBorrowBook_Loaded(object sender, RoutedEventArgs e)
         {
             NewItem();
-            ucLoanDetailsTable.LoanDetails = new ObservableCollection<LoanDetail>();
+            ucLoanDetailsTable.LoanDetails = new ObservableCollection<LoanDetailDto>();
+
             
             List<PropertyInfo> allProperties = Utilities.getPropsFromType(typeof(BookDto));
             List<PropertyInfo> exceptDtgProperties = Utilities.FillPropertiesByName(allProperties, Constants.exceptDtgBorrowBook);
@@ -291,6 +297,9 @@ namespace AnhQuoc_C5_Assignment
 
             LoanDetails = new ObservableCollection<LoanDetail>();
             SelectedReaderType = ReaderType.Adult;
+
+            stkAdultInformation.Visibility = Visibility.Visible;
+            stkChildInformation.Visibility = Visibility.Collapsed;
         }
 
         private void NewItem()
@@ -369,7 +378,9 @@ namespace AnhQuoc_C5_Assignment
             {
                 NewDetail();
                 LoanDetail.IdBook = bookDto.Id;
-                ucLoanDetailsTable.LoanDetails.Add(LoanDetail);
+
+
+                ucLoanDetailsTable.LoanDetails.Add(loanDetailMap.ConvertToDto(LoanDetail));
 
                 LoanDetails.Add(LoanDetail);
                 ucTemporaryBooksTable.Books.Clear();
@@ -556,6 +567,13 @@ namespace AnhQuoc_C5_Assignment
             ComboBox cmb = sender as ComboBox;
             handle = !cmb.IsDropDownOpen;
             HandleAdult(txtGuardianInputIdentify, cbGuardianTxtIdentify);
+
+            if (cbGuardianTxtIdentify.SelectedItem == null)
+                return;
+            AdultDto adultDto = cbGuardianTxtIdentify.SelectedItem as AdultDto;
+            AllChilds = childMap.ConvertToDto(adultDto.ListChild);
+            txtChildInputReaderName.Text = string.Empty;
+            cbChildTxtReaderName.ItemsSource = AllChilds;
         }
 
         private void TxtGuardianInputIdentify_TextChanged(object sender, TextChangedEventArgs e)
@@ -613,6 +631,15 @@ namespace AnhQuoc_C5_Assignment
             ComboBox cmb = sender as ComboBox;
             handle = !cmb.IsDropDownOpen;
             HandleBookName(txtInputBookName, cmb);
+
+            if (cbTxtBookName.SelectedItem == null)
+                return;
+            BookTitleDto bookTitleDto = cbTxtBookName.SelectedItem as BookTitleDto;
+
+            var bookISBNs = bookISBNVM.FillByIdBookTitle(bookTitleDto.Id, BookISBNStatusValue);
+
+            AllLanguages = bookISBNVM.FillLanguages(bookISBNs, BookISBNStatusValue);
+            cbSelectLanguage.ItemsSource = AllLanguages;
         }
 
         private void TxtInputBookName_TextChanged(object sender, TextChangedEventArgs e)
@@ -669,11 +696,6 @@ namespace AnhQuoc_C5_Assignment
             if (!grid.IsEnabled)
                 return;
             handle = true;
-            if (cbGuardianTxtIdentify.SelectedItem == null)
-                return;
-            AdultDto adultDto = cbGuardianTxtIdentify.SelectedItem as AdultDto;
-            AllChilds = childMap.ConvertToDto(adultDto.ListChild);
-            cbChildTxtReaderName.ItemsSource = AllChilds;
         }
 
         private void GdInputBookName_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -688,6 +710,41 @@ namespace AnhQuoc_C5_Assignment
         }
         #endregion
 
+        #region GetFocus
+        private void TextBoxFocusChanged(object sender, ComboBox comboBox)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.IsFocused)
+            {
+                comboBox.Focus();
+                comboBox.IsDropDownOpen = true;
+            }
+            else
+            {
+                comboBox.IsDropDownOpen = false;
+            }
+        }
+
+        private void TxtChildInputReaderName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBoxFocusChanged(sender, cbChildTxtReaderName);
+        }
+
+        private void TxtGuardianInputIdentify_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBoxFocusChanged(sender, cbGuardianTxtIdentify);
+        }
+
+        private void TxtAdultInputIdentify_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBoxFocusChanged(sender, cbAdultTxtIdentify);
+        }
+
+        private void TxtInputBookName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBoxFocusChanged(sender, cbTxtBookName);
+        }
+        #endregion
 
         private void BdInputBookInformation_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -704,14 +761,6 @@ namespace AnhQuoc_C5_Assignment
             ComboBox cmb = (sender as ComboBox);
             if (!cmb.IsEnabled)
                 return;
-            if (cbTxtBookName.SelectedItem == null)
-                return;
-            BookTitleDto bookTitleDto = cbTxtBookName.SelectedItem as BookTitleDto;
-
-            var bookISBNs = bookISBNVM.FillByIdBookTitle(bookTitleDto.Id, BookISBNStatusValue);
-
-            AllLanguages = bookISBNVM.FillLanguages(bookISBNs, BookISBNStatusValue);
-            cmb.ItemsSource = AllLanguages;
         }
 
         private void CbSelectLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -733,7 +782,7 @@ namespace AnhQuoc_C5_Assignment
                 Utilities.ShowMessageBox1("This ISBN doesn't have book already. So your loanSlip will be pass to enroll data");
                 PassToEnrollData(null);
 
-                this.Close();
+                BtnCancel_Click(null, null);
                 return;
             }
             else if (!isbn.Status)
@@ -743,7 +792,7 @@ namespace AnhQuoc_C5_Assignment
                 
                 PassToEnrollData(FindTheLastestBook(books).Id);
 
-                this.Close();
+                BtnCancel_Click(null, null);
                 return;
             }
             else

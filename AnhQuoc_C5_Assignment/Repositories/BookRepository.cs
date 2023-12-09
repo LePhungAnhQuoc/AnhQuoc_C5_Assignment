@@ -18,24 +18,7 @@ namespace AnhQuoc_C5_Assignment
         public BookRepository(ObservableCollection<Book> items): base(items)
         {
         }
-
-        public override void LoadList()
-        {
-            _Items = dbSource.Books.ToObservableCollection();
-        }
-
-        public override void WriteAdd(Book item)
-        {
-            dbSource.Books.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(Book item)
-        {
-            dbSource.Books.Remove(item);
-            dbSource.SaveChanges();
-        }
-
+        
         public override void WriteUpdate(Book updated)
         {
             var BookViewModel = UnitOfViewModel.Instance.BookViewModel;

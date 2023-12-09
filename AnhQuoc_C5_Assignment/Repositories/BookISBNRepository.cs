@@ -17,24 +17,7 @@ namespace AnhQuoc_C5_Assignment
         public BookISBNRepository(ObservableCollection<BookISBN> items) : base(items)
         {
         }
-
-        public override void LoadList()
-        {
-            _Items = dbSource.BookISBNs.ToObservableCollection();
-        }
-
-        public override void WriteAdd(BookISBN item)
-        {
-            dbSource.BookISBNs.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(BookISBN item)
-        {
-            dbSource.BookISBNs.Remove(item);
-            dbSource.SaveChanges();
-        }
-
+        
         public override void WriteUpdate(BookISBN updated)
         {
             var bookISBNViewModel = UnitOfViewModel.Instance.BookISBNViewModel;

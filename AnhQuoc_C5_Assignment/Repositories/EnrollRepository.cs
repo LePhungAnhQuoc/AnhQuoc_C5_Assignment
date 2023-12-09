@@ -17,24 +17,7 @@ namespace AnhQuoc_C5_Assignment
         public EnrollRepository(ObservableCollection<Enroll> items) : base(items)
         {
         }
-
-        public override void LoadList()
-        {
-            _Items = dbSource.Enrolls.ToObservableCollection();
-        }
-
-        public override void WriteAdd(Enroll item)
-        {
-            dbSource.Enrolls.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(Enroll item)
-        {
-            dbSource.Enrolls.Remove(item);
-            dbSource.SaveChanges();
-        }
-
+        
         public override void WriteUpdate(Enroll updated)
         {
             var enrollViewModel = UnitOfViewModel.Instance.EnrollViewModel;

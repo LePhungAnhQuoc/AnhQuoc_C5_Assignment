@@ -59,6 +59,7 @@ namespace AnhQuoc_C5_Assignment
         private ucBookISBNManagement ucBookISBNManagement;
         private ucBookManagement ucBookManagement;
         private ucBookTitleManagement ucBookTitleManagement;
+        private ucLoanSlipManagement ucLoanSlipManagement;
         #endregion
 
         #region ViewModels
@@ -83,7 +84,10 @@ namespace AnhQuoc_C5_Assignment
             ucBookISBNManagement = MainWindow.UnitOfForm.UcBookISBNManagement(true);
             ucBookManagement = MainWindow.UnitOfForm.UcBookManagement(true);
             ucBookTitleManagement = MainWindow.UnitOfForm.UcBookTitleManagement(true);
-            
+            ucLoanSlipManagement = MainWindow.UnitOfForm.UcLoanSlipManagement(true);
+
+
+
             ucLogOut.btnLogOut.Click += BtnLogOut_Click;
             this.Loaded += UcLibrarianDashBoard_Loaded;
         }
@@ -100,7 +104,7 @@ namespace AnhQuoc_C5_Assignment
             Role role = roleVM.FindById(userRole.IdRole);
             lblAccount.Content = role.Name;
 
-            Utilities.GetTreeView(treeViewInDashBoard, getFunctions(), TvFunction_MouseLeftButtonUp);
+            Utilities.GetDashBoardTreeView(treeViewInDashBoard, getFunctions(), TvFunction_MouseLeftButtonUp);
 
             ObservableCollection<Function> parents = functionVM.FillParent(getFunctions(), statusParentFunction);
 
@@ -309,15 +313,18 @@ namespace AnhQuoc_C5_Assignment
                         {
                             ucBookManagement.IsAllowSearchByName = false;
                         }
-
-                        var borrowBookFunc = childs.FirstOrDefault(item => item.Id == "F41");
-                        if (borrowBookFunc == null)
-                        {
-                            ucBookManagement.IsAllowSearchByName = false;
-                        }
                         break;
                     #endregion
 
+                    #region LoanSlip-Management
+                    case Constants.LoanSlipManagement_FunctionId:
+                        var addLoanSlipFunc = childs.FirstOrDefault(item => item.Id == "F42");
+                        if (addLoanSlipFunc == null)
+                        {
+                            ucLoanSlipManagement.IsAllowAdd = false;
+                        }
+                        break;
+                    #endregion
                 }
             }
         }
@@ -347,6 +354,9 @@ namespace AnhQuoc_C5_Assignment
                     break;
                 case Constants.BookManagement_FunctionId:
                     TvBookManagement_Function();
+                    break;
+                case Constants.LoanSlipManagement_FunctionId:
+                    TvLoanSlipManagement_Function();
                     break;
             }
         }
@@ -423,6 +433,15 @@ namespace AnhQuoc_C5_Assignment
             gdView.Children.Clear();
             gdView.Children.Add(ucBookTitleManagement);
         }
+
+        private void TvLoanSlipManagement_Function()
+        {
+            Grid gdView = getGdView();
+
+            gdView.Children.Clear();
+            gdView.Children.Add(ucLoanSlipManagement);
+        }
+
         #endregion
 
         private void BtnLogOut_Click(object sender, RoutedEventArgs e)

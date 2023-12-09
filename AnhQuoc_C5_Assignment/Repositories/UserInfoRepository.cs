@@ -18,24 +18,7 @@ namespace AnhQuoc_C5_Assignment
         public UserInfoRepository(ObservableCollection<UserInfo> items): base(items)
         {
         }
-
-        public override void LoadList()
-        {
-            _Items = dbSource.UserInfoes.ToObservableCollection();
-        }
-
-        public override void WriteAdd(UserInfo item)
-        {
-            dbSource.UserInfoes.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(UserInfo item)
-        {
-            dbSource.UserInfoes.Remove(item);
-            dbSource.SaveChanges();
-        }
-
+        
         public override void WriteUpdate(UserInfo updated)
         {
             var UserInfoViewModel = UnitOfViewModel.Instance.UserInfoViewModel;

@@ -17,24 +17,7 @@ namespace AnhQuoc_C5_Assignment
         public BookTitleRepository(ObservableCollection<BookTitle> items) : base(items)
         {
         }
-
-        public override void LoadList()
-        {
-            _Items = dbSource.BookTitles.ToObservableCollection();
-        }
-
-        public override void WriteAdd(BookTitle item)
-        {
-            dbSource.BookTitles.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(BookTitle item)
-        {
-            dbSource.BookTitles.Remove(item);
-            dbSource.SaveChanges();
-        }
-
+        
         public override void WriteUpdate(BookTitle updated)
         {
             var BookTitleViewModel = UnitOfViewModel.Instance.BookTitleViewModel;

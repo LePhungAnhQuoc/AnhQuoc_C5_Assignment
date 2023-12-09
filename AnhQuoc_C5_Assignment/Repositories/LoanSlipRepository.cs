@@ -16,24 +16,7 @@ namespace AnhQuoc_C5_Assignment
         {
         }
 
-        public override void LoadList()
-        {
-            _Items = dbSource.LoanSlips.ToObservableCollection();
-        }
-
-        public override void WriteAdd(LoanSlip item)
-        {
-            dbSource.LoanSlips.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(LoanSlip item)
-        {
-            dbSource.LoanSlips.Remove(item);
-
-            dbSource.SaveChanges();
-        }
-
+       
         public override void WriteUpdate(LoanSlip updated)
         {
             var LoanSlipViewModel = UnitOfViewModel.Instance.LoanSlipViewModel;

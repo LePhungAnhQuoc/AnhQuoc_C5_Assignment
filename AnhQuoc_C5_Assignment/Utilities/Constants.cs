@@ -53,7 +53,7 @@ namespace AnhQuoc_C5_Assignment
         public const string BookTitleManagement_FunctionId = "F29";
         public const string BookISBNManagement_FunctionId = "F32";
         public const string BookManagement_FunctionId = "F36";
-        public const string BorrowBook_FunctionId = "F41";
+        public const string LoanSlipManagement_FunctionId = "F41";
 
         public static string Culture = "vi-VN";
         public static string DatabaseNameConfig = "QuanLyThuVienEntities";

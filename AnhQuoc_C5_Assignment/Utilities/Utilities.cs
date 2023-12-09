@@ -4,6 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Core;
+using System.Data.Entity.Core.Objects.DataClasses;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -805,6 +808,38 @@ namespace AnhQuoc_C5_Assignment
 
         #endregion
 
+        #region DashBoard
+        public static void GetDashBoardTreeView(TreeView treeView, ObservableCollection<Function> lst, MouseButtonEventHandler implementMethod)
+        {
+            foreach (Function function in lst)
+            {
+                TreeViewItem newTreeView = new TreeViewItem();
+                newTreeView.Name = function.Id;
+                newTreeView.Header = function.Name;
+                newTreeView.Tag = function.UrlImage;
+
+                if (IsCheckEmptyString(function.IdParent))
+                {
+                    newTreeView.MouseLeftButtonUp += implementMethod;
+                    treeView.Items.Add(newTreeView);
+                    continue;
+                }
+                else
+                {
+                    continue;
+                    if (function.IdParent == Constants.LoanSlipManagement_FunctionId)
+                    {
+                        TreeViewItem findedItem = Utilities.FindTreeViewItemByName(treeView.Items, function.IdParent);
+
+                        newTreeView.MouseLeftButtonUp += implementMethod;
+                        findedItem.Items.Add(newTreeView);
+                    }
+                }
+            }
+        }
+
+        #endregion
+
         #region OtherMethods
         public static Brush GetColorFromCode(string colorCode)
         {
@@ -946,33 +981,7 @@ namespace AnhQuoc_C5_Assignment
             }
             return null;
         }
-
-        public static void GetTreeView(TreeView treeView, ObservableCollection<Function> lst, MouseButtonEventHandler implementMethod)
-        {
-            foreach (Function function in lst)
-            {
-                TreeViewItem newTreeView = new TreeViewItem();
-                newTreeView.Name = function.Id;
-                newTreeView.Header = function.Name;
-                newTreeView.Tag = function.UrlImage;
-
-                if (IsCheckEmptyString(function.IdParent))
-                {
-                    newTreeView.MouseLeftButtonUp += implementMethod;
-                    treeView.Items.Add(newTreeView);
-                    continue;
-                }
-                else
-                {
-                    continue;
-                    TreeViewItem findedItem = Utilities.FindTreeViewItemByName(treeView.Items, function.IdParent);
-
-                    newTreeView.MouseLeftButtonUp += implementMethod;
-                    findedItem.Items.Add(newTreeView);
-                }
-            }
-        }
-        
+    
         public static int ExtractNumberFromAString(string str)
         {
             string temp = string.Empty;
@@ -997,7 +1006,45 @@ namespace AnhQuoc_C5_Assignment
         }
         #endregion
 
+        #region QuanLyThuVien-Entities
+        public static PropertyInfo GetTablePropertyFromDatabase<T>(QuanLyThuVienEntities dbSource)
+        {
+            foreach (PropertyInfo tableProperty in Utilities.getPropsFromType(dbSource))
+            {
+                IEnumerable value = null;
+                try
+                {
+                    value = (IEnumerable)Utilities.getValueFromProperty(tableProperty, dbSource);
+                }
+                catch
+                {
+                    continue;
+                }
+                Type itemDataType = Utilities.GetItemDataTypeInGenericList(value);
+                if (itemDataType == typeof(T))
+                {
+                    return tableProperty;
+                }              
+            }
+            return null;
+        }
+        #endregion
+
         #region Property-Uti
+        public static Type GetGenericDataType(Type type)
+        {
+            return type.GetGenericTypeDefinition();
+        }
+
+        public static Type GetItemDataTypeInGenericList(IEnumerable list)
+        {
+            Type type = list.GetType();
+            Type itemType = type.GetGenericArguments().Single();
+            return itemType;
+        }
+
+        public static Type GetLeftDataTypeOfVariable<T>(T x) => typeof(T);
+
 
         public static List<PropertyInfo> getPropsFromType(Type type)
         {

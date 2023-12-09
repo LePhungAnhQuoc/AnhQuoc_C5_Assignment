@@ -18,24 +18,7 @@ namespace AnhQuoc_C5_Assignment
         public CategoryRepository(ObservableCollection<Category> items) : base(items)
         {
         }
-
-        public override void LoadList()
-        {
-            _Items = dbSource.Categories.ToObservableCollection();
-        }
-
-        public override void WriteAdd(Category item)
-        {
-            dbSource.Categories.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(Category item)
-        {
-            dbSource.Categories.Remove(item);
-            dbSource.SaveChanges();
-        }
-
+        
         public override void WriteUpdate(Category updated)
         {
             var CategoryViewModel = UnitOfViewModel.Instance.CategoryViewModel;

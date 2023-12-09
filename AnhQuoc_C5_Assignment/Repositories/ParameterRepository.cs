@@ -17,24 +17,7 @@ namespace AnhQuoc_C5_Assignment
         public ParameterRepository(ObservableCollection<Parameter> items) : base(items)
         {
         }
-
-        public override void LoadList()
-        {
-            _Items = dbSource.Parameters.ToObservableCollection();
-        }
-
-        public override void WriteAdd(Parameter item)
-        {
-            dbSource.Parameters.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(Parameter item)
-        {
-            dbSource.Parameters.Remove(item);
-            dbSource.SaveChanges();
-        }
-
+        
         public override void WriteUpdate(Parameter updated)
         {
             var ParameterViewModel = UnitOfViewModel.Instance.ParameterViewModel;

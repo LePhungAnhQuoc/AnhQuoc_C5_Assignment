@@ -14,28 +14,11 @@ namespace AnhQuoc_C5_Assignment
         public AdultRepository() : base()
         {
         }
+
         public AdultRepository(ObservableCollection<Adult> items) : base(items)
         {
         }
-
-        public override void LoadList()
-        {
-            _Items = dbSource.Adults.ToObservableCollection();
-        }
-
-        public override void WriteAdd(Adult item)
-        {
-            dbSource.Adults.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(Adult item)
-        {
-            dbSource.Adults.Remove(item);
-
-            dbSource.SaveChanges();
-        }
-
+        
         public override void WriteUpdate(Adult updated)
         {
             var adultViewModel = UnitOfViewModel.Instance.AdultViewModel;

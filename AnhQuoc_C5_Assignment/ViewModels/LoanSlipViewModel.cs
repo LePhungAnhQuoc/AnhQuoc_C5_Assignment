@@ -23,6 +23,31 @@ namespace AnhQuoc_C5_Assignment
             return base.GetId(index);
         }
 
+        public LoanSlip FindById(string id)
+        {
+            foreach (LoanSlip item in Repo)
+            {
+                if (string.Compare(item.Id, id, true) == 0)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        public LoanSlipDto FindById(ObservableCollection<LoanSlipDto> source, string id)
+        {
+            foreach (LoanSlipDto item in source)
+            {
+                if (string.Compare(item.Id, id, true) == 0)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+
         public ObservableCollection<LoanSlip> FillByIdReader(string idReader, bool ignoreCase = false)
         {
             return FillByIdReader(Repo.Gets(), idReader, ignoreCase);

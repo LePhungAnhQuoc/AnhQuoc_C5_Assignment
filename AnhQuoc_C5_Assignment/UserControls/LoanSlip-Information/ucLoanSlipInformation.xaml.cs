@@ -1,0 +1,64 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace AnhQuoc_C5_Assignment
+{
+    /// <summary>
+    /// Interaction logic for ucLoanSlipInformation.xaml
+    /// </summary>
+    public partial class ucLoanSlipInformation : UserControl, INotifyPropertyChanged
+    {
+        public Func<Reader> getItem { get; set; }
+
+        private Reader _Item;
+        public Reader Item
+        {
+            get
+            {
+                return _Item;
+            }
+            set
+            {
+                _Item = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #region PropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        // Create the OnPropertyChanged method to raise the event
+        // The calling member's name will be used as the parameter.
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        #endregion
+
+
+        public ucLoanSlipInformation()
+        {
+            InitializeComponent();
+            this.DataContext = this;
+            Loaded += ucLoanSlipInformation_Loaded;
+        }
+        
+        private void ucLoanSlipInformation_Loaded(object sender, RoutedEventArgs e)
+        {
+            Item = getItem();
+        }
+    }
+}

@@ -18,24 +18,7 @@ namespace AnhQuoc_C5_Assignment
         public RoleRepository(ObservableCollection<Role> items) : base(items)
         {
         }
-
-        public override void LoadList()
-        {
-            _Items = dbSource.Roles.ToObservableCollection();
-        }
-
-        public override void WriteAdd(Role item)
-        {
-            dbSource.Roles.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(Role item)
-        {
-            dbSource.Roles.Remove(item);
-            dbSource.SaveChanges();
-        }
-
+        
         public override void WriteUpdate(Role updated)
         {
             var RoleViewModel = UnitOfViewModel.Instance.RoleViewModel;

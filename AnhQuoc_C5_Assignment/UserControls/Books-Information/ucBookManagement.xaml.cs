@@ -127,21 +127,7 @@ namespace AnhQuoc_C5_Assignment
         // Using a DependencyProperty as the backing store for IsAllowSearchByName.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsAllowSearchByNameProperty =
             DependencyProperty.Register("IsAllowSearchByName", typeof(bool), typeof(ucBookManagement), new PropertyMetadata(true));
-
-
-
-        public bool IsAllowBorrowBook
-        {
-            get { return (bool)GetValue(IsAllowBorrowBookProperty); }
-            set { SetValue(IsAllowBorrowBookProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for IsAllowBorrowBook.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty IsAllowBorrowBookProperty =
-            DependencyProperty.Register("IsAllowBorrowBook", typeof(bool), typeof(ucBookManagement), new PropertyMetadata(true));
-
-
-
+        
         #endregion
 
         #endregion
@@ -192,7 +178,6 @@ namespace AnhQuoc_C5_Assignment
             btnAdd.Visibility = (IsAllowAdd) ? Visibility.Visible : Visibility.Collapsed;
             gdCbBookISBNs.Visibility = (IsAllowSearchByBookISBN) ? Visibility.Visible : Visibility.Collapsed;
             gdTxtSearchByName.Visibility = (IsAllowSearchByName) ? Visibility.Visible : Visibility.Collapsed;
-            bdBorrowBook.Visibility = (IsAllowBorrowBook) ? Visibility.Visible : Visibility.Collapsed;
             #endregion
         }
 
@@ -376,11 +361,5 @@ namespace AnhQuoc_C5_Assignment
             btnClearComboBox.Visibility = Visibility.Hidden;
         }
         #endregion
-
-        private void btnBorrowBook_Click(object sender, RoutedEventArgs e)
-        {
-            frmBorrowBook frmBorrowBook = MainWindow.UnitOfForm.FrmBorrowBook(true);
-            frmBorrowBook.ShowDialog();
-        }
     }
 }

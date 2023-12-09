@@ -73,7 +73,7 @@
                                     
                                     <!-- Adult -->
                                     <StackPanel Name="stkAdultInformation"
-                                                Visibility="Collapsed">
+                                                Visibility="Visible">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="100" />
@@ -99,11 +99,23 @@
                                                 </TextBox>
                                             </Grid>
                                         </Grid>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Content="Name: " />
+                                            <TextBox Name="txtAdultName"
+                                                     Grid.Column="1"
+                                                     Text="{Binding SelectedReader.FullName, Mode=OneWay}"
+                                                     IsReadOnly="True">
+                                            </TextBox>
+                                        </Grid>
                                     </StackPanel>
 
                                     <!-- Child -->
                                     <StackPanel Name="stkChildInformation"
-                                                Visibility="Visible">
+                                                Visibility="Collapsed">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="100" />

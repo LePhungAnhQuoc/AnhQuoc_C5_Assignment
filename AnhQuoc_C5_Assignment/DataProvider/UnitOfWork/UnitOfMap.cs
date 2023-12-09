@@ -52,6 +52,28 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private LoanSlipMap _LoanSlipMap;
+        public LoanSlipMap LoanSlipMap
+        {
+            get
+            {
+                if (_LoanSlipMap == null)
+                    _LoanSlipMap = new LoanSlipMap();
+                return _LoanSlipMap;
+            }
+        }
+
+        private LoanDetailMap _LoanDetailMap;
+        public LoanDetailMap LoanDetailMap
+        {
+            get
+            {
+                if (_LoanDetailMap == null)
+                    _LoanDetailMap = new LoanDetailMap();
+                return _LoanDetailMap;
+            }
+        }
+
         private BookMap _BookMap;
         public BookMap BookMap
         {
@@ -180,6 +202,8 @@ namespace AnhQuoc_C5_Assignment
         public void Load()
         {
             _BookISBNMap = new BookISBNMap();
+            _LoanSlipMap = new LoanSlipMap();
+            _LoanDetailMap = new LoanDetailMap();
             _BookTitleMap = new BookTitleMap();
             _BookMap = new BookMap();        
             _ProvinceMap = new ProvinceMap();

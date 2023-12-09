@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -68,9 +69,6 @@ namespace AnhQuoc_C5_Assignment
             _Items.Remove(item);
         }
 
-
-        public abstract void LoadList();
-
         public virtual void WriteAddRange(ObservableCollection<T> items)
         {
             foreach (T item in items)
@@ -78,15 +76,38 @@ namespace AnhQuoc_C5_Assignment
                 WriteAdd(item);
             }
         }
-        public virtual void WriteUpdateStatus(T item, bool status) { }
 
-        public abstract void WriteAdd(T item);
+        public virtual void LoadList()
+        {
+            PropertyInfo tableProperty = Utilities.GetTablePropertyFromDatabase<T>(dbSource);
+            var getValue = (System.Data.Entity.DbSet<T>) Utilities.getValueFromProperty(tableProperty, dbSource);
+            
+            _Items = getValue.ToObservableCollection();
+        }
 
+        public virtual void WriteAdd(T item)
+        {
+            PropertyInfo tableProperty = Utilities.GetTablePropertyFromDatabase<T>(dbSource);
+            var getValue = (System.Data.Entity.DbSet<T>)Utilities.getValueFromProperty(tableProperty, dbSource);
+            getValue.Add(item);
 
-        public abstract void WriteDelete(T item);
+            dbSource.SaveChanges();
+        }
+        
+        public virtual void WriteDelete(T item)
+        {
+            PropertyInfo tableProperty = Utilities.GetTablePropertyFromDatabase<T>(dbSource);
+            var getValue = (System.Data.Entity.DbSet<T>)Utilities.getValueFromProperty(tableProperty, dbSource);
+
+            getValue.Remove(item);
+            dbSource.SaveChanges();
+        }
 
         public abstract void WriteUpdate(T updated);
-   
+
+        public virtual void WriteUpdateStatus(T item, bool status) { }
+
+
         public IEnumerator GetEnumerator()
         {
             foreach (T item in _Items)

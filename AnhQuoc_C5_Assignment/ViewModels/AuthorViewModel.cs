@@ -24,14 +24,13 @@ namespace AnhQuoc_C5_Assignment
 
         public Author FindById(string idValue)
         {
-            foreach (Author author in Repo)
-            {
-                if (author.Id == idValue)
-                {
-                    return author;
-                }
-            }
-            return null;
+            return FindById(Repo.Gets(), idValue);
+        }
+
+        public Author FindById(ObservableCollection<Author> source, string idValue)
+        {
+            return source.FirstOrDefault(item => item.Id == idValue);
+
         }
     }
 }

@@ -22,6 +22,7 @@ namespace AnhQuoc_C5_Assignment
             ObservableCollection<T> result = new ObservableCollection<T>(source);
             return result;
         }
+        
 
         public static ObservableCollection<object> ToObservableCollectionObj<T>(this IEnumerable<T> source)
         {

@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="AnhQuoc_C5_Assignment.ucLoanSlipInformation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+             mc:Ignorable="d" 
+             d:DesignHeight="380" d:DesignWidth="415">
+    <UserControl.Resources>
+    </UserControl.Resources>
+    <StackPanel>
+        <!-- Title -->
+        <Label Style="{StaticResource lblTitle}"
+               Content="Loan Information" />
+
+        <!-- Body -->
+        <StackPanel Margin="20 0">
+            <StackPanel.Resources>
+                <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}" />
+                <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}" />
+            </StackPanel.Resources>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Id: " />
+                <TextBlock Grid.Column="1"
+                           Text="{Binding Item.Id}" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Loan Date: " />
+                <TextBlock Grid.Column="1"
+                           Text="{Binding Item.LoanDate}" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Expire Date: " />
+                <TextBlock Grid.Column="1"
+                           Text="{Binding Item.ExpDate}" />
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

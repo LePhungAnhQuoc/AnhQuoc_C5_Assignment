@@ -18,24 +18,7 @@ namespace AnhQuoc_C5_Assignment
         public ChildRepository(ObservableCollection<Child> items) : base(items)
         {
         }
-
-        public override void LoadList()
-        {
-            _Items = dbSource.Children.ToObservableCollection();
-        }
-
-        public override void WriteAdd(Child item)
-        {
-            dbSource.Children.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(Child item)
-        {
-            dbSource.Children.Remove(item);
-            dbSource.SaveChanges();
-        }
-
+        
         public override void WriteUpdate(Child updated)
         {
             var ChildViewModel = UnitOfViewModel.Instance.ChildViewModel;

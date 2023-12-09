@@ -18,24 +18,7 @@ namespace AnhQuoc_C5_Assignment
         {
         }
 
-        public override void LoadList()
-        {
-            _Items = dbSource.Publishers.ToObservableCollection();
-        }
-
-        public override void WriteAdd(Publisher item)
-        {
-            dbSource.Publishers.Add(item);
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteDelete(Publisher item)
-        {
-            dbSource.Publishers.Remove(item);
-
-            dbSource.SaveChanges();
-        }
-
+       
         public override void WriteUpdate(Publisher updated)
         {
             var PublisherViewModel = UnitOfViewModel.Instance.PublisherViewModel;

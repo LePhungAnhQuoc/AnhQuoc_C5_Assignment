@@ -283,6 +283,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Load()
         {
+            _AdultRepo = new AdultRepository();
+            _AdultRepo.LoadList();
+          
+            _AuthorRepo = new AuthorRepository();
+            _AuthorRepo.LoadList();
+
             _LoanDetailRepo = new LoanDetailRepository();
             _LoanDetailRepo.LoadList();
 
@@ -291,12 +297,6 @@ namespace AnhQuoc_C5_Assignment
 
             _LoanSlipRepo = new LoanSlipRepository();
             _LoanSlipRepo.LoadList();
-
-            _AuthorRepo = new AuthorRepository();
-            _AuthorRepo.LoadList();
-
-            _AdultRepo = new AdultRepository();
-            _AdultRepo.LoadList();
 
             _ReaderRepo = new ReaderRepository();
             _ReaderRepo.LoadList();
@@ -342,7 +342,6 @@ namespace AnhQuoc_C5_Assignment
 
             _EnrollRepo = new EnrollRepository();
             _EnrollRepo.LoadList();
-
         }
     }
 }
