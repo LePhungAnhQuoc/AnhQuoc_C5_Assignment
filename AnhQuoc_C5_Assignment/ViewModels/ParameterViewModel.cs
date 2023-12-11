@@ -15,6 +15,7 @@ namespace AnhQuoc_C5_Assignment
             Item = new Parameter();
             Repo = new ParameterRepository();
             prefix = Constants.prefixParameter;
+            numberPrefix = 1;
         }
 
         public string GetId()

@@ -15,6 +15,7 @@ namespace AnhQuoc_C5_Assignment
             prefix = Constants.prefixServerName;
             Item = new ServerName(string.Empty);
             Repo = new ServerNameRepository();
+            numberPrefix = 1;
         }
 
         public string GetId()

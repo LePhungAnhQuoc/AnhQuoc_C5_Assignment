@@ -18,14 +18,5 @@ namespace AnhQuoc_C5_Assignment
         {
         }
         
-        public override void WriteUpdate(BookTitle updated)
-        {
-            var BookTitleViewModel = UnitOfViewModel.Instance.BookTitleViewModel;
-
-            BookTitle itemSource = dbSource.BookTitles.FirstOrDefault(sourceItem => sourceItem.Id == updated.Id);
-            BookTitleViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-    }
+   }
 }

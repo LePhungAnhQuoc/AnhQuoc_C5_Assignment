@@ -15,8 +15,9 @@ namespace AnhQuoc_C5_Assignment
             Item = new Child();
             Repo = new ChildRepository();
             prefix = string.Empty;
+            numberPrefix = 0;
         }
-        
+
         public Child FindByIdReader(string idReader, bool? statusValue)
         {
             var source = Repo.Gets();

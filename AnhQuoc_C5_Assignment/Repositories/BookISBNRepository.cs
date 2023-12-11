@@ -18,21 +18,5 @@ namespace AnhQuoc_C5_Assignment
         {
         }
         
-        public override void WriteUpdate(BookISBN updated)
-        {
-            var bookISBNViewModel = UnitOfViewModel.Instance.BookISBNViewModel;
-
-            BookISBN itemSource = dbSource.BookISBNs.FirstOrDefault(sourceItem => sourceItem.ISBN == updated.ISBN);
-            bookISBNViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteUpdateStatus(BookISBN item, bool status)
-        {
-            BookISBN itemSource = dbSource.BookISBNs.FirstOrDefault(sourceItem => sourceItem.ISBN == item.ISBN);
-            itemSource.Status = status;
-            dbSource.SaveChanges();
-        }
-    }
+     }
 }

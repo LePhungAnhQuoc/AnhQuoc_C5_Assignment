@@ -19,14 +19,5 @@ namespace AnhQuoc_C5_Assignment
         {
         }
         
-        public override void WriteUpdate(UserInfo updated)
-        {
-            var UserInfoViewModel = UnitOfViewModel.Instance.UserInfoViewModel;
-
-            UserInfo itemSource = dbSource.UserInfoes.FirstOrDefault(sourceItem => sourceItem.IdUser == updated.IdUser);
-            UserInfoViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-    }
+     }
 }

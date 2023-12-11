@@ -19,14 +19,5 @@ namespace AnhQuoc_C5_Assignment
         }
 
        
-        public override void WriteUpdate(Publisher updated)
-        {
-            var PublisherViewModel = UnitOfViewModel.Instance.PublisherViewModel;
-
-            Publisher itemSource = dbSource.Publishers.FirstOrDefault(sourceItem => sourceItem.Id == updated.Id);
-            PublisherViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
     }
 }

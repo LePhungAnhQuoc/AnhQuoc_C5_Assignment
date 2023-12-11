@@ -19,11 +19,5 @@ namespace AnhQuoc_C5_Assignment
         {
         }
         
-        public override void WriteUpdateStatus(User item, bool status)
-        {
-            User itemSource = dbSource.Users.FirstOrDefault(sourceItem => sourceItem.Id == item.Id);
-            itemSource.Status = status;
-            dbSource.SaveChanges();
-        }
     }
 }

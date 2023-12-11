@@ -14,6 +14,7 @@ namespace AnhQuoc_C5_Assignment
             Item = new LoanDetail();
             Repo = new LoanDetailRepository();
             prefix = Constants.prefixLoanDetail;
+            numberPrefix = 2;
         }
 
 

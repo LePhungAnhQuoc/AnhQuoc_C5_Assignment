@@ -19,21 +19,5 @@ namespace AnhQuoc_C5_Assignment
         {
         }
         
-        public override void WriteUpdate(Role updated)
-        {
-            var RoleViewModel = UnitOfViewModel.Instance.RoleViewModel;
-
-            Role itemSource = dbSource.Roles.FirstOrDefault(sourceItem => sourceItem.Id == updated.Id);
-            RoleViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteUpdateStatus(Role item, bool status)
-        {
-            Role itemSource = dbSource.Roles.FirstOrDefault(sourceItem => sourceItem.Id == item.Id);
-            itemSource.Status = status;
-            dbSource.SaveChanges();
-        }
-    }
+      }
 }

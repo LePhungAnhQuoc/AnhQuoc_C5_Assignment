@@ -156,15 +156,15 @@ namespace AnhQuoc_C5_Assignment
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            frmBorrowBook frmBorrowBook = MainWindow.UnitOfForm.FrmBorrowBook(true);
-            frmBorrowBook.ShowDialog();
+            frmAddLoan frmAddLoan = MainWindow.UnitOfForm.FrmAddLoan(true);
+            frmAddLoan.ShowDialog();
          
-            if (frmBorrowBook.LoanSlipDto == null) // Cancel the operation
+            if (frmAddLoan.LoanSlipDto == null) // Cancel the operation
             {
                 return;
             }
 
-            LoanSlip newLoanSlip = frmBorrowBook.LoanSlip;
+            LoanSlip newLoanSlip = frmAddLoan.LoanSlip;
             
             #region AddTo-listFill
             listFillLoanSlips.Add(newLoanSlip);

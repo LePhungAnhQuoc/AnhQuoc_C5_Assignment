@@ -16,6 +16,7 @@ namespace AnhQuoc_C5_Assignment
             Item = new Publisher();
             Repo = new PublisherRepository();
             prefix = Constants.prefixPublisher;
+            numberPrefix = 2;
         }
 
         public string GetId()

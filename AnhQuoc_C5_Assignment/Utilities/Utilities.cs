@@ -638,6 +638,17 @@ namespace AnhQuoc_C5_Assignment
             return null;
         }
 
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj == null) yield return (T)Enumerable.Empty<T>();
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+            {
+                DependencyObject ithChild = VisualTreeHelper.GetChild(depObj, i);
+                if (ithChild == null) continue;
+                if (ithChild is T) yield return ithChild as T;
+                foreach (T childOfChild in FindVisualChildren<T>(ithChild)) yield return childOfChild;
+            }
+        }
 
         public static void GetLogicalChildCollection<T>(DependencyObject parent, List<T> logicalCollection) where T : DependencyObject
         {
@@ -656,17 +667,27 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        public static FrameworkElementFactory FindComboBoxItemByName(ItemCollection lst, string name)
         {
-            if (depObj == null) yield return (T)Enumerable.Empty<T>();
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+            foreach (var item in lst)
             {
-                DependencyObject ithChild = VisualTreeHelper.GetChild(depObj, i);
-                if (ithChild == null) continue;
-                if (ithChild is T) yield return ithChild as T;
-            foreach (T childOfChild in FindVisualChildren<T>(ithChild)) yield return childOfChild;
+                TreeViewItem itemTreeView = item as TreeViewItem;
+                if (string.Compare(itemTreeView.Name, name, false) == 0)
+                {
+                    var dataTemplate = itemTreeView.HeaderTemplate;
+
+                    FrameworkElementFactory gdHeader = dataTemplate.VisualTree as FrameworkElementFactory;
+                    var child = gdHeader.FirstChild;
+                    for (int i = 0; i < 2; i++)
+                    {
+                        child = child.NextSibling;
+                    }
+                    var comboBox = child;
+                    return comboBox;
+                }
+            }
+            return null;
         }
-    }
 
         #endregion
 
@@ -690,9 +711,10 @@ namespace AnhQuoc_C5_Assignment
         {
             return source.FirstOrDefault(item => item.Equals(findItem));
         }
-
-        public static bool Copy<T>(T item1, T item2, params string[] checkProperties)
+        
+        public static void Copy(object item1, object item2, params string[] checkProperties)
         {
+            const string propSelector = "Name";
             bool isAllProperties = false;
             if (checkProperties.Length == 0)
             {
@@ -701,6 +723,11 @@ namespace AnhQuoc_C5_Assignment
 
             var item1_props = getPropsFromType(item1);
             var item2_props = getPropsFromType(item2);
+
+            var propsString = Utilities.InnerJoin(item1_props, item2_props, propSelector).ToList();
+            item1_props = FillPropertiesByName(item1_props, propsString.ToArray());
+            item2_props = FillPropertiesByName(item2_props, propsString.ToArray());
+
             for (int i = 0; i < item1_props.Count(); i++)
             {
                 PropertyInfo item1_prop = item1_props[i];
@@ -725,44 +752,6 @@ namespace AnhQuoc_C5_Assignment
                     item1_prop.SetValue(item1, value2);
                 }
             }
-            return true;
-        }
-
-        public static bool Copy<T>(T item1, object item2, params string[] checkProperties)
-        {
-            bool isAllProperties = false;
-            if (checkProperties.Length == 0)
-            {
-                isAllProperties = true;
-            }
-
-            var item1_props = getPropsFromType(item1);
-            var item2_props = getPropsFromType(item2);
-            for (int i = 0; i < item1_props.Count(); i++)
-            {
-                PropertyInfo item1_prop = item1_props[i];
-                PropertyInfo item2_prop = item2_props[i];
-
-                if (!isAllProperties)
-                {
-                    var itemCheck = FindPropertyByName(checkProperties.ToList(), item1_prop.Name);
-                    if (itemCheck == null)
-                    {
-                        continue;
-                    }
-                }
-                object value2 = getValueFromProperty(item2_prop, item2);
-
-                if (value2 == null)
-                {
-                    item1_prop.SetValue(item1, null);
-                }
-                else
-                {
-                    item1_prop.SetValue(item1, value2);
-                }
-            }
-            return true;
         }
 
         public static IEnumerable<T> OrderBy<T>(IEnumerable<T> source, PropertyInfo Tkey)
@@ -995,28 +984,6 @@ namespace AnhQuoc_C5_Assignment
                 if (string.Compare(itemTreeView.Name, name, false) == 0)
                 {
                     return itemTreeView;
-                }
-            }
-            return null;
-        }
-
-        public static FrameworkElementFactory FindComboBoxItemByName(ItemCollection lst, string name)
-        {
-            foreach (var item in lst)
-            {
-                TreeViewItem itemTreeView = item as TreeViewItem;
-                if (string.Compare(itemTreeView.Name, name, false) == 0)
-                {
-                    var dataTemplate = itemTreeView.HeaderTemplate;
-
-                    FrameworkElementFactory gdHeader = dataTemplate.VisualTree as FrameworkElementFactory;
-                    var child = gdHeader.FirstChild;
-                    for (int i = 0; i < 2; i++)
-                    {
-                        child = child.NextSibling;
-                    }
-                    var comboBox = child;
-                    return comboBox;
                 }
             }
             return null;
@@ -1447,6 +1414,15 @@ namespace AnhQuoc_C5_Assignment
             return result;
         }
 
+        public static IEnumerable<string> InnerJoin<T>(IEnumerable<T> bigSource, IEnumerable<T> smallSource, string propSelector)
+        {
+            Func<T, string> outerKeySelector = bigItem => getValueFromProperty(bigItem.GetType().GetProperty(propSelector), bigItem).ToString();
+            Func<T, string> innerKeySelector = smallItem => getValueFromProperty(smallItem.GetType().GetProperty(propSelector), smallItem).ToString();
+
+            IEnumerable<string> result = bigSource.Join(smallSource, outerKeySelector, innerKeySelector, (bigItem, smallItem) => getValueFromProperty(bigItem.GetType().GetProperty(propSelector), bigItem).ToString());
+            return result;
+        }
+
         public static IEnumerable<string> GetAllColumnNameInDatabase(SqlDataReader reader)
         {
             var columns = Enumerable.Range(0, reader.FieldCount).Select(reader.GetName).OrderBy(item => item).ToList();
@@ -1463,6 +1439,50 @@ namespace AnhQuoc_C5_Assignment
         {
             var databaseTypes = Enumerable.Range(0, reader.FieldCount).Select(reader.GetDataTypeName).OrderBy(item => item).ToList();
             return databaseTypes;
+        }
+        public static bool IsCheckEmptyItem(object item)
+        {
+            var props = Utilities.getPropsFromType(item);
+
+            foreach (var property in props)
+            {
+                if (property.PropertyType == typeof(string))
+                {
+                    if (Utilities.IsCheckEmptyString(Utilities.getValueFromProperty(property, item)?.ToString()))
+                    {
+                        return false;
+                    }
+                }
+                else if (property.PropertyType == typeof(DateTime))
+                {
+                    if ((DateTime)Utilities.getValueFromProperty(property, item) == Constants.dateEmptyValue)
+                    {
+                        return false;
+                    }
+                }
+                else if (property.PropertyType == typeof(int))
+                {
+                    if ((int)Utilities.getValueFromProperty(property, item) == 0)
+                    {
+                        return false;
+                    }
+                }
+                else if (property.PropertyType == typeof(double))
+                {
+                    if ((double)Utilities.getValueFromProperty(property, item) == 0)
+                    {
+                        return false;
+                    }
+                }
+                else if (property.PropertyType == typeof(decimal))
+                {
+                    if ((decimal)Utilities.getValueFromProperty(property, item) == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }

@@ -15,6 +15,7 @@ namespace AnhQuoc_C5_Assignment
             Item = new Function();
             Repo = new FunctionRepository();
             prefix = Constants.prefixFunction;
+            numberPrefix = 1;
         }
 
         public string GetId()

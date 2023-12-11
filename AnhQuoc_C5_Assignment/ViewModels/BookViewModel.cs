@@ -16,6 +16,7 @@ namespace AnhQuoc_C5_Assignment
             Item = new Book();
             Repo = new BookRepository();
             prefix = Constants.prefixBook;
+            numberPrefix = 0;
         }
 
         public int GetId()

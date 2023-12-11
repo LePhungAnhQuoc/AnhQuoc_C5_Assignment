@@ -19,21 +19,5 @@ namespace AnhQuoc_C5_Assignment
         {
         }
         
-        public override void WriteUpdate(Category updated)
-        {
-            var CategoryViewModel = UnitOfViewModel.Instance.CategoryViewModel;
-
-            Category itemSource = dbSource.Categories.FirstOrDefault(sourceItem => sourceItem.Id == updated.Id);
-            CategoryViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteUpdateStatus(Category item, bool status)
-        {
-            Category itemSource = dbSource.Categories.FirstOrDefault(sourceItem => sourceItem.Id == item.Id);
-            itemSource.Status = status;
-            dbSource.SaveChanges();
-        }
-    }
+     }
 }

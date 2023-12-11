@@ -18,21 +18,5 @@ namespace AnhQuoc_C5_Assignment
         {
         }
         
-        public override void WriteUpdate(Author updated)
-        {
-            var authorViewModel = UnitOfViewModel.Instance.AuthorViewModel;
-
-            Author itemSource = dbSource.Authors.FirstOrDefault(sourceItem => sourceItem.Id == updated.Id);
-            authorViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteUpdateStatus(Author item, bool status)
-        {
-            Author itemSource = dbSource.Authors.FirstOrDefault(sourceItem => sourceItem.Id == item.Id);
-            itemSource.Status = status;
-            dbSource.SaveChanges();
-        }
     }
 }

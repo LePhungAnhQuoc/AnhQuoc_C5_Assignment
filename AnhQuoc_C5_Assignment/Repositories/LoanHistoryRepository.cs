@@ -19,14 +19,5 @@ namespace AnhQuoc_C5_Assignment
         {
         }
         
-        public override void WriteUpdate(LoanHistory updated)
-        {
-            var LoanHistoryViewModel = UnitOfViewModel.Instance.LoanHistoryViewModel;
-
-            LoanHistory itemSource = dbSource.LoanHistories.FirstOrDefault(sourceItem => sourceItem.Id == updated.Id);
-            LoanHistoryViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-    }
+     }
 }

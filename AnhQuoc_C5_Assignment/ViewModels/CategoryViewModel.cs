@@ -16,6 +16,7 @@ namespace AnhQuoc_C5_Assignment
             Item = new Category();
             Repo = new CategoryRepository();
             prefix = Constants.prefixCategory;
+            numberPrefix = 2;
         }
 
         public string GetId()

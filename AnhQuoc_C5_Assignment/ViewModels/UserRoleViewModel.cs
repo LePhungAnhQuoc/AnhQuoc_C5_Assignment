@@ -16,6 +16,7 @@ namespace AnhQuoc_C5_Assignment
             Item.Id = string.Empty;
             Repo = new UserRoleRepository();
             prefix = Constants.prefixUserRole;
+            numberPrefix = 1;
         }
 
         public string GetId()

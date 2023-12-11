@@ -18,6 +18,7 @@ namespace AnhQuoc_C5_Assignment
             Item = new Adult();
             Repo = new AdultRepository();
             prefix = string.Empty;
+            numberPrefix = 0;
         }
         
         public Adult FindByIdReader(string idReader, bool? statusValue)
@@ -131,10 +132,11 @@ namespace AnhQuoc_C5_Assignment
                 return false;
             }
 
-            if (item.ExpireDate == null)
+            if (item.ExpireDate == Constants.dateEmptyValue)
             {
                 return false;
             }
+
             return true;
         }
 

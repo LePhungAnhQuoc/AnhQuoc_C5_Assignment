@@ -18,14 +18,5 @@ namespace AnhQuoc_C5_Assignment
         {
         }
         
-        public override void WriteUpdate(Parameter updated)
-        {
-            var ParameterViewModel = UnitOfViewModel.Instance.ParameterViewModel;
-
-            Parameter itemSource = dbSource.Parameters.FirstOrDefault(sourceItem => sourceItem.Id == updated.Id);
-            ParameterViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-    }
+     }
 }

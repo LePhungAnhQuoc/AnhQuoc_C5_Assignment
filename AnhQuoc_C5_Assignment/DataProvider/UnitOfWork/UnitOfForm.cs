@@ -49,7 +49,7 @@ namespace AnhQuoc_C5_Assignment
         private frmChildFunctionInformation frmChildFunctionInformation;
         private frmBookISBNInformation frmBookISBNInformation;
         private frmAddFunction frmAddFunction;
-        private frmBorrowBook frmBorrowBook;
+        private frmAddLoan frmAddLoan;
         
 
 
@@ -267,10 +267,10 @@ namespace AnhQuoc_C5_Assignment
             get { return _FrmAddFunction; }
         }
 
-        private Func<bool, frmBorrowBook> _FrmBorrowBook;
-        public Func<bool, frmBorrowBook> FrmBorrowBook
+        private Func<bool, frmAddLoan> _FrmAddLoan;
+        public Func<bool, frmAddLoan> FrmAddLoan
         {
-            get { return _FrmBorrowBook; }
+            get { return _FrmAddLoan; }
         }
         #endregion
 
@@ -704,25 +704,25 @@ namespace AnhQuoc_C5_Assignment
                 return frmAddFunction;
             };
 
-            _FrmBorrowBook = (isReAllocate) =>
+            _FrmAddLoan = (isReAllocate) =>
             {
                 if (isReAllocate == true)
                 {
-                    frmBorrowBook = new frmBorrowBook();
+                    frmAddLoan = new frmAddLoan();
 
-                    frmBorrowBook.getReaderRepo = () => _UnitOfRepo.ReaderRepo;
-                    frmBorrowBook.getAdultRepo = () => _UnitOfRepo.AdultRepo;
-                    frmBorrowBook.getChildRepo = () => _UnitOfRepo.ChildRepo;
-                    frmBorrowBook.getProvinceRepo = () => _UnitOfRepo.ProvinceRepo;
-                    frmBorrowBook.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
-                    frmBorrowBook.getLoanDetailRepo = () => _UnitOfRepo.LoanDetailRepo;
-                    frmBorrowBook.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
-                    frmBorrowBook.getBookTitleRepo = () => _UnitOfRepo.BookTitleRepo;
-                    frmBorrowBook.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
-                    frmBorrowBook.getBookRepo = () => _UnitOfRepo.BookRepo;
-                    frmBorrowBook.getEnrollRepo = () => _UnitOfRepo.EnrollRepo;
+                    frmAddLoan.getReaderRepo = () => _UnitOfRepo.ReaderRepo;
+                    frmAddLoan.getAdultRepo = () => _UnitOfRepo.AdultRepo;
+                    frmAddLoan.getChildRepo = () => _UnitOfRepo.ChildRepo;
+                    frmAddLoan.getProvinceRepo = () => _UnitOfRepo.ProvinceRepo;
+                    frmAddLoan.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
+                    frmAddLoan.getLoanDetailRepo = () => _UnitOfRepo.LoanDetailRepo;
+                    frmAddLoan.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
+                    frmAddLoan.getBookTitleRepo = () => _UnitOfRepo.BookTitleRepo;
+                    frmAddLoan.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
+                    frmAddLoan.getBookRepo = () => _UnitOfRepo.BookRepo;
+                    frmAddLoan.getEnrollRepo = () => _UnitOfRepo.EnrollRepo;
                 }
-                return frmBorrowBook;
+                return frmAddLoan;
             };
 
             #endregion
@@ -766,7 +766,7 @@ namespace AnhQuoc_C5_Assignment
             frmAddRole = FrmAddRole(true);
             frmAddUserRole = FrmAddUserRole(true);
             frmAddFunction = FrmAddFunction(true);
-            frmBorrowBook = FrmBorrowBook(true);
+            frmAddLoan = FrmAddLoan(true);
         }
 
         public void LoadServerNameForm()

@@ -15,6 +15,7 @@ namespace AnhQuoc_C5_Assignment
             prefix = Constants.prefixDatabaseName;
             Item = new DatabaseName(string.Empty);
             Repo = new DatabaseNameRepository();
+            numberPrefix = 1;
         }
 
         public string GetId()

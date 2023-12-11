@@ -83,6 +83,7 @@
     <Compile Include="Animations\ucLoadingSpinnerControl.xaml.cs">
       <DependentUpon>ucLoadingSpinnerControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\DateMinToNullValueConverter.cs" />
     <Compile Include="Converters\HalfLengthConverter.cs" />
     <Compile Include="Converters\Others\AdminUserConverter.cs" />
     <Compile Include="Converters\Others\EmptyContentConverter.cs" />
@@ -435,8 +436,8 @@
     <Compile Include="Views\Book-Manage\frmAddLoanHistory.xaml.cs">
       <DependentUpon>frmAddLoanHistory.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Book-Manage\frmBorrowBook.xaml.cs">
-      <DependentUpon>frmBorrowBook.xaml</DependentUpon>
+    <Compile Include="Views\Book-Manage\frmAddLoan.xaml.cs">
+      <DependentUpon>frmAddLoan.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Book\frmBookISBNInformation.xaml.cs">
       <DependentUpon>frmBookISBNInformation.xaml</DependentUpon>
@@ -739,7 +740,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Book-Manage\frmBorrowBook.xaml">
+    <Page Include="Views\Book-Manage\frmAddLoan.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

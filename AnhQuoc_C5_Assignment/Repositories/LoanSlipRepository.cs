@@ -17,14 +17,5 @@ namespace AnhQuoc_C5_Assignment
         }
 
        
-        public override void WriteUpdate(LoanSlip updated)
-        {
-            var LoanSlipViewModel = UnitOfViewModel.Instance.LoanSlipViewModel;
-
-            LoanSlip itemSource = dbSource.LoanSlips.FirstOrDefault(sourceItem => sourceItem.IdReader == updated.IdReader);
-            LoanSlipViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
     }
 }

@@ -14,6 +14,7 @@ namespace AnhQuoc_C5_Assignment
             Item = new Enroll();
             Repo = new EnrollRepository();
             prefix = Constants.prefixEnroll;
+            numberPrefix = 1;
         }
 
         public string GetId()

@@ -19,21 +19,5 @@ namespace AnhQuoc_C5_Assignment
         {
         }
         
-        public override void WriteUpdate(Province updated)
-        {
-            var ProvinceViewModel = UnitOfViewModel.Instance.ProvinceViewModel;
-
-            Province itemSource = dbSource.Provinces.FirstOrDefault(sourceItem => sourceItem.Id == updated.Id);
-            ProvinceViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteUpdateStatus(Province item, bool status)
-        {
-            Province itemSource = dbSource.Provinces.FirstOrDefault(sourceItem => sourceItem.Id == item.Id);
-            itemSource.Status = status;
-            dbSource.SaveChanges();
-        }
     }
 }

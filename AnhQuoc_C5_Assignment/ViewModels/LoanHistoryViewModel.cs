@@ -15,7 +15,7 @@ namespace AnhQuoc_C5_Assignment
             Item = new LoanHistory();
             Repo = new LoanHistoryRepository();
             prefix = Constants.prefixLoanHistory;
-            numberPrefix = 02;
+            numberPrefix = 2;
         }
 
         public string GetId()

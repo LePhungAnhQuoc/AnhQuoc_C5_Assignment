@@ -19,6 +19,8 @@ namespace AnhQuoc_C5_Assignment
             prefix = Constants.prefixReader;
 
             readerMap = UnitOfMap.Instance.ReaderMap;
+            numberPrefix = 2;
+
         }
 
         public string GetId()

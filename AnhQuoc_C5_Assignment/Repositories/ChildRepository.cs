@@ -19,21 +19,5 @@ namespace AnhQuoc_C5_Assignment
         {
         }
         
-        public override void WriteUpdate(Child updated)
-        {
-            var ChildViewModel = UnitOfViewModel.Instance.ChildViewModel;
-
-            Child itemSource = dbSource.Children.FirstOrDefault(sourceItem => sourceItem.IdReader == updated.IdReader);
-            ChildViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteUpdateStatus(Child item, bool status)
-        {
-            Child itemSource = dbSource.Children.FirstOrDefault(sourceItem => sourceItem.IdReader == item.IdReader);
-            itemSource.Status = status;
-            dbSource.SaveChanges();
-        }
-    }
+      }
 }

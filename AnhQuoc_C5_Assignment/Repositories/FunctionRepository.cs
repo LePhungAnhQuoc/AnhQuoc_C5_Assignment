@@ -20,21 +20,5 @@ namespace AnhQuoc_C5_Assignment
         {
         }
 
-        public override void WriteUpdate(Function updated)
-        {
-            var FunctionViewModel = UnitOfViewModel.Instance.FunctionViewModel;
-
-            Function itemSource = dbSource.Functions.FirstOrDefault(sourceItem => sourceItem.Id == updated.Id);
-            FunctionViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-
-        public override void WriteUpdateStatus(Function item, bool status)
-        {
-            Function itemSource = dbSource.Functions.FirstOrDefault(sourceItem => sourceItem.Id == item.Id);
-            itemSource.Status = status;
-            dbSource.SaveChanges();
-        }
     }
 }

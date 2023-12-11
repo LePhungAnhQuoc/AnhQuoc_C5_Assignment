@@ -14,8 +14,9 @@ namespace AnhQuoc_C5_Assignment
             Item = new UserInfo();
             Repo = new UserInfoRepository();
             prefix = Constants.prefixUserInfo;
+            numberPrefix = 0;
         }
-        
+
         public UserInfo FindByIdUser(string idUserValue)
         {
             return Repo.Gets().FirstOrDefault(item => string.Compare(item.IdUser, idUserValue, false) == 0);

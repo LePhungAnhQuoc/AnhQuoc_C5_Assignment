@@ -24,7 +24,7 @@ namespace AnhQuoc_C5_Assignment
     {
         #region GetDatas
         public Func<LoanSlipDto> getItem { get; set; }
-        public Func<frmBorrowBook> getFrmBorrowBook { get; set; }
+        public Func<frmAddLoan> getFrmAddLoan { get; set; }
         #endregion
 
         #region Properties
@@ -135,13 +135,13 @@ namespace AnhQuoc_C5_Assignment
                 return;
             }
             
-            getFrmBorrowBook().CloseAndSave();
+            getFrmAddLoan().CloseAndSave();
         }
 
 
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
-            getFrmBorrowBook().GoBackPage();
+            getFrmAddLoan().GoBackPage();
         }
 
         public bool IsValidationGetHasError()

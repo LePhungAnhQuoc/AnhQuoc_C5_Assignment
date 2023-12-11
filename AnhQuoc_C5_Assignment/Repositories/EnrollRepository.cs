@@ -18,14 +18,5 @@ namespace AnhQuoc_C5_Assignment
         {
         }
         
-        public override void WriteUpdate(Enroll updated)
-        {
-            var enrollViewModel = UnitOfViewModel.Instance.EnrollViewModel;
-
-            Enroll itemSource = dbSource.Enrolls.FirstOrDefault(sourceItem => sourceItem.IdReader == updated.IdReader);
-            enrollViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-    }
+ }
 }

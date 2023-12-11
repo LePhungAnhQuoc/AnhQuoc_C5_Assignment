@@ -15,6 +15,7 @@ namespace AnhQuoc_C5_Assignment
             Item.Id = 0;
             Repo = new ProvinceRepository();
             prefix = Constants.prefixProvince;
+            numberPrefix = 0;
         }
 
         public string GetId()

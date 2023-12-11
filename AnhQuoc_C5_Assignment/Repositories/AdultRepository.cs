@@ -18,12 +18,5 @@ namespace AnhQuoc_C5_Assignment
         public AdultRepository(ObservableCollection<Adult> items) : base(items)
         {
         }
-        
-        public override void WriteUpdateStatus(Adult item, bool status)
-        {
-            Adult itemSource = dbSource.Adults.FirstOrDefault(sourceItem => sourceItem.IdReader == item.IdReader);
-            itemSource.Status = status;
-            dbSource.SaveChanges();
-        }
     }
 }

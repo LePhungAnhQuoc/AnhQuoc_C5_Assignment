@@ -15,6 +15,7 @@ namespace AnhQuoc_C5_Assignment
             Item = new User();
             Repo = new UserRepository();
             prefix = Constants.prefixUser;
+            numberPrefix = 1;
         }
 
         public string GetId()
@@ -73,71 +74,24 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(UserDto item)
         {
-            if (Utilities.IsCheckEmptyString(item.Username))
-            {
-                return false;
-            }
-
-            if (Utilities.IsCheckEmptyString(item.Password))
-            {
-                return false;
-            }
-
-            if (Utilities.IsCheckEmptyString(item.LName))
-            {
-                return false;
-            }
-
-            if (Utilities.IsCheckEmptyString(item.FName))
-            {
-                return false;
-            }
-            if (Utilities.IsCheckEmptyString(item.Phone))
-            {
-                return false;
-            }
-
-            if (Utilities.IsCheckEmptyString(item.Address))
-            {
-                return false;
-            }
-
-            return true;
+            return Utilities.IsCheckEmptyItem(item);
         }
 
         public User CreateByDto(UserDto dto)
         {
             User user = new User();
-            user.Id = dto.Id;
             Copy(user, dto);
             return user;
         }
 
         public void Copy(User dest, UserDto source)
         {
-            dest.Username = source.Username;
-            dest.Password = source.Password;
-
-            dest.Status = source.Status;
-            dest.CreatedAt = source.ModifiedAt;
-            dest.ModifiedAt = source.ModifiedAt;
+            Utilities.Copy(dest, source);
         }
 
         public void Copy(UserDto dest, UserDto source)
         {
-            dest.Username = source.Username;
-            dest.Password = source.Password;
-
-            dest.Status = source.Status;
-            dest.CreatedAt = source.ModifiedAt;
-            dest.ModifiedAt = source.ModifiedAt;
-
-
-            dest.LName = source.LName;
-            dest.FName = source.FName;
-
-            dest.Phone = source.Phone;
-            dest.Address = source.Address;
+            Utilities.Copy(dest, source);
         }
     }
 }
