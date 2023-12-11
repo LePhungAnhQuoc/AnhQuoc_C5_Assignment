@@ -74,6 +74,17 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private LoanHistoryMap _LoanHistoryMap;
+        public LoanHistoryMap LoanHistoryMap
+        {
+            get
+            {
+                if (_LoanHistoryMap == null)
+                    _LoanHistoryMap = new LoanHistoryMap();
+                return _LoanHistoryMap;
+            }
+        }
+
         private BookMap _BookMap;
         public BookMap BookMap
         {
@@ -204,6 +215,7 @@ namespace AnhQuoc_C5_Assignment
             _BookISBNMap = new BookISBNMap();
             _LoanSlipMap = new LoanSlipMap();
             _LoanDetailMap = new LoanDetailMap();
+            _LoanHistoryMap = new LoanHistoryMap();
             _BookTitleMap = new BookTitleMap();
             _BookMap = new BookMap();        
             _ProvinceMap = new ProvinceMap();

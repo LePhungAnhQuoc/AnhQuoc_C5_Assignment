@@ -80,9 +80,9 @@ namespace AnhQuoc_C5_Assignment
         public virtual void LoadList()
         {
             PropertyInfo tableProperty = Utilities.GetTablePropertyFromDatabase<T>(dbSource);
-            var getValue = (System.Data.Entity.DbSet<T>) Utilities.getValueFromProperty(tableProperty, dbSource);
+            var dbTable = (System.Data.Entity.DbSet<T>) Utilities.getValueFromProperty(tableProperty, dbSource);
             
-            _Items = getValue.ToObservableCollection();
+            _Items = dbTable.ToObservableCollection();
         }
 
         public virtual void WriteAdd(T item)
@@ -103,7 +103,29 @@ namespace AnhQuoc_C5_Assignment
             dbSource.SaveChanges();
         }
 
-        public abstract void WriteUpdate(T updated);
+        public virtual void WriteUpdate(T updated)
+        {
+            string key = string.Empty;
+            using (SqlConnection conn = new SqlConnection(Constants.ShortConnStr))
+            {
+                key = Utilities.GetPrimaryKeys(conn, typeof(T).Name).SingleOrDefault();
+            }
+
+            Func<T, bool> predicate = (sourceItem) =>
+            {
+                return Utilities.getValueFromProperty(key, sourceItem) == Utilities.getValueFromProperty(key, updated);
+            };
+
+            PropertyInfo tableProperty = Utilities.GetTablePropertyFromDatabase<T>(dbSource);
+            var dbTable = (System.Data.Entity.DbSet<T>)Utilities.getValueFromProperty(tableProperty, dbSource);
+
+
+            T itemSource = dbTable.FirstOrDefault(predicate);
+            Utilities.Copy(itemSource, updated);
+
+            dbSource.SaveChanges();
+        }
+
 
         public virtual void WriteUpdateStatus(T item, bool status) { }
 

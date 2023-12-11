@@ -49,7 +49,7 @@ namespace AnhQuoc_C5_Assignment
             {
                 if (string.Compare(item.IdBookTitle, idBookTitle, ignoreCase) == 0)
                 {
-                    if (string.Compare(item.Language, language, ignoreCase) == 0)
+                    if (string.Compare(item.OriginLanguage, language, ignoreCase) == 0)
                     {
                        return item;
                     }
@@ -77,7 +77,7 @@ namespace AnhQuoc_C5_Assignment
         public ObservableCollection<string> FillLanguages(ObservableCollection<BookISBN> source, bool? statusValue)
         {
             source = Utilities.FillByStatus(source, statusValue);
-            return source.Select(item => item.Language).ToObservableCollection();
+            return source.Select(item => item.OriginLanguage).ToObservableCollection();
         }
     }
 }

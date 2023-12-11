@@ -31,7 +31,7 @@ namespace AnhQuoc_C5_Assignment
             newItem.Category = bookCategory.Name;
             newItem.Author = bookAuthor.Name;
             newItem.Translator = bookTranslator.Name;
-            newItem.Language = bookISBN.Language;
+            newItem.Language = bookISBN.OriginLanguage;
 
             newItem.Publisher = publisher;
             newItem.PublishDate = sourceItem.PublishDate;

@@ -24,7 +24,8 @@ namespace AnhQuoc_C5_Assignment
         public string ISBN { get; set; }
         public string IdBookTitle { get; set; }
         public string IdAuthor { get; set; }
-        public string Language { get; set; }
+        public string OriginLanguage { get; set; }
+        public string Description { get; set; }
         public bool Status { get; set; }
     
         public virtual Author Author { get; set; }

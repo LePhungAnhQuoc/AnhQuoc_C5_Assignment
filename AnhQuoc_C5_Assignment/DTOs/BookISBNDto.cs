@@ -41,16 +41,16 @@ namespace AnhQuoc_C5_Assignment
             }
         }
         
-        private string _Language;
-        public string Language
+        private string _OriginLanguage;
+        public string OriginLanguage
         {
             get
             {
-                return _Language;
+                return _OriginLanguage;
             }
             set
             {
-                _Language = value;
+                _OriginLanguage = value;
                 OnPropertyChanged();
             }
         }

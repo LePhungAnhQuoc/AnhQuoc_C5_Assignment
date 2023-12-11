@@ -11,10 +11,9 @@ namespace AnhQuoc_C5_Assignment
         public override LoanDetailDto ConvertToDto(LoanDetail sourceItem)
         {
             var loanSlipVM = UnitOfViewModel.Instance.LoanSlipViewModel;
-            LoanSlip loanSlip = loanSlipVM.FindById(sourceItem.IdLoan);
 
             LoanDetailDto newItem = new LoanDetailDto(sourceItem.Id);
-            newItem.IdLoan = loanSlip.Id;
+            newItem.IdLoan = sourceItem.IdLoan;
             newItem.IdBook = sourceItem.IdBook;
             newItem.ExpDate = sourceItem.ExpDate;
             return newItem;

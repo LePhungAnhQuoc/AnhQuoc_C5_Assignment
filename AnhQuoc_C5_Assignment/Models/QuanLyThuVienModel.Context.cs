@@ -39,6 +39,7 @@ namespace AnhQuoc_C5_Assignment
         public virtual DbSet<LoanHistory> LoanHistories { get; set; }
         public virtual DbSet<LoanSlip> LoanSlips { get; set; }
         public virtual DbSet<Parameter> Parameters { get; set; }
+        public virtual DbSet<PenaltyReason> PenaltyReasons { get; set; }
         public virtual DbSet<Province> Provinces { get; set; }
         public virtual DbSet<Publisher> Publishers { get; set; }
         public virtual DbSet<Reader> Readers { get; set; }

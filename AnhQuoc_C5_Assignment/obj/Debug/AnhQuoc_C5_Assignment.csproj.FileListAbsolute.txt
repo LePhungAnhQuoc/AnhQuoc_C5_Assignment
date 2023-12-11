@@ -444,8 +444,6 @@ D:\Bai-Tap-2\Bai-Tap\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQu
 D:\Bai-Tap-2\Bai-Tap\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.Properties.Resources.resources
 D:\Bai-Tap-2\Bai-Tap\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csproj.GenerateResource.Cache
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\bin\Debug\AnhQuoc_C5_Assignment.exe.config
-C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.exe
-C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.pdb
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\bin\Debug\AnhQuoc_C5_Assignment.exe
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\bin\Debug\AnhQuoc_C5_Assignment.pdb
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\bin\Debug\EntityFramework.dll
@@ -454,7 +452,6 @@ C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assig
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\bin\Debug\EntityFramework.xml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\bin\Debug\WPFCustomMessageBox.xml
-C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csprojResolveAssemblyReference.cache
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Animations\ucLoadingSpinnerControl.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Images\Others\icons.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Animations\frmLoadingSpinnerControl.g.cs
@@ -469,11 +466,14 @@ C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assig
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionInformation.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionManagement.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistoryManagement.g.cs
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistorysTable.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipsTable.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipInformation.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipInformationStyle2.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipManagement.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetail-Information\ucLoanDetailsTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Payment-Information\ucLoanSlipPayment.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucButtonCircle.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Others\ucLogOut.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucPagination.g.cs
@@ -496,6 +496,7 @@ C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assig
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUsersTable.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UserRole-Information\ucUserRoleManagement.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UserRole-Information\ucUserRolesTable.g.cs
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Views\Book-Manage\frmAddLoanHistory.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Views\Book-Manage\frmBorrowBook.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Views\Function\frmAddFunction.g.cs
@@ -547,11 +548,14 @@ C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assig
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionInformation.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionManagement.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionsTable.baml
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistoryManagement.baml
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistorysTable.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipsTable.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipInformation.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipInformationStyle2.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipManagement.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetail-Information\ucLoanDetailsTable.baml
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Payment-Information\ucLoanSlipPayment.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucButtonCircle.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Others\ucLogOut.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucPagination.baml
@@ -574,6 +578,7 @@ C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assig
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUsersTable.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UserRole-Information\ucUserRoleManagement.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UserRole-Information\ucUserRolesTable.baml
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Views\Book-Manage\frmAddLoanHistory.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Views\Book-Manage\frmBorrowBook.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmBookISBNInformation.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Views\Function\frmAddFunction.baml
@@ -593,3 +598,5 @@ C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assig
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.g.resources
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.Properties.Resources.resources
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csproj.GenerateResource.Cache
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.exe
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.pdb

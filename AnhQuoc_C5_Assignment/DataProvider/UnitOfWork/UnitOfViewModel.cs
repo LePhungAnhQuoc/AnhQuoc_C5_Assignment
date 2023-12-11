@@ -52,6 +52,17 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private LoanHistoryViewModel _LoanHistoryViewModel;
+        public LoanHistoryViewModel LoanHistoryViewModel
+        {
+            get
+            {
+                if (_LoanHistoryViewModel == null)
+                    _LoanHistoryViewModel = new LoanHistoryViewModel();
+                return _LoanHistoryViewModel;
+            }
+        }
+
         private PublisherViewModel _PublisherViewModel;
         public PublisherViewModel PublisherViewModel
         {
@@ -278,6 +289,9 @@ namespace AnhQuoc_C5_Assignment
 
         public void Load()
         {
+            _LoanHistoryViewModel = new LoanHistoryViewModel();
+            _LoanHistoryViewModel.Repo = _UnitOfRepo.LoanHistoryRepo;
+
             _PublisherViewModel = new PublisherViewModel();
             _PublisherViewModel.Repo = _UnitOfRepo.PublisherRepo;
 

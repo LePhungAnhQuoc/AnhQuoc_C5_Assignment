@@ -30,10 +30,14 @@ namespace AnhQuoc_C5_Assignment
         private ucBookISBNManagement ucBookISBNManagement;
         private ucBookManagement ucBookManagement;
         private ucBookTitleManagement ucBookTitleManagement;
+        private ucLoanHistoryManagement ucLoanHistoryManagement;
         private ucLoanSlipManagement ucLoanSlipManagement;
+        private ucLoanSlipPayment ucLoanSlipPayment;
+
 
         // Form
         private frmTransferGuardian frmTransferGuardian;
+        private frmAddLoanHistory frmAddLoanHistory;
         private frmInputServerName frmInputServerName;
         private frmAddRole frmAddRole;
         private frmAddUserRole frmAddUserRole;
@@ -59,6 +63,12 @@ namespace AnhQuoc_C5_Assignment
             get { return _UcFunctionInformation; }
         }
 
+        private Func<bool, ucLoanSlipPayment> _UcLoanSlipPayment;
+        public Func<bool, ucLoanSlipPayment> UcLoanSlipPayment
+        {
+            get { return _UcLoanSlipPayment; }
+        }
+
         private Func<bool, ucLoanSlipManagement> _UcLoanSlipManagement;
         public Func<bool, ucLoanSlipManagement> UcLoanSlipManagement
         {
@@ -81,6 +91,12 @@ namespace AnhQuoc_C5_Assignment
         public Func<bool, ucBookTitleManagement> UcBookTitleManagement
         {
             get { return _UcBookTitleManagement; }
+        }
+
+        private Func<bool, ucLoanHistoryManagement> _UcLoanHistoryManagement;
+        public Func<bool, ucLoanHistoryManagement> UcLoanHistoryManagement
+        {
+            get { return _UcLoanHistoryManagement; }
         }
 
         private Func<bool, ucBookManagement> _UcBookManagement;
@@ -179,6 +195,12 @@ namespace AnhQuoc_C5_Assignment
             get { return _FrmTransferGuardian; }
         }
 
+        private Func<bool, frmAddLoanHistory> _FrmAddLoanHistory;
+        public Func<bool, frmAddLoanHistory> FrmAddLoanHistory
+        {
+            get { return _FrmAddLoanHistory; }
+        }
+
         private Func<bool, frmChildFunctionInformation> _FrmChildFunctionInformation;
         public Func<bool, frmChildFunctionInformation> FrmChildFunctionInformation
         {
@@ -267,7 +289,16 @@ namespace AnhQuoc_C5_Assignment
                 }
                 return ucFunctionInformation;
             };
-            
+
+            _UcLoanSlipPayment = (isReAllocate) =>
+            {
+                if (isReAllocate)
+                {
+                    ucLoanSlipPayment = new ucLoanSlipPayment();
+                }
+                return ucLoanSlipPayment;
+            };
+
             _UcDisplayFunction = (isReAllocate) =>
             {
                 if (isReAllocate)
@@ -290,6 +321,18 @@ namespace AnhQuoc_C5_Assignment
                     ucBookTitleManagement.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
                 }
                 return ucBookTitleManagement;
+            };
+
+            _UcLoanHistoryManagement = (isReAllocate) =>
+            {
+                if (isReAllocate)
+                {
+                    ucLoanHistoryManagement = new ucLoanHistoryManagement();
+                    ucLoanHistoryManagement.getLoanHistoryRepo = () => _UnitOfRepo.LoanHistoryRepo;
+                    ucLoanHistoryManagement.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
+                    ucLoanHistoryManagement.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
+                }
+                return ucLoanHistoryManagement;
             };
 
             _UcBookManagement = (isReAllocate) =>
@@ -526,6 +569,17 @@ namespace AnhQuoc_C5_Assignment
                 return frmTransferGuardian;
             };
 
+            _FrmAddLoanHistory = (isReAllocate) =>
+            {
+                if (isReAllocate == true)
+                {
+                    frmAddLoanHistory = new frmAddLoanHistory();
+                    frmAddLoanHistory.getLoanHistoryRepo = () => _UnitOfRepo.LoanHistoryRepo;
+                    frmAddLoanHistory.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
+                }
+                return frmAddLoanHistory;
+            };
+
             _FrmChildFunctionInformation = (isReAllocate) =>
             {
                 if (isReAllocate == true)
@@ -677,8 +731,8 @@ namespace AnhQuoc_C5_Assignment
         public void Load()
         {
             // UserControls
-            frmChildFunctionInformation = FrmChildFunctionInformation(true);
             ucFunctionInformation = UcFunctionInformation(true);
+            ucLoanSlipPayment = UcLoanSlipPayment(true);
             ucDisplayFunction = UcDisplayFunction(true);
             ucAddBookTitle = UcAddBookTitle(true);
             ucAddBookISBN = UcAddBookISBN(true);
@@ -692,6 +746,7 @@ namespace AnhQuoc_C5_Assignment
             ucUserRoleManagement = UcUserRoleManagement(true);
             ucRoleFunctionManagement = UcRoleFunctionManagement(true);
             ucBookTitleManagement = UcBookTitleManagement(true);
+            ucLoanHistoryManagement = UcLoanHistoryManagement(true);
             ucBookManagement = UcBookManagement(true);
             ucBookISBNManagement = UcBookISBNManagement(true);
             ucLoanSlipManagement = UcLoanSlipManagement(true);
@@ -699,7 +754,9 @@ namespace AnhQuoc_C5_Assignment
             ucLibrarianDashBoard = UcLibrarianDashBoard(true);
 
             // Forms
+            frmChildFunctionInformation = FrmChildFunctionInformation(true);
             frmTransferGuardian = FrmTransferGuardian(true);
+            frmAddLoanHistory = FrmAddLoanHistory(true);
             frmLogin = FrmLogin(true);
             frmAddReader = FrmAddReader(true);
             frmAdultReaderInformation = FrmAdultReaderInformation(true);

@@ -159,7 +159,7 @@ namespace AnhQuoc_C5_Assignment
             frmBorrowBook frmBorrowBook = MainWindow.UnitOfForm.FrmBorrowBook(true);
             frmBorrowBook.ShowDialog();
          
-            if (frmBorrowBook.LoanSlip == null) // Cancel the operation
+            if (frmBorrowBook.LoanSlipDto == null) // Cancel the operation
             {
                 return;
             }

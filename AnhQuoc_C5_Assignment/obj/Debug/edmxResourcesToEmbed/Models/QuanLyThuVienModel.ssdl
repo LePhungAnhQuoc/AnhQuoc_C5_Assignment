@@ -39,6 +39,7 @@
     <Property Name="PublishDate" Type="datetime" Nullable="false" />
     <Property Name="Price" Type="decimal" Precision="12" Scale="3" Nullable="false" />
     <Property Name="PriceCurrent" Type="decimal" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="Note" Type="ntext" />
     <Property Name="Status" Type="bit" Nullable="false" />
     <Property Name="CreatedAt" Type="datetime" Nullable="false" />
     <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
@@ -50,7 +51,8 @@
     <Property Name="ISBN" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="IdBookTitle" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="IdAuthor" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="Language" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OriginLanguage" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="ntext" />
     <Property Name="Status" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="BookTitle">
@@ -60,6 +62,7 @@
     <Property Name="Id" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="IdCategory" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Note" Type="ntext" />
     <Property Name="Summary" Type="ntext" Nullable="false" />
   </EntityType>
   <EntityType Name="Category">
@@ -166,6 +169,17 @@
     <Property Name="CreatedAt" Type="datetime" Nullable="false" />
     <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="PenaltyReason">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="ntext" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="Province">
     <Key>
       <PropertyRef Name="Id" />
@@ -267,7 +281,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Book__IdPublishe__31EC6D26">
+  <Association Name="FK__Book__IdPublishe__34C8D9D1">
     <End Role="Publisher" Type="Self.Publisher" Multiplicity="1" />
     <End Role="Book" Type="Self.Book" Multiplicity="*" />
     <ReferentialConstraint>
@@ -279,7 +293,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Book__IdTranslat__32E0915F">
+  <Association Name="FK__Book__IdTranslat__35BCFE0A">
     <End Role="Translator" Type="Self.Translator" Multiplicity="1" />
     <End Role="Book" Type="Self.Book" Multiplicity="*" />
     <ReferentialConstraint>
@@ -291,7 +305,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Book__ISBN__30F848ED">
+  <Association Name="FK__Book__ISBN__33D4B598">
     <End Role="BookISBN" Type="Self.BookISBN" Multiplicity="1" />
     <End Role="Book" Type="Self.Book" Multiplicity="*" />
     <ReferentialConstraint>
@@ -303,7 +317,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BookISBN__IdAuth__2B3F6F97">
+  <Association Name="FK__BookISBN__IdAuth__2D27B809">
     <End Role="Author" Type="Self.Author" Multiplicity="1" />
     <End Role="BookISBN" Type="Self.BookISBN" Multiplicity="*" />
     <ReferentialConstraint>
@@ -315,7 +329,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BookISBN__IdBook__2A4B4B5E">
+  <Association Name="FK__BookISBN__IdBook__2C3393D0">
     <End Role="BookTitle" Type="Self.BookTitle" Multiplicity="1" />
     <End Role="BookISBN" Type="Self.BookISBN" Multiplicity="*" />
     <ReferentialConstraint>
@@ -327,7 +341,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BookTitle__IdCat__24927208">
+  <Association Name="FK__BookTitle__IdCat__25869641">
     <End Role="Category" Type="Self.Category" Multiplicity="1" />
     <End Role="BookTitle" Type="Self.BookTitle" Multiplicity="*" />
     <ReferentialConstraint>
@@ -363,7 +377,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Enroll__IdBook__628FA481">
+  <Association Name="FK__Enroll__IdBook__656C112C">
     <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
     <End Role="Enroll" Type="Self.Enroll" Multiplicity="*" />
     <ReferentialConstraint>
@@ -375,7 +389,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Enroll__IdReader__619B8048">
+  <Association Name="FK__Enroll__IdReader__6477ECF3">
     <End Role="Reader" Type="Self.Reader" Multiplicity="1" />
     <End Role="Enroll" Type="Self.Enroll" Multiplicity="*" />
     <ReferentialConstraint>
@@ -387,7 +401,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Enroll__ISBN__60A75C0F">
+  <Association Name="FK__Enroll__ISBN__6383C8BA">
     <End Role="BookISBN" Type="Self.BookISBN" Multiplicity="1" />
     <End Role="Enroll" Type="Self.Enroll" Multiplicity="*" />
     <ReferentialConstraint>
@@ -399,7 +413,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Function__IdPare__5629CD9C">
+  <Association Name="FK__Function__IdPare__59063A47">
     <End Role="Function" Type="Self.Function" Multiplicity="0..1" />
     <End Role="Function1" Type="Self.Function" Multiplicity="*" />
     <ReferentialConstraint>
@@ -411,7 +425,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__LoanDetai__IdBoo__6D0D32F4">
+  <Association Name="FK__LoanDetai__IdBoo__6FE99F9F">
     <End Role="Book" Type="Self.Book" Multiplicity="1" />
     <End Role="LoanDetail" Type="Self.LoanDetail" Multiplicity="*" />
     <ReferentialConstraint>
@@ -423,7 +437,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__LoanDetai__IdBoo__778AC167">
+  <Association Name="FK__LoanDetai__IdBoo__7A672E12">
     <End Role="Book" Type="Self.Book" Multiplicity="1" />
     <End Role="LoanDetailHistory" Type="Self.LoanDetailHistory" Multiplicity="*" />
     <ReferentialConstraint>
@@ -435,7 +449,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__LoanDetai__IdLoa__6C190EBB">
+  <Association Name="FK__LoanDetai__IdLoa__6EF57B66">
     <End Role="LoanSlip" Type="Self.LoanSlip" Multiplicity="1" />
     <End Role="LoanDetail" Type="Self.LoanDetail" Multiplicity="*" />
     <ReferentialConstraint>
@@ -447,7 +461,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__LoanDetai__IdLoa__76969D2E">
+  <Association Name="FK__LoanDetai__IdLoa__797309D9">
     <End Role="LoanHistory" Type="Self.LoanHistory" Multiplicity="1" />
     <End Role="LoanDetailHistory" Type="Self.LoanDetailHistory" Multiplicity="*" />
     <ReferentialConstraint>
@@ -459,7 +473,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__LoanHisto__IdRea__71D1E811">
+  <Association Name="FK__LoanHisto__IdRea__74AE54BC">
     <End Role="Reader" Type="Self.Reader" Multiplicity="1" />
     <End Role="LoanHistory" Type="Self.LoanHistory" Multiplicity="*" />
     <ReferentialConstraint>
@@ -471,7 +485,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__LoanSlip__IdRead__6754599E">
+  <Association Name="FK__LoanSlip__IdRead__6A30C649">
     <End Role="Reader" Type="Self.Reader" Multiplicity="1" />
     <End Role="LoanSlip" Type="Self.LoanSlip" Multiplicity="*" />
     <ReferentialConstraint>
@@ -483,7 +497,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RoleFunct__IdFun__5BE2A6F2">
+  <Association Name="FK__RoleFunct__IdFun__5EBF139D">
     <End Role="Function" Type="Self.Function" Multiplicity="1" />
     <End Role="RoleFunction" Type="Self.RoleFunction" Multiplicity="*" />
     <ReferentialConstraint>
@@ -495,7 +509,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RoleFunct__IdRol__5AEE82B9">
+  <Association Name="FK__RoleFunct__IdRol__5DCAEF64">
     <End Role="Role" Type="Self.Role" Multiplicity="1" />
     <End Role="RoleFunction" Type="Self.RoleFunction" Multiplicity="*" />
     <ReferentialConstraint>
@@ -507,7 +521,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__UserInfo__IdUser__44FF419A">
+  <Association Name="FK__UserInfo__IdUser__47DBAE45">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -519,7 +533,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__UserRole__IdRole__4F7CD00D">
+  <Association Name="FK__UserRole__IdRole__52593CB8">
     <End Role="Role" Type="Self.Role" Multiplicity="1" />
     <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
     <ReferentialConstraint>
@@ -531,7 +545,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__UserRole__IdUser__4E88ABD4">
+  <Association Name="FK__UserRole__IdUser__5165187F">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
     <ReferentialConstraint>
@@ -558,6 +572,7 @@
     <EntitySet Name="LoanHistory" EntityType="Self.LoanHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoanSlip" EntityType="Self.LoanSlip" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Parameter" EntityType="Self.Parameter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PenaltyReason" EntityType="Self.PenaltyReason" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Publisher" EntityType="Self.Publisher" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reader" EntityType="Self.Reader" Schema="dbo" store:Type="Tables" />
@@ -571,27 +586,27 @@
       <End Role="Reader" EntitySet="Reader" />
       <End Role="Adult" EntitySet="Adult" />
     </AssociationSet>
-    <AssociationSet Name="FK__Book__IdPublishe__31EC6D26" Association="Self.FK__Book__IdPublishe__31EC6D26">
+    <AssociationSet Name="FK__Book__IdPublishe__34C8D9D1" Association="Self.FK__Book__IdPublishe__34C8D9D1">
       <End Role="Publisher" EntitySet="Publisher" />
       <End Role="Book" EntitySet="Book" />
     </AssociationSet>
-    <AssociationSet Name="FK__Book__IdTranslat__32E0915F" Association="Self.FK__Book__IdTranslat__32E0915F">
+    <AssociationSet Name="FK__Book__IdTranslat__35BCFE0A" Association="Self.FK__Book__IdTranslat__35BCFE0A">
       <End Role="Translator" EntitySet="Translator" />
       <End Role="Book" EntitySet="Book" />
     </AssociationSet>
-    <AssociationSet Name="FK__Book__ISBN__30F848ED" Association="Self.FK__Book__ISBN__30F848ED">
+    <AssociationSet Name="FK__Book__ISBN__33D4B598" Association="Self.FK__Book__ISBN__33D4B598">
       <End Role="BookISBN" EntitySet="BookISBN" />
       <End Role="Book" EntitySet="Book" />
     </AssociationSet>
-    <AssociationSet Name="FK__BookISBN__IdAuth__2B3F6F97" Association="Self.FK__BookISBN__IdAuth__2B3F6F97">
+    <AssociationSet Name="FK__BookISBN__IdAuth__2D27B809" Association="Self.FK__BookISBN__IdAuth__2D27B809">
       <End Role="Author" EntitySet="Author" />
       <End Role="BookISBN" EntitySet="BookISBN" />
     </AssociationSet>
-    <AssociationSet Name="FK__BookISBN__IdBook__2A4B4B5E" Association="Self.FK__BookISBN__IdBook__2A4B4B5E">
+    <AssociationSet Name="FK__BookISBN__IdBook__2C3393D0" Association="Self.FK__BookISBN__IdBook__2C3393D0">
       <End Role="BookTitle" EntitySet="BookTitle" />
       <End Role="BookISBN" EntitySet="BookISBN" />
     </AssociationSet>
-    <AssociationSet Name="FK__BookTitle__IdCat__24927208" Association="Self.FK__BookTitle__IdCat__24927208">
+    <AssociationSet Name="FK__BookTitle__IdCat__25869641" Association="Self.FK__BookTitle__IdCat__25869641">
       <End Role="Category" EntitySet="Category" />
       <End Role="BookTitle" EntitySet="BookTitle" />
     </AssociationSet>
@@ -603,63 +618,63 @@
       <End Role="Reader" EntitySet="Reader" />
       <End Role="Child" EntitySet="Child" />
     </AssociationSet>
-    <AssociationSet Name="FK__Enroll__IdBook__628FA481" Association="Self.FK__Enroll__IdBook__628FA481">
+    <AssociationSet Name="FK__Enroll__IdBook__656C112C" Association="Self.FK__Enroll__IdBook__656C112C">
       <End Role="Book" EntitySet="Book" />
       <End Role="Enroll" EntitySet="Enroll" />
     </AssociationSet>
-    <AssociationSet Name="FK__Enroll__IdReader__619B8048" Association="Self.FK__Enroll__IdReader__619B8048">
+    <AssociationSet Name="FK__Enroll__IdReader__6477ECF3" Association="Self.FK__Enroll__IdReader__6477ECF3">
       <End Role="Reader" EntitySet="Reader" />
       <End Role="Enroll" EntitySet="Enroll" />
     </AssociationSet>
-    <AssociationSet Name="FK__Enroll__ISBN__60A75C0F" Association="Self.FK__Enroll__ISBN__60A75C0F">
+    <AssociationSet Name="FK__Enroll__ISBN__6383C8BA" Association="Self.FK__Enroll__ISBN__6383C8BA">
       <End Role="BookISBN" EntitySet="BookISBN" />
       <End Role="Enroll" EntitySet="Enroll" />
     </AssociationSet>
-    <AssociationSet Name="FK__Function__IdPare__5629CD9C" Association="Self.FK__Function__IdPare__5629CD9C">
+    <AssociationSet Name="FK__Function__IdPare__59063A47" Association="Self.FK__Function__IdPare__59063A47">
       <End Role="Function" EntitySet="Function" />
       <End Role="Function1" EntitySet="Function" />
     </AssociationSet>
-    <AssociationSet Name="FK__LoanDetai__IdBoo__6D0D32F4" Association="Self.FK__LoanDetai__IdBoo__6D0D32F4">
+    <AssociationSet Name="FK__LoanDetai__IdBoo__6FE99F9F" Association="Self.FK__LoanDetai__IdBoo__6FE99F9F">
       <End Role="Book" EntitySet="Book" />
       <End Role="LoanDetail" EntitySet="LoanDetail" />
     </AssociationSet>
-    <AssociationSet Name="FK__LoanDetai__IdBoo__778AC167" Association="Self.FK__LoanDetai__IdBoo__778AC167">
+    <AssociationSet Name="FK__LoanDetai__IdBoo__7A672E12" Association="Self.FK__LoanDetai__IdBoo__7A672E12">
       <End Role="Book" EntitySet="Book" />
       <End Role="LoanDetailHistory" EntitySet="LoanDetailHistory" />
     </AssociationSet>
-    <AssociationSet Name="FK__LoanDetai__IdLoa__6C190EBB" Association="Self.FK__LoanDetai__IdLoa__6C190EBB">
+    <AssociationSet Name="FK__LoanDetai__IdLoa__6EF57B66" Association="Self.FK__LoanDetai__IdLoa__6EF57B66">
       <End Role="LoanSlip" EntitySet="LoanSlip" />
       <End Role="LoanDetail" EntitySet="LoanDetail" />
     </AssociationSet>
-    <AssociationSet Name="FK__LoanDetai__IdLoa__76969D2E" Association="Self.FK__LoanDetai__IdLoa__76969D2E">
+    <AssociationSet Name="FK__LoanDetai__IdLoa__797309D9" Association="Self.FK__LoanDetai__IdLoa__797309D9">
       <End Role="LoanHistory" EntitySet="LoanHistory" />
       <End Role="LoanDetailHistory" EntitySet="LoanDetailHistory" />
     </AssociationSet>
-    <AssociationSet Name="FK__LoanHisto__IdRea__71D1E811" Association="Self.FK__LoanHisto__IdRea__71D1E811">
+    <AssociationSet Name="FK__LoanHisto__IdRea__74AE54BC" Association="Self.FK__LoanHisto__IdRea__74AE54BC">
       <End Role="Reader" EntitySet="Reader" />
       <End Role="LoanHistory" EntitySet="LoanHistory" />
     </AssociationSet>
-    <AssociationSet Name="FK__LoanSlip__IdRead__6754599E" Association="Self.FK__LoanSlip__IdRead__6754599E">
+    <AssociationSet Name="FK__LoanSlip__IdRead__6A30C649" Association="Self.FK__LoanSlip__IdRead__6A30C649">
       <End Role="Reader" EntitySet="Reader" />
       <End Role="LoanSlip" EntitySet="LoanSlip" />
     </AssociationSet>
-    <AssociationSet Name="FK__RoleFunct__IdFun__5BE2A6F2" Association="Self.FK__RoleFunct__IdFun__5BE2A6F2">
+    <AssociationSet Name="FK__RoleFunct__IdFun__5EBF139D" Association="Self.FK__RoleFunct__IdFun__5EBF139D">
       <End Role="Function" EntitySet="Function" />
       <End Role="RoleFunction" EntitySet="RoleFunction" />
     </AssociationSet>
-    <AssociationSet Name="FK__RoleFunct__IdRol__5AEE82B9" Association="Self.FK__RoleFunct__IdRol__5AEE82B9">
+    <AssociationSet Name="FK__RoleFunct__IdRol__5DCAEF64" Association="Self.FK__RoleFunct__IdRol__5DCAEF64">
       <End Role="Role" EntitySet="Role" />
       <End Role="RoleFunction" EntitySet="RoleFunction" />
     </AssociationSet>
-    <AssociationSet Name="FK__UserInfo__IdUser__44FF419A" Association="Self.FK__UserInfo__IdUser__44FF419A">
+    <AssociationSet Name="FK__UserInfo__IdUser__47DBAE45" Association="Self.FK__UserInfo__IdUser__47DBAE45">
       <End Role="User" EntitySet="User" />
       <End Role="UserInfo" EntitySet="UserInfo" />
     </AssociationSet>
-    <AssociationSet Name="FK__UserRole__IdRole__4F7CD00D" Association="Self.FK__UserRole__IdRole__4F7CD00D">
+    <AssociationSet Name="FK__UserRole__IdRole__52593CB8" Association="Self.FK__UserRole__IdRole__52593CB8">
       <End Role="Role" EntitySet="Role" />
       <End Role="UserRole" EntitySet="UserRole" />
     </AssociationSet>
-    <AssociationSet Name="FK__UserRole__IdUser__4E88ABD4" Association="Self.FK__UserRole__IdUser__4E88ABD4">
+    <AssociationSet Name="FK__UserRole__IdUser__5165187F" Association="Self.FK__UserRole__IdUser__5165187F">
       <End Role="User" EntitySet="User" />
       <End Role="UserRole" EntitySet="UserRole" />
     </AssociationSet>

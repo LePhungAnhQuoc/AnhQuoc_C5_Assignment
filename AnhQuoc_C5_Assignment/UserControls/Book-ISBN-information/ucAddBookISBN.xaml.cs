@@ -233,7 +233,7 @@ namespace AnhQuoc_C5_Assignment
         {
             item.IdBookTitle = selectedBookTitleDto.Id;
             item.IdAuthor = selectedAuthor.Id;
-            item.Language = selectedLanguage;
+            item.OriginLanguage = selectedLanguage;
         }
 
         private bool IsAllSelecting()

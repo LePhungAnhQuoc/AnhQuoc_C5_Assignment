@@ -19,16 +19,6 @@ namespace AnhQuoc_C5_Assignment
         {
         }
         
-        public override void WriteUpdate(Adult updated)
-        {
-            var adultViewModel = UnitOfViewModel.Instance.AdultViewModel;
-
-            Adult itemSource = dbSource.Adults.FirstOrDefault(sourceItem => sourceItem.IdReader == updated.IdReader);
-            adultViewModel.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-
         public override void WriteUpdateStatus(Adult item, bool status)
         {
             Adult itemSource = dbSource.Adults.FirstOrDefault(sourceItem => sourceItem.IdReader == item.IdReader);

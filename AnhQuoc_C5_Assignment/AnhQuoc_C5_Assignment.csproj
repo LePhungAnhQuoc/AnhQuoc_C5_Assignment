@@ -50,6 +50,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -123,6 +124,7 @@
     <Compile Include="DTOs\FunctionDto.cs" />
     <Compile Include="DTOs\RoleDto.cs" />
     <Compile Include="DTOs\RoleFunctionDto.cs" />
+    <Compile Include="DTOs\LoanHistoryDto.cs" />
     <Compile Include="DTOs\UserDtos\UserDto.cs" />
     <Compile Include="DTOs\ReaderDto.cs" />
     <Compile Include="DTOs\UserDtos\UserAccountLogIn.cs" />
@@ -145,6 +147,7 @@
     <Compile Include="Mapping\BookTitleMap.cs" />
     <Compile Include="Mapping\FunctionMap.cs" />
     <Compile Include="Mapping\RoleFunctionMap.cs" />
+    <Compile Include="Mapping\LoanHistoryMap.cs" />
     <Compile Include="Mapping\UserRoleMap.cs" />
     <Compile Include="Mapping\UserMap.cs" />
     <Compile Include="Mapping\ReaderMap.cs" />
@@ -191,6 +194,9 @@
     <Compile Include="Models\OtherModels\DatabaseName.cs" />
     <Compile Include="Models\OtherModels\ServerName.cs" />
     <Compile Include="Models\Parameter.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PenaltyReason.cs">
       <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Province.cs">
@@ -244,6 +250,7 @@
     <Compile Include="Repositories\LoanSlipRepository.cs" />
     <Compile Include="Repositories\Others\Base\IXmlRepositoryBase.cs" />
     <Compile Include="Repositories\RoleFunctionRepository.cs" />
+    <Compile Include="Repositories\LoanHistoryRepository.cs" />
     <Compile Include="Repositories\UserRoleRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\UserInfoRepository.cs" />
@@ -287,6 +294,12 @@
     <Compile Include="UserControls\Function-Information\ucFunctionsTable.xaml.cs">
       <DependentUpon>ucFunctionsTable.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\LoanHistory-Information\ucLoanHistoryManagement.xaml.cs">
+      <DependentUpon>ucLoanHistoryManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LoanHistory-Information\ucLoanHistorysTable.xaml.cs">
+      <DependentUpon>ucLoanHistorysTable.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\LoanSlip-Information\ucLoanSlipsTable.xaml.cs">
       <DependentUpon>ucLoanSlipsTable.xaml</DependentUpon>
     </Compile>
@@ -301,6 +314,9 @@
     </Compile>
     <Compile Include="UserControls\LoanDetail-Information\ucLoanDetailsTable.xaml.cs">
       <DependentUpon>ucLoanDetailsTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LoanSlip-Payment-Information\ucLoanSlipPayment.xaml.cs">
+      <DependentUpon>ucLoanSlipPayment.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Pagination-Uti\ucButtonCircle.xaml.cs">
       <DependentUpon>ucButtonCircle.xaml</DependentUpon>
@@ -414,7 +430,11 @@
     <Compile Include="ViewModels\RoleViewModel.cs" />
     <Compile Include="ViewModels\UserInfoViewModel.cs" />
     <Compile Include="ViewModels\UserRoleViewModel.cs" />
+    <Compile Include="ViewModels\LoanHistoryViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="Views\Book-Manage\frmAddLoanHistory.xaml.cs">
+      <DependentUpon>frmAddLoanHistory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Book-Manage\frmBorrowBook.xaml.cs">
       <DependentUpon>frmBorrowBook.xaml</DependentUpon>
     </Compile>
@@ -595,6 +615,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UserControls\LoanHistory-Information\ucLoanHistoryManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\LoanHistory-Information\ucLoanHistorysTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\LoanSlip-Information\ucLoanSlipsTable.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -614,6 +642,10 @@
     <Page Include="UserControls\LoanDetail-Information\ucLoanDetailsTable.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\LoanSlip-Payment-Information\ucLoanSlipPayment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Pagination-Uti\ucButtonCircle.xaml">
       <SubType>Designer</SubType>
@@ -700,6 +732,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\UserRole-Information\ucUserRolesTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Book-Manage\frmAddLoanHistory.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

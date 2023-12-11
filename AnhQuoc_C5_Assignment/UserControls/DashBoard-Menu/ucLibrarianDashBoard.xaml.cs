@@ -60,6 +60,7 @@ namespace AnhQuoc_C5_Assignment
         private ucBookManagement ucBookManagement;
         private ucBookTitleManagement ucBookTitleManagement;
         private ucLoanSlipManagement ucLoanSlipManagement;
+        private ucLoanHistoryManagement ucLoanHistoryManagement;
         #endregion
 
         #region ViewModels
@@ -85,7 +86,7 @@ namespace AnhQuoc_C5_Assignment
             ucBookManagement = MainWindow.UnitOfForm.UcBookManagement(true);
             ucBookTitleManagement = MainWindow.UnitOfForm.UcBookTitleManagement(true);
             ucLoanSlipManagement = MainWindow.UnitOfForm.UcLoanSlipManagement(true);
-
+            ucLoanHistoryManagement = MainWindow.UnitOfForm.UcLoanHistoryManagement(true);
 
 
             ucLogOut.btnLogOut.Click += BtnLogOut_Click;
@@ -325,6 +326,16 @@ namespace AnhQuoc_C5_Assignment
                         }
                         break;
                     #endregion
+
+                    #region LoanHistory-Management
+                    case Constants.LoanHistoryManagement_FunctionId:
+                        var addLoanHistoryFunc = childs.FirstOrDefault(item => item.Id == "F44");
+                        if (addLoanHistoryFunc == null)
+                        {
+                            ucLoanSlipManagement.IsAllowAdd = false;
+                        }
+                        break;
+                    #endregion
                 }
             }
         }
@@ -357,6 +368,9 @@ namespace AnhQuoc_C5_Assignment
                     break;
                 case Constants.LoanSlipManagement_FunctionId:
                     TvLoanSlipManagement_Function();
+                    break;
+                case Constants.LoanHistoryManagement_FunctionId:
+                    TvLoanHistoryManagement_Function();
                     break;
             }
         }
@@ -440,6 +454,14 @@ namespace AnhQuoc_C5_Assignment
 
             gdView.Children.Clear();
             gdView.Children.Add(ucLoanSlipManagement);
+        }
+
+        private void TvLoanHistoryManagement_Function()
+        {
+            Grid gdView = getGdView();
+
+            gdView.Children.Clear();
+            gdView.Children.Add(ucLoanHistoryManagement);
         }
 
         #endregion

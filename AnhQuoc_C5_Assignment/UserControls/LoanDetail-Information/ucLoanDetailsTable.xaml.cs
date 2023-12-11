@@ -152,7 +152,7 @@ namespace AnhQuoc_C5_Assignment
             btnDeleteClick?.Invoke(sender, e);
         }
 
-        private void ModifiedPagination()
+        public void ModifiedPagination()
         {
             var allDatas = getLoanDetails();
 

@@ -30,6 +30,7 @@ namespace AnhQuoc_C5_Assignment
         public System.DateTime PublishDate { get; set; }
         public decimal Price { get; set; }
         public decimal PriceCurrent { get; set; }
+        public string Note { get; set; }
         public bool Status { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime ModifiedAt { get; set; }

@@ -9,6 +9,11 @@ namespace AnhQuoc_C5_Assignment
 {
     public static class Constants
     {
+        #region Parameter-Table-In-Database
+        public static int LoanSlipExpDate = 7;
+        #endregion
+
+        public static DateTime dateEmptyValue = DateTime.MinValue;
         public static DateTime dateMinValue = DateTime.Parse("01/01/1900");
         public static Func<DateTime> dateMaxValue = () => DateTime.Now;
 
@@ -54,6 +59,7 @@ namespace AnhQuoc_C5_Assignment
         public const string BookISBNManagement_FunctionId = "F32";
         public const string BookManagement_FunctionId = "F36";
         public const string LoanSlipManagement_FunctionId = "F41";
+        public const string LoanHistoryManagement_FunctionId = "F43";
 
         public static string Culture = "vi-VN";
         public static string DatabaseNameConfig = "QuanLyThuVienEntities";
@@ -79,6 +85,7 @@ namespace AnhQuoc_C5_Assignment
         public static string prefixServerName = "SV";
         public static string prefixDatabaseName = "DB";
         public static string prefixLoanDetail = "LDT";
+        public static string prefixLoanHistory = "LHT";
         public static string prefixLoan = "L";
         public static string prefixPublisher = "P";
 
@@ -113,6 +120,8 @@ namespace AnhQuoc_C5_Assignment
 
         public static WindowStartupLocation WDLocation = WindowStartupLocation.CenterScreen;
         #endregion
+
+        public static string ShortConnStr = "data source=DESKTOP-D7CFQLS;initial catalog=QuanLyThuVien;integrated security=True";
 
     }
 }

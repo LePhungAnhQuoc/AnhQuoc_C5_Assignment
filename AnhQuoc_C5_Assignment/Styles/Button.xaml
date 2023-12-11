@@ -465,8 +465,8 @@
         <Setter Property="Margin" Value="0 10 0 10" />
         <Setter Property="Padding" Value="12 5" />
 
-        <Setter Property="Background" Value="#007bff"/>
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="Black"/>
     </Style>
 
     <Style TargetType="Button" x:Key="btnConfirm" BasedOn="{StaticResource btnGeneral}">

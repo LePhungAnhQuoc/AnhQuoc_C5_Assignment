@@ -5,8 +5,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
+using System.Data.Entity;
 using System.Data.Entity.Core;
 using System.Data.Entity.Core.Objects.DataClasses;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -725,6 +728,43 @@ namespace AnhQuoc_C5_Assignment
             return true;
         }
 
+        public static bool Copy<T>(T item1, object item2, params string[] checkProperties)
+        {
+            bool isAllProperties = false;
+            if (checkProperties.Length == 0)
+            {
+                isAllProperties = true;
+            }
+
+            var item1_props = getPropsFromType(item1);
+            var item2_props = getPropsFromType(item2);
+            for (int i = 0; i < item1_props.Count(); i++)
+            {
+                PropertyInfo item1_prop = item1_props[i];
+                PropertyInfo item2_prop = item2_props[i];
+
+                if (!isAllProperties)
+                {
+                    var itemCheck = FindPropertyByName(checkProperties.ToList(), item1_prop.Name);
+                    if (itemCheck == null)
+                    {
+                        continue;
+                    }
+                }
+                object value2 = getValueFromProperty(item2_prop, item2);
+
+                if (value2 == null)
+                {
+                    item1_prop.SetValue(item1, null);
+                }
+                else
+                {
+                    item1_prop.SetValue(item1, value2);
+                }
+            }
+            return true;
+        }
+
         public static IEnumerable<T> OrderBy<T>(IEnumerable<T> source, PropertyInfo Tkey)
         {
             return source.OrderBy(item =>
@@ -1078,12 +1118,27 @@ namespace AnhQuoc_C5_Assignment
             return prop.GetValue(item, null);
         }
 
-        public static object ConvertFromString(string tempValue, Type getType)
+        public static object ConvertFrom(object tempValue, Type getType)
         {
             TypeConverter typeConverter = TypeDescriptor.GetConverter(getType);
 
-            object result = typeConverter.ConvertFromString(tempValue);
+            if (tempValue == null || tempValue.ToString() == string.Empty)
+                return null;
+            object result = typeConverter.ConvertFrom(tempValue);
             return result;
+        }
+
+        public static string[] GetPrimaryKeys(SqlConnection connection, string tableName)
+        {
+            using (SqlDataAdapter adapter = new SqlDataAdapter(string.Format("select * from [{0}]", tableName), connection))
+            using (DataTable table = new DataTable(tableName))
+            {
+                return adapter
+                    .FillSchema(table, SchemaType.Mapped)
+                    .PrimaryKey
+                    .Select(c => c.ColumnName)
+                    .ToArray();
+            }
         }
 
         public static void SetExceptPropertiesForDataGrid(DataGrid dataGrid, List<PropertyInfo> ExceptProperties)
@@ -1142,6 +1197,8 @@ namespace AnhQuoc_C5_Assignment
             }
             return null;
         }
+
+        
 
         #endregion
 
@@ -1383,5 +1440,29 @@ namespace AnhQuoc_C5_Assignment
             return hash.ToString();
         }
         #endregion
+
+        public static IEnumerable<T> OutterJoin<T>(IEnumerable<T> bigSource, IEnumerable<T> smallSource)
+        {
+            IEnumerable<T> result = bigSource.Where(item => !smallSource.Any(sub => sub.Equals(item)));
+            return result;
+        }
+
+        public static IEnumerable<string> GetAllColumnNameInDatabase(SqlDataReader reader)
+        {
+            var columns = Enumerable.Range(0, reader.FieldCount).Select(reader.GetName).OrderBy(item => item).ToList();
+            return columns;
+        }
+
+        public static IEnumerable<Type> GetAllFieldTypeInDatabase(SqlDataReader reader)
+        {
+            var fieldTypes = Enumerable.Range(0, reader.FieldCount).Select(reader.GetFieldType).OrderBy(item => item).ToList();
+            return fieldTypes;
+        }
+
+        public static IEnumerable<string> GetAllDataTypeInDatabase(SqlDataReader reader)
+        {
+            var databaseTypes = Enumerable.Range(0, reader.FieldCount).Select(reader.GetDataTypeName).OrderBy(item => item).ToList();
+            return databaseTypes;
+        }
     }
 }
