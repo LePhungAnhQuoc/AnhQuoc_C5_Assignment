@@ -144,14 +144,9 @@ namespace AnhQuoc_C5_Assignment
         private void ucLoanHistoryManagement_Loaded(object sender, RoutedEventArgs e)
         {
             ucLoanHistorysTable.getItem_Status = () => null;
-            ucLoanSlipsTable.getItem_Status = () => null;
 
             AddToListFill(getLoanHistoryRepo().Gets());
-
             AddItemsToDataGrid(listFills);
-            ucLoanSlipsTable.getLoanSlips = () => getLoanSlipRepo().Gets();
-            ucLoanSlipsTable.ModifiedPagination();
-
 
             #region IsAllow-Feature
             ucLoanHistorysTable.Visibility = (IsAllowViewInformation) ? Visibility.Visible : Visibility.Collapsed;
@@ -194,7 +189,6 @@ namespace AnhQuoc_C5_Assignment
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             frmAddLoanHistory frmAddLoanHistory = MainWindow.UnitOfForm.FrmAddLoanHistory(true);
-            frmAddLoanHistory.getLoanSlip = () => ucLoanSlipsTable.SelectedDto;
             frmAddLoanHistory.ShowDialog();
 
             if (frmAddLoanHistory.Item == null) // Cancel the operation
@@ -203,12 +197,7 @@ namespace AnhQuoc_C5_Assignment
             }
 
             LoanHistoryDto newLoanHistoryDto = frmAddLoanHistory.Item;
-
-            #region AddNewItem
             LoanHistory newLoanHistory = loanHistoryVM.CreateByDto(newLoanHistoryDto);
-            getLoanHistoryRepo().Add(newLoanHistory);
-            getLoanHistoryRepo().WriteAdd(newLoanHistory);
-            #endregion
 
             #region AddTo-listFill
             listFills.Add(newLoanHistory);

@@ -60,6 +60,7 @@ namespace AnhQuoc_C5_Assignment
         public const string BookManagement_FunctionId = "F36";
         public const string LoanSlipManagement_FunctionId = "F41";
         public const string LoanHistoryManagement_FunctionId = "F43";
+        public const string EnrollManagement_FunctionId = "F45";
 
         public static string Culture = "vi-VN";
         public static string DatabaseNameConfig = "QuanLyThuVienEntities";
@@ -88,6 +89,7 @@ namespace AnhQuoc_C5_Assignment
         public static string prefixLoanHistory = "LHT";
         public static string prefixLoan = "L";
         public static string prefixPublisher = "P";
+        public static string prefixLoanDetailHistory = "LDTH";
 
         #endregion
 
@@ -107,7 +109,10 @@ namespace AnhQuoc_C5_Assignment
         #region ExceptDataGrid-Display
         public static string[] exceptDtgChilds = new string[] { "Id", "boF", "LName", "FName", "ReaderType", "ChildsQuantity", "Status", "CreatedAt", "ModifiedAt" };
 
-        public static string[] exceptDtgBorrowBook = new string[] { "ISBN", "CreatedAt", "ModifiedAt", "PublishDate" };
+        public static string[] exceptDtgCreateLoanSlipBook = new string[] { "ISBN", "CreatedAt", "ModifiedAt", "PublishDate" };
+
+        public static string[] exceptDtgCreateLoanHistoryBook = new string[] { "ISBN", "CreatedAt", "ModifiedAt", "PublishDate", "Author", "Category" };
+
         #endregion
 
         #region Style-String

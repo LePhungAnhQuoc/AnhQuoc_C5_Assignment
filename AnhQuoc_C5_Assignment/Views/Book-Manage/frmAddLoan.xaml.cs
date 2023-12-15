@@ -317,7 +317,7 @@ namespace AnhQuoc_C5_Assignment
             ucLoanDetailsTable.ModifiedPagination();
             
             List<PropertyInfo> allProperties = Utilities.getPropsFromType(typeof(BookDto));
-            List<PropertyInfo> exceptDtgProperties = Utilities.FillPropertiesByName(allProperties, Constants.exceptDtgBorrowBook);
+            List<PropertyInfo> exceptDtgProperties = Utilities.FillPropertiesByName(allProperties, Constants.exceptDtgCreateLoanSlipBook);
             ucTemporaryBooksTable.getExceptProperties = () => exceptDtgProperties;
 
             LoanDetails = new ObservableCollection<LoanDetail>();

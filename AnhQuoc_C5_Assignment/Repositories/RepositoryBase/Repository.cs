@@ -113,7 +113,7 @@ namespace AnhQuoc_C5_Assignment
 
             Func<T, bool> predicate = (sourceItem) =>
             {
-                return Utilities.getValueFromProperty(key, sourceItem) == Utilities.getValueFromProperty(key, updated);
+                return Utilities.getValueFromProperty(key, sourceItem).Equals(Utilities.getValueFromProperty(key, updated));
             };
 
             PropertyInfo tableProperty = Utilities.GetTablePropertyFromDatabase<T>(dbSource);
@@ -127,7 +127,28 @@ namespace AnhQuoc_C5_Assignment
         }
 
 
-        public virtual void WriteUpdateStatus(T item, bool status) { }
+        public virtual void WriteUpdateStatus(T updated, bool status)
+        {
+            string key = string.Empty;
+            using (SqlConnection conn = new SqlConnection(Constants.ShortConnStr))
+            {
+                key = Utilities.GetPrimaryKeys(conn, typeof(T).Name).SingleOrDefault();
+            }
+
+            Func<T, bool> predicate = (sourceItem) =>
+            {
+                return Utilities.getValueFromProperty(key, sourceItem).Equals(Utilities.getValueFromProperty(key, updated));
+            };
+
+            PropertyInfo tableProperty = Utilities.GetTablePropertyFromDatabase<T>(dbSource);
+            var dbTable = (System.Data.Entity.DbSet<T>)Utilities.getValueFromProperty(tableProperty, dbSource);
+
+
+            T itemSource = dbTable.FirstOrDefault(predicate);
+            Utilities.Copy(itemSource, updated);
+
+            dbSource.SaveChanges();
+        }
 
 
         public IEnumerator GetEnumerator()

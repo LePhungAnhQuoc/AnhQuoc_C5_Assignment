@@ -31,6 +31,17 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private LoanDetailHistoryRepository _LoanDetailHistoryRepo;
+        public LoanDetailHistoryRepository LoanDetailHistoryRepo
+        {
+            get
+            {
+                if (_LoanDetailHistoryRepo == null)
+                    _LoanDetailHistoryRepo = new LoanDetailHistoryRepository();
+                return _LoanDetailHistoryRepo;
+            }
+        }
+
         private PublisherRepository _PublisherRepo;
         public PublisherRepository PublisherRepo
         {
@@ -305,6 +316,9 @@ namespace AnhQuoc_C5_Assignment
 
             _LoanHistoryRepo = new LoanHistoryRepository();
             _LoanHistoryRepo.LoadList();
+
+            _LoanDetailHistoryRepo = new LoanDetailHistoryRepository();
+            _LoanDetailHistoryRepo.LoadList();
 
             _PublisherRepo = new PublisherRepository();
             _PublisherRepo.LoadList();

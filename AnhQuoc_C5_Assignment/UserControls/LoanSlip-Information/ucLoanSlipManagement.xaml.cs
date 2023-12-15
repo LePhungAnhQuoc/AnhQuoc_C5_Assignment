@@ -143,8 +143,6 @@ namespace AnhQuoc_C5_Assignment
         
         private void ucLoanSlipManagement_Loaded(object sender, RoutedEventArgs e)
         {
-            ucLoanSlipsTable.getItem_Status = () => null;
-
             AddToListFill(getLoanSlipRepo().Gets());
             AddItemsToDataGrid(listFillLoanSlips);
 

@@ -74,7 +74,7 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(UserDto item)
         {
-            return Utilities.IsCheckEmptyItem(item);
+            return Utilities.IsCheckEmptyItem(item, false);
         }
 
         public User CreateByDto(UserDto dto)

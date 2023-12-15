@@ -31,6 +31,7 @@ namespace AnhQuoc_C5_Assignment
         private ucBookManagement ucBookManagement;
         private ucBookTitleManagement ucBookTitleManagement;
         private ucLoanHistoryManagement ucLoanHistoryManagement;
+        private ucEnrollManagement ucEnrollManagement;
         private ucLoanSlipManagement ucLoanSlipManagement;
         private ucLoanSlipPayment ucLoanSlipPayment;
 
@@ -97,6 +98,12 @@ namespace AnhQuoc_C5_Assignment
         public Func<bool, ucLoanHistoryManagement> UcLoanHistoryManagement
         {
             get { return _UcLoanHistoryManagement; }
+        }
+
+        private Func<bool, ucEnrollManagement> _UcEnrollManagement;
+        public Func<bool, ucEnrollManagement> UcEnrollManagement
+        {
+            get { return _UcEnrollManagement; }
         }
 
         private Func<bool, ucBookManagement> _UcBookManagement;
@@ -333,6 +340,18 @@ namespace AnhQuoc_C5_Assignment
                     ucLoanHistoryManagement.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
                 }
                 return ucLoanHistoryManagement;
+            };
+
+            _UcEnrollManagement = (isReAllocate) =>
+            {
+                if (isReAllocate)
+                {
+                    ucEnrollManagement = new ucEnrollManagement();
+                    ucEnrollManagement.getEnrollRepo = () => _UnitOfRepo.EnrollRepo;
+                    ucEnrollManagement.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
+                    ucEnrollManagement.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
+                }
+                return ucEnrollManagement;
             };
 
             _UcBookManagement = (isReAllocate) =>
@@ -574,7 +593,11 @@ namespace AnhQuoc_C5_Assignment
                 if (isReAllocate == true)
                 {
                     frmAddLoanHistory = new frmAddLoanHistory();
+                    frmAddLoanHistory.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
                     frmAddLoanHistory.getLoanHistoryRepo = () => _UnitOfRepo.LoanHistoryRepo;
+                    frmAddLoanHistory.getLoanDetailHistoryRepo = () => _UnitOfRepo.LoanDetailHistoryRepo;
+                    frmAddLoanHistory.getBookRepo = () => _UnitOfRepo.BookRepo;
+                    frmAddLoanHistory.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
                     frmAddLoanHistory.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
                 }
                 return frmAddLoanHistory;
@@ -747,6 +770,7 @@ namespace AnhQuoc_C5_Assignment
             ucRoleFunctionManagement = UcRoleFunctionManagement(true);
             ucBookTitleManagement = UcBookTitleManagement(true);
             ucLoanHistoryManagement = UcLoanHistoryManagement(true);
+            ucEnrollManagement = UcEnrollManagement(true);
             ucBookManagement = UcBookManagement(true);
             ucBookISBNManagement = UcBookISBNManagement(true);
             ucLoanSlipManagement = UcLoanSlipManagement(true);

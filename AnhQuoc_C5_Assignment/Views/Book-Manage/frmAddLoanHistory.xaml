@@ -13,403 +13,386 @@
         <System:Double x:Key="gridBarHeight">50</System:Double>
     </Window.Resources>
     <Grid Name="gdContent"
-          Width="1000">
-        <Grid Name="gdInputLoanSlip">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
-
-            <!-- Title -->
-            <Label Grid.Row="0"
-                   Grid.ColumnSpan="2"
-                   Style="{StaticResource lblTitle}"
-                   Content="Add New Loan History"/>
-
-            <StackPanel Grid.Row="1"
-                        Grid.Column="0"
-                        Margin="0 0 20 0">
-                <StackPanel.Resources>
-                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                    <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
-                    <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
-                    <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
-                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
-                </StackPanel.Resources>
-
-                <Grid Margin="20 10 0 10"
-                                          HorizontalAlignment="Left">
-                    <ComboBox Name="cbSelectReaderType"
-                                                  Style="{StaticResource cbStyle2}"
-                                                  ItemsSource="{Binding AllReaderTypes}"
-                                                  SelectedItem="{Binding SelectedReaderType}"></ComboBox>
-                    <TextBlock Text="Select Reader Type">
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolderComboBox}">
-                                <Setter Property="Visibility" Value="Hidden" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=cbSelectReaderType, Path=SelectedIndex}" Value="-1">
-                                        <Setter Property="Visibility" Value="Visible" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </Grid>
-                <!-- Adult -->
-                <StackPanel Name="stkAdultInformation"
-                            Visibility="Visible">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Identify: " />
-                        <Grid Name="gdInputAdultIndentify"
-                            Style="{x:Null}"
-                            Grid.Column="1">
-                            <ComboBox Name="cbAdultTxtIdentify"
-                                                              Style="{StaticResource cbGeneral}"
-                                                              DisplayMemberPath="Identify">
-                            </ComboBox>
-                            <TextBox Name="txtAdultInputIdentify"
-                                                         Grid.Column="1">
-                                <TextBox.Text>
-                                    <Binding Path="InputIdentify" UpdateSourceTrigger="PropertyChanged">
-                                        <Binding.ValidationRules>
-                                            <local:InputNumberRule />
-                                        </Binding.ValidationRules>
-                                    </Binding>
-                                </TextBox.Text>
-                            </TextBox>
-                        </Grid>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Name: " />
-                        <TextBox Name="txtAdultName"
-                                                         Grid.Column="1"
-                                                         Text="{Binding SelectedReader.FullName, Mode=OneWay}"
-                                                         IsReadOnly="True">
-                        </TextBox>
-                    </Grid>
-                </StackPanel>
-
-                <!-- Child -->
-                <StackPanel Name="stkChildInformation"
-                            Visibility="Collapsed">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Guardian ID: " />
-                        <Grid Name="gdGuardianInput"
-                                                      Style="{x:Null}"
-                                                      Grid.Column="1"
-                                                      IsEnabled="True">
-                            <ComboBox Name="cbGuardianTxtIdentify"
-                                                          Style="{StaticResource cbGeneral}"
-                                                          DisplayMemberPath="Identify">
-                            </ComboBox>
-                            <TextBox Name="txtGuardianInputIdentify"
-                                                         Grid.Column="1">
-                                <TextBox.Text>
-                                    <Binding Path="InputIdentify" UpdateSourceTrigger="PropertyChanged">
-                                        <Binding.ValidationRules>
-                                            <local:InputNumberRule />
-                                        </Binding.ValidationRules>
-                                    </Binding>
-                                </TextBox.Text>
-                            </TextBox>
-                        </Grid>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Child name: " />
-                        <Grid Name="gdInputChildName"
-                                                      Style="{x:Null}"
-                                                      Grid.Column="1"
-                                                      IsEnabled="False">
-                            <ComboBox Name="cbChildTxtReaderName"
-                                                          Style="{StaticResource cbGeneral}"
-                                                          DisplayMemberPath="FullName"
-                                                          SelectedValuePath="FullName">
-                            </ComboBox>
-                            <TextBox Name="txtChildInputReaderName">
-                                <TextBox.Text>
-                                    <Binding Path="InputFullName" UpdateSourceTrigger="PropertyChanged">
-                                        <Binding.ValidationRules>
-                                            <local:InputUnicodeTextRule />
-                                        </Binding.ValidationRules>
-                                    </Binding>
-                                </TextBox.Text>
-                            </TextBox>
-                        </Grid>
-                    </Grid>
-                </StackPanel>
-            </StackPanel>
-
-            <local:ucLoanDetailsTable Grid.Column="1"
-                                      Grid.Row="1"
-                                      x:Name="ucLoanDetailsBorrowedTable"
-                                      AllowPagination="False" />
-
-            <Grid Grid.Row="2"
-                  Grid.ColumnSpan="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+          Width="1000"
+          Height="700">
+        <ScrollViewer Style="{StaticResource scrollStyleGeneral}">
+            <Grid Name="gdInputLoanSlip"
+                  Width="980">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <StackPanel>
-                    <StackPanel Grid.Row="0"
-                                Grid.Column="0">
-                        <Grid Background="#3968b4"
-                              Height="{StaticResource gridBarHeight}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
-                            <Label Style="{StaticResource lblTitleStyle3}"
-                                               Content="Temporary book list" 
-                                               VerticalAlignment="Center"/>
-                            <!-- Footer -->
-                            <Grid Grid.Column="1"
-                                              Margin="20 10">
-                                <Button Name="btnBookDetailConfirm" Content="Save Data"
-                                                    Style="{StaticResource btnSaveDataStyle1}">
-                                </Button>
-                            </Grid>
-                        </Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-                        <local:ucBooksTable x:Name="ucTemporaryBooksTable"
-                                                        Style="{StaticResource ucStyleHorizontal}"
-                                                        Height="150" 
-                                                        AllowPagination="False" />
-                    </StackPanel>
-                    <Border Style="{StaticResource bdStyle1}">
-                        <StackPanel Name="stkBookDetailInformation"
-                                    Visibility="Visible">
-                            <StackPanel.Resources>
-                                <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                                <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
-                                <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
-                                <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
-                                <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
-                            </StackPanel.Resources>
-                            
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Label Content="Id Reader: " />
-                               
-                                <TextBox Name="txtIdReader"
+                <!-- Title -->
+                <Label Grid.Row="0"
+                       Grid.ColumnSpan="2"
+                       Style="{StaticResource lblTitle}"
+                       Content="Add New Loan History"/>
+
+                <StackPanel Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="0 0 20 0">
+                    <StackPanel.Resources>
+                        <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                        <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                        <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                        <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                        <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
+                    </StackPanel.Resources>
+
+                    <Grid Margin="20 10 0 10"
+                        HorizontalAlignment="Left">
+                        <ComboBox Name="cbSelectReaderType"
+                                  Style="{StaticResource cbStyle2}"
+                                  ItemsSource="{Binding AllReaderTypes}"
+                                  SelectedItem="{Binding SelectedReader.ReaderType}"></ComboBox>
+                        <TextBlock Text="Select Reader Type">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolderComboBox}">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=cbSelectReaderType, Path=SelectedIndex}" Value="-1">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+                    <!-- Adult -->
+                    <StackPanel Name="stkAdultInformation"
+                                Visibility="Visible">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Identify: " />
+                            <Grid Name="gdInputAdultIndentify"
+                                Style="{x:Null}"
+                                Grid.Column="1">
+                                <ComboBox Name="cbAdultTxtIdentify"
+                                          Style="{StaticResource cbGeneral}"
+                                          DisplayMemberPath="Identify">
+                                </ComboBox>
+                                <TextBox Name="txtAdultInputIdentify"
                                          Grid.Column="1"
-                                         Text="{Binding Reader.Id, Mode=OneWay}"
+                                         Text="{Binding SelectedAdult.Identify, Mode=OneWay}"
                                          IsEnabled="False">
                                 </TextBox>
                             </Grid>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Label Content="Id Loan: " />
-                                <TextBox Name="txtIdLoan"
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Name: " />
+                            <TextBox Name="txtAdultName"
+                                     Grid.Column="1"
+                                     Text="{Binding SelectedReader.FullName, Mode=OneWay}"
+                                     IsEnabled="False">
+                            </TextBox>
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- Child -->
+                    <StackPanel Name="stkChildInformation"
+                                Visibility="Collapsed">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Guardian ID: " />
+                            <Grid Name="gdGuardianInput"
+                                  Style="{x:Null}"
+                                  Grid.Column="1"
+                                  IsEnabled="True">
+                                <ComboBox Name="cbGuardianTxtIdentify"
+                                          Style="{StaticResource cbGeneral}"
+                                          DisplayMemberPath="Identify">
+                                </ComboBox>
+                                <TextBox Name="txtGuardianInputIdentify"
                                          Grid.Column="1"
+                                         Text="{Binding SelectedGuardian.Identify, Mode=OneWay}"
+                                         IsEnabled="False">
+                                </TextBox>
+                            </Grid>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Child name: " />
+                            <Grid Name="gdInputChildName"
+                                Style="{x:Null}"
+                                Grid.Column="1"
+                                IsEnabled="False">
+                                <ComboBox Name="cbChildTxtReaderName"
+                                        Style="{StaticResource cbGeneral}"
+                                        DisplayMemberPath="FullName"
+                                        SelectedValuePath="FullName">
+                                </ComboBox>
+                                <TextBox Name="txtChildInputReaderName"
                                          Text="{Binding SelectedReader.FullName, Mode=OneWay}"
                                          IsEnabled="False">
                                 </TextBox>
                             </Grid>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Label Content="Reason: " />
-                                <TextBox Name="txtReason"
-                                         Grid.Column="1">
-                                    <TextBox.Text>
-                                        <Binding Path="PenaltyReason" UpdateSourceTrigger="PropertyChanged">
-                                            <Binding.ValidationRules>
-                                                <local:InputUnicodeTextRule />
-                                            </Binding.ValidationRules>
-                                        </Binding>
-                                    </TextBox.Text>
-                                </TextBox>
-                            </Grid>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Label Content="Note: " />
-                                <TextBox Name="txtNote"
-                                         Grid.Column="1">
-                                    <TextBox.Text>
-                                        <Binding Path="Note" UpdateSourceTrigger="PropertyChanged">
-                                            <Binding.ValidationRules>
-                                            </Binding.ValidationRules>
-                                        </Binding>
-                                    </TextBox.Text>
-                                </TextBox>
-                            </Grid>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Label Content="Fine amount: " />
-                                <TextBox Name="txtFineAmount"
-                                         Grid.Column="1">
-                                    <TextBox.Text>
-                                        <Binding Path="FineMoney" UpdateSourceTrigger="PropertyChanged">
-                                            <Binding.ValidationRules>
-                                                <local:InputNumberRule />
-                                            </Binding.ValidationRules>
-                                        </Binding>
-                                    </TextBox.Text>
-                                </TextBox>
-                            </Grid>
-
-                            <Button Style="{StaticResource btnConfirm}" />
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
-
-                <StackPanel Grid.Row="0"
-                            Grid.Column="1"
-                            VerticalAlignment="Top">
-                    <Grid Background="#3968b4"
-                              Height="{StaticResource gridBarHeight}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <Label Style="{StaticResource lblTitleStyle3}"
-                                               Content="Temporary book list" 
-                                               VerticalAlignment="Center"/>
-                        <!-- Footer -->
-                        <Grid Grid.Column="1"
-                                              Margin="20 10">
-                            <Button Content="Save Data"
-                                    Style="{StaticResource btnSaveDataStyle1}">
-                            </Button>
                         </Grid>
-                    </Grid>
-
-                    <local:ucBooksTable Style="{StaticResource ucStyleHorizontal}"
-                                        Height="150" 
-                                        AllowPagination="False" />
-                </StackPanel>
-                <Border Style="{StaticResource bdStyle1}"
-                        Grid.Column="1"
-                        VerticalAlignment="Bottom">
-                    <StackPanel>
-                        <StackPanel.Resources>
-                            <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                            <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
-                            <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
-                            <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
-                            <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
-                        </StackPanel.Resources>
-                        
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="120" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label Content="Borrowed Days: " />
-                            <TextBox Name="txtBorrowedDays"
-                                     Grid.Column="1"
-                                     Text="{Binding BorrowedDays, Mode=OneWay}"
-                                     IsEnabled="False">
-                            </TextBox>
-                        </Grid>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="120" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label Content="Total fine: " />
-                            <TextBox Name="txtTotalFineAmount"
-                                     Grid.Column="1"
-                                     Text="{Binding TotalFineAmount, Mode=OneWay}"
-                                     IsEnabled="False">
-                            </TextBox>
-                        </Grid>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="120" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label Content="Loan paid: " />
-                            <TextBox Name="txtLoanPaid"
-                                     Grid.Column="1"
-                                     Text="{Binding LoanPaid, Mode=OneWay}"
-                                     IsEnabled="False">
-                            </TextBox>
-                        </Grid>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="120" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label Content="Deposit: " />
-                            <TextBox Name="txtDeposit"
-                                     Grid.Column="1"
-                                     Text="{Binding Deposit, Mode=OneWay}"
-                                     IsEnabled="False">
-                            </TextBox>
-                        </Grid>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="120" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label Content="Payment: " />
-                            <TextBox Name="txtPayment"
-                                     Grid.Column="1"
-                                     Text="{Binding Payment, Mode=OneWay}"
-                                     IsEnabled="False">
-                            </TextBox>
-                        </Grid>
-
-                        <Button Style="{StaticResource btnConfirm}" />
                     </StackPanel>
-                </Border>
-            </Grid>
+                </StackPanel>
 
-            <!-- Footer -->
-            <StackPanel Grid.Row="3"
-                        Grid.ColumnSpan="2"
-                        Style="{StaticResource stkWrapButton}">
-                <Button Name="btnConfirm" Content="Confirm"
-                        HorizontalAlignment="Stretch"
-                        Style="{StaticResource btnConfirm}">
-                </Button>
-                <Button Name="btnCancel" Content="Cancel" 
-                        Style="{StaticResource btnCancel}"
-                        HorizontalAlignment="Stretch"
-                        Margin="10 0 0 0"/>
-            </StackPanel>
-        </Grid>
+                <local:ucLoanDetailsTable Grid.Column="1"
+                                          Grid.Row="1"
+                                          x:Name="ucLoanDetailsBorrowedTable"
+                                          AllowPagination="False" />
+
+                <Grid Grid.Row="2"
+                      Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <StackPanel Grid.Row="0"
+                                    Grid.Column="0">
+                            <Grid Background="#3968b4"
+                                  Height="{StaticResource gridBarHeight}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Style="{StaticResource lblTitleStyle3}"
+                                        Content="Un paid list" 
+                                        VerticalAlignment="Center"/>
+                                <!-- Footer -->
+                                <Grid Grid.Column="1"
+                                      Margin="20 10">
+                                </Grid>
+                            </Grid>
+
+                            <local:ucBooksTable x:Name="ucUnPaidBooksTable"
+                                                Style="{StaticResource ucStyleHorizontal}"
+                                                Height="150"
+                                                AllowPagination="False" />
+                        </StackPanel>
+                        <Border Style="{StaticResource bdStyle1}"
+                                Margin="0 0 0 5">
+                            <StackPanel Name="stkBookDetailInformation"
+                                        Visibility="Visible">
+                                <StackPanel.Resources>
+                                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                                    <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                                    <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                                    <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
+                                </StackPanel.Resources>
+                            
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Id Reader: " />
+                               
+                                    <TextBox Name="txtIdReader"
+                                             Grid.Column="1"
+                                             Text="{Binding SelectedReader.Id, Mode=OneWay}"
+                                             IsEnabled="False">
+                                    </TextBox>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Id Loan: " />
+                                    <TextBox Name="txtIdLoan"
+                                             Grid.Column="1"
+                                             Text="{Binding SelectedLoanSlip.Id, Mode=OneWay}"
+                                             IsEnabled="False">
+                                    </TextBox>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Reason: " />
+                                    <TextBox Name="txtReason"
+                                             Grid.Column="1">
+                                        <TextBox.Text>
+                                            <Binding Path="InputReason" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <local:InputUnicodeTextRule />
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Note: " />
+                                    <TextBox Name="txtNote"
+                                             Grid.Column="1">
+                                        <TextBox.Text>
+                                            <Binding Path="Detail.Note" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Fine amount: " />
+                                    <TextBox Name="txtFineAmount"
+                                             Grid.Column="1">
+                                        <TextBox.Text>
+                                            <Binding Path="Detail.PaidMoney" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <local:InputNumberRule />
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                </Grid>
+
+                                <Button Name="btnReturnBook"
+                                        Style="{StaticResource btnConfirm}"
+                                        Content="Return Book"
+                                        Margin="0 0 0 20"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <StackPanel>
+                            <Grid Background="#3968b4"
+                                    Height="{StaticResource gridBarHeight}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Style="{StaticResource lblTitleStyle3}"
+                                        Content="Paid list" 
+                                        VerticalAlignment="Center"/>
+                                <!-- Footer -->
+                                <Grid Grid.Column="1"
+                                                      Margin="20 10">
+                     
+                                </Grid>
+                            </Grid>
+
+                            <local:ucBooksTable x:Name="ucPaidBooksTable"
+                                                Style="{StaticResource ucStyleHorizontal}"
+                                                Height="150" 
+                                                AllowPagination="False" />
+                        </StackPanel>
+                        <Border Style="{StaticResource bdStyle1}"
+                                Margin="0 0 0 5">
+                            <StackPanel>
+                                <StackPanel.Resources>
+                                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                                    <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                                    <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                                    <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
+                                </StackPanel.Resources>
+                        
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Borrowed Days: " />
+                                    <TextBox Name="txtBorrowedDays"
+                                             Grid.Column="1"
+                                             Text="{Binding BorrowedDays, Mode=OneWay}"
+                                             IsEnabled="False">
+                                    </TextBox>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Total fine: " />
+                                    <TextBox Name="txtTotalFineAmount"
+                                             Grid.Column="1"
+                                             Text="{Binding Item.FineMoney, Mode=OneWay}"
+                                             IsEnabled="False">
+                                    </TextBox>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Loan paid: " />
+                                    <TextBox Name="txtLoanPaid"
+                                             Grid.Column="1"
+                                             Text="{Binding Item.LoanPaid, Mode=OneWay}"
+                                             IsEnabled="False">
+                                    </TextBox>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Deposit: " />
+                                    <TextBox Name="txtDeposit"
+                                             Grid.Column="1"
+                                             Text="{Binding Item.Deposit, Mode=OneWay}"
+                                             IsEnabled="False">
+                                    </TextBox>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Payment: " />
+                                    <TextBox Name="txtPayment"
+                                             Grid.Column="1"
+                                             Text="{Binding Item.Total, Mode=OneWay}"
+                                             IsEnabled="False">
+                                    </TextBox>
+                                </Grid>
+
+                                <!-- Footer -->
+                                <StackPanel Style="{StaticResource stkWrapButton}"
+                                            Margin="0 0 0 20">
+                                    <Button Name="btnConfirm" Content="Confirm"
+                                            HorizontalAlignment="Stretch"
+                                            Style="{StaticResource btnConfirm}">
+                                    </Button>
+                                    <Button Name="btnCancel" Content="Cancel" 
+                                            Style="{StaticResource btnCancel}"
+                                            HorizontalAlignment="Stretch"
+                                            Margin="10 0 0 0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Window>

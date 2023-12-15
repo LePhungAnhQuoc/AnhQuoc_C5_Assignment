@@ -25,8 +25,6 @@ namespace AnhQuoc_C5_Assignment
     public partial class ucLoanSlipsTable : UserControl, INotifyPropertyChanged
     {
         #region GetDatas
-        public Func<bool?> getItem_Status { get; set; }
-
         private Func<ObservableCollection<LoanSlip>> _getLoanSlips;
         public Func<ObservableCollection<LoanSlip>> getLoanSlips
         {

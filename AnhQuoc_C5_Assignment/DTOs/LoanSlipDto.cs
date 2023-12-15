@@ -12,6 +12,17 @@ namespace AnhQuoc_C5_Assignment
     {
         public string Id { get; set; }
         
+        private Reader _Reader;
+        public Reader Reader
+        {
+            get { return _Reader; }
+            set
+            {
+                _Reader = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string _ReaderName;
         public string ReaderName
         {
@@ -22,6 +33,7 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
+
 
         private int _Quantity;
         public int Quantity
@@ -86,6 +98,7 @@ namespace AnhQuoc_C5_Assignment
             }
         }
         
+
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         // Create the OnPropertyChanged method to raise the event

@@ -105,6 +105,7 @@
     <Compile Include="Converters\StatusConvert\ChildsQuantityConverter.cs" />
     <Compile Include="Converters\Others\boFToAgeConverter.cs" />
     <Compile Include="Converters\StatusConvert\StatusConverter.cs" />
+    <Compile Include="Converters\stkInformationVisibilityConverter.cs" />
     <Compile Include="DataProvider\DatabaseFirst.cs" />
     <Compile Include="DataProvider\UnitOfWork\UnitOfForm.cs" />
     <Compile Include="DataProvider\UnitOfWork\UnitOfMap.cs" />
@@ -119,7 +120,9 @@
     <Compile Include="DTOs\ChildDto.cs" />
     <Compile Include="DTOs\FunctionChildDto.cs" />
     <Compile Include="DTOs\Interfaces\IDtoBase.cs" />
+    <Compile Include="DTOs\LoanDetailHistoryDto.cs" />
     <Compile Include="DTOs\LoanDetailDto.cs" />
+    <Compile Include="DTOs\EnrollDto.cs" />
     <Compile Include="DTOs\LoanSlipDto.cs" />
     <Compile Include="DTOs\ProvinceDto.cs" />
     <Compile Include="DTOs\FunctionDto.cs" />
@@ -140,6 +143,8 @@
     <Compile Include="ExtensionMethods\StringExtension.cs" />
     <Compile Include="Mapping\AuthorMap.cs" />
     <Compile Include="Mapping\Base\MapBase.cs" />
+    <Compile Include="Mapping\LoanDetailHistoryMap.cs" />
+    <Compile Include="Mapping\EnrollMap.cs" />
     <Compile Include="Mapping\LoanDetailMap.cs" />
     <Compile Include="Mapping\LoanSlipMap.cs" />
     <Compile Include="Mapping\RoleMap.cs" />
@@ -242,6 +247,7 @@
     <Compile Include="Models\UserRole.cs">
       <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\LoanDetailHistoryRepository.cs" />
     <Compile Include="Repositories\PublisherRepository.cs" />
     <Compile Include="Repositories\EnrollRepository.cs" />
     <Compile Include="Repositories\LoanDetailRepository.cs" />
@@ -282,6 +288,12 @@
     </Compile>
     <Compile Include="UserControls\Book-Title-Information\ucBookTitleManagement.xaml.cs">
       <DependentUpon>ucBookTitleManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Enroll-Information\ucEnrollManagement.xaml.cs">
+      <DependentUpon>ucEnrollManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Enroll-Information\ucEnrollsTable.xaml.cs">
+      <DependentUpon>ucEnrollsTable.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Function-Information\ucDisplayFunction.xaml.cs">
       <DependentUpon>ucDisplayFunction.xaml</DependentUpon>
@@ -419,6 +431,7 @@
     <Compile Include="ViewModels\ChildViewModel.cs" />
     <Compile Include="ViewModels\EnrollVIewModel.cs" />
     <Compile Include="ViewModels\FunctionViewModel.cs" />
+    <Compile Include="ViewModels\LoanDetailHistoryViewModel.cs" />
     <Compile Include="ViewModels\LoanDetailViewModel.cs" />
     <Compile Include="ViewModels\LoanSlipViewModel.cs" />
     <Compile Include="ViewModels\Others\DatabaseNameViewModel.cs" />
@@ -597,6 +610,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\Book-Title-Information\ucBookTitleManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Enroll-Information\ucEnrollManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Enroll-Information\ucEnrollsTable.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

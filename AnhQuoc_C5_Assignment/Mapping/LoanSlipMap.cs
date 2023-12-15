@@ -17,7 +17,9 @@ namespace AnhQuoc_C5_Assignment
             ReaderDto readerDto = readerMap.ConvertToDto(reader);
 
             LoanSlipDto newItem = new LoanSlipDto(sourceItem.Id);
+            newItem.Reader = reader;
             newItem.ReaderName = readerDto.FullName;
+
             newItem.Quantity = sourceItem.Quantity;
             
             newItem.LoanDate = sourceItem.LoanDate;

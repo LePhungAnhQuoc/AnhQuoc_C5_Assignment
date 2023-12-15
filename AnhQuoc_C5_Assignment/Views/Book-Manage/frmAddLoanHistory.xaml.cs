@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +24,11 @@ namespace AnhQuoc_C5_Assignment
     public partial class frmAddLoanHistory : Window, INotifyPropertyChanged
     {
         #region getDatas
-        public Func<LoanSlipDto> getLoanSlip { get; set; }
+        public Func<LoanSlipRepository> getLoanSlipRepo { get; set; }
         public Func<LoanHistoryRepository> getLoanHistoryRepo { get; set; }
+        public Func<LoanDetailHistoryRepository> getLoanDetailHistoryRepo { get; set; }
+        public Func<BookRepository> getBookRepo { get; set; }
+        public Func<BookISBNRepository> getBookISBNRepo { get; set; }
         public Func<ParameterRepository> getParameterRepo { get; set; }
         #endregion
 
@@ -33,6 +37,7 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Properties
+        public bool? StatusValue { get; set; } = true;
 
         #region Datas
         private ObservableCollection<AdultDto> _AllAdults;
@@ -101,9 +106,12 @@ namespace AnhQuoc_C5_Assignment
             }
         }
         #endregion
-        public ObservableCollection<Book> AllBooksOfReader { get; set; }
 
-        public bool? StatusValue { get; set; } = true;
+        public ObservableCollection<BookDto> UnPaidBooksOfReader { get; set; }
+        public ObservableCollection<BookDto> PaidBooksOfReader { get; set; }
+        public ObservableCollection<LoanDetail> UnPaidLoanDetailsOfReader { get; set; }
+        public ObservableCollection<LoanDetail> PaidLoanDetailsOfReader { get; set; }
+
 
         private ReaderDto _SelectedReader;
         public ReaderDto SelectedReader
@@ -116,11 +124,90 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private AdultDto _SelectedAdult;
+        public AdultDto SelectedAdult
+        {
+            get { return _SelectedAdult; }
+            set
+            {
+                _SelectedAdult = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ChildDto _SelectedChild;
+        public ChildDto SelectedChild
+        {
+            get { return _SelectedChild; }
+            set
+            {
+                _SelectedChild = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private AdultDto _SelectedGuardian;
+        public AdultDto SelectedGuardian
+        {
+            get { return _SelectedGuardian; }
+            set
+            {
+                _SelectedGuardian = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private LoanSlipDto _SelectedLoanSlip;
+        public LoanSlipDto SelectedLoanSlip
+        {
+            get { return _SelectedLoanSlip; }
+            set
+            {
+                _SelectedLoanSlip = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private string _InputReason;
+        public string InputReason
+        {
+            get { return _InputReason; }
+            set
+            {
+                _InputReason = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _BorrowedDays;
+        public int BorrowedDays
+        {
+            get { return _BorrowedDays; }
+            set
+            {
+                _BorrowedDays = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private decimal _TotalFineAmount;
+        public decimal TotalFineAmount
+        {
+            get { return _TotalFineAmount; }
+            set
+            {
+                _TotalFineAmount = value;
+                OnPropertyChanged();
+            }
+        }
+        
         #endregion
 
         #region ViewModels
         private ReaderViewModel readerVM;
         private LoanHistoryViewModel loanHistoryVM;
+        private LoanDetailHistoryViewModel loanDetailHistoryVM;
         private LoanSlipViewModel loanSlipVM;
         private LoanDetailViewModel loanDetailVM;
         private AdultViewModel adultVM;
@@ -156,6 +243,20 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
+
+
+        private LoanDetailHistoryDto _Detail;
+        public LoanDetailHistoryDto Detail
+        {
+            get { return _Detail; }
+            set
+            {
+                _Detail = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<LoanDetailHistory> LoanDetailHistorys { get; set; }
         #endregion
 
         #region PropertyChanged
@@ -177,6 +278,8 @@ namespace AnhQuoc_C5_Assignment
 
             readerVM = UnitOfViewModel.Instance.ReaderViewModel;
             loanHistoryVM = UnitOfViewModel.Instance.LoanHistoryViewModel;
+            loanDetailHistoryVM = UnitOfViewModel.Instance.LoanDetailHistoryViewModel;
+
             loanSlipVM = UnitOfViewModel.Instance.LoanSlipViewModel;
             loanDetailVM = UnitOfViewModel.Instance.LoanDetailViewModel;
 
@@ -206,6 +309,7 @@ namespace AnhQuoc_C5_Assignment
             
             btnConfirm.Click += BtnConfirm_Click;
             btnCancel.Click += BtnCancel_Click;
+            btnReturnBook.Click += BtnReturnBook_Click;
 
             #region LostFocus
             #endregion
@@ -216,19 +320,53 @@ namespace AnhQuoc_C5_Assignment
 
         private void frmAddLoanHistory_Loaded(object sender, RoutedEventArgs e)
         {
+            CreateFormSelectLoanSlip();
+
+            LoanDetailHistorys = new ObservableCollection<LoanDetailHistory>();
+            PaidBooksOfReader = new ObservableCollection<BookDto>();
+            GetBooksFromReader();
+            GetDetailsFromLoanSlip();
+
+            ucUnPaidBooksTable.Books = UnPaidBooksOfReader;
+            ucPaidBooksTable.Books = PaidBooksOfReader;
+
+            List<PropertyInfo> allProperties = typeof(BookDto).GetProperties().ToList();
+            List<PropertyInfo> exceptDtgProperties = Utilities.FillPropertiesByName(allProperties, Constants.exceptDtgCreateLoanHistoryBook);
+            ucUnPaidBooksTable.getExceptProperties = () => exceptDtgProperties;
+            ucPaidBooksTable.getExceptProperties = () => exceptDtgProperties;
+
+            BorrowedDays = (DateTime.Now - SelectedLoanSlip.LoanDate).Days;
+
             NewItem();
+            NewDetail();
         }
 
         private void NewItem()
         {
             string newId = loanHistoryVM.GetId();
             Item = new LoanHistoryDto(newId);
-            Item.CreatedAt = DateTime.Now;
-
+            Utilities.Copy(Item, SelectedLoanSlip);
+            Item.Id = newId;
+            Item.IdReader = SelectedLoanSlip.Reader.Id;
+            Item.CreateAt = DateTime.Now;
         }
-        
+
+        private void NewDetail()
+        {
+            string newId = loanDetailHistoryVM.GetId();
+            Detail = new LoanDetailHistoryDto(newId);
+            Detail.IdLoanHistory = Item.Id;
+            Detail.ExpDate = Item.ExpDate;
+        }
+
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
-        {            
+        {
+            if (LoanDetailHistorys.Count == 0)
+            {
+                Utilities.ShowMessageBox1("You haven't return any book yet");
+                return;
+            }
+
             bool isCheckEmptyItem = loanHistoryVM.IsCheckEmptyItem(Item);
 
             // FormatValues
@@ -244,7 +382,49 @@ namespace AnhQuoc_C5_Assignment
             #region CheckIsExistInformation
 
             #endregion
+
+            // Truyền dữ liệu cho item
+            var loanHistory = new LoanHistory();
+            PassValueToItem(loanHistory);
+
+            getLoanHistoryRepo().Add(loanHistory);
+            getLoanHistoryRepo().WriteAdd(loanHistory);
+
+            
+            getLoanDetailHistoryRepo().WriteAddRange(LoanDetailHistorys);
+
+            ChangeBookStatus(true);
+            LoanDetailHistorys.Clear();
             this.Close();
+        }
+
+        private void ChangeBookStatus(bool updateStatus)
+        {
+            foreach (var loanDetail in LoanDetailHistorys)
+            {
+                Book book = bookVM.FindById(loanDetail.IdBook, null);
+
+                if (book.Status != updateStatus)
+                {
+                    book.Status = updateStatus;
+
+                    // Save change to database
+                    getBookRepo().WriteUpdateStatus(book, updateStatus);
+                }
+            }
+            foreach (BookISBN isbn in getBookISBNRepo())
+            {
+                var books = bookVM.FillByBookISBN(isbn.ISBN, true);
+                if (books.Count == 0)
+                {
+                    isbn.Status = false;
+                }
+                else
+                {
+                    isbn.Status = true;
+                }
+                getBookISBNRepo().WriteUpdateStatus(isbn, isbn.Status);
+            }
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
@@ -252,10 +432,58 @@ namespace AnhQuoc_C5_Assignment
             Item = null;
             this.Close();
         }
-        
+
+        private void BtnReturnBook_Click(object sender, RoutedEventArgs e)
+        {
+            if (ucUnPaidBooksTable.SelectedDto == null)
+            {
+                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("book"));
+                return;
+            }
+
+            BookDto getBook = ucUnPaidBooksTable.SelectedDto;
+            Detail.IdBook = getBook.Id;
+
+            bool isCheckEmptyItem = loanDetailHistoryVM.IsCheckEmptyItem(Detail, true, nameof(Detail.Note), nameof(Detail.PaidMoney));
+
+            // FormatValues
+            FormatValues();
+
+            bool isHasError = this.IsValidationGetHasError();
+            if (isCheckEmptyItem == false || isHasError)
+            {
+                RunAllValidations();
+                return;
+            }
+
+            #region CheckIsExistInformation
+            #endregion
+
+            // Pass value to Paid table
+            
+            UnPaidBooksOfReader.Remove(getBook);
+            PaidBooksOfReader.Add(getBook);
+
+            // Add to list details
+            var getDetail = loanDetailHistoryVM.CreateByDto(Detail);
+            LoanDetailHistorys.Add(getDetail);
+
+            Item.FineMoney += Detail.PaidMoney;
+            Item.RemainPaid = Item.LoanPaid - Item.Deposit;
+            Item.Total = Item.RemainPaid + Item.FineMoney;
+
+            getLoanDetailHistoryRepo().Add(getDetail);
+            NewDetail();
+        }
+
+        private void PassValueToItem(LoanHistory item)
+        {
+            Utilities.Copy(item, Item);
+        }
+
         public bool IsValidationGetHasError()
         {
-            return true;
+            return false;
         }
 
         private void RunAllValidations()
@@ -266,11 +494,7 @@ namespace AnhQuoc_C5_Assignment
         private void FormatValues()
         {
         }
-
-
-
-
-
+        
         private void Txt_LostFocus(object sender, RoutedEventArgs e)
         {
             TextBox txt = (sender as TextBox);
@@ -301,6 +525,7 @@ namespace AnhQuoc_C5_Assignment
                 SelectedReader = readerMap.ConvertToDto(reader);
 
                 GetBooksFromReader();
+                GetDetailsFromLoanSlip();
                 return;
             }
             else
@@ -353,7 +578,9 @@ namespace AnhQuoc_C5_Assignment
                 comBoBox.IsDropDownOpen = false;
                 Reader reader = readerVM.FindById(getfillListDto.First().IdReader);
                 SelectedReader = readerMap.ConvertToDto(reader);
+
                 GetBooksFromReader();
+                GetDetailsFromLoanSlip();
                 return;
             }
             else
@@ -443,12 +670,57 @@ namespace AnhQuoc_C5_Assignment
             TxtInputGuardianIdentify_Filter_TextChanged(txtGuardianInputIdentify, gdGuardianInput, AllGuardians);
         }
         #endregion
+
         private void GetBooksFromReader()
         {
             ReaderDto reader = SelectedReader;
 
-            var readerBooks = bookVM.GetBooksInLoanSlip(loanSlipVM.FindById(getLoanSlip().Id));
-            AllBooksOfReader = readerBooks;
+            var readerBooks = bookVM.GetBooksInLoanSlip(loanSlipVM.FindById(SelectedLoanSlip.Id));
+            UnPaidBooksOfReader = bookMap.ConvertToDto(readerBooks);
+        }
+
+        private void GetDetailsFromLoanSlip()
+        {
+            UnPaidLoanDetailsOfReader = loanDetailVM.FillListByIdLoan(SelectedLoanSlip.Id);
+        }
+
+        private void CreateFormSelectLoanSlip()
+        {
+            Window frmSelectLoanSlip = Utilities.CreateDefaultForm();
+
+            var ucLoanSlipsTable = new ucLoanSlipsTable();
+            ucLoanSlipsTable.AllowPagination = false;
+            ucLoanSlipsTable.getLoanSlips = () => new ObservableCollection<LoanSlip>(getLoanSlipRepo().Gets());
+            ucLoanSlipsTable.ModifiedPagination();
+            
+            ucLoanSlipsTable.Margin = new Thickness(20);
+            frmSelectLoanSlip.Content = ucLoanSlipsTable;
+
+            ucLoanSlipsTable.dgDatas.MouseDoubleClick += (_sender, _e) =>
+            {
+                SelectedLoanSlip = ucLoanSlipsTable.SelectedDto;
+                SelectedReader = readerMap.ConvertToDto(SelectedLoanSlip.Reader);
+
+                if (SelectedReader.ReaderType == ReaderType.Adult)
+                {
+                    SelectedAdult = adultMap.ConvertToDto(adultVM.FindByIdReader(SelectedReader.Id, null));
+
+                    stkAdultInformation.Visibility = Visibility.Visible;
+                    stkChildInformation.Visibility = Visibility.Collapsed;
+                }
+
+
+                else if (SelectedReader.ReaderType == ReaderType.Child)
+                {
+                    SelectedChild = childMap.ConvertToDto(childVM.FindByIdReader(SelectedReader.Id, null));
+                    SelectedGuardian = adultMap.ConvertToDto(SelectedChild.Adult);
+
+                    stkAdultInformation.Visibility = Visibility.Collapsed;
+                    stkChildInformation.Visibility = Visibility.Visible;
+                }
+                frmSelectLoanSlip.Close();
+            };
+            frmSelectLoanSlip.ShowDialog();
         }
     }
 }

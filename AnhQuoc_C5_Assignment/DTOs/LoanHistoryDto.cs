@@ -128,16 +128,16 @@ namespace AnhQuoc_C5_Assignment
             }
         }
         
-        private DateTime _CreatedAt;
-        public DateTime CreatedAt
+        private DateTime _CreateAt;
+        public DateTime CreateAt
         {
             get
             {
-                return _CreatedAt;
+                return _CreateAt;
             }
             set
             {
-                _CreatedAt = value;
+                _CreateAt = value;
                 OnPropertyChanged();
             }
         }

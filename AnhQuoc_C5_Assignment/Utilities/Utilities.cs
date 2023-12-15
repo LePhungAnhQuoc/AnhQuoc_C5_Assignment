@@ -1440,12 +1440,36 @@ namespace AnhQuoc_C5_Assignment
             var databaseTypes = Enumerable.Range(0, reader.FieldCount).Select(reader.GetDataTypeName).OrderBy(item => item).ToList();
             return databaseTypes;
         }
-        public static bool IsCheckEmptyItem(object item)
+
+        public static bool IsCheckEmptyItem(object item, bool isExceptProperty, params string[] checkProperties)
         {
             var props = Utilities.getPropsFromType(item);
+            
+            bool isAllProperties = false;
+            if (checkProperties.Length == 0)
+            {
+                isAllProperties = true;
+            }
 
             foreach (var property in props)
             {
+                if (isExceptProperty)
+                {
+                    var itemCheck = FindPropertyByName(checkProperties.ToList(), property.Name);
+                    if (itemCheck != null)
+                    {
+                        continue;
+                    }
+                }
+                else if (!isAllProperties)
+                {
+                    var itemCheck = FindPropertyByName(checkProperties.ToList(), property.Name);
+                    if (itemCheck == null)
+                    {
+                        continue;
+                    }
+                }
+
                 if (property.PropertyType == typeof(string))
                 {
                     if (Utilities.IsCheckEmptyString(Utilities.getValueFromProperty(property, item)?.ToString()))

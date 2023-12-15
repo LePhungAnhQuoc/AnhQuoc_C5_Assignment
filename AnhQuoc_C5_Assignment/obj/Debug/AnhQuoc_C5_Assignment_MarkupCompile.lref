@@ -25,6 +25,8 @@ FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assi
 FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Book-Title-Information\ucAddBookTitle.xaml;;
 FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Book-Title-Information\ucBookTitlesTable.xaml;;
 FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Book-Title-Information\ucBookTitleManagement.xaml;;
+FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Enroll-Information\ucEnrollManagement.xaml;;
+FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Enroll-Information\ucEnrollsTable.xaml;;
 FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Function-Information\ucDisplayFunction.xaml;;
 FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Function-Information\ucFunctionInformation.xaml;;
 FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Function-Information\ucFunctionManagement.xaml;;
@@ -60,7 +62,7 @@ FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assi
 FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\UserRole-Information\ucUserRoleManagement.xaml;;
 FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\UserRole-Information\ucUserRolesTable.xaml;;
 FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Views\Book-Manage\frmAddLoanHistory.xaml;;
-FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Views\Book-Manage\frmBorrowBook.xaml;;
+FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Views\Book-Manage\frmAddLoan.xaml;;
 FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Views\Book\frmBookISBNInformation.xaml;;
 FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Views\Function\frmAddFunction.xaml;;
 FC:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Views\Function\frmChildFunctionInformation.xaml;;

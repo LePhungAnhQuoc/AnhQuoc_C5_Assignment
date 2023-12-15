@@ -51,21 +51,12 @@
             </Grid>
         </StackPanel>
 
-        <StackPanel Grid.Row="1">
-            <!-- Table -->
-            <local:ucLoanHistorysTable  Grid.Row="1"   
-                                        x:Name="ucLoanHistorysTable"
-                                        Style="{StaticResource ucStyleVertical}"
-                                        Height="auto"
-                                        AllowPagination="True"
-                                        NumberItems="7" />
-            <!-- Table -->
-            <local:ucLoanSlipsTable Grid.Row="1"
-                                    x:Name="ucLoanSlipsTable"
+        <!-- Table -->
+        <local:ucLoanHistorysTable  Grid.Row="1"   
+                                    x:Name="ucLoanHistorysTable"
                                     Style="{StaticResource ucStyleVertical}"
                                     Height="auto"
                                     AllowPagination="True"
                                     NumberItems="7" />
-        </StackPanel>
     </Grid>
 </UserControl>
