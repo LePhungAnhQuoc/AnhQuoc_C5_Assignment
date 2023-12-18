@@ -61,7 +61,6 @@ namespace AnhQuoc_C5_Assignment
         private ucBookTitleManagement ucBookTitleManagement;
         private ucLoanSlipManagement ucLoanSlipManagement;
         private ucLoanHistoryManagement ucLoanHistoryManagement;
-        private ucEnrollManagement ucEnrollManagement;
         #endregion
 
         #region ViewModels
@@ -88,7 +87,6 @@ namespace AnhQuoc_C5_Assignment
             ucBookTitleManagement = MainWindow.UnitOfForm.UcBookTitleManagement(true);
             ucLoanSlipManagement = MainWindow.UnitOfForm.UcLoanSlipManagement(true);
             ucLoanHistoryManagement = MainWindow.UnitOfForm.UcLoanHistoryManagement(true);
-            ucEnrollManagement = MainWindow.UnitOfForm.UcEnrollManagement(true);
 
 
             ucLogOut.btnLogOut.Click += BtnLogOut_Click;
@@ -338,16 +336,6 @@ namespace AnhQuoc_C5_Assignment
                         }
                         break;
                     #endregion
-
-                    #region Enroll-Management
-                    case Constants.EnrollManagement_FunctionId:
-                        var addEnrollFunc = childs.FirstOrDefault(item => item.Id == "F46");
-                        if (addEnrollFunc == null)
-                        {
-                            ucLoanSlipManagement.IsAllowAdd = false;
-                        }
-                        break;
-                        #endregion
                 }
             }
         }
@@ -383,9 +371,6 @@ namespace AnhQuoc_C5_Assignment
                     break;
                 case Constants.LoanHistoryManagement_FunctionId:
                     TvLoanHistoryManagement_Function();
-                    break;
-                case Constants.EnrollManagement_FunctionId:
-                    TvEnrollManagement_Function();
                     break;
             }
         }
@@ -477,14 +462,6 @@ namespace AnhQuoc_C5_Assignment
 
             gdView.Children.Clear();
             gdView.Children.Add(ucLoanHistoryManagement);
-        }
-
-        private void TvEnrollManagement_Function()
-        {
-            Grid gdView = getGdView();
-
-            gdView.Children.Clear();
-            gdView.Children.Add(ucEnrollManagement);
         }
 
         #endregion

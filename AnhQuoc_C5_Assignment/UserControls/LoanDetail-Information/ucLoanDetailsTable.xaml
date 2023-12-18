@@ -29,6 +29,17 @@
                 <DataGridTextColumn Header="Id Loan" Width="auto" Binding="{Binding IdLoan}" />
                 <DataGridTextColumn Header="Id Book" Width="auto" Binding="{Binding IdBook}" />
                 <DataGridTextColumn Header="Expire Date" Width="auto" Binding="{Binding ExpDate, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                <DataGridTemplateColumn x:Name="dtgBtnInfo">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnInfo"
+                                Style="{StaticResource btnInfo}"
+                                Margin="5"
+                                Click="btnInfo_Click">
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTemplateColumn x:Name="dtgbtnDelete">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

@@ -1016,7 +1016,7 @@ namespace AnhQuoc_C5_Assignment
         #region QuanLyThuVien-Entities
         public static PropertyInfo GetTablePropertyFromDatabase<T>(QuanLyThuVienEntities dbSource)
         {
-            foreach (PropertyInfo tableProperty in Utilities.getPropsFromType(dbSource))
+            foreach (PropertyInfo tableProperty in Utilities.getDerivePropsFromType(dbSource))
             {
                 IEnumerable value = null;
                 try
@@ -1063,13 +1063,34 @@ namespace AnhQuoc_C5_Assignment
             return getPropsFromType(obj.GetType());
         }
 
-        public static void SetValueFromProperty(string propName, object item, object value)
+        public static List<PropertyInfo> getBasePropsFromType(Type type)
         {
-            PropertyInfo prop = item.GetType().GetProperty(propName);
-            SetValueFromProperty(prop, item, value);
+            return getPropsFromType(type.BaseType);
         }
 
-        public static void SetValueFromProperty(PropertyInfo prop, object item, object value)
+        public static List<PropertyInfo> getBasePropsFromType(object obj)
+        {
+            return getBasePropsFromType(obj.GetType());
+        }
+
+        public static List<PropertyInfo> getDerivePropsFromType(Type type)
+        {
+            var props = getPropsFromType(type);
+            return props.Where(p => p.DeclaringType.FullName != type.BaseType.FullName).ToList();
+        }
+
+        public static List<PropertyInfo> getDerivePropsFromType(object obj)
+        {
+            return getDerivePropsFromType(obj.GetType());
+        }
+
+        public static void SetValueToProperty(string propName, object item, object value)
+        {
+            PropertyInfo prop = item.GetType().GetProperty(propName);
+            SetValueToProperty(prop, item, value);
+        }
+
+        public static void SetValueToProperty(PropertyInfo prop, object item, object value)
         {
             prop.SetValue(item, value);
         }
@@ -1085,13 +1106,13 @@ namespace AnhQuoc_C5_Assignment
             return prop.GetValue(item, null);
         }
 
-        public static object ConvertFrom(object tempValue, Type getType)
+        public static object ConvertFromString(string tempValue, Type getType)
         {
             TypeConverter typeConverter = TypeDescriptor.GetConverter(getType);
 
-            if (tempValue == null || tempValue.ToString() == string.Empty)
+            if (IsCheckEmptyString(tempValue))
                 return null;
-            object result = typeConverter.ConvertFrom(tempValue);
+            object result = typeConverter.ConvertFromString(tempValue);
             return result;
         }
 
@@ -1228,6 +1249,42 @@ namespace AnhQuoc_C5_Assignment
             frmDefault.Style = Application.Current.FindResource(Constants.styleWDGeneral) as Style;
             frmDefault.WindowStartupLocation = Constants.WDLocation;
             return frmDefault;
+        }
+        public static Window CreateFormToAddUserControlInfo()
+        {
+            const double padding_Bottom = 10;
+
+            Window newForm = new Window();
+            newForm.Style = Application.Current.FindResource(Constants.styleWDGeneral) as Style;
+            newForm.WindowStartupLocation = Constants.WDLocation;
+            newForm.WindowStyle = WindowStyle.SingleBorderWindow;
+            newForm.SizeToContent = SizeToContent.Height;
+            newForm.Width = Constants.FormMaxWidth;
+            newForm.Padding = new Thickness(0, 0, 0, padding_Bottom);
+            return newForm;
+        }
+        public static StackPanel AddUserControlToStackPanel(UserControl uc, params Button[] arrayButton)
+        {
+            StackPanel stkParent = new StackPanel();
+            stkParent.Children.Add(uc);
+
+            StackPanel stkWrapButton = new StackPanel();
+            stkWrapButton.Style = Application.Current.FindResource(Constants.styleStkWrapButton) as Style;
+
+            #region Add-Buttons
+            bool flag = false;
+            foreach (Button btn in arrayButton)
+            {
+                if (!flag) // First time
+                    flag = true;
+                else
+                    btn.Margin = new Thickness(10, 0, 0, 0);
+                stkWrapButton.Children.Add(btn);
+            }
+            #endregion
+
+            stkParent.Children.Add(stkWrapButton);
+            return stkParent;
         }
         #endregion
 
@@ -1408,9 +1465,9 @@ namespace AnhQuoc_C5_Assignment
         }
         #endregion
 
-        public static IEnumerable<T> OutterJoin<T>(IEnumerable<T> bigSource, IEnumerable<T> smallSource)
+        public static IEnumerable<T> RemoveItemInList<T>(IEnumerable<T> list, IEnumerable<T> removeItems)
         {
-            IEnumerable<T> result = bigSource.Where(item => !smallSource.Any(sub => sub.Equals(item)));
+            IEnumerable<T> result = list.Where(item => !removeItems.Any(sub => sub.Equals(item)));
             return result;
         }
 
@@ -1508,5 +1565,7 @@ namespace AnhQuoc_C5_Assignment
             }
             return true;
         }
+
+
     }
 }

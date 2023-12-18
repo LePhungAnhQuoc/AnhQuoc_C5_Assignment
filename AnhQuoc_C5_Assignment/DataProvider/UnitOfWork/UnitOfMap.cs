@@ -51,18 +51,7 @@ namespace AnhQuoc_C5_Assignment
                 return _BookISBNMap;
             }
         }
-
-        private EnrollMap _EnrollMap;
-        public EnrollMap EnrollMap
-        {
-            get
-            {
-                if (_EnrollMap == null)
-                    _EnrollMap = new EnrollMap();
-                return _EnrollMap;
-            }
-        }
-
+        
         private LoanDetailHistoryMap _LoanDetailHistoryMap;
         public LoanDetailHistoryMap LoanDetailHistoryMap
         {
@@ -235,7 +224,6 @@ namespace AnhQuoc_C5_Assignment
         public void Load()
         {
             _BookISBNMap = new BookISBNMap();
-            _EnrollMap = new EnrollMap();
             _LoanDetailHistoryMap = new LoanDetailHistoryMap();
             _LoanSlipMap = new LoanSlipMap();
             _LoanDetailMap = new LoanDetailMap();

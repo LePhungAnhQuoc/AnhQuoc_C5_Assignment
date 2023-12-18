@@ -37,6 +37,7 @@ namespace AnhQuoc_C5_Assignment
                 _getLoanDetails = value;
             }
         }
+
         public Func<List<PropertyInfo>> getExceptProperties { get; set; }
         #endregion
 
@@ -129,6 +130,11 @@ namespace AnhQuoc_C5_Assignment
             if (btnDeleteClick == null)
             {
                 dtgbtnDelete.Visibility = Visibility.Collapsed;
+            }
+
+            if (btnInfoClick == null)
+            {
+                dtgBtnInfo.Visibility = Visibility.Collapsed;
             }
 
             if (!AllowPagination)

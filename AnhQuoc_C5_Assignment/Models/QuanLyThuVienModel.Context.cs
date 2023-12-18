@@ -32,7 +32,6 @@ namespace AnhQuoc_C5_Assignment
         public virtual DbSet<BookTitle> BookTitles { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Child> Children { get; set; }
-        public virtual DbSet<Enroll> Enrolls { get; set; }
         public virtual DbSet<Function> Functions { get; set; }
         public virtual DbSet<LoanDetail> LoanDetails { get; set; }
         public virtual DbSet<LoanDetailHistory> LoanDetailHistories { get; set; }

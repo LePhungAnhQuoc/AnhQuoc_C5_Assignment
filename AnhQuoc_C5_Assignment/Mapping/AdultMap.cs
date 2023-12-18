@@ -12,8 +12,11 @@ namespace AnhQuoc_C5_Assignment
         public override AdultDto ConvertToDto(Adult itemSource)
         {
             var childVM = UnitOfViewModel.Instance.ChildViewModel;
+            var readerVM = UnitOfViewModel.Instance.ReaderViewModel;
+            var readerMap = UnitOfMap.Instance.ReaderMap;
 
             bool child_Status = true;
+            ReaderDto readerDto = readerMap.ConvertToDto(readerVM.FindById(itemSource.IdReader));
 
             AdultDto newItem = new AdultDto(itemSource.IdReader);
 
@@ -25,11 +28,12 @@ namespace AnhQuoc_C5_Assignment
             newItem.ExpireDate = itemSource.ExpireDate;
             newItem.Status = itemSource.Status;
 
-            newItem.ListChild = childVM.GetChildFromAdult(itemSource.IdReader, child_Status);
-
             newItem.CreatedAt = itemSource.CreatedAt;
             newItem.ModifiedAt = itemSource.ModifiedAt;
 
+            newItem.ReaderName = readerDto.FullName;
+            newItem.ListChild = childVM.FillByIdAdult(itemSource.IdReader, child_Status);
+            
             return newItem;
         }
     }

@@ -11,22 +11,18 @@ namespace AnhQuoc_C5_Assignment
         public override LoanSlipDto ConvertToDto(LoanSlip sourceItem)
         {
             var readerVM = UnitOfViewModel.Instance.ReaderViewModel;
+            var userVM = UnitOfViewModel.Instance.UserViewModel;
             var readerMap = UnitOfMap.Instance.ReaderMap;
 
             Reader reader = readerVM.FindById(sourceItem.IdReader);
             ReaderDto readerDto = readerMap.ConvertToDto(reader);
-
+            User user = userVM.FindById(sourceItem.IdUser);
             LoanSlipDto newItem = new LoanSlipDto(sourceItem.Id);
-            newItem.Reader = reader;
+
+            Utilities.Copy(newItem, sourceItem);
             newItem.ReaderName = readerDto.FullName;
-
-            newItem.Quantity = sourceItem.Quantity;
-            
-            newItem.LoanDate = sourceItem.LoanDate;
-            newItem.ExpDate = sourceItem.ExpDate;
-
-            newItem.LoanPaid = sourceItem.LoanPaid;
-            newItem.Deposit = sourceItem.Deposit;
+            newItem.Reader = reader;
+            newItem.User = user;
 
             return newItem;
         }

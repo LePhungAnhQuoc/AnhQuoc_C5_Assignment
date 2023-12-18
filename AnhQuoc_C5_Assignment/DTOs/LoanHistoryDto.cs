@@ -79,18 +79,7 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-
-        private decimal _RemainPaid;
-
-        public decimal RemainPaid
-        {
-            get { return _RemainPaid; }
-            set
-            {
-                _RemainPaid = value;
-                OnPropertyChanged();
-            }
-        }
+        
 
         private decimal _FineMoney;
 

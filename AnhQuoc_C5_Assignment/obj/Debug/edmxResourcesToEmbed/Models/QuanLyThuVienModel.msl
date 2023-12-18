@@ -93,19 +93,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Enrolls">
-      <EntityTypeMapping TypeName="QuanLyThuVienModel.Enroll">
-        <MappingFragment StoreEntitySet="Enroll">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
-          <ScalarProperty Name="IdReader" ColumnName="IdReader" />
-          <ScalarProperty Name="IdBook" ColumnName="IdBook" />
-          <ScalarProperty Name="EnrolDate" ColumnName="EnrolDate" />
-          <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
-          <ScalarProperty Name="Note" ColumnName="Note" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Functions">
       <EntityTypeMapping TypeName="QuanLyThuVienModel.Function">
         <MappingFragment StoreEntitySet="Function">
@@ -145,13 +132,13 @@
       <EntityTypeMapping TypeName="QuanLyThuVienModel.LoanHistory">
         <MappingFragment StoreEntitySet="LoanHistory">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
           <ScalarProperty Name="IdReader" ColumnName="IdReader" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="LoanDate" ColumnName="LoanDate" />
           <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
           <ScalarProperty Name="LoanPaid" ColumnName="LoanPaid" />
           <ScalarProperty Name="Deposit" ColumnName="Deposit" />
-          <ScalarProperty Name="RemainPaid" ColumnName="RemainPaid" />
           <ScalarProperty Name="FineMoney" ColumnName="FineMoney" />
           <ScalarProperty Name="Total" ColumnName="Total" />
           <ScalarProperty Name="Note" ColumnName="Note" />
@@ -163,6 +150,7 @@
       <EntityTypeMapping TypeName="QuanLyThuVienModel.LoanSlip">
         <MappingFragment StoreEntitySet="LoanSlip">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
           <ScalarProperty Name="IdReader" ColumnName="IdReader" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="LoanDate" ColumnName="LoanDate" />
@@ -179,6 +167,7 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
           <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
         </MappingFragment>

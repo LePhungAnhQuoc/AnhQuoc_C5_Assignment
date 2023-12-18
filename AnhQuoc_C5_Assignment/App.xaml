@@ -24,6 +24,7 @@
                 <ResourceDictionary Source="Styles/Ellipse.xaml" />
                 <ResourceDictionary Source="Styles/CheckBox.xaml" />
                 <ResourceDictionary Source="Styles/TabControl.xaml" />
+                <ResourceDictionary Source="Styles/GroupBox.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <WindowStartupLocation x:Key="WSL">CenterScreen</WindowStartupLocation>
 

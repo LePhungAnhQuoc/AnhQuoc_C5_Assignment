@@ -51,7 +51,6 @@ namespace AnhQuoc_C5_Assignment
         private BookTitleViewModel bookTitleVM;
         private BookISBNViewModel bookISBNVM;
         private BookViewModel bookVM;
-        private EnrollViewModel enrollVM;
         private ParameterViewModel paraVM;
         #endregion
 
@@ -87,8 +86,6 @@ namespace AnhQuoc_C5_Assignment
             bookTitleVM = UnitOfViewModel.Instance.BookTitleViewModel;
             bookISBNVM = UnitOfViewModel.Instance.BookISBNViewModel;
             bookVM = UnitOfViewModel.Instance.BookViewModel;
-
-            enrollVM = UnitOfViewModel.Instance.EnrollViewModel;
 
 
             readerMap = UnitOfMap.Instance.ReaderMap;

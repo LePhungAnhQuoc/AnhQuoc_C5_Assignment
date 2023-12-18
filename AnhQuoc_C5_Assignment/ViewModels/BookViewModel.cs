@@ -87,9 +87,9 @@ namespace AnhQuoc_C5_Assignment
         }
 
 
-        public ObservableCollection<Book> GetBooksInLoanDetails(ObservableCollection<LoanDetail> source)
+        public ObservableCollection<Book> GetBooksInLoanDetails(ObservableCollection<LoanDetail> loanDetails)
         {
-            var lstId = source.Select(item => item.IdBook).ToObservableCollection();
+            var lstId = loanDetails.Select(item => item.IdBook).ToObservableCollection();
             var books = getListFromIds(lstId);
             return books;
         }

@@ -58,5 +58,18 @@ namespace AnhQuoc_C5_Assignment
         {
             return source.Where(item => string.Compare(item.IdReader , idReader, ignoreCase) == 0).ToObservableCollection();
         }
+
+        public ObservableCollection<LoanSlip> GetByListReader(ObservableCollection<Reader> readers)
+        {
+            var source = Repo.Gets();
+
+            ObservableCollection<LoanSlip> result = new ObservableCollection<LoanSlip>();
+            foreach (Reader reader in readers)
+            {
+                result.AddRange(source.Where(loan => loan.IdReader == reader.Id));
+            }
+
+            return result;
+        }
     }
 }

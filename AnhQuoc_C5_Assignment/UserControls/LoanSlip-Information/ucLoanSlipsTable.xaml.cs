@@ -130,6 +130,12 @@ namespace AnhQuoc_C5_Assignment
                 dtgbtnDelete.Visibility = Visibility.Collapsed;
             }
 
+            if (btnInfoClick == null)
+            {
+                dtgBtnInfo.Visibility = Visibility.Collapsed;
+            }
+            
+
             if (!AllowPagination)
             {
                 ucPagination.Visibility = Visibility.Collapsed;

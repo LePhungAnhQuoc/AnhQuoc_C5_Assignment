@@ -20,7 +20,23 @@ namespace AnhQuoc_C5_Assignment
     /// </summary>
     public partial class ucLoanSlipInformationStyle2 : UserControl
     {
-        public Func<Reader> getItem { get; set; }
+        public Func<LoanSlipDto> getItem { get; set; }
+
+        #region Prop-Dp
+        
+        public bool IsDisplayListDetail
+        {
+            get { return (bool)GetValue(IsDisplayListDetailProperty); }
+            set { SetValue(IsDisplayListDetailProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsDisplayListDetail.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsDisplayListDetailProperty =
+            DependencyProperty.Register("IsDisplayListDetail", typeof(bool), typeof(ucLoanSlipInformationStyle2), new PropertyMetadata(true));
+       
+
+        #endregion
+
 
         public ucLoanSlipInformationStyle2()
         {
@@ -30,6 +46,7 @@ namespace AnhQuoc_C5_Assignment
 
         private void UcLoanSlipInformationStyle2_Loaded(object sender, RoutedEventArgs e)
         {
+            ucLoanSlipInformation.IsDisplayListDetail = IsDisplayListDetail;
             ucLoanSlipInformation.getItem = getItem;
         }
     }

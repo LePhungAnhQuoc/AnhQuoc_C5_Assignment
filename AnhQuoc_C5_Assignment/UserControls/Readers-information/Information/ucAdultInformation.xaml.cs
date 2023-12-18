@@ -23,6 +23,7 @@ namespace AnhQuoc_C5_Assignment
     public partial class ucAdultInformation : UserControl, INotifyPropertyChanged
     {
         public Func<AdultDto> getItem { get; set; }
+        public Func<IsCheckProperties> getIsCheckProperties { get; set; }
 
         private AdultDto _Item;
         public AdultDto Item
@@ -57,6 +58,10 @@ namespace AnhQuoc_C5_Assignment
         
         private void FrmAdultInformation_Loaded(object sender, RoutedEventArgs e)
         {
+            if (getIsCheckProperties != null)
+            {
+
+            }
             Item = getItem();
         }
     }

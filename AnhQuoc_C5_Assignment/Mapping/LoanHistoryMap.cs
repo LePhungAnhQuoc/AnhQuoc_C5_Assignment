@@ -12,18 +12,6 @@ namespace AnhQuoc_C5_Assignment
         public override LoanHistoryDto ConvertToDto(LoanHistory sourceItem)
         {
             LoanHistoryDto newItem = new LoanHistoryDto(sourceItem.Id);
-
-            //newItem.IdReader = sourceItem.IdReader;
-            //newItem.Quantity = sourceItem.Quantity;
-            //newItem.LoanDate = sourceItem.LoanDate;
-            //newItem.ExpDate = sourceItem.ExpDate;
-            //newItem.LoanPaid = sourceItem.LoanPaid;
-            //newItem.Deposit = sourceItem.Deposit;
-            //newItem.RemainPaid = sourceItem.RemainPaid;
-            //newItem.FineMoney = sourceItem.FineMoney;
-            //newItem.Total = sourceItem.Total;
-            //newItem.Note = sourceItem.Note;
-            //newItem.CreatedAt = sourceItem.CreateAt;
             Utilities.Copy(newItem, sourceItem);
             
             return newItem;

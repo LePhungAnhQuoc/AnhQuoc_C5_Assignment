@@ -17,7 +17,6 @@ namespace AnhQuoc_C5_Assignment
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Book()
         {
-            this.Enrolls = new HashSet<Enroll>();
             this.LoanDetails = new HashSet<LoanDetail>();
             this.LoanDetailHistories = new HashSet<LoanDetailHistory>();
         }
@@ -38,8 +37,6 @@ namespace AnhQuoc_C5_Assignment
         public virtual Publisher Publisher { get; set; }
         public virtual Translator Translator { get; set; }
         public virtual BookISBN BookISBN { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Enroll> Enrolls { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LoanDetail> LoanDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

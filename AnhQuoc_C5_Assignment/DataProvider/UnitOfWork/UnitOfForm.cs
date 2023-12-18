@@ -13,6 +13,8 @@ namespace AnhQuoc_C5_Assignment
         #region Fields
         // UserControl
         private ucLibrarianDashBoard ucLibrarianDashBoard;
+        private ucLoanSlipInformation ucLoanSlipInformation;
+        private ucLoanSlipInformationStyle2 ucLoanSlipInformationStyle2;
         private ucFunctionInformation ucFunctionInformation;
         private ucDisplayFunction ucDisplayFunction;
         private ucAddBookTitle ucAddBookTitle;
@@ -31,9 +33,9 @@ namespace AnhQuoc_C5_Assignment
         private ucBookManagement ucBookManagement;
         private ucBookTitleManagement ucBookTitleManagement;
         private ucLoanHistoryManagement ucLoanHistoryManagement;
-        private ucEnrollManagement ucEnrollManagement;
         private ucLoanSlipManagement ucLoanSlipManagement;
         private ucLoanSlipPayment ucLoanSlipPayment;
+        private ucReaderLoanInformation ucReaderLoanInformation;
 
 
         // Form
@@ -64,6 +66,12 @@ namespace AnhQuoc_C5_Assignment
             get { return _UcFunctionInformation; }
         }
 
+        private Func<bool, ucReaderLoanInformation> _UcReaderLoanInformation;
+        public Func<bool, ucReaderLoanInformation> UcReaderLoanInformation
+        {
+            get { return _UcReaderLoanInformation; }
+        }
+
         private Func<bool, ucLoanSlipPayment> _UcLoanSlipPayment;
         public Func<bool, ucLoanSlipPayment> UcLoanSlipPayment
         {
@@ -80,6 +88,18 @@ namespace AnhQuoc_C5_Assignment
         public Func<bool, ucLibrarianDashBoard> UcLibrarianDashBoard
         {
             get { return _UcLibrarianDashBoard; }
+        }
+
+        private Func<bool, ucLoanSlipInformation> _UcLoanSlipInformation;
+        public Func<bool, ucLoanSlipInformation> UcLoanSlipInformation
+        {
+            get { return _UcLoanSlipInformation; }
+        }
+
+        private Func<bool, ucLoanSlipInformationStyle2> _UcLoanSlipInformationStyle2;
+        public Func<bool, ucLoanSlipInformationStyle2> UcLoanSlipInformationStyle2
+        {
+            get { return _UcLoanSlipInformationStyle2; }
         }
 
         private Func<bool, ucDisplayFunction> _UcDisplayFunction;
@@ -99,13 +119,7 @@ namespace AnhQuoc_C5_Assignment
         {
             get { return _UcLoanHistoryManagement; }
         }
-
-        private Func<bool, ucEnrollManagement> _UcEnrollManagement;
-        public Func<bool, ucEnrollManagement> UcEnrollManagement
-        {
-            get { return _UcEnrollManagement; }
-        }
-
+        
         private Func<bool, ucBookManagement> _UcBookManagement;
         public Func<bool, ucBookManagement> UcBookManagement
         {
@@ -297,6 +311,15 @@ namespace AnhQuoc_C5_Assignment
                 return ucFunctionInformation;
             };
 
+            _UcReaderLoanInformation = (isReAllocate) =>
+            {
+                if (isReAllocate)
+                {
+                    ucReaderLoanInformation = new ucReaderLoanInformation();
+                }
+                return ucReaderLoanInformation;
+            };
+
             _UcLoanSlipPayment = (isReAllocate) =>
             {
                 if (isReAllocate)
@@ -313,6 +336,24 @@ namespace AnhQuoc_C5_Assignment
                     ucDisplayFunction = new ucDisplayFunction();
                 }
                 return ucDisplayFunction;
+            };
+
+            _UcLoanSlipInformation = (isReAllocate) =>
+            {
+                if (isReAllocate)
+                {
+                    ucLoanSlipInformation = new ucLoanSlipInformation();
+                }
+                return ucLoanSlipInformation;
+            };
+
+            _UcLoanSlipInformationStyle2 = (isReAllocate) =>
+            {
+                if (isReAllocate)
+                {
+                    ucLoanSlipInformationStyle2 = new ucLoanSlipInformationStyle2();
+                }
+                return ucLoanSlipInformationStyle2;
             };
 
             _UcBookTitleManagement = (isReAllocate) =>
@@ -341,19 +382,7 @@ namespace AnhQuoc_C5_Assignment
                 }
                 return ucLoanHistoryManagement;
             };
-
-            _UcEnrollManagement = (isReAllocate) =>
-            {
-                if (isReAllocate)
-                {
-                    ucEnrollManagement = new ucEnrollManagement();
-                    ucEnrollManagement.getEnrollRepo = () => _UnitOfRepo.EnrollRepo;
-                    ucEnrollManagement.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
-                    ucEnrollManagement.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
-                }
-                return ucEnrollManagement;
-            };
-
+            
             _UcBookManagement = (isReAllocate) =>
             {
                 if (isReAllocate)
@@ -743,7 +772,6 @@ namespace AnhQuoc_C5_Assignment
                     frmAddLoan.getBookTitleRepo = () => _UnitOfRepo.BookTitleRepo;
                     frmAddLoan.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
                     frmAddLoan.getBookRepo = () => _UnitOfRepo.BookRepo;
-                    frmAddLoan.getEnrollRepo = () => _UnitOfRepo.EnrollRepo;
                 }
                 return frmAddLoan;
             };
@@ -755,8 +783,11 @@ namespace AnhQuoc_C5_Assignment
         {
             // UserControls
             ucFunctionInformation = UcFunctionInformation(true);
+            ucReaderLoanInformation = UcReaderLoanInformation(true);
             ucLoanSlipPayment = UcLoanSlipPayment(true);
             ucDisplayFunction = UcDisplayFunction(true);
+            ucLoanSlipInformation = UcLoanSlipInformation(true);
+            ucLoanSlipInformationStyle2 = UcLoanSlipInformationStyle2(true);
             ucAddBookTitle = UcAddBookTitle(true);
             ucAddBookISBN = UcAddBookISBN(true);
             ucAddBook = UcAddBook(true);
@@ -770,7 +801,6 @@ namespace AnhQuoc_C5_Assignment
             ucRoleFunctionManagement = UcRoleFunctionManagement(true);
             ucBookTitleManagement = UcBookTitleManagement(true);
             ucLoanHistoryManagement = UcLoanHistoryManagement(true);
-            ucEnrollManagement = UcEnrollManagement(true);
             ucBookManagement = UcBookManagement(true);
             ucBookISBNManagement = UcBookISBNManagement(true);
             ucLoanSlipManagement = UcLoanSlipManagement(true);

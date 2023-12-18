@@ -60,7 +60,6 @@ namespace AnhQuoc_C5_Assignment
         public const string BookManagement_FunctionId = "F36";
         public const string LoanSlipManagement_FunctionId = "F41";
         public const string LoanHistoryManagement_FunctionId = "F43";
-        public const string EnrollManagement_FunctionId = "F45";
 
         public static string Culture = "vi-VN";
         public static string DatabaseNameConfig = "QuanLyThuVienEntities";
@@ -77,7 +76,6 @@ namespace AnhQuoc_C5_Assignment
         public static string prefixParameter = "QD";
         public static string prefixProvince = string.Empty;
         public static string prefixReader = "R";
-        public static string prefixEnroll = "E";
         public static string prefixRoleFunction = "RF";
         public static string prefixRole = "R";
         public static string prefixUserInfo = string.Empty;
@@ -109,7 +107,7 @@ namespace AnhQuoc_C5_Assignment
         #region ExceptDataGrid-Display
         public static string[] exceptDtgChilds = new string[] { "Id", "boF", "LName", "FName", "ReaderType", "ChildsQuantity", "Status", "CreatedAt", "ModifiedAt" };
 
-        public static string[] exceptDtgCreateLoanSlipBook = new string[] { "ISBN", "CreatedAt", "ModifiedAt", "PublishDate" };
+        public static string[] exceptDtgCreateLoanSlipBook = new string[] { "ISBN", "CreatedAt", "ModifiedAt", "PublishDate", "PriceCurrent", "Translator", "Category", "Id", "Author" };
 
         public static string[] exceptDtgCreateLoanHistoryBook = new string[] { "ISBN", "CreatedAt", "ModifiedAt", "PublishDate", "Author", "Category" };
 
@@ -118,8 +116,10 @@ namespace AnhQuoc_C5_Assignment
         #region Style-String
         public static string styleBtnRestore = "btnRestore";
         public static string styleBtnDelete = "btnDelete";
+        public static string styleBtnConfirm = "btnConfirm";
         public static string styleBtnCancel = "btnCancel";
         public static string styleWDGeneral = "wdStyleGeneral";
+        public static string styleStkWrapButton = "stkWrapButton";
         public static int maxWDHeight = 700;
         public static int maxWDWidth = 1250;
 
@@ -127,6 +127,6 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         public static string ShortConnStr = "data source=DESKTOP-D7CFQLS;initial catalog=QuanLyThuVien;integrated security=True";
-
+        public static double FormMaxWidth = 800;
     }
 }

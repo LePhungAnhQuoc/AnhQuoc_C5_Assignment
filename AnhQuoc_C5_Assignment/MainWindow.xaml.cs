@@ -21,6 +21,8 @@ using System.Globalization;
 using System.Threading;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Reflection;
+using System.Collections;
 
 namespace AnhQuoc_C5_Assignment
 {
@@ -30,6 +32,8 @@ namespace AnhQuoc_C5_Assignment
 
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        public static User loginUser;
+        
         #region Fields
         public static UnitOfRepository UnitOfRepo;
         public static UnitOfForm UnitOfForm;
@@ -38,7 +42,6 @@ namespace AnhQuoc_C5_Assignment
 
         private ucLibrarianDashBoard _ucLibrarianDashBoard;
         private frmLogin frmLogin;
-        private User loginUser;
 
         private ServerName serverName;
         private DatabaseName databaseName;
@@ -97,6 +100,157 @@ namespace AnhQuoc_C5_Assignment
             this.Closed += MainWindow_Closed;
         }
 
+        #region Loading
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            Loading();
+        }
+
+        public void Loading()
+        {
+            this.Hide();
+        Goto:
+            frmLogin = UnitOfForm.FrmLogin(true);
+            frmLogin.getFrmMain = () => this;
+            frmLogin.ClearLogin();
+
+            do
+            {
+                frmLogin.IsOpenConnectForm = false;
+                frmLogin.ShowDialog();
+
+                if (frmLogin.IsOpenConnectForm)
+                {
+                    GetServerNameAndLoading();
+                }
+            } while (frmLogin.IsOpenConnectForm);
+
+            loginUser = frmLogin.User;
+
+            if (GoToAccount(loginUser))
+            {
+                this.Show();
+            }
+            else
+            {
+                goto Goto;
+            }
+        }
+
+        private void LoadUcDashBoard(ObservableCollection<Function> dsTinhNang)
+        {
+            _ucLibrarianDashBoard = UnitOfForm.UcLibrarianDashBoard(true);
+            _ucLibrarianDashBoard.getFunctions = () => dsTinhNang;
+
+            _ucLibrarianDashBoard.getLoginUser = () => loginUser;
+            _ucLibrarianDashBoard.getGdView = () => gdContent;
+            _ucLibrarianDashBoard.getFrmMain = () => this;
+
+            _ucLibrarianDashBoard.HorizontalAlignment = HorizontalAlignment.Stretch;
+            _ucLibrarianDashBoard.VerticalAlignment = VerticalAlignment.Stretch;
+
+            gdDashBoard.Children.Clear();
+            gdDashBoard.Children.Add(_ucLibrarianDashBoard);
+        }
+        #endregion
+
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        #region Connection-Area
+        private string ModifyAppConfig(string dataSource, string databaseName)
+        {
+            string sectionConfig = "connectionStrings";
+            int indexDataSource = 2;
+            int indexInitCatalog = 1;
+
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var connectionStringsSection = (ConnectionStringsSection)config.GetSection(sectionConfig);
+
+            string connectStr = ConfigurationManager.ConnectionStrings[Constants.DatabaseNameConfig].ConnectionString
+                .Clone() as string;
+            string[] connectSplit = connectStr.Split(';');
+
+            #region DataSource
+            string dataSourcePart = connectSplit.FirstOrDefault(item => item.Contains("Data Source", true));
+            var dataSourceSplit = dataSourcePart.Split('=').ToList();
+            string dataSourceValue = dataSourceSplit[indexDataSource];
+
+            string newDataSourceValue = dataSource;
+
+            dataSourceSplit.RemoveAt(indexDataSource);
+            dataSourceSplit.Insert(indexDataSource, newDataSourceValue);
+
+            string newDataSourcePart = string.Join("=", dataSourceSplit);
+            connectStr = connectStr.Replace(dataSourcePart, newDataSourcePart);
+            #endregion
+
+            #region initCatalogPart
+            string initCatalogPart = connectSplit.FirstOrDefault(item => item.Contains("Initial Catalog", true));
+            var initCatalogSplit = initCatalogPart.Split('=').ToList();
+            string initCatalogValue = initCatalogSplit[indexInitCatalog];
+
+            string newInitCatalogValue = databaseName;
+
+            initCatalogSplit.RemoveAt(indexInitCatalog);
+            initCatalogSplit.Insert(indexInitCatalog, newInitCatalogValue);
+
+            string newInitCatalogPart = string.Join("=", initCatalogSplit);
+            connectStr = connectStr.Replace(initCatalogPart, newInitCatalogPart);
+            #endregion
+
+            config.ConnectionStrings.ConnectionStrings[Constants.DatabaseNameConfig].ConnectionString = connectStr;
+            config.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection(sectionConfig);
+
+            return connectStr;
+        }
+
+        private void OpenFormServerNameInformation(ref ServerName serverName, ref DatabaseName databaseName)
+        {
+            frmInputServerName frmInputServerName = UnitOfForm.FrmInputServerName(true);
+            frmInputServerName.ShowDialog();
+
+            if (frmInputServerName.IsNewServerName)
+            {
+                string serverNameId = serverNameVM.GetId();
+                serverName = new ServerName(serverNameId);
+                serverName.Name = frmInputServerName.txtServerName.Text;
+                serverName.Status = false;
+
+                UnitOfRepo.ServerNameRepo.WriteAdd(serverName);
+            }
+            else
+            {
+                serverName = frmInputServerName.ServerName;
+            }
+
+            if (frmInputServerName.IsNewDatabaseName)
+            {
+                string id = databaseNameVM.GetId();
+                databaseName = new DatabaseName(id);
+                databaseName.Name = frmInputServerName.txtDatabaseName.Text;
+                databaseName.Status = false;
+
+                UnitOfRepo.DatabaseNameRepo.WriteAdd(databaseName);
+            }
+            else
+            {
+                databaseName = frmInputServerName.DatabaseName;
+            }
+
+            if (frmInputServerName.IsRememberMe == true)
+            {
+                serverName.Status = true;
+                UnitOfRepo.ServerNameRepo.WriteUpdate(serverName);
+
+                databaseName.Status = true;
+                UnitOfRepo.DatabaseNameRepo.WriteUpdate(databaseName);
+            }
+        }
+
         private void ResetServerName()
         {
             if (serverName != null && databaseName != null)
@@ -149,43 +303,26 @@ namespace AnhQuoc_C5_Assignment
 
         private bool CheckIsRightConnection()
         {
-            try
+            // Access the database or perform other operations
+            var dbSource = DatabaseFirst.Instance.dbSource;
+
+            foreach (PropertyInfo tableProperty in Utilities.getDerivePropsFromType(dbSource))
             {
-                // Access the database or perform other operations
-                var dbSource = DatabaseFirst.Instance.dbSource;
-
-                dbSource.Adults.ToList();
-                dbSource.Authors.ToList();
-                dbSource.BookISBNs.ToList();
-                dbSource.Books.ToList();
-                dbSource.BookTitles.ToList();
-                dbSource.Categories.ToList();
-                dbSource.Children.ToList();
-                dbSource.Functions.ToList();
-                dbSource.Parameters.ToList();
-                dbSource.Provinces.ToList();
-                dbSource.Readers.ToList();
-                dbSource.RoleFunctions.ToList();
-                dbSource.Roles.ToList();
-                dbSource.UserInfoes.ToList();
-                dbSource.UserRoles.ToList();
-                dbSource.Users.ToList();
-
-
-                return true;
+                IEnumerable value = null;
+                try
+                {
+                    value = (IEnumerable)Utilities.getValueFromProperty(tableProperty, dbSource);
+                    foreach (var item in value)
+                    {
+                        break;
+                    }
+                }
+                catch
+                {
+                    return false;
+                }
             }
-            catch (Exception ex)
-            {
-                // Handle exceptions here
-                // Log the exception or take appropriate actions
-                return false;
-            }
-        }
-
-
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            Loading();
+            return true;
         }
 
         public void GetServerNameAndLoading()
@@ -217,134 +354,9 @@ namespace AnhQuoc_C5_Assignment
 
             //SetLoadAnimation("", false);
         }
+        #endregion
 
-        public void Loading()
-        {
-            this.Hide();
-        Goto:
-            frmLogin = UnitOfForm.FrmLogin(true);
-            frmLogin.getFrmMain = () => this;
-            frmLogin.ClearLogin();
-
-            do
-            {
-                frmLogin.IsOpenConnectForm = false;
-                frmLogin.ShowDialog();
-
-                if (frmLogin.IsOpenConnectForm)
-                {
-                    GetServerNameAndLoading();                   
-                }
-            } while (frmLogin.IsOpenConnectForm);
-
-            loginUser = frmLogin.User;
-
-            if (GoToAccount(loginUser))
-            {
-                this.Show();
-            }
-            else
-            {
-                goto Goto;
-            }
-        }
-
-        private void MainWindow_Closed(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-        private string ModifyAppConfig(string dataSource, string databaseName)
-        {
-            string sectionConfig = "connectionStrings";
-            int indexDataSource = 2;
-            int indexInitCatalog = 1;
-
-            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            var connectionStringsSection = (ConnectionStringsSection)config.GetSection(sectionConfig);
-            
-            string connectStr = ConfigurationManager.ConnectionStrings[Constants.DatabaseNameConfig].ConnectionString
-                .Clone() as string;
-            string[] connectSplit = connectStr.Split(';');
-
-            #region DataSource
-            string dataSourcePart = connectSplit.FirstOrDefault(item => item.Contains("Data Source", true));
-            var dataSourceSplit = dataSourcePart.Split('=').ToList();
-            string dataSourceValue = dataSourceSplit[indexDataSource];
-
-            string newDataSourceValue = dataSource;
-
-            dataSourceSplit.RemoveAt(indexDataSource);
-            dataSourceSplit.Insert(indexDataSource, newDataSourceValue);
-
-            string newDataSourcePart = string.Join("=", dataSourceSplit);
-            connectStr = connectStr.Replace(dataSourcePart, newDataSourcePart);
-            #endregion
-
-            #region initCatalogPart
-            string initCatalogPart = connectSplit.FirstOrDefault(item => item.Contains("Initial Catalog", true));
-            var initCatalogSplit = initCatalogPart.Split('=').ToList();
-            string initCatalogValue = initCatalogSplit[indexInitCatalog];
-
-            string newInitCatalogValue = databaseName;
-
-            initCatalogSplit.RemoveAt(indexInitCatalog);
-            initCatalogSplit.Insert(indexInitCatalog, newInitCatalogValue);
-
-            string newInitCatalogPart = string.Join("=", initCatalogSplit);
-            connectStr = connectStr.Replace(initCatalogPart, newInitCatalogPart);
-            #endregion
-
-            config.ConnectionStrings.ConnectionStrings[Constants.DatabaseNameConfig].ConnectionString = connectStr;
-            config.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection(sectionConfig);
-
-            return connectStr;
-        }
-
-        private void OpenFormServerNameInformation(ref ServerName serverName, ref DatabaseName databaseName)
-        {
-            frmInputServerName frmInputServerName = UnitOfForm.FrmInputServerName(true);
-            frmInputServerName.ShowDialog();
-          
-            if (frmInputServerName.IsNewServerName)
-            {
-                string serverNameId = serverNameVM.GetId();
-                serverName = new ServerName(serverNameId);
-                serverName.Name = frmInputServerName.txtServerName.Text;
-                serverName.Status = false;
-
-                UnitOfRepo.ServerNameRepo.WriteAdd(serverName);
-            }
-            else
-            {
-                serverName = frmInputServerName.ServerName;
-            }
-            
-            if (frmInputServerName.IsNewDatabaseName)
-            {
-                string id = databaseNameVM.GetId();
-                databaseName = new DatabaseName(id);
-                databaseName.Name = frmInputServerName.txtDatabaseName.Text;
-                databaseName.Status = false;
-
-                UnitOfRepo.DatabaseNameRepo.WriteAdd(databaseName);
-            }
-            else
-            {
-                databaseName = frmInputServerName.DatabaseName;
-            }
-
-            if (frmInputServerName.IsRememberMe == true)
-            {
-                serverName.Status = true;
-                UnitOfRepo.ServerNameRepo.WriteUpdate(serverName);
-
-                databaseName.Status = true;
-                UnitOfRepo.DatabaseNameRepo.WriteUpdate(databaseName);
-            }
-        }
-
+        #region Account-Area
         public bool GoToAccount(User user)
         {
             IEnumerable<RoleFunction> functionsByRole = null;
@@ -388,21 +400,6 @@ namespace AnhQuoc_C5_Assignment
             }
             return true;
         }
-
-        private void LoadUcDashBoard(ObservableCollection<Function> dsTinhNang)
-        {
-            _ucLibrarianDashBoard = UnitOfForm.UcLibrarianDashBoard(true);
-            _ucLibrarianDashBoard.getFunctions = () => dsTinhNang;
-
-            _ucLibrarianDashBoard.getLoginUser = () => loginUser;
-            _ucLibrarianDashBoard.getGdView = () => gdContent;
-            _ucLibrarianDashBoard.getFrmMain = () => this;
-            
-            _ucLibrarianDashBoard.HorizontalAlignment = HorizontalAlignment.Stretch;
-            _ucLibrarianDashBoard.VerticalAlignment = VerticalAlignment.Stretch;
-
-            gdDashBoard.Children.Clear();
-            gdDashBoard.Children.Add(_ucLibrarianDashBoard);
-        }
+        #endregion
     }
 }

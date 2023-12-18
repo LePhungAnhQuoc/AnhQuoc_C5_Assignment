@@ -11,30 +11,9 @@ namespace AnhQuoc_C5_Assignment
     public class LoanSlipDto : IDtoBase
     {
         public string Id { get; set; }
+        public string IdUser { get; set; }
+        public string IdReader { get; set; }
         
-        private Reader _Reader;
-        public Reader Reader
-        {
-            get { return _Reader; }
-            set
-            {
-                _Reader = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string _ReaderName;
-        public string ReaderName
-        {
-            get { return _ReaderName; }
-            set
-            {
-                _ReaderName = value;
-                OnPropertyChanged();
-            }
-        }
-
-
         private int _Quantity;
         public int Quantity
         {
@@ -97,7 +76,43 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-        
+
+
+        #region Other-Prop
+        private Reader _Reader;
+        public Reader Reader
+        {
+            get { return _Reader; }
+            set
+            {
+                _Reader = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _ReaderName;
+        public string ReaderName
+        {
+            get { return _ReaderName; }
+            set
+            {
+                _ReaderName = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private User _User;
+        public User User
+        {
+            get { return _User; }
+            set
+            {
+                _User = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+
 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

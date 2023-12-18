@@ -44,6 +44,16 @@
                     <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+                <Label Content="Name: " />
+                <TextBlock Grid.Column="1"
+                           Text="{Binding Item.ReaderName}" />
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
                 <Label Content="Address: " />
                 <TextBlock Grid.Column="1"
                            Text="{Binding Item.Address}" />

@@ -22,10 +22,32 @@ namespace AnhQuoc_C5_Assignment
     /// </summary>
     public partial class ucLoanSlipInformation : UserControl, INotifyPropertyChanged
     {
-        public Func<Reader> getItem { get; set; }
+        #region Prop-Dp
 
-        private Reader _Item;
-        public Reader Item
+
+
+
+        public bool IsDisplayListDetail
+        {
+            get { return (bool)GetValue(IsDisplayListDetailProperty); }
+            set { SetValue(IsDisplayListDetailProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsDisplayListDetail.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsDisplayListDetailProperty =
+            DependencyProperty.Register("IsDisplayListDetail", typeof(bool), typeof(ucLoanSlipInformation), new PropertyMetadata(true));
+
+
+
+        #endregion
+
+        #region GetDatas
+        public Func<LoanSlipDto> getItem { get; set; }
+        #endregion
+
+        #region Prop
+        private LoanSlipDto _Item;
+        public LoanSlipDto Item
         {
             get
             {
@@ -37,6 +59,13 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
+        #endregion
+
+
+        #region ViewModels
+        private LoanSlipViewModel loanSlipVM;
+        private LoanDetailViewModel loanDetailVM;
+        #endregion
 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -52,13 +81,26 @@ namespace AnhQuoc_C5_Assignment
         public ucLoanSlipInformation()
         {
             InitializeComponent();
+
+            #region Allocate
+            loanSlipVM = UnitOfViewModel.Instance.LoanSlipViewModel;
+            loanDetailVM = UnitOfViewModel.Instance.LoanDetailViewModel;
+
+            #endregion
+
             this.DataContext = this;
-            Loaded += ucLoanSlipInformation_Loaded;
+            this.Loaded += ucLoanSlipInformation_Loaded;
         }
         
         private void ucLoanSlipInformation_Loaded(object sender, RoutedEventArgs e)
         {
+            if (!IsDisplayListDetail)
+                ucLoanDetailsTable.Visibility = Visibility.Collapsed;
+
             Item = getItem();
+            ucLoanDetailsTable.getLoanDetails = () => loanDetailVM.FillListByIdLoan(Item.Id);
+            ucLoanDetailsTable.ModifiedPagination();
+
         }
     }
 }

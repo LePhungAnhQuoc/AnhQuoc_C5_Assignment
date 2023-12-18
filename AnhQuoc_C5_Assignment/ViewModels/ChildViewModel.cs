@@ -33,7 +33,7 @@ namespace AnhQuoc_C5_Assignment
             return null;
         }
 
-        public ObservableCollection<Child> GetChildFromAdult(string idAdult, bool? status)
+        public ObservableCollection<Child> FillByIdAdult(string idAdult, bool? status)
         {
             ObservableCollection<Child> childsResult = new ObservableCollection<Child>();
             foreach (Child child in Repo)
@@ -84,6 +84,7 @@ namespace AnhQuoc_C5_Assignment
         {
             return FillContainsFullName(CreateByDto(source), valueName, igNoreCase, statusValue);
         }
+
 
         public Child CreateByDto(ChildDto source)
         {

@@ -125,6 +125,20 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+
+        #region Other-Properties
+
+        private string _ReaderName;
+        public string ReaderName
+        {
+            get { return _ReaderName; }
+            set
+            {
+                _ReaderName = value;
+                OnPropertyChanged();
+            }
+        }
+
         private ObservableCollection<Child> _ListChild;
         public ObservableCollection<Child> ListChild
         {
@@ -140,6 +154,8 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
+
+        #endregion
 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

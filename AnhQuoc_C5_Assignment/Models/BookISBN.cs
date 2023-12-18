@@ -18,7 +18,6 @@ namespace AnhQuoc_C5_Assignment
         public BookISBN()
         {
             this.Books = new HashSet<Book>();
-            this.Enrolls = new HashSet<Enroll>();
         }
     
         public string ISBN { get; set; }
@@ -32,7 +31,5 @@ namespace AnhQuoc_C5_Assignment
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Book> Books { get; set; }
         public virtual BookTitle BookTitle { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Enroll> Enrolls { get; set; }
     }
 }

@@ -7,4 +7,7 @@
     <Style x:Key="gdDisplayInformation" TargetType="Grid">
         <Setter Property="Margin" Value="0 0 0 10" />
     </Style>
+    <!--<Style x:Key="gdContainDisplayInformation" TargetType="Grid">
+        <Setter Property="Margin" Value="20 0" />
+    </Style>-->
 </ResourceDictionary>

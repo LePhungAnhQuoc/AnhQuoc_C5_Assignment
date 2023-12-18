@@ -25,7 +25,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (sourceItem.ReaderType.ConvertValue() == ReaderType.Adult)
             {
-                var childsInAdult = childVM.GetChildFromAdult(sourceItem.Id, child_Status);
+                var childsInAdult = childVM.FillByIdAdult(sourceItem.Id, child_Status);
                 newItem.ChildsQuantity = childsInAdult.Count;
             }
             else if (sourceItem.ReaderType.ConvertValue() == ReaderType.Child)

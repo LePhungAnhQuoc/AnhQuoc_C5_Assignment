@@ -100,12 +100,7 @@ namespace AnhQuoc_C5_Assignment
             get { return (bool)GetValue(IsAllowRestoreProperty); }
             set { SetValue(IsAllowRestoreProperty, value); }
         }
-
-        public int UcLoanSlipsTable_btnInfoClick { get; private set; }
-        public int UcLoanSlipsTable_btnUpdateClick { get; private set; }
-        public int UcLoanSlipsTable_btnDeleteClick { get; private set; }
-        public int UcLoanSlipsTable_btnRestoreClick { get; private set; }
-
+        
         // Using a DependencyProperty as the backing store for IsAllowRestore.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsAllowRestoreProperty =
             DependencyProperty.Register("IsAllowRestore", typeof(bool), typeof(ucLoanSlipManagement), new PropertyMetadata(true));
@@ -135,12 +130,14 @@ namespace AnhQuoc_C5_Assignment
             loanSlipVM = UnitOfViewModel.Instance.LoanSlipViewModel;
             #endregion
 
+            #region Register-Event
             btnAdd.Click += BtnAdd_Click;
-
+            ucLoanSlipsTable.btnInfoClick += UcLoanSlipsTable_btnInfoClick;
+            #endregion
             this.Loaded += ucLoanSlipManagement_Loaded;
             this.DataContext = this;
         }
-        
+
         private void ucLoanSlipManagement_Loaded(object sender, RoutedEventArgs e)
         {
             AddToListFill(getLoanSlipRepo().Gets());
@@ -181,5 +178,18 @@ namespace AnhQuoc_C5_Assignment
             ucLoanSlipsTable.getLoanSlips = () => items;
             ucLoanSlipsTable.ModifiedPagination();
         }
+
+        #region Table-Event
+        private void UcLoanSlipsTable_btnInfoClick(object sender, RoutedEventArgs e)
+        {
+            ucLoanSlipInformation ucLoanSlipInformation = MainWindow.UnitOfForm.UcLoanSlipInformation(true);
+            ucLoanSlipInformation.getItem = () => ucLoanSlipsTable.SelectedDto;
+
+            Window frmLoanSlipInformation = Utilities.CreateFormToAddUserControlInfo();
+            frmLoanSlipInformation.Content = ucLoanSlipInformation;
+
+            frmLoanSlipInformation.ShowDialog();
+        }
+        #endregion
     }
 }

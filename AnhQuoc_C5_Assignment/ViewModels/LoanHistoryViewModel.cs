@@ -70,24 +70,11 @@ namespace AnhQuoc_C5_Assignment
             {
                 return false;
             }
-            if (item.RemainPaid == 0)
-            {
-                return false;
-            }
-
-            //if (item.FineMoney == 0)
-            //{
-            //    return false;
-            //}
+            
             if (item.Total == 0)
             {
                 return false;
             }
-
-            //if (Utilities.IsCheckEmptyString(item.Note))
-            //{
-            //    return false;
-            //}
 
             if (item.CreateAt == Constants.dateEmptyValue)
             {

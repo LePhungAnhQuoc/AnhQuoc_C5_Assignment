@@ -215,7 +215,6 @@ namespace AnhQuoc_C5_Assignment
         private BookTitleViewModel bookTitleVM;
         private BookISBNViewModel bookISBNVM;
         private BookViewModel bookVM;
-        private EnrollViewModel enrollVM;
         private ParameterViewModel paraVM;
         #endregion
 
@@ -286,9 +285,6 @@ namespace AnhQuoc_C5_Assignment
             bookTitleVM = UnitOfViewModel.Instance.BookTitleViewModel;
             bookISBNVM = UnitOfViewModel.Instance.BookISBNViewModel;
             bookVM = UnitOfViewModel.Instance.BookViewModel;
-
-            enrollVM = UnitOfViewModel.Instance.EnrollViewModel;
-
 
             readerMap = UnitOfMap.Instance.ReaderMap;
             adultMap = UnitOfMap.Instance.AdultMap;
@@ -469,8 +465,7 @@ namespace AnhQuoc_C5_Assignment
             LoanDetailHistorys.Add(getDetail);
 
             Item.FineMoney += Detail.PaidMoney;
-            Item.RemainPaid = Item.LoanPaid - Item.Deposit;
-            Item.Total = Item.RemainPaid + Item.FineMoney;
+            Item.Total = Item.LoanPaid + Item.FineMoney;
 
             getLoanDetailHistoryRepo().Add(getDetail);
             NewDetail();
@@ -502,9 +497,6 @@ namespace AnhQuoc_C5_Assignment
         }
 
         // Others methods
-      
-
-
 
         #region Filter
         private void TxtInputIdentify_Filter_TextChanged(TextBox txtInput, Grid parent, ObservableCollection<AdultDto> sourceDto)

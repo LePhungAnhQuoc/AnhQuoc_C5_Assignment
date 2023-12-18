@@ -122,7 +122,6 @@
     <Compile Include="DTOs\Interfaces\IDtoBase.cs" />
     <Compile Include="DTOs\LoanDetailHistoryDto.cs" />
     <Compile Include="DTOs\LoanDetailDto.cs" />
-    <Compile Include="DTOs\EnrollDto.cs" />
     <Compile Include="DTOs\LoanSlipDto.cs" />
     <Compile Include="DTOs\ProvinceDto.cs" />
     <Compile Include="DTOs\FunctionDto.cs" />
@@ -138,13 +137,13 @@
     <Compile Include="ExtensionMethods\BoolExtend.cs" />
     <Compile Include="ExtensionMethods\ControlExtend.cs" />
     <Compile Include="ExtensionMethods\EnumExtend.cs" />
+    <Compile Include="ExtensionMethods\IEnumerableExtend.cs" />
     <Compile Include="ExtensionMethods\ListExtend.cs" />
     <Compile Include="ExtensionMethods\ObservableCollectionExtend.cs" />
     <Compile Include="ExtensionMethods\StringExtension.cs" />
     <Compile Include="Mapping\AuthorMap.cs" />
     <Compile Include="Mapping\Base\MapBase.cs" />
     <Compile Include="Mapping\LoanDetailHistoryMap.cs" />
-    <Compile Include="Mapping\EnrollMap.cs" />
     <Compile Include="Mapping\LoanDetailMap.cs" />
     <Compile Include="Mapping\LoanSlipMap.cs" />
     <Compile Include="Mapping\RoleMap.cs" />
@@ -176,9 +175,6 @@
       <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Child.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Enroll.cs">
       <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Function.cs">
@@ -249,7 +245,6 @@
     </Compile>
     <Compile Include="Repositories\LoanDetailHistoryRepository.cs" />
     <Compile Include="Repositories\PublisherRepository.cs" />
-    <Compile Include="Repositories\EnrollRepository.cs" />
     <Compile Include="Repositories\LoanDetailRepository.cs" />
     <Compile Include="Repositories\AuthorRepository.cs" />
     <Compile Include="Repositories\BookISBNRepository.cs" />
@@ -289,12 +284,6 @@
     <Compile Include="UserControls\Book-Title-Information\ucBookTitleManagement.xaml.cs">
       <DependentUpon>ucBookTitleManagement.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Enroll-Information\ucEnrollManagement.xaml.cs">
-      <DependentUpon>ucEnrollManagement.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Enroll-Information\ucEnrollsTable.xaml.cs">
-      <DependentUpon>ucEnrollsTable.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Function-Information\ucDisplayFunction.xaml.cs">
       <DependentUpon>ucDisplayFunction.xaml</DependentUpon>
     </Compile>
@@ -312,6 +301,9 @@
     </Compile>
     <Compile Include="UserControls\LoanHistory-Information\ucLoanHistorysTable.xaml.cs">
       <DependentUpon>ucLoanHistorysTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LoanSlip-Information\ucReaderLoanInformation.xaml.cs">
+      <DependentUpon>ucReaderLoanInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\LoanSlip-Information\ucLoanSlipsTable.xaml.cs">
       <DependentUpon>ucLoanSlipsTable.xaml</DependentUpon>
@@ -358,13 +350,13 @@
     <Compile Include="UserControls\Books-Information\ucBookManagement.xaml.cs">
       <DependentUpon>ucBookManagement.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Readers-information\Readers-Table\ucChildsTable.xaml.cs">
+    <Compile Include="UserControls\Readers-information\Tables\ucChildsTable.xaml.cs">
       <DependentUpon>ucChildsTable.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Readers-information\ucReaderManagement.xaml.cs">
       <DependentUpon>ucReaderManagement.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Readers-information\Readers-Table\ucReadersTable.xaml.cs">
+    <Compile Include="UserControls\Readers-information\Tables\ucReadersTable.xaml.cs">
       <DependentUpon>ucReadersTable.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Readers-information\Add-Adult-Child\ucAddAdult.xaml.cs">
@@ -398,6 +390,7 @@
       <DependentUpon>ucUserRolesTable.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\Constants.cs" />
+    <Compile Include="Utilities\IsCheckProperty.cs" />
     <Compile Include="Utilities\ItemHelper.cs" />
     <Compile Include="Utilities\Utilities.cs" />
     <Compile Include="Validations\Basic-Validations\FixLengthRule.cs" />
@@ -429,7 +422,6 @@
     <Compile Include="ViewModels\BookViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\ChildViewModel.cs" />
-    <Compile Include="ViewModels\EnrollVIewModel.cs" />
     <Compile Include="ViewModels\FunctionViewModel.cs" />
     <Compile Include="ViewModels\LoanDetailHistoryViewModel.cs" />
     <Compile Include="ViewModels\LoanDetailViewModel.cs" />
@@ -467,22 +459,22 @@
     <Compile Include="Views\Login\frmInputServerName.xaml.cs">
       <DependentUpon>frmInputServerName.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Reader\frmChildReaderInformation.xaml.cs">
+    <Compile Include="Views\Reader\Information\frmChildReaderInformation.xaml.cs">
       <DependentUpon>frmChildReaderInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Reader\frmAdultReaderInformation.xaml.cs">
+    <Compile Include="Views\Reader\Information\frmAdultReaderInformation.xaml.cs">
       <DependentUpon>frmAdultReaderInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Reader\frmAddReader.xaml.cs">
       <DependentUpon>frmAddReader.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Readers-information\Uc-Information\ucChildInformation.xaml.cs">
+    <Compile Include="UserControls\Readers-information\Information\ucChildInformation.xaml.cs">
       <DependentUpon>ucChildInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Readers-information\Uc-Information\ucReaderInformation.xaml.cs">
+    <Compile Include="UserControls\Readers-information\Information\ucReaderInformation.xaml.cs">
       <DependentUpon>ucReaderInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Readers-information\Uc-Information\ucAdultInformation.xaml.cs">
+    <Compile Include="UserControls\Readers-information\Information\ucAdultInformation.xaml.cs">
       <DependentUpon>ucAdultInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Reader\frmTransferGuardian.xaml.cs">
@@ -553,6 +545,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\GroupBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Label.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -613,14 +609,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\Enroll-Information\ucEnrollManagement.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControls\Enroll-Information\ucEnrollsTable.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="UserControls\Function-Information\ucDisplayFunction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -642,6 +630,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\LoanHistory-Information\ucLoanHistorysTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\LoanSlip-Information\ucReaderLoanInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -705,7 +697,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\Readers-information\Readers-Table\ucChildsTable.xaml">
+    <Page Include="UserControls\Readers-information\Tables\ucChildsTable.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -713,7 +705,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Readers-information\Readers-Table\ucReadersTable.xaml">
+    <Page Include="UserControls\Readers-information\Tables\ucReadersTable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -785,11 +777,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Reader\frmChildReaderInformation.xaml">
+    <Page Include="Views\Reader\Information\frmChildReaderInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Reader\frmAdultReaderInformation.xaml">
+    <Page Include="Views\Reader\Information\frmAdultReaderInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -797,15 +789,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Readers-information\Uc-Information\ucChildInformation.xaml">
+    <Page Include="UserControls\Readers-information\Information\ucChildInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Readers-information\Uc-Information\ucReaderInformation.xaml">
+    <Page Include="UserControls\Readers-information\Information\ucReaderInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\Readers-information\Uc-Information\ucAdultInformation.xaml">
+    <Page Include="UserControls\Readers-information\Information\ucAdultInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -901,6 +893,7 @@
       <LastGenOutput>QuanLyThuVienModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

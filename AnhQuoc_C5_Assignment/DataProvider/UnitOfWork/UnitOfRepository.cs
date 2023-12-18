@@ -85,18 +85,7 @@ namespace AnhQuoc_C5_Assignment
                 return _AdultRepo;
             }
         }
-
-        private EnrollRepository _EnrollRepo;
-        public EnrollRepository EnrollRepo
-        {
-            get
-            {
-                if (_EnrollRepo == null)
-                    _EnrollRepo = new EnrollRepository();
-                return _EnrollRepo;
-            }
-        }
-
+        
         private ChildRepository _ChildRepo;
         public ChildRepository ChildRepo
         {
@@ -367,9 +356,6 @@ namespace AnhQuoc_C5_Assignment
 
             _RoleFunctionRepo = new RoleFunctionRepository();
             _RoleFunctionRepo.LoadList();
-
-            _EnrollRepo = new EnrollRepository();
-            _EnrollRepo.LoadList();
         }
     }
 }

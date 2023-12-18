@@ -84,18 +84,7 @@ namespace AnhQuoc_C5_Assignment
                 return _PublisherViewModel;
             }
         }
-
-        private EnrollViewModel _EnrollViewModel;
-        public EnrollViewModel EnrollViewModel
-        {
-            get
-            {
-                if (_EnrollViewModel == null)
-                    _EnrollViewModel = new EnrollViewModel();
-                return _EnrollViewModel;
-            }
-        }
-
+        
         private LoanSlipViewModel _LoanSlipViewModel;
         public LoanSlipViewModel LoanSlipViewModel
         {
@@ -308,10 +297,7 @@ namespace AnhQuoc_C5_Assignment
 
             _PublisherViewModel = new PublisherViewModel();
             _PublisherViewModel.Repo = _UnitOfRepo.PublisherRepo;
-
-            _EnrollViewModel = new EnrollViewModel();
-            _EnrollViewModel.Repo = _UnitOfRepo.EnrollRepo;
-
+            
             _LoanSlipViewModel = new LoanSlipViewModel();
             _LoanSlipViewModel.Repo = _UnitOfRepo.LoanSlipRepo;
 
