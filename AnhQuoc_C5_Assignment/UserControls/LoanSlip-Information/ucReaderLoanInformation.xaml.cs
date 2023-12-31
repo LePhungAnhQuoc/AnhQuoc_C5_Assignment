@@ -165,7 +165,7 @@ namespace AnhQuoc_C5_Assignment
         private void GetChildBooks()
         {
             AllChildLoan = loanVM.GetByListReader(AllChildOfAdult.Select(child => readerVM.FindById(child.IdReader)).ToObservableCollection());
-            AllChildLoanDetail = loanDetailVM.GetByListLoan(AllChildLoan);
+            AllChildLoanDetail = loanDetailVM.FillListByIdLoans(AllChildLoan);
             AllChildBook = bookVM.GetBooksInLoanDetails(AllChildLoanDetail);
             ucChildBooksTable.Books = bookMap.ConvertToDto(AllChildBook);
         }

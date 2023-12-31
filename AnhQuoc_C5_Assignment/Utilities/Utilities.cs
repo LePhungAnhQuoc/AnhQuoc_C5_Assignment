@@ -1567,5 +1567,17 @@ namespace AnhQuoc_C5_Assignment
         }
 
 
+        public static TreeViewItem GetTreeViewItemBySelectedItem (TreeView tree, object selectedItem)
+        {
+            var treeViewItem = (TreeViewItem)tree.ItemContainerGenerator.ContainerFromItem(selectedItem);
+            return treeViewItem;
+        }
+
+        public static string GetIndexerNameInCollection(object collection)
+        {
+            // GetValue Indexer to get item property in collection
+            string indexerName = ((DefaultMemberAttribute)collection.GetType().GetCustomAttributes(typeof(DefaultMemberAttribute), true)[0]).MemberName;
+            return indexerName;
+        }
     }
 }

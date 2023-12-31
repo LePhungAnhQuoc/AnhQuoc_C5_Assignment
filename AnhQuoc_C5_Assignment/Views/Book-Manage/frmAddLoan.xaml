@@ -161,13 +161,8 @@
                         </Grid>
                     </StackPanel>
                 </StackPanel>
-                <Button Name="btnSelectReaderInformation"
-                        Style="{StaticResource btnInfo}"
-                        Content="More Information" 
-                        FontStyle="Italic"
-                        HorizontalAlignment="Right"
-                        Margin="0 0 40 0"/>
             </StackPanel>
+            
             <local:ucLoanDetailsTable Grid.Column="1"
                                       Grid.Row="1"
                                       x:Name="ucLoanDetailsBorrowedTable"
@@ -190,8 +185,13 @@
                         Margin="0 30 0 10"
                         Style="{StaticResource bdStyle1}"
                         IsEnabled="False">
-                    <WrapPanel Margin="0 10 0 10">
-                        <WrapPanel.Resources>
+                    <Grid Margin="0 10 0 10"
+                          Style="{x:Null}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.Resources>
                             <System:Double x:Key="gridWight">300</System:Double>
                     
                             <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
@@ -202,8 +202,9 @@
                                 <Setter Property="Width" Value="{StaticResource gridWight}" />
                                 <Setter Property="Margin"  Value="0 0 20 0" />
                             </Style>
-                        </WrapPanel.Resources>
-                        <Grid>
+                        </Grid.Resources>
+                        <Grid Grid.Column="0"
+                              Style="{x:Null}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="*" />
@@ -227,35 +228,28 @@
                                 </TextBox>
                             </Grid>
                         </Grid>
-                        <Grid>
+                        <Grid Grid.Column="1"
+                              Style="{x:Null}"
+                              IsEnabled="False">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Label Content="Language: " />
-                            <ComboBox Name="cbSelectLanguage"
-                                                  Grid.Column="1"
-                                                  ItemsSource="{Binding AllLanguages}"
-                                                  SelectedItem="{Binding SelectedLanguage}"></ComboBox>
+                            <TextBlock Name="tblLanguage"
+                                       Grid.Column="1"></TextBlock>
                         </Grid>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label Content="Book ISBN: " />
-                            <TextBox Name="txtDisplayBookISBN"
-                                                 Grid.Column="1"
-                                                 Text="{Binding DisplayBookISBN}"
-                                                 IsEnabled="False">
-                            </TextBox>
-                        </Grid>
-                    </WrapPanel>
+                    </Grid>
                 </Border>
 
-                <StackPanel Grid.Row="1"
-                            Grid.Column="0">
-                    <Grid Background="#3968b4"
+                <Grid Grid.Row="1"
+                      Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0"
+                          Background="#3968b4"
                           Height="{StaticResource gridBarHeight}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -273,11 +267,10 @@
                         </Grid>
                     </Grid>
 
-                    <local:ucBooksTable x:Name="ucTemporaryBooksTable"
-                                                    Style="{StaticResource ucStyleHorizontal}"
-                                                    Height="150" 
-                                                    AllowPagination="False" />
-                </StackPanel>
+                    <WrapPanel Name="wrapBookISBN"
+                               Grid.Row="1">
+                    </WrapPanel>
+                </Grid>
                 <StackPanel Grid.Row="1"
                             Grid.Column="1">
                     <Grid Background="#3968b4"

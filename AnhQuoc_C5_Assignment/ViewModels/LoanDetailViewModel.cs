@@ -65,7 +65,7 @@ namespace AnhQuoc_C5_Assignment
             return newList;
         }
 
-        public ObservableCollection<LoanDetail> GetByListLoan(ObservableCollection<LoanSlip> loans)
+        public ObservableCollection<LoanDetail> FillListByIdLoans(ObservableCollection<LoanSlip> loans)
         {
             var source = Repo.Gets();
             ObservableCollection<LoanDetail> result = new ObservableCollection<LoanDetail>();

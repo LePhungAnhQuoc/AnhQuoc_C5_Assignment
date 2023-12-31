@@ -12,6 +12,7 @@ namespace AnhQuoc_C5_Assignment
 
         #region Fields
         // UserControl
+        private ucBooksTable ucBooksTable;
         private ucLibrarianDashBoard ucLibrarianDashBoard;
         private ucLoanSlipInformation ucLoanSlipInformation;
         private ucLoanSlipInformationStyle2 ucLoanSlipInformationStyle2;
@@ -82,6 +83,12 @@ namespace AnhQuoc_C5_Assignment
         public Func<bool, ucLoanSlipManagement> UcLoanSlipManagement
         {
             get { return _UcLoanSlipManagement; }
+        }
+
+        private Func<bool, ucBooksTable> _UcBooksTable;
+        public Func<bool, ucBooksTable> UcBooksTable
+        {
+            get { return _UcBooksTable; }
         }
 
         private Func<bool, ucLibrarianDashBoard> _UcLibrarianDashBoard;
@@ -504,6 +511,15 @@ namespace AnhQuoc_C5_Assignment
                 return ucUserInformation;
             };
 
+            _UcBooksTable = (isReAllocate) =>
+            {
+                if (isReAllocate == true)
+                {
+                    ucBooksTable = new ucBooksTable();
+                }
+                return ucBooksTable;
+            };
+
             _UcUserManagement = (isReAllocate) =>
             {
                 if (isReAllocate)
@@ -794,6 +810,7 @@ namespace AnhQuoc_C5_Assignment
             ucAddAdult = UcAddAdult(true);
             ucAddChild = UcAddChild(true);
             ucUserInformation = UcUserInformation(true);
+            ucBooksTable = UcBooksTable(true);
             ucFunctionManagement = UcFunctionManagement(true);
             ucUserManagement = UcUserManagement(true);
             ucRoleManagement = UcRoleManagement(true);

@@ -136,6 +136,8 @@ namespace AnhQuoc_C5_Assignment
         {
             dgBooks.ItemsSource = Books;
 
+            // Status
+
             if (AllowPagination == true)
             {
                 ucPagination.getUcBooksTable = () => this;

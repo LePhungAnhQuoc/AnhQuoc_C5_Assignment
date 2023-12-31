@@ -114,6 +114,7 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Style-String
+        public static string styledtgLoanOutOfDate = "dtgRowExpireDateLoan";
         public static string styleBtnRestore = "btnRestore";
         public static string styleBtnDelete = "btnDelete";
         public static string styleBtnConfirm = "btnConfirm";

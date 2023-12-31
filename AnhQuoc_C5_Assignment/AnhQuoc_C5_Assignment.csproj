@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="Converters\DateMinToNullValueConverter.cs" />
     <Compile Include="Converters\HalfLengthConverter.cs" />
+    <Compile Include="Converters\IsLoanOutOfDateConverter.cs" />
     <Compile Include="Converters\Others\AdminUserConverter.cs" />
     <Compile Include="Converters\Others\EmptyContentConverter.cs" />
     <Compile Include="Converters\Others\InverseBoolConverter.cs" />
@@ -274,6 +275,12 @@
     </Compile>
     <Compile Include="UserControls\Book-ISBN-information\ucAddBookISBN.xaml.cs">
       <DependentUpon>ucAddBookISBN.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Book-ISBN-information\ucBookISBNCard.xaml.cs">
+      <DependentUpon>ucBookISBNCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Book-ISBN-information\ucBookISBNInformation.xaml.cs">
+      <DependentUpon>ucBookISBNInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Book-Title-Information\ucAddBookTitle.xaml.cs">
       <DependentUpon>ucAddBookTitle.xaml</DependentUpon>
@@ -594,6 +601,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\Book-ISBN-information\ucAddBookISBN.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Book-ISBN-information\ucBookISBNCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Book-ISBN-information\ucBookISBNInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

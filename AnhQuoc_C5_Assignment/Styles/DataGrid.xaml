@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:AnhQuoc_C5_Assignment">
+                    xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib">
     <Style x:Key="dtgGeneral" TargetType="DataGrid">
         <Setter Property="HeadersVisibility" Value="Column" />
         <Setter Property="AutoGenerateColumns" Value="False" />
@@ -73,20 +74,6 @@
     </Style>
 
     <Style x:Key="dtgcellStatus" TargetType="DataGridCell" BasedOn="{StaticResource dtgCellGeneral}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type DataGridCell}">
-                    <Border Padding="{TemplateBinding Padding}" 
-                            BorderBrush="{TemplateBinding BorderBrush}"         
-                            BorderThickness="{TemplateBinding BorderThickness}" 
-                            Background="{TemplateBinding Background}" 
-                            SnapsToDevicePixels="True">
-                        <ContentPresenter 
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
         <Style.Triggers>
             <DataTrigger Binding="{Binding Status}" Value="True">
                 <Setter Property="Foreground" Value="Green" />
@@ -103,6 +90,27 @@
         <Setter Property="Margin" Value="2,1" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Padding" Value="10,5" />
+    </Style>
+
+    <Style x:Key="dtgRowExpireDateLoan" TargetType="DataGridRow" BasedOn="{StaticResource dtgRowGeneral}">
+        <Style.Triggers>
+            <DataTrigger>
+                <DataTrigger.Binding>
+                    <Binding Path="ExpDate">
+                        <Binding.Converter>
+                            <local:IsLoanOutOfDateConverter />
+                        </Binding.Converter>
+                        <Binding.ConverterParameter>
+                            <Binding Path="SelectedItem" RelativeSource="{RelativeSource AncestorType=DataGrid}" />
+                        </Binding.ConverterParameter>
+                    </Binding>
+                </DataTrigger.Binding>
+                <DataTrigger.Value>
+                    <System:Boolean>True</System:Boolean>
+                </DataTrigger.Value>
+                <Setter Property="Foreground" Value="Red" />
+            </DataTrigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>
