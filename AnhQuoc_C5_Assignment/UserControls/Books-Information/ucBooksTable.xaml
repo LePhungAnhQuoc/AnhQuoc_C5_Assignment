@@ -28,7 +28,7 @@
                 <DataGridTextColumn Header="Index" Width="auto" Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGridRow}}, Converter={StaticResource indexDataGridItemConverter}}" />
                 <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="ISBN" Width="auto" Binding="{Binding ISBN}" />
-                <DataGridTextColumn Header="Title" Width="*" Binding="{Binding Title}" />
+                <DataGridTextColumn Header="Title" Width="auto" Binding="{Binding Title}" />
                 <DataGridTextColumn Header="Category" Width="auto" Binding="{Binding Category}" />
                 <DataGridTextColumn Header="Author" Width="auto" Binding="{Binding Author}" />
                 <DataGridTextColumn Header="Translator" Width="auto" Binding="{Binding Translator}" />

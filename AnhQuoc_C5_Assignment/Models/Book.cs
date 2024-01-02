@@ -30,10 +30,12 @@ namespace AnhQuoc_C5_Assignment
         public decimal Price { get; set; }
         public decimal PriceCurrent { get; set; }
         public string Note { get; set; }
+        public string IdBookStatus { get; set; }
         public bool Status { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime ModifiedAt { get; set; }
     
+        public virtual BookStatu BookStatu { get; set; }
         public virtual Publisher Publisher { get; set; }
         public virtual Translator Translator { get; set; }
         public virtual BookISBN BookISBN { get; set; }

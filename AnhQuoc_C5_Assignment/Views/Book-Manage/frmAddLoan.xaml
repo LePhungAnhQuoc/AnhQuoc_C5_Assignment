@@ -12,9 +12,12 @@
         SizeToContent="Height">
     <Window.Resources>
         <System:Double x:Key="gridBarHeight">50</System:Double>
+        <Thickness x:Key="borderDistance" Top="10" Left="10" Right="10" Bottom="10" />
     </Window.Resources>
     <Grid Name="gdContent">
-        <Grid Name="gdInputLoanSlip">
+        <!-- Borrow Book Information -->
+        <Grid Name="gdInputLoanSlip"
+              Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -25,16 +28,17 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
-        
+
             <!-- Title -->
             <Label Grid.Row="0"
                    Grid.ColumnSpan="2"
                    Style="{StaticResource lblTitle}"
-                   Content="Add New Loan" />
+                   Content="Borrow Book Form" />
 
             <StackPanel Grid.Row="1"
-                        Grid.Column="0">
-                <StackPanel Margin="0 0 20 0">
+                        Grid.Column="0"
+                        Margin="10 0">
+                <StackPanel>
                     <StackPanel.Resources>
                         <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
                         <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
@@ -44,11 +48,11 @@
                     </StackPanel.Resources>
 
                     <Grid Margin="20 10 0 10"
-                                              HorizontalAlignment="Left">
+                          HorizontalAlignment="Left">
                         <ComboBox Name="cbSelectReaderType"
-                                                      Style="{StaticResource cbStyle2}"
-                                                      ItemsSource="{Binding AllReaderTypes}"
-                                                      SelectedItem="{Binding SelectedReaderType}"></ComboBox>
+                                  Style="{StaticResource cbStyle2}"
+                                  ItemsSource="{Binding AllReaderTypes}"
+                                  SelectedItem="{Binding SelectedReaderType}"></ComboBox>
                         <TextBlock Text="Select Reader Type">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolderComboBox}">
@@ -64,7 +68,7 @@
                     </Grid>
                     <!-- Adult -->
                     <StackPanel Name="stkAdultInformation"
-                                                        Visibility="Visible">
+                                Visibility="Visible">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100" />
@@ -72,14 +76,14 @@
                             </Grid.ColumnDefinitions>
                             <Label Content="Identify: " />
                             <Grid Name="gdInputAdultIndentify"
-                                Style="{x:Null}"
-                                Grid.Column="1">
+                                  Style="{x:Null}"
+                                  Grid.Column="1">
                                 <ComboBox Name="cbAdultTxtIdentify"
-                                        Style="{StaticResource cbGeneral}"
-                                        DisplayMemberPath="Identify">
+                                          Style="{StaticResource cbGeneral}"
+                                          DisplayMemberPath="Identify">
                                 </ComboBox>
                                 <TextBox Name="txtAdultInputIdentify"
-                                        Grid.Column="1">
+                                         Grid.Column="1">
                                     <TextBox.Text>
                                         <Binding Path="InputIdentify" UpdateSourceTrigger="PropertyChanged">
                                             <Binding.ValidationRules>
@@ -97,9 +101,9 @@
                             </Grid.ColumnDefinitions>
                             <Label Content="Name: " />
                             <TextBox Name="txtAdultName"
-                                                             Grid.Column="1"
-                                                             Text="{Binding SelectedReader.FullName, Mode=OneWay}"
-                                                             IsReadOnly="True">
+                                     Grid.Column="1"
+                                     Text="{Binding SelectedReader.FullName, Mode=OneWay}"
+                                     IsReadOnly="True">
                             </TextBox>
                         </Grid>
                     </StackPanel>
@@ -114,15 +118,15 @@
                             </Grid.ColumnDefinitions>
                             <Label Content="Guardian ID: " />
                             <Grid Name="gdGuardianInput"
-                                                          Style="{x:Null}"
-                                                          Grid.Column="1"
-                                                          IsEnabled="True">
+                                  Style="{x:Null}"
+                                  Grid.Column="1"
+                                  IsEnabled="True">
                                 <ComboBox Name="cbGuardianTxtIdentify"
-                                                              Style="{StaticResource cbGeneral}"
-                                                              DisplayMemberPath="Identify">
+                                          Style="{StaticResource cbGeneral}"
+                                          DisplayMemberPath="Identify">
                                 </ComboBox>
                                 <TextBox Name="txtGuardianInputIdentify"
-                                                             Grid.Column="1">
+                                         Grid.Column="1">
                                     <TextBox.Text>
                                         <Binding Path="InputIdentify" UpdateSourceTrigger="PropertyChanged">
                                             <Binding.ValidationRules>
@@ -140,13 +144,13 @@
                             </Grid.ColumnDefinitions>
                             <Label Content="Child name: " />
                             <Grid Name="gdInputChildName"
-                                                          Style="{x:Null}"
-                                                          Grid.Column="1"
-                                                          IsEnabled="False">
+                                  Style="{x:Null}"
+                                  Grid.Column="1"
+                                  IsEnabled="False">
                                 <ComboBox Name="cbChildTxtReaderName"
-                                                              Style="{StaticResource cbGeneral}"
-                                                              DisplayMemberPath="FullName"
-                                                              SelectedValuePath="FullName">
+                                          Style="{StaticResource cbGeneral}"
+                                          DisplayMemberPath="FullName"
+                                          SelectedValuePath="FullName">
                                 </ComboBox>
                                 <TextBox Name="txtChildInputReaderName">
                                     <TextBox.Text>
@@ -162,14 +166,14 @@
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
-            
-            <local:ucLoanDetailsTable Grid.Column="1"
-                                      Grid.Row="1"
-                                      x:Name="ucLoanDetailsBorrowedTable"
-                                      AllowPagination="False" />
 
-            <Grid Grid.Row="2"
-                  Grid.ColumnSpan="2">
+            <local:ucLoanDetailsTable Grid.Column="1" Grid.Row="1"
+                                      x:Name="ucLoanDetailsBorrowedTable"
+                                      AllowPagination="False"
+                                      Margin="10 0"
+                                      Height="190"/>
+
+            <Grid Grid.Row="2" Grid.ColumnSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="*" />
@@ -178,14 +182,12 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-
-                <Border Grid.Row="0"
-                        Grid.ColumnSpan="2"
+                <Border Grid.Row="0" Grid.ColumnSpan="2"
                         Name="bdInputBookInformation"
-                        Margin="0 30 0 10"
+                        Margin="10 0"
                         Style="{StaticResource bdStyle1}"
                         IsEnabled="False">
-                    <Grid Margin="0 10 0 10"
+                    <Grid Margin="0 10"
                           Style="{x:Null}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -193,7 +195,7 @@
                         </Grid.ColumnDefinitions>
                         <Grid.Resources>
                             <System:Double x:Key="gridWight">300</System:Double>
-                    
+
                             <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
                             <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
                             <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
@@ -204,21 +206,22 @@
                             </Style>
                         </Grid.Resources>
                         <Grid Grid.Column="0"
-                              Style="{x:Null}">
+                              Style="{x:Null}"
+                              Margin="10 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Label Content="Book name: " />
                             <Grid Grid.Column="1"
-                                              Name="gdInputBookName"
-                                              Style="{x:Null}"
-                                              IsEnabled="False">
+                                  Name="gdInputBookName"
+                                  Style="{x:Null}"
+                                  IsEnabled="False">
                                 <ComboBox Name="cbTxtBookName"
-                                                      DisplayMemberPath="Name">
+                                          DisplayMemberPath="Name">
                                 </ComboBox>
                                 <TextBox Name="txtInputBookName"
-                                                     Grid.Column="1">
+                                         Grid.Column="1">
                                     <TextBox.Text>
                                         <Binding Path="InputBookName" UpdateSourceTrigger="PropertyChanged">
                                             <Binding.ValidationRules>
@@ -230,65 +233,75 @@
                         </Grid>
                         <Grid Grid.Column="1"
                               Style="{x:Null}"
-                              IsEnabled="False">
+                              IsEnabled="False"
+                              Margin="10 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Label Content="Language: " />
-                            <TextBlock Name="tblLanguage"
-                                       Grid.Column="1"></TextBlock>
+                            <TextBox Name="tblLanguage"
+                                     Grid.Column="1"
+                                     IsReadOnly="True"></TextBox>
                         </Grid>
                     </Grid>
                 </Border>
-
                 <Grid Grid.Row="1"
-                      Grid.Column="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0"
-                          Background="#3968b4"
-                          Height="{StaticResource gridBarHeight}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <Label Style="{StaticResource lblTitleStyle3}"
-                                           Content="Temporary book list" 
-                                           VerticalAlignment="Center"/>
-                        <!-- Footer -->
-                        <Grid Grid.Column="1"
-                                          Margin="20 10">
-                            <Button Name="btnBookDetailConfirm" Content="Save Data"
-                                                Style="{StaticResource btnSaveDataStyle1}">
-                            </Button>
+                      Grid.ColumnSpan="2"
+                      Margin="10 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0"
+                              Background="#3968b4"
+                              Height="{StaticResource gridBarHeight}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Style="{StaticResource lblTitleStyle3}"
+                                   Content="Temporary book list" 
+                                   VerticalAlignment="Center"/>
+                            <!-- Footer -->
+                            <Grid Grid.Column="1"
+                                  Margin="20 10">
+                                <Button Name="btnBookDetailConfirm" Content="Save Data"
+                                        Style="{StaticResource btnSaveDataStyle1}">
+                                </Button>
+                            </Grid>
                         </Grid>
+                        <ScrollViewer Grid.Row="1"
+                                      Style="{StaticResource scrollStyleGeneral}"
+                                      Height="150">
+                            <WrapPanel Name="wrapBookISBN"
+                                       Width="380">
+                            </WrapPanel>
+                        </ScrollViewer>
                     </Grid>
-
-                    <WrapPanel Name="wrapBookISBN"
-                               Grid.Row="1">
-                    </WrapPanel>
+                    <StackPanel Grid.Column="1">
+                        <Grid Background="#3968b4"
+                              Height="{StaticResource gridBarHeight}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Style="{StaticResource lblTitleStyle3}"
+                                   Content="Saved book list" 
+                                   VerticalAlignment="Center"/>
+                        </Grid>
+                        <local:ucLoanDetailsTable x:Name="ucLoanDetailsTable"
+                                                  Style="{StaticResource ucStyleHorizontal}"
+                                                  Height="150"
+                                                  AllowPagination="False"/>
+                    </StackPanel>
                 </Grid>
-                <StackPanel Grid.Row="1"
-                            Grid.Column="1">
-                    <Grid Background="#3968b4"
-                          Height="{StaticResource gridBarHeight}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Style="{StaticResource lblTitleStyle3}"
-                                           Content="Saved book list" 
-                                           VerticalAlignment="Center"/>
-                    </Grid>
-                    <local:ucLoanDetailsTable x:Name="ucLoanDetailsTable"
-                                            Style="{StaticResource ucStyleHorizontal}"
-                                            Height="150" 
-                                            AllowPagination="False"/>
-                </StackPanel>
             </Grid>
-        
+
             <!-- Footer -->
             <StackPanel Grid.Row="3"
                         Grid.ColumnSpan="2"
@@ -303,5 +316,16 @@
                         Margin="10 0 0 0"/>
             </StackPanel>
         </Grid>
+        
+        <!-- Payment Information -->
+        <StackPanel Name="stkPayment"
+                    Visibility="Collapsed">
+            <!-- Title -->
+            <Label Style="{StaticResource lblTitle}"
+                   Content="Payment Information" />
+            
+            <local:ucLoanSlipPayment x:Name="ucLoanSlipPayment" 
+                                     Margin="10 10 10 10"/>
+        </StackPanel>
     </Grid>
 </Window>

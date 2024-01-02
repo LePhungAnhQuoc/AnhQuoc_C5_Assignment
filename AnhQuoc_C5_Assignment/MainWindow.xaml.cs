@@ -299,6 +299,32 @@ namespace AnhQuoc_C5_Assignment
                     continue;
                 }
             }
+
+
+            foreach (PropertyInfo tableProperty in Utilities.getDerivePropsFromType(DatabaseFirst.Instance.dbSource))
+            {
+                IEnumerable value = null;
+                try
+                {
+                    value = (IEnumerable)Utilities.getValueFromProperty(tableProperty, DatabaseFirst.Instance.dbSource);
+                }
+                catch
+                {
+                    continue;
+                }
+                Type itemDataType = Utilities.GetItemDataTypeInGenericList(value);
+
+                var props = Utilities.getPropsFromType(itemDataType);
+                var propsInDto = Utilities.getPropsFromType(typeof(AdultDto));
+
+                var list = Utilities.OuterJoin(props, propsInDto, "Name");
+                list.ToList();
+                //if (itemDataType == typeof(T))
+                //{
+                //    return tableProperty;
+                //}
+            }
+
         }
 
         private bool CheckIsRightConnection()

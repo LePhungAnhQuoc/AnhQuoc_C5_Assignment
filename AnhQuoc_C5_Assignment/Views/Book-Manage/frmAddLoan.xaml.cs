@@ -43,6 +43,7 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Properties
+        public bool IsCancel { get; set; } = true;
 
         #region Datas
         private ObservableCollection<AdultDto> _AllAdults;
@@ -262,7 +263,6 @@ namespace AnhQuoc_C5_Assignment
 
         #region Forms
         private ucLoanSlipInformationStyle2 ucLoanSlipInformation;
-        private ucLoanSlipPayment ucLoanSlipPayment;
         #endregion
 
         #region ViewModels
@@ -342,11 +342,13 @@ namespace AnhQuoc_C5_Assignment
             this.WindowStyle = WindowStyle.SingleBorderWindow;
             this.Width = 1200;
 
+            AllBookISBNCard = new ObservableCollection<ucBookISBNCard>();
+
             #region AllocateForm
             ucLoanSlipInformation = MainWindow.UnitOfForm.UcLoanSlipInformationStyle2(true);
             ucLoanSlipInformation.getItem = () => LoanSlipDto;
             ucLoanSlipInformation.IsDisplayListDetail = false;
-            ucLoanSlipPayment = MainWindow.UnitOfForm.UcLoanSlipPayment(true);
+
             ucLoanSlipPayment.getItem = () => LoanSlipDto;
             ucLoanSlipPayment.getFrmAddLoan = () => this;
             #endregion
@@ -407,11 +409,7 @@ namespace AnhQuoc_C5_Assignment
 
             bdInputBookInformation.IsEnabledChanged += BdInputBookInformation_IsEnabledChanged;
             #endregion
-
-            gdContent.Children.Add(ucLoanSlipPayment);
-            gdInputLoanSlip.Visibility = Visibility.Visible;
-            ucLoanSlipPayment.Visibility = Visibility.Collapsed;
-
+            
             this.Loaded += frmAddLoan_Loaded;
             this.Closing += FrmAddLoan_Closing;
             this.DataContext = this;
@@ -419,13 +417,13 @@ namespace AnhQuoc_C5_Assignment
 
         private void FrmAddLoan_Closing(object sender, CancelEventArgs e)
         {
-            LoanSlipDto = null;
+            if (IsCancel)
+                LoanSlipDto = null;
         }
 
         private void frmAddLoan_Loaded(object sender, RoutedEventArgs e)
         {
             NewItem();
-            ucLoanDetailsTable.dgDatas.RowStyle = Application.Current.FindResource(Constants.styledtgLoanOutOfDate) as Style;
             ucLoanDetailsTable.getLoanDetails = () => new ObservableCollection<LoanDetail>();
             ucLoanDetailsTable.ModifiedPagination();
 
@@ -449,7 +447,7 @@ namespace AnhQuoc_C5_Assignment
         private void NewDetail()
         {
             LoanDetail = new LoanDetail();
-            LoanDetail.Id = loanDetailVM.GetId();
+            LoanDetail.Id = loanDetailVM.GetId(LoanDetails.Count + getLoanDetailRepo().Count);
             LoanDetail.IdLoan = LoanSlipDto.Id;
             LoanDetail.ExpDate = LoanSlipDto.ExpDate;
         }
@@ -470,13 +468,15 @@ namespace AnhQuoc_C5_Assignment
 
             ChangeBookStatus(false);
             LoanDetails.Clear();
+
+            IsCancel = false;
             this.Close();
         }
 
         public void GoBackPage()
         {
             gdInputLoanSlip.Visibility = Visibility.Visible;
-            ucLoanSlipPayment.Visibility = Visibility.Collapsed;
+            stkPayment.Visibility = Visibility.Collapsed;
         }
 
 
@@ -490,7 +490,7 @@ namespace AnhQuoc_C5_Assignment
             }
 
             gdInputLoanSlip.Visibility = Visibility.Collapsed;
-            ucLoanSlipPayment.Visibility = Visibility.Visible;
+            stkPayment.Visibility = Visibility.Visible;
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
@@ -523,6 +523,8 @@ namespace AnhQuoc_C5_Assignment
 
                 AllBookISBNCard.Remove(AllBookISBNCard.FirstOrDefault(item => item.getItem().ISBN == SelectedISBN.ISBN));
                 AllBookISBN.Remove(AllBookISBN.FirstOrDefault(item => item.ISBN == SelectedISBN.ISBN));
+
+                AddBookISBNCardToWrap();
             }
         }
         
@@ -771,6 +773,7 @@ namespace AnhQuoc_C5_Assignment
             BookTitleDto bookTitleDto = cbTxtBookName.SelectedItem as BookTitleDto;
 
             AllBookISBN = bookISBNVM.FillByIdBookTitle(bookTitleDto.Id, BookISBNStatusValue);
+            AllBookISBNCard.Clear();
             ConvertToBookISBNCard(AllBookISBN);
             AddBookISBNCardToWrap();
         }
@@ -969,18 +972,21 @@ namespace AnhQuoc_C5_Assignment
             if (!isbn.Status)
             {
                 Utilities.ShowMessageBox1("All Books of this ISBN has been borrowed already");
-                BtnCancel_Click(null, null);
                 return;
             }
             else if (books.Count == 0)
             {
                 Utilities.ShowMessageBox1("This ISBN doesn't have book already");
-                BtnCancel_Click(null, null);
                 return;
             }
            
             tblLanguage.Text = isbn.OriginLanguage;
             OpenSelectBookForm(books);
+
+            if (SelectedBook == null) // User click cancel button
+            {
+                return;
+            }
             BtnBookDetailConfirm_Click(null, null);
 
         }
@@ -1001,14 +1007,23 @@ namespace AnhQuoc_C5_Assignment
             Button btnCancelSelectBook = new Button();
 
             btnConfirmSelectBook.Style = Application.Current.FindResource(Constants.styleBtnConfirm) as Style;
-            btnCancel.Style = Application.Current.FindResource(Constants.styleBtnCancel) as Style;
+            btnCancelSelectBook.Style = Application.Current.FindResource(Constants.styleBtnCancel) as Style;
 
-            Window frmSelectBooksTable = Utilities.CreateDefaultForm();
+            frmDefault frmSelectBooksTable = new frmDefault();
+            frmSelectBooksTable.Width = 900;
+            frmSelectBooksTable.SizeToContent = SizeToContent.Height;
+            frmSelectBooksTable.frmTitle = "Select book form";
+            frmSelectBooksTable.lblHeader = "Please select book in this ISBN";
 
             btnConfirmSelectBook.Click += (_sender, _e) =>
             {
-                frmSelectBooksTable.Close();
                 SelectedBook = ucSelectBooksTable.SelectedDto;
+                if (SelectedBook == null)
+                {
+                    Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("book"));
+                    return;
+                }
+                frmSelectBooksTable.Close();
             };
             btnCancelSelectBook.Click += (_sender, _e) =>
             {
@@ -1016,12 +1031,13 @@ namespace AnhQuoc_C5_Assignment
                 SelectedBook = null;
             };
 
-            frmSelectBooksTable.Content = Utilities.AddUserControlToStackPanel(ucSelectBooksTable, btnConfirmSelectBook, btnCancelSelectBook);
+            Utilities.AddItemToFormDefault(frmSelectBooksTable, ucSelectBooksTable, btnConfirmSelectBook, btnCancelSelectBook);
             frmSelectBooksTable.ShowDialog();
         }
 
         private void AddBookISBNCardToWrap()
         {
+            wrapBookISBN.Children.Clear();
             foreach (var ucCard in AllBookISBNCard)
             {
                 wrapBookISBN.Children.Add(ucCard);

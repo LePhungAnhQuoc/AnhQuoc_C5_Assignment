@@ -42,6 +42,7 @@
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="PriceCurrent" ColumnName="PriceCurrent" />
           <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="IdBookStatus" ColumnName="IdBookStatus" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
           <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
@@ -57,6 +58,18 @@
           <ScalarProperty Name="OriginLanguage" ColumnName="OriginLanguage" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookStatus">
+      <EntityTypeMapping TypeName="QuanLyThuVienModel.BookStatu">
+        <MappingFragment StoreEntitySet="BookStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -257,6 +270,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
           <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />

@@ -12,30 +12,22 @@ namespace AnhQuoc_C5_Assignment
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class BookStatu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public BookStatu()
         {
-            this.LoanHistories = new HashSet<LoanHistory>();
-            this.LoanSlips = new HashSet<LoanSlip>();
-            this.UserRoles = new HashSet<UserRole>();
+            this.Books = new HashSet<Book>();
         }
     
         public string Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Note { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         public bool Status { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime ModifiedAt { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LoanHistory> LoanHistories { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LoanSlip> LoanSlips { get; set; }
-        public virtual UserInfo UserInfo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserRole> UserRoles { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
     }
 }

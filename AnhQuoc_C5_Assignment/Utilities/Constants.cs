@@ -121,6 +121,7 @@ namespace AnhQuoc_C5_Assignment
         public static string styleBtnCancel = "btnCancel";
         public static string styleWDGeneral = "wdStyleGeneral";
         public static string styleStkWrapButton = "stkWrapButton";
+        public static string stylelblNote = "lblNote";
         public static int maxWDHeight = 700;
         public static int maxWDWidth = 1250;
 

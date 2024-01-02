@@ -1263,15 +1263,18 @@ namespace AnhQuoc_C5_Assignment
             newForm.Padding = new Thickness(0, 0, 0, padding_Bottom);
             return newForm;
         }
-        public static StackPanel AddUserControlToStackPanel(UserControl uc, params Button[] arrayButton)
+
+        public static void AddItemToFormDefault(frmDefault form, UserControl uc, params Button[] arrayButton)
         {
-            StackPanel stkParent = new StackPanel();
+            StackPanel stkParent = form.stkBody;
             stkParent.Children.Add(uc);
 
-            StackPanel stkWrapButton = new StackPanel();
-            stkWrapButton.Style = Application.Current.FindResource(Constants.styleStkWrapButton) as Style;
-
             #region Add-Buttons
+
+            StackPanel stkWrapButton = form.stkWrapButton;
+            if (arrayButton.Length == 0)
+                stkWrapButton.Visibility = Visibility.Collapsed;
+            
             bool flag = false;
             foreach (Button btn in arrayButton)
             {
@@ -1282,9 +1285,6 @@ namespace AnhQuoc_C5_Assignment
                 stkWrapButton.Children.Add(btn);
             }
             #endregion
-
-            stkParent.Children.Add(stkWrapButton);
-            return stkParent;
         }
         #endregion
 
@@ -1477,6 +1477,16 @@ namespace AnhQuoc_C5_Assignment
             Func<T, string> innerKeySelector = smallItem => getValueFromProperty(smallItem.GetType().GetProperty(propSelector), smallItem).ToString();
 
             IEnumerable<string> result = bigSource.Join(smallSource, outerKeySelector, innerKeySelector, (bigItem, smallItem) => getValueFromProperty(bigItem.GetType().GetProperty(propSelector), bigItem).ToString());
+            return result;
+        }
+
+        public static IEnumerable<string> OuterJoin<T>(IEnumerable<T> bigSource, IEnumerable<T> smallSource, string propSelector)
+        {
+            Func<T, string> outerKeySelector = bigItem => getValueFromProperty(bigItem.GetType().GetProperty(propSelector), bigItem).ToString();
+            Func<T, string> innerKeySelector = smallItem => getValueFromProperty(smallItem.GetType().GetProperty(propSelector), smallItem).ToString();
+
+            IEnumerable<string> result = bigSource.Join(smallSource, outerKeySelector, innerKeySelector, (bigItem, smallItem) => getValueFromProperty(bigItem.GetType().GetProperty(propSelector), bigItem).ToString());
+            
             return result;
         }
 

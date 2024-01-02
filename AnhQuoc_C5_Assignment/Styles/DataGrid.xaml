@@ -2,6 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
                     xmlns:System="clr-namespace:System;assembly=mscorlib">
+    <local:IsLoanOutOfDateConverter x:Key="isLoanOutOfDateConverter" />
+
     <Style x:Key="dtgGeneral" TargetType="DataGrid">
         <Setter Property="HeadersVisibility" Value="Column" />
         <Setter Property="AutoGenerateColumns" Value="False" />
@@ -93,24 +95,15 @@
     </Style>
 
     <Style x:Key="dtgRowExpireDateLoan" TargetType="DataGridRow" BasedOn="{StaticResource dtgRowGeneral}">
-        <Style.Triggers>
-            <DataTrigger>
-                <DataTrigger.Binding>
-                    <Binding Path="ExpDate">
-                        <Binding.Converter>
-                            <local:IsLoanOutOfDateConverter />
-                        </Binding.Converter>
-                        <Binding.ConverterParameter>
-                            <Binding Path="SelectedItem" RelativeSource="{RelativeSource AncestorType=DataGrid}" />
-                        </Binding.ConverterParameter>
-                    </Binding>
-                </DataTrigger.Binding>
-                <DataTrigger.Value>
-                    <System:Boolean>True</System:Boolean>
-                </DataTrigger.Value>
-                <Setter Property="Foreground" Value="Red" />
-            </DataTrigger>
-        </Style.Triggers>
+        <!--<Setter Property="Foreground">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource isLoanOutOfDateConverter}">
+                    <Binding Path="."/>
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>-->
+        <Setter Property="Foreground" Value="Red">
+        </Setter>
     </Style>
 
 </ResourceDictionary>

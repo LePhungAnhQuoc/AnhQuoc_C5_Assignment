@@ -12,6 +12,17 @@ namespace AnhQuoc_C5_Assignment
     {        
         public string Id { get; set; }
 
+        private string _IdUser;
+        public string IdUser
+        {
+            get { return _IdUser; }
+            set
+            {
+                _IdUser = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string _IdReader;
         public string IdReader
         {

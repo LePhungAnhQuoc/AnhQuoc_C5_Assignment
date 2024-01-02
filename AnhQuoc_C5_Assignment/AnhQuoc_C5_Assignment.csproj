@@ -169,6 +169,9 @@
     <Compile Include="Models\BookISBN.cs">
       <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BookStatu.cs">
+      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\BookTitle.cs">
       <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
     </Compile>
@@ -453,6 +456,9 @@
     </Compile>
     <Compile Include="Views\Book\frmBookISBNInformation.xaml.cs">
       <DependentUpon>frmBookISBNInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmDefault.xaml.cs">
+      <DependentUpon>frmDefault.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Function\frmAddFunction.xaml.cs">
       <DependentUpon>frmAddFunction.xaml</DependentUpon>
@@ -776,6 +782,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\frmDefault.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Function\frmAddFunction.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -908,7 +918,6 @@
       <LastGenOutput>QuanLyThuVienModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

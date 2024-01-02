@@ -18,6 +18,7 @@ namespace AnhQuoc_C5_Assignment
         void Add(T item);
         void AddRange(IEnumerable<T> collection);
         void Remove(T item);
+        void RemoveRange(IEnumerable<T> collection);
 
         void WriteAdd(T item);
         void WriteAddRange(ObservableCollection<T> items);

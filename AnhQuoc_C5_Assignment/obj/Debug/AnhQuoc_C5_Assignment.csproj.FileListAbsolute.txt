@@ -607,3 +607,6 @@ C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assig
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNInformation.g.cs
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNCard.baml
 C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNInformation.baml
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Views\frmDefault.g.cs
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Views\frmDefault.baml
+C:\Users\quocl\OneDrive\Desktop\Bai-Tap-2\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csprojResolveAssemblyReference.cache

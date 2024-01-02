@@ -5,12 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:System="clr-namespace:System;assembly=mscorlib">
+    <UserControl.Resources>
+        <Thickness x:Key="borderDistance" Top="10" Left="10" Right="10" Bottom="10" />
+    </UserControl.Resources>
     <Border Style="{StaticResource bdStyle1}">
         <Border Style="{StaticResource bdStyle1}"
                 Margin="2">
-            <StackPanel>
-
+            <StackPanel Margin="{StaticResource borderDistance}">
                 <StackPanel>
                     <StackPanel.Resources>
                         <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
@@ -57,8 +60,6 @@
                         </TextBox>
                     </Grid>
                 </StackPanel>
-
-
 
                 <!-- Footer -->
                 <StackPanel Grid.Row="3"

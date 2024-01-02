@@ -13,8 +13,7 @@
         <System:Double x:Key="gridBarHeight">50</System:Double>
     </Window.Resources>
     <Grid Name="gdContent"
-          Width="1000"
-          Height="700">
+          Width="1000" Height="700">
         <ScrollViewer Style="{StaticResource scrollStyleGeneral}">
             <Grid Name="gdInputLoanSlip"
                   Width="980">
@@ -45,8 +44,9 @@
                         <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
                     </StackPanel.Resources>
 
+                    <!-- Select Reader Type -->
                     <Grid Margin="20 10 0 10"
-                        HorizontalAlignment="Left">
+                          HorizontalAlignment="Left">
                         <ComboBox Name="cbSelectReaderType"
                                   Style="{StaticResource cbStyle2}"
                                   ItemsSource="{Binding AllReaderTypes}"
@@ -64,6 +64,7 @@
                             </TextBlock.Style>
                         </TextBlock>
                     </Grid>
+                    
                     <!-- Adult -->
                     <StackPanel Name="stkAdultInformation"
                                 Visibility="Visible">
@@ -73,9 +74,9 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Label Content="Identify: " />
-                            <Grid Name="gdInputAdultIndentify"
-                                Style="{x:Null}"
-                                Grid.Column="1">
+                            <Grid Grid.Column="1"
+                                  Name="gdInputAdultIndentify"
+                                  Style="{x:Null}">
                                 <ComboBox Name="cbAdultTxtIdentify"
                                           Style="{StaticResource cbGeneral}"
                                           DisplayMemberPath="Identify">
@@ -132,13 +133,13 @@
                             </Grid.ColumnDefinitions>
                             <Label Content="Child name: " />
                             <Grid Name="gdInputChildName"
-                                Style="{x:Null}"
-                                Grid.Column="1"
-                                IsEnabled="False">
+                                  Style="{x:Null}"
+                                  Grid.Column="1"
+                                  IsEnabled="False">
                                 <ComboBox Name="cbChildTxtReaderName"
-                                        Style="{StaticResource cbGeneral}"
-                                        DisplayMemberPath="FullName"
-                                        SelectedValuePath="FullName">
+                                          Style="{StaticResource cbGeneral}"
+                                          DisplayMemberPath="FullName"
+                                          SelectedValuePath="FullName">
                                 </ComboBox>
                                 <TextBox Name="txtChildInputReaderName"
                                          Text="{Binding SelectedReader.FullName, Mode=OneWay}"
@@ -154,8 +155,7 @@
                                           x:Name="ucLoanDetailsBorrowedTable"
                                           AllowPagination="False" />
 
-                <Grid Grid.Row="2"
-                      Grid.ColumnSpan="2">
+                <Grid Grid.Row="2" Grid.ColumnSpan="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
@@ -164,8 +164,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <StackPanel Grid.Row="0"
-                                    Grid.Column="0">
+                        <StackPanel Grid.Row="0" Grid.Column="0">
                             <Grid Background="#3968b4"
                                   Height="{StaticResource gridBarHeight}">
                                 <Grid.ColumnDefinitions>
@@ -173,8 +172,8 @@
                                     <ColumnDefinition Width="auto" />
                                 </Grid.ColumnDefinitions>
                                 <Label Style="{StaticResource lblTitleStyle3}"
-                                        Content="Un paid list" 
-                                        VerticalAlignment="Center"/>
+                                       Content="Un paid list" 
+                                       VerticalAlignment="Center"/>
                                 <!-- Footer -->
                                 <Grid Grid.Column="1"
                                       Margin="20 10">
@@ -197,7 +196,6 @@
                                     <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
                                     <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
                                 </StackPanel.Resources>
-                            
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="100" />
@@ -284,18 +282,17 @@
                     <StackPanel Grid.Column="1">
                         <StackPanel>
                             <Grid Background="#3968b4"
-                                    Height="{StaticResource gridBarHeight}">
+                                  Height="{StaticResource gridBarHeight}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="auto" />
                                 </Grid.ColumnDefinitions>
                                 <Label Style="{StaticResource lblTitleStyle3}"
-                                        Content="Paid list" 
-                                        VerticalAlignment="Center"/>
+                                       Content="Paid list" 
+                                       VerticalAlignment="Center"/>
                                 <!-- Footer -->
                                 <Grid Grid.Column="1"
-                                                      Margin="20 10">
-                     
+                                      Margin="20 10">
                                 </Grid>
                             </Grid>
 
@@ -314,7 +311,6 @@
                                     <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
                                     <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
                                 </StackPanel.Resources>
-                        
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="120" />

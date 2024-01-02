@@ -639,6 +639,7 @@ namespace AnhQuoc_C5_Assignment
                 {
                     frmAddLoanHistory = new frmAddLoanHistory();
                     frmAddLoanHistory.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
+                    frmAddLoanHistory.getLoanDetailRepo = () => _UnitOfRepo.LoanDetailRepo;
                     frmAddLoanHistory.getLoanHistoryRepo = () => _UnitOfRepo.LoanHistoryRepo;
                     frmAddLoanHistory.getLoanDetailHistoryRepo = () => _UnitOfRepo.LoanDetailHistoryRepo;
                     frmAddLoanHistory.getBookRepo = () => _UnitOfRepo.BookRepo;

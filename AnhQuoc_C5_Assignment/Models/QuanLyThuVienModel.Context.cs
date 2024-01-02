@@ -29,6 +29,7 @@ namespace AnhQuoc_C5_Assignment
         public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<BookISBN> BookISBNs { get; set; }
+        public virtual DbSet<BookStatu> BookStatus { get; set; }
         public virtual DbSet<BookTitle> BookTitles { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Child> Children { get; set; }

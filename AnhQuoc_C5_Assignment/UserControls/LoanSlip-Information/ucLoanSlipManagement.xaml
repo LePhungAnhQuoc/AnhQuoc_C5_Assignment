@@ -28,7 +28,7 @@
                             Margin="30 0 0 0">
                     <Button Name="btnAdd"
                             Style="{StaticResource btnAdd}"
-                            Content="New Loan Slip" />
+                            Content="Borrow Books" />
                 </StackPanel>
             </Grid>
         </StackPanel>

@@ -5,6 +5,11 @@
         <Setter Property="FontSize" Value="14" />
     </Style>
 
+    <Style TargetType="{x:Type Label}" x:Key="lblNote" BasedOn="{StaticResource lblGeneral}">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontStyle" Value="Italic" />
+    </Style>
+    
     <Style TargetType="Label" x:Key="lblTitle" BasedOn="{StaticResource lblGeneral}">
         <Setter Property="FontSize" Value="18" />
         

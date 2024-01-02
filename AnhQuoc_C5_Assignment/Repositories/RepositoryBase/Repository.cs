@@ -64,6 +64,14 @@ namespace AnhQuoc_C5_Assignment
             _Items.AddRange(collection);
         }
 
+        public void RemoveRange(IEnumerable<T> collection)
+        {
+            foreach (T item in collection)
+            {
+                _Items.Remove(item);
+            }
+        }
+
         public void Remove(T item)
         {
             _Items.Remove(item);
@@ -101,6 +109,14 @@ namespace AnhQuoc_C5_Assignment
 
             getValue.Remove(item);
             dbSource.SaveChanges();
+        }
+
+        public virtual void WriteDeleteRange(ObservableCollection<T> items)
+        {
+            foreach (T item in items)
+            {
+                WriteDelete(item);
+            }
         }
 
         public virtual void WriteUpdate(T updated)
