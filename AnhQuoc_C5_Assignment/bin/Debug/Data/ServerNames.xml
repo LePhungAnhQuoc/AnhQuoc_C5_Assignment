@@ -8,6 +8,16 @@
   <ServerName>
     <Id>SV2</Id>
     <Name>DESKTOP-D7CFQLS</Name>
+    <Status>False</Status>
+  </ServerName>
+  <ServerName>
+    <Id>SV3</Id>
+    <Name>DESKTOP-U6H8CP6</Name>
     <Status>True</Status>
+  </ServerName>
+  <ServerName>
+    <Id>SV4</Id>
+    <Name>DESKTOP-U6H8CP6\SQLEXPRESS</Name>
+    <Status>False</Status>
   </ServerName>
 </ServerNames>

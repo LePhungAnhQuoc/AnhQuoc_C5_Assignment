@@ -1482,11 +1482,21 @@ namespace AnhQuoc_C5_Assignment
 
         public static IEnumerable<string> OuterJoin<T>(IEnumerable<T> bigSource, IEnumerable<T> smallSource, string propSelector)
         {
-            Func<T, string> outerKeySelector = bigItem => getValueFromProperty(bigItem.GetType().GetProperty(propSelector), bigItem).ToString();
-            Func<T, string> innerKeySelector = smallItem => getValueFromProperty(smallItem.GetType().GetProperty(propSelector), smallItem).ToString();
+            List<string> result = new List<string>();
 
-            IEnumerable<string> result = bigSource.Join(smallSource, outerKeySelector, innerKeySelector, (bigItem, smallItem) => getValueFromProperty(bigItem.GetType().GetProperty(propSelector), bigItem).ToString());
-            
+            foreach (var bigItem in bigSource)
+            {
+                var bigItemName = getValueFromProperty(bigItem.GetType().GetProperty(propSelector), bigItem).ToString();
+                var itemFinded = smallSource.FirstOrDefault(smallItem =>
+                {
+                    var smallItemName = getValueFromProperty(smallItem.GetType().GetProperty(propSelector), smallItem).ToString();
+                    return smallItemName == bigItemName;
+                });
+                if (itemFinded == null)
+                {
+                    result.Add(bigItemName);
+                }
+            }
             return result;
         }
 

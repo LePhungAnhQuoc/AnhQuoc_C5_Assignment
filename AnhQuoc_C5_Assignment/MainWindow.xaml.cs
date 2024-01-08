@@ -315,14 +315,18 @@ namespace AnhQuoc_C5_Assignment
                 Type itemDataType = Utilities.GetItemDataTypeInGenericList(value);
 
                 var props = Utilities.getPropsFromType(itemDataType);
-                var propsInDto = Utilities.getPropsFromType(typeof(AdultDto));
+                var propsInDto = Utilities.getPropsFromType(typeof(Adult));
+
+                string modelName = itemDataType.Name;
+                string checkingResult = modelName + "\n";
 
                 var list = Utilities.OuterJoin(props, propsInDto, "Name");
-                list.ToList();
-                //if (itemDataType == typeof(T))
-                //{
-                //    return tableProperty;
-                //}
+                checkingResult += "Dto thieu: " + string.Join(", ", list.ToArray()) + "\n";
+
+                list = Utilities.OuterJoin(propsInDto, props, "Name");
+                checkingResult += "Model chinh thuc thieu: " + string.Join(", ", list.ToArray()) + "\n";
+
+                Utilities.ShowMessageBox1(checkingResult);
             }
 
         }
