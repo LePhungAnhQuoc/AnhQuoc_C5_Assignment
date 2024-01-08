@@ -1,0 +1,18 @@
+bookisbn: description
+book: IdBookStatus, IdPublisher, IdTranslator, Note
+bookTitle: IdCategory, Note.
+child: IdAdult
+function: IdParent
+roleFunc: IdFunc, IdRole
+UserRole: IdRole, IdUser
+User: Note
+
+
+Thieu Dto:
+BookStatusDto
+CategoryDto
+ParameterDto
+PenaltyReasonDto
+PublisherDto
+TranslatorDto
+UserInfoDto

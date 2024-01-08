@@ -301,34 +301,7 @@ namespace AnhQuoc_C5_Assignment
             }
 
 
-            foreach (PropertyInfo tableProperty in Utilities.getDerivePropsFromType(DatabaseFirst.Instance.dbSource))
-            {
-                IEnumerable value = null;
-                try
-                {
-                    value = (IEnumerable)Utilities.getValueFromProperty(tableProperty, DatabaseFirst.Instance.dbSource);
-                }
-                catch
-                {
-                    continue;
-                }
-                Type itemDataType = Utilities.GetItemDataTypeInGenericList(value);
-
-                var props = Utilities.getPropsFromType(itemDataType);
-                var propsInDto = Utilities.getPropsFromType(typeof(Adult));
-
-                string modelName = itemDataType.Name;
-                string checkingResult = modelName + "\n";
-
-                var list = Utilities.OuterJoin(props, propsInDto, "Name");
-                checkingResult += "Dto thieu: " + string.Join(", ", list.ToArray()) + "\n";
-
-                list = Utilities.OuterJoin(propsInDto, props, "Name");
-                checkingResult += "Model chinh thuc thieu: " + string.Join(", ", list.ToArray()) + "\n";
-
-                Utilities.ShowMessageBox1(checkingResult);
-            }
-
+            //CheckingDtos();
         }
 
         private bool CheckIsRightConnection()
@@ -431,5 +404,43 @@ namespace AnhQuoc_C5_Assignment
             return true;
         }
         #endregion
+
+        private void CheckingDtos()
+        {
+            // Checking Dto
+            foreach (PropertyInfo tableProperty in Utilities.getDerivePropsFromType(DatabaseFirst.Instance.dbSource))
+            {
+                RunAgain:
+                IEnumerable value = null;
+                try
+                {
+                    value = (IEnumerable)Utilities.getValueFromProperty(tableProperty, DatabaseFirst.Instance.dbSource);
+                }
+                catch
+                {
+                    continue;
+                }
+                Type itemDataType = Utilities.GetItemDataTypeInGenericList(value);
+
+                var props = Utilities.getPropsFromType(itemDataType);
+                var propsInDto = Utilities.getPropsFromType(typeof(UserDto));
+
+                string modelName = itemDataType.Name;
+                string checkingResult = modelName + "\n";
+
+
+
+                var list = Utilities.OuterJoin(props, propsInDto, "Name");
+                checkingResult += "Dto thieu: " + string.Join(", ", list.ToArray()) + "\n";
+
+                list = Utilities.OuterJoin(propsInDto, props, "Name");
+                checkingResult += "Model chinh thuc thieu: " + string.Join(", ", list.ToArray()) + "\n";
+
+                Utilities.ShowMessageBox1(checkingResult);
+
+                int a = 5;
+                //goto RunAgain;
+            }
+        }
     }
 }
