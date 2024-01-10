@@ -122,7 +122,7 @@ namespace AnhQuoc_C5_Assignment
         public virtual void WriteUpdate(T updated)
         {
             string key = string.Empty;
-            using (SqlConnection conn = new SqlConnection(Constants.ShortConnStr))
+            using (SqlConnection conn = new SqlConnection(Constants.ShortConnStr()))
             {
                 key = Utilities.GetPrimaryKeys(conn, typeof(T).Name).SingleOrDefault();
             }
@@ -146,7 +146,7 @@ namespace AnhQuoc_C5_Assignment
         public virtual void WriteUpdateStatus(T updated, bool status)
         {
             string key = string.Empty;
-            using (SqlConnection conn = new SqlConnection(Constants.ShortConnStr))
+            using (SqlConnection conn = new SqlConnection(Constants.ShortConnStr()))
             {
                 key = Utilities.GetPrimaryKeys(conn, typeof(T).Name).SingleOrDefault();
             }

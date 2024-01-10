@@ -5,8 +5,8 @@
     <Status>True</Status>
   </DatabaseName>
   <DatabaseName>
-    <Id>DB2</Id>
-    <Name>QuanLy</Name>
+    <Id>DB1</Id>
+    <Name>QuanLyThuVien</Name>
     <Status>False</Status>
   </DatabaseName>
 </DatabaseNames>

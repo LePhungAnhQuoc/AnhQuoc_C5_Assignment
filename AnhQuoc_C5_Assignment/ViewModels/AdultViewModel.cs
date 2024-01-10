@@ -27,14 +27,19 @@ namespace AnhQuoc_C5_Assignment
             source = FillByStatus(source, statusValue);
             return source.FirstOrDefault(item => item.IdReader == idReader);
         }
-        
+
+        public Adult FindByIdentify(string identifyValue, bool? statusValue)
+        {
+            return FindByIdentify(Repo.Gets(), identifyValue, statusValue);
+        }
+
         public Adult FindByIdentify(ObservableCollection<Adult> items, string identifyValue, bool? statusValue)
         {
             items = FillByStatus(items, statusValue);
 
             return items.FirstOrDefault(item => item.Identify == identifyValue);
         }
-
+        
         public ObservableCollection<AdultDto> FillByChildsQuantityRule(ObservableCollection<AdultDto> items, int maxChildsQuantity, bool? statusValue)
         {
             items = Utilities.FillByStatus(items, statusValue);

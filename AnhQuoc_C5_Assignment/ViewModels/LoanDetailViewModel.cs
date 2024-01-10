@@ -72,7 +72,7 @@ namespace AnhQuoc_C5_Assignment
 
             foreach (LoanSlip loan in loans)
             {
-                result.AddRange(source.Where(loanDetail => loanDetail.IdLoan == loan.Id));
+                result.AddRange(FillListByIdLoan(source, loan.Id));
             }
             return result;
         }

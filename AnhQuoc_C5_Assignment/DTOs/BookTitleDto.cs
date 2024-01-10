@@ -13,16 +13,13 @@ namespace AnhQuoc_C5_Assignment
     {
         public string Id { get; set; }
 
-        private Category _Category;
-        public Category Category
+        private string _IdCategory;
+        public string IdCategory
         {
-            get
-            {
-                return _Category;
-            }
+            get { return _IdCategory; }
             set
             {
-                _Category = value;
+                _IdCategory = value;
                 OnPropertyChanged();
             }
         }
@@ -55,6 +52,34 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private string _Note;
+        public string Note
+        {
+            get { return _Note; }
+            set
+            {
+                _Note = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        #region Other-Properties
+
+        private Category _Category;
+        public Category Category
+        {
+            get
+            {
+                return _Category;
+            }
+            set
+            {
+                _Category = value;
+                OnPropertyChanged();
+            }
+        }
+
         private ObservableCollection<BookISBN> _BookISBNs;
         public ObservableCollection<BookISBN> BookISBNs
         {
@@ -65,6 +90,8 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
+
+        #endregion
 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

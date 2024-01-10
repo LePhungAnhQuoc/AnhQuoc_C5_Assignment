@@ -47,6 +47,9 @@ namespace AnhQuoc_C5_Assignment
         public static string paraQD8 = "QD8";
         public static string paraQD7 = "QD7";
 
+        public static string paraQD11 = "QD11";
+        public static string paraQD10 = "QD10";
+
         public static string roleFunc_FunctionId = "F19";
         public static string updateBookISBN_FunctionId = "F35";
         public static string[] importantFunction = new string[] { roleFunc_FunctionId, updateBookISBN_FunctionId };
@@ -128,7 +131,7 @@ namespace AnhQuoc_C5_Assignment
         public static WindowStartupLocation WDLocation = WindowStartupLocation.CenterScreen;
         #endregion
 
-        public static string ShortConnStr = "data source=DESKTOP-D7CFQLS;initial catalog=QuanLyThuVien;integrated security=True";
+        public static Func<string> ShortConnStr = () => $"data source={MainWindow.DataSource};initial catalog={MainWindow.InitCatalog};integrated security={MainWindow.IntegratedSecurity.ToString()}";
         public static double FormMaxWidth = 800;
     }
 }

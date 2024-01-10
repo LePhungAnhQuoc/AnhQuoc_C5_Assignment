@@ -92,6 +92,17 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private string _Note;
+        public string Note
+        {
+            get { return _Note; }
+            set
+            {
+                _Note = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         private bool _Status;
         public bool Status

@@ -87,17 +87,6 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        private Publisher _Publisher;
-        public Publisher Publisher
-        {
-            get { return _Publisher; }
-            set
-            {
-                _Publisher = value;
-                OnPropertyChanged();
-            }
-        }
-
         private DateTime _PublishDate;
         public DateTime PublishDate
         {
@@ -109,6 +98,39 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private string _IdBookStatus;
+        public string IdBookStatus
+        {
+            get { return _IdBookStatus; }
+            set
+            {
+                _IdBookStatus = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _IdPublisher;
+        public string IdPublisher
+        {
+            get { return _IdPublisher; }
+            set
+            {
+                _IdPublisher = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _IdTranslator;
+        public string IdTranslator
+        {
+            get { return _IdTranslator; }
+            set
+            {
+                _IdTranslator = value;
+                OnPropertyChanged();
+            }
+        }
+        
         private decimal _Price;
         public decimal Price
         {
@@ -127,6 +149,17 @@ namespace AnhQuoc_C5_Assignment
             set
             {
                 _PriceCurrent = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _Note;
+        public string Note
+        {
+            get { return _Note; }
+            set
+            {
+                _Note = value;
                 OnPropertyChanged();
             }
         }
@@ -174,6 +207,18 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        #region Other-Properties
+        private Publisher _Publisher;
+        public Publisher Publisher
+        {
+            get { return _Publisher; }
+            set
+            {
+                _Publisher = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

@@ -11,7 +11,31 @@ namespace AnhQuoc_C5_Assignment
     public class RoleFunctionDto : IDtoBase
     {
         public string Id { get; set; }
-        
+
+        private string _IdRole;
+        public string IdRole
+        {
+            get { return _IdRole; }
+            set
+            {
+                _IdRole = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _IdFunction;
+        public string IdFunction
+        {
+            get { return _IdFunction; }
+            set
+            {
+                _IdFunction = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        #region Other-Properties
         private Role _Role;
         public Role Role
         {
@@ -33,7 +57,8 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-        
+        #endregion
+
         public RoleFunctionDto(string id)
         {
             Id = id;

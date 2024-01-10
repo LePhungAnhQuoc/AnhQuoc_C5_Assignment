@@ -113,6 +113,12 @@
     <Compile Include="DataProvider\UnitOfWork\UnitOfRepository.cs" />
     <Compile Include="DataProvider\UnitOfWork\UnitOfViewModel.cs" />
     <Compile Include="DataProvider\XmlProvider.cs" />
+    <Compile Include="DTOs\TranslatorDto.cs" />
+    <Compile Include="DTOs\PublisherDto.cs" />
+    <Compile Include="DTOs\PenaltyReasonDto.cs" />
+    <Compile Include="DTOs\ParameterDto.cs" />
+    <Compile Include="DTOs\CategoryDto.cs" />
+    <Compile Include="DTOs\BookStatusDto.cs" />
     <Compile Include="DTOs\AdultDto.cs" />
     <Compile Include="DTOs\AuthorDto.cs" />
     <Compile Include="DTOs\BookDto.cs" />
@@ -312,6 +318,15 @@
     <Compile Include="UserControls\LoanHistory-Information\ucLoanHistorysTable.xaml.cs">
       <DependentUpon>ucLoanHistorysTable.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UI\BorrowBooks-UI\ucInputBookInfo.xaml.cs">
+      <DependentUpon>ucInputBookInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UI\BorrowBooks-UI\ucSelectReaderInfo.xaml.cs">
+      <DependentUpon>ucSelectReaderInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UI\BorrowBooks-UI\ucAddLoan.xaml.cs">
+      <DependentUpon>ucAddLoan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\LoanSlip-Information\ucReaderLoanInformation.xaml.cs">
       <DependentUpon>ucReaderLoanInformation.xaml</DependentUpon>
     </Compile>
@@ -330,7 +345,7 @@
     <Compile Include="UserControls\LoanDetail-Information\ucLoanDetailsTable.xaml.cs">
       <DependentUpon>ucLoanDetailsTable.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\LoanSlip-Payment-Information\ucLoanSlipPayment.xaml.cs">
+    <Compile Include="UserControls\UI\BorrowBooks-UI\ucLoanSlipPayment.xaml.cs">
       <DependentUpon>ucLoanSlipPayment.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Pagination-Uti\ucButtonCircle.xaml.cs">
@@ -450,9 +465,6 @@
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="Views\Book-Manage\frmAddLoanHistory.xaml.cs">
       <DependentUpon>frmAddLoanHistory.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Book-Manage\frmAddLoan.xaml.cs">
-      <DependentUpon>frmAddLoan.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Book\frmBookISBNInformation.xaml.cs">
       <DependentUpon>frmBookISBNInformation.xaml</DependentUpon>
@@ -654,6 +666,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UserControls\UI\BorrowBooks-UI\ucInputBookInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UI\BorrowBooks-UI\ucSelectReaderInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UI\BorrowBooks-UI\ucAddLoan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\LoanSlip-Information\ucReaderLoanInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -678,7 +702,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\LoanSlip-Payment-Information\ucLoanSlipPayment.xaml">
+    <Page Include="UserControls\UI\BorrowBooks-UI\ucLoanSlipPayment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -771,10 +795,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Book-Manage\frmAddLoanHistory.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Book-Manage\frmAddLoan.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

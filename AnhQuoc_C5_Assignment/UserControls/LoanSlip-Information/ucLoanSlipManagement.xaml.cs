@@ -31,6 +31,8 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Fields
+        private Stack<object> contentDisplay;
+        private ucAddLoan ucAddLoan;
         #endregion
 
         #region ViewModels
@@ -126,6 +128,7 @@ namespace AnhQuoc_C5_Assignment
 
             #region Allocations
             listFillLoanSlips = new ObservableCollection<LoanSlip>();
+            contentDisplay = new Stack<object>();
 
             loanSlipVM = UnitOfViewModel.Instance.LoanSlipViewModel;
             #endregion
@@ -149,24 +152,38 @@ namespace AnhQuoc_C5_Assignment
             #endregion
         }
 
+
+        public void BackToMainPage()
+        {
+            this.Content = contentDisplay.Pop();
+
+            NewItemFromUcAdd();
+        }
+
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            frmAddLoan frmAddLoan = MainWindow.UnitOfForm.FrmAddLoan(true);
-            frmAddLoan.ShowDialog();
-         
-            if (frmAddLoan.LoanSlipDto == null) // Cancel the operation
+            ucAddLoan = MainWindow.UnitOfForm.UcAddLoan(true);
+            ucAddLoan.getParentUc = () => this;
+            contentDisplay.Push(this.Content);
+            this.Content = ucAddLoan;
+        }
+        
+        private void NewItemFromUcAdd()
+        {
+            if (ucAddLoan.LoanSlipDto == null) // Cancel the operation
             {
                 return;
             }
 
-            LoanSlip newLoanSlip = frmAddLoan.LoanSlip;
-            
+            LoanSlip newLoanSlip = ucAddLoan.LoanSlip;
+
             #region AddTo-listFill
             listFillLoanSlips.Add(newLoanSlip);
             AddItemsToDataGrid(listFillLoanSlips);
             #endregion
         }
-        
+
+
         private void AddToListFill(ObservableCollection<LoanSlip> items)
         {
             listFillLoanSlips.Clear();

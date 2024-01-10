@@ -12,6 +12,30 @@ namespace AnhQuoc_C5_Assignment
     {
         public string Id { get; set; }
 
+        private string _IdRole;
+        public string IdRole
+        {
+            get { return _IdRole; }
+            set
+            {
+                _IdRole = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _IdUser;
+        public string IdUser
+        {
+            get { return _IdUser; }
+            set
+            {
+                _IdUser = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        #region Other-Properties
         private User _User;
         public User User
         {
@@ -33,8 +57,8 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
+        #endregion
 
-   
         public UserRoleDto(string id)
         {
             Id = id;

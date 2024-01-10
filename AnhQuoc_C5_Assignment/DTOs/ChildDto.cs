@@ -12,13 +12,13 @@ namespace AnhQuoc_C5_Assignment
     {
         public string IdReader { get; set; }
 
-        private Reader _Reader;
-        public Reader Reader
+        private string _IdAdult;
+        public string IdAdult
         {
-            get { return _Reader; }
+            get { return _IdAdult; }
             set
             {
-                _Reader = value;
+                _IdAdult = value;
                 OnPropertyChanged();
             }
         }
@@ -38,31 +38,6 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-
-        private Reader _AdultReader;
-        public Reader AdultReader
-        {
-            get { return _AdultReader; }
-            set
-            {
-                _AdultReader = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private Adult _Adult;
-        public Adult Adult
-        {
-            get
-            {
-                return _Adult;
-            }
-            set
-            {
-                _Adult = value;
-                OnPropertyChanged();
-            }
-        }
         public string AdultName
         {
             get
@@ -120,6 +95,46 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
+
+        #region Other-Properties
+
+        private Reader _Reader;
+        public Reader Reader
+        {
+            get { return _Reader; }
+            set
+            {
+                _Reader = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Reader _AdultReader;
+        public Reader AdultReader
+        {
+            get { return _AdultReader; }
+            set
+            {
+                _AdultReader = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Adult _Adult;
+        public Adult Adult
+        {
+            get
+            {
+                return _Adult;
+            }
+            set
+            {
+                _Adult = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

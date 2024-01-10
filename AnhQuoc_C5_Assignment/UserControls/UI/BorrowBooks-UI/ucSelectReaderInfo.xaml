@@ -1,0 +1,207 @@
+﻿<UserControl x:Class="AnhQuoc_C5_Assignment.ucSelectReaderInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="900"
+             Background="White">
+    <UserControl.Resources>
+        <System:Double x:Key="gridBarHeight">50</System:Double>
+        <Thickness x:Key="borderDistance" Top="10" Left="10" Right="10" Bottom="10" />
+    </UserControl.Resources>
+
+    <Grid Name="gdContent"
+          HorizontalAlignment="Stretch">
+        
+        <!-- Borrow Book Information -->
+        <Grid Name="gdInputLoanSlip"
+              Visibility="Visible">
+            <Grid.Resources>
+                <Style TargetType="GroupBox" BasedOn="{StaticResource gbDisplayInfo}">
+                    <Setter Property="Margin" Value="10">
+                    </Setter>
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <Label Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   Style="{StaticResource lblTitle}"
+                   Content="Select Reader Information" />
+
+            <!-- Reader template -->
+            <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <GroupBox Grid.Row="0"
+                          Style="{StaticResource gbDisplayInfo}"
+                          Header="Reader Information">
+                    <StackPanel>
+                        <StackPanel>
+                            <StackPanel.Resources>
+                                <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                                <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                                <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                                <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                                <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
+                            </StackPanel.Resources>
+
+                            <Grid Margin="20 10 0 10"
+                              HorizontalAlignment="Left">
+                                <ComboBox Name="cbSelectReaderType"
+                                          Style="{StaticResource cbStyle2}"
+                                          ItemsSource="{Binding AllReaderTypes}"
+                                          SelectedItem="{Binding SelectedReaderType}"></ComboBox>
+                                <TextBlock Text="Select Reader Type">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolderComboBox}">
+                                            <Setter Property="Visibility" Value="Hidden" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=cbSelectReaderType, Path=SelectedIndex}" Value="-1">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                            <!-- Adult -->
+                            <StackPanel Name="stkAdultInformation"
+                                    Visibility="Visible">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Identify: " />
+                                    <Grid Name="gdInputAdultIndentify"
+                                      Style="{x:Null}"
+                                      Grid.Column="1">
+                                        <ComboBox Name="cbAdultTxtIdentify"
+                                              Style="{StaticResource cbGeneral}"
+                                              DisplayMemberPath="Identify">
+                                        </ComboBox>
+                                        <TextBox Name="txtAdultInputIdentify"
+                                             Grid.Column="1">
+                                            <TextBox.Text>
+                                                <Binding Path="InputIdentify" UpdateSourceTrigger="PropertyChanged">
+                                                    <Binding.ValidationRules>
+                                                        <local:InputNumberRule />
+                                                    </Binding.ValidationRules>
+                                                </Binding>
+                                            </TextBox.Text>
+                                        </TextBox>
+                                    </Grid>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Name: " />
+                                    <TextBox Name="txtAdultName"
+                                         Grid.Column="1"
+                                         Text="{Binding SelectedReader.FullName, Mode=OneWay}"
+                                         IsReadOnly="True">
+                                    </TextBox>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Child -->
+                            <StackPanel Name="stkChildInformation"
+                                    Visibility="Collapsed">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Guardian ID: " />
+                                    <Grid Name="gdGuardianInput"
+                                      Style="{x:Null}"
+                                      Grid.Column="1"
+                                      IsEnabled="True">
+                                        <ComboBox Name="cbGuardianTxtIdentify"
+                                              Style="{StaticResource cbGeneral}"
+                                              DisplayMemberPath="Identify">
+                                        </ComboBox>
+                                        <TextBox Name="txtGuardianInputIdentify"
+                                             Grid.Column="1">
+                                            <TextBox.Text>
+                                                <Binding Path="InputIdentify" UpdateSourceTrigger="PropertyChanged">
+                                                    <Binding.ValidationRules>
+                                                        <local:InputNumberRule />
+                                                    </Binding.ValidationRules>
+                                                </Binding>
+                                            </TextBox.Text>
+                                        </TextBox>
+                                    </Grid>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Child name: " />
+                                    <Grid Name="gdInputChildName"
+                                      Style="{x:Null}"
+                                      Grid.Column="1"
+                                      IsEnabled="False">
+                                        <ComboBox Name="cbChildTxtReaderName"
+                                              Style="{StaticResource cbGeneral}"
+                                              DisplayMemberPath="FullName"
+                                              SelectedValuePath="FullName">
+                                        </ComboBox>
+                                        <TextBox Name="txtChildInputReaderName">
+                                            <TextBox.Text>
+                                                <Binding Path="InputFullName" UpdateSourceTrigger="PropertyChanged">
+                                                    <Binding.ValidationRules>
+                                                        <local:InputUnicodeTextRule />
+                                                    </Binding.ValidationRules>
+                                                </Binding>
+                                            </TextBox.Text>
+                                        </TextBox>
+                                    </Grid>
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Grid.Row="1"
+                          Style="{StaticResource gbDisplayInfo}">
+                    <local:ucLoanDetailsTable  x:Name="ucLoanDetailsBorrowedTable"
+                                               AllowPagination="False"
+                                               Height="200"/>
+                </GroupBox>
+            </Grid>
+            
+            <!-- Footer -->
+            <StackPanel Grid.Row="3"
+                        Grid.ColumnSpan="2"
+                        Style="{StaticResource stkWrapButton}">
+                <Button Name="btnConfirm" Content="Confirm"
+                        HorizontalAlignment="Stretch"
+                        Style="{StaticResource btnConfirm}">
+                </Button>
+                <Button Name="btnCancel" Content="Cancel" 
+                        Style="{StaticResource btnCancel}"
+                        HorizontalAlignment="Stretch"
+                        Margin="10 0 0 0"/>
+            </StackPanel>
+        </Grid>
+
+       
+    </Grid>
+
+</UserControl>

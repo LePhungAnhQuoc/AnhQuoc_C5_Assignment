@@ -13,6 +13,70 @@ namespace AnhQuoc_C5_Assignment
     {
         public string ISBN { get; set; }
 
+        private string _IdBookTitle;
+        public string IdBookTitle
+        {
+            get { return _IdBookTitle; }
+            set
+            {
+                _IdBookTitle = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _IdAuthor;
+        public string IdAuthor
+        {
+            get { return _IdAuthor; }
+            set
+            {
+                _IdAuthor = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _OriginLanguage;
+        public string OriginLanguage
+        {
+            get
+            {
+                return _OriginLanguage;
+            }
+            set
+            {
+                _OriginLanguage = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _Description;
+        public string Description
+        {
+            get { return _Description; }
+            set
+            {
+                _Description = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _Status;
+        public bool Status
+        {
+            get
+            {
+                return _Status;
+            }
+            set
+            {
+                _Status = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        #region Other-Properties
+
         private BookTitle _BookTitle;
         public BookTitle BookTitle
         {
@@ -40,34 +104,6 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-        
-        private string _OriginLanguage;
-        public string OriginLanguage
-        {
-            get
-            {
-                return _OriginLanguage;
-            }
-            set
-            {
-                _OriginLanguage = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _Status;
-        public bool Status
-        {
-            get
-            {
-                return _Status;
-            }
-            set
-            {
-                _Status = value;
-                OnPropertyChanged();
-            }
-        }
 
         private ObservableCollection<Book> _Books;
         public ObservableCollection<Book> Books
@@ -79,7 +115,7 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-
+        #endregion
 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

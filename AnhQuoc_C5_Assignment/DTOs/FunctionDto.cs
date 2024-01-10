@@ -14,6 +14,18 @@ namespace AnhQuoc_C5_Assignment
     {
         public string Id { get; set; }
 
+        private string _IdParent;
+        public string IdParent
+        {
+            get { return _IdParent; }
+            set
+            {
+                _IdParent = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         private string _Name;
         public string Name
         {
@@ -32,17 +44,6 @@ namespace AnhQuoc_C5_Assignment
             set
             {
                 _Description = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private Function _Parent;
-        public Function Parent
-        {
-            get { return _Parent; }
-            set
-            {
-                _Parent = value;
                 OnPropertyChanged();
             }
         }
@@ -104,7 +105,22 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-        
+
+        #region Other-Properties
+
+        private Function _Parent;
+        public Function Parent
+        {
+            get { return _Parent; }
+            set
+            {
+                _Parent = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
+
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         // Create the OnPropertyChanged method to raise the event

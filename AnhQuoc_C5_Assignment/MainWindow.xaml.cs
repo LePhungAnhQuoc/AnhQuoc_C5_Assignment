@@ -33,7 +33,10 @@ namespace AnhQuoc_C5_Assignment
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public static User loginUser;
-        
+        public static string DataSource;
+        public static string InitCatalog;
+        public static bool IntegratedSecurity;
+
         #region Fields
         public static UnitOfRepository UnitOfRepo;
         public static UnitOfForm UnitOfForm;
@@ -165,6 +168,7 @@ namespace AnhQuoc_C5_Assignment
             string sectionConfig = "connectionStrings";
             int indexDataSource = 2;
             int indexInitCatalog = 1;
+            int indexIntegratedSecurity = 1;
 
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var connectionStringsSection = (ConnectionStringsSection)config.GetSection(sectionConfig);
@@ -178,10 +182,10 @@ namespace AnhQuoc_C5_Assignment
             var dataSourceSplit = dataSourcePart.Split('=').ToList();
             string dataSourceValue = dataSourceSplit[indexDataSource];
 
-            string newDataSourceValue = dataSource;
+            MainWindow.DataSource = dataSource;
 
             dataSourceSplit.RemoveAt(indexDataSource);
-            dataSourceSplit.Insert(indexDataSource, newDataSourceValue);
+            dataSourceSplit.Insert(indexDataSource, MainWindow.DataSource);
 
             string newDataSourcePart = string.Join("=", dataSourceSplit);
             connectStr = connectStr.Replace(dataSourcePart, newDataSourcePart);
@@ -192,13 +196,27 @@ namespace AnhQuoc_C5_Assignment
             var initCatalogSplit = initCatalogPart.Split('=').ToList();
             string initCatalogValue = initCatalogSplit[indexInitCatalog];
 
-            string newInitCatalogValue = databaseName;
+            MainWindow.InitCatalog = databaseName;
 
             initCatalogSplit.RemoveAt(indexInitCatalog);
-            initCatalogSplit.Insert(indexInitCatalog, newInitCatalogValue);
+            initCatalogSplit.Insert(indexInitCatalog, MainWindow.InitCatalog);
 
             string newInitCatalogPart = string.Join("=", initCatalogSplit);
             connectStr = connectStr.Replace(initCatalogPart, newInitCatalogPart);
+            #endregion
+
+            #region integratedSecurityPart
+            string integratedSecurityPart = connectSplit.FirstOrDefault(item => item.Contains("integrated security", true));
+            var integratedSecuritySplit = integratedSecurityPart.Split('=').ToList();
+            string integratedSecurityValue = integratedSecuritySplit[indexIntegratedSecurity];
+
+            MainWindow.IntegratedSecurity = true;
+
+            integratedSecuritySplit.RemoveAt(indexIntegratedSecurity);
+            integratedSecuritySplit.Insert(indexIntegratedSecurity, MainWindow.IntegratedSecurity.ToString());
+
+            string newIntegratedSecurityPart = string.Join("=", integratedSecuritySplit);
+            connectStr = connectStr.Replace(integratedSecurityPart, newIntegratedSecurityPart);
             #endregion
 
             config.ConnectionStrings.ConnectionStrings[Constants.DatabaseNameConfig].ConnectionString = connectStr;
@@ -283,15 +301,9 @@ namespace AnhQuoc_C5_Assignment
                 DatabaseFirst.ConnStr = ModifyAppConfig(serverName.Name, databaseName.Name);
 
                 DatabaseFirst.IsConnectValid = true;
-
-                //// Show loading animation
-                //SetLoadAnimation("Checking the connection...", true);
-
+                
                 isCheckConnectionString = CheckIsRightConnection();
-
-                //// Hide loading animation
-                //SetLoadAnimation("", false);
-
+                
                 if (!isCheckConnectionString)
                 {
                     Utilities.ShowMessageBox1("Invalid Connections string!", "Error Connection", MessageBoxImage.Error);

@@ -5,14 +5,36 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="300">
+             d:DesignHeight="200" d:DesignWidth="300"
+             Name="YourUserControl">
     <UserControl.Resources>
         <Thickness x:Key="borderDistance" Top="10" Left="10" Right="10" Bottom="10" />
+
+        <Storyboard x:Key="MouseEnterStoryboard">
+            <DoubleAnimation Duration="0:0:0.300" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" To="-10">
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.300" Storyboard.TargetProperty="(UIElement.Background)" To="Red">
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard x:Key="MouseLeaveStoryboard">
+            <DoubleAnimation Duration="0:0:0.800" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" To="0">
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.300" Storyboard.TargetProperty="(UIElement.Background)" To="White">
+            </DoubleAnimation>
+        </Storyboard>
     </UserControl.Resources>
 
-    <Border Style="{StaticResource bdCard}"
-            Height="200"
-            Width="300">
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="YourUserControl">
+            <BeginStoryboard Storyboard="{StaticResource MouseEnterStoryboard}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="YourUserControl">
+            <BeginStoryboard Storyboard="{StaticResource MouseLeaveStoryboard}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+    
+    <Border Style="{StaticResource bdCard}">
         <Grid Margin="{StaticResource borderDistance}"
                 Height="auto">
             <StackPanel>
