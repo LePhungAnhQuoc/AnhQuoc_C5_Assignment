@@ -312,6 +312,9 @@
     <Compile Include="UserControls\Function-Information\ucFunctionsTable.xaml.cs">
       <DependentUpon>ucFunctionsTable.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\LoanDetail-Information\ucLoanDetailCard.xaml.cs">
+      <DependentUpon>ucLoanDetailCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\LoanHistory-Information\ucLoanHistoryManagement.xaml.cs">
       <DependentUpon>ucLoanHistoryManagement.xaml</DependentUpon>
     </Compile>
@@ -655,6 +658,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\Function-Information\ucFunctionsTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\LoanDetail-Information\ucLoanDetailCard.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

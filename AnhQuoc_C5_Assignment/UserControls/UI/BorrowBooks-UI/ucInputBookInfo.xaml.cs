@@ -42,7 +42,7 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Constants
-        private const int CardWidth = 300;
+        private const int CardWidth = 220;
         #endregion
 
         #region Fields
