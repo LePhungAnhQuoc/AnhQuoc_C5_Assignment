@@ -32,6 +32,23 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Fields
+
+        private Stack<object> _storeContent;
+        public Stack<object> storeContent
+        {
+            get
+            {
+                if (_storeContent == null)
+                    _storeContent = new Stack<object>();
+                return _storeContent;
+            }
+            set { _storeContent = value; }
+        }
+
+        #endregion
+
+        #region Forms
+        private ucAddLoanHistory ucAddLoanHistory;
         #endregion
 
         #region ViewModels
@@ -154,6 +171,15 @@ namespace AnhQuoc_C5_Assignment
             #endregion
         }
 
+
+        public void BackToMainPage()
+        {
+            this.Content = storeContent.Pop();
+
+            NewItemFromUcAdd();
+        }
+
+
         #region Fillter-Methods
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -186,23 +212,32 @@ namespace AnhQuoc_C5_Assignment
         }
         #endregion
 
-        private void BtnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            frmAddLoanHistory frmAddLoanHistory = MainWindow.UnitOfForm.FrmAddLoanHistory(true);
-            frmAddLoanHistory.ShowDialog();
 
-            if (frmAddLoanHistory.Item == null) // Cancel the operation
+        private void NewItemFromUcAdd()
+        {
+            if (ucAddLoanHistory.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            LoanHistoryDto newLoanHistoryDto = frmAddLoanHistory.Item;
+            LoanHistoryDto newLoanHistoryDto = ucAddLoanHistory.Item;
             LoanHistory newLoanHistory = loanHistoryVM.CreateByDto(newLoanHistoryDto);
 
             #region AddTo-listFill
             listFills.Add(newLoanHistory);
             AddItemsToDataGrid(listFills);
             #endregion
+        }
+
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+            ucAddLoanHistory = MainWindow.UnitOfForm.UcAddLoanHistory(true);
+            ucAddLoanHistory.getParentUc = () => this;
+            storeContent.Push(this.Content);
+            this.Content = ucAddLoanHistory;
+
         }
 
         private void AddToListFill(ObservableCollection<LoanHistory> items)

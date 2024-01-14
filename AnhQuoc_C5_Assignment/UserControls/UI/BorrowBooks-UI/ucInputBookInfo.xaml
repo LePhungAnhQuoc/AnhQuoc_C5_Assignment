@@ -112,10 +112,10 @@
                             VerticalAlignment="Center"/>
                             </Grid>
                             <ScrollViewer Grid.Row="1"
-                                    Style="{StaticResource scrollStyleGeneral}"
-                                    Height="350">
+                                          Style="{StaticResource scrollStyleGeneral}"
+                                          Height="350">
                                 <WrapPanel Name="wrapBookISBN"
-                                    Width="380">
+                                           HorizontalAlignment="Stretch">
                                 </WrapPanel>
                             </ScrollViewer>
                         </Grid>
@@ -138,12 +138,15 @@
                                        Content="Saved book list" 
                                        VerticalAlignment="Center"/>
                         </Grid>
-                        <local:ucLoanDetailsTable Grid.Row="1"
-                                                  x:Name="ucLoanDetailsTable"
-                                                  Style="{StaticResource ucStyleHorizontal}"
-                                                  Height="auto"
-                                                  VerticalAlignment="Stretch"
-                                                  AllowPagination="False"/>
+                      
+                        <ScrollViewer Grid.Row="1"
+                                      Style="{StaticResource scrollStyleGeneral}"
+                                      Height="auto"
+                                      VerticalAlignment="Stretch">
+                            <WrapPanel Name="wrapLoanDetail"
+                                       HorizontalAlignment="Stretch">
+                            </WrapPanel>
+                        </ScrollViewer>
                     </Grid>
                 </GroupBox>
             </Grid>

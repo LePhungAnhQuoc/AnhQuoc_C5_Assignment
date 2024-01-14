@@ -52,6 +52,17 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private PenaltyReasonViewModel _PenaltyReasonViewModel;
+        public PenaltyReasonViewModel PenaltyReasonViewModel
+        {
+            get
+            {
+                if (_PenaltyReasonViewModel == null)
+                    _PenaltyReasonViewModel = new PenaltyReasonViewModel();
+                return _PenaltyReasonViewModel;
+            }
+        }
+
         private LoanDetailHistoryViewModel _LoanDetailHistoryViewModel;
         public LoanDetailHistoryViewModel LoanDetailHistoryViewModel
         {
@@ -351,6 +362,9 @@ namespace AnhQuoc_C5_Assignment
 
             _ParameterViewModel = new ParameterViewModel();
             _ParameterViewModel.Repo = _UnitOfRepo.ParameterRepo;
+
+            _PenaltyReasonViewModel = new PenaltyReasonViewModel();
+            _PenaltyReasonViewModel.Repo = _UnitOfRepo.PenaltyReasonRepo;
         }
 
         public void LoadServerName()

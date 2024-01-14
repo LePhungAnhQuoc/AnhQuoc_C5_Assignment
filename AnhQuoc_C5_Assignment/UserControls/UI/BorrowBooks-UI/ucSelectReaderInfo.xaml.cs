@@ -56,7 +56,6 @@ namespace AnhQuoc_C5_Assignment
 
         #region Properties
         private ObservableCollection<ReaderType> _AllReaderTypes;
-
         public ObservableCollection<ReaderType> AllReaderTypes
         {
             get { return _AllReaderTypes; }
@@ -168,8 +167,9 @@ namespace AnhQuoc_C5_Assignment
             #region Register-Event
             btnConfirm.Click += BtnConfirm_Click;
             btnCancel.Click += BtnCancel_Click;
-            cbSelectReaderType.SelectionChanged += CbSelectReaderType_SelectionChanged;
 
+            cbSelectReaderType.SelectionChanged += CbSelectReaderType_SelectionChanged;
+            
             cbAdultTxtIdentify.DropDownClosed += CbAdultTxtIdentify_DropDownClosed;
             cbAdultTxtIdentify.SelectionChanged += CbAdultTxtIdentify_SelectionChanged;
             txtAdultInputIdentify.TextChanged += TxtInputIdentify_TextChanged;
@@ -182,9 +182,7 @@ namespace AnhQuoc_C5_Assignment
             cbChildTxtReaderName.SelectionChanged += CbChildTxtReaderName_SelectionChanged;
             txtChildInputReaderName.TextChanged += TxtChildInputReaderName_TextChanged;
 
-          
-            gdInputChildName.IsEnabledChanged += GdInputChildName_IsEnabledChanged;
-
+            
             #endregion
 
             this.Loaded += ucSelectReaderInfo_Loaded;
@@ -430,11 +428,11 @@ namespace AnhQuoc_C5_Assignment
 
         // Others methods
 
-        #region GetsDatas
+        #region GetsDatasMethods
         private void CbSelectReaderType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cbSelectReaderType.SelectedItem == null)
-                return;
+            if (cbSelectReaderType.SelectedItem == null) return;
+
             var readerType = (ReaderType)cbSelectReaderType.SelectedItem;
             if (readerType == ReaderType.Adult)
             {
@@ -470,14 +468,7 @@ namespace AnhQuoc_C5_Assignment
                 stkChildInformation.Visibility = Visibility.Visible;
             }
         }
-
-        private void GdInputChildName_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            Grid grid = (sender as Grid);
-            if (!grid.IsEnabled)
-                return;
-            handle = true;
-        }
+        
         #endregion
 
         

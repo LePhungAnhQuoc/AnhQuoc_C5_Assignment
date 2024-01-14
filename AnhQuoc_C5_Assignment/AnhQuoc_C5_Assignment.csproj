@@ -148,6 +148,7 @@
     <Compile Include="ExtensionMethods\ListExtend.cs" />
     <Compile Include="ExtensionMethods\ObservableCollectionExtend.cs" />
     <Compile Include="ExtensionMethods\StringExtension.cs" />
+    <Compile Include="Mapping\PenaltyReasonMap.cs" />
     <Compile Include="Mapping\AuthorMap.cs" />
     <Compile Include="Mapping\Base\MapBase.cs" />
     <Compile Include="Mapping\LoanDetailHistoryMap.cs" />
@@ -253,6 +254,7 @@
     <Compile Include="Models\UserRole.cs">
       <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\PenaltyReasonRepository.cs" />
     <Compile Include="Repositories\LoanDetailHistoryRepository.cs" />
     <Compile Include="Repositories\PublisherRepository.cs" />
     <Compile Include="Repositories\LoanDetailRepository.cs" />
@@ -300,6 +302,9 @@
     <Compile Include="UserControls\Book-Title-Information\ucBookTitleManagement.xaml.cs">
       <DependentUpon>ucBookTitleManagement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Books-Information\ucBookCard.xaml.cs">
+      <DependentUpon>ucBookCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Function-Information\ucDisplayFunction.xaml.cs">
       <DependentUpon>ucDisplayFunction.xaml</DependentUpon>
     </Compile>
@@ -314,6 +319,9 @@
     </Compile>
     <Compile Include="UserControls\LoanDetail-Information\ucLoanDetailCard.xaml.cs">
       <DependentUpon>ucLoanDetailCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UI\ReturnBook-UI\ucAddLoanHistory.xaml.cs">
+      <DependentUpon>ucAddLoanHistory.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\LoanHistory-Information\ucLoanHistoryManagement.xaml.cs">
       <DependentUpon>ucLoanHistoryManagement.xaml</DependentUpon>
@@ -402,6 +410,15 @@
     <Compile Include="UserControls\RoleFunction-Information\ucRoleFunctionManagement.xaml.cs">
       <DependentUpon>ucRoleFunctionManagement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UI\ReturnBook-UI\ucInputReaderLoanHistory.xaml.cs">
+      <DependentUpon>ucInputReaderLoanHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.xaml.cs">
+      <DependentUpon>ucLoanHistoryConfirm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UI\ReturnBook-UI\ucRetureBookInfo.xaml.cs">
+      <DependentUpon>ucRetureBookInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\User-Information\ucUserInformation.xaml.cs">
       <DependentUpon>ucUserInformation.xaml</DependentUpon>
     </Compile>
@@ -442,6 +459,7 @@
     <Compile Include="Mapping\AdultMap.cs" />
     <Compile Include="Mapping\BookISBNMap.cs" />
     <Compile Include="Mapping\Base\IMap.cs" />
+    <Compile Include="ViewModels\PenaltyReasonViewModel.cs" />
     <Compile Include="ViewModels\AdultViewModel.cs" />
     <Compile Include="ViewModels\AuthorViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
@@ -466,9 +484,6 @@
     <Compile Include="ViewModels\UserRoleViewModel.cs" />
     <Compile Include="ViewModels\LoanHistoryViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
-    <Compile Include="Views\Book-Manage\frmAddLoanHistory.xaml.cs">
-      <DependentUpon>frmAddLoanHistory.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Book\frmBookISBNInformation.xaml.cs">
       <DependentUpon>frmBookISBNInformation.xaml</DependentUpon>
     </Compile>
@@ -645,6 +660,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UserControls\Books-Information\ucBookCard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\Function-Information\ucDisplayFunction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -664,6 +683,10 @@
     <Page Include="UserControls\LoanDetail-Information\ucLoanDetailCard.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UI\ReturnBook-UI\ucAddLoanHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\LoanHistory-Information\ucLoanHistoryManagement.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -781,6 +804,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UserControls\UI\ReturnBook-UI\ucInputReaderLoanHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UI\ReturnBook-UI\ucRetureBookInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\User-Information\ucUserInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -798,10 +833,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\UserRole-Information\ucUserRolesTable.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Book-Manage\frmAddLoanHistory.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

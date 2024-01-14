@@ -30,6 +30,10 @@
         </EventTrigger>
     </UserControl.Triggers>
     
+    <UserControl.RenderTransform>
+        <TranslateTransform/>
+    </UserControl.RenderTransform>
+    
     <Border Style="{StaticResource bdCard}">
         <Grid Margin="{StaticResource borderDistance}"
                 Height="auto">

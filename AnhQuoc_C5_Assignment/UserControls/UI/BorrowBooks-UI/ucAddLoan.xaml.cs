@@ -230,6 +230,7 @@ namespace AnhQuoc_C5_Assignment
 
         public ObservableCollection<BookISBN> AllBookISBN { get; set; }
         public ObservableCollection<ucBookISBNCard> AllBookISBNCard { get; set; }
+        public ObservableCollection<ucLoanDetailCard> AllLoanDetailCard { get; set; }
 
 
         public ObservableCollection<Reader> FillReaderByType { get; set; }

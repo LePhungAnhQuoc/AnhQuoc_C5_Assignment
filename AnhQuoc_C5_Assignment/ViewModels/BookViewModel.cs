@@ -41,6 +41,7 @@ namespace AnhQuoc_C5_Assignment
         public Book FindById(ObservableCollection<Book> source, int id, bool? statusValue)
         {
             source = Utilities.FillByStatus(source, statusValue);
+
             foreach (Book item in source)
             {
                 if (item.Id == id)
@@ -48,9 +49,25 @@ namespace AnhQuoc_C5_Assignment
                     return item;
                 }
             }
+
             return null;
         }
-        
+
+        public BookDto FindById(ObservableCollection<BookDto> source, int id, bool? statusValue)
+        {
+            source = Utilities.FillByStatus(source, statusValue);
+
+            foreach (BookDto item in source)
+            {
+                if (item.Id == id)
+                {
+                    return item;
+                }
+            }
+
+            return null;
+        }
+
         public ObservableCollection<Book> FillByBookISBN(string ISBNValue, bool? statusValue)
         {
             var source = Repo.Gets();

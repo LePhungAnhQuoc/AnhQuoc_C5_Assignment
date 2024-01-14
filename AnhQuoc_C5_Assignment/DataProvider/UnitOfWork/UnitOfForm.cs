@@ -12,6 +12,8 @@ namespace AnhQuoc_C5_Assignment
 
         #region Fields
         // UserControl
+        private ucInputReaderLoanHistory ucInputReaderLoanHistory;
+        private ucRetureBookInfo ucRetureBookInfo;
         private ucInputBookInfo ucInputBookInfo;
         private ucSelectReaderInfo ucSelectReaderInfo;
         private ucBooksTable ucBooksTable;
@@ -40,10 +42,10 @@ namespace AnhQuoc_C5_Assignment
         private ucLoanSlipPayment ucLoanSlipPayment;
         private ucReaderLoanInformation ucReaderLoanInformation;
         private ucAddLoan ucAddLoan;
+        private ucAddLoanHistory ucAddLoanHistory;
 
         // Form
         private frmTransferGuardian frmTransferGuardian;
-        private frmAddLoanHistory frmAddLoanHistory;
         private frmInputServerName frmInputServerName;
         private frmAddRole frmAddRole;
         private frmAddUserRole frmAddUserRole;
@@ -63,6 +65,24 @@ namespace AnhQuoc_C5_Assignment
         #region Delegates
 
         #region UserControls
+
+        private Func<bool, ucInputReaderLoanHistory> _UcInputReaderLoanHistory;
+        public Func<bool, ucInputReaderLoanHistory> UcInputReaderLoanHistory
+        {
+            get { return _UcInputReaderLoanHistory; }
+        }
+
+        private Func<bool, ucRetureBookInfo> _UcRetureBookInfo;
+        public Func<bool, ucRetureBookInfo> UcRetureBookInfo
+        {
+            get { return _UcRetureBookInfo; }
+        }
+
+        private Func<bool, ucAddLoanHistory> _UcAddLoanHistory;
+        public Func<bool, ucAddLoanHistory> UcAddLoanHistory
+        {
+            get { return _UcAddLoanHistory; }
+        }
 
         private Func<bool, ucInputBookInfo> _UcInputBookInfo;
         public Func<bool, ucInputBookInfo> UcInputBookInfo
@@ -243,13 +263,7 @@ namespace AnhQuoc_C5_Assignment
         {
             get { return _FrmTransferGuardian; }
         }
-
-        private Func<bool, frmAddLoanHistory> _FrmAddLoanHistory;
-        public Func<bool, frmAddLoanHistory> FrmAddLoanHistory
-        {
-            get { return _FrmAddLoanHistory; }
-        }
-
+        
         private Func<bool, frmChildFunctionInformation> _FrmChildFunctionInformation;
         public Func<bool, frmChildFunctionInformation> FrmChildFunctionInformation
         {
@@ -324,6 +338,60 @@ namespace AnhQuoc_C5_Assignment
             _UnitOfRepo = unitOfRepo;
 
             #region UserControls
+
+            _UcInputReaderLoanHistory = (isReAllocate) =>
+            {
+                if (isReAllocate)
+                {
+                    ucInputReaderLoanHistory = new ucInputReaderLoanHistory();
+
+                    ucInputReaderLoanHistory.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
+                    ucInputReaderLoanHistory.getLoanDetailRepo = () => _UnitOfRepo.LoanDetailRepo;
+                    ucInputReaderLoanHistory.getLoanHistoryRepo = () => _UnitOfRepo.LoanHistoryRepo;
+                    ucInputReaderLoanHistory.getLoanDetailHistoryRepo = () => _UnitOfRepo.LoanDetailHistoryRepo;
+                    ucInputReaderLoanHistory.getBookRepo = () => _UnitOfRepo.BookRepo;
+                    ucInputReaderLoanHistory.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
+                    ucInputReaderLoanHistory.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
+
+                }
+                return ucInputReaderLoanHistory;
+            };
+
+
+            _UcRetureBookInfo = (isReAllocate) =>
+            {
+                if (isReAllocate)
+                {
+                    ucRetureBookInfo = new ucRetureBookInfo();
+
+                    ucRetureBookInfo.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
+                    ucRetureBookInfo.getLoanDetailRepo = () => _UnitOfRepo.LoanDetailRepo;
+                    ucRetureBookInfo.getLoanHistoryRepo = () => _UnitOfRepo.LoanHistoryRepo;
+                    ucRetureBookInfo.getLoanDetailHistoryRepo = () => _UnitOfRepo.LoanDetailHistoryRepo;
+                    ucRetureBookInfo.getBookRepo = () => _UnitOfRepo.BookRepo;
+                    ucRetureBookInfo.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
+                    ucRetureBookInfo.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
+                }
+                return ucRetureBookInfo;
+            };
+
+
+            _UcAddLoanHistory = (isReAllocate) =>
+            {
+                if (isReAllocate)
+                {
+                    ucAddLoanHistory = new ucAddLoanHistory();
+
+                    ucAddLoanHistory.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
+                    ucAddLoanHistory.getLoanDetailRepo = () => _UnitOfRepo.LoanDetailRepo;
+                    ucAddLoanHistory.getLoanHistoryRepo = () => _UnitOfRepo.LoanHistoryRepo;
+                    ucAddLoanHistory.getLoanDetailHistoryRepo = () => _UnitOfRepo.LoanDetailHistoryRepo;
+                    ucAddLoanHistory.getBookRepo = () => _UnitOfRepo.BookRepo;
+                    ucAddLoanHistory.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
+                    ucAddLoanHistory.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
+                }
+                return ucAddLoanHistory;
+            };
 
 
             _UcInputBookInfo = (isReAllocate) =>
@@ -710,22 +778,6 @@ namespace AnhQuoc_C5_Assignment
                 return frmTransferGuardian;
             };
 
-            _FrmAddLoanHistory = (isReAllocate) =>
-            {
-                if (isReAllocate == true)
-                {
-                    frmAddLoanHistory = new frmAddLoanHistory();
-                    frmAddLoanHistory.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
-                    frmAddLoanHistory.getLoanDetailRepo = () => _UnitOfRepo.LoanDetailRepo;
-                    frmAddLoanHistory.getLoanHistoryRepo = () => _UnitOfRepo.LoanHistoryRepo;
-                    frmAddLoanHistory.getLoanDetailHistoryRepo = () => _UnitOfRepo.LoanDetailHistoryRepo;
-                    frmAddLoanHistory.getBookRepo = () => _UnitOfRepo.BookRepo;
-                    frmAddLoanHistory.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
-                    frmAddLoanHistory.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
-                }
-                return frmAddLoanHistory;
-            };
-
             _FrmChildFunctionInformation = (isReAllocate) =>
             {
                 if (isReAllocate == true)
@@ -856,6 +908,9 @@ namespace AnhQuoc_C5_Assignment
         public void Load()
         {
             // UserControls
+            ucInputReaderLoanHistory = UcInputReaderLoanHistory(true);
+            ucRetureBookInfo = UcRetureBookInfo(true);
+            ucAddLoanHistory = UcAddLoanHistory(true);
             ucInputBookInfo = UcInputBookInfo(true);
             ucSelectReaderInfo = UcSelectReaderInfo(true);
             ucFunctionInformation = UcFunctionInformation(true);
@@ -888,7 +943,6 @@ namespace AnhQuoc_C5_Assignment
             // Forms
             frmChildFunctionInformation = FrmChildFunctionInformation(true);
             frmTransferGuardian = FrmTransferGuardian(true);
-            frmAddLoanHistory = FrmAddLoanHistory(true);
             frmLogin = FrmLogin(true);
             frmAddReader = FrmAddReader(true);
             frmAdultReaderInformation = FrmAdultReaderInformation(true);

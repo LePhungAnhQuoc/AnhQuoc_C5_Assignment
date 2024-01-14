@@ -79,6 +79,17 @@ namespace AnhQuoc_C5_Assignment
 
 
         #region Other-Prop
+        private User _User;
+        public User User
+        {
+            get { return _User; }
+            set
+            {
+                _User = value;
+                OnPropertyChanged();
+            }
+        }
+
         private Reader _Reader;
         public Reader Reader
         {
@@ -101,16 +112,6 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        private User _User;
-        public User User
-        {
-            get { return _User; }
-            set
-            {
-                _User = value;
-                OnPropertyChanged();
-            }
-        }
         #endregion
 
 

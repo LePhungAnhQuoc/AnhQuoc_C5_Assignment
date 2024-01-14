@@ -31,7 +31,19 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Fields
-        private Stack<object> contentDisplay;
+
+        private Stack<object> _storeContent;
+        public Stack<object> storeContent
+        {
+            get
+            {
+                if (_storeContent == null)
+                    _storeContent = new Stack<object>();
+                return _storeContent;
+            }
+            set { _storeContent = value; }
+        }
+
         private ucAddLoan ucAddLoan;
         #endregion
 
@@ -128,7 +140,7 @@ namespace AnhQuoc_C5_Assignment
 
             #region Allocations
             listFillLoanSlips = new ObservableCollection<LoanSlip>();
-            contentDisplay = new Stack<object>();
+            storeContent = new Stack<object>();
 
             loanSlipVM = UnitOfViewModel.Instance.LoanSlipViewModel;
             #endregion
@@ -155,7 +167,7 @@ namespace AnhQuoc_C5_Assignment
 
         public void BackToMainPage()
         {
-            this.Content = contentDisplay.Pop();
+            this.Content = storeContent.Pop();
 
             NewItemFromUcAdd();
         }
@@ -164,7 +176,7 @@ namespace AnhQuoc_C5_Assignment
         {
             ucAddLoan = MainWindow.UnitOfForm.UcAddLoan(true);
             ucAddLoan.getParentUc = () => this;
-            contentDisplay.Push(this.Content);
+            storeContent.Push(this.Content);
             this.Content = ucAddLoan;
         }
         

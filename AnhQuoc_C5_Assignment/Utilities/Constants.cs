@@ -133,5 +133,7 @@ namespace AnhQuoc_C5_Assignment
 
         public static Func<string> ShortConnStr = () => $"data source={MainWindow.DataSource};initial catalog={MainWindow.InitCatalog};integrated security={MainWindow.IntegratedSecurity.ToString()}";
         public static double FormMaxWidth = 800;
+        public static double borderDistance = 10;
+
     }
 }

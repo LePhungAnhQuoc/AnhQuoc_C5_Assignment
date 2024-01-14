@@ -27,7 +27,7 @@ namespace AnhQuoc_C5_Assignment
 
             newItem.Book = book;
             newItem.BookTitle = bookTitle;
-
+            newItem.BookISBN = bookISBN;
 
             return newItem;
         }

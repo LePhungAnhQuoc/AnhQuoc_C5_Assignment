@@ -42,7 +42,8 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Constants
-        private const int CardWidth = 220;
+        private const double CardWidth = 220;
+        private const double CardMargin = 10;
         #endregion
 
         #region Fields
@@ -147,10 +148,10 @@ namespace AnhQuoc_C5_Assignment
         {
             ucAddLoan = getParentUc();
             ucAddLoan.AllBookISBNCard = new ObservableCollection<ucBookISBNCard>();
+            ucAddLoan.AllLoanDetailCard = new ObservableCollection<ucLoanDetailCard>();
+
 
             NewItem();
-            ucLoanDetailsTable.getLoanDetails = () => new ObservableCollection<LoanDetail>();
-            ucLoanDetailsTable.ModifiedPagination();
 
             ucAddLoan.LoanDetails = new ObservableCollection<LoanDetail>();
             ucAddLoan.SelectedReaderType = ReaderType.Adult;
@@ -166,8 +167,11 @@ namespace AnhQuoc_C5_Assignment
 
         private void NewDetail()
         {
+            int indexId = ucAddLoan.LoanDetails.Count + getLoanDetailRepo().Count;
+
             ucAddLoan.LoanDetail = new LoanDetail();
-            ucAddLoan.LoanDetail.Id = loanDetailVM.GetId(ucAddLoan.LoanDetails.Count + getLoanDetailRepo().Count);
+            ucAddLoan.LoanDetail.Id = loanDetailVM.GetId(indexId);
+
             ucAddLoan.LoanDetail.IdLoan = LoanSlipDto.Id;
             ucAddLoan.LoanDetail.ExpDate = LoanSlipDto.ExpDate;
         }
@@ -207,9 +211,11 @@ namespace AnhQuoc_C5_Assignment
             {
                 NewDetail();
                 ucAddLoan.LoanDetail.IdBook = bookDto.Id;
-
-                ucLoanDetailsTable.LoanDetails.Add(loanDetailMap.ConvertToDto(ucAddLoan.LoanDetail));
+                
                 ucAddLoan.LoanDetails.Add(ucAddLoan.LoanDetail);
+
+                ConvertToLoanDetailCard(ucAddLoan.LoanDetails);
+                AddLoanDetailCardToWrap();
 
                 ucAddLoan.AllBookISBNCard.Remove(ucAddLoan.AllBookISBNCard.FirstOrDefault(item => item.getItem().ISBN == ucAddLoan.SelectedISBN.ISBN));
                 ucAddLoan.AllBookISBN.Remove(ucAddLoan.AllBookISBN.FirstOrDefault(item => item.ISBN == ucAddLoan.
@@ -393,6 +399,7 @@ namespace AnhQuoc_C5_Assignment
             }
         }
         
+
         private void ConvertToBookISBNCard(ObservableCollection<BookISBN> bookISBNs)
         {
             ucAddLoan.AllBookISBNCard.Clear();
@@ -400,12 +407,45 @@ namespace AnhQuoc_C5_Assignment
             {
                 ucBookISBNCard ucBookISBNCard = new ucBookISBNCard();
                 ucBookISBNCard.Width = CardWidth;
-                ucBookISBNCard.Margin = new Thickness(10);
+                ucBookISBNCard.Margin = new Thickness(CardMargin);
                 ucBookISBNCard.MouseLeftButtonDown += UcBookISBNCard_MouseLeftButtonDown;
                 ucBookISBNCard.getItem = () => bookISBNMap.ConvertToDto(isbn);
                 ucAddLoan.AllBookISBNCard.Add(ucBookISBNCard);
             }
         }
+
+        private void ConvertToLoanDetailCard(ObservableCollection<LoanDetail> loanDetails)
+        {
+            ucAddLoan.AllLoanDetailCard.Clear();
+            foreach (var isbn in loanDetails)
+            {
+                ucLoanDetailCard ucLoanDetailCard = new ucLoanDetailCard();
+                ucLoanDetailCard.Width = CardWidth;
+                ucLoanDetailCard.Margin = new Thickness(CardMargin);
+                ucLoanDetailCard.getItem = () => loanDetailMap.ConvertToDto(isbn);
+                ucAddLoan.AllLoanDetailCard.Add(ucLoanDetailCard);
+            }
+        }
+
+
+        private void AddBookISBNCardToWrap()
+        {
+            wrapBookISBN.Children.Clear();
+            foreach (var ucCard in ucAddLoan.AllBookISBNCard)
+            {
+                wrapBookISBN.Children.Add(ucCard);
+            }
+        }
+
+        private void AddLoanDetailCardToWrap()
+        {
+            wrapLoanDetail.Children.Clear();
+            foreach (var ucCard in ucAddLoan.AllLoanDetailCard)
+            {
+                wrapLoanDetail.Children.Add(ucCard);
+            }
+        }
+
 
         private void UcBookISBNCard_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -433,6 +473,7 @@ namespace AnhQuoc_C5_Assignment
             }
             BtnBookDetailConfirm_Click(null, null);
         }
+
 
         private void OpenSelectBookForm(ObservableCollection<Book> books)
         {
@@ -476,15 +517,6 @@ namespace AnhQuoc_C5_Assignment
 
             Utilities.AddItemToFormDefault(frmSelectBooksTable, ucSelectBooksTable, btnConfirmSelectBook, btnCancelSelectBook);
             frmSelectBooksTable.ShowDialog();
-        }
-
-        private void AddBookISBNCardToWrap()
-        {
-            wrapBookISBN.Children.Clear();
-            foreach (var ucCard in ucAddLoan.AllBookISBNCard)
-            {
-                wrapBookISBN.Children.Add(ucCard);
-            }
         }
     }
 }

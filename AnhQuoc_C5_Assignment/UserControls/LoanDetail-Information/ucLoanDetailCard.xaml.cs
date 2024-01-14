@@ -22,10 +22,10 @@ namespace AnhQuoc_C5_Assignment
     /// </summary>
     public partial class ucLoanDetailCard : UserControl, INotifyPropertyChanged
     {
-        public Func<BookISBNDto> getItem { get; set; }
+        public Func<LoanDetailDto> getItem { get; set; }
 
-        private BookISBNDto _Item;
-        public BookISBNDto Item
+        private LoanDetailDto _Item;
+        public LoanDetailDto Item
         {
             get
             {

@@ -10,6 +10,7 @@ using System.Data.Entity;
 using System.Data.Entity.Core;
 using System.Data.Entity.Core.Objects.DataClasses;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -33,7 +34,6 @@ namespace AnhQuoc_C5_Assignment
         /// </summary>
         public void BringIntoView(int index)
         {
-
             this.BringIndexIntoView(index);
         }
     }
@@ -493,7 +493,7 @@ namespace AnhQuoc_C5_Assignment
             }
             return result;
         }
-        
+
         #endregion
 
         #region Control-Layouts
@@ -641,11 +641,15 @@ namespace AnhQuoc_C5_Assignment
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
             if (depObj == null) yield return (T)Enumerable.Empty<T>();
+
             for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
             {
                 DependencyObject ithChild = VisualTreeHelper.GetChild(depObj, i);
+
                 if (ithChild == null) continue;
+
                 if (ithChild is T) yield return ithChild as T;
+
                 foreach (T childOfChild in FindVisualChildren<T>(ithChild)) yield return childOfChild;
             }
         }
@@ -689,7 +693,127 @@ namespace AnhQuoc_C5_Assignment
             return null;
         }
 
+
+        public static List<DependencyObject> GetControlHaveValidationRules(DependencyObject parent)
+        {
+            int count = 0;
+            List<DependencyObject> list = new List<DependencyObject>();
+            foreach (DependencyObject obj in LogicalTreeHelper.GetChildren(parent))
+            {
+                BindingExpression bind = null;
+                if (obj is TextBox)
+                {
+                    var txt = obj as TextBox;
+                    bind = txt.GetBindingExpression(TextBox.TextProperty);
+                }
+                else if (obj is DatePicker)
+                {
+                    var datePick = obj as DatePicker;
+                    bind = datePick.GetBindingExpression(DatePicker.SelectedDateProperty);
+                }
+                else if (obj is ComboBox)
+                {
+                    var comboBox = obj as ComboBox;
+                    bind = comboBox.GetBindingExpression(ComboBox.SelectedItemProperty);
+                }
+
+                if (bind != null)
+                {
+                    if (bind.ParentBinding.ValidationRules != null)
+                    {
+                        count = bind.ParentBinding.ValidationRules.Count;
+
+                        if (count > 0)
+                        {
+                            list.Add(obj);
+                        }
+                    }
+
+                }
+            }
+            return list;
+        }
+
+        public static void RunAllValidations(List<DependencyObject> listObj)
+        {
+            int count = 0;
+            BindingExpression be = null;
+            foreach (DependencyObject obj in listObj)
+            {
+                BindingExpression bind = null;
+                if (obj is TextBox)
+                {
+                    var txt = obj as TextBox;
+
+                    be = txt.GetBindingExpression(TextBox.TextProperty);
+                    be.UpdateSource();
+                }
+                else if (obj is DatePicker)
+                {
+                    var datePick = obj as DatePicker;
+                    be = datePick.GetBindingExpression(DatePicker.SelectedDateProperty);
+                    be.UpdateSource();
+                }
+                else if (obj is ComboBox)
+                {
+                    var comboBox = obj as ComboBox;
+                    be = comboBox.GetBindingExpression(ComboBox.SelectedItemProperty);
+                    be.UpdateSource();
+                }
+            }
+        }
+
+        public static bool IsValidationGetHasError(List<DependencyObject> listObj)
+        {
+            foreach (DependencyObject obj in listObj)
+            {
+                if (obj is TextBox)
+                {
+                    var txt = obj as TextBox;
+                    if (Validation.GetHasError(txt))
+                        return true;
+                }
+                else if (obj is DatePicker)
+                {
+                    var datePick = obj as DatePicker;
+                    if (Validation.GetHasError(datePick))
+                        return true;
+                }
+                else if (obj is ComboBox)
+                {
+                    var comboBox = obj as ComboBox;
+                    if (Validation.GetHasError(comboBox))
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        public static void PrintLogicalTree(int depth, object obj)
+        {
+            // Print the object with preceding spaces that represent its depth
+            Debug.WriteLine(new string(' ', depth) + obj);
+
+            // Sometimes leaf nodes aren't DependencyObjects (e.g. strings)
+            if (!(obj is DependencyObject)) return;
+
+            // Recursive call for each logical child
+            foreach (object child in LogicalTreeHelper.GetChildren(obj as DependencyObject))
+                PrintLogicalTree(depth + 1, child);
+        }
+
+        public static void PrintVisualTree(int depth, DependencyObject obj)
+        {
+            // Print the object with preceding spaces that represent its depth
+            Debug.WriteLine(new string(' ', depth) + obj);
+
+            // Recursive call for each visual child
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+                PrintVisualTree(depth + 1, VisualTreeHelper.GetChild(obj, i));
+        }
+
         #endregion
+
 
 
         #region ViewModelBase-Uti
@@ -712,7 +836,7 @@ namespace AnhQuoc_C5_Assignment
             return source.FirstOrDefault(item => item.Equals(findItem));
         }
         
-        public static void Copy(object item1, object item2, params string[] checkProperties)
+        public static void Copy(object dest, object source, params string[] checkProperties)
         {
             const string propSelector = "Name";
             bool isAllProperties = false;
@@ -721,35 +845,35 @@ namespace AnhQuoc_C5_Assignment
                 isAllProperties = true;
             }
 
-            var item1_props = getPropsFromType(item1);
-            var item2_props = getPropsFromType(item2);
+            var dest_props = getPropsFromType(dest);
+            var source_props = getPropsFromType(source);
 
-            var propsString = Utilities.InnerJoin(item1_props, item2_props, propSelector).ToList();
-            item1_props = FillPropertiesByName(item1_props, propsString.ToArray());
-            item2_props = FillPropertiesByName(item2_props, propsString.ToArray());
+            var propsString = Utilities.InnerJoin(dest_props, source_props, propSelector).ToList();
+            dest_props = FillPropertiesByName(dest_props, propsString.ToArray());
+            source_props = FillPropertiesByName(source_props, propsString.ToArray());
 
-            for (int i = 0; i < item1_props.Count(); i++)
+            for (int i = 0; i < dest_props.Count(); i++)
             {
-                PropertyInfo item1_prop = item1_props[i];
-                PropertyInfo item2_prop = item2_props[i];
+                PropertyInfo dest_prop = dest_props[i];
+                PropertyInfo source_prop = source_props[i];
 
                 if (!isAllProperties)
                 {
-                    var itemCheck = FindPropertyByName(checkProperties.ToList(), item1_prop.Name);
+                    var itemCheck = FindPropertyByName(checkProperties.ToList(), dest_prop.Name);
                     if (itemCheck == null)
                     {
                         continue;
                     }
                 }
-                object value2 = getValueFromProperty(item2_prop, item2);
+                object value2 = getValueFromProperty(source_prop, source);
 
                 if (value2 == null)
                 {
-                    item1_prop.SetValue(item1, null);
+                    dest_prop.SetValue(dest, null);
                 }
                 else
                 {
-                    item1_prop.SetValue(item1, value2);
+                    dest_prop.SetValue(dest, value2);
                 }
             }
         }

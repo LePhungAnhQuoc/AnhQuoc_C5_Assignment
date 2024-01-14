@@ -48,6 +48,17 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private BookISBN _BookISBN;
+        public BookISBN BookISBN
+        {
+            get { return _BookISBN; }
+            set
+            {
+                _BookISBN = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         private Book _Book;
         public Book Book

@@ -29,15 +29,25 @@
             <BeginStoryboard Storyboard="{StaticResource MouseLeaveStoryboard}"/>
         </EventTrigger>
     </UserControl.Triggers>
-    
+
+    <UserControl.RenderTransform>
+        <TranslateTransform/>
+    </UserControl.RenderTransform>
+
     <Border Style="{StaticResource bdCard}">
         <Grid Margin="{StaticResource borderDistance}"
                 Height="auto">
             <StackPanel>
                 <StackPanel.Resources>
-                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}" />
-                    <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}" />
+                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}">
+                        <Setter Property="FontSize" Value="12" />
+                    </Style>
+                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}">
+                        <!--<Setter Property="Margin"-->
+                    </Style>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}">
+                        <Setter Property="FontSize" Value="12" />
+                    </Style>
                 </StackPanel.Resources>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -46,15 +56,6 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="Book: " />
                     <TextBlock Grid.Column="1"
-                               Text="{Binding Item.Book}" />
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Content="Book title: " />
-                    <TextBlock Grid.Column="1"
                                Text="{Binding Item.BookTitle.Name}" />
                 </Grid>
                 <Grid>
@@ -62,9 +63,18 @@
                         <ColumnDefinition Width="100" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Label Content="Author: " />
+                    <Label Content="ISBN: " />
                     <TextBlock Grid.Column="1"
-                               Text="{Binding Item.Author.Name}" />
+                               Text="{Binding Item.BookISBN.ISBN}" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Expire date: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.ExpDate, StringFormat='{}{0:dd/MM/yyyy}'}" />
                 </Grid>
             </StackPanel>
         </Grid>

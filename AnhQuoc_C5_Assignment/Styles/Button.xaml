@@ -475,6 +475,12 @@
         <Setter Property="Foreground" Value="White"/>
     </Style>
 
+    <Style TargetType="Button" x:Key="btnFinish" BasedOn="{StaticResource btnGeneral}">
+        <Setter Property="Content" Value="Confirm" />
+        <Setter Property="Background" Value="Green"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+    
     <Style TargetType="Button" x:Key="btnSaveDataStyle1" BasedOn="{StaticResource btnGeneral}">
         <Setter Property="Content" Value="Confirm" />
         <Setter Property="Background" Value="#52942e"/>

@@ -1,4 +1,4 @@
-﻿E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\GeneratedInternalTypeHelper.g.cs
+﻿
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\App.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Animations\frmLoadingSpinnerControl.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\MainWindow.xaml;;
@@ -28,10 +28,13 @@ FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Book-ISBN-informati
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Book-Title-Information\ucAddBookTitle.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Book-Title-Information\ucBookTitlesTable.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Book-Title-Information\ucBookTitleManagement.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Books-Information\ucBookCard.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Function-Information\ucDisplayFunction.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Function-Information\ucFunctionInformation.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Function-Information\ucFunctionManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Function-Information\ucFunctionsTable.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\LoanDetail-Information\ucLoanDetailCard.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\UI\ReturnBook-UI\ucAddLoanHistory.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\LoanHistory-Information\ucLoanHistoryManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\LoanHistory-Information\ucLoanHistorysTable.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\UI\BorrowBooks-UI\ucInputBookInfo.xaml;;
@@ -61,12 +64,14 @@ FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Books-Information\u
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Role-Information\ucRolesTable.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Role-Information\ucRoleManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\RoleFunction-Information\ucRoleFunctionManagement.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\UI\ReturnBook-UI\ucInputReaderLoanHistory.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\UI\ReturnBook-UI\ucRetureBookInfo.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\User-Information\ucUserInformation.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\User-Information\ucUserManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\User-Information\ucUsersTable.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\UserRole-Information\ucUserRoleManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\UserRole-Information\ucUserRolesTable.xaml;;
-FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Views\Book-Manage\frmAddLoanHistory.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Views\Book\frmBookISBNInformation.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Views\frmDefault.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Views\Function\frmAddFunction.xaml;;

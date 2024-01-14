@@ -41,6 +41,17 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private PenaltyReasonMap _PenaltyReasonMap;
+        public PenaltyReasonMap PenaltyReasonMap
+        {
+            get
+            {
+                if (_PenaltyReasonMap == null)
+                    _PenaltyReasonMap = new PenaltyReasonMap();
+                return _PenaltyReasonMap;
+            }
+        }
+
         private BookISBNMap _BookISBNMap;
         public BookISBNMap BookISBNMap
         {
@@ -229,6 +240,7 @@ namespace AnhQuoc_C5_Assignment
             _LoanDetailMap = new LoanDetailMap();
             _LoanHistoryMap = new LoanHistoryMap();
             _BookTitleMap = new BookTitleMap();
+            _PenaltyReasonMap = new PenaltyReasonMap();
             _BookMap = new BookMap();        
             _ProvinceMap = new ProvinceMap();
             _AuthorMap = new AuthorMap();
