@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class ServerNameViewModel : ViewModelBase<ServerName>
+    public class ServerNameViewModel : BaseViewModel<ServerName>
     {
         public ServerNameViewModel()
         {

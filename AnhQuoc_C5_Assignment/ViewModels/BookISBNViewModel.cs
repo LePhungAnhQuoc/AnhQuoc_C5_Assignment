@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class BookISBNViewModel : ViewModelBase<BookISBN>
+    public class BookISBNViewModel : BaseViewModel<BookISBN>
     {
         public BookISBNViewModel()
         {

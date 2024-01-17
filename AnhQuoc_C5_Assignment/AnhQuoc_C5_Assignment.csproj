@@ -46,6 +46,10 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -55,6 +59,10 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -135,6 +143,7 @@
     <Compile Include="DTOs\RoleDto.cs" />
     <Compile Include="DTOs\RoleFunctionDto.cs" />
     <Compile Include="DTOs\LoanHistoryDto.cs" />
+    <Compile Include="DTOs\UI-Dtos\BorrowBookDto.cs" />
     <Compile Include="DTOs\UserDtos\UserDto.cs" />
     <Compile Include="DTOs\ReaderDto.cs" />
     <Compile Include="DTOs\UserDtos\UserAccountLogIn.cs" />
@@ -413,6 +422,9 @@
     <Compile Include="UserControls\UI\ReturnBook-UI\ucInputReaderLoanHistory.xaml.cs">
       <DependentUpon>ucInputReaderLoanHistory.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UI\ReturnBook-UI\ucLoanDetailHistoryInfo.xaml.cs">
+      <DependentUpon>ucLoanDetailHistoryInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.xaml.cs">
       <DependentUpon>ucLoanHistoryConfirm.xaml</DependentUpon>
     </Compile>
@@ -459,10 +471,11 @@
     <Compile Include="Mapping\AdultMap.cs" />
     <Compile Include="Mapping\BookISBNMap.cs" />
     <Compile Include="Mapping\Base\IMap.cs" />
+    <Compile Include="ViewModels\Interfaces\IPageViewModel.cs" />
     <Compile Include="ViewModels\PenaltyReasonViewModel.cs" />
     <Compile Include="ViewModels\AdultViewModel.cs" />
     <Compile Include="ViewModels\AuthorViewModel.cs" />
-    <Compile Include="ViewModels\Base\ViewModelBase.cs" />
+    <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\BookISBNViewModel.cs" />
     <Compile Include="ViewModels\BookTitleViewModel.cs" />
     <Compile Include="ViewModels\BookViewModel.cs" />
@@ -484,6 +497,7 @@
     <Compile Include="ViewModels\UserRoleViewModel.cs" />
     <Compile Include="ViewModels\LoanHistoryViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\BorrowBookViewModel.cs" />
     <Compile Include="Views\Book\frmBookISBNInformation.xaml.cs">
       <DependentUpon>frmBookISBNInformation.xaml</DependentUpon>
     </Compile>
@@ -569,6 +583,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ContentControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -808,6 +826,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\UI\ReturnBook-UI\ucLoanDetailHistoryInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -975,6 +997,9 @@
       <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>
       <LastGenOutput>QuanLyThuVienModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Control-Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

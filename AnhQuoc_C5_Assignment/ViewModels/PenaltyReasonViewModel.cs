@@ -11,7 +11,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class PenaltyReasonViewModel: ViewModelBase<PenaltyReason>
+    public class PenaltyReasonViewModel: BaseViewModel<PenaltyReason>
     {
         public PenaltyReasonViewModel()
         {
@@ -42,9 +42,9 @@ namespace AnhQuoc_C5_Assignment
             return newList;
         }
 
-        public ObservableCollection<PenaltyReason> FillContainsIdentify(ObservableCollection<PenaltyReasonDto> source, string valueName, bool igNoreCase, bool? statusValue)
+        public ObservableCollection<PenaltyReason> FillContainsName(ObservableCollection<PenaltyReasonDto> source, string valueName, bool igNoreCase, bool? statusValue)
         {
-            return FillContainsIdentify(CreateByDto(source), valueName, igNoreCase, statusValue);
+            return FillContainsName(CreateByDto(source), valueName, igNoreCase, statusValue);
         }
         
 

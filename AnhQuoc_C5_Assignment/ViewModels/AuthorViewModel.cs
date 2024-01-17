@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AuthorViewModel: ViewModelBase<Author>
+    public class AuthorViewModel: BaseViewModel<Author>
     {
         public AuthorViewModel()
         {

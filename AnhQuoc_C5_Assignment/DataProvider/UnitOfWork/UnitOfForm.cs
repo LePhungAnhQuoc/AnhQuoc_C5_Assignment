@@ -389,6 +389,7 @@ namespace AnhQuoc_C5_Assignment
                     ucAddLoanHistory.getBookRepo = () => _UnitOfRepo.BookRepo;
                     ucAddLoanHistory.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
                     ucAddLoanHistory.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
+                    ucAddLoanHistory.getReasonRepo = () => _UnitOfRepo.PenaltyReasonRepo;
                 }
                 return ucAddLoanHistory;
             };

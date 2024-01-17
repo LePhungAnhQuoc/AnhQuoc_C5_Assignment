@@ -83,7 +83,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="Language: " />
                     <TextBlock Grid.Column="1"
-                               Text="{Binding Item.OriginalLanguage}" />
+                               Text="{Binding Item.OriginLanguage}" />
                 </Grid>
             </StackPanel>
         </Grid>

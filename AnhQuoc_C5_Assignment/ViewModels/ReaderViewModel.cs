@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class ReaderViewModel : ViewModelBase<Reader>
+    public class ReaderViewModel : BaseViewModel<Reader>
     {
         ReaderMap readerMap;
         public ReaderViewModel()

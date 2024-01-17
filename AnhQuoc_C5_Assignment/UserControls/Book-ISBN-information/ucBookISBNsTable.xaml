@@ -28,7 +28,7 @@
             <DataGridTextColumn Header="Status" Width="auto" 
                                 Binding="{Binding Status, Converter={StaticResource bookISBNStatusConverter}}"
                                 CellStyle="{StaticResource dtgcellStatus}" />
-            <DataGridTemplateColumn x:Name="dtgBtnInfo">
+            <DataGridTemplateColumn x:Name="dtgbtnInfo">
                 <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate>
                         <Button Name="btnInfo"
@@ -39,7 +39,7 @@
                     </DataTemplate>
                 </DataGridTemplateColumn.CellTemplate>
             </DataGridTemplateColumn>
-            <DataGridTemplateColumn x:Name="dtgBtnDelete"
+            <DataGridTemplateColumn x:Name="dtgbtnDelete"
                                     Visibility="Collapsed">
                 <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate>

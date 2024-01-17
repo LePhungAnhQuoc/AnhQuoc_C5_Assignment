@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="300"
-             Name="YourUserControl">
+             Name="YourUserControl"
+             Background="White">
     <UserControl.Resources>
         <Thickness x:Key="borderDistance" Top="10" Left="10" Right="10" Bottom="10" />
 
@@ -35,8 +36,8 @@
     </UserControl.RenderTransform>
 
     <Border Style="{StaticResource bdCard}">
-        <Grid Margin="{StaticResource borderDistance}"
-                Height="auto">
+        <StackPanel Margin="{StaticResource borderDistance}"
+                    Height="auto">
             <StackPanel>
                 <StackPanel.Resources>
                     <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}">
@@ -77,7 +78,19 @@
                                Text="{Binding Item.ExpDate, StringFormat='{}{0:dd/MM/yyyy}'}" />
                 </Grid>
             </StackPanel>
-        </Grid>
+            <StackPanel Name="stkWrapButton"
+                        Style="{StaticResource stkWrapButton}"
+                        Visibility="Visible">
+                <Button Name="btnInfo"
+                        Style="{StaticResource btnInfo}"
+                        FontSize="12">More Info</Button>
+                <Button Name="btnDelete"
+                        Style="{StaticResource btnDelete}"
+                        FontSize="12"
+                        Margin="10 0 0 0"></Button>
+            </StackPanel>
+
+        </StackPanel>
     </Border>
 
 </UserControl>

@@ -6,6 +6,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/ScrollViewer.xaml" />
+                <ResourceDictionary Source="Styles/ContentControl.xaml" />
                 <ResourceDictionary Source="Styles/Label.xaml" />
                 <ResourceDictionary Source="Styles/DataGrid.xaml" />
                 <ResourceDictionary Source="Styles/TreeView.xaml" />
@@ -20,7 +22,6 @@
                 <ResourceDictionary Source="Styles/RadioButton.xaml" />
                 <ResourceDictionary Source="Styles/Grid.xaml" />
                 <ResourceDictionary Source="Styles/Border.xaml" />
-                <ResourceDictionary Source="Styles/ScrollViewer.xaml" />
                 <ResourceDictionary Source="Styles/Ellipse.xaml" />
                 <ResourceDictionary Source="Styles/CheckBox.xaml" />
                 <ResourceDictionary Source="Styles/TabControl.xaml" />

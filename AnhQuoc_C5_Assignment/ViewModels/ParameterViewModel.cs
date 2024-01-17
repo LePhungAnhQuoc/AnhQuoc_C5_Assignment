@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class ParameterViewModel : ViewModelBase<Parameter>
+    public class ParameterViewModel : BaseViewModel<Parameter>
     {
         public ParameterViewModel()
         {

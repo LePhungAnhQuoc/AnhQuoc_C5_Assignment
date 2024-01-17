@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class ViewModelBase<T> where T : class, new()
+    public class BaseViewModel<T> : INotifyPropertyChanged where T : class, new()
     {
         #region Fields
         protected string prefix = string.Empty;
@@ -67,5 +69,14 @@ namespace AnhQuoc_C5_Assignment
         {
             Utilities.Copy(dest, source);
         }
+
+        #region PropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
     }
 }

@@ -63,6 +63,7 @@ namespace AnhQuoc_C5_Assignment
 
         private void UcBookTitlesTable_Loaded(object sender, RoutedEventArgs e)
         {
+
             if (getBookTitles != null)
                 BookTitles = getBookTitles();
         }

@@ -11,7 +11,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AdultViewModel: ViewModelBase<Adult>
+    public class AdultViewModel: BaseViewModel<Adult>
     {
         public AdultViewModel()
         {

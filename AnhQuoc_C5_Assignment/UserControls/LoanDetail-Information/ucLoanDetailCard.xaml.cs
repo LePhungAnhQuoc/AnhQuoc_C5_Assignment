@@ -37,7 +37,13 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
+      
+        #region Events
+        public event RoutedEventHandler btnInfoClick;
+        public event RoutedEventHandler btnDeleteClick;
      
+        #endregion
+ 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         // Create the OnPropertyChanged method to raise the event
@@ -53,13 +59,41 @@ namespace AnhQuoc_C5_Assignment
         {
             InitializeComponent();
 
+
+            #region Events
+            btnInfo.Click += btnInfo_Click;
+            btnDelete.Click += btnDelete_Click;
+            #endregion
+
+
+
             this.DataContext = this;
             this.Loaded += ucLoanDetailCard_Loaded;
         }
 
         private void ucLoanDetailCard_Loaded(object sender, RoutedEventArgs e)
         {
+
+            if (btnDeleteClick == null)
+            {
+                btnDelete.Visibility = Visibility.Collapsed;
+            }
+            if (btnInfoClick == null)
+            {
+                btnInfo.Visibility = Visibility.Collapsed;
+            }
+
             Item = getItem();
+        }
+
+        private void btnInfo_Click(object sender, RoutedEventArgs e)
+        {
+            btnInfoClick?.Invoke(sender, e);
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            btnDeleteClick?.Invoke(sender, e);
         }
     }
 }

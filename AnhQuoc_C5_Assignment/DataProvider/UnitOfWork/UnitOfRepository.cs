@@ -19,6 +19,16 @@ namespace AnhQuoc_C5_Assignment
                 return _LoanDetailRepo;
             }
         }
+        private PenaltyReasonRepository _PenaltyReasonRepo;
+        public PenaltyReasonRepository PenaltyReasonRepo
+        {
+            get
+            {
+                if (_PenaltyReasonRepo == null)
+                    _PenaltyReasonRepo = new PenaltyReasonRepository();
+                return _PenaltyReasonRepo;
+            }
+        }
 
         private LoanHistoryRepository _LoanHistoryRepo;
         public LoanHistoryRepository LoanHistoryRepo
@@ -302,6 +312,9 @@ namespace AnhQuoc_C5_Assignment
 
             _LoanDetailRepo = new LoanDetailRepository();
             _LoanDetailRepo.LoadList();
+
+            _PenaltyReasonRepo = new PenaltyReasonRepository();
+            _PenaltyReasonRepo.LoadList();
 
             _LoanHistoryRepo = new LoanHistoryRepository();
             _LoanHistoryRepo.LoadList();

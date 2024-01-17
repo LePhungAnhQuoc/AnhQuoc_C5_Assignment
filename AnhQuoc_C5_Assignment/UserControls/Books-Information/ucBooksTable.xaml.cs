@@ -110,7 +110,8 @@ namespace AnhQuoc_C5_Assignment
         }
 
         private void UcBooksTable_Loaded(object sender, RoutedEventArgs e)
-        { 
+        {
+
             if (!AllowPagination)
             {
                 ucPagination.Visibility = Visibility.Collapsed;

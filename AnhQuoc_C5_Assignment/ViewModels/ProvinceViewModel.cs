@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class ProvinceViewModel : ViewModelBase<Province>
+    public class ProvinceViewModel : BaseViewModel<Province>
     {
         public ProvinceViewModel()
         {

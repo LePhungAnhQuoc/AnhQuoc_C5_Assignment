@@ -79,7 +79,7 @@
                               Grid.Column="1">
                             <ComboBox Name="cbTxtReason"
                                       Style="{StaticResource cbGeneral}"
-                                      DisplayMemberPath="Identify">
+                                      DisplayMemberPath="Name">
                             </ComboBox>
                             <TextBox Name="txtReason"
                                      Grid.Column="1">
@@ -98,12 +98,13 @@
                             <ColumnDefinition Width="100" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Note: " />
-                        <TextBox Name="txtNote"
+                        <Label Content="Fine amount: " />
+                        <TextBox Name="txtFineAmount"
                                              Grid.Column="1">
                             <TextBox.Text>
-                                <Binding Path="Detail.Note" UpdateSourceTrigger="PropertyChanged">
+                                <Binding Path="Detail.PaidMoney" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
+                                        <local:InputNumberRule />
                                     </Binding.ValidationRules>
                                 </Binding>
                             </TextBox.Text>
@@ -114,13 +115,12 @@
                             <ColumnDefinition Width="100" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Fine amount: " />
-                        <TextBox Name="txtFineAmount"
+                        <Label Content="Note: " />
+                        <TextBox Name="txtNote"
                                              Grid.Column="1">
                             <TextBox.Text>
-                                <Binding Path="Detail.PaidMoney" UpdateSourceTrigger="PropertyChanged">
+                                <Binding Path="Detail.Note" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
-                                        <local:InputNumberRule />
                                     </Binding.ValidationRules>
                                 </Binding>
                             </TextBox.Text>

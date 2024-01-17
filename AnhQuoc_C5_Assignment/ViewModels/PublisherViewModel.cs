@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class PublisherViewModel : ViewModelBase<Publisher>
+    public class PublisherViewModel : BaseViewModel<Publisher>
     {
         public PublisherViewModel()
         {

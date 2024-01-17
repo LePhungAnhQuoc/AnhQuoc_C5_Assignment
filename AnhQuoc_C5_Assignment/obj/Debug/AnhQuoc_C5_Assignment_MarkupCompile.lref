@@ -6,6 +6,7 @@ FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Styles\Border.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Styles\Button.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Styles\CheckBox.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Styles\ComboBox.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Styles\ContentControl.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Styles\DataGrid.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Styles\DatePicker.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\Styles\Ellipse.xaml;;
@@ -65,6 +66,7 @@ FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Role-Information\uc
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\Role-Information\ucRoleManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\RoleFunction-Information\ucRoleFunctionManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\UI\ReturnBook-UI\ucInputReaderLoanHistory.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\UI\ReturnBook-UI\ucLoanDetailHistoryInfo.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\UI\ReturnBook-UI\ucRetureBookInfo.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\UserControls\User-Information\ucUserInformation.xaml;;

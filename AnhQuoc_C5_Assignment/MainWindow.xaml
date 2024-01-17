@@ -8,6 +8,9 @@
         Title="Library management program"
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource wdStyleBig}">
+    <Window.Resources>
+        
+    </Window.Resources>
     <Grid Name="grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />

@@ -284,6 +284,7 @@ namespace AnhQuoc_C5_Assignment
         private BookISBNMap bookISBNMap;
         private BookMap bookMap;
         private LoanDetailMap loanDetailMap;
+        private PenaltyReasonMap penaltyReasonMap;
         #endregion
 
         #region ResultProperty
@@ -334,6 +335,7 @@ namespace AnhQuoc_C5_Assignment
             AllLoanOfReader = new ObservableCollection<LoanSlip>();
             AllUnPaidBookCard = new ObservableCollection<ucBookCard>();
             AllPaidBookCard = new ObservableCollection<ucBookCard>();
+
             #region Allocates
             readerVM = UnitOfViewModel.Instance.ReaderViewModel;
             loanHistoryVM = UnitOfViewModel.Instance.LoanHistoryViewModel;
@@ -353,6 +355,8 @@ namespace AnhQuoc_C5_Assignment
             bookISBNMap = UnitOfMap.Instance.BookISBNMap;
             bookMap = UnitOfMap.Instance.BookMap;
             loanDetailMap = UnitOfMap.Instance.LoanDetailMap;
+            penaltyReasonMap = UnitOfMap.Instance.PenaltyReasonMap;
+
 
             adultVM = UnitOfViewModel.Instance.AdultViewModel;
             childVM = UnitOfViewModel.Instance.ChildViewModel;
@@ -380,7 +384,7 @@ namespace AnhQuoc_C5_Assignment
 
         private void ucAddLoanHistory_Loaded(object sender, RoutedEventArgs e)
         {
-            AllReason = getReasonRepo().Gets();
+            AllReason = penaltyReasonMap.ConvertToDto(getReasonRepo().Gets());
 
             ucInputReaderLoanHistory = MainWindow.UnitOfForm.UcInputReaderLoanHistory(true);
             ucInputReaderLoanHistory.getItem = () => Item;

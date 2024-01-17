@@ -823,6 +823,10 @@ namespace AnhQuoc_C5_Assignment
             foreach (T item in items)
             {
                 PropertyInfo statusProp = item.GetType().GetProperty("Status");
+
+                if (statusProp == null) // Obj không có trường Status
+                    return items;
+
                 if (statusValue == null || (bool)statusProp.GetValue(item) == statusValue)
                 {
                     result.Add(item);

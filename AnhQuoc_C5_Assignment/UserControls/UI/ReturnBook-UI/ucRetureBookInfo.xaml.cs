@@ -110,6 +110,17 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private ObservableCollection<PenaltyReasonDto> _AllReason;
+        public ObservableCollection<PenaltyReasonDto> AllReason
+        {
+            get { return _AllReason; }
+            set
+            {
+                _AllReason = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         private int _BorrowedDays;
         public int BorrowedDays
@@ -183,6 +194,7 @@ namespace AnhQuoc_C5_Assignment
         private BookISBNMap bookISBNMap;
         private BookMap bookMap;
         private LoanDetailMap loanDetailMap;
+        private LoanDetailHistoryMap loanDetailHistoryMap;
         #endregion
 
         #region PropertyChanged
@@ -220,6 +232,7 @@ namespace AnhQuoc_C5_Assignment
             bookMap = UnitOfMap.Instance.BookMap;
             loanDetailMap = UnitOfMap.Instance.LoanDetailMap;
             reasonMap = UnitOfMap.Instance.PenaltyReasonMap;
+            loanDetailHistoryMap = UnitOfMap.Instance.LoanDetailHistoryMap;
 
             adultVM = UnitOfViewModel.Instance.AdultViewModel;
             childVM = UnitOfViewModel.Instance.ChildViewModel;
@@ -234,6 +247,11 @@ namespace AnhQuoc_C5_Assignment
            
             btnReturnBook.Click += BtnReturnBook_Click;
             btnFinish.Click += BtnFinish_Click;
+
+            cbTxtReason.DropDownClosed += CbAdultTxtReason_DropDownClosed;
+            cbTxtReason.SelectionChanged += CbAdultTxtReason_SelectionChanged;
+            txtReason.TextChanged += TxtInputReason_TextChanged;
+
             #endregion
 
             #region LostFocus
@@ -246,6 +264,9 @@ namespace AnhQuoc_C5_Assignment
         private void ucRetureBookInfo_Loaded(object sender, RoutedEventArgs e)
         {
             ucAddLoanHistory = getParentUc();
+
+            AllReason = ucAddLoanHistory.AllReason;
+            cbTxtReason.ItemsSource = AllReason;
 
             SelectedReader = ucAddLoanHistory.SelectedReader;
             SelectedLoanSlip = ucAddLoanHistory.SelectedLoanSlip;
@@ -372,6 +393,7 @@ namespace AnhQuoc_C5_Assignment
             frmConfirmInformation.ShowDialog();
         }
 
+
         private void BtnReturnBook_Click(object sender, RoutedEventArgs e)
         {
             if (SelectedUnPaidBookCard == null)
@@ -395,16 +417,15 @@ namespace AnhQuoc_C5_Assignment
             ucAddLoanHistory.UnPaidBooksOfReader.Remove(getBook);
             ucAddLoanHistory.PaidBooksOfReader.Add(getBook);
 
+            // Add to list details
+            var getDetail = loanDetailHistoryVM.CreateByDto(ucAddLoanHistory.Detail);
+            ucAddLoanHistory.LoanDetailHistorys.Add(getDetail);
+
             ConvertToUnPaidBookCard(ucAddLoanHistory.UnPaidBooksOfReader);
             AddUnPaidBookCardToWrap();
             ConvertToPaidBookCard(ucAddLoanHistory.PaidBooksOfReader);
             AddPaidBookCardToWrap();
 
-            // Add to list details
-            var getDetail = loanDetailHistoryVM.CreateByDto(ucAddLoanHistory.Detail);
-            ucAddLoanHistory.LoanDetailHistorys.Add(getDetail);
-
-            var detail = Detail.PaidMoney;
             Item.FineMoney += ucAddLoanHistory.Detail.PaidMoney;
             Item.Total = Item.LoanPaid + Item.FineMoney;
 
@@ -429,6 +450,52 @@ namespace AnhQuoc_C5_Assignment
                 UcPaidBookCard_MouseLeftButtonDown(ucAddLoanHistory.AllPaidBookCard.FirstOrDefault(), null);
             }
         }
+
+        private void UcPaidBookCard_btnDeleteClick(object sender, RoutedEventArgs e)
+        {
+            BookDto getBook = bookVM.FindById(ucAddLoanHistory.PaidBooksOfReader, SelectedPaidBookCard.Item.Id, null);
+            LoanDetailHistory detail = loanDetailHistoryVM.FindByIdBook(ucAddLoanHistory.LoanDetailHistorys, getBook.Id);
+            
+
+            ucAddLoanHistory.UnPaidBooksOfReader.Add(getBook);
+            ucAddLoanHistory.PaidBooksOfReader.Remove(getBook);
+
+
+            // Remove in list details
+            ucAddLoanHistory.LoanDetailHistorys.Remove(detail);
+
+            ConvertToUnPaidBookCard(ucAddLoanHistory.UnPaidBooksOfReader);
+            AddUnPaidBookCardToWrap();
+            ConvertToPaidBookCard(ucAddLoanHistory.PaidBooksOfReader);
+            AddPaidBookCardToWrap();
+            
+            Item.FineMoney -= detail.PaidMoney;
+            Item.Total = Item.LoanPaid + Item.FineMoney;
+
+
+
+            // Change button status Visibility
+            if (ucAddLoanHistory.UnPaidBooksOfReader.Count == 0)
+            {
+                btnFinish.Visibility = Visibility.Visible;
+                btnReturnBook.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                btnFinish.Visibility = Visibility.Collapsed;
+                btnReturnBook.Visibility = Visibility.Visible;
+            }
+
+            if (ucAddLoanHistory.AllUnPaidBookCard.Count > 0)
+            {
+                UcUnPaidBookCard_MouseLeftButtonDown(ucAddLoanHistory.AllUnPaidBookCard.FirstOrDefault(), null);
+            }
+            if (ucAddLoanHistory.AllPaidBookCard.Count > 0)
+            {
+                UcPaidBookCard_MouseLeftButtonDown(ucAddLoanHistory.AllPaidBookCard.FirstOrDefault(), null);
+            }
+        }
+
 
         private void PassValueToItem(LoanHistory item)
         {
@@ -476,26 +543,26 @@ namespace AnhQuoc_C5_Assignment
         }
 
 
-        private void CbAdultTxtIdentify_DropDownClosed(object sender, EventArgs e)
+        private void CbAdultTxtReason_DropDownClosed(object sender, EventArgs e)
         {
             ComboBox cmb = sender as ComboBox;
             if (handle) HandleReason(txtReason, cmb);
             handle = true;
         }
 
-        private void CbAdultTxtIdentify_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CbAdultTxtReason_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox cmb = sender as ComboBox;
             handle = !cmb.IsDropDownOpen;
             HandleReason(txtReason, cmb);
         }
 
-        private void TxtInputIdentify_TextChanged(object sender, TextChangedEventArgs e)
+        private void TxtInputReason_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TxtInputIdentify_Filter_TextChanged(txtReason, gdInputReason, ucAddLoanHistory.AllReason);
+            TxtInputReason_Filter_TextChanged(txtReason, gdInputReason, ucAddLoanHistory.AllReason);
         }
 
-        private void TxtInputIdentify_Filter_TextChanged(TextBox txtInput, Grid parent, ObservableCollection<PenaltyReasonDto> sourceDto)
+        private void TxtInputReason_Filter_TextChanged(TextBox txtInput, Grid parent, ObservableCollection<PenaltyReasonDto> sourceDto)
         {
             bool ignoreCase = true;
             ComboBox comBoBox = Utilities.FindVisualChild<ComboBox>(parent);
@@ -503,13 +570,26 @@ namespace AnhQuoc_C5_Assignment
             if (Utilities.IsCheckEmptyString(txtInput.Text))
                 return;
 
-            ObservableCollection<PenaltyReason> getfillList = reasonVM.FillContainsIdentify(sourceDto, txtInput.Text, ignoreCase, ucAddLoanHistory.StatusValue);
+            ObservableCollection<PenaltyReason> getfillList = reasonVM.FillContainsName(sourceDto, txtInput.Text, ignoreCase, ucAddLoanHistory.StatusValue);
 
             if (getfillList.Count == 1 && getfillList.First().Name == txtInput.Text)
             {
                 comBoBox.IsDropDownOpen = false;
 
-                // Xử lý nghiệp vụ
+                PenaltyReason reason = getfillList.First();
+                
+                if (reason.Name == "None")
+                {
+                    Detail.PaidMoney = 0;
+                }
+                else if (reason.Name == "Lost the book")
+                {
+                    Detail.PaidMoney = SelectedUnPaidBookCard.Item.PriceCurrent;
+                }
+                else if (reason.Name == "Spoil the book")
+                {
+                    Detail.PaidMoney = 0;
+                }
                 return;
             }
             else
@@ -561,6 +641,33 @@ namespace AnhQuoc_C5_Assignment
             foreach (var book in books)
             {
                 ucBookCard ucPaidBookCard = new ucBookCard();
+
+                ucPaidBookCard.btnInfoClick += (_sender, _e) =>
+                {
+                    frmDefault frmInfo = new frmDefault();
+                    ucLoanDetailHistoryInfo ucLoanDetailHistoryInfo = new ucLoanDetailHistoryInfo();
+
+                    LoanDetailHistory getDetailHistory = ucAddLoanHistory.LoanDetailHistorys.FirstOrDefault(item => item.IdBook == book.Id);
+                    ucLoanDetailHistoryInfo.getItem = () => loanDetailHistoryMap.ConvertToDto(getDetailHistory);
+
+                    ucLoanDetailHistoryInfo.btnBackClick += (_subSender, _subE) =>
+                    {
+                        frmInfo.Close();
+                    };
+
+                    Utilities.AddItemToFormDefault(frmInfo, ucLoanDetailHistoryInfo);
+                    frmInfo.ShowDialog();
+                };
+
+                ucPaidBookCard.btnDeleteClick += (_sender, _e) =>
+                {
+                    ucBookCard card = ucPaidBookCard;
+                    if (SelectedPaidBookCard != null && SelectedPaidBookCard == card) return;
+
+                    SelectedPaidBookCard = card;
+                };
+                ucPaidBookCard.btnDeleteClick += UcPaidBookCard_btnDeleteClick;
+
                 ucPaidBookCard.Width = CardWidth;
                 ucPaidBookCard.Margin = new Thickness(CardMargin);
                 ucPaidBookCard.Focusable = true;

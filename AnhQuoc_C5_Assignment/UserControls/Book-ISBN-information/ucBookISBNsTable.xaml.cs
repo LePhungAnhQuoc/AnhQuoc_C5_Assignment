@@ -92,12 +92,22 @@ namespace AnhQuoc_C5_Assignment
 
         private void ucBookISBNsTable_Loaded(object sender, RoutedEventArgs e)
         {
+            if (btnDeleteClick == null)
+            {
+                dtgbtnDelete.Visibility = Visibility.Collapsed;
+            }
+            if (btnInfoClick == null)
+            {
+                dtgbtnInfo.Visibility = Visibility.Collapsed;
+            }
+
             if (getBookISBNs != null)
             {
                 var allBookISBNs = getBookISBNs();
                 var allBookISBNDtos = bookISBNMap.ConvertToDto(allBookISBNs);
                 BookISBNDtos = allBookISBNDtos;
-            }   
+            }
+
         }
 
         private void btnInfo_Click(object sender, RoutedEventArgs e)

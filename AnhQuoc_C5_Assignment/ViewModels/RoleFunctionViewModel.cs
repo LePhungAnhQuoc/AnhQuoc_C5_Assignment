@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class RoleFunctionViewModel: ViewModelBase<RoleFunction>
+    public class RoleFunctionViewModel: BaseViewModel<RoleFunction>
     {
         public RoleFunctionViewModel()
         {

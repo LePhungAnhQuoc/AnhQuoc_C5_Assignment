@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class CategoryViewModel : ViewModelBase<Category>
+    public class CategoryViewModel : BaseViewModel<Category>
     {
         public CategoryViewModel()
         {

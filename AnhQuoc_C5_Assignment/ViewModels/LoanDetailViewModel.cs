@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class LoanDetailViewModel: ViewModelBase<LoanDetail>
+    public class LoanDetailViewModel: BaseViewModel<LoanDetail>
     {
         public LoanDetailViewModel()
         {

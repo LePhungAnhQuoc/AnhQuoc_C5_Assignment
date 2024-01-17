@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class ChildViewModel : ViewModelBase<Child>
+    public class ChildViewModel : BaseViewModel<Child>
     {
         public ChildViewModel()
         {

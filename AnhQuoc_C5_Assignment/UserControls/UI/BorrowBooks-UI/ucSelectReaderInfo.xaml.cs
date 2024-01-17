@@ -198,8 +198,7 @@ namespace AnhQuoc_C5_Assignment
 
             NewItem();
 
-            ucAddLoan.SelectedReaderType = ReaderType.Adult;
-            SelectedReaderType = ucAddLoan.SelectedReaderType;
+            SelectedReaderType = ReaderType.Adult;
 
             stkAdultInformation.Visibility = Visibility.Visible;
             stkChildInformation.Visibility = Visibility.Collapsed;
@@ -286,6 +285,7 @@ namespace AnhQuoc_C5_Assignment
                 Reader reader = readerVM.FindById(getfillList.First().IdReader);
                 ucAddLoan.SelectedReader = readerMap.ConvertToDto(reader);
                 SelectedReader = ucAddLoan.SelectedReader;
+                ucAddLoan.SelectedReaderType = SelectedReaderType;
 
                 GetBooksFromReader();
                 GetReaderLoanAndLoanDetails();
@@ -407,8 +407,12 @@ namespace AnhQuoc_C5_Assignment
             {
                 comBoBox.IsDropDownOpen = false;
                 Reader reader = readerVM.FindById(getfillListDto.First().IdReader);
+
                 ucAddLoan.SelectedReader = readerMap.ConvertToDto(reader);
                 SelectedReader = ucAddLoan.SelectedReader;
+
+                ucAddLoan.SelectedReaderType = SelectedReaderType;
+
                 GetBooksFromReader();
 
                 GetReaderLoanAndLoanDetails();
@@ -523,12 +527,12 @@ namespace AnhQuoc_C5_Assignment
 
         private void GetReaderLoanAndLoanDetails()
         {
-            if (ucAddLoan.SelectedReaderType == ReaderType.Adult)
+            if (SelectedReaderType == ReaderType.Adult)
             {
                 ucAddLoan.AllAdultLoan = loanSlipVM.FillByIdReader(ucAddLoan.SelectedReader.Id);
                 ucAddLoan.AllAdultLoanDetail = loanDetailVM.FillListByIdLoans(ucAddLoan.AllAdultLoan);
             }
-            else if (ucAddLoan.SelectedReaderType == ReaderType.Child)
+            else if (SelectedReaderType == ReaderType.Child)
             {
                 ucAddLoan.AllChildLoan = loanSlipVM.FillByIdReader(ucAddLoan.SelectedReader.Id);
                 ucAddLoan.AllChildLoanDetail = loanDetailVM.FillListByIdLoans(ucAddLoan.AllChildLoan);

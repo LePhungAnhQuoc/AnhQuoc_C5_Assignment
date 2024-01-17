@@ -284,6 +284,18 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private ucLoanDetailCard _SelectedDetailCard;
+        public ucLoanDetailCard SelectedDetailCard
+        {
+            get { return _SelectedDetailCard; }
+            set
+            {
+                _SelectedDetailCard = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         #endregion
 
 

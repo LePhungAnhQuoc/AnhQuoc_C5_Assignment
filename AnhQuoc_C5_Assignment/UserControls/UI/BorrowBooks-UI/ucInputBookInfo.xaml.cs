@@ -202,6 +202,7 @@ namespace AnhQuoc_C5_Assignment
                 Utilities.ShowMessageBox1("This reader already borrow this book!", "Can not borrow this book");
                 return;
             }
+
             if (!bookDto.Status)
             {
                 Utilities.ShowMessageBox1(Utilities.NotifyBookStatus());
@@ -217,12 +218,31 @@ namespace AnhQuoc_C5_Assignment
                 ConvertToLoanDetailCard(ucAddLoan.LoanDetails);
                 AddLoanDetailCardToWrap();
 
+                ucAddLoan.AllBookISBN.Remove(ucAddLoan.AllBookISBN.FirstOrDefault(item => item.ISBN == ucAddLoan.SelectedISBN.ISBN));
                 ucAddLoan.AllBookISBNCard.Remove(ucAddLoan.AllBookISBNCard.FirstOrDefault(item => item.getItem().ISBN == ucAddLoan.SelectedISBN.ISBN));
-                ucAddLoan.AllBookISBN.Remove(ucAddLoan.AllBookISBN.FirstOrDefault(item => item.ISBN == ucAddLoan.
-                SelectedISBN.ISBN));
 
                 AddBookISBNCardToWrap();
             }
+        }
+
+        private void UcLoanDetailCard_btnDeleteClick(object sender, RoutedEventArgs e)
+        {
+            BookDto bookDto = bookMap.ConvertToDto(bookVM.FindById(ucAddLoan.SelectedDetailCard.Item.IdBook, null));
+
+            LoanDetail getLoanDetail = ucAddLoan.LoanDetails.FirstOrDefault(item => item.Id == ucAddLoan.SelectedDetailCard.Item.Id);
+
+            ucAddLoan.LoanDetails.Remove(getLoanDetail);
+
+            ConvertToLoanDetailCard(ucAddLoan.LoanDetails);
+            AddLoanDetailCardToWrap();
+
+
+            BookISBN getISBN = bookISBNVM.FindByISBN(bookDto.ISBN, null);
+
+            ucAddLoan.AllBookISBN.Add(getISBN);
+
+            ConvertToBookISBNCard(ucAddLoan.AllBookISBN);
+            AddBookISBNCardToWrap();
         }
 
 
@@ -423,10 +443,19 @@ namespace AnhQuoc_C5_Assignment
                 ucLoanDetailCard.Width = CardWidth;
                 ucLoanDetailCard.Margin = new Thickness(CardMargin);
                 ucLoanDetailCard.getItem = () => loanDetailMap.ConvertToDto(isbn);
+
+                ucLoanDetailCard.btnDeleteClick += (_sender, _e) =>
+                {
+                    ucLoanDetailCard card = ucLoanDetailCard;
+                    if (ucAddLoan.SelectedDetailCard != null && ucAddLoan.SelectedDetailCard == card) return;
+
+                    ucAddLoan.SelectedDetailCard = card;
+                };
+
+                ucLoanDetailCard.btnDeleteClick += UcLoanDetailCard_btnDeleteClick;
                 ucAddLoan.AllLoanDetailCard.Add(ucLoanDetailCard);
             }
         }
-
 
         private void AddBookISBNCardToWrap()
         {

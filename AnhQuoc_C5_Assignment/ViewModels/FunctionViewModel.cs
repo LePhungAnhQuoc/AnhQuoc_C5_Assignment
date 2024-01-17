@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class FunctionViewModel : ViewModelBase<Function>
+    public class FunctionViewModel : BaseViewModel<Function>
     {
         public FunctionViewModel()
         {

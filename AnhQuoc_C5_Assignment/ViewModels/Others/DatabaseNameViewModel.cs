@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class DatabaseNameViewModel: ViewModelBase<DatabaseName>
+    public class DatabaseNameViewModel: BaseViewModel<DatabaseName>
     {
         public DatabaseNameViewModel()
         {

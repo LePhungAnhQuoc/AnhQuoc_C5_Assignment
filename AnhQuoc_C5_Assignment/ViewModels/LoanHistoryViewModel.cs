@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class LoanHistoryViewModel : ViewModelBase<LoanHistory>
+    public class LoanHistoryViewModel : BaseViewModel<LoanHistory>
     {
         public LoanHistoryViewModel()
         {

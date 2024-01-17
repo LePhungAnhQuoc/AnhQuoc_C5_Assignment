@@ -953,8 +953,11 @@ E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnB
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucAddLoanHistory.baml
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucInputReaderLoanHistory.baml
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucRetureBookInfo.baml
-E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csprojResolveAssemblyReference.cache
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBookCard.g.cs
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBookCard.baml
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.g.cs
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csprojResolveAssemblyReference.cache
+E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucLoanDetailHistoryInfo.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Styles\ContentControl.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucLoanDetailHistoryInfo.baml

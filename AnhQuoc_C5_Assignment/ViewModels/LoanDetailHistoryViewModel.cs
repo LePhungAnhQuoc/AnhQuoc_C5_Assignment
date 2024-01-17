@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class LoanDetailHistoryViewModel: ViewModelBase<LoanDetailHistory>
+    public class LoanDetailHistoryViewModel: BaseViewModel<LoanDetailHistory>
     {
         public LoanDetailHistoryViewModel()
         {
@@ -23,6 +23,21 @@ namespace AnhQuoc_C5_Assignment
             var propId = Item.GetType().GetProperty(nameof(Item.Id));
             int index = base.getMaxIndexId(propId);
             return base.GetId(index);
+        }
+
+        public LoanDetailHistory FindByIdBook(int idBook)
+        {
+            return FindByIdBook(Repo.Gets(), idBook);
+        }
+
+        public LoanDetailHistory FindByIdBook(ObservableCollection<LoanDetailHistory> source, int idBook)
+        {
+            return source.FirstOrDefault(item => item.IdBook == idBook);
+        }
+
+        public LoanDetailHistory FindByIdBook(ObservableCollection<LoanDetailHistoryDto> source, int idBook)
+        {
+            return FindByIdBook(CreateByDto(source), idBook);
         }
 
         public ObservableCollection<LoanDetailHistory> FillListByISBN(string isbn, bool? bookStatusValue)
@@ -75,6 +90,11 @@ namespace AnhQuoc_C5_Assignment
             LoanDetailHistory LoanDetailHistory = new LoanDetailHistory();
             Copy(LoanDetailHistory, dto);
             return LoanDetailHistory;
+        }
+
+        public ObservableCollection<LoanDetailHistory> CreateByDto(ObservableCollection<LoanDetailHistoryDto> source)
+        {
+            return source.Select(dto => CreateByDto(dto)).ToObservableCollection();
         }
 
         public void Copy(LoanDetailHistory dest, LoanDetailHistoryDto source)
