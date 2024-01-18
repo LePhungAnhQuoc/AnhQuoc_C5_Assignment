@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
+            xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="900"
              Background="White">
@@ -62,7 +64,15 @@
                                 <ComboBox Name="cbSelectReaderType"
                                           Style="{StaticResource cbStyle2}"
                                           ItemsSource="{Binding AllReaderTypes}"
-                                          SelectedItem="{Binding SelectedReaderType}"></ComboBox>
+                                          SelectedItem="{Binding SelectedReaderType}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="SelectionChanged">
+                                            <i:InvokeCommandAction Command="{Binding ReadercbSelectReaderTypeSelectionChangedCmd}" 
+                                                                   CommandParameter="{Binding ElementName=cbSelectReaderType}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    
+                                </ComboBox>
                                 <TextBlock Text="Select Reader Type">
                                     <TextBlock.Style>
                                         <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolderComboBox}">
@@ -192,12 +202,14 @@
                         Style="{StaticResource stkWrapButton}">
                 <Button Name="btnConfirm" Content="Confirm"
                         HorizontalAlignment="Stretch"
-                        Style="{StaticResource btnConfirm}">
+                        Style="{StaticResource btnConfirm}"
+                        Command="{Binding ReaderBtnConfirmClickCmd}">
                 </Button>
                 <Button Name="btnCancel" Content="Cancel" 
                         Style="{StaticResource btnCancel}"
                         HorizontalAlignment="Stretch"
-                        Margin="10 0 0 0"/>
+                        Margin="10 0 0 0"
+                        Command="{Binding ReaderBtnCancelClickCmd}"/>
             </StackPanel>
         </Grid>
 

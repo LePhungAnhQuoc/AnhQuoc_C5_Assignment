@@ -50,10 +50,6 @@ namespace AnhQuoc_C5_Assignment
         private ucAddLoan ucAddLoan;
         #endregion
 
-        #region Forms
-        private ucInputBookInfo ucInputBookInfo;
-        #endregion
-
         #region Properties
         private ObservableCollection<ReaderType> _AllReaderTypes;
         public ObservableCollection<ReaderType> AllReaderTypes
@@ -165,9 +161,6 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             #region Register-Event
-            btnConfirm.Click += BtnConfirm_Click;
-            btnCancel.Click += BtnCancel_Click;
-
             cbSelectReaderType.SelectionChanged += CbSelectReaderType_SelectionChanged;
             
             cbAdultTxtIdentify.DropDownClosed += CbAdultTxtIdentify_DropDownClosed;
@@ -186,7 +179,12 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             this.Loaded += ucSelectReaderInfo_Loaded;
-            this.DataContext = this;
+
+
+
+            var context = new BorrowBookViewModel();
+            context.getucSelectReaderInfo = () => this;
+            this.DataContext = context;
         }
 
         private void ucSelectReaderInfo_Loaded(object sender, RoutedEventArgs e)
@@ -211,22 +209,7 @@ namespace AnhQuoc_C5_Assignment
         }
         
 
-        private void BtnConfirm_Click(object sender, RoutedEventArgs e)
-        {
-            ucInputBookInfo = MainWindow.UnitOfForm.UcInputBookInfo(true);
-            ucInputBookInfo.getItem = getItem;
-            ucInputBookInfo.getStoreContent = getStoreContent;
-            ucInputBookInfo.getParentUc = getParentUc;
 
-            getStoreContent().Push(this.Content);
-            this.Content = ucInputBookInfo;
-        }
-
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            this.Content = getStoreContent().Pop();
-        }
-        
         private bool IsAllSelecting()
         {
             if (ucAddLoan.SelectedReader == null)
@@ -432,47 +415,7 @@ namespace AnhQuoc_C5_Assignment
 
         // Others methods
 
-        #region GetsDatasMethods
-        private void CbSelectReaderType_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (cbSelectReaderType.SelectedItem == null) return;
-
-            var readerType = (ReaderType)cbSelectReaderType.SelectedItem;
-            if (readerType == ReaderType.Adult)
-            {
-                handle = true;
-                ucAddLoan.FillReaderByType = readerVM.FillListByType(readerType, ucAddLoan.StatusValue);
-
-                var FillReaderByTypeDto = readerMap.ConvertToDto(ucAddLoan.FillReaderByType);
-                var adults = adultVM.GetListFromReaders(ucAddLoan.FillReaderByType, ucAddLoan.StatusValue);
-
-                ucAddLoan.AllAdults = adultMap.ConvertToDto(adults);
-                cbAdultTxtIdentify.ItemsSource = ucAddLoan.AllAdults;
-
-                stkAdultInformation.Visibility = Visibility.Visible;
-                stkChildInformation.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                handle = true;
-                ucAddLoan.FillReaderByType = readerVM.FillListByType(readerType, ucAddLoan.StatusValue);
-
-
-                var FillReaderByTypeDto = readerMap.ConvertToDto(ucAddLoan.FillReaderByType);
-                var childs = childVM.GetListFromReaders(ucAddLoan.FillReaderByType, ucAddLoan.StatusValue);
-                var childDTOs = childMap.ConvertToDto(childs);
-
-
-                var adults = adultVM.GetListFromChilds(childs, ucAddLoan.StatusValue);
-
-                ucAddLoan.AllGuardians = adultMap.ConvertToDto(adults);
-                cbGuardianTxtIdentify.ItemsSource = ucAddLoan.AllGuardians;
-
-                stkAdultInformation.Visibility = Visibility.Collapsed;
-                stkChildInformation.Visibility = Visibility.Visible;
-            }
-        }
-        
+        #region GetsDatasMethods        
         #endregion
 
         

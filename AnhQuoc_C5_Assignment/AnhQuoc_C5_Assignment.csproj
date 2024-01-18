@@ -91,6 +91,7 @@
     <Compile Include="Animations\ucLoadingSpinnerControl.xaml.cs">
       <DependentUpon>ucLoadingSpinnerControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Converters\DateMinToNullValueConverter.cs" />
     <Compile Include="Converters\HalfLengthConverter.cs" />
     <Compile Include="Converters\IsLoanOutOfDateConverter.cs" />
