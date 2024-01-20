@@ -182,12 +182,13 @@ namespace AnhQuoc_C5_Assignment
         
         private void NewItemFromUcAdd()
         {
-            if (ucAddLoan.LoanSlipDto == null) // Cancel the operation
+            if (ucAddLoan.Context.LoanSlipDto == null) // Cancel the operation
             {
                 return;
             }
 
-            LoanSlip newLoanSlip = ucAddLoan.LoanSlip;
+            
+            LoanSlip newLoanSlip = ucAddLoan.Context.LoanSlip;
 
             #region AddTo-listFill
             listFillLoanSlips.Add(newLoanSlip);

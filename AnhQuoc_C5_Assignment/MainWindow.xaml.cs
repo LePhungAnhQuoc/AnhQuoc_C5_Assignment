@@ -32,6 +32,9 @@ namespace AnhQuoc_C5_Assignment
 
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        public static BorrowBookViewModel borrowBookContext;
+        public static ReturnBookViewModel returnBookContext;
+
         public static User loginUser;
         public static string DataSource;
         public static string InitCatalog;

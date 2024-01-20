@@ -5,8 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d" 
-             Background="White">
+             Background="White"
+             x:Name="myUserControl">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding BookLoadedCmd}" 
+                                   CommandParameter="{Binding ElementName=myUserControl}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <UserControl.Resources>
         <System:Double x:Key="gridBarHeight">50</System:Double>
     </UserControl.Resources>
@@ -80,9 +88,25 @@
                             <ComboBox Name="cbTxtReason"
                                       Style="{StaticResource cbGeneral}"
                                       DisplayMemberPath="Name">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="DropDownClosed">
+                                        <i:InvokeCommandAction Command="{Binding BookcbTxtReasonDropDownClosedCmd}" 
+                                                                           CommandParameter="{Binding ElementName=cbTxtReason}" />
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding BookcbTxtReasonSelectionChangedCmd}" 
+                                                                           CommandParameter="{Binding ElementName=cbTxtReason}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                             </ComboBox>
                             <TextBox Name="txtReason"
                                      Grid.Column="1">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding BooktxtReasonTextChangedCmd}"
+                                                                           CommandParameter="{Binding ElementName=txtReason}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                                 <TextBox.Text>
                                     <Binding Path="InputReason" UpdateSourceTrigger="PropertyChanged">
                                         <Binding.ValidationRules>
@@ -127,18 +151,25 @@
                         </TextBox>
                     </Grid>
 
-                    <Grid>
-                        <Button Name="btnFinish"
-                                Style="{StaticResource btnFinish}"
-                                Content="Finish"
-                                Margin="0 0 0 20"
-                                Visibility="Collapsed" />
-                        <Button Name="btnReturnBook"
-                                Style="{StaticResource btnConfirm}"
-                                Content="Return Book"
-                                Margin="0 0 0 20"/>
-                    </Grid>
-
+                    <StackPanel Name="stkWrapButton"
+                                Style="{StaticResource stkWrapButton}"
+                                Margin="0 0 0 20">
+                        <Grid>
+                            <Button Name="btnFinish"
+                                    Style="{StaticResource btnFinish}"
+                                    Content="Finish"
+                                    Visibility="Collapsed" 
+                                    Command="{Binding BookBtnFinishClickCmd}" />
+                            <Button Name="btnReturnBook"
+                                    Style="{StaticResource btnConfirm}"
+                                    Content="Return Book"
+                                    Command="{Binding BookBtnReturnBookClickCmd}"/>
+                        </Grid>
+                        <Button Name="btnCancel"
+                                Style="{StaticResource btnCancel}"
+                                Margin="10 0 0 0"
+                                Command="{Binding BookBtnCancelClickCmd}"/>
+                    </StackPanel>
                 </StackPanel>
             </Border>
 

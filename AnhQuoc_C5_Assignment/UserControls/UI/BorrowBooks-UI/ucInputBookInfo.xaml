@@ -5,9 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="900"
-             Background="White">
+             Background="White"
+             x:Name="myUserControl">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding BookInfoLoadedCmd}" 
+                                   CommandParameter="{Binding ElementName=myUserControl}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <UserControl.Resources>
         <System:Double x:Key="gridBarHeight">50</System:Double>
         <Thickness x:Key="borderDistance" Top="10" Left="10" Right="10" Bottom="10" />
@@ -80,10 +89,27 @@
                                           Name="gdInputBookName"
                                           Style="{x:Null}">
                                         <ComboBox Name="cbTxtBookName"
-                                          DisplayMemberPath="Name">
+                                                  DisplayMemberPath="Name">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="DropDownClosed">
+                                                    <i:InvokeCommandAction Command="{Binding ReadercbTxtBookNameDropDownClosedCmd}" 
+                                                                           CommandParameter="{Binding ElementName=cbTxtBookName}" />
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="SelectionChanged">
+                                                    <i:InvokeCommandAction Command="{Binding ReadercbTxtBookNameSelectionChangedCmd}" 
+                                                                           CommandParameter="{Binding ElementName=cbTxtBookName}" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
                                         </ComboBox>
                                         <TextBox Name="txtInputBookName"
                                                  Grid.Column="1">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="TextChanged">
+                                                    <i:InvokeCommandAction Command="{Binding ReadertxtInputBookNameTextChangedCmd}" 
+                                                                           CommandParameter="{Binding ElementName=txtInputBookName}" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+
                                             <TextBox.Text>
                                                 <Binding Path="InputBookName" UpdateSourceTrigger="PropertyChanged">
                                                     <Binding.ValidationRules>
@@ -158,12 +184,14 @@
                         Style="{StaticResource stkWrapButton}">
                 <Button Name="btnConfirm" Content="Confirm"
                         HorizontalAlignment="Stretch"
-                        Style="{StaticResource btnConfirm}">
+                        Style="{StaticResource btnConfirm}"
+                        Command="{Binding BookInfoBtnConfirmClickCmd}">
                 </Button>
                 <Button Name="btnCancel" Content="Cancel" 
                         Style="{StaticResource btnCancel}"
                         HorizontalAlignment="Stretch"
-                        Margin="10 0 0 0"/>
+                        Margin="10 0 0 0"
+                        Command="{Binding BookInfoBtnCancelClickCmd}"/>
             </StackPanel>
         </Grid>
 

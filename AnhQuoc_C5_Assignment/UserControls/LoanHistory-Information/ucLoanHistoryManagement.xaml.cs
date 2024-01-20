@@ -215,12 +215,12 @@ namespace AnhQuoc_C5_Assignment
 
         private void NewItemFromUcAdd()
         {
-            if (ucAddLoanHistory.Item == null) // Cancel the operation
+            if (ucAddLoanHistory.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            LoanHistoryDto newLoanHistoryDto = ucAddLoanHistory.Item;
+            LoanHistoryDto newLoanHistoryDto = ucAddLoanHistory.Context.Item;
             LoanHistory newLoanHistory = loanHistoryVM.CreateByDto(newLoanHistoryDto);
 
             #region AddTo-listFill

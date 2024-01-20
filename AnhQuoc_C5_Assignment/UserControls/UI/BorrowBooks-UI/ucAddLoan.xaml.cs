@@ -24,13 +24,31 @@ namespace AnhQuoc_C5_Assignment
     /// </summary>
     public partial class ucAddLoan : UserControl
     {
+        #region getDatas
+        public Func<ReaderRepository> getReaderRepo { get; set; }
+        public Func<AdultRepository> getAdultRepo { get; set; }
+        public Func<ChildRepository> getChildRepo { get; set; }
+        public Func<BookTitleRepository> getBookTitleRepo { get; set; }
+        public Func<BookISBNRepository> getBookISBNRepo { get; set; }
+        public Func<BookRepository> getBookRepo { get; set; }
+        public Func<ParameterRepository> getParameterRepo { get; set; }
+        public Func<ProvinceRepository> getProvinceRepo { get; set; }
+        public Func<LoanDetailRepository> getLoanDetailRepo { get; set; }
+        public Func<LoanSlipRepository> getLoanSlipRepo { get; set; }
+        public Func<ucLoanSlipManagement> getParentUc { get; set; }
+
+
+        #endregion
+
+        public static BorrowBookViewModel Context; 
+
         public ucAddLoan()
         {
             InitializeComponent();
 
-            var context = new BorrowBookViewModel();
-            context.getUcAddLoan = () => this;
-            this.DataContext = context;
+            MainWindow.borrowBookContext = new BorrowBookViewModel();
+            Context = MainWindow.borrowBookContext;
+            this.DataContext = Context;
         }
     }
 }

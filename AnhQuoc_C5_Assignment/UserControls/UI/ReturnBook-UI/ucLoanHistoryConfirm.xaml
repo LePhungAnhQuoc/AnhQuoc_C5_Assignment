@@ -5,7 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" Background="White"
-             d:DesignWidth="800">
+             d:DesignWidth="800"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             x:Name="myUserControl">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoanConfirmLoadedCmd}" 
+                                   CommandParameter="{Binding ElementName=myUserControl}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
     <Border Name="bdConfirmInformation"
             Style="{StaticResource bdStyle1}"
             HorizontalAlignment="Stretch">

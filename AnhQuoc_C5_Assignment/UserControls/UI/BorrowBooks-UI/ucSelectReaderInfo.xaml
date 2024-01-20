@@ -5,11 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
-            xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
 
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="900"
-             Background="White">
+             Background="White"
+             x:Name="myUserControl">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding ReaderLoadedCmd}" 
+                                   CommandParameter="{Binding ElementName=myUserControl}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <UserControl.Resources>
         <System:Double x:Key="gridBarHeight">50</System:Double>
         <Thickness x:Key="borderDistance" Top="10" Left="10" Right="10" Bottom="10" />
@@ -71,7 +78,6 @@
                                                                    CommandParameter="{Binding ElementName=cbSelectReaderType}" />
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
-                                    
                                 </ComboBox>
                                 <TextBlock Text="Select Reader Type">
                                     <TextBlock.Style>
@@ -88,7 +94,7 @@
                             </Grid>
                             <!-- Adult -->
                             <StackPanel Name="stkAdultInformation"
-                                    Visibility="Visible">
+                                        Visibility="Visible">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="100" />
@@ -101,9 +107,25 @@
                                         <ComboBox Name="cbAdultTxtIdentify"
                                               Style="{StaticResource cbGeneral}"
                                               DisplayMemberPath="Identify">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="DropDownClosed">
+                                                    <i:InvokeCommandAction Command="{Binding ReadercbAdultTxtIdentifyDropDownClosedCmd}" 
+                                                                           CommandParameter="{Binding ElementName=cbAdultTxtIdentify}" />
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="SelectionChanged">
+                                                    <i:InvokeCommandAction Command="{Binding ReadercbAdultTxtIdentifySelectionChangedCmd}" 
+                                                                           CommandParameter="{Binding ElementName=cbAdultTxtIdentify}" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
                                         </ComboBox>
                                         <TextBox Name="txtAdultInputIdentify"
                                              Grid.Column="1">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="TextChanged">
+                                                    <i:InvokeCommandAction Command="{Binding ReadertxtAdultInputIdentifyTextChangedCmd}"
+                                                                           CommandParameter="{Binding ElementName=txtAdultInputIdentify}" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
                                             <TextBox.Text>
                                                 <Binding Path="InputIdentify" UpdateSourceTrigger="PropertyChanged">
                                                     <Binding.ValidationRules>
@@ -144,9 +166,25 @@
                                         <ComboBox Name="cbGuardianTxtIdentify"
                                               Style="{StaticResource cbGeneral}"
                                               DisplayMemberPath="Identify">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="DropDownClosed">
+                                                    <i:InvokeCommandAction Command="{Binding ReadercbGuardianTxtIdentifyDropDownClosedCmd}" 
+                                                                           CommandParameter="{Binding ElementName=cbGuardianTxtIdentify}" />
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="SelectionChanged">
+                                                    <i:InvokeCommandAction Command="{Binding ReadercbGuardianTxtIdentifySelectionChangedCmd}" 
+                                                                           CommandParameter="{Binding ElementName=cbGuardianTxtIdentify}" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
                                         </ComboBox>
                                         <TextBox Name="txtGuardianInputIdentify"
                                              Grid.Column="1">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="TextChanged">
+                                                    <i:InvokeCommandAction Command="{Binding ReadertxtGuardianInputIdentifyTextChangedCmd}" 
+                                                                           CommandParameter="{Binding ElementName=txtGuardianInputIdentify}" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
                                             <TextBox.Text>
                                                 <Binding Path="InputIdentify" UpdateSourceTrigger="PropertyChanged">
                                                     <Binding.ValidationRules>
@@ -171,8 +209,24 @@
                                               Style="{StaticResource cbGeneral}"
                                               DisplayMemberPath="FullName"
                                               SelectedValuePath="FullName">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="DropDownClosed">
+                                                    <i:InvokeCommandAction Command="{Binding ReadercbChildTxtReaderNameDropDownClosedCmd}" 
+                                                                           CommandParameter="{Binding ElementName=cbChildTxtReaderName}" />
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="SelectionChanged">
+                                                    <i:InvokeCommandAction Command="{Binding ReadercbChildTxtReaderNameSelectionChangedCmd}" 
+                                                                           CommandParameter="{Binding ElementName=cbChildTxtReaderName}" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
                                         </ComboBox>
                                         <TextBox Name="txtChildInputReaderName">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="TextChanged">
+                                                    <i:InvokeCommandAction Command="{Binding ReadertxtChildInputReaderNameTextChangedCmd}" 
+                                                                           CommandParameter="{Binding ElementName=txtChildInputReaderName}" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
                                             <TextBox.Text>
                                                 <Binding Path="InputFullName" UpdateSourceTrigger="PropertyChanged">
                                                     <Binding.ValidationRules>

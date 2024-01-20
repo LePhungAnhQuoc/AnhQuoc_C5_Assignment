@@ -813,7 +813,6 @@ E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-I
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipInformationStyle2.g.cs
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipManagement.g.cs
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetail-Information\ucLoanDetailsTable.g.cs
-E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucLoanSlipPayment.g.cs
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucButtonCircle.g.cs
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Others\ucLogOut.g.cs
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucPagination.g.cs
@@ -901,7 +900,6 @@ E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-I
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipInformationStyle2.baml
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipManagement.baml
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetail-Information\ucLoanDetailsTable.baml
-E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucLoanSlipPayment.baml
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucButtonCircle.baml
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Others\ucLogOut.baml
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucPagination.baml
@@ -957,7 +955,10 @@ E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Info
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBookCard.baml
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.g.cs
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.baml
-E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csprojResolveAssemblyReference.cache
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucLoanDetailHistoryInfo.g.cs
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\Styles\ContentControl.baml
 E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucLoanDetailHistoryInfo.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\bin\Debug\Microsoft.Expression.Interactions.dll
+E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\bin\Debug\System.Windows.Interactivity.dll
+E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\bin\Debug\Microsoft.Expression.Interactions.xml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment\bin\Debug\System.Windows.Interactivity.xml

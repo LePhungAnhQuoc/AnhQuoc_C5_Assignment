@@ -366,9 +366,6 @@
     <Compile Include="UserControls\LoanDetail-Information\ucLoanDetailsTable.xaml.cs">
       <DependentUpon>ucLoanDetailsTable.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UI\BorrowBooks-UI\ucLoanSlipPayment.xaml.cs">
-      <DependentUpon>ucLoanSlipPayment.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Pagination-Uti\ucButtonCircle.xaml.cs">
       <DependentUpon>ucButtonCircle.xaml</DependentUpon>
     </Compile>
@@ -499,6 +496,7 @@
     <Compile Include="ViewModels\LoanHistoryViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="ViewModels\ViewModels-For-UI\BorrowBookViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\ReturnBookViewModel.cs" />
     <Compile Include="Views\Book\frmBookISBNInformation.xaml.cs">
       <DependentUpon>frmBookISBNInformation.xaml</DependentUpon>
     </Compile>
@@ -750,10 +748,6 @@
     <Page Include="UserControls\LoanDetail-Information\ucLoanDetailsTable.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControls\UI\BorrowBooks-UI\ucLoanSlipPayment.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Pagination-Uti\ucButtonCircle.xaml">
       <SubType>Designer</SubType>

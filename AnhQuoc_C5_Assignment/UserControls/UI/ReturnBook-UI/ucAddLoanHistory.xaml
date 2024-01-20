@@ -5,6 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d"
-             Background="White">
+             Background="White"
+              x:Name="myUserControl">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding ucAddLoanHistoryLoadedCmd}" 
+                                   CommandParameter="{Binding ElementName=myUserControl}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 </UserControl>

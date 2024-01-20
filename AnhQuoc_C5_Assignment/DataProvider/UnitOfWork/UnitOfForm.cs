@@ -39,7 +39,6 @@ namespace AnhQuoc_C5_Assignment
         private ucBookTitleManagement ucBookTitleManagement;
         private ucLoanHistoryManagement ucLoanHistoryManagement;
         private ucLoanSlipManagement ucLoanSlipManagement;
-        private ucLoanSlipPayment ucLoanSlipPayment;
         private ucReaderLoanInformation ucReaderLoanInformation;
         private ucAddLoan ucAddLoan;
         private ucAddLoanHistory ucAddLoanHistory;
@@ -107,13 +106,7 @@ namespace AnhQuoc_C5_Assignment
         {
             get { return _UcReaderLoanInformation; }
         }
-
-        private Func<bool, ucLoanSlipPayment> _UcLoanSlipPayment;
-        public Func<bool, ucLoanSlipPayment> UcLoanSlipPayment
-        {
-            get { return _UcLoanSlipPayment; }
-        }
-
+        
         private Func<bool, ucLoanSlipManagement> _UcLoanSlipManagement;
         public Func<bool, ucLoanSlipManagement> UcLoanSlipManagement
         {
@@ -344,15 +337,6 @@ namespace AnhQuoc_C5_Assignment
                 if (isReAllocate)
                 {
                     ucInputReaderLoanHistory = new ucInputReaderLoanHistory();
-
-                    ucInputReaderLoanHistory.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
-                    ucInputReaderLoanHistory.getLoanDetailRepo = () => _UnitOfRepo.LoanDetailRepo;
-                    ucInputReaderLoanHistory.getLoanHistoryRepo = () => _UnitOfRepo.LoanHistoryRepo;
-                    ucInputReaderLoanHistory.getLoanDetailHistoryRepo = () => _UnitOfRepo.LoanDetailHistoryRepo;
-                    ucInputReaderLoanHistory.getBookRepo = () => _UnitOfRepo.BookRepo;
-                    ucInputReaderLoanHistory.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
-                    ucInputReaderLoanHistory.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
-
                 }
                 return ucInputReaderLoanHistory;
             };
@@ -363,14 +347,6 @@ namespace AnhQuoc_C5_Assignment
                 if (isReAllocate)
                 {
                     ucRetureBookInfo = new ucRetureBookInfo();
-
-                    ucRetureBookInfo.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
-                    ucRetureBookInfo.getLoanDetailRepo = () => _UnitOfRepo.LoanDetailRepo;
-                    ucRetureBookInfo.getLoanHistoryRepo = () => _UnitOfRepo.LoanHistoryRepo;
-                    ucRetureBookInfo.getLoanDetailHistoryRepo = () => _UnitOfRepo.LoanDetailHistoryRepo;
-                    ucRetureBookInfo.getBookRepo = () => _UnitOfRepo.BookRepo;
-                    ucRetureBookInfo.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
-                    ucRetureBookInfo.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
                 }
                 return ucRetureBookInfo;
             };
@@ -400,17 +376,6 @@ namespace AnhQuoc_C5_Assignment
                 if (isReAllocate)
                 {
                     ucInputBookInfo = new ucInputBookInfo();
-
-                    ucInputBookInfo.getReaderRepo = () => _UnitOfRepo.ReaderRepo;
-                    ucInputBookInfo.getAdultRepo = () => _UnitOfRepo.AdultRepo;
-                    ucInputBookInfo.getChildRepo = () => _UnitOfRepo.ChildRepo;
-                    ucInputBookInfo.getProvinceRepo = () => _UnitOfRepo.ProvinceRepo;
-                    ucInputBookInfo.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
-                    ucInputBookInfo.getLoanDetailRepo = () => _UnitOfRepo.LoanDetailRepo;
-                    ucInputBookInfo.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
-                    ucInputBookInfo.getBookTitleRepo = () => _UnitOfRepo.BookTitleRepo;
-                    ucInputBookInfo.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
-                    ucInputBookInfo.getBookRepo = () => _UnitOfRepo.BookRepo;
                 }
                 return ucInputBookInfo;
             };
@@ -420,17 +385,6 @@ namespace AnhQuoc_C5_Assignment
                 if (isReAllocate)
                 {
                     ucSelectReaderInfo = new ucSelectReaderInfo();
-
-                    ucSelectReaderInfo.getReaderRepo = () => _UnitOfRepo.ReaderRepo;
-                    ucSelectReaderInfo.getAdultRepo = () => _UnitOfRepo.AdultRepo;
-                    ucSelectReaderInfo.getChildRepo = () => _UnitOfRepo.ChildRepo;
-                    ucSelectReaderInfo.getProvinceRepo = () => _UnitOfRepo.ProvinceRepo;
-                    ucSelectReaderInfo.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
-                    ucSelectReaderInfo.getLoanDetailRepo = () => _UnitOfRepo.LoanDetailRepo;
-                    ucSelectReaderInfo.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
-                    ucSelectReaderInfo.getBookTitleRepo = () => _UnitOfRepo.BookTitleRepo;
-                    ucSelectReaderInfo.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
-                    ucSelectReaderInfo.getBookRepo = () => _UnitOfRepo.BookRepo;
                 }
                 return ucSelectReaderInfo;
             };
@@ -452,16 +406,7 @@ namespace AnhQuoc_C5_Assignment
                 }
                 return ucReaderLoanInformation;
             };
-
-            _UcLoanSlipPayment = (isReAllocate) =>
-            {
-                if (isReAllocate)
-                {
-                    ucLoanSlipPayment = new ucLoanSlipPayment();
-                }
-                return ucLoanSlipPayment;
-            };
-
+            
             _UcDisplayFunction = (isReAllocate) =>
             {
                 if (isReAllocate)
@@ -909,19 +854,19 @@ namespace AnhQuoc_C5_Assignment
         public void Load()
         {
             // UserControls
-            ucInputReaderLoanHistory = UcInputReaderLoanHistory(true);
-            ucRetureBookInfo = UcRetureBookInfo(true);
-            ucAddLoanHistory = UcAddLoanHistory(true);
-            ucInputBookInfo = UcInputBookInfo(true);
-            ucSelectReaderInfo = UcSelectReaderInfo(true);
+            ucInputReaderLoanHistory = UcInputReaderLoanHistory(false);
+            ucRetureBookInfo = UcRetureBookInfo(false);
+            ucAddLoanHistory = UcAddLoanHistory(false);
+
+            ucInputBookInfo = UcInputBookInfo(false);
+            ucSelectReaderInfo = UcSelectReaderInfo(false);
             ucFunctionInformation = UcFunctionInformation(true);
             ucReaderLoanInformation = UcReaderLoanInformation(true);
-            ucLoanSlipPayment = UcLoanSlipPayment(true);
             ucDisplayFunction = UcDisplayFunction(true);
             ucLoanSlipInformation = UcLoanSlipInformation(true);
             ucLoanSlipInformationStyle2 = UcLoanSlipInformationStyle2(true);
             ucAddBookTitle = UcAddBookTitle(true);
-            ucAddLoan = UcAddLoan(true);
+            ucAddLoan = UcAddLoan(false);
             ucAddBookISBN = UcAddBookISBN(true);
             ucAddBook = UcAddBook(true);
             ucAddAdult = UcAddAdult(true);
