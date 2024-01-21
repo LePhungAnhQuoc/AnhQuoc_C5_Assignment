@@ -30,6 +30,17 @@ namespace AnhQuoc_C5_Assignment
         #region Properties
         public UnitOfRepository UnitOfRepo { get; set; }
 
+        private PublisherMap _PublisherMap;
+        public PublisherMap PublisherMap
+        {
+            get
+            {
+                if (_PublisherMap == null)
+                    _PublisherMap = new PublisherMap();
+                return _PublisherMap;
+            }
+        }
+
         private BookTitleMap _BookTitleMap;
         public BookTitleMap BookTitleMap
         {
@@ -38,6 +49,17 @@ namespace AnhQuoc_C5_Assignment
                 if (_BookTitleMap == null)
                     _BookTitleMap = new BookTitleMap();
                 return _BookTitleMap;
+            }
+        }
+
+        private CategoryMap _CategoryMap;
+        public CategoryMap CategoryMap
+        {
+            get
+            {
+                if (_CategoryMap == null)
+                    _CategoryMap = new CategoryMap();
+                return _CategoryMap;
             }
         }
 
@@ -234,12 +256,14 @@ namespace AnhQuoc_C5_Assignment
 
         public void Load()
         {
+            _PublisherMap = new   PublisherMap();
             _BookISBNMap = new BookISBNMap();
             _LoanDetailHistoryMap = new LoanDetailHistoryMap();
             _LoanSlipMap = new LoanSlipMap();
             _LoanDetailMap = new LoanDetailMap();
             _LoanHistoryMap = new LoanHistoryMap();
             _BookTitleMap = new BookTitleMap();
+            _CategoryMap = new CategoryMap();
             _PenaltyReasonMap = new PenaltyReasonMap();
             _BookMap = new BookMap();        
             _ProvinceMap = new ProvinceMap();

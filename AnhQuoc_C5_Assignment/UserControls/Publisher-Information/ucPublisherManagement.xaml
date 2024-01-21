@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="AnhQuoc_C5_Assignment.ucPublisherManagement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1000"
+             Name="userControl">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <!-- Header -->
+            <Label Style="{StaticResource lblTitle}"
+                   Content="Publishers Management"/>
+        
+            <!-- Function Bar -->
+            <Grid Margin="30 0 0 0"
+                  HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+            
+                <Grid Grid.Column="0">
+                    <TextBox Name="txtSearch"
+                             Style="{StaticResource txtStyleSearch}"/>
+                    <TextBlock Text="Search by name here...">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolder}">
+                                <Setter Property="Visibility" Value="Hidden" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=txtSearch, Path=Text}" Value="">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            Margin="30 0 0 0">
+                    <Button Name="btnAdd"
+                            Style="{StaticResource btnAdd}"
+                            Content="New Publisher" />
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <!-- Table -->
+        <local:ucPublishersTable Grid.Row="1"    
+                            x:Name="ucPublishersTable"
+                            Style="{StaticResource ucStyleVertical}"
+                            Height="auto"
+                            AllowPagination="True"
+                            NumberItems="7" />
+    </Grid>
+</UserControl>

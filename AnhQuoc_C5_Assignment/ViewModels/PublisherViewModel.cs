@@ -37,5 +37,28 @@ namespace AnhQuoc_C5_Assignment
             }
             return null;
         }
+
+
+        public bool IsCheckEmptyItem(PublisherDto item)
+        {
+            return Utilities.IsCheckEmptyItem(item, false);
+        }
+
+        public Publisher CreateByDto(PublisherDto dto)
+        {
+            Publisher publisher = new Publisher();
+            Copy(publisher, dto);
+            return publisher;
+        }
+
+        public void Copy(Publisher dest, PublisherDto source)
+        {
+            Utilities.Copy(dest, source);
+        }
+
+        public void Copy(PublisherDto dest, PublisherDto source)
+        {
+            Utilities.Copy(dest, source);
+        }
     }
 }

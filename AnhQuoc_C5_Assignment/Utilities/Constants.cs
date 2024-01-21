@@ -63,6 +63,8 @@ namespace AnhQuoc_C5_Assignment
         public const string BookManagement_FunctionId = "F36";
         public const string LoanSlipManagement_FunctionId = "F41";
         public const string LoanHistoryManagement_FunctionId = "F43";
+        public const string CategoryManagement_FunctionId = "F45";
+        public const string PublisherManagement_FunctionId = "F50";
 
         public static string Culture = "vi-VN";
         public static string DatabaseNameConfig = "QuanLyThuVienEntities";
@@ -102,7 +104,9 @@ namespace AnhQuoc_C5_Assignment
         public static string[] checkPropRole = new string[] { "Name" };
         public static string[] checkPropReader = new string[] { "LName", "FName", "boF", "ReaderType" };
         public static string[] checkPropChild = new string[] { "IdAdult" };
-        public static string[] checkPropAdult = new string[] { "Username" };
+        public static string[] checkPropUser = new string[] { "Username" };
+        public static string[] checkPropCategory = new string[] { "Name" };
+        public static string[] checkPropPublisher = new string[] { "Name" };
 
 
         #endregion

@@ -37,5 +37,28 @@ namespace AnhQuoc_C5_Assignment
             }
             return null;
         }
+
+
+        public bool IsCheckEmptyItem(CategoryDto item)
+        {
+            return Utilities.IsCheckEmptyItem(item, false);
+        }
+
+        public Category CreateByDto(CategoryDto dto)
+        {
+            Category category = new Category();
+            Copy(category, dto);
+            return category;
+        }
+
+        public void Copy(Category dest, CategoryDto source)
+        {
+            Utilities.Copy(dest, source);
+        }
+
+        public void Copy(CategoryDto dest, CategoryDto source)
+        {
+            Utilities.Copy(dest, source);
+        }
     }
 }

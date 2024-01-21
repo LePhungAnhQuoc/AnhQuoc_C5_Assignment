@@ -100,6 +100,7 @@
     <Compile Include="Converters\Others\InverseBoolConverter.cs" />
     <Compile Include="Converters\Others\Ulties\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\Others\Ulties\IndexDataGridItemConverter.cs" />
+    <Compile Include="Converters\StatusConvert\CategoryStatusConverter .cs" />
     <Compile Include="Converters\StatusConvert\AdultStatusConverter.cs" />
     <Compile Include="Converters\StatusConvert\AuthorStatusConverter.cs" />
     <Compile Include="Converters\StatusConvert\BookISBNStatusConverter.cs" />
@@ -158,6 +159,8 @@
     <Compile Include="ExtensionMethods\ListExtend.cs" />
     <Compile Include="ExtensionMethods\ObservableCollectionExtend.cs" />
     <Compile Include="ExtensionMethods\StringExtension.cs" />
+    <Compile Include="Mapping\CategoryMap.cs" />
+    <Compile Include="Mapping\PublisherMap.cs" />
     <Compile Include="Mapping\PenaltyReasonMap.cs" />
     <Compile Include="Mapping\AuthorMap.cs" />
     <Compile Include="Mapping\Base\MapBase.cs" />
@@ -291,8 +294,14 @@
     <Compile Include="Repositories\RepositoryBase\IRepositoryBase.cs" />
     <Compile Include="Repositories\ReaderRepository.cs" />
     <Compile Include="Repositories\RepositoryBase\Repository.cs" />
+    <Compile Include="UserControls\Author-Information\ucAuthorManagement.xaml.cs">
+      <DependentUpon>ucAuthorManagement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Author-Information\ucAuthorsTable.xaml.cs">
       <DependentUpon>ucAuthorsTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Author-Information\ucAuthorInformation.xaml.cs">
+      <DependentUpon>ucAuthorInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Book-ISBN-information\ucAddBookISBN.xaml.cs">
       <DependentUpon>ucAddBookISBN.xaml</DependentUpon>
@@ -314,6 +323,9 @@
     </Compile>
     <Compile Include="UserControls\Books-Information\ucBookCard.xaml.cs">
       <DependentUpon>ucBookCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Category-Information\ucCategoryInformation.xaml.cs">
+      <DependentUpon>ucCategoryInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Function-Information\ucDisplayFunction.xaml.cs">
       <DependentUpon>ucDisplayFunction.xaml</DependentUpon>
@@ -429,6 +441,21 @@
     <Compile Include="UserControls\UI\ReturnBook-UI\ucRetureBookInfo.xaml.cs">
       <DependentUpon>ucRetureBookInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Category-Information\ucCategoryManagement.xaml.cs">
+      <DependentUpon>ucCategoryManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Category-Information\ucCategorysTable.xaml.cs">
+      <DependentUpon>ucCategorysTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Publisher-Information\ucPublisherInformation.xaml.cs">
+      <DependentUpon>ucPublisherInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Publisher-Information\ucPublisherManagement.xaml.cs">
+      <DependentUpon>ucPublisherManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Publisher-Information\ucPublishersTable.xaml.cs">
+      <DependentUpon>ucPublishersTable.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\User-Information\ucUserInformation.xaml.cs">
       <DependentUpon>ucUserInformation.xaml</DependentUpon>
     </Compile>
@@ -500,6 +527,9 @@
     <Compile Include="Views\Book\frmBookISBNInformation.xaml.cs">
       <DependentUpon>frmBookISBNInformation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Category\frmAddCategory.xaml.cs">
+      <DependentUpon>frmAddCategory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\frmDefault.xaml.cs">
       <DependentUpon>frmDefault.xaml</DependentUpon>
     </Compile>
@@ -514,6 +544,9 @@
     </Compile>
     <Compile Include="Views\Login\frmInputServerName.xaml.cs">
       <DependentUpon>frmInputServerName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Publisher\frmAddPublisher.xaml.cs">
+      <DependentUpon>frmAddPublisher.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Reader\Information\frmChildReaderInformation.xaml.cs">
       <DependentUpon>frmChildReaderInformation.xaml</DependentUpon>
@@ -649,7 +682,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Author-Information\ucAuthorManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\Author-Information\ucAuthorsTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Author-Information\ucAuthorInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -678,6 +719,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\Books-Information\ucBookCard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Category-Information\ucCategoryInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -833,6 +878,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Category-Information\ucCategoryManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Category-Information\ucCategorysTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Publisher-Information\ucPublisherInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Publisher-Information\ucPublisherManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Publisher-Information\ucPublishersTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\User-Information\ucUserInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -857,6 +922,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Category\frmAddCategory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\frmDefault.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -876,6 +945,10 @@
     <Page Include="Views\Login\frmInputServerName.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Publisher\frmAddPublisher.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Reader\Information\frmChildReaderInformation.xaml">
       <Generator>MSBuild:Compile</Generator>

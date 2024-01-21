@@ -186,7 +186,10 @@ namespace AnhQuoc_C5_Assignment
             {
                 dtgbtnInfo.Visibility = Visibility.Collapsed;
             }
-         
+            if (btnRestoreClick == null)
+            {
+                dtgbtnRestore.Visibility = Visibility.Collapsed;
+            }
 
             if (getExceptProperties != null)
             {

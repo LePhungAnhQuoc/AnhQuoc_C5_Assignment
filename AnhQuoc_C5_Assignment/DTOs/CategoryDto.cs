@@ -12,9 +12,7 @@ namespace AnhQuoc_C5_Assignment
     public class CategoryDto: IDtoBase
     {
         public string Id { get; set; }
-
-
-
+        
         private string _Name;
         public string Name
         {
@@ -26,6 +24,7 @@ namespace AnhQuoc_C5_Assignment
             }
         }
         
+
         private bool _Status;
         public bool Status
         {

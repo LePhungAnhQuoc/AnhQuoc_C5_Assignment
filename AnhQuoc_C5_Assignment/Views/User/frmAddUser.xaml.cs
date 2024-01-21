@@ -31,7 +31,6 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Fields
-        private string tempUsername;
         #endregion
 
         #region Properties
@@ -120,8 +119,6 @@ namespace AnhQuoc_C5_Assignment
             else
             {
                 CopyItem();
-
-                tempUsername = Item.Username;
                 SetFormByAddOrUpdate("UPDATE");
             }
         }
@@ -159,7 +156,7 @@ namespace AnhQuoc_C5_Assignment
 
             // Kiểm tra thông tin Username của item có tồn tại trong danh sách
             User getUser = userVM.CreateByDto(Item);
-            bool isCheck = Utilities.IsExistInformation(getUserRepo().Gets(), getUser, true, Constants.checkPropAdult);
+            bool isCheck = Utilities.IsExistInformation(getUserRepo().Gets(), getUser, true, Constants.checkPropUser);
             if (isCheck)
             {
                 Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("username"));
@@ -183,10 +180,10 @@ namespace AnhQuoc_C5_Assignment
             User normalItem = userVM.CreateByDto(Item);
             User normalSourceItem = userVM.CreateByDto(getItemToUpdate());
 
-            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropAdult);
+            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropUser);
             if (!isExistItemToUpdate)
             {
-                bool isExistInformation = Utilities.IsExistInformation(getUserRepo().Gets(), normalItem, true, Constants.checkPropAdult);
+                bool isExistInformation = Utilities.IsExistInformation(getUserRepo().Gets(), normalItem, true, Constants.checkPropUser);
                 if (isExistInformation)
                 {
                     Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("username"));

@@ -50,6 +50,7 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Fields
+        private ucPublisherManagement ucPublisherManagement;
         private ucUserManagement ucUserManagement;
         private ucFunctionManagement ucFunctionManagement;
         private ucRoleManagement ucRoleManagement;
@@ -61,6 +62,7 @@ namespace AnhQuoc_C5_Assignment
         private ucBookTitleManagement ucBookTitleManagement;
         private ucLoanSlipManagement ucLoanSlipManagement;
         private ucLoanHistoryManagement ucLoanHistoryManagement;
+        private ucCategoryManagement ucCategoryManagement;
         #endregion
 
         #region ViewModels
@@ -77,6 +79,7 @@ namespace AnhQuoc_C5_Assignment
             roleVM = UnitOfViewModel.Instance.RoleViewModel;
 
             ucUserManagement = MainWindow.UnitOfForm.UcUserManagement(true);
+            ucPublisherManagement = MainWindow.UnitOfForm.UcPublisherManagement(true);
             ucFunctionManagement = MainWindow.UnitOfForm.UcFunctionManagement(true);
             ucRoleManagement = MainWindow.UnitOfForm.UcRoleManagement(true);
             ucUserRoleManagement = MainWindow.UnitOfForm.UcUserRoleManagement(true);
@@ -87,6 +90,7 @@ namespace AnhQuoc_C5_Assignment
             ucBookTitleManagement = MainWindow.UnitOfForm.UcBookTitleManagement(true);
             ucLoanSlipManagement = MainWindow.UnitOfForm.UcLoanSlipManagement(true);
             ucLoanHistoryManagement = MainWindow.UnitOfForm.UcLoanHistoryManagement(true);
+            ucCategoryManagement = MainWindow.UnitOfForm.UcCategoryManagement(true);
 
 
             ucLogOut.btnLogOut.Click += BtnLogOut_Click;
@@ -336,6 +340,58 @@ namespace AnhQuoc_C5_Assignment
                         }
                         break;
                     #endregion
+
+                    #region Category-Management
+                    case Constants.CategoryManagement_FunctionId:
+                        addFunc = childs.FirstOrDefault(item => item.Id == "F46");
+                        if (addFunc == null)
+                        {
+                            ucCategoryManagement.IsAllowAdd = false;
+                        }
+
+                        deleteFunc = childs.FirstOrDefault(item => item.Id == "F47");
+                        if (deleteFunc == null)
+                        {
+                            ucCategoryManagement.IsAllowDelete = false;
+                        }
+
+                        restoreFunc = childs.FirstOrDefault(item => item.Id == "F48");
+                        if (restoreFunc == null)
+                        {
+                            ucCategoryManagement.IsAllowRestore = false;
+                        }
+
+                        updateFunc = childs.FirstOrDefault(item => item.Id == "F49");
+                        if (updateFunc == null)
+                        {
+                            ucCategoryManagement.IsAllowUpdate = false;
+                        }
+
+                        break;
+                    #endregion
+
+                    #region Publisher-Management
+                    case Constants.PublisherManagement_FunctionId:
+                        addFunc = childs.FirstOrDefault(item => item.Id == "F51");
+                        if (addFunc == null)
+                        {
+                            ucPublisherManagement.IsAllowAdd = false;
+                        }
+
+                        deleteFunc = childs.FirstOrDefault(item => item.Id == "F52");
+                        if (deleteFunc == null)
+                        {
+                            ucPublisherManagement.IsAllowDelete = false;
+                        }
+                        
+                        updateFunc = childs.FirstOrDefault(item => item.Id == "F53");
+                        if (updateFunc == null)
+                        {
+                            ucPublisherManagement.IsAllowUpdate = false;
+                        }
+
+                        break;
+                        #endregion
                 }
             }
         }
@@ -347,6 +403,12 @@ namespace AnhQuoc_C5_Assignment
             {
                 case Constants.UserManagement_FunctionId:
                     TvUserManagementInformation_Function();
+                    break;
+                case Constants.CategoryManagement_FunctionId:
+                    TvCategoryManagementInformation_Function();
+                    break;
+                case Constants.PublisherManagement_FunctionId:
+                    TvPublisherManagementInformation_Function();
                     break;
                 case Constants.FeatureManagement_FunctionId:
                     TvFeatureManagementInformation_Function();
@@ -381,6 +443,22 @@ namespace AnhQuoc_C5_Assignment
             
             gdView.Children.Clear();
             gdView.Children.Add(ucUserManagement);
+        }
+
+        private void TvPublisherManagementInformation_Function()
+        {
+            Grid gdView = getGdView();
+
+            gdView.Children.Clear();
+            gdView.Children.Add(ucPublisherManagement);
+        }
+
+        private void TvCategoryManagementInformation_Function()
+        {
+            Grid gdView = getGdView();
+
+            gdView.Children.Clear();
+            gdView.Children.Add(ucCategoryManagement);
         }
 
         private void TvFeatureManagementInformation_Function()
