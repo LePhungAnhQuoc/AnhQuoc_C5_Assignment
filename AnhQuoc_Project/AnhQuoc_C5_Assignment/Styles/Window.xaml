@@ -5,6 +5,9 @@
         <Setter Property="WindowStyle" Value="None" />
         <Setter Property="SizeToContent" Value="WidthAndHeight" />
     </Style>
+    <Style TargetType="Window" x:Key="wdStyle2">
+        <Setter Property="SizeToContent" Value="WidthAndHeight" />
+    </Style>
     <Style TargetType="Window" x:Key="wdStyleBig">
         <Setter Property="Height" Value="700" />
         <Setter Property="Width" Value="1250" />

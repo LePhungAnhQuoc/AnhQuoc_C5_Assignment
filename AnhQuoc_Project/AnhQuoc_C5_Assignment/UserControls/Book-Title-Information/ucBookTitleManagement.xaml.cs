@@ -206,9 +206,11 @@ namespace AnhQuoc_C5_Assignment
 
             if (ucAddBookTitle.Item == null)
                 return;
-            
+
             #region AddToListFill
-            listFillBookTitles.Add(ucAddBookTitle.Item);
+            var getBookTitle = bookTitleVM.CreateByDto(ucAddBookTitle.Item); 
+
+            listFillBookTitles.Add(getBookTitle);
             AddItemsToDataGrid(listFillBookTitles);
             #endregion
         }

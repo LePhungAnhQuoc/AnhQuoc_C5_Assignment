@@ -3,6 +3,6 @@
     public enum ReaderType
     {
         Adult = 1,
-        Child = 0, 
+        Child = 0,
     }
 }

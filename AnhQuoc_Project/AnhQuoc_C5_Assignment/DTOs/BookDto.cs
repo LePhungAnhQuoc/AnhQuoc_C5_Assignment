@@ -26,50 +26,25 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        private string _Title;
-        public string Title
+        private string _IdPublisher;
+        public string IdPublisher
         {
-            get { return _Title; }
-            set 
-            { 
-                _Title = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string _Category;
-        public string Category
-        {
-            get
-            {
-                return _Category;
-            }
+            get { return _IdPublisher; }
             set
             {
-                _Category = value;
+                _IdPublisher = value;
                 OnPropertyChanged();
             }
         }
 
-        private string _Author;
-        public string Author
+        private string _IdTranslator;
+        public string IdTranslator
         {
-            get { return _Author; }
-            set 
-            { 
-                _Author = value; 
+            get { return _IdTranslator; }
+            set
+            {
+                _IdTranslator = value;
                 OnPropertyChanged();
-            }
-        }
-
-        private string _Translator;
-        public string Translator
-        {
-            get { return _Translator; }
-            set 
-            { 
-                _Translator = value; 
-                OnPropertyChanged();    
             }
         }
 
@@ -109,28 +84,6 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        private string _IdPublisher;
-        public string IdPublisher
-        {
-            get { return _IdPublisher; }
-            set
-            {
-                _IdPublisher = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string _IdTranslator;
-        public string IdTranslator
-        {
-            get { return _IdTranslator; }
-            set
-            {
-                _IdTranslator = value;
-                OnPropertyChanged();
-            }
-        }
-        
         private decimal _Price;
         public decimal Price
         {
@@ -163,7 +116,6 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-
 
         private bool _Status;
         public bool Status
@@ -208,6 +160,54 @@ namespace AnhQuoc_C5_Assignment
         }
 
         #region Other-Properties
+
+        private BookTitle _BookTitle;
+        public BookTitle BookTitle
+        {
+            get { return _BookTitle; }
+            set
+            {
+                _BookTitle = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Category _Category;
+        public Category Category
+        {
+            get
+            {
+                return _Category;
+            }
+            set
+            {
+                _Category = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Author _Author;
+        public Author Author
+        {
+            get { return _Author; }
+            set
+            {
+                _Author = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Translator _Translator;
+        public Translator Translator
+        {
+            get { return _Translator; }
+            set
+            {
+                _Translator = value;
+                OnPropertyChanged();
+            }
+        }
+
         private Publisher _Publisher;
         public Publisher Publisher
         {
@@ -218,6 +218,18 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
+
+        private BookStatu _BookStatus;
+        public BookStatu BookStatus
+        {
+            get { return _BookStatus; }
+            set
+            {
+                _BookStatus = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
         #region PropertyChanged

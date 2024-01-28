@@ -140,6 +140,18 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+
+        private BookStatusViewModel _BookStatusViewModel;
+        public BookStatusViewModel BookStatusViewModel
+        {
+            get
+            {
+                if (_BookStatusViewModel == null)
+                    _BookStatusViewModel = new BookStatusViewModel();
+                return _BookStatusViewModel;
+            }
+        }
+
         private BookISBNViewModel _BookISBNViewModel;
         public BookISBNViewModel BookISBNViewModel
         {
@@ -335,7 +347,10 @@ namespace AnhQuoc_C5_Assignment
            
             _BookTitleViewModel = new BookTitleViewModel();
             _BookTitleViewModel.Repo = _UnitOfRepo.BookTitleRepo;
-        
+
+            _BookStatusViewModel = new BookStatusViewModel();
+            _BookStatusViewModel.Repo = _UnitOfRepo.BookStatusRepo;
+
             _BookViewModel = new BookViewModel();
             _BookViewModel.Repo = _UnitOfRepo.BookRepo;
            

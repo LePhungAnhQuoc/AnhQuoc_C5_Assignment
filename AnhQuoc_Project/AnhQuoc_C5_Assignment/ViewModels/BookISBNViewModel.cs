@@ -80,5 +80,28 @@ namespace AnhQuoc_C5_Assignment
             source = Utilities.FillByStatus(source, statusValue);
             return source.Select(item => item.OriginLanguage).ToObservableCollection();
         }
+
+
+        public bool IsCheckEmptyItem(BookISBN item)
+        {
+            return Utilities.IsCheckEmptyItem(item, false);
+        }
+
+        public BookISBN CreateByDto(BookISBNDto dto)
+        {
+            BookISBN bookISBN = new BookISBN();
+            Copy(bookISBN, dto);
+            return bookISBN;
+        }
+
+        public void Copy(BookISBN dest, BookISBNDto source)
+        {
+            Utilities.Copy(dest, source);
+        }
+
+        public void Copy(BookISBNDto dest, BookISBNDto source)
+        {
+            Utilities.Copy(dest, source);
+        }
     }
 }

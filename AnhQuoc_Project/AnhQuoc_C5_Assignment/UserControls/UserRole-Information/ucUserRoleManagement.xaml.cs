@@ -160,12 +160,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddUserRole frmAddUserRole = MainWindow.UnitOfForm.FrmAddUserRole(true);
             frmAddUserRole.ShowDialog();
 
-            if (frmAddUserRole.Item == null) // Cancel the operation
+            if (frmAddUserRole.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            UserRoleDto newUserRoleDto = frmAddUserRole.Item;
+            UserRoleDto newUserRoleDto = frmAddUserRole.Context.Item;
 
             #region AddNewItem
             UserRole newUserRole = userRoleVM.CreateByDto(newUserRoleDto);
@@ -228,12 +228,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddUserRole.getItemToUpdate = () => userRoleDtoSelect;
             frmAddUserRole.ShowDialog();
 
-            if (frmAddUserRole.Item == null) // Cancel the operation
+            if (frmAddUserRole.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            UserRoleDto newUserRoleDto = frmAddUserRole.Item;
+            UserRoleDto newUserRoleDto = frmAddUserRole.Context.Item;
        
             #region UpdateItemInformation
             UserRole updateUserRole = userRoleVM.FindById(newUserRoleDto.Id);

@@ -16,12 +16,10 @@ namespace AnhQuoc_C5_Assignment
             var bookVM = UnitOfViewModel.Instance.BookViewModel;
 
             BookISBNDto newItem = new BookISBNDto(sourceItem.ISBN);
+            Utilities.Copy(newItem, sourceItem);
+
             newItem.BookTitle = bookTitleVM.FindById(sourceItem.IdBookTitle);
             newItem.Author = authorVM.FindById(sourceItem.IdAuthor);
-
-            newItem.OriginLanguage = sourceItem.OriginLanguage;
-            newItem.Status = sourceItem.Status;
-
             newItem.Books = bookVM.FillByBookISBN(sourceItem.ISBN, null);
             return newItem;
         }

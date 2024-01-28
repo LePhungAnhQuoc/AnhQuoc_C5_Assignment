@@ -23,19 +23,11 @@ namespace AnhQuoc_C5_Assignment
             var functionVM = UnitOfViewModel.Instance.FunctionViewModel;
 
             FunctionDto newItem = new FunctionDto(sourceItem.Id);
-            newItem.Name = sourceItem.Name;
-            newItem.Description = sourceItem.Description;
-            newItem.Name = sourceItem.Name;
-            newItem.Name = sourceItem.Name;
+            Utilities.Copy(newItem, sourceItem);
 
             newItem.Parent = (Utilities.IsCheckEmptyString(sourceItem.IdParent)) ? null : functionVM.FindById(sourceItem.IdParent, null);
 
-            newItem.UrlImage = sourceItem.UrlImage;
-            newItem.IsAdmin = sourceItem.IsAdmin;
-            newItem.Status = sourceItem.Status;
-
             var allChildsFunc = functionVM.getChildsByIdParent(newItem.Id, null);
-
             foreach (Function childFunc in allChildsFunc)
             {
                 FunctionChildDto newDto = new FunctionChildDto(childFunc.Id);

@@ -55,7 +55,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="Paid money (Fine monney): " />
                     <TextBlock Grid.Column="1"
-                               Text="{Binding Item.PaidMoney, StringFormat={}{0} đ}" />
+                               Text="{Binding Item.PaidMoney, StringFormat={}{0:#,#.000} đ}" />
                 </Grid>
                 <Grid Margin="0">
                     <Grid.ColumnDefinitions>

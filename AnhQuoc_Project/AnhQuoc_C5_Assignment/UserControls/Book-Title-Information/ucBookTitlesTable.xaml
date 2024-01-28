@@ -20,9 +20,24 @@
             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Id}" />
             <DataGridTextColumn Header="Category" Width="auto" Binding="{Binding Category.Name}" />
             <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}" />
-            <DataGridTextColumn Header="Author" Width="auto" Binding="{Binding Author.Name}" />
             <DataGridTextColumn Header="Summary" MinWidth="150" MaxWidth="200" Binding="{Binding Summary}" />
-            <DataGridTextColumn Header="Book ISBN Quantity" Width="auto" Binding="{Binding BookISBNs.Count}" />
+            <DataGridTextColumn Header="Note" MinWidth="150" MaxWidth="200" Binding="{Binding Note}" />
+            <DataGridTextColumn Header="ISBN Quantity" Width="auto" Binding="{Binding BookISBNs.Count}" />
+            <DataGridTemplateColumn Header="UrlImage" Width="auto">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Rectangle VerticalAlignment="Center"
+                                       Margin="5"
+                                       Height="30"
+                                       Width="50"
+                                       Stretch="Fill">
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="{Binding UrlImage}" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
         </DataGrid.Columns>
     </DataGrid>
 </UserControl>

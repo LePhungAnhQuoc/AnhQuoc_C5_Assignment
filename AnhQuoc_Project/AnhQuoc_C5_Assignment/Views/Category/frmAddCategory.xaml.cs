@@ -128,17 +128,15 @@ namespace AnhQuoc_C5_Assignment
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
-        {            
-            // IsCheckEmptyItem
-            bool isCheckEmptyItem = categoryVM.IsCheckEmptyItem(Item);
-
+        {
             // FormatValues
             FormatValues();
 
+            // Validation
+            RunAllValidations();
             bool isHasError = this.IsValidationGetHasError();
-            if (isCheckEmptyItem == false || isHasError)
+            if (isHasError)
             {
-                RunAllValidations();
                 return;
             }
 
@@ -155,16 +153,17 @@ namespace AnhQuoc_C5_Assignment
 
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            // IsCheckEmptyItem
-            bool isCheckEmptyItem = categoryVM.IsCheckEmptyItem(Item);
+            // FormatValues
+            FormatValues();
+
+            // Validation
+            RunAllValidations();
             bool isHasError = this.IsValidationGetHasError();
-            if (isCheckEmptyItem == false || isHasError)
+            if (isHasError)
             {
-                RunAllValidations();
                 return;
             }
-            
-            // Kiểm tra thông tin Name của item có tồn tại trong danh sách
+
             Category normalItem = categoryVM.CreateByDto(Item);
             Category normalSourceItem = categoryVM.CreateByDto(getItemToUpdate());
 

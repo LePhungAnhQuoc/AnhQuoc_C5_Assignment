@@ -37,7 +37,7 @@ namespace AnhQuoc_C5_Assignment
                 _getLoanSlips = value;
             }
         }
-        public Func<List<PropertyInfo>> getExceptProperties { get; set; }
+        public Func<string[]> getExceptProperties { get; set; }
         #endregion
 
         #region prop-dp

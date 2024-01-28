@@ -267,10 +267,10 @@ namespace AnhQuoc_C5_Assignment
 
             frmAddBookISBN.ShowDialog();
 
-            BookISBN newItem = ucAddBookISBN.Item;
-            if (newItem == null)
+            if (ucAddBookISBN.Item == null)
                 return;
 
+            BookISBN newItem = bookISBNVM.CreateByDto(ucAddBookISBN.Item);
             // Add to listFilled
             listFillBookISBNs.Add(newItem);
             AddItemsToDataGrid(listFillBookISBNs);

@@ -12,14 +12,8 @@ namespace AnhQuoc_C5_Assignment
         public override AuthorDto ConvertToDto(Author sourceItem)
         {
             AuthorDto newItem = new AuthorDto(sourceItem.Id);
-            newItem.Name = sourceItem.Name;
-            newItem.Description = sourceItem.Description;
-            newItem.boF = sourceItem.boF;
-            newItem.Summary = sourceItem.Summary;
-            newItem.Status = sourceItem.Status;
-            newItem.CreatedAt = sourceItem.CreatedAt;
-            newItem.ModifiedAt = sourceItem.ModifiedAt;
-
+            Utilities.Copy(newItem, sourceItem);
+            
             return newItem;
         }
     }

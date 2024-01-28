@@ -33,8 +33,7 @@ namespace AnhQuoc_C5_Assignment
 
         #region Fields
         private OpenFileDialog openFile;
-        private string rememberDirectoryOpenFile = @"C:\";
-
+        private string tempUrlImage;
         #endregion
 
         #region Properties
@@ -110,9 +109,9 @@ namespace AnhQuoc_C5_Assignment
             #region SetTextBoxMaxLength
             int maxLength = Constants.textBoxMaxLength;
             txtName.MaxLength = maxLength;
-            txtDescription.MaxLength = Constants.txtDescriptionMaxLength;
+            txtDescription.MaxLength = Constants.textAreaMaxLength;
 
-            txtUrlImage.MaxLength = Constants.txtUrlImageMaxLength;
+            txtUrlImage.MaxLength = Constants.textAreaMaxLength;
             #endregion
             
             btnCancel.Click += BtnCancel_Click;
@@ -149,6 +148,8 @@ namespace AnhQuoc_C5_Assignment
                 CopyItem();
                 SetFormByAddOrUpdate("UPDATE");
             }
+
+            tempUrlImage = Item.UrlImage;
         }
 
         private void NewItem()
@@ -167,17 +168,15 @@ namespace AnhQuoc_C5_Assignment
         
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            // IsCheckEmptyItem
-            bool isCheckEmptyItem = functionVM.IsCheckEmptyItem(Item);
+            // Validation
+            RunAllValidations();
             bool isHasError = this.IsValidationGetHasError();
-            if (isCheckEmptyItem == false || isHasError)
+            if (isHasError)
             {
-                RunAllValidations();
                 return;
             }
 
             // Kiểm tra thông tin của item có tồn tại trong danh sách
-            
             var normalItem = functionVM.CreateByDto(Item);
             var normalSourceItem = functionVM.CreateByDto(getItemToUpdate());
 
@@ -193,6 +192,8 @@ namespace AnhQuoc_C5_Assignment
                     return;
                 }
             }
+            SaveImage();
+
             this.Close();
         }
 
@@ -207,11 +208,12 @@ namespace AnhQuoc_C5_Assignment
             this.Close();
         }
 
+
         private void BtnBrowseImage_Click(object sender, RoutedEventArgs e)
         {
             openFile = new OpenFileDialog();
             openFile.Title = "Select Image";
-            openFile.InitialDirectory = rememberDirectoryOpenFile;
+            openFile.InitialDirectory = Constants.rememberDirectoryOpenFile;
             
             openFile.Filter = "Bitmaps|*.bmp|PNG files|*.png|JPEG files|*.jpg|GIF files|*.gif|TIFF files|*.tif|Image files|*.bmp;*.jpg;*.gif;*.png;*.tif";
 
@@ -221,19 +223,27 @@ namespace AnhQuoc_C5_Assignment
 
             if (openFile.ShowDialog() == true)
             {
-                rememberDirectoryOpenFile = openFile.FileName.Replace(openFile.SafeFileName, string.Empty);
-                string tempUrlImage = Item.UrlImage;
+                Item.UrlImage = Utilities.GetUrlImage(openFile);
+            }
+        }
+        
+        public void SaveImage()
+        {
+            Constants.rememberDirectoryOpenFile = openFile.FileName.Replace(openFile.SafeFileName, string.Empty);
+            Utilities.SaveImage(openFile);
 
-                Item.UrlImage = Utilities.SaveImage(openFile);
-
+            tempUrlImage = tempUrlImage.Replace("/", "\\");
+            string tempImageFile = tempUrlImage.Replace(Constants.StartUrlImage, "");
+            if (tempUrlImage != null && tempImageFile != openFile.SafeFileName)
+            {
                 if (MessageBox.Show("Do you want remove an old image?", string.Empty,
-                    MessageBoxButton.OKCancel, MessageBoxImage.Information, MessageBoxResult.OK) == MessageBoxResult.OK)
+          MessageBoxButton.OKCancel, MessageBoxImage.Information, MessageBoxResult.OK) == MessageBoxResult.OK)
                 {
                     Utilities.RemoveImage(tempUrlImage);
                 }
             }
         }
-        
+
 
         public bool IsValidationGetHasError()
         {

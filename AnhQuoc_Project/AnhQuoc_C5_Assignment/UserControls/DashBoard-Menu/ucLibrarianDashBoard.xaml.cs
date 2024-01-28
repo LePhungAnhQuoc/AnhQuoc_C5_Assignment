@@ -71,6 +71,16 @@ namespace AnhQuoc_C5_Assignment
         private ucCategoryManagement ucCategoryManagement;
         #endregion
 
+        #region Properties
+        public string HumanUrlImage
+        {
+            get
+            {
+                return Constants.HumanUrlImage;
+            }
+        }
+        #endregion
+
         #region ViewModels
         private UserRoleViewModel userRoleVM;
         private FunctionViewModel functionVM;
@@ -105,6 +115,7 @@ namespace AnhQuoc_C5_Assignment
 
 
             ucLogOut.btnLogOut.Click += BtnLogOut_Click;
+            this.DataContext = this;
             this.Loaded += UcLibrarianDashBoard_Loaded;
         }
 

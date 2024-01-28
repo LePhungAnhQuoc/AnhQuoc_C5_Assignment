@@ -83,7 +83,7 @@ namespace AnhQuoc_C5_Assignment
             int maxLength = Constants.textBoxMaxLength;
             txtName.MaxLength = maxLength;
             txtPhone.MaxLength = maxLength;
-            txtAddress.MaxLength = Constants.txtAddressMaxLength;
+            txtAddress.MaxLength = Constants.textBoxMaxLength;
             #endregion
             
             btnConfirm.Click += BtnConfirm_Click;
@@ -125,17 +125,15 @@ namespace AnhQuoc_C5_Assignment
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
-        {            
-            // IsCheckEmptyItem
-            bool isCheckEmptyItem = publisherVM.IsCheckEmptyItem(Item);
-
+        {
             // FormatValues
             FormatValues();
 
+            // Validation
+            RunAllValidations();
             bool isHasError = this.IsValidationGetHasError();
-            if (isCheckEmptyItem == false || isHasError)
+            if (isHasError)
             {
-                RunAllValidations();
                 return;
             }
 
@@ -151,15 +149,17 @@ namespace AnhQuoc_C5_Assignment
 
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            // IsCheckEmptyItem
-            bool isCheckEmptyItem = publisherVM.IsCheckEmptyItem(Item);
+            // FormatValues
+            FormatValues();
+
+            // Validation
+            RunAllValidations();
             bool isHasError = this.IsValidationGetHasError();
-            if (isCheckEmptyItem == false || isHasError)
+            if (isHasError)
             {
-                RunAllValidations();
                 return;
             }
-            
+
             Publisher normalItem = publisherVM.CreateByDto(Item);
             Publisher normalSourceItem = publisherVM.CreateByDto(getItemToUpdate());
 

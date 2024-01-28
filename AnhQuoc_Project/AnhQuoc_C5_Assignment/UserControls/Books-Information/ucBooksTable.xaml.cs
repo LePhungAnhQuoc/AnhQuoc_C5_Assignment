@@ -25,7 +25,7 @@ namespace AnhQuoc_C5_Assignment
     public partial class ucBooksTable : UserControl, INotifyPropertyChanged
     {
         #region GetDatas
-        public Func<List<PropertyInfo>> getExceptProperties { get; set; }
+        public Func<string[]> getExceptProperties { get; set; }
         #endregion
 
         #region prop-dp

@@ -21,9 +21,7 @@ namespace AnhQuoc_C5_Assignment
             var bookTitle = bookTitleVM.FindById(bookISBN.IdBookTitle);
 
             LoanDetailDto newItem = new LoanDetailDto(sourceItem.Id);
-            newItem.IdLoan = sourceItem.IdLoan;
-            newItem.IdBook = sourceItem.IdBook;
-            newItem.ExpDate = sourceItem.ExpDate;
+            Utilities.Copy(newItem, sourceItem);
 
             newItem.Book = book;
             newItem.BookTitle = bookTitle;

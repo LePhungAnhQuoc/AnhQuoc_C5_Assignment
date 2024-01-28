@@ -56,13 +56,9 @@ namespace AnhQuoc_C5_Assignment
             return FillContainsName(CreateByDto(source), valueName, igNoreCase);
         }
 
-        public bool IsCheckEmptyItem(BookTitle item)
+        public bool IsCheckEmptyItem(BookTitleDto item)
         {
-            if (Utilities.IsCheckEmptyString(item.Name))
-            {
-                return false;
-            }
-            return true;
+            return Utilities.IsCheckEmptyItem(item, false);
         }
 
         public BookTitle CreateByDto(BookTitleDto source)
@@ -85,11 +81,7 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(BookTitle dest, BookTitleDto source)
         {
-            dest.Id = source.Id;
-            dest.IdCategory = source.Category.Id;
-
-            dest.Name = source.Name;
-            dest.Summary = source.Summary;
+            Utilities.Copy(dest, source);
         }
     }
 }

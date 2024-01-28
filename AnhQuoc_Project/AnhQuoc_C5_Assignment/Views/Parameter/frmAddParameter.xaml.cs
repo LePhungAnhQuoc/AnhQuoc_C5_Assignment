@@ -79,7 +79,7 @@ namespace AnhQuoc_C5_Assignment
             #region SetTextBoxMaxLength
             int maxLength = Constants.textBoxMaxLength;
             txtName.MaxLength = maxLength;
-            txtDescription.MaxLength = Constants.txtDescriptionMaxLength;
+            txtDescription.MaxLength = Constants.textAreaMaxLength;
             txtValue.MaxLength = maxLength;
             #endregion
             
@@ -127,17 +127,15 @@ namespace AnhQuoc_C5_Assignment
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
-        {            
-            // IsCheckEmptyItem
-            bool isCheckEmptyItem = parameterVM.IsCheckEmptyItem(Item);
-
+        {
             // FormatValues
             FormatValues();
 
+            // Validation
+            RunAllValidations();
             bool isHasError = this.IsValidationGetHasError();
-            if (isCheckEmptyItem == false || isHasError)
+            if (isHasError)
             {
-                RunAllValidations();
                 return;
             }
 
@@ -153,15 +151,17 @@ namespace AnhQuoc_C5_Assignment
 
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            // IsCheckEmptyItem
-            bool isCheckEmptyItem = parameterVM.IsCheckEmptyItem(Item);
+            // FormatValues
+            FormatValues();
+
+            // Validation
+            RunAllValidations();
             bool isHasError = this.IsValidationGetHasError();
-            if (isCheckEmptyItem == false || isHasError)
+            if (isHasError)
             {
-                RunAllValidations();
                 return;
             }
-            
+
             Parameter normalItem = parameterVM.CreateByDto(Item);
             Parameter normalSourceItem = parameterVM.CreateByDto(getItemToUpdate());
 

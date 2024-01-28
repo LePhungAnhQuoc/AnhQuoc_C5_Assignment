@@ -12,14 +12,6 @@ namespace AnhQuoc_C5_Assignment
 {
     public class ReturnBookViewModel : BaseViewModel<object>, IPageViewModel
     {
-        public string Name
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
         #region Fields
         private bool handle = true;
 
@@ -636,7 +628,8 @@ namespace AnhQuoc_C5_Assignment
         {
             string newId = loanHistoryVM.GetId();
             Item = new LoanHistoryDto(newId);
-            Utilities.Copy(Item, SelectedLoanSlip);
+            IsCheckProperties isCheckProperties = new IsCheckProperties(CheckPropertyType.Except);
+            Utilities.Copy(Item, SelectedLoanSlip, isCheckProperties);
             Item.Id = newId;
             Item.CreateAt = DateTime.Now;
         }
@@ -866,7 +859,8 @@ namespace AnhQuoc_C5_Assignment
 
         private void PassValueToItem(LoanHistory item)
         {
-            Utilities.Copy(item, Item);
+            IsCheckProperties isCheckProperties = new IsCheckProperties(CheckPropertyType.Except);
+            Utilities.Copy(item, Item, isCheckProperties);
         }
 
         private void GetDetailsFromLoanSlip()

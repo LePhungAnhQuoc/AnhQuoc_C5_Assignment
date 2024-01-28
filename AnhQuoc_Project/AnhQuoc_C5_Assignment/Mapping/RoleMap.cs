@@ -14,10 +14,7 @@ namespace AnhQuoc_C5_Assignment
             var roleVM = UnitOfViewModel.Instance.RoleViewModel;
 
             RoleDto newItem = new RoleDto(sourceItem.Id);
-            newItem.Name = sourceItem.Name;
-            newItem.Group = sourceItem.Group;
-            newItem.Status = sourceItem.Status;
-            
+            Utilities.Copy(newItem, sourceItem);
             return newItem;
         }
     }

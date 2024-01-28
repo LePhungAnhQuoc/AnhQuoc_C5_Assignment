@@ -14,9 +14,9 @@ namespace AnhQuoc_C5_Assignment
         {
             DateTime getValue = (DateTime)value;
 
-            if (!Utilities.DateTimeRangeRule(getValue, Constants.boFMinValue, Constants.boFMaxValue()))
+            if (!Utilities.DateTimeRangeRule(getValue, Constants.dateMinValue, Constants.dateMaxValue()))
             {
-                return new ValidationResult(false, Utilities.ValidateNoteDateTimeRangeRule(Constants.boFMinValue));
+                return new ValidationResult(false, Utilities.ValidateNoteDateTimeRangeRule(Constants.dateMinValue));
             }
             return ValidationResult.ValidResult;
         }

@@ -15,7 +15,10 @@ namespace AnhQuoc_C5_Assignment
         private string _IdRole;
         public string IdRole
         {
-            get { return _IdRole; }
+            get
+            {
+                return _IdRole;
+            }
             set
             {
                 _IdRole = value;
@@ -26,7 +29,10 @@ namespace AnhQuoc_C5_Assignment
         private string _IdUser;
         public string IdUser
         {
-            get { return _IdUser; }
+            get
+            {
+                return _IdUser;
+            }
             set
             {
                 _IdUser = value;

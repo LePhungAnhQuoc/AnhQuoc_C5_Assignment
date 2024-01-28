@@ -28,15 +28,18 @@
                 <DataGridTextColumn Header="Index" Width="auto" Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGridRow}}, Converter={StaticResource indexDataGridItemConverter}}" />
                 <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="ISBN" Width="auto" Binding="{Binding ISBN}" />
-                <DataGridTextColumn Header="Title" Width="auto" Binding="{Binding Title}" />
-                <DataGridTextColumn Header="Category" Width="auto" Binding="{Binding Category}" />
-                <DataGridTextColumn Header="Author" Width="auto" Binding="{Binding Author}" />
-                <DataGridTextColumn Header="Translator" Width="auto" Binding="{Binding Translator}" />
+                <DataGridTextColumn Header="Title" Width="auto" Binding="{Binding BookTitle.Name}" />
+                <DataGridTextColumn Header="Category" Width="auto" Binding="{Binding Category.Name}" />
+                <DataGridTextColumn Header="Author" Width="auto" Binding="{Binding Author.Name}" />
+                <DataGridTextColumn Header="Translator" Width="auto" Binding="{Binding Translator.Name}" />
                 <DataGridTextColumn Header="Language" Width="auto" Binding="{Binding Language}" />
                 <DataGridTextColumn Header="Publisher" Width="auto" Binding="{Binding Publisher.Name}" />
                 <DataGridTextColumn Header="Publish Date" Width="auto" Binding="{Binding PublishDate, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                <DataGridTextColumn Header="Book Status" Width="auto" Binding="{Binding BookStatus.Name}" />
+
                 <DataGridTextColumn Header="Price" Width="auto" Binding="{Binding Price, StringFormat={}{0:#,#.000} đ}" />
                 <DataGridTextColumn Header="PriceCurrent" Width="auto" Binding="{Binding PriceCurrent, StringFormat={}{0:#,#.000} đ}" />
+                <DataGridTextColumn Header="Note" Width="auto" Binding="{Binding Note}" />
 
                 <DataGridTextColumn Header="Status" Width="auto" 
                                     Binding="{Binding Status, Converter={StaticResource bookStatusConverter}}" 

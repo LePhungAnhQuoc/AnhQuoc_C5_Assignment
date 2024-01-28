@@ -39,6 +39,7 @@
                                     Width="auto" Binding="{Binding boF, StringFormat='{}{0:dd/MM/yyyy}'}" />
                 <DataGridTextColumn Header="Age" Width="auto" Binding="{Binding boF, Converter={StaticResource boFToAgeConverter}}" />
                 <DataGridTextColumn Header="Type" Width="auto" Binding="{Binding ReaderType}" />
+               
                 <DataGridTextColumn Header="Status" Width="auto" 
                                     Binding="{Binding Status, Converter={StaticResource readerStatusConverter}}"
                                     CellStyle="{StaticResource dtgcellStatus}" />

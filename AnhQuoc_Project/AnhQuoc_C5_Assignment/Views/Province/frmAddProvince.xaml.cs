@@ -122,17 +122,15 @@ namespace AnhQuoc_C5_Assignment
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
-        {            
-            // IsCheckEmptyItem
-            bool isCheckEmptyItem = provinceVM.IsCheckEmptyItem(Item);
-
+        {
             // FormatValues
             FormatValues();
 
+            // Validation
+            RunAllValidations();
             bool isHasError = this.IsValidationGetHasError();
-            if (isCheckEmptyItem == false || isHasError)
+            if (isHasError)
             {
-                RunAllValidations();
                 return;
             }
 
@@ -148,15 +146,17 @@ namespace AnhQuoc_C5_Assignment
 
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            // IsCheckEmptyItem
-            bool isCheckEmptyItem = provinceVM.IsCheckEmptyItem(Item);
+            // FormatValues
+            FormatValues();
+
+            // Validation
+            RunAllValidations();
             bool isHasError = this.IsValidationGetHasError();
-            if (isCheckEmptyItem == false || isHasError)
+            if (isHasError)
             {
-                RunAllValidations();
                 return;
             }
-            
+
             Province normalItem = provinceVM.CreateByDto(Item);
             Province normalSourceItem = provinceVM.CreateByDto(getItemToUpdate());
 

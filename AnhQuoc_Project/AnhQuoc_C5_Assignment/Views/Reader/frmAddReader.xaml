@@ -8,6 +8,9 @@
         Title="Add New Reader Form"
         WindowStartupLocation="{StaticResource WSL}"
         Style="{StaticResource wdStyleGeneral}">
+    <Window.Resources>
+        <local:DateMinToNullValueConverter x:Key="dateMinToNullValueConverter" />
+    </Window.Resources>
     <Grid Width="1000">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -102,7 +105,7 @@
                                     Name="dateboF"
                                     Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
                             <DatePicker.SelectedDate>
-                                <Binding Path="SelectedBoF" UpdateSourceTrigger="PropertyChanged">
+                                <Binding Path="Item.boF" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource dateMinToNullValueConverter}">
                                     <Binding.ValidationRules>
                                         <local:SelectedItemRule />
                                         <local:InputBoFRule />

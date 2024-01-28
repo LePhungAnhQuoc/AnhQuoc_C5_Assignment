@@ -701,19 +701,21 @@ namespace AnhQuoc_C5_Assignment
             foreach (DependencyObject obj in LogicalTreeHelper.GetChildren(parent))
             {
                 BindingExpression bind = null;
-                if (obj is TextBox)
+
+                var control = LogicalTreeHelper.GetChildren(obj).ToTypedCollection<List<DependencyObject>, DependencyObject>()[3];
+                if (control is TextBox)
                 {
-                    var txt = obj as TextBox;
+                    var txt = control as TextBox;
                     bind = txt.GetBindingExpression(TextBox.TextProperty);
                 }
-                else if (obj is DatePicker)
+                else if (control is DatePicker)
                 {
-                    var datePick = obj as DatePicker;
+                    var datePick = control as DatePicker;
                     bind = datePick.GetBindingExpression(DatePicker.SelectedDateProperty);
                 }
-                else if (obj is ComboBox)
+                else if (control is ComboBox)
                 {
-                    var comboBox = obj as ComboBox;
+                    var comboBox = control as ComboBox;
                     bind = comboBox.GetBindingExpression(ComboBox.SelectedItemProperty);
                 }
 
@@ -723,9 +725,9 @@ namespace AnhQuoc_C5_Assignment
                     {
                         count = bind.ParentBinding.ValidationRules.Count;
 
-                        if (count > 0)
+                        if (count >= 0)
                         {
-                            list.Add(obj);
+                            list.Add(control);
                         }
                     }
 
@@ -736,11 +738,9 @@ namespace AnhQuoc_C5_Assignment
 
         public static void RunAllValidations(List<DependencyObject> listObj)
         {
-            int count = 0;
             BindingExpression be = null;
             foreach (DependencyObject obj in listObj)
             {
-                BindingExpression bind = null;
                 if (obj is TextBox)
                 {
                     var txt = obj as TextBox;
@@ -748,16 +748,16 @@ namespace AnhQuoc_C5_Assignment
                     be = txt.GetBindingExpression(TextBox.TextProperty);
                     be.UpdateSource();
                 }
-                else if (obj is DatePicker)
-                {
-                    var datePick = obj as DatePicker;
-                    be = datePick.GetBindingExpression(DatePicker.SelectedDateProperty);
-                    be.UpdateSource();
-                }
                 else if (obj is ComboBox)
                 {
                     var comboBox = obj as ComboBox;
                     be = comboBox.GetBindingExpression(ComboBox.SelectedItemProperty);
+                    be.UpdateSource();
+                }
+                else if (obj is DatePicker)
+                {
+                    var datePick = obj as DatePicker;
+                    be = datePick.GetBindingExpression(DatePicker.SelectedDateProperty);
                     be.UpdateSource();
                 }
             }
@@ -767,24 +767,8 @@ namespace AnhQuoc_C5_Assignment
         {
             foreach (DependencyObject obj in listObj)
             {
-                if (obj is TextBox)
-                {
-                    var txt = obj as TextBox;
-                    if (Validation.GetHasError(txt))
-                        return true;
-                }
-                else if (obj is DatePicker)
-                {
-                    var datePick = obj as DatePicker;
-                    if (Validation.GetHasError(datePick))
-                        return true;
-                }
-                else if (obj is ComboBox)
-                {
-                    var comboBox = obj as ComboBox;
-                    if (Validation.GetHasError(comboBox))
-                        return true;
-                }
+                if (Validation.GetHasError(obj))
+                    return true;
             }
             return false;
         }
@@ -839,12 +823,18 @@ namespace AnhQuoc_C5_Assignment
         {
             return source.FirstOrDefault(item => item.Equals(findItem));
         }
-        
-        public static void Copy(object dest, object source, params string[] checkProperties)
+
+        public static void Copy(object dest, object source)
+        {
+            IsCheckProperties isCheckProperties = new IsCheckProperties(CheckPropertyType.Except);
+            Copy(dest, source, isCheckProperties);
+        }
+
+        public static void Copy(object dest, object source, IsCheckProperties isCheckProperties)
         {
             const string propSelector = "Name";
             bool isAllProperties = false;
-            if (checkProperties.Length == 0)
+            if (isCheckProperties.ListProperties.Count == 0 && isCheckProperties.Type == CheckPropertyType.Except)
             {
                 isAllProperties = true;
             }
@@ -863,10 +853,21 @@ namespace AnhQuoc_C5_Assignment
 
                 if (!isAllProperties)
                 {
-                    var itemCheck = FindPropertyByName(checkProperties.ToList(), dest_prop.Name);
-                    if (itemCheck == null)
+                    if (isCheckProperties.Type == CheckPropertyType.Include)
                     {
-                        continue;
+                        var itemCheck = FindPropertyByName(isCheckProperties.ListProperties, dest_prop.Name);
+                        if (itemCheck == null)
+                        {
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        var itemCheck = FindPropertyByName(isCheckProperties.ListProperties, dest_prop.Name);
+                        if (itemCheck != null)
+                        {
+                            continue;
+                        }
                     }
                 }
                 object value2 = getValueFromProperty(source_prop, source);
@@ -877,7 +878,10 @@ namespace AnhQuoc_C5_Assignment
                 }
                 else
                 {
-                    dest_prop.SetValue(dest, value2);
+                    if (!IsGeneric(value2.GetType()))
+                    {
+                        dest_prop.SetValue(dest, value2);
+                    }
                 }
             }
         }
@@ -1166,9 +1170,20 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Property-Uti
+        // check if it's a generic List<T> or IEnumerable<T>, ...
         public static Type GetGenericDataType(Type type)
         {
             return type.GetGenericTypeDefinition();
+        }
+
+        public static bool IsListType(Type type)
+        {
+            return GetGenericDataType(type) == typeof(List<>);
+        }
+
+        public static bool IsGeneric(Type type)
+        {
+            return type.IsGenericType;
         }
 
         public static Type GetItemDataTypeInGenericList(IEnumerable list)
@@ -1178,8 +1193,8 @@ namespace AnhQuoc_C5_Assignment
             return itemType;
         }
 
-        public static Type GetLeftDataTypeOfVariable<T>(T x) => typeof(T);
 
+        public static Type GetLeftDataTypeOfVariable<T>(T x) => typeof(T);
 
         public static List<PropertyInfo> getPropsFromType(Type type)
         {
@@ -1257,9 +1272,9 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        public static void SetExceptPropertiesForDataGrid(DataGrid dataGrid, List<PropertyInfo> ExceptProperties)
+        public static void SetExceptPropertiesForDataGrid(DataGrid dataGrid, params string[] ExceptProperties)
         {
-            foreach (PropertyInfo propItem in ExceptProperties)
+            foreach (string propName in ExceptProperties)
             {
                 foreach (var col in dataGrid.Columns)
                 {
@@ -1270,7 +1285,7 @@ namespace AnhQuoc_C5_Assignment
                         Binding colBinding = colText.Binding as Binding;
                         if (colBinding.Path == null)
                             continue;
-                        if (string.Compare(colBinding.Path.Path, propItem.Name) == 0)
+                        if (string.Compare(colBinding.Path.Path, propName) == 0)
                         {
                             col.Visibility = Visibility.Collapsed;
                         }
@@ -1499,7 +1514,20 @@ namespace AnhQuoc_C5_Assignment
 
         public static void SaveFile(string source, string dest, string fileName)
         {
-            File.Copy(source, dest + fileName);
+            try
+            {
+                File.Copy(source, dest + fileName);
+            }
+            catch (IOException io_exception)
+            {
+                //File Exist. So not copy
+            }
+        }
+
+        public static string GetUrlImage(OpenFileDialog openFile)
+        {
+            string fileName = openFile.SafeFileName;
+            return Constants.StartUrlImage + fileName;
         }
 
         public static string SaveImage(OpenFileDialog openFile)
@@ -1508,7 +1536,9 @@ namespace AnhQuoc_C5_Assignment
             string dest = Utilities.GetDirectoryImage();
             string fileName = openFile.SafeFileName;
 
-            if (!source.Contains(dest))
+            string sourceDir = source.Replace(fileName, "");
+
+            if (sourceDir != dest)
                 SaveFile(source, dest, fileName);
 
             return Constants.StartUrlImage + fileName;
@@ -1516,8 +1546,7 @@ namespace AnhQuoc_C5_Assignment
 
         public static void RemoveImage(string urlImage)
         {
-            if (!urlImage.Contains(Constants.StartUrlImage))
-                return;
+
 
             string filePath = GetDirectoryImage().Replace(Constants.StartUrlImage, string.Empty) + urlImage;
             DeleteFile(filePath);

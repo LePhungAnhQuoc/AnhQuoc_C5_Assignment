@@ -63,6 +63,18 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private string _UrlImage;
+        public string UrlImage
+        {
+            get { return _UrlImage; }
+            set
+            {
+                _UrlImage = value;
+                OnPropertyChanged();
+            }
+        }
+
+
 
         #region Other-Properties
 

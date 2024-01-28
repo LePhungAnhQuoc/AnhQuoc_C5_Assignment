@@ -12,15 +12,13 @@ namespace AnhQuoc_C5_Assignment
         public override ReaderDto ConvertToDto(Reader sourceItem)
         {
             var childVM = UnitOfViewModel.Instance.ChildViewModel;
-
             bool child_Status = true;
 
             ReaderDto newItem = new ReaderDto(sourceItem.Id);
-            newItem.LName = sourceItem.LName;
-            newItem.FName = sourceItem.FName;
 
-            newItem.boF = sourceItem.boF;
-
+            var isCheckProp = new IsCheckProperties(CheckPropertyType.Except, nameof(sourceItem.ReaderType));
+            Utilities.Copy(newItem, sourceItem, isCheckProp);
+ 
             newItem.ReaderType = sourceItem.ReaderType.ConvertValue();
 
             if (sourceItem.ReaderType.ConvertValue() == ReaderType.Adult)
@@ -32,10 +30,6 @@ namespace AnhQuoc_C5_Assignment
             {
                 newItem.ChildsQuantity = -1;
             }
-            newItem.Status = sourceItem.Status;
-            newItem.CreatedAt = sourceItem.CreatedAt;
-            newItem.ModifiedAt = sourceItem.ModifiedAt;
-
             return newItem;
         }
     }

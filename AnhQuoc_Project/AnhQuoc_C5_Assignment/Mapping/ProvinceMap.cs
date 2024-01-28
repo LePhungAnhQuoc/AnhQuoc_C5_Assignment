@@ -12,8 +12,7 @@ namespace AnhQuoc_C5_Assignment
         public override ProvinceDto ConvertToDto(Province sourceItem)
         {
             ProvinceDto newItem = new ProvinceDto(sourceItem.Id);
-            newItem.Name = sourceItem.Name;
-            newItem.Status = sourceItem.Status;
+            Utilities.Copy(newItem, sourceItem);
 
             return newItem;
         }

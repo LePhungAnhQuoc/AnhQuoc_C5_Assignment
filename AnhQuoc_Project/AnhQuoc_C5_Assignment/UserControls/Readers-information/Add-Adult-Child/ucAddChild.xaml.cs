@@ -128,10 +128,7 @@ namespace AnhQuoc_C5_Assignment
             ucReadersTable.getItem_Status = () => adult_Status;
             AddItemsToDataGrid(listAdultReader);
 
-            List<PropertyInfo> allProperties = typeof(ReaderDto).GetProperties().ToList();
-            List<PropertyInfo> exceptDtgProperties = Utilities.FillPropertiesByName(allProperties, Constants.exceptDtgChilds);
-
-            ucReadersTable.getExceptProperties = () => exceptDtgProperties;
+            ucReadersTable.getExceptProperties = () => Constants.exceptDtgReaderChild;
         }
 
         private void UcReadersTable_btnInfoClick(object sender, RoutedEventArgs e)

@@ -27,7 +27,7 @@ namespace AnhQuoc_C5_Assignment
         #region GetDatas
         public Func<bool?> getItem_Status { get; set; }
         public Func<ObservableCollection<Reader>> getReaders { get; set; }
-        public Func<List<PropertyInfo>> getExceptProperties { get; set; }
+        public Func<string[]> getExceptProperties { get; set; }
         #endregion
 
         #region Propdps

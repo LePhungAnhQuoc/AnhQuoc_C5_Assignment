@@ -15,17 +15,13 @@ namespace AnhQuoc_C5_Assignment
             var bookISBNVM = UnitOfViewModel.Instance.BookISBNViewModel;
             var categoryVM = UnitOfViewModel.Instance.CategoryViewModel;
             var authorVM = UnitOfViewModel.Instance.AuthorViewModel;
-
             Category category = categoryVM.FindById(sourceItem.IdCategory);
 
             BookTitleDto newItem = new BookTitleDto(sourceItem.Id);
-
+            Utilities.Copy(newItem, sourceItem);
             newItem.Category = category;
-            newItem.Name = sourceItem.Name;
-
-            newItem.Summary = sourceItem.Summary;
-
             newItem.BookISBNs = bookISBNVM.FillByIdBookTitle(sourceItem.Id, null);
+
             return newItem;
         }
     }

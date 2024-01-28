@@ -39,7 +39,6 @@ namespace AnhQuoc_C5_Assignment
         private ucDisplayFunction ucDisplayFunction;
         private ucAddBookTitle ucAddBookTitle;
         private ucAddBookISBN ucAddBookISBN;
-        private ucAddBook ucAddBook;
         private ucAddAdult ucAddAdult;
         private ucAddChild ucAddChild;
         private ucUserInformation ucUserInformation;
@@ -60,6 +59,7 @@ namespace AnhQuoc_C5_Assignment
         private ucAddLoanHistory ucAddLoanHistory;
 
         // Form
+        private frmAddBook frmAddBook;
         private frmAddPublisher frmAddPublisher;
         private frmAddParameter frmAddParameter;
         private frmAddProvince frmAddProvince;
@@ -299,12 +299,7 @@ namespace AnhQuoc_C5_Assignment
             set { _UcAddBookISBN = value; }
         }
 
-        private Func<bool, ucAddBook> _UcAddBook;
-        public Func<bool, ucAddBook> UcAddBook
-        {
-            get { return _UcAddBook; }
-            set { _UcAddBook = value; }
-        }
+
 
         private Func<bool, ucAddAdult> _UcAddAdult;
         public Func<bool, ucAddAdult> UcAddAdult
@@ -358,6 +353,12 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Forms
+
+        private Func<bool, frmAddBook> _FrmAddBook;
+        public Func<bool, frmAddBook> FrmAddBook
+        {
+            get { return _FrmAddBook; }
+        }
 
         private Func<bool, frmAddTranslator> _FrmAddTranslator;
         public Func<bool, frmAddTranslator> FrmAddTranslator
@@ -849,18 +850,7 @@ namespace AnhQuoc_C5_Assignment
                 }
                 return ucAddBookISBN;
             };
-
-            _UcAddBook = (isReAllocate) =>
-            {
-                if (isReAllocate)
-                {
-                    ucAddBook = new ucAddBook();
-                    ucAddBook.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
-                    ucAddBook.getBookRepo = () => _UnitOfRepo.BookRepo;
-                }
-                return ucAddBook;
-            };
-
+            
             _UcAddAdult = (isReAllocate) =>
             {
                 if (isReAllocate)
@@ -1026,6 +1016,17 @@ namespace AnhQuoc_C5_Assignment
                     frmAddTranslator.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
                 }
                 return frmAddTranslator;
+            };
+
+            _FrmAddBook = (isReAllocate) =>
+            {
+                if (isReAllocate == true)
+                {
+                    frmAddBook = new frmAddBook();
+                    frmAddBook.getBookRepo = () => _UnitOfRepo.BookRepo;
+                    frmAddBook.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
+                }
+                return frmAddBook;
             };
 
             _FrmAddParameter = (isReAllocate) =>
@@ -1244,7 +1245,6 @@ namespace AnhQuoc_C5_Assignment
             ucAddBookTitle = UcAddBookTitle(true);
             ucAddLoan = UcAddLoan(false);
             ucAddBookISBN = UcAddBookISBN(true);
-            ucAddBook = UcAddBook(true);
             ucAddAdult = UcAddAdult(true);
             ucAddChild = UcAddChild(true);
             ucUserInformation = UcUserInformation(true);
@@ -1272,6 +1272,7 @@ namespace AnhQuoc_C5_Assignment
 
             // Forms
             frmAddTranslator = FrmAddTranslator(true);
+            frmAddBook = FrmAddBook(true);
             frmAddParameter = FrmAddParameter(true);
             frmAddProvince = FrmAddProvince(true);
             frmAddPenaltyReason = FrmAddPenaltyReason(true);

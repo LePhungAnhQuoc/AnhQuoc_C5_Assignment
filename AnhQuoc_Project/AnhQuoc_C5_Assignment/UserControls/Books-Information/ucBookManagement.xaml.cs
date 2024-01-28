@@ -48,7 +48,6 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region UserControls
-        private ucAddBook ucAddBook;
         #endregion
 
         #region prop-Dp
@@ -151,14 +150,6 @@ namespace AnhQuoc_C5_Assignment
             btnAdd.Click += BtnAdd_Click;
             btnClearComboBox.Click += BtnClearComboBox_Click;
             
-            #region Add-UserControl
-            ucAddBook = MainWindow.UnitOfForm.UcAddBook(true);
-            ucAddBook.Visibility = Visibility.Collapsed;
-            ucAddBook.getUcBookManagement = () => this;
-
-            stkFeatures.Children.Add(ucAddBook);
-            #endregion
-
             this.Loaded += UcBookManagement_Loaded;
         }
 
@@ -242,7 +233,7 @@ namespace AnhQuoc_C5_Assignment
             foreach (Book item in source)
             {
                 BookDto itemDto = bookMap.ConvertToDto(item);
-                bool isCheck = itemDto.Title.ContainsCorrectly(textSearch, true);
+                bool isCheck = itemDto.BookTitle.Name.ContainsCorrectly(textSearch, true);
                 if (isCheck)
                 {
                     results.Add(item);
@@ -289,58 +280,41 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFillBooks);
         }
 
-        #region Add-New-Books-Methods
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            SetAddStatus(0);
-        }
+            frmAddBook frmAddBook = MainWindow.UnitOfForm.FrmAddBook(true);
+            frmAddBook.getIdBook = () => bookVM.GetId();
+            frmAddBook.ShowDialog();
+         
+            if (frmAddBook.Item == null) // Cancel the operation
+            {
+                return;
+            }
 
-        public void AddNewBooks(ObservableCollection<Book> getNewBooks)
-        {
-            #region SaveBook
-            getBookRepo().AddRange(getNewBooks);
-            getBookRepo().WriteAddRange(getNewBooks);
+            BookDto newBookDto = frmAddBook.Item;
+
+            #region AddNewItem
+            Book newBook = bookVM.CreateByDto(newBookDto);
+            getBookRepo().Add(newBook);
+            getBookRepo().WriteAdd(newBook);
+            
             #endregion
 
-            #region AddToListFill
-            listFillBooks.AddRange(getNewBooks);
+            #region AddTo-listFill
+            listFillBooks.Add(newBook);
             AddItemsToDataGrid(listFillBooks);
             #endregion
 
             #region SaveBookISBNStatus
-            BookISBN selectedBookISBN = ucAddBook.SelectedBookISBN;
+            BookISBN selectedBookISBN = bookISBNVM.FindByISBN(newBook.ISBN, null);
             if (selectedBookISBN.Status == false)
             {
                 selectedBookISBN.Status = true;
                 getBookISBNRepo().WriteUpdateStatus(selectedBookISBN, true);
             }
             #endregion
-
-            SetAddStatus(1);
         }
-
-        public void CancelAddNewBooks()
-        {
-            SetAddStatus(1);
-        }
-
-        private void SetAddStatus(int status)
-        {
-            switch (status)
-            {
-                case 0:
-                    borderBtnAdd.Visibility = Visibility.Collapsed;
-                    ucAddBook.Visibility = Visibility.Visible;
-                    break;
-                case 1:
-                    borderBtnAdd.Visibility = Visibility.Visible;
-                    ucAddBook.Visibility = Visibility.Collapsed;
-                    break;
-            }
-        }
-
-        #endregion
-
+        
         #region Others
         private void AddToListFill(ObservableCollection<Book> items)
         {

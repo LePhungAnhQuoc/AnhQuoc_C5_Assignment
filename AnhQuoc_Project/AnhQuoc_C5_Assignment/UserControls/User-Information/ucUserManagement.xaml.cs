@@ -205,12 +205,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddUser.getIdUser = () => userVM.GetId();
             frmAddUser.ShowDialog();
          
-            if (frmAddUser.Item == null) // Cancel the operation
+            if (frmAddUser.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            UserDto newUserDto = frmAddUser.Item;
+            UserDto newUserDto = frmAddUser.Context.Item;
 
             #region AddNewItem
             User newUser = userVM.CreateByDto(newUserDto);
@@ -320,12 +320,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddUser.getItemToUpdate = () => userDtoSelect;
             frmAddUser.ShowDialog();
 
-            if (frmAddUser.Item == null) // Cancel the operation
+            if (frmAddUser.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            UserDto newUserDto = frmAddUser.Item;
+            UserDto newUserDto = frmAddUser.Context.Item;
 
             #region UpdateItemInformation
 

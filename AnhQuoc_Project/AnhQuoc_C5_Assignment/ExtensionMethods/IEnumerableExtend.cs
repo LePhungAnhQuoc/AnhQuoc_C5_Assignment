@@ -34,5 +34,13 @@ namespace AnhQuoc_C5_Assignment
 
             return collection;
         }
+
+        public static void ForEach<T>(this IEnumerable<T> enumeration, Action<T> action)
+        {
+            foreach (T item in enumeration)
+            {
+                action(item);
+            }
+        }
     }
 }

@@ -15,34 +15,30 @@ namespace AnhQuoc_C5_Assignment
             var bookISBNVM = UnitOfViewModel.Instance.BookISBNViewModel;
             var categoryVM = UnitOfViewModel.Instance.CategoryViewModel;
             var authorVM = UnitOfViewModel.Instance.AuthorViewModel;
+            var translatorVM = UnitOfViewModel.Instance.TranslatorViewModel;
             var publisherVM = UnitOfViewModel.Instance.PublisherViewModel;
+            var bookStatusVM = UnitOfViewModel.Instance.BookStatusViewModel;
 
             BookISBN bookISBN = bookISBNVM.FindByISBN(sourceItem.ISBN, null);
             BookTitle bookTitle = bookTitleVM.FindById(bookISBN.IdBookTitle);
             Category bookCategory = categoryVM.FindById(bookTitle.IdCategory);
             Author bookAuthor = authorVM.FindById(bookISBN.IdAuthor);
-            Author bookTranslator = authorVM.FindById(bookISBN.IdAuthor);
+            Translator bookTranslator = translatorVM.FindById(sourceItem.IdTranslator);
             Publisher publisher = publisherVM.FindById(sourceItem.IdPublisher);
+            BookStatu bookStatus = bookStatusVM.FindById(sourceItem.IdBookStatus);
 
             BookDto newItem = new BookDto(sourceItem.Id);
+            Utilities.Copy(newItem, sourceItem);
 
             newItem.ISBN = bookISBN.ISBN;
-            newItem.Title = bookTitle.Name;
-            newItem.Category = bookCategory.Name;
-            newItem.Author = bookAuthor.Name;
-            newItem.Translator = bookTranslator.Name;
+            newItem.BookTitle = bookTitle;
+            newItem.Category = bookCategory;
+            newItem.Author = bookAuthor;
+            newItem.Translator = bookTranslator;
             newItem.Language = bookISBN.OriginLanguage;
-
             newItem.Publisher = publisher;
-            newItem.PublishDate = sourceItem.PublishDate;
-
-            newItem.Price = sourceItem.Price;
-            newItem.PriceCurrent  = sourceItem.PriceCurrent;
-
-            newItem.Status = sourceItem.Status;
-            newItem.CreatedAt = sourceItem.CreatedAt;
-            newItem.ModifiedAt = sourceItem.ModifiedAt;
-
+            newItem.BookStatus = bookStatus;
+            
             return newItem;
         }
     }

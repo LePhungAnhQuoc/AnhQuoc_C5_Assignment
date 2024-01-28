@@ -138,13 +138,12 @@ namespace AnhQuoc_C5_Assignment
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
-        {            
-            // IsCheckEmptyItem
-            bool isCheckEmptyItem = roleVM.IsCheckEmptyItem(Item);
+        {
+            // Validation
+            RunAllValidations();
             bool isHasError = this.IsValidationGetHasError();
-            if (isCheckEmptyItem == false || isHasError)
+            if (isHasError)
             {
-                RunAllValidations();
                 return;
             }
 
@@ -162,16 +161,13 @@ namespace AnhQuoc_C5_Assignment
 
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            // IsCheckEmptyItem
-            bool isCheckEmptyItem = roleVM.IsCheckEmptyItem(Item);
+            // Validation
+            RunAllValidations();
             bool isHasError = this.IsValidationGetHasError();
-            if (isCheckEmptyItem == false || isHasError)
+            if (isHasError)
             {
-                RunAllValidations();
                 return;
             }
-
-            // Kiểm tra thông tin Name của item có tồn tại trong danh sách
 
             var normalItem = roleVM.CreateByDto(Item);
             var normalSourceItem = roleVM.CreateByDto(getItemToUpdate());

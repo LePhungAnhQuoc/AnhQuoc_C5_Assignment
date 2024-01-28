@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" 
-             d:DesignHeight="380" d:DesignWidth="515">
+             Background="White">
     <UserControl.Resources>
         <local:BookISBNStatusConverter x:Key="BookISBNStatusConverter" />
     </UserControl.Resources>
@@ -69,7 +69,7 @@
                         <ColumnDefinition Width="100" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Label Content="Description: " HorizontalAlignment="Right" Width="100" />
+                    <Label Content="Description: " />
                     <TextBlock Grid.Column="1"
                                Text="{Binding Item.Description}" />
                 </Grid>

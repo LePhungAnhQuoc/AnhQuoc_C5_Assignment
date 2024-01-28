@@ -198,12 +198,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddTranslator.getIdTranslator = () => translatorVM.GetId();
             frmAddTranslator.ShowDialog();
          
-            if (frmAddTranslator.Item == null) // Cancel the operation
+            if (frmAddTranslator.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            TranslatorDto newTranslatorDto = frmAddTranslator.Item;
+            TranslatorDto newTranslatorDto = frmAddTranslator.Context.Item;
 
             #region AddNewItem
             Translator newTranslator = translatorVM.CreateByDto(newTranslatorDto);
@@ -297,12 +297,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddTranslator.getItemToUpdate = () => translatorDtoSelect;
             frmAddTranslator.ShowDialog();
 
-            if (frmAddTranslator.Item == null) // Cancel the operation
+            if (frmAddTranslator.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            TranslatorDto newTranslatorDto = frmAddTranslator.Item;
+            TranslatorDto newTranslatorDto = frmAddTranslator.Context.Item;
 
             #region UpdateItemInformation
             Translator getTranslator = translatorVM.FindById(newTranslatorDto.Id);

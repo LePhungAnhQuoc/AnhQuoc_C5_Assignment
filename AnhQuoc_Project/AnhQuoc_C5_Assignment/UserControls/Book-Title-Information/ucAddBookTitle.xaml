@@ -5,13 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" d:DesignWidth="410" d:DesignHeight="470">
+    <UserControl.Resources>
+        <local:CategoryToIdConverter x:Key="categoryToIdConverter" />
+    </UserControl.Resources>
     <StackPanel Background="White"
                 Width="400">
         <!-- Title -->
         <Label Style="{StaticResource lblTitle}"
                Margin="0 20 0 10"
                Content="Book Title Information" />
-        
 
         <!-- Body -->
         <StackPanel Grid.Column="0"
@@ -47,27 +49,7 @@
                             DisplayMemberPath="Name"
                             Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
                     <ComboBox.SelectedItem>
-                        <Binding Path="SelectedCategory" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <local:SelectedItemRule />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </ComboBox.SelectedItem>
-                </ComboBox>
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Author: " />
-                <ComboBox Grid.Column="1"
-                            Name="cbAuthor"
-                            HorizontalAlignment="Stretch"
-                            ItemsSource="{Binding Authors}"
-                            DisplayMemberPath="Name">
-                    <ComboBox.SelectedItem>
-                        <Binding Path="SelectedAuthor" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="Item.IdCategory" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource categoryToIdConverter}">
                             <Binding.ValidationRules>
                                 <local:SelectedItemRule />
                             </Binding.ValidationRules>
@@ -111,6 +93,56 @@
                     </TextBox.Text>
                 </TextBox>
             </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Note: " />
+                <TextBox Grid.Column="1"
+                            Name="txtNote"
+                            Style="{StaticResource txtStyleInputBig}"
+                            Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                    <TextBox.Text>
+                        <Binding Path="Item.Note" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </Grid>
+            <Grid Margin="0 15 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="UrlImage: " />
+                <Grid Grid.Column="1"
+                      Style="{x:Null}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"  
+                             Name="txtUrlImage"
+                             Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                        <TextBox.Text>
+                            <Binding Path="Item.UrlImage" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:FormNotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <Button Grid.Column="1"
+                            Name="btnBrowseImage"
+                            Content="Browse"
+                            Style="{StaticResource btnBrowse}"
+                            Margin="10 0 0 0"/>
+                </Grid>
+            </Grid>
+
         </StackPanel>
     
        

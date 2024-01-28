@@ -336,11 +336,7 @@ namespace AnhQuoc_C5_Assignment
 
         public ObservableCollection<LoanDetail> LoanDetails { get; set; }
         #endregion
-
-
-        public string Name { get; }
-
-
+        
 
         #region RelayCommands
         public RelayCommand ucAddLoanLoadedCmd { get; private set; }
@@ -366,8 +362,6 @@ namespace AnhQuoc_C5_Assignment
         
         public BorrowBookViewModel()
         {
-            Name = "Search Page";
-
             AllBookISBNCard = new ObservableCollection<ucBookISBNCard>();
             AllReaderTypes = Utilities.GetListFromEnum<ReaderType>().ToObservableCollection();
 
@@ -425,9 +419,13 @@ namespace AnhQuoc_C5_Assignment
             LoanSlipDto = new LoanSlipDto(loanSlipVM.GetId());
             LoanSlipDto.IdUser = MainWindow.loginUser.Id;
             LoanSlipDto.LoanDate = DateTime.Now;
-            LoanSlipDto.ExpDate = LoanSlipDto.LoanDate.AddDays(Constants.LoanSlipExpDate);
+
+            Parameter paramExpDate = paraVM.FindById(Constants.paraQD9);
+            int days = Convert.ToInt32(paramExpDate.Value);
+            LoanSlipDto.ExpDate = LoanSlipDto.LoanDate.AddDays(days);
         }
 
+        
 
         #region AddLoan-Inplement-Commands
         public void ucAddLoanLoaded(object para)
@@ -956,9 +954,7 @@ namespace AnhQuoc_C5_Assignment
             ucBooksTable ucSelectBooksTable = MainWindow.UnitOfForm.UcBooksTable(true);
 
             #region Set-ExceptProperty
-            List<PropertyInfo> allProperties = Utilities.getPropsFromType(typeof(BookDto));
-            List<PropertyInfo> exceptDtgProperties = Utilities.FillPropertiesByName(allProperties, Constants.exceptDtgCreateLoanSlipBook);
-            ucSelectBooksTable.getExceptProperties = () => exceptDtgProperties;
+            ucSelectBooksTable.getExceptProperties = () => Constants.exceptDtgBookCreateLoanSlip;
             #endregion
 
             ucSelectBooksTable.Books = bookMap.ConvertToDto(books);

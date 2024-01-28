@@ -24,7 +24,7 @@ namespace AnhQuoc_C5_Assignment
                 return new ValidationResult(false, Utilities.ValidateNoteInputNumberRule());
             }
 
-            int fixLength = Constants.identifyLength;
+            int fixLength = Constants.textIdentifyLength;
             if (!Utilities.FixLengthRule(getValue, fixLength))
             {
                 return new ValidationResult(false, Utilities.ValidateNoteFixLengthRule(fixLength));

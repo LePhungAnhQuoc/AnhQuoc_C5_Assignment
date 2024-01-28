@@ -9,48 +9,44 @@ namespace AnhQuoc_C5_Assignment
 {
     public static class Constants
     {
-        #region Parameter-Table-In-Database
-        public static int LoanSlipExpDate = 7;
+        #region Directory-Images
+        public static string rememberDirectoryOpenFile = @"C:\";
+        public static string StartUrlImage = "\\Assets\\Images\\";
+        public static string HumanUrlImage = "\\Assets\\Images\\Others\\human.png";
+
+        public static string fServerNames = "Data/ServerNames.xml";
+        public static string childServerName = "ServerName";
+
+        public static string fDatabaseNames = "Data/DatabaseNames.xml";
+        public static string childDatabaseName = "DatabaseName";
+
         #endregion
 
         public static DateTime dateEmptyValue = DateTime.MinValue;
         public static DateTime dateMinValue = DateTime.Parse("01/01/1900");
         public static Func<DateTime> dateMaxValue = () => DateTime.Now;
 
-        public static DateTime boFMinValue = DateTime.Parse("01/01/1900");
-        public static Func<DateTime> boFMaxValue = () => DateTime.Now;
-
-        public static int phoneLength = 10;
-        public static int identifyLength = 12;
-        public static int textBoxMaxLength = 50;
-        public static int txtAddressMaxLength = 100;
-        public static int txtUrlImageMaxLength = 100;
-        public static int txtBookTitleSummaryMaxLength = 100;
-        public static int txtDescriptionMaxLength = 50;
-        public static int txtSummaryMaxLength = 50;
-
-        public const int MaxAnsiCode = 127;
-
-        public static List<char> allowCharacterInText = new List<char> { ',', '.' };
-
-        #region XmlFileName
-        public static string fServerNames = "Data/ServerNames.xml";
-        public static string childServerName = "ServerName";
-
-        public static string fDatabaseNames = "Data/DatabaseNames.xml";
-        public static string childDatabaseName = "DatabaseName";
+        #region txt-Length
+        public static int textBoxMaxLength = 500;
+        public static int textIdentifyLength = 12;
+        public static int textPhoneLength = 10;
+        public static int textAreaMaxLength = 1000;
         #endregion
 
+        public const int MaxAnsiCode = 127;
+        public static List<char> allowCharacterInText = new List<char> { ',', '.' };
+
         public static string adminRoleId = "R1";
-        public static string adminGroup = "administration";
+        public static Func<string> adminGroup = () => (UnitOfViewModel.Instance.RoleViewModel).FindById(adminRoleId).Group;
 
         public static string paraQD1 = "QD1";
         public static string paraQD8 = "QD8";
         public static string paraQD7 = "QD7";
-
+        public static string paraQD9 = "QD9";
         public static string paraQD11 = "QD11";
         public static string paraQD10 = "QD10";
 
+        #region Function-Id
         public static string roleFunc_FunctionId = "F19";
         public static string updateBookISBN_FunctionId = "F35";
         public static string[] importantFunction = new string[] { roleFunc_FunctionId, updateBookISBN_FunctionId };
@@ -71,11 +67,10 @@ namespace AnhQuoc_C5_Assignment
         public const string PenaltyReasonManagement_FunctionId = "F69";
         public const string ProvinceManagement_FunctionId = "F64";
         public const string ParameterManagement_FunctionId = "F73";
+        #endregion
 
         public static string Culture = "vi-VN";
-        public static string DatabaseNameConfig = "QuanLyThuVienEntities";
-
-        public static string StartUrlImage = "/Images/";
+        public static string DatabaseNameConfig = nameof(QuanLyThuVienEntities);
 
         #region Prefix
         public static string prefixAuthor = "A";
@@ -100,13 +95,13 @@ namespace AnhQuoc_C5_Assignment
         public static string prefixPublisher = "P";
         public static string prefixLoanDetailHistory = "LDTH";
         public static string prefixTranslator = "T";
+        public static string prefixBookStatus = "BS";
 
         #endregion
 
         #region CheckProperties
-
-        public static string[] checkPropBookISBN = new string[] { "IdBookTitle", "IdAuthor", "Language" };
-        public static string[] checkPropBookTitle = new string[] { "IdCategory", "Name" };
+        public static string[] checkPropBookISBN = new string[] { "IdBookTitle", "IdAuthor", "OriginLanguage" };
+        public static string[] checkPropBookTitle = new string[] { "Name", "IdCategory" };
         public static string[] checkPropFunction = new string[] { "Name", "IdParent" };
         public static string[] checkPropRole = new string[] { "Name" };
         public static string[] checkPropReader = new string[] { "LName", "FName", "boF", "ReaderType" };
@@ -119,17 +114,12 @@ namespace AnhQuoc_C5_Assignment
         public static string[] checkPropProvince = new string[] { "Name" };
         public static string[] checkPropPenaltyReason = new string[] { "Name" };
         public static string[] checkPropParameter = new string[] { "Name" };
-
-
+        public static string[] checkPropBook = new string[] {};
         #endregion
 
         #region ExceptDataGrid-Display
-        public static string[] exceptDtgChilds = new string[] { "Id", "boF", "LName", "FName", "ReaderType", "ChildsQuantity", "Status", "CreatedAt", "ModifiedAt" };
-
-        public static string[] exceptDtgCreateLoanSlipBook = new string[] { "ISBN", "CreatedAt", "ModifiedAt", "PublishDate", "PriceCurrent", "Translator", "Category", "Id", "Author" };
-
-        public static string[] exceptDtgCreateLoanHistoryBook = new string[] { "ISBN", "CreatedAt", "ModifiedAt", "PublishDate", "Author", "Category" };
-
+        public static string[] exceptDtgReaderChild = new string[] { "Id", "boF", "LName", "FName", "ReaderType", "ChildsQuantity", "Status", "CreatedAt", "ModifiedAt" };
+        public static string[] exceptDtgBookCreateLoanSlip = new string[] { "Id", "ISBN", "Translator.Name", "PublishDate", "PriceCurrent", "Category.Name", "Author.Name", "CreatedAt", "ModifiedAt" };
         #endregion
 
         #region Style-String
@@ -141,15 +131,17 @@ namespace AnhQuoc_C5_Assignment
         public static string styleWDGeneral = "wdStyleGeneral";
         public static string styleStkWrapButton = "stkWrapButton";
         public static string stylelblNote = "lblNote";
-        public static int maxWDHeight = 700;
-        public static int maxWDWidth = 1250;
-
-        public static WindowStartupLocation WDLocation = WindowStartupLocation.CenterScreen;
         #endregion
 
-        public static Func<string> ShortConnStr = () => $"data source={MainWindow.DataSource};initial catalog={MainWindow.InitCatalog};integrated security={MainWindow.IntegratedSecurity.ToString()}";
+        public static int maxWDHeight = 700;
+        public static int maxWDWidth = 1250;
         public static double FormMaxWidth = 800;
         public static double borderDistance = 10;
+
         public static double maxHeightTextArea = 200;
+
+        public static WindowStartupLocation WDLocation = WindowStartupLocation.CenterScreen;
+
+        public static Func<string> ShortConnStr = () => $"data source={MainWindow.DataSource};initial catalog={MainWindow.InitCatalog};integrated security={MainWindow.IntegratedSecurity.ToString()}";
     }
 }

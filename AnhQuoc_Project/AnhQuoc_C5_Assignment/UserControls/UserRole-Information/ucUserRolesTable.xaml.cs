@@ -28,7 +28,7 @@ namespace AnhQuoc_C5_Assignment
         public Func<UserRepository> getUserRepo { get; set; }
         public Func<ObservableCollection<UserRole>> getUserRoles { get; set; }
         public Func<bool?> getItem_Status { get; set; }
-        public Func<List<PropertyInfo>> getExceptProperties { get; set; }
+        public Func<string[]> getExceptProperties { get; set; }
         #endregion
 
         #region Propdps

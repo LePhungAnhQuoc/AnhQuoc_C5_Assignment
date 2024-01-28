@@ -92,14 +92,22 @@
       <DependentUpon>ucLoadingSpinnerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Converters\DateMinToNullValueConverter.cs" />
-    <Compile Include="Converters\HalfLengthConverter.cs" />
-    <Compile Include="Converters\IsLoanOutOfDateConverter.cs" />
-    <Compile Include="Converters\Others\AdminUserConverter.cs" />
-    <Compile Include="Converters\Others\EmptyContentConverter.cs" />
-    <Compile Include="Converters\Others\InverseBoolConverter.cs" />
-    <Compile Include="Converters\Others\Ulties\BoolToVisibilityConverter.cs" />
-    <Compile Include="Converters\Others\Ulties\IndexDataGridItemConverter.cs" />
+    <Compile Include="Converters\Object-To-Id\UserToIdConverter.cs" />
+    <Compile Include="Converters\Object-To-Id\RoleToIdConverter.cs" />
+    <Compile Include="Converters\Object-To-Id\CategoryToIdConverter.cs" />
+    <Compile Include="Converters\Object-To-Id\BookTitleToIdConverter.cs" />
+    <Compile Include="Converters\Object-To-Id\AuthorToIdConverter.cs" />
+    <Compile Include="Converters\Object-To-Id\TranslatorToIdConverter.cs" />
+    <Compile Include="Converters\Object-To-Id\PublisherToIdConverter.cs" />
+    <Compile Include="Converters\Object-To-Id\BookISBNToISBNConverter.cs" />
+    <Compile Include="Converters\Utilities\DateMinToNullValueConverter.cs" />
+    <Compile Include="Converters\Utilities\HalfLengthConverter.cs" />
+    <Compile Include="Converters\LoanSlip\IsLoanOutOfDateConverter.cs" />
+    <Compile Include="Converters\User\AdminUserConverter.cs" />
+    <Compile Include="Converters\Utilities\EmptyContentConverter.cs" />
+    <Compile Include="Converters\Utilities\InverseBoolConverter.cs" />
+    <Compile Include="Converters\Utilities\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\Utilities\IndexDataGridItemConverter.cs" />
     <Compile Include="Converters\StatusConvert\ParameterStatusConverter.cs" />
     <Compile Include="Converters\StatusConvert\PenaltyReasonStatusConverter.cs" />
     <Compile Include="Converters\StatusConvert\ProvinceStatusConverter.cs" />
@@ -108,19 +116,18 @@
     <Compile Include="Converters\StatusConvert\AuthorStatusConverter.cs" />
     <Compile Include="Converters\StatusConvert\BookISBNStatusConverter.cs" />
     <Compile Include="Converters\StatusConvert\BookStatusConverter.cs" />
-    <Compile Include="Converters\Others\Ulties\CalculatePercentValueConverter.cs" />
+    <Compile Include="Converters\Utilities\CalculatePercentValueConverter.cs" />
     <Compile Include="Converters\StatusConvert\ChildStatusConverter.cs" />
     <Compile Include="Converters\StatusConvert\ColorStatusConverter.cs" />
     <Compile Include="Converters\StatusConvert\FunctionStatusConverter.cs" />
-    <Compile Include="Converters\Others\Ulties\IndexListViewItemConverter.cs" />
+    <Compile Include="Converters\Utilities\IndexListViewItemConverter.cs" />
     <Compile Include="Converters\StatusConvert\RoleStatusConverter.cs" />
     <Compile Include="Converters\StatusConvert\TranslatorStatusConverter.cs" />
     <Compile Include="Converters\StatusConvert\UserStatusConverter.cs" />
     <Compile Include="Converters\StatusConvert\ReaderStatusConverter.cs" />
     <Compile Include="Converters\StatusConvert\ChildsQuantityConverter.cs" />
-    <Compile Include="Converters\Others\boFToAgeConverter.cs" />
+    <Compile Include="Converters\User\boFToAgeConverter.cs" />
     <Compile Include="Converters\StatusConvert\StatusConverter.cs" />
-    <Compile Include="Converters\stkInformationVisibilityConverter.cs" />
     <Compile Include="DataProvider\DatabaseFirst.cs" />
     <Compile Include="DataProvider\UnitOfWork\UnitOfForm.cs" />
     <Compile Include="DataProvider\UnitOfWork\UnitOfMap.cs" />
@@ -150,12 +157,11 @@
     <Compile Include="DTOs\RoleDto.cs" />
     <Compile Include="DTOs\RoleFunctionDto.cs" />
     <Compile Include="DTOs\LoanHistoryDto.cs" />
-    <Compile Include="DTOs\UI-Dtos\BorrowBookDto.cs" />
-    <Compile Include="DTOs\UserDtos\UserDto.cs" />
+    <Compile Include="DTOs\UserDto.cs" />
     <Compile Include="DTOs\ReaderDto.cs" />
-    <Compile Include="DTOs\UserDtos\UserAccountLogIn.cs" />
+    <Compile Include="DTOs\Other-Dtos\UserAccountLogIn.cs" />
     <Compile Include="DTOs\UserRoleDto.cs" />
-    <Compile Include="Enums\Others\CheckPropertyType.cs" />
+    <Compile Include="Repositories\BookStatusRepository.cs" />
     <Compile Include="Enums\ReaderType.cs" />
     <Compile Include="ExtensionMethods\BoolExtend.cs" />
     <Compile Include="ExtensionMethods\ControlExtend.cs" />
@@ -282,7 +288,7 @@
     <Compile Include="Repositories\BookISBNRepository.cs" />
     <Compile Include="Repositories\FunctionRepository.cs" />
     <Compile Include="Repositories\LoanSlipRepository.cs" />
-    <Compile Include="Repositories\Others\Base\IXmlRepositoryBase.cs" />
+    <Compile Include="Repositories\Xml-Repository\Base\IXmlRepositoryBase.cs" />
     <Compile Include="Repositories\RoleFunctionRepository.cs" />
     <Compile Include="Repositories\LoanHistoryRepository.cs" />
     <Compile Include="Repositories\TranslatorRepository.cs" />
@@ -290,11 +296,11 @@
     <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\UserInfoRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="Repositories\Others\DatabaseNameRepository.cs" />
+    <Compile Include="Repositories\Xml-Repository\DatabaseNameRepository.cs" />
     <Compile Include="Repositories\ProvinceRepository.cs" />
     <Compile Include="Repositories\BookTitleRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
-    <Compile Include="Repositories\Others\ServerNameRepository.cs" />
+    <Compile Include="Repositories\Xml-Repository\ServerNameRepository.cs" />
     <Compile Include="Repositories\ParameterRepository.cs" />
     <Compile Include="Repositories\AdultRepository.cs" />
     <Compile Include="Repositories\ChildRepository.cs" />
@@ -443,9 +449,6 @@
     <Compile Include="UserControls\Readers-information\Add-Adult-Child\ucAddAdult.xaml.cs">
       <DependentUpon>ucAddAdult.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Books-Information\ucAddBook.xaml.cs">
-      <DependentUpon>ucAddBook.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Role-Information\ucRolesTable.xaml.cs">
       <DependentUpon>ucRolesTable.xaml</DependentUpon>
     </Compile>
@@ -515,8 +518,9 @@
     <Compile Include="UserControls\UserRole-Information\ucUserRolesTable.xaml.cs">
       <DependentUpon>ucUserRolesTable.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\CheckProperty\CheckPropertyType.cs" />
     <Compile Include="Utilities\Constants.cs" />
-    <Compile Include="Utilities\IsCheckProperty.cs" />
+    <Compile Include="Utilities\CheckProperty\IsCheckProperty.cs" />
     <Compile Include="Utilities\ItemHelper.cs" />
     <Compile Include="Utilities\Utilities.cs" />
     <Compile Include="Validations\Basic-Validations\FixLengthRule.cs" />
@@ -540,8 +544,9 @@
     <Compile Include="Mapping\AdultMap.cs" />
     <Compile Include="Mapping\BookISBNMap.cs" />
     <Compile Include="Mapping\Base\IMap.cs" />
-    <Compile Include="ViewModels\TranslatorViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IPageViewModel.cs" />
+    <Compile Include="ViewModels\BookStatusViewModel.cs" />
+    <Compile Include="ViewModels\TranslatorViewModel.cs" />
     <Compile Include="ViewModels\PenaltyReasonViewModel.cs" />
     <Compile Include="ViewModels\AdultViewModel.cs" />
     <Compile Include="ViewModels\AuthorViewModel.cs" />
@@ -555,8 +560,11 @@
     <Compile Include="ViewModels\LoanDetailHistoryViewModel.cs" />
     <Compile Include="ViewModels\LoanDetailViewModel.cs" />
     <Compile Include="ViewModels\LoanSlipViewModel.cs" />
-    <Compile Include="ViewModels\Others\DatabaseNameViewModel.cs" />
-    <Compile Include="ViewModels\Others\ServerNameViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddTranslatorViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddUserRoleViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddUserViewModel.cs" />
+    <Compile Include="ViewModels\Xml-ViewModels\DatabaseNameViewModel.cs" />
+    <Compile Include="ViewModels\Xml-ViewModels\ServerNameViewModel.cs" />
     <Compile Include="ViewModels\ParameterViewModel.cs" />
     <Compile Include="ViewModels\ProvinceViewModel.cs" />
     <Compile Include="ViewModels\PublisherViewModel.cs" />
@@ -571,6 +579,9 @@
     <Compile Include="ViewModels\ViewModels-For-UI\ReturnBookViewModel.cs" />
     <Compile Include="Views\Author\frmAddAuthor.xaml.cs">
       <DependentUpon>frmAddAuthor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Book\frmAddBook.xaml.cs">
+      <DependentUpon>frmAddBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Book\frmBookISBNInformation.xaml.cs">
       <DependentUpon>frmBookISBNInformation.xaml</DependentUpon>
@@ -646,7 +657,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Images\Others\icons.xaml">
+    <Page Include="Assets\Images\Others\icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -930,10 +941,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Books-Information\ucAddBook.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControls\Role-Information\ucRolesTable.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1027,6 +1034,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Author\frmAddAuthor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Book\frmAddBook.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1155,37 +1166,47 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\10.png" />
-    <Resource Include="Images\12.png" />
-    <Resource Include="Images\3.png" />
-    <Resource Include="Images\4.png" />
-    <Resource Include="Images\5.png" />
-    <Resource Include="Images\6.png" />
-    <Resource Include="Images\7.png" />
-    <Resource Include="Images\8.png" />
-    <Resource Include="Images\9.png" />
+    <Resource Include="Assets\Images\10.png" />
+    <Resource Include="Assets\Images\12.png" />
+    <Resource Include="Assets\Images\3.png" />
+    <Resource Include="Assets\Images\4.png" />
+    <Resource Include="Assets\Images\5.png" />
+    <Resource Include="Assets\Images\6.png" />
+    <Resource Include="Assets\Images\7.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\14.png" />
-    <Resource Include="Images\18.png" />
-    <Resource Include="Images\19.png" />
-    <Resource Include="Images\Others\delete-icon.png" />
-    <Resource Include="Images\Others\edit-icon.png" />
-    <Resource Include="Images\Others\human.png" />
-    <Resource Include="Images\Others\info %281%29.png" />
-    <Resource Include="Images\Others\info-icon.png" />
-    <Resource Include="Images\Others\info.png" />
+    <Resource Include="Assets\Images\14.png" />
+    <Resource Include="Assets\Images\18.png" />
+    <Resource Include="Assets\Images\19.png" />
+    <Resource Include="Assets\Images\Others\delete-icon.png" />
+    <Resource Include="Assets\Images\Others\edit-icon.png" />
+    <Resource Include="Assets\Images\Others\human.png" />
+    <Resource Include="Assets\Images\Others\info %281%29.png" />
+    <Resource Include="Assets\Images\Others\info-icon.png" />
+    <Resource Include="Assets\Images\Others\info.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Images\13.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Control-Views\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Assets\BookImages\BT01.png" />
+    <Resource Include="Assets\BookImages\BT02.png" />
+    <Resource Include="Assets\BookImages\BT03.png" />
+    <Resource Include="Assets\BookImages\BT04.png" />
+    <Resource Include="Assets\BookImages\BT05.png" />
+    <Resource Include="Assets\BookImages\BT06.png" />
+    <Resource Include="Assets\BookImages\BT07.png" />
+    <Resource Include="Assets\BookImages\BT08.png" />
+    <Resource Include="Assets\BookImages\BT09.png" />
+    <Resource Include="Assets\BookImages\BT10.png" />
+    <Resource Include="Assets\BookImages\BT11.png" />
+    <Resource Include="Assets\BookImages\BT12.png" />
+    <Resource Include="Assets\BookImages\BT13.png" />
+    <Resource Include="Assets\BookImages\BT14.png" />
+    <Resource Include="Assets\BookImages\BT15.png" />
+    <Resource Include="Assets\BookImages\BT16.png" />
+    <Resource Include="Assets\BookImages\BT17.png" />
     <Content Include="Models\QuanLyThuVienModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>

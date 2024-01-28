@@ -459,6 +459,11 @@
         <Setter Property="Background" Value="White" />
     </Style>
 
+    <Style TargetType="Button" x:Key="btnBrowse" BasedOn="{StaticResource btnGeneral}">
+        <Setter Property="Content" Value="Add" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
     <Style TargetType="Button" x:Key="btnBack" BasedOn="{StaticResource btnGeneral}">
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Content" Value="Go back" />

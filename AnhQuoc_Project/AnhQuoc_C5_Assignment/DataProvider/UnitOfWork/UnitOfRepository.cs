@@ -20,6 +20,17 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private BookStatusRepository _BookStatusRepo;
+        public BookStatusRepository BookStatusRepo
+        {
+            get
+            {
+                if (_BookStatusRepo == null)
+                    _BookStatusRepo = new BookStatusRepository();
+                return _BookStatusRepo;
+            }
+        }
+
         private PenaltyReasonRepository _PenaltyReasonRepo;
         public PenaltyReasonRepository PenaltyReasonRepo
         {
@@ -326,6 +337,9 @@ namespace AnhQuoc_C5_Assignment
 
             _LoanDetailRepo = new LoanDetailRepository();
             _LoanDetailRepo.LoadList();
+
+            _BookStatusRepo = new BookStatusRepository();
+            _BookStatusRepo.LoadList();
 
             _PenaltyReasonRepo = new PenaltyReasonRepository();
             _PenaltyReasonRepo.LoadList();

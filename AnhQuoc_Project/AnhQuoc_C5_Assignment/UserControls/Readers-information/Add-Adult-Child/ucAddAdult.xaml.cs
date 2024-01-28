@@ -87,7 +87,7 @@ namespace AnhQuoc_C5_Assignment
             int maxLength = Constants.textBoxMaxLength;
             txtIdentify.MaxLength = maxLength;
             txtPhone.MaxLength = maxLength;
-            txtAddress.MaxLength = Constants.txtAddressMaxLength;
+            txtAddress.MaxLength = Constants.textBoxMaxLength;
             #endregion
 
             txtAddress.LostFocus += TxtFormatValue_LostFocus;

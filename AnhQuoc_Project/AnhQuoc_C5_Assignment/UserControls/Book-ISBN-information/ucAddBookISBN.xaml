@@ -4,7 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
-             mc:Ignorable="d" d:DesignWidth="410" d:DesignHeight="430">
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <local:BookTitleToIdConverter x:Key="bookTitleToIdConverter" />
+        <local:AuthorToIdConverter x:Key="authorToIdConverter" />
+    </UserControl.Resources>
     <StackPanel Width="400"
                 Background="White">
         <!-- Title -->
@@ -44,7 +48,7 @@
                           DisplayMemberPath="Name"
                           Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
                     <ComboBox.SelectedItem>
-                        <Binding Path="SelectedBookTitleDto" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="Item.IdBookTitle" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" Converter="{StaticResource bookTitleToIdConverter}">
                             <Binding.ValidationRules>
                                 <local:SelectedItemRule />
                             </Binding.ValidationRules>
@@ -64,35 +68,13 @@
                           DisplayMemberPath="Name"
                           Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
                     <ComboBox.SelectedItem>
-                        <Binding Path="SelectedAuthorDto" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="IdAuthor" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource authorToIdConverter}">
                             <Binding.ValidationRules>
                                 <local:SelectedItemRule />
                             </Binding.ValidationRules>
                         </Binding>
                     </ComboBox.SelectedItem>
                 </ComboBox>
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Publish Date: " />
-                <DatePicker Grid.Column="1"
-                            Name="datePublishDate"
-                            HorizontalAlignment="Stretch"
-                            Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                    <DatePicker.SelectedDate>
-                        <Binding 
-                            Path="SelectedPublishDate"         
-                            UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <local:SelectedItemRule />
-                                <local:InputDateRule />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </DatePicker.SelectedDate>
-                </DatePicker>
             </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -105,7 +87,7 @@
                           ItemsSource="{Binding AllLanguages}"
                           Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
                     <ComboBox.SelectedItem>
-                        <Binding Path="SelectedLanguage" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="Item.OriginLanguage" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <local:SelectedItemRule />
                             </Binding.ValidationRules>
@@ -113,6 +95,24 @@
                     </ComboBox.SelectedItem>
                 </ComboBox>
             </Grid>
+            <Grid Margin="0 15 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Description: " />
+                <TextBox Grid.Column="1"
+                         Name="txtDescription">
+                    <TextBox.Text>
+                        <Binding Path="Item.Description" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </Grid>
+
         </StackPanel>
 
         <!-- Footer -->

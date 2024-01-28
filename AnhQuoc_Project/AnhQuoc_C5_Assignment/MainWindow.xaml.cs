@@ -316,7 +316,7 @@ namespace AnhQuoc_C5_Assignment
             }
 
 
-            //CheckingDtos();
+            // CheckingModelHasDecimalProp();
         }
 
         private bool CheckIsRightConnection()
@@ -420,6 +420,7 @@ namespace AnhQuoc_C5_Assignment
         }
         #endregion
 
+        #region Others
         private void CheckingDtos()
         {
             // Checking Dto
@@ -436,20 +437,29 @@ namespace AnhQuoc_C5_Assignment
                     continue;
                 }
                 Type itemDataType = Utilities.GetItemDataTypeInGenericList(value);
+                string modelName = itemDataType.Name;
+
+                if (modelName != "Book")
+                {
+                    continue;
+                }
 
                 var props = Utilities.getPropsFromType(itemDataType);
-                var propsInDto = Utilities.getPropsFromType(typeof(UserDto));
+                var propsInDto = Utilities.getPropsFromType(typeof(BookDto));
 
-                string modelName = itemDataType.Name;
                 string checkingResult = modelName + "\n";
 
 
 
                 var list = Utilities.OuterJoin(props, propsInDto, "Name");
-                checkingResult += "Dto thieu: " + string.Join(", ", list.ToArray()) + "\n";
+
+                if (list.Count() > 0)
+                    checkingResult += "Dto thieu: " + string.Join(", ", list.ToArray()) + "\n";
 
                 list = Utilities.OuterJoin(propsInDto, props, "Name");
-                checkingResult += "Model chinh thuc thieu: " + string.Join(", ", list.ToArray()) + "\n";
+
+                if (list.Count() > 0)
+                    checkingResult += "Model chinh thuc thieu: " + string.Join(", ", list.ToArray()) + "\n";
 
                 Utilities.ShowMessageBox1(checkingResult);
 
@@ -457,5 +467,71 @@ namespace AnhQuoc_C5_Assignment
                 //goto RunAgain;
             }
         }
+
+        private void CheckingModelHasDecimalProp()
+        {
+            List<string> resultHere = new List<string>();
+            // Checking Dto
+            foreach (PropertyInfo tableProperty in Utilities.getDerivePropsFromType(DatabaseFirst.Instance.dbSource))
+            {
+            RunAgain:
+                IEnumerable value = null;
+                try
+                {
+                    value = (IEnumerable)Utilities.getValueFromProperty(tableProperty, DatabaseFirst.Instance.dbSource);
+                }
+                catch
+                {
+                    continue;
+                }
+                Type itemDataType = Utilities.GetItemDataTypeInGenericList(value);
+
+
+                string modelName = itemDataType.Name;
+
+                List<string> listName = resultHere;
+
+
+                var listProps = Utilities.getPropsFromType(itemDataType);
+                foreach (var prop in listProps)
+                {
+                    var name = prop.PropertyType.Name;
+
+                    if (name == "Decimal")
+                    {
+                        listName.Add(modelName);
+                        break;
+                    }
+                }
+                continue;
+
+                var props = Utilities.getPropsFromType(itemDataType);
+                var propsInDto = Utilities.getPropsFromType(typeof(BookDto));
+
+                string checkingResult = modelName + "\n";
+
+
+
+                var list = Utilities.OuterJoin(props, propsInDto, "Name");
+
+                if (list.Count() > 0)
+                    checkingResult += "Dto thieu: " + string.Join(", ", list.ToArray()) + "\n";
+
+                list = Utilities.OuterJoin(propsInDto, props, "Name");
+
+                if (list.Count() > 0)
+                    checkingResult += "Model chinh thuc thieu: " + string.Join(", ", list.ToArray()) + "\n";
+
+              //  Utilities.ShowMessageBox1(checkingResult);
+
+                int b = 5;
+                //goto RunAgain;
+            }
+            int a = 5;
+            string str = string.Join(", ", resultHere.ToArray());
+            Utilities.ShowMessageBox1(str);
+
+        }
+        #endregion
     }
 }

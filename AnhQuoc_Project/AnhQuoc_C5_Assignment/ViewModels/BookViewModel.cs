@@ -115,5 +115,28 @@ namespace AnhQuoc_C5_Assignment
         {
             return lstId.Select(item => FindById(item, null)).ToObservableCollection();
         }
+
+
+        public bool IsCheckEmptyItem(BookDto item)
+        {
+            return Utilities.IsCheckEmptyItem(item, false);
+        }
+
+        public Book CreateByDto(BookDto dto)
+        {
+            Book book = new Book();
+            Copy(book, dto);
+            return book;
+        }
+
+        public void Copy(Book dest, BookDto source)
+        {
+            Utilities.Copy(dest, source);
+        }
+
+        public void Copy(BookDto dest, BookDto source)
+        {
+            Utilities.Copy(dest, source);
+        }
     }
 }

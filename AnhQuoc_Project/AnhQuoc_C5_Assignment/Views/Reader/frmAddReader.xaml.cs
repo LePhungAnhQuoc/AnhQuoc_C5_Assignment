@@ -49,21 +49,6 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-
-
-        private DateTime? _SelectedBoF;
-        public DateTime? SelectedBoF
-        {
-            get
-            {
-                return _SelectedBoF;
-            }
-            set
-            {
-                _SelectedBoF = value;
-                OnPropertyChanged();
-            }
-        }
         #endregion
 
         #region ViewModels
@@ -132,7 +117,6 @@ namespace AnhQuoc_C5_Assignment
             ucAddAdult.txtAddress.TextChanged += Txt_TextChanged;
             ucAddAdult.txtPhone.TextChanged += Txt_TextChanged;
             ucAddAdult.cbCity.SelectionChanged += Cb_SelectionChanged;
-            dateboF.SelectedDateChanged += DatePicker_SelectedDateChanged;
 
             txtFName.LostFocus += TxtFormatValue_LostFocus;
             txtLName.LostFocus += TxtFormatValue_LostFocus;
@@ -159,14 +143,15 @@ namespace AnhQuoc_C5_Assignment
 
         private void DateboF_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (Item == null) return;
             #region CheckAge
             int readerAge = -1;
-            if (SelectedBoF == null)
+            if (Item.boF == null)
             {
                 return;
             }
 
-            readerAge = DateTime.Now.Date.Year - ((DateTime)SelectedBoF).Date.Year;
+            readerAge = DateTime.Now.Date.Year - ((DateTime)Item.boF).Date.Year;
 
             #region GetParameterRule
             Parameter parameter = paraVM.FindById(Constants.paraQD7);
@@ -211,24 +196,17 @@ namespace AnhQuoc_C5_Assignment
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             bool? statusValue = null;
-
-            if (!IsAllSelecting())
-            {
-                RunAllValidations();
-                return;
-            }
-                
-            // IsCheckEmptyItem
-            bool isCheckEmptyItem = readerVM.IsCheckEmptyItem(Item);
+            
+            // Validation
+            RunAllValidations();
             bool isHasError = this.IsValidationGetHasError();
-            if (isCheckEmptyItem == false || isHasError)
+            if (isHasError)
             {
-                RunAllValidations();
                 return;
             }
-          
+
             // Truyền dữ liệu cho item
-            PassValueToItem(Item, (ReaderType)SelectedReaderType, (DateTime)SelectedBoF);
+            PassValueToItem(Item, (ReaderType)SelectedReaderType);
 
             // Kiểm tra thông tin của item có tồn tại trong danh sách
             bool isExistReaderInformation = Utilities.IsExistInformation(getReaderRepo().Gets(), Item, true, Constants.checkPropReader);
@@ -303,22 +281,11 @@ namespace AnhQuoc_C5_Assignment
             this.Close();
         }
 
-        private void PassValueToItem(Reader item, ReaderType selectedReaderType, DateTime selectedBoF)
+        private void PassValueToItem(Reader item, ReaderType selectedReaderType)
         {
             item.ReaderType = selectedReaderType.ConvertValue();
-            item.boF = selectedBoF;
         }
-
-        private bool IsAllSelecting()
-        {
-            if (SelectedBoF == null)
-            {
-                Utilities.ShowMessageBox1("Please select boF date information");
-                return false;
-            }
-            return true;
-        }
-
+        
         public bool IsValidationGetHasError()
         {
             if (Validation.GetHasError(txtLName))

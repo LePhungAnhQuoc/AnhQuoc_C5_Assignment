@@ -33,46 +33,6 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Properties
-        private BookTitleDto _SelectedBookTitleDto;
-        public BookTitleDto SelectedBookTitleDto
-        {
-            get
-            {
-                return _SelectedBookTitleDto;
-            }
-            set
-            {
-                _SelectedBookTitleDto = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private AuthorDto _SelectedAuthorDto;
-        public AuthorDto SelectedAuthorDto
-        {
-            get
-            {
-                return _SelectedAuthorDto;
-            }
-            set
-            {
-                _SelectedAuthorDto = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string _SelectedLanguage;
-        public string SelectedLanguage
-        {
-            get { return _SelectedLanguage; }
-            set
-            {
-                _SelectedLanguage = value;
-                OnPropertyChanged();
-            }
-        }
-
-
         private ObservableCollection<BookTitleDto> _AllBookTitleDtos;
         public ObservableCollection<BookTitleDto> AllBookTitleDtos
         {
@@ -115,8 +75,8 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region ResultProperties
-        private BookISBN _Item;
-        public BookISBN Item
+        private BookISBNDto _Item;
+        public BookISBNDto Item
         {
             get
             {
@@ -174,8 +134,8 @@ namespace AnhQuoc_C5_Assignment
 
         private void UcAddBookISBN_Loaded(object sender, RoutedEventArgs e)
         {
-            Item = new BookISBN();
-            Item.ISBN = bookISBNVM.GetId();
+            Item = new BookISBNDto(bookISBNVM.GetId());
+            Item.Status = true;
 
             var allAuthors = getAuthorRepo().Gets();
             AllAuthorDtos = authorMap.ConvertToDto(allAuthors);
@@ -184,35 +144,29 @@ namespace AnhQuoc_C5_Assignment
             AllBookTitleDtos = bookTitleMap.ConvertToDto(allBookTitles);
 
             AllLanguages = Utilities.GetListAllLanguages();
-
             IsCheckValidForm = false;
         }
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
         {
-            if (!IsAllSelecting())
-                return;
-
-            bool isHasError = IsValidationGetHasError();
+            // Validation
+            RunAllValidations();
+            bool isHasError = this.IsValidationGetHasError();
             if (isHasError)
             {
-                RunAllValidations();
                 return;
             }
 
-            // Truyền dữ liệu
-            Author selectedAuthor = authorVM.FindById(SelectedAuthorDto.Id);
-            PassValueToItem(Item, SelectedBookTitleDto, selectedAuthor, SelectedLanguage);
-
             // Kiểm tra sự trùng lặp
-            bool isExistInformation = Utilities.IsExistInformation(getBookISBNRepo().Gets(), Item, true, Constants.checkPropBookISBN);
+            var getBookISBN = bookISBNVM.CreateByDto(Item);
+            bool isExistInformation = Utilities.IsExistInformation(getBookISBNRepo().Gets(), getBookISBN, true, Constants.checkPropBookISBN);
             if (isExistInformation)
             {
                 Utilities.ShowMessageBox1(Utilities.NotifyBookISBNExistInfo());
                 return;
             }
 
-            AddNewBookISBN(Item);
+            AddNewBookISBN(getBookISBN);
             IsCheckValidForm = true;
             var message = Utilities.NotifyAddSuccessfully("Book ISBN");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
@@ -228,45 +182,16 @@ namespace AnhQuoc_C5_Assignment
             getBookISBNRepo().Add(newItem);
             getBookISBNRepo().WriteAdd(newItem);
         }
-
-        private void PassValueToItem(BookISBN item, BookTitleDto selectedBookTitleDto, Author selectedAuthor, string selectedLanguage)
-        {
-            item.IdBookTitle = selectedBookTitleDto.Id;
-            item.IdAuthor = selectedAuthor.Id;
-            item.OriginLanguage = selectedLanguage;
-        }
-
-        private bool IsAllSelecting()
-        {
-            if (SelectedBookTitleDto == null)
-            {
-                Utilities.ShowMessageBox1("Please select book title");
-                return false;
-            }
-
-            if (SelectedAuthorDto == null)
-            {
-                Utilities.ShowMessageBox1("Please select author");
-                return false;
-            }
-
-            if (SelectedLanguage == null)
-            {
-                Utilities.ShowMessageBox1("Please select language");
-                return false;
-            }
-            return true;
-        }
-
+     
         public bool IsValidationGetHasError()
         {
             if (Validation.GetHasError(cbBookTitle))
                 return true;
             if (Validation.GetHasError(cbAuthor))
                 return true;
-            if (Validation.GetHasError(datePublishDate))
-                return true;
             if (Validation.GetHasError(cbLanguage))
+                return true;
+            if (Validation.GetHasError(txtDescription))
                 return true;
             return false;
         }
@@ -279,9 +204,9 @@ namespace AnhQuoc_C5_Assignment
             be.UpdateSource();
             be = cbAuthor.GetBindingExpression(ComboBox.SelectedItemProperty);
             be.UpdateSource();
-            be = datePublishDate.GetBindingExpression(DatePicker.SelectedDateProperty);
-            be.UpdateSource();
             be = cbLanguage.GetBindingExpression(ComboBox.SelectedItemProperty);
+            be.UpdateSource();
+            be = txtDescription.GetBindingExpression(TextBox.TextProperty);
             be.UpdateSource();
         }
     }

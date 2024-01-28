@@ -103,6 +103,7 @@
                             <TextBox.Text>
                                 <Binding Path="Item.Price" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
+                                        <local:FormNotEmptyRule />
                                         <local:InputNumberRule />
                                     </Binding.ValidationRules>
                                 </Binding>

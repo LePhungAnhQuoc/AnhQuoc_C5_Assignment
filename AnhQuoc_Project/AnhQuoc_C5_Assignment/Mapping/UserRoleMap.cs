@@ -13,10 +13,10 @@ namespace AnhQuoc_C5_Assignment
         {
             var userVM = UnitOfViewModel.Instance.UserViewModel;
             var roleVM = UnitOfViewModel.Instance.RoleViewModel;
-            var userInfoVM = UnitOfViewModel.Instance.UserInfoViewModel;
-            var userRoleVM = UnitOfViewModel.Instance.UserRoleViewModel;
 
             UserRoleDto newItem = new UserRoleDto(sourceItem.Id);
+            Utilities.Copy(newItem, sourceItem);
+
             newItem.User = userVM.FindById(sourceItem.IdUser);
             newItem.Role = roleVM.FindById(sourceItem.IdRole);
             

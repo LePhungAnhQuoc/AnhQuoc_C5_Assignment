@@ -121,6 +121,7 @@
                             </TextBox>
                             <Button Grid.Column="1"
                                     Name="btnBrowseImage"
+                                    Style="{StaticResource btnBrowse}"
                                     Content="Browse"
                                     Margin="10 0 0 0"/>
                         </Grid>

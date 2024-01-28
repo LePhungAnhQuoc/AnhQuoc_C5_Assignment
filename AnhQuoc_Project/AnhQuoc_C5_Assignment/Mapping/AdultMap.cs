@@ -19,18 +19,8 @@ namespace AnhQuoc_C5_Assignment
             ReaderDto readerDto = readerMap.ConvertToDto(readerVM.FindById(itemSource.IdReader));
 
             AdultDto newItem = new AdultDto(itemSource.IdReader);
-
-            newItem.Identify = itemSource.Identify;
-            newItem.Address = itemSource.Address;
-            newItem.City = itemSource.City;
-            newItem.Phone = itemSource.Phone;
-
-            newItem.ExpireDate = itemSource.ExpireDate;
-            newItem.Status = itemSource.Status;
-
-            newItem.CreatedAt = itemSource.CreatedAt;
-            newItem.ModifiedAt = itemSource.ModifiedAt;
-
+            Utilities.Copy(newItem, itemSource);
+            
             newItem.ReaderName = readerDto.FullName;
             newItem.ListChild = childVM.FillByIdAdult(itemSource.IdReader, child_Status);
             

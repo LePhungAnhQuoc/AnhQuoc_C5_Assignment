@@ -29,7 +29,7 @@ namespace AnhQuoc_C5_Assignment
         public Func<RoleFunctionRepository> getRoleFunctionRepo { get; set; }
         public Func<ObservableCollection<string>> getRoleGroups { get; set; }
         public Func<bool?> getItem_Status { get; set; }
-        public Func<List<PropertyInfo>> getExceptProperties { get; set; }
+        public Func<string[]> getExceptProperties { get; set; }
         #endregion
 
         #region Propdps

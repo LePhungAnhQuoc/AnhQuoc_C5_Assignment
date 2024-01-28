@@ -1,4 +1,4 @@
-﻿E:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\GeneratedInternalTypeHelper.g.cs
+﻿
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\App.xaml;;
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\Animations\frmLoadingSpinnerControl.xaml;;
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\MainWindow.xaml;;
@@ -69,7 +69,6 @@ FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Readers-information\ucReaderManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Readers-information\Tables\ucReadersTable.xaml;;
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Readers-information\Add-Adult-Child\ucAddAdult.xaml;;
-FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Books-Information\ucAddBook.xaml;;
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Role-Information\ucRolesTable.xaml;;
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Role-Information\ucRoleManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\RoleFunction-Information\ucRoleFunctionManagement.xaml;;
@@ -94,6 +93,7 @@ FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\UserRole-Information\ucUserRoleManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\UserRole-Information\ucUserRolesTable.xaml;;
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\Author\frmAddAuthor.xaml;;
+FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\Book\frmAddBook.xaml;;
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\Book\frmBookISBNInformation.xaml;;
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\Category\frmAddCategory.xaml;;
 FE:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\frmDefault.xaml;;
