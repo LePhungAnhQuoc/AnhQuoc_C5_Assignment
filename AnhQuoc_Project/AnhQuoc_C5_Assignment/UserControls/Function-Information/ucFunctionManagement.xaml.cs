@@ -452,12 +452,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddFunction.getItemToUpdate = () => functionDtoSelect;
             frmAddFunction.ShowDialog();
 
-            if (frmAddFunction.Item == null) // Cancel the operation
+            if (frmAddFunction.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            FunctionDto newFunctionDto = frmAddFunction.Item;
+            FunctionDto newFunctionDto = frmAddFunction.Context.Item;
 
             #region UpdateItemInformation
             Function getFunction = functionVM.FindById(newFunctionDto.Id, StatusValue);

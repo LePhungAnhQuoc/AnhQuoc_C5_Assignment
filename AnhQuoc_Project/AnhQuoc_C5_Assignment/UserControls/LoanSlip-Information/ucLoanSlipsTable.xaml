@@ -8,6 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="500">
     <UserControl.Resources>
         <local:IndexDataGridItemConverter x:Key="indexDataGridItemConverter" />
+        <local:PriceFormatConverter  x:Key="PriceFormatConverter" />
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -31,8 +32,8 @@
                 <DataGridTextColumn Header="Loan Date" Width="auto" Binding="{Binding LoanDate, StringFormat='{}{0:dd/MM/yyyy}'}" />
                 <DataGridTextColumn Header="Expire Date" Width="auto" Binding="{Binding ExpDate, StringFormat='{}{0:dd/MM/yyyy}'}" />
 
-                <DataGridTextColumn Header="Loan Paid" Width="auto" Binding="{Binding LoanPaid, StringFormat={}{0:#,#.000} đ}" />
-                <DataGridTextColumn Header="Deposit" Width="auto" Binding="{Binding Deposit, StringFormat={}{0:#,#.000} đ}" />
+                <DataGridTextColumn Header="Loan Paid" Width="auto" Binding="{Binding LoanPaid, Converter={StaticResource PriceFormatConverter}}" />
+                <DataGridTextColumn Header="Deposit" Width="auto" Binding="{Binding Deposit, Converter={StaticResource PriceFormatConverter}}" />
                
                 <DataGridTemplateColumn x:Name="dtgBtnInfo">
                     <DataGridTemplateColumn.CellTemplate>

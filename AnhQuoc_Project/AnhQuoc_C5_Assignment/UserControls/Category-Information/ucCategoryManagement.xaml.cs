@@ -197,12 +197,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddCategory.getIdCategory = () => categoryVM.GetId();
             frmAddCategory.ShowDialog();
          
-            if (frmAddCategory.Item == null) // Cancel the operation
+            if (frmAddCategory.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            CategoryDto newCategoryDto = frmAddCategory.Item;
+            CategoryDto newCategoryDto = frmAddCategory.Context.Item;
 
             #region AddNewItem
             Category newCategory = categoryVM.CreateByDto(newCategoryDto);
@@ -296,12 +296,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddCategory.getItemToUpdate = () => categoryDtoSelect;
             frmAddCategory.ShowDialog();
 
-            if (frmAddCategory.Item == null) // Cancel the operation
+            if (frmAddCategory.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            CategoryDto newCategoryDto = frmAddCategory.Item;
+            CategoryDto newCategoryDto = frmAddCategory.Context.Item;
 
             #region UpdateItemInformation
             Category getCategory = categoryVM.FindById(newCategoryDto.Id);

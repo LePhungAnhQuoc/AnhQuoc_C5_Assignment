@@ -198,12 +198,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddAuthor.getIdAuthor = () => authorVM.GetId();
             frmAddAuthor.ShowDialog();
          
-            if (frmAddAuthor.Item == null) // Cancel the operation
+            if (frmAddAuthor.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            AuthorDto newAuthorDto = frmAddAuthor.Item;
+            AuthorDto newAuthorDto = frmAddAuthor.Context.Item;
 
             #region AddNewItem
             Author newAuthor = authorVM.CreateByDto(newAuthorDto);
@@ -298,12 +298,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddAuthor.getItemToUpdate = () => authorDtoSelect;
             frmAddAuthor.ShowDialog();
 
-            if (frmAddAuthor.Item == null) // Cancel the operation
+            if (frmAddAuthor.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            AuthorDto newAuthorDto = frmAddAuthor.Item;
+            AuthorDto newAuthorDto = frmAddAuthor.Context.Item;
 
             #region UpdateItemInformation
             

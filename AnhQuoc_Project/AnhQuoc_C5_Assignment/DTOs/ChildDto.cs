@@ -23,36 +23,6 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        public string FullName
-        {
-            get
-            {
-                if (Reader == null)
-                {
-                    return string.Empty;
-                }
-                else
-                {
-                    return Reader.LName + " " + Reader.FName;
-                }
-            }
-        }
-
-        public string AdultName
-        {
-            get
-            {
-                if (AdultReader == null)
-                {
-                    return string.Empty;
-                }
-                else
-                {
-                    return AdultReader.LName + " " + AdultReader.FName;
-                }
-            }
-        }
-
 
         private bool _Status;
         public bool Status
@@ -97,6 +67,36 @@ namespace AnhQuoc_C5_Assignment
         }
 
         #region Other-Properties
+
+        public string FullName
+        {
+            get
+            {
+                if (Reader == null)
+                {
+                    return string.Empty;
+                }
+                else
+                {
+                    return Reader.LName + " " + Reader.FName;
+                }
+            }
+        }
+
+        public string AdultName
+        {
+            get
+            {
+                if (AdultReader == null)
+                {
+                    return string.Empty;
+                }
+                else
+                {
+                    return AdultReader.LName + " " + AdultReader.FName;
+                }
+            }
+        }
 
         private Reader _Reader;
         public Reader Reader

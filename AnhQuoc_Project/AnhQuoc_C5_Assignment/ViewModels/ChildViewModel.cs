@@ -106,12 +106,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Child dest, ChildDto source)
         {
-            dest.IdReader = source.IdReader;
-            dest.IdAdult = source.Adult.IdReader;
+            Utilities.Copy(dest, source);
+        }
 
-            dest.Status = source.Status;
-            dest.CreatedAt = source.CreatedAt;
-            dest.ModifiedAt = source.ModifiedAt;
+        public void Copy(ChildDto dest, ChildDto source)
+        {
+            Utilities.Copy(dest, source);
         }
     }
 }

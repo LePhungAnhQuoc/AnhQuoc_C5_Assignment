@@ -9,6 +9,7 @@
     <UserControl.Resources>
         <local:IndexDataGridItemConverter x:Key="indexDataGridItemConverter" />
         <local:BookStatusConverter x:Key="bookStatusConverter" />
+        <local:PriceFormatConverter x:Key="PriceFormatConverter" />
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -37,8 +38,8 @@
                 <DataGridTextColumn Header="Publish Date" Width="auto" Binding="{Binding PublishDate, StringFormat='{}{0:dd/MM/yyyy}'}" />
                 <DataGridTextColumn Header="Book Status" Width="auto" Binding="{Binding BookStatus.Name}" />
 
-                <DataGridTextColumn Header="Price" Width="auto" Binding="{Binding Price, StringFormat={}{0:#,#.000} đ}" />
-                <DataGridTextColumn Header="PriceCurrent" Width="auto" Binding="{Binding PriceCurrent, StringFormat={}{0:#,#.000} đ}" />
+                <DataGridTextColumn Header="Price" Width="auto" Binding="{Binding Price, Converter={StaticResource PriceFormatConverter}}" />
+                <DataGridTextColumn Header="PriceCurrent" Width="auto" Binding="{Binding PriceCurrent, Converter={StaticResource PriceFormatConverter}}" />
                 <DataGridTextColumn Header="Note" Width="auto" Binding="{Binding Note}" />
 
                 <DataGridTextColumn Header="Status" Width="auto" 

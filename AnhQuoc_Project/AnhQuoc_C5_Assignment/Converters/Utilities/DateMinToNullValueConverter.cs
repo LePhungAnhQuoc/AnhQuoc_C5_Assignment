@@ -15,7 +15,7 @@ namespace AnhQuoc_C5_Assignment
             if (value != null)
             {
                 DateTime date = (DateTime)value;
-                if (date == DateTime.MinValue)
+                if (date == Constants.dateMinValue)
                 {
                     return null;
                 }

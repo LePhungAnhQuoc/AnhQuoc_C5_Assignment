@@ -703,6 +703,13 @@ namespace AnhQuoc_C5_Assignment
                 BindingExpression bind = null;
 
                 var control = LogicalTreeHelper.GetChildren(obj).ToTypedCollection<List<DependencyObject>, DependencyObject>()[3];
+                if (control is Grid)
+                {
+                    var subControls = LogicalTreeHelper.GetChildren(control as Grid);
+                    var tempList = subControls.ToTypedCollection<List<DependencyObject>, DependencyObject>();
+                    control = tempList.First((item) => item is TextBox);
+                }
+
                 if (control is TextBox)
                 {
                     var txt = control as TextBox;

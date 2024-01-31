@@ -9,6 +9,7 @@
              d:DesignHeight="700" d:DesignWidth="800">
     <UserControl.Resources>
         <System:Double x:Key="datagridMargin">30</System:Double>
+        <local:PriceFormatConverter x:Key="PriceFormatConverter" />
     </UserControl.Resources>
     <StackPanel>
         <!-- Title -->
@@ -92,7 +93,7 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Loan Paid: " />
                         <TextBlock Grid.Column="1"
-                                   Text="{Binding Item.LoanPaid}" />
+                                   Text="{Binding Item.LoanPaid, Converter={StaticResource PriceFormatConverter}}" />
                     </Grid>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -101,7 +102,7 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Deposit: " />
                         <TextBlock Grid.Column="1"
-                                   Text="{Binding Item.Deposit}" />
+                                   Text="{Binding Item.Deposit, Converter={StaticResource PriceFormatConverter}}" />
                     </Grid>
                 </StackPanel>
             </Grid>

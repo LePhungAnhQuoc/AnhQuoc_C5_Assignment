@@ -12,6 +12,7 @@
         <local:IndexDataGridItemConverter x:Key="indexDataGridItemConverter" />
         <local:PenaltyReasonStatusConverter x:Key="penaltyReasonStatusConverter" />
         <local:ColorStatusConverter x:Key="colorStatusConverter" />
+        <local:PriceFormatConverter x:Key="PriceFormatConverter" />
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -30,7 +31,7 @@
                 <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description}" />
-                <DataGridTextColumn Header="Price" Width="auto" Binding="{Binding Price, StringFormat={}{0:#,#.000} đ}" />
+                <DataGridTextColumn Header="Price" Width="auto" Binding="{Binding Price, Converter={StaticResource PriceFormatConverter}}" />
 
                 <DataGridTextColumn Header="CreatedAt" Width="auto" Binding="{Binding CreatedAt, StringFormat='{}{0:dd/MM/yyyy}'}" />
                 <DataGridTextColumn Header="ModifiedAt" Width="auto" Binding="{Binding ModifiedAt, StringFormat='{}{0:dd/MM/yyyy}'}" />

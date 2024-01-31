@@ -257,7 +257,7 @@ namespace AnhQuoc_C5_Assignment
 
             ucAddBookISBN.btnConfirm.Click += (_sender, _e) =>
             {
-                if (ucAddBookISBN.IsCheckValidForm)
+                if (ucAddBookISBN.Context.IsCheckValidForm)
                     frmAddBookISBN.Close();
             };
             ucAddBookISBN.btnCancel.Click += (_sender, _e) =>
@@ -267,10 +267,11 @@ namespace AnhQuoc_C5_Assignment
 
             frmAddBookISBN.ShowDialog();
 
-            if (ucAddBookISBN.Item == null)
+            if (ucAddBookISBN.Context.Item == null)
                 return;
 
-            BookISBN newItem = bookISBNVM.CreateByDto(ucAddBookISBN.Item);
+            BookISBN newItem = bookISBNVM.CreateByDto(ucAddBookISBN.Context.Item);
+
             // Add to listFilled
             listFillBookISBNs.Add(newItem);
             AddItemsToDataGrid(listFillBookISBNs);

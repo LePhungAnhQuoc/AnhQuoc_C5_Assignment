@@ -1217,4 +1217,6 @@ E:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Anh
 E:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBook.g.cs
 E:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBook.baml
 E:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Assets\Images\Others\icons.baml
+E:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Assets\icons.baml
 E:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csprojResolveAssemblyReference.cache
+E:\AnhQuoc_C5_Assignment++++\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetailHistory-Information\ucLoanDetailHistoryInfo.g.cs

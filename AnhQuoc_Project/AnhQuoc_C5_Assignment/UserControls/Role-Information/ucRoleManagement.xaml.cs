@@ -208,10 +208,10 @@ namespace AnhQuoc_C5_Assignment
             frmAddRole.getIdRole = () => roleVM.GetId();
             frmAddRole.ShowDialog();
          
-            if (frmAddRole.Item == null) // Cancel the operation
+            if (frmAddRole.Context.Item == null) // Cancel the operation
                 return;
 
-            RoleDto newRoleDto = frmAddRole.Item;
+            RoleDto newRoleDto = frmAddRole.Context.Item;
 
             #region AddNewItem
             Role newRole = roleVM.CreateByDto(newRoleDto);
@@ -264,12 +264,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddRole.getItemToUpdate = () => roleDtoSelect;
             frmAddRole.ShowDialog();
 
-            if (frmAddRole.Item == null) // Cancel the operation
+            if (frmAddRole.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            RoleDto updateRoleDto = frmAddRole.Item;
+            RoleDto updateRoleDto = frmAddRole.Context.Item;
 
             #region UpdateItemInformation
             Role getRole = roleVM.FindById(updateRoleDto.Id);

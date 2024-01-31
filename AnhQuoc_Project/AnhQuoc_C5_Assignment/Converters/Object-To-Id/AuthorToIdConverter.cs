@@ -12,14 +12,18 @@ namespace AnhQuoc_C5_Assignment
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return null;
+            if (value == null)
+                return null;
+
+            var authorVM = UnitOfViewModel.Instance.AuthorViewModel;
+            return authorVM.FindById(value.ToString());
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null)
                 return null;
-            var author = value as AuthorDto;
+            var author = value as Author;
             return author.Id;
         }
     }

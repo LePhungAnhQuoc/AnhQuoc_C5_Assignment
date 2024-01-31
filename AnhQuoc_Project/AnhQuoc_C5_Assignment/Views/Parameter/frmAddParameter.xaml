@@ -5,16 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
         mc:Ignorable="d"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         Title="Add New Parameter Form"
         WindowStartupLocation="{StaticResource WSL}"
-        Style="{StaticResource wdStyleGeneral}">
+        Style="{StaticResource wdStyleGeneral}"
+        x:Name="myUserControl">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCmd}" 
+                                   CommandParameter="{Binding ElementName=myUserControl}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
     <StackPanel Width="800">
         <!-- Title -->
         <Label Name="lblTitle"
                Style="{StaticResource lblTitle}" /> <!-- Content set in code behind -->
 
         <!-- Body -->
-        <Grid Height="auto"
+        <Grid Name="mainContent"
+              Height="auto"
               Margin="20 0 20 10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -24,111 +34,108 @@
             </Grid.Resources>
             <StackPanel Grid.Column="0"
                         Margin="0 0 20 0">
-                <StackPanel>
-                    <StackPanel.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                        <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
-                        <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
-                        <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
-                        <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
-                    </StackPanel.Resources>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Parameter Id: " />
-                        <TextBox Grid.Column="1"
-                                 Text="{Binding Item.Id}" 
-                                 IsEnabled="False"/>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Name: " />
-                        <TextBox Name="txtName"
-                                 Grid.Column="1"
-                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                            <TextBox.Text>
-                                <Binding Path="Item.Name" UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
-                                        <local:FormNotEmptyRule />
-                                        <local:InputUnicodeTextNumberRule />
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
-                    </Grid>
-                    <Grid Margin="0 15 0 0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Description: " />
-                        <TextBox Name="txtDescription"
-                                 Grid.Column="1"
-                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                            <TextBox.Text>
-                                <Binding Path="Item.Description" UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
-                    </Grid>
-                </StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                    <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                    <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                    <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
+                </StackPanel.Resources>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Id: " />
+                    <TextBox Grid.Column="1"
+                                Text="{Binding Item.Id}" 
+                                IsEnabled="False"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Name: " />
+                    <TextBox Name="txtName"
+                                Grid.Column="1"
+                                Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                        <TextBox.Text>
+                            <Binding Path="Item.Name" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:FormNotEmptyRule />
+                                    <local:InputUnicodeTextNumberRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+                <Grid Margin="0 15 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Description: " />
+                    <TextBox Name="txtDescription"
+                                Grid.Column="1"
+                                Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                        <TextBox.Text>
+                            <Binding Path="Item.Description" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
             </StackPanel>
             <StackPanel Grid.Column="1"
                         Margin="20 0 0 0">
-                <StackPanel>
-                    <StackPanel.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                        <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
-                        <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
-                        <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
-                        <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
-                    </StackPanel.Resources>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Value: " />
-                        <TextBox Name="txtValue"
-                             Grid.Column="1"
-                             Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                            <TextBox.Text>
-                                <Binding Path="Item.Value" UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
-                                        <local:FormNotEmptyRule />
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Created At: " />
-                        <TextBox Grid.Column="1"
-                                 Text="{Binding Item.CreatedAt}" 
-                                 IsEnabled="False" />
-                    </Grid>
-                    <Grid Margin="0 15 0 0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Modified At: " />
-                        <TextBox Grid.Column="1"
-                                 Text="{Binding Item.ModifiedAt}"
-                                 IsEnabled="False"/>
-                    </Grid>
-                </StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                    <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                    <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                    <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
+                </StackPanel.Resources>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Value: " />
+                    <TextBox Name="txtValue"
+                            Grid.Column="1"
+                            Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                        <TextBox.Text>
+                            <Binding Path="Item.Value" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Created At: " />
+                    <TextBox Grid.Column="1"
+                                Text="{Binding Item.CreatedAt}" 
+                                IsEnabled="False" />
+                </Grid>
+                <Grid Margin="0 15 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Modified At: " />
+                    <TextBox Grid.Column="1"
+                                Text="{Binding Item.ModifiedAt}"
+                                IsEnabled="False"/>
+                </Grid>
             </StackPanel>
         </Grid>
 
@@ -137,7 +144,8 @@
             <Button Name="btnConfirm" Content="Confirm"
                     Style="{StaticResource btnConfirm}"
                     Visibility="Visible"
-                    Width="80">
+                    Width="80"
+                    Command="{Binding btnConfirmClickCmd}">
             </Button>
             <StackPanel Name="stkUpdateButton"
                         Style="{StaticResource stkWrapButton}"
@@ -145,16 +153,19 @@
                         Visibility="Collapsed">
                 <Button Name="btnUpdate" Content="Update"
                         Style="{StaticResource btnUpdate}" 
-                        Width="80"/>
+                        Width="80"
+                        Command="{Binding btnUpdateClickCmd}"/>
                 <Button Name="btnReset" Content="Reset"
                         Style="{StaticResource btnReset}"
                         Margin="10 0 0 0"
-                        Width="80"/>
+                        Width="80"
+                        Command="{Binding btnResetClickCmd}"/>
             </StackPanel>
             <Button Name="btnCancel" Content="Cancel" 
                     Style="{StaticResource btnCancel}"
                     Margin="10 0 0 0"
-                    Width="80"/>
+                    Width="80"
+                    Command="{Binding btnCancelClickCmd}"/>
         </StackPanel>
     </StackPanel>
 </Window>

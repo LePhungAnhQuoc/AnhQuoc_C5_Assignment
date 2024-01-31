@@ -16,8 +16,6 @@ namespace AnhQuoc_C5_Assignment
         private List<TextBox> TextBoxes;
         #endregion
 
-        #region Properties
-        #endregion
 
         #region ViewModels
         private UserViewModel userVM;

@@ -14,6 +14,9 @@
                                    CommandParameter="{Binding ElementName=myUserControl}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    <UserControl.Resources>
+        <local:PriceFormatConverter x:Key="PriceFormatConverter" />
+    </UserControl.Resources>
     
     <Border Name="bdConfirmInformation"
             Style="{StaticResource bdStyle1}"
@@ -49,7 +52,7 @@
                     <Label Content="Total fine: " />
                     <TextBox Name="txtTotalFineAmount"
                         Grid.Column="1"
-                        Text="{Binding Item.FineMoney, Mode=OneWay}"
+                        Text="{Binding Item.FineMoney, Mode=OneWay, Converter={StaticResource PriceFormatConverter}}"
                         IsEnabled="False">
                     </TextBox>
                 </Grid>
@@ -61,7 +64,7 @@
                     <Label Content="Loan paid: " />
                     <TextBox Name="txtLoanPaid"
                             Grid.Column="1"
-                            Text="{Binding Item.LoanPaid, Mode=OneWay}"
+                            Text="{Binding Item.LoanPaid, Mode=OneWay, Converter={StaticResource PriceFormatConverter}}"
                             IsEnabled="False">
                     </TextBox>
                 </Grid>
@@ -73,7 +76,7 @@
                     <Label Content="Deposit: " />
                     <TextBox Name="txtDeposit"
                         Grid.Column="1"
-                        Text="{Binding Item.Deposit, Mode=OneWay}"
+                        Text="{Binding Item.Deposit, Mode=OneWay, Converter={StaticResource PriceFormatConverter}}"
                         IsEnabled="False">
                     </TextBox>
                 </Grid>
@@ -85,7 +88,7 @@
                     <Label Content="Payment: " />
                     <TextBox Name="txtPayment"
                         Grid.Column="1"
-                        Text="{Binding Item.Total, Mode=OneWay}"
+                        Text="{Binding Item.Total, Mode=OneWay, Converter={StaticResource PriceFormatConverter}}"
                         IsEnabled="False">
                     </TextBox>
                 </Grid>

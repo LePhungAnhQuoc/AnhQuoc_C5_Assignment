@@ -12,6 +12,13 @@
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
+
+    <Style TargetType="TextBlock" x:Key="tblPriceFormat" BasedOn="{StaticResource tblPlaceHolder}">
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Margin" Value="8 0 0 0" />
+     
+    </Style>
+    
     <Style TargetType="TextBlock" x:Key="tblPlaceHolderComboBox" BasedOn="{StaticResource tblGeneral}">
         <Setter Property="IsHitTestVisible" Value="False" />
 

@@ -5,9 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
         mc:Ignorable="d"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         Title="Transfer Guardian Form"
         Style="{StaticResource wdStyleGeneral}"
-        WindowStartupLocation="{StaticResource WSL}">
+        WindowStartupLocation="{StaticResource WSL}"
+        x:Name="myUserControl">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCmd}" 
+                                   CommandParameter="{Binding ElementName=myUserControl}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
+    <Window.Resources>
+        <local:AdultToIdConverter x:Key="adultToIdConverter" />
+        <local:IdAdultToFullNameConverter x:Key="idAdultToFullNameConverter" />
+    </Window.Resources>
     <StackPanel Width="400">
         <Label Name="lblTitle"
                Style="{StaticResource lblTitle}"
@@ -16,60 +29,67 @@
                                   Style="{x:Null}" />
 
         <!-- Body -->
-        <StackPanel Margin="20 0">
-            <StackPanel.Resources>
-                <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
-                <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
-                <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
-                <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
-            </StackPanel.Resources>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Guardian: " />
-                <ComboBox Grid.Column="1"
-                          Name="cbGuardians"
-                          Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
-                          ItemsSource="{Binding Guardians}"
-                          DisplayMemberPath="FullName">
-                    <ComboBox.SelectedItem>
-                        <Binding Path="SelectedGuardian" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <local:SelectedItemRule />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </ComboBox.SelectedItem>
-                </ComboBox>
-            </Grid>
+        <Grid Name="mainContent"
+              Height="auto"
+              Margin="20 0 20 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+      
+            <StackPanel Grid.Column="0">
+                <StackPanel.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                    <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                    <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                    <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
+                </StackPanel.Resources>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Guardian: " />
+                    <ComboBox Grid.Column="1"
+                              Name="cbGuardians"
+                              Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
+                              ItemsSource="{Binding Guardians}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding IdReader, Converter={StaticResource idAdultToFullNameConverter}}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                        <ComboBox.SelectedItem>
+                            <Binding Path="Item.IdAdult" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource adultToIdConverter}">
+                                <Binding.ValidationRules>
+                                    <local:SelectedItemRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+                </Grid>
+            </StackPanel>
+        </Grid>
 
-        </StackPanel>
-
-        <StackPanel Name="stkFooter"
-                    Style="{StaticResource stkWrapButton}">
-            <Button Name="btnConfirm" Content="Confirm"
-                    Style="{StaticResource btnConfirm}"
-                    Visibility="Collapsed"
-                    Width="80">
-            </Button>
+        <StackPanel Style="{StaticResource stkWrapButton}">
             <StackPanel Name="stkUpdateButton"
                         Style="{StaticResource stkWrapButton}"
-                        Margin="0"
-                        Visibility="Visible">
+                        Margin="0">
                 <Button Name="btnUpdate" Content="Update"
                         Style="{StaticResource btnUpdate}" 
-                        Width="80"/>
+                        Width="80"
+                        Command="{Binding btnUpdateClickCmd}"/>
                 <Button Name="btnReset" Content="Reset"
                         Style="{StaticResource btnReset}"
                         Margin="10 0 0 0"
-                        Width="80"/>
+                        Width="80"
+                        Command="{Binding btnResetClickCmd}"/>
             </StackPanel>
             <Button Name="btnCancel" Content="Cancel" 
                     Style="{StaticResource btnCancel}"
                     Margin="10 0 0 0"
-                    Width="80"/>
+                    Width="80"
+                    Command="{Binding btnCancelClickCmd}"/>
         </StackPanel>
     </StackPanel>
 </Window>

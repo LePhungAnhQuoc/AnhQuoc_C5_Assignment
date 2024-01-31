@@ -17,6 +17,7 @@
     </i:Interaction.Triggers>
     <UserControl.Resources>
         <System:Double x:Key="gridBarHeight">50</System:Double>
+        <local:PriceFormatConverter x:Key="PriceFormatConverter" />
     </UserControl.Resources>
 
     <Grid Name="gdInputLoanHistory"
@@ -152,16 +153,30 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Label Content="Fine amount: " />
-                        <TextBox Name="txtFineAmount"
-                                             Grid.Column="1">
-                            <TextBox.Text>
-                                <Binding Path="Detail.PaidMoney" UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
-                                        <local:InputNumberRule />
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                        <Grid Grid.Column="1"
+                              Style="{x:Null}">
+                            <TextBox Name="txtFineAmount"
+                                     Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                                <TextBox.Text>
+                                    <Binding Path="Detail.PaidMoney" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <local:InputNumberRule />
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+
+                            <TextBlock Style="{StaticResource tblPriceFormat}">
+                                <TextBlock.Text>
+                                    <Binding 
+                                    Path="Text"
+                                    ElementName="txtFineAmount"
+                                    UpdateSourceTrigger="PropertyChanged" 
+                                    Converter="{StaticResource PriceFormatConverter}">
+                                    </Binding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </Grid>
                     </Grid>
                     <Grid>
                         <Grid.ColumnDefinitions>

@@ -286,12 +286,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddBook.getIdBook = () => bookVM.GetId();
             frmAddBook.ShowDialog();
          
-            if (frmAddBook.Item == null) // Cancel the operation
+            if (frmAddBook.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            BookDto newBookDto = frmAddBook.Item;
+            BookDto newBookDto = frmAddBook.Context.Item;
 
             #region AddNewItem
             Book newBook = bookVM.CreateByDto(newBookDto);

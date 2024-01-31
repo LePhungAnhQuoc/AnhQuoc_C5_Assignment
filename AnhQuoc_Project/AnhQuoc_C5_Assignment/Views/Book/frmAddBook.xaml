@@ -3,17 +3,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
         mc:Ignorable="d"
         Title="Add New Book Form"
         WindowStartupLocation="{StaticResource WSL}"
-        Style="{StaticResource wdStyleGeneral}">
+        Style="{StaticResource wdStyleGeneral}"
+        x:Name="myUserControl">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCmd}" 
+                                   CommandParameter="{Binding ElementName=myUserControl}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
+    
     <Window.Resources>
         <local:BookISBNToISBNConverter x:Key="bookISBNToISBNConverter" />
         <local:PublisherToIdConverter x:Key="publisherToIdConverter" />
         <local:TranslatorToIdConverter x:Key="translatorToIdConverter" />
         <local:DateMinToNullValueConverter x:Key="dateMinToNullValueConverter" />
-
+        <local:PriceFormatConverter x:Key="PriceFormatConverter" />
     </Window.Resources>
     <StackPanel Width="800">
         <!-- Title -->
@@ -21,7 +31,8 @@
                Style="{StaticResource lblTitle}" /> <!-- Content set in code behind -->
 
         <!-- Body -->
-        <Grid Height="auto"
+        <Grid Name="mainContent"
+                Height="auto"
               Margin="20 0 20 10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -31,144 +42,145 @@
             </Grid.Resources>
             <StackPanel Grid.Column="0"
                         Margin="0 0 20 0">
-                <StackPanel>
-                    <StackPanel.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                        <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
-                        <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
-                        <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
-                        <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
-                    </StackPanel.Resources>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Book Id: " />
-                        <TextBox Grid.Column="1"
-                                 Text="{Binding Item.Id}" 
-                                 IsEnabled="False"/>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="ISBN: " />
-                        <ComboBox Grid.Column="1"
-                                  Name="cbISBN"
-                                  ItemsSource="{Binding AllBookISBNDtos}"
-                                  DisplayMemberPath="ISBN"
-                                  Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                            <ComboBox.SelectedItem>
-                                <Binding Path="Item.ISBN" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource bookISBNToISBNConverter}">
-                                    <Binding.ValidationRules>
-                                        <local:SelectedItemRule />
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </ComboBox.SelectedItem>
-                        </ComboBox>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Publisher: " />
-                        <ComboBox Grid.Column="1"
-                                  Name="cbPublisher"
-                                  ItemsSource="{Binding AllPublisherDtos}"
-                                  DisplayMemberPath="Name"
-                                  Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                            <ComboBox.SelectedItem>
-                                <Binding Path="Item.IdPublisher" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource publisherToIdConverter}">
-                                    <Binding.ValidationRules>
-                                        <local:SelectedItemRule />
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </ComboBox.SelectedItem>
-                        </ComboBox>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Translator: " />
-                        <ComboBox Grid.Column="1"
-                                  Name="cbTranslator"
-                                  ItemsSource="{Binding AllTranslatorDtos}"
-                                  DisplayMemberPath="Name"
-                                  Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                            <ComboBox.SelectedItem>
-                                <Binding Path="Item.IdTranslator" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource translatorToIdConverter}">
-                                    <Binding.ValidationRules>
-                                        <local:SelectedItemRule />
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </ComboBox.SelectedItem>
-                        </ComboBox>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Language: " />
-                        <ComboBox Grid.Column="1"
-                          Name="cbLanguage"
-                          ItemsSource="{Binding AllLanguages}"
-                          Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                            <ComboBox.SelectedItem>
-                                <Binding Path="Item.Language" UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
-                                        <local:SelectedItemRule />
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </ComboBox.SelectedItem>
-                        </ComboBox>
-                    </Grid>
-                </StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                    <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                    <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                    <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
+                </StackPanel.Resources>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Id: " />
+                    <TextBox Grid.Column="1"
+                             Text="{Binding Item.Id}" 
+                             IsEnabled="False"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="ISBN: " />
+                    <ComboBox Grid.Column="1"
+                              Name="cbISBN"
+                              ItemsSource="{Binding AllBookISBNs}"
+                              DisplayMemberPath="ISBN"
+                              Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                        <ComboBox.SelectedItem>
+                            <Binding Path="Item.ISBN" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource bookISBNToISBNConverter}">
+                                <Binding.ValidationRules>
+                                    <local:SelectedItemRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Publisher: " />
+                    <ComboBox Grid.Column="1"
+                              Name="cbPublisher"
+                              ItemsSource="{Binding AllPublishers}"
+                              DisplayMemberPath="Name"
+                              Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                        <ComboBox.SelectedItem>
+                            <Binding Path="Item.IdPublisher" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource publisherToIdConverter}">
+                                <Binding.ValidationRules>
+                                    <local:SelectedItemRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Translator: " />
+                    <ComboBox Grid.Column="1"
+                              Name="cbTranslator"
+                              ItemsSource="{Binding AllTranslators}"
+                              DisplayMemberPath="Name"
+                              Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                        <ComboBox.SelectedItem>
+                            <Binding Path="Item.IdTranslator" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource translatorToIdConverter}">
+                                <Binding.ValidationRules>
+                                    <local:SelectedItemRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Language: " />
+                    <ComboBox Grid.Column="1"
+                              Name="cbLanguage"
+                              ItemsSource="{Binding AllLanguages}"
+                              Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                        <ComboBox.SelectedItem>
+                            <Binding Path="Item.Language" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:SelectedItemRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+                </Grid>
             </StackPanel>
             <StackPanel Grid.Column="1"
                         Margin="20 0 0 0">
-                <StackPanel>
-                    <StackPanel.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                        <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
-                        <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
-                        <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
-                        <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
-                    </StackPanel.Resources>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Publish Date: " />
-                        <DatePicker Grid.Column="1"
-                                    Name="datePublishDate"
-                                    Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                            <DatePicker.SelectedDate>
-                                <Binding Path="Item.PublishDate" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource dateMinToNullValueConverter}">
-                                    <Binding.ValidationRules>
-                                        <local:SelectedItemRule />
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </DatePicker.SelectedDate>
-                        </DatePicker>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Price: " />
+                <StackPanel.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                    <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                    <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                    <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
+                </StackPanel.Resources>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Publish Date: " />
+                    <DatePicker Grid.Column="1"
+                                Name="datePublishDate"
+                                Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                        <DatePicker.SelectedDate>
+                            <Binding Path="Item.PublishDate" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource dateMinToNullValueConverter}">
+                                <Binding.ValidationRules>
+                                    <local:SelectedItemRule />
+                                    <local:InputDateRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </DatePicker.SelectedDate>
+                    </DatePicker>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Price: " />
+                    <Grid Grid.Column="1"
+                          Style="{x:Null}">
                         <TextBox Name="txtPrice"
-                                 Grid.Column="1"
-                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}" >
                             <TextBox.Text>
-                                <Binding Path="Item.Price" UpdateSourceTrigger="PropertyChanged">
+                                <Binding 
+                                    Path="Item.Price"
+                                    UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
                                         <local:FormNotEmptyRule />
                                         <local:InputNumberRule />
@@ -176,46 +188,58 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Note: " />
-                        <TextBox Name="txtNote"
-                                 Grid.Column="1"
-                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                            <TextBox.Text>
-                                <Binding Path="Item.Note" UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
 
-                                    </Binding.ValidationRules>
+                        <TextBlock Style="{StaticResource tblPriceFormat}">
+                            <TextBlock.Text>
+                                <Binding 
+                                    Path="Text"
+                                    ElementName="txtPrice"
+                                    UpdateSourceTrigger="PropertyChanged" 
+                                    Converter="{StaticResource PriceFormatConverter}">
                                 </Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                            </TextBlock.Text>
+                        </TextBlock>
                     </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Created At: " />
-                        <TextBox Grid.Column="1"
-                                 Text="{Binding Item.CreatedAt}" 
-                                 IsEnabled="False" />
-                    </Grid>
-                    <Grid Margin="0 15 0 0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Modified At: " />
-                        <TextBox Grid.Column="1"
-                                 Text="{Binding Item.ModifiedAt}"
-                                 IsEnabled="False"/>
-                    </Grid>
-                </StackPanel>
+                    
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Note: " />
+                    <TextBox Name="txtNote"
+                                Grid.Column="1"
+                                Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                        <TextBox.Text>
+                            <Binding Path="Item.Note" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Created At: " />
+                    <TextBox Grid.Column="1"
+                                Text="{Binding Item.CreatedAt}" 
+                                IsEnabled="False" />
+                </Grid>
+                <Grid Margin="0 15 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Modified At: " />
+                    <TextBox Grid.Column="1"
+                                Text="{Binding Item.ModifiedAt}"
+                                IsEnabled="False"/>
+                </Grid>
             </StackPanel>
         </Grid>
 
@@ -224,7 +248,8 @@
             <Button Name="btnConfirm" Content="Confirm"
                     Style="{StaticResource btnConfirm}"
                     Visibility="Visible"
-                    Width="80">
+                    Width="80"
+                    Command="{Binding btnConfirmClickCmd}">
             </Button>
             <StackPanel Name="stkUpdateButton"
                         Style="{StaticResource stkWrapButton}"
@@ -232,16 +257,19 @@
                         Visibility="Collapsed">
                 <Button Name="btnUpdate" Content="Update"
                         Style="{StaticResource btnUpdate}" 
-                        Width="80"/>
+                        Width="80"
+                        Command="{Binding btnUpdateClickCmd}"/>
                 <Button Name="btnReset" Content="Reset"
                         Style="{StaticResource btnReset}"
                         Margin="10 0 0 0"
-                        Width="80"/>
+                        Width="80"
+                        Command="{Binding btnResetClickCmd}"/>
             </StackPanel>
             <Button Name="btnCancel" Content="Cancel" 
                     Style="{StaticResource btnCancel}"
                     Margin="10 0 0 0"
-                    Width="80"/>
+                    Width="80"
+                    Command="{Binding btnCancelClickCmd}"/>
         </StackPanel>
     </StackPanel>
 </Window>

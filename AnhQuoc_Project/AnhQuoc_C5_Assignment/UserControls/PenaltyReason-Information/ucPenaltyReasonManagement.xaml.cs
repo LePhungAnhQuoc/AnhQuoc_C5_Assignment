@@ -197,12 +197,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddPenaltyReason.getIdPenaltyReason = () => penaltyReasonVM.GetId();
             frmAddPenaltyReason.ShowDialog();
          
-            if (frmAddPenaltyReason.Item == null) // Cancel the operation
+            if (frmAddPenaltyReason.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            PenaltyReasonDto newPenaltyReasonDto = frmAddPenaltyReason.Item;
+            PenaltyReasonDto newPenaltyReasonDto = frmAddPenaltyReason.Context.Item;
 
             #region AddNewItem
             PenaltyReason newPenaltyReason = penaltyReasonVM.CreateByDto(newPenaltyReasonDto);
@@ -281,12 +281,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddPenaltyReason.getItemToUpdate = () => penaltyReasonDtoSelect;
             frmAddPenaltyReason.ShowDialog();
 
-            if (frmAddPenaltyReason.Item == null) // Cancel the operation
+            if (frmAddPenaltyReason.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            PenaltyReasonDto newPenaltyReasonDto = frmAddPenaltyReason.Item;
+            PenaltyReasonDto newPenaltyReasonDto = frmAddPenaltyReason.Context.Item;
 
             #region UpdateItemInformation
             PenaltyReason getPenaltyReason = penaltyReasonVM.FindById(newPenaltyReasonDto.Id);

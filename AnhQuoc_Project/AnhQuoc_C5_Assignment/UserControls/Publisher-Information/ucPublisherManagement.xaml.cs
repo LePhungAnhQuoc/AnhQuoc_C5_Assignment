@@ -197,12 +197,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddPublisher.getIdPublisher = () => publisherVM.GetId();
             frmAddPublisher.ShowDialog();
          
-            if (frmAddPublisher.Item == null) // Cancel the operation
+            if (frmAddPublisher.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            PublisherDto newPublisherDto = frmAddPublisher.Item;
+            PublisherDto newPublisherDto = frmAddPublisher.Context.Item;
 
             #region AddNewItem
             Publisher newPublisher = publisherVM.CreateByDto(newPublisherDto);
@@ -284,12 +284,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddPublisher.getItemToUpdate = () => publisherDtoSelect;
             frmAddPublisher.ShowDialog();
 
-            if (frmAddPublisher.Item == null) // Cancel the operation
+            if (frmAddPublisher.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            PublisherDto newPublisherDto = frmAddPublisher.Item;
+            PublisherDto newPublisherDto = frmAddPublisher.Context.Item;
 
             #region UpdateItemInformation
             

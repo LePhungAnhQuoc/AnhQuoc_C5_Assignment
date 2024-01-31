@@ -12,6 +12,8 @@ namespace AnhQuoc_C5_Assignment
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value == null)
+                return string.Empty;
             DateTime getValue = (DateTime)value;
             int result = DateTime.Now.Year - getValue.Year;
             return result;

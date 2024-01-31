@@ -345,31 +345,34 @@ namespace AnhQuoc_C5_Assignment
             frmAddReader.getIdReader = () => readerVM.GetId();
             frmAddReader.ShowDialog();
          
-            if (frmAddReader.Item == null) // Cancel the operation
+            if (frmAddReader.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            Reader newReader = frmAddReader.Item;
+            ReaderDto newReaderDto = frmAddReader.Context.Item;
 
             #region AddNewReader
+            Reader newReader = readerVM.CreateByDto(newReaderDto);
             getReaderRepo().Add(newReader);
             getReaderRepo().WriteAdd(newReader);
             #endregion
 
             #region AddAdultOrChild
-            if (newReader.ReaderType.ConvertValue() == ReaderType.Adult)
+            if (newReaderDto.ReaderType == ReaderType.Adult)
             {
-                Adult newAdult = frmAddReader.NewAdult;
+                AdultDto newAdultDto = frmAddReader.Context.AdultItem;
+                Adult newAdult = adultVM.CreateByDto(newAdultDto);
                 getAdultRepo().Add(newAdult);
                 getAdultRepo().WriteAdd(newAdult);
 
                 var message = Utilities.NotifyAddSuccessfully("Adult Reader");
                 MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
             }
-            else if (newReader.ReaderType.ConvertValue() == ReaderType.Child)
+            else if (newReaderDto.ReaderType == ReaderType.Child)
             {
-                Child newChild = frmAddReader.NewChild;
+                ChildDto newChildDto = frmAddReader.Context.ChildItem;
+                Child newChild = childVM.CreateByDto(newChildDto);
                 getChildRepo().Add(newChild);
                 getChildRepo().WriteAdd(newChild);
 
@@ -639,12 +642,12 @@ namespace AnhQuoc_C5_Assignment
                 ChildDto childDto = childMap.ConvertToDto(child);
                 frmTransferGuardian.getChild = () => childDto;
 
-                var adultReaders = readerVM.FillAdults(adultStatus);
-                var adults = adultVM.GetListFromReaders(adultReaders, adultStatus);
-                var adultDtos = adultMap.ConvertToDto(adults);
-                frmTransferGuardian.getGuardians = () => adultDtos;
+                var adults = adultVM.FillByStatus(getAdultRepo().Gets(), adultStatus);
+                frmTransferGuardian.getGuardians = () => adults;
 
                 frmTransferGuardian.ShowDialog();
+
+                ucReadersTable.ModifiedPagination();
             }
         }
 

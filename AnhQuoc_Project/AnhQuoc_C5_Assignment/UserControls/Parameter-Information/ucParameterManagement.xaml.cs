@@ -197,12 +197,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddParameter.getIdParameter = () => parameterVM.GetId();
             frmAddParameter.ShowDialog();
          
-            if (frmAddParameter.Item == null) // Cancel the operation
+            if (frmAddParameter.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            ParameterDto newParameterDto = frmAddParameter.Item;
+            ParameterDto newParameterDto = frmAddParameter.Context.Item;
 
             #region AddNewItem
             Parameter newParameter = parameterVM.CreateByDto(newParameterDto);
@@ -296,12 +296,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddParameter.getItemToUpdate = () => parameterDtoSelect;
             frmAddParameter.ShowDialog();
 
-            if (frmAddParameter.Item == null) // Cancel the operation
+            if (frmAddParameter.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            ParameterDto newParameterDto = frmAddParameter.Item;
+            ParameterDto newParameterDto = frmAddParameter.Context.Item;
 
             #region UpdateItemInformation
             Parameter getParameter = parameterVM.FindById(newParameterDto.Id);

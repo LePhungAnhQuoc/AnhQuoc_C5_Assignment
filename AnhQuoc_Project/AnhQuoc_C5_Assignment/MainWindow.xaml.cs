@@ -316,7 +316,7 @@ namespace AnhQuoc_C5_Assignment
             }
 
 
-            // CheckingModelHasDecimalProp();
+        //     CheckingModelHasDecimalProp();
         }
 
         private bool CheckIsRightConnection()

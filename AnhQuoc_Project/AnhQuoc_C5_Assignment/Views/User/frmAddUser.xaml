@@ -34,7 +34,7 @@
             <Grid.Resources>
             </Grid.Resources>
             <StackPanel Grid.Column="0"
-                    Margin="0 0 20 0">
+                        Margin="0 0 20 0">
                 <StackPanel.Resources>
                     <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
                     <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />

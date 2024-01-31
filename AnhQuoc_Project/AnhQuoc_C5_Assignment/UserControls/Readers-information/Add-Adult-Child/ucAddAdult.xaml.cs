@@ -107,14 +107,7 @@ namespace AnhQuoc_C5_Assignment
             var allProvinces = getProvinceRepo().Gets();
             AllProvinceDtos = UnitOfMap.Instance.ProvinceMap.ConvertToDto(allProvinces);
         }
-
-        public void PassValueToItem(Adult item, Reader reader, ProvinceDto selectedProvinceDto)
-        {
-            item.City = selectedProvinceDto.Name;
-            item.Status = reader.Status;
-            item.CreatedAt = reader.CreatedAt;
-            item.ModifiedAt = reader.ModifiedAt;
-        }
+        
 
         public bool IsAllSelecting()
         {

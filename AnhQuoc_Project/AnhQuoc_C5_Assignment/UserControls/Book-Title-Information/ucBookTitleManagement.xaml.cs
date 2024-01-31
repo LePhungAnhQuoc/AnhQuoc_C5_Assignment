@@ -190,7 +190,7 @@ namespace AnhQuoc_C5_Assignment
            
             ucAddBookTitle.btnConfirm.Click += (_sender, _e) =>
             {
-                if (ucAddBookTitle.IsCheckValidForm)
+                if (ucAddBookTitle.Context.IsCheckValidForm)
                     frmAddBookTitle.Close();
             };
             ucAddBookTitle.btnCancel.Click += (_sender, _e) =>
@@ -204,12 +204,12 @@ namespace AnhQuoc_C5_Assignment
 
             frmAddBookTitle.ShowDialog();
 
-            if (ucAddBookTitle.Item == null)
+            if (ucAddBookTitle.Context.Item == null)
                 return;
 
-            #region AddToListFill
-            var getBookTitle = bookTitleVM.CreateByDto(ucAddBookTitle.Item); 
+            BookTitle getBookTitle = bookTitleVM.CreateByDto(ucAddBookTitle.Context.Item);
 
+            #region AddToListFill
             listFillBookTitles.Add(getBookTitle);
             AddItemsToDataGrid(listFillBookTitles);
             #endregion

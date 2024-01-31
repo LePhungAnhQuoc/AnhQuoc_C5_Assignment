@@ -92,6 +92,9 @@
       <DependentUpon>ucLoadingSpinnerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Converters\Object-To-Id\FunctionToIdConverter.cs" />
+    <Compile Include="Converters\Object-To-Id\ProvinceToNameConverter.cs" />
+    <Compile Include="Converters\Object-To-Id\AdultToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\UserToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\RoleToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\CategoryToIdConverter.cs" />
@@ -100,6 +103,7 @@
     <Compile Include="Converters\Object-To-Id\TranslatorToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\PublisherToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\BookISBNToISBNConverter.cs" />
+    <Compile Include="Converters\Reader\IdAdultToFullNameConverter.cs" />
     <Compile Include="Converters\Utilities\DateMinToNullValueConverter.cs" />
     <Compile Include="Converters\Utilities\HalfLengthConverter.cs" />
     <Compile Include="Converters\LoanSlip\IsLoanOutOfDateConverter.cs" />
@@ -128,6 +132,7 @@
     <Compile Include="Converters\StatusConvert\ChildsQuantityConverter.cs" />
     <Compile Include="Converters\User\boFToAgeConverter.cs" />
     <Compile Include="Converters\StatusConvert\StatusConverter.cs" />
+    <Compile Include="Converters\Utilities\PriceFormatConverter.cs" />
     <Compile Include="DataProvider\DatabaseFirst.cs" />
     <Compile Include="DataProvider\UnitOfWork\UnitOfForm.cs" />
     <Compile Include="DataProvider\UnitOfWork\UnitOfMap.cs" />
@@ -461,7 +466,7 @@
     <Compile Include="UserControls\UI\ReturnBook-UI\ucInputReaderLoanHistory.xaml.cs">
       <DependentUpon>ucInputReaderLoanHistory.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UI\ReturnBook-UI\ucLoanDetailHistoryInfo.xaml.cs">
+    <Compile Include="UserControls\LoanDetailHistory-Information\ucLoanDetailHistoryInfo.xaml.cs">
       <DependentUpon>ucLoanDetailHistoryInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.xaml.cs">
@@ -560,9 +565,22 @@
     <Compile Include="ViewModels\LoanDetailHistoryViewModel.cs" />
     <Compile Include="ViewModels\LoanDetailViewModel.cs" />
     <Compile Include="ViewModels\LoanSlipViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddAuthorViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddBookISBNViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddBookTitleViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddBookViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddCategoryViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddFunctionViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddParameterViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddPenaltyReasonViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddProvinceViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddPublisherViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddReaderViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddRoleViewModel.cs" />
     <Compile Include="ViewModels\ViewModels-For-UI\AddTranslatorViewModel.cs" />
     <Compile Include="ViewModels\ViewModels-For-UI\AddUserRoleViewModel.cs" />
     <Compile Include="ViewModels\ViewModels-For-UI\AddUserViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\TransferGuardianViewModel.cs" />
     <Compile Include="ViewModels\Xml-ViewModels\DatabaseNameViewModel.cs" />
     <Compile Include="ViewModels\Xml-ViewModels\ServerNameViewModel.cs" />
     <Compile Include="ViewModels\ParameterViewModel.cs" />
@@ -588,6 +606,9 @@
     </Compile>
     <Compile Include="Views\Category\frmAddCategory.xaml.cs">
       <DependentUpon>frmAddCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmExpand.xaml.cs">
+      <DependentUpon>frmExpand.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\frmDefault.xaml.cs">
       <DependentUpon>frmDefault.xaml</DependentUpon>
@@ -656,6 +677,10 @@
     <Page Include="Animations\ucLoadingSpinnerControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\icons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Assets\Images\Others\icons.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -957,7 +982,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UI\ReturnBook-UI\ucLoanDetailHistoryInfo.xaml">
+    <Page Include="UserControls\LoanDetailHistory-Information\ucLoanDetailHistoryInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1046,6 +1071,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Category\frmAddCategory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\frmExpand.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

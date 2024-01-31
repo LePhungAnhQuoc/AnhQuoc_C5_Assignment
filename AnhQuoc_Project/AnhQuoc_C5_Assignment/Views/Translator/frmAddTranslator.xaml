@@ -18,6 +18,7 @@
     </i:Interaction.Triggers>
     <Window.Resources>
         <local:DateMinToNullValueConverter x:Key="dateMinToNullValueConverter" />
+        <local:boFToAgeConverter x:Key="boFToAgeConverter" />
     </Window.Resources>
     <StackPanel Width="800">
         <!-- Title -->
@@ -109,10 +110,11 @@
                         </DatePicker.SelectedDate>
                     </DatePicker>
                     <TextBlock Grid.Column="1"
-                                Name="tblAge"
-                                Style="{StaticResource tblPlaceHolder}"
-                                Foreground="Black"
-                                Margin="100 0 0 0" />
+                               Name="tblAge"
+                               Style="{StaticResource tblPlaceHolder}"
+                               Text="{Binding SelectedDate, ElementName=dateboF, Converter={StaticResource boFToAgeConverter}, StringFormat=Age: {0}}"
+                               Foreground="Black"
+                               Margin="100 0 0 0" />
                 </Grid>
             </StackPanel>
             <StackPanel Grid.Column="1"

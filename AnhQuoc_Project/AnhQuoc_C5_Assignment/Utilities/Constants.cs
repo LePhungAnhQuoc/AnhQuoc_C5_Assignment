@@ -108,6 +108,7 @@ namespace AnhQuoc_C5_Assignment
         public static string[] checkPropChild = new string[] { "IdAdult" };
         public static string[] checkPropUser = new string[] { "Username" };
         public static string[] checkPropAuthor = new string[] { "Name" };
+        public static string[] checkPropAdult = new string[] { "Identify" };
         public static string[] checkPropCategory = new string[] { "Name" };
         public static string[] checkPropPublisher = new string[] { "Name" };
         public static string[] checkPropTranslator = new string[] { "Name" };

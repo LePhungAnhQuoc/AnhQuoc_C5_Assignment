@@ -8,6 +8,7 @@
              d:DesignHeight="380" d:DesignWidth="515">
     <UserControl.Resources>
         <local:PenaltyReasonStatusConverter x:Key="penaltyReasonStatusConverter" />
+        <local:PriceFormatConverter x:Key="PriceFormatConverter" />
     </UserControl.Resources>
     <StackPanel>
         <!-- Title -->
@@ -63,7 +64,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="Price: " />
                     <TextBlock Grid.Column="1"
-                               Text="{Binding Item.Price, StringFormat={}{0:#,#.000} đ}" />
+                               Text="{Binding Item.Price, Converter={StaticResource PriceFormatConverter}}" />
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>

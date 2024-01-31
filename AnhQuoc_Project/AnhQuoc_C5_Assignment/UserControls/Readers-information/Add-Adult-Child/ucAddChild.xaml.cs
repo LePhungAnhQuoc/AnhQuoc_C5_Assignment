@@ -138,13 +138,6 @@ namespace AnhQuoc_C5_Assignment
             Utilities.OnClickButtonReaderInfo(ucReadersTable, childs_Status, readerVM, adultVM, childVM, adultMap, childMap);
         }
 
-        public void PassValueToItem(Child item, Reader reader, ReaderDto selectedAdultReaderDto)
-        {
-            item.IdAdult = selectedAdultReaderDto.Id;
-            item.Status = reader.Status;
-            item.CreatedAt = reader.CreatedAt;
-            item.ModifiedAt = reader.ModifiedAt;
-        }
 
         public bool IsAllSelecting()
         {

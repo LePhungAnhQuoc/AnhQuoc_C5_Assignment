@@ -198,12 +198,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddProvince.getIdProvince = () => provinceVM.GetId();
             frmAddProvince.ShowDialog();
          
-            if (frmAddProvince.Item == null) // Cancel the operation
+            if (frmAddProvince.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            ProvinceDto newProvinceDto = frmAddProvince.Item;
+            ProvinceDto newProvinceDto = frmAddProvince.Context.Item;
 
             #region AddNewItem
             Province newProvince = provinceVM.CreateByDto(newProvinceDto);
@@ -297,12 +297,12 @@ namespace AnhQuoc_C5_Assignment
             frmAddProvince.getItemToUpdate = () => provinceDtoSelect;
             frmAddProvince.ShowDialog();
 
-            if (frmAddProvince.Item == null) // Cancel the operation
+            if (frmAddProvince.Context.Item == null) // Cancel the operation
             {
                 return;
             }
 
-            ProvinceDto newProvinceDto = frmAddProvince.Item;
+            ProvinceDto newProvinceDto = frmAddProvince.Context.Item;
 
             #region UpdateItemInformation
             Province getProvince = provinceVM.FindById(newProvinceDto.Id);

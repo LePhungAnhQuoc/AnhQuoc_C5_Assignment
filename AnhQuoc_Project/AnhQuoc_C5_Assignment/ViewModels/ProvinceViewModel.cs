@@ -37,6 +37,11 @@ namespace AnhQuoc_C5_Assignment
             return Repo.Gets().FirstOrDefault(item => item.Id == idValue);
         }
 
+        public Province FindByName(string nameValue)
+        {
+            return Repo.Gets().FirstOrDefault(item => string.Compare(item.Name, nameValue, false) == 0);
+        }
+
         public Province FindById(ObservableCollection<Province> items, int idValue)
         {
             return items.FirstOrDefault(item => item.Id == idValue);
