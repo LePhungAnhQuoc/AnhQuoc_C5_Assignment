@@ -187,8 +187,8 @@ namespace AnhQuoc_C5_Assignment
                 return;
             }
 
-            
-            LoanSlip newLoanSlip = ucAddLoan.Context.LoanSlip;
+
+            LoanSlip newLoanSlip = loanSlipVM.CreateByDto(ucAddLoan.Context.LoanSlipDto);
 
             #region AddTo-listFill
             listFillLoanSlips.Add(newLoanSlip);

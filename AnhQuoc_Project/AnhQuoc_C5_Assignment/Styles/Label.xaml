@@ -23,14 +23,14 @@
         <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
-    
-    <Style TargetType="Label" x:Key="lblTitleStyle3" BasedOn="{StaticResource lblGeneral}">
-        <Setter Property="FontSize" Value="14" />
 
+    <Style TargetType="Label" x:Key="lblTitleStyleInBar" BasedOn="{StaticResource lblGeneral}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="FontWeight" Value="DemiBold" />
         <Setter Property="Margin" Value="10 5 0 5" />
+        <Setter Property="Padding" Value="10" />
         <Setter Property="Foreground" Value="White" />
-        <Setter Property="HorizontalAlignment" Value="Left" />
     </Style>
     
     <Style x:Key="lblStyle1" TargetType="Label" BasedOn="{StaticResource lblGeneral}">

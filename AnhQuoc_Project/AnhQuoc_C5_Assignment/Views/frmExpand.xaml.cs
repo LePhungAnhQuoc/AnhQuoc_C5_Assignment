@@ -62,7 +62,14 @@ namespace AnhQuoc_C5_Assignment
         public frmExpand()
         {
             InitializeComponent();
+
+            btnOk.Click += BtnOk_Click;
             this.DataContext = this;
+        }
+
+        private void BtnOk_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

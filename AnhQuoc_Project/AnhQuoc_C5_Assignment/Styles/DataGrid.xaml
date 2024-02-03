@@ -5,6 +5,9 @@
     <local:IsLoanOutOfDateConverter x:Key="isLoanOutOfDateConverter" />
 
     <Style x:Key="dtgGeneral" TargetType="DataGrid">
+        <Setter Property="EnableRowVirtualization" Value="False" />
+        <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="False" />
+        
         <Setter Property="HeadersVisibility" Value="Column" />
         <Setter Property="AutoGenerateColumns" Value="False" />
         <Setter Property="IsReadOnly" Value="True" />
@@ -92,18 +95,6 @@
         <Setter Property="Margin" Value="2,1" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Padding" Value="10,5" />
-    </Style>
-
-    <Style x:Key="dtgRowExpireDateLoan" TargetType="DataGridRow" BasedOn="{StaticResource dtgRowGeneral}">
-        <!--<Setter Property="Foreground">
-            <Setter.Value>
-                <MultiBinding Converter="{StaticResource isLoanOutOfDateConverter}">
-                    <Binding Path="."/>
-                </MultiBinding>
-            </Setter.Value>
-        </Setter>-->
-        <Setter Property="Foreground" Value="Red">
-        </Setter>
     </Style>
 
 </ResourceDictionary>

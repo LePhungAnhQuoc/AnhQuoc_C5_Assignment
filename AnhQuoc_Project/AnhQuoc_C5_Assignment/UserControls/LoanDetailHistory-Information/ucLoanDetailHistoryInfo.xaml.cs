@@ -38,6 +38,8 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private frmExpand frmExpandNote;
+
         #region Events
         public event RoutedEventHandler btnBackClick;
         #endregion
@@ -82,11 +84,13 @@ namespace AnhQuoc_C5_Assignment
 
         private void BtnExpandNote_Click(object sender, RoutedEventArgs e)
         {
-            frmExpand frmExpandNote = new frmExpand();
-            frmExpandNote.lblHeader = string.Empty;
+            //frmExpandNote = new frmExpand();
 
-            frmExpandNote.textArea
+            //Binding newBinding = new Binding("Note");
+            //newBinding.Source = Item;
+            //frmExpandNote.textArea.SetBinding(ContentControl.ContentProperty, newBinding);
+
+            //frmExpandNote.ShowDialog();
         }
-
     }
 }

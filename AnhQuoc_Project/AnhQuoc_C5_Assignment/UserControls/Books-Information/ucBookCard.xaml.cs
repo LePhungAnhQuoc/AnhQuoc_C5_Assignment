@@ -78,6 +78,15 @@ namespace AnhQuoc_C5_Assignment
                 btnInfo.Visibility = Visibility.Collapsed;
             }
 
+            stkWrapButton.Visibility = Visibility.Collapsed;
+            foreach (Button btn in LogicalTreeHelper.GetChildren(stkWrapButton))
+            {
+                if (btn.Visibility == Visibility.Visible)
+                {
+                    stkWrapButton.Visibility = Visibility.Visible;
+                }
+            }
+
             Item = getItem();
         }
         

@@ -20,7 +20,7 @@
                   Style="{StaticResource dtgGeneral}"
                   ColumnHeaderStyle="{StaticResource dtgColHeaderGeneral}"
                   CellStyle="{StaticResource dtgCellGeneral}"
-                  RowStyle="{StaticResource dtgRowExpireDateLoan}"
+                  RowStyle="{StaticResource dtgRowGeneral}"
                   SelectedItem="{Binding SelectedDto}"
                   ItemsSource="{Binding Books}">
             <DataGrid.Columns>

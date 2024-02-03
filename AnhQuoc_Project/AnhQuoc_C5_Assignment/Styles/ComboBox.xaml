@@ -7,6 +7,9 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
     </Style>
 
+    <Style x:Key="cbStyleItemsPerPage" TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}">
+    </Style>
+
 
     <Style x:Key="cbStyle2" TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}">
         <Setter Property="Width" Value="200" />

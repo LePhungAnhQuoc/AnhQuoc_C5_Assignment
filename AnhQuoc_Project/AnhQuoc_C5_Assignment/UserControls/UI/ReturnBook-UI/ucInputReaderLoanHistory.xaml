@@ -7,18 +7,24 @@
              mc:Ignorable="d" 
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              Background="White"
-             x:Name="myUserControl">
+             x:Name="myUserControl"
+             d:DesignHeight="700">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding ReaderLoadedCmd}" 
                                    CommandParameter="{Binding ElementName=myUserControl}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
+
+    <UserControl.Resources>
+        <local:ReturnBookSelectReaderButtonConfirmConverter x:Key="ReturnBookSelectReaderButtonConfirmConverter" />
+    </UserControl.Resources>
+    
     <Grid Name="gdInputLoanSlip"
-          HorizontalAlignment="Stretch">
+          Style="{StaticResource gdContainerForUserControl}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
@@ -44,7 +50,9 @@
                             <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
                             <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
                             <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
-                            <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
+                            <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}">
+                                <Setter Property="Margin" Value="0 10" />
+                            </Style>
                         </StackPanel.Resources>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -71,7 +79,8 @@
 
                                 </ComboBox>
                                 <TextBox Name="txtIdReader"
-                                         Grid.Column="1">
+                                         Grid.Column="1"
+                                         Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="TextChanged">
                                             <i:InvokeCommandAction Command="{Binding ReadertxtIdReaderTextChangedCmd}"
@@ -79,9 +88,9 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                     <TextBox.Text>
-                                        <Binding Path="InputIdReader" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding Path="SelectedReader.Id" UpdateSourceTrigger="PropertyChanged">
                                             <Binding.ValidationRules>
-                                                <local:InputNumberRule />
+
                                             </Binding.ValidationRules>
                                         </Binding>
                                     </TextBox.Text>
@@ -95,9 +104,9 @@
                             </Grid.ColumnDefinitions>
                             <Label Content="Name: " />
                             <TextBox Name="txtName"
-                                        Grid.Column="1"
-                                        Text="{Binding SelectedReader.FullName, Mode=OneWay}"
-                                        IsReadOnly="True">
+                                     Grid.Column="1"
+                                     Text="{Binding SelectedReader.FullName, Mode=OneWay}"
+                                     IsReadOnly="True">
                             </TextBox>
                         </Grid>
                         <Grid>
@@ -132,7 +141,7 @@
                       Style="{StaticResource gbDisplayInfo}">
                 <local:ucLoanSlipsTable x:Name="ucLoanSlipsBorrowedTable"
                                         AllowPagination="False"
-                                        Height="200"/>
+                                        VerticalAlignment="Stretch" />
             </GroupBox>
 
         </Grid>
@@ -145,6 +154,12 @@
                     HorizontalAlignment="Stretch"
                     Style="{StaticResource btnConfirm}"
                     Command="{Binding ReaderBtnConfirmClickCmd}">
+                <Button.IsEnabled>
+                    <MultiBinding Converter="{StaticResource ReturnBookSelectReaderButtonConfirmConverter}">
+                        <Binding Path="SelectedReader" />
+                        <Binding Path="SelectedLoanSlip" />
+                    </MultiBinding>
+                </Button.IsEnabled>
             </Button>
             <Button Name="btnCancel" Content="Cancel" 
                     Style="{StaticResource btnCancel}"

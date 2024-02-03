@@ -6,4 +6,8 @@
         <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
     </Style>
+  
+    <Style x:Key="scrollStyleContainWrap" TargetType="ScrollViewer" BasedOn="{StaticResource scrollStyleGeneral}">
+        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+    </Style>
 </ResourceDictionary>

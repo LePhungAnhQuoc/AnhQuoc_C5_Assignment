@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="900"
              Background="White"
@@ -17,165 +16,157 @@
                                    CommandParameter="{Binding ElementName=myUserControl}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    
     <UserControl.Resources>
-        <System:Double x:Key="gridBarHeight">50</System:Double>
-        <Thickness x:Key="borderDistance" Top="10" Left="10" Right="10" Bottom="10" />
+        <local:BorrowBookSelectReaderButtonConfirmConverter x:Key="BorrowBookSelectReaderButtonConfirmConverter" />
     </UserControl.Resources>
 
-    <Grid Name="gdContent"
-          HorizontalAlignment="Stretch">
-        
-        <!-- Borrow Book Information -->
-        <Grid Name="gdInputLoanSlip"
-              Visibility="Visible">
-            <Grid.Resources>
-                <Style TargetType="GroupBox" BasedOn="{StaticResource gbDisplayInfo}">
-                    <Setter Property="Margin" Value="10">
-                    </Setter>
-                </Style>
-            </Grid.Resources>
+    <Grid Name="gdInputLoanSlip"
+          Style="{StaticResource gdContainerForUserControl}">
+        <Grid.Resources>
+            <Style TargetType="GroupBox" BasedOn="{StaticResource gbDisplayInfo}" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <Label Grid.Row="0"
+               Style="{StaticResource lblTitle}"
+               Content="Select Reader Information" />
+
+        <!-- Reader template -->
+        <Grid Grid.Row="1" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <!-- Title -->
-            <Label Grid.Row="0"
-                   Grid.ColumnSpan="2"
-                   Style="{StaticResource lblTitle}"
-                   Content="Select Reader Information" />
-
-            <!-- Reader template -->
-            <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <!-- Reader Information -->
-                <GroupBox Grid.Row="0"
-                      Style="{StaticResource gbDisplayInfo}"
+            <!-- Reader Information -->
+            <GroupBox Grid.Row="0"
                       Header="Reader Information">
-                    <StackPanel>
-                        <StackPanel>
-                            <StackPanel.Resources>
-                                <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                                <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
-                                <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
-                                <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
-                                <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
-                            </StackPanel.Resources>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Label Content="Id Reader: " />
-                                <Grid Name="gdInputIdReader"
-                                    Style="{x:Null}"
-                                    Grid.Column="1">
-                                    <ComboBox Name="cbTxtIdReader"
-                                          Style="{StaticResource cbGeneral}"
-                                          DisplayMemberPath="Id">
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="DropDownClosed">
-                                                <i:InvokeCommandAction Command="{Binding ReadercbTxtIdReaderDropDownClosedCmd}" 
-                                                                   CommandParameter="{Binding ElementName=cbTxtIdReader}" />
-                                            </i:EventTrigger>
-                                            <i:EventTrigger EventName="SelectionChanged">
-                                                <i:InvokeCommandAction Command="{Binding ReadercbTxtIdReaderSelectionChangedCmd}" 
-                                                                   CommandParameter="{Binding ElementName=cbTxtIdReader}" />
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                        <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                        <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                        <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                        <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}">
+                            <Setter Property="Margin" Value="0 10" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Id Reader: " />
+                        <Grid Name="gdInputIdReader"
+                            Style="{x:Null}"
+                            Grid.Column="1">
+                            <ComboBox Name="cbTxtIdReader"
+                                    Style="{StaticResource cbGeneral}"
+                                    DisplayMemberPath="Id">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="DropDownClosed">
+                                        <i:InvokeCommandAction Command="{Binding ReadercbTxtIdReaderDropDownClosedCmd}" 
+                                                            CommandParameter="{Binding ElementName=cbTxtIdReader}" />
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding ReadercbTxtIdReaderSelectionChangedCmd}" 
+                                                            CommandParameter="{Binding ElementName=cbTxtIdReader}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
 
-                                    </ComboBox>
-                                    <TextBox Name="txtIdReader"
-                                         Grid.Column="1">
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="TextChanged">
-                                                <i:InvokeCommandAction Command="{Binding ReadertxtIdReaderTextChangedCmd}"
-                                                                   CommandParameter="{Binding ElementName=txtIdReader}" />
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                        <TextBox.Text>
-                                            <Binding Path="InputIdReader" UpdateSourceTrigger="PropertyChanged">
-                                                <Binding.ValidationRules>
-                                                    <local:InputNumberRule />
-                                                </Binding.ValidationRules>
-                                            </Binding>
-                                        </TextBox.Text>
-                                    </TextBox>
-                                </Grid>
-                            </Grid>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Label Content="Name: " />
-                                <TextBox Name="txtName"
-                                        Grid.Column="1"
-                                        Text="{Binding SelectedReader.FullName, Mode=OneWay}"
-                                        IsReadOnly="True">
-                                </TextBox>
-                            </Grid>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Label Content="Type: " />
-                                <TextBox Name="txtReaderType"
-                                        Grid.Column="1"
-                                        Text="{Binding SelectedReader.ReaderType, Mode=OneWay}"
-                                        IsReadOnly="True">
-                                </TextBox>
-                            </Grid>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Label Content="Status: " />
-                                <TextBox Name="txtStatus"
-                                        Grid.Column="1"
-                                        Text="{Binding SelectedReader.Status, Mode=OneWay}"
-                                        IsReadOnly="True">
-                                </TextBox>
-                            </Grid>
-                        </StackPanel>
-                    </StackPanel>
-                </GroupBox>
+                            </ComboBox>
+                            <TextBox Name="txtIdReader"
+                                     Grid.Column="1"
+                                     Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ReadertxtIdReaderTextChangedCmd}"
+                                                            CommandParameter="{Binding ElementName=txtIdReader}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <TextBox.Text>
+                                    <Binding Path="SelectedReader.Id" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
 
-                <!-- List Loan details -->
-                <GroupBox Grid.Row="1"
-                          Style="{StaticResource gbDisplayInfo}">
-                    <local:ucLoanDetailsTable  x:Name="ucLoanDetailsBorrowedTable"
-                                               AllowPagination="False"
-                                               Height="200"/>
-                </GroupBox>
-            </Grid>
-            
-            <!-- Footer -->
-            <StackPanel Grid.Row="3"
-                        Grid.ColumnSpan="2"
-                        Style="{StaticResource stkWrapButton}">
-                <Button Name="btnConfirm" Content="Confirm"
-                        HorizontalAlignment="Stretch"
-                        Style="{StaticResource btnConfirm}"
-                        Command="{Binding ReaderBtnConfirmClickCmd}">
-                </Button>
-                <Button Name="btnCancel" Content="Cancel" 
-                        Style="{StaticResource btnCancel}"
-                        HorizontalAlignment="Stretch"
-                        Margin="10 0 0 0"
-                        Command="{Binding ReaderBtnCancelClickCmd}"/>
-            </StackPanel>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Name: " />
+                        <TextBox Name="txtName"
+                                Grid.Column="1"
+                                Text="{Binding SelectedReader.FullName, Mode=OneWay}"
+                                IsReadOnly="True">
+                        </TextBox>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Type: " />
+                        <TextBox Name="txtReaderType"
+                                Grid.Column="1"
+                                Text="{Binding SelectedReader.ReaderType, Mode=OneWay}"
+                                IsReadOnly="True">
+                        </TextBox>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Status: " />
+                        <TextBox Name="txtStatus"
+                                Grid.Column="1"
+                                Text="{Binding SelectedReader.Status, Mode=OneWay}"
+                                IsReadOnly="True">
+                        </TextBox>
+                    </Grid>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- List Loan details -->
+            <GroupBox Grid.Row="1">
+                <local:ucLoanDetailsTable  x:Name="ucLoanDetailsBorrowedTable"
+                                           AllowPagination="False"
+                                           VerticalAlignment="Stretch"/>
+            </GroupBox>
         </Grid>
 
-       
+        <!-- Footer -->
+        <StackPanel Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource stkWrapButton}">
+            <Button Name="btnConfirm" Content="Confirm"
+                    HorizontalAlignment="Stretch"
+                    Style="{StaticResource btnConfirm}"
+                    Command="{Binding ReaderBtnConfirmClickCmd}">
+                <Button.IsEnabled>
+                    <MultiBinding Converter="{StaticResource BorrowBookSelectReaderButtonConfirmConverter}">
+                        <Binding Path="SelectedReader"  />
+                        <Binding Path="AllReaderLoanDetail"  />
+                    </MultiBinding>
+                </Button.IsEnabled>
+            </Button>
+            <Button Name="btnCancel" Content="Cancel" 
+                    Style="{StaticResource btnCancel}"
+                    HorizontalAlignment="Stretch"
+                    Margin="10 0 0 0"
+                    Command="{Binding ReaderBtnCancelClickCmd}"/>
+        </StackPanel>
     </Grid>
-
 </UserControl>

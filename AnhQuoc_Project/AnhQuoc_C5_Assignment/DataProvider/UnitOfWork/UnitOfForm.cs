@@ -1223,74 +1223,74 @@ namespace AnhQuoc_C5_Assignment
 
         public void Load()
         {
-            // UserControls
-            ucInputReaderLoanHistory = UcInputReaderLoanHistory(false);
-            ucRetureBookInfo = UcRetureBookInfo(false);
-            ucAddLoanHistory = UcAddLoanHistory(false);
+            //// UserControls
+            //ucInputReaderLoanHistory = UcInputReaderLoanHistory(false);
+            //ucRetureBookInfo = UcRetureBookInfo(false);
+            //ucAddLoanHistory = UcAddLoanHistory(false);
 
-            ucTranslatorInformation = UcTranslatorInformation(false);
-            ucParameterInformation = UcParameterInformation(false);
-            ucProvinceInformation = UcProvinceInformation(false);
-            ucPenaltyReasonInformation = UcPenaltyReasonInformation(false);
-            ucAuthorInformation = UcAuthorInformation(false);
-            ucPublisherInformation = UcPublisherInformation(false);
-            ucCategoryInformation = UcCategoryInformation(false);
-            ucInputBookInfo = UcInputBookInfo(false);
-            ucSelectReaderInfo = UcSelectReaderInfo(false);
-            ucFunctionInformation = UcFunctionInformation(true);
-            ucReaderLoanInformation = UcReaderLoanInformation(true);
-            ucDisplayFunction = UcDisplayFunction(true);
-            ucLoanSlipInformation = UcLoanSlipInformation(true);
-            ucLoanSlipInformationStyle2 = UcLoanSlipInformationStyle2(true);
-            ucAddBookTitle = UcAddBookTitle(true);
-            ucAddLoan = UcAddLoan(false);
-            ucAddBookISBN = UcAddBookISBN(true);
-            ucAddAdult = UcAddAdult(true);
-            ucAddChild = UcAddChild(true);
-            ucUserInformation = UcUserInformation(true);
-            ucBooksTable = UcBooksTable(true);
+            //ucTranslatorInformation = UcTranslatorInformation(false);
+            //ucParameterInformation = UcParameterInformation(false);
+            //ucProvinceInformation = UcProvinceInformation(false);
+            //ucPenaltyReasonInformation = UcPenaltyReasonInformation(false);
+            //ucAuthorInformation = UcAuthorInformation(false);
+            //ucPublisherInformation = UcPublisherInformation(false);
+            //ucCategoryInformation = UcCategoryInformation(false);
+            //ucInputBookInfo = UcInputBookInfo(false);
+            //ucSelectReaderInfo = UcSelectReaderInfo(false);
+            //ucFunctionInformation = UcFunctionInformation(true);
+            //ucReaderLoanInformation = UcReaderLoanInformation(true);
+            //ucDisplayFunction = UcDisplayFunction(true);
+            //ucLoanSlipInformation = UcLoanSlipInformation(true);
+            //ucLoanSlipInformationStyle2 = UcLoanSlipInformationStyle2(true);
+            //ucAddBookTitle = UcAddBookTitle(true);
+            //ucAddLoan = UcAddLoan(false);
+            //ucAddBookISBN = UcAddBookISBN(true);
+            //ucAddAdult = UcAddAdult(true);
+            //ucAddChild = UcAddChild(true);
+            //ucUserInformation = UcUserInformation(true);
+            //ucBooksTable = UcBooksTable(true);
 
-            ucAuthorManagement = UcAuthorManagement(true);
-            ucTranslatorManagement = UcTranslatorManagement(true);
-            ucParameterManagement = UcParameterManagement(true);
-            ucProvinceManagement = UcProvinceManagement(true);
-            ucPenaltyReasonManagement = UcPenaltyReasonManagement(true);
-            ucPublisherManagement = UcPublisherManagement(true);
-            ucCategoryManagement = UcCategoryManagement(true);
-            ucFunctionManagement = UcFunctionManagement(true);
-            ucUserManagement = UcUserManagement(true);
-            ucRoleManagement = UcRoleManagement(true);
-            ucUserRoleManagement = UcUserRoleManagement(true);
-            ucRoleFunctionManagement = UcRoleFunctionManagement(true);
-            ucBookTitleManagement = UcBookTitleManagement(true);
-            ucLoanHistoryManagement = UcLoanHistoryManagement(true);
-            ucBookManagement = UcBookManagement(true);
-            ucBookISBNManagement = UcBookISBNManagement(true);
-            ucLoanSlipManagement = UcLoanSlipManagement(true);
-            ucReaderManagement = UcReaderManagement(true);
-            ucLibrarianDashBoard = UcLibrarianDashBoard(true);
+            //ucAuthorManagement = UcAuthorManagement(true);
+            //ucTranslatorManagement = UcTranslatorManagement(true);
+            //ucParameterManagement = UcParameterManagement(true);
+            //ucProvinceManagement = UcProvinceManagement(true);
+            //ucPenaltyReasonManagement = UcPenaltyReasonManagement(true);
+            //ucPublisherManagement = UcPublisherManagement(true);
+            //ucCategoryManagement = UcCategoryManagement(true);
+            //ucFunctionManagement = UcFunctionManagement(true);
+            //ucUserManagement = UcUserManagement(true);
+            //ucRoleManagement = UcRoleManagement(true);
+            //ucUserRoleManagement = UcUserRoleManagement(true);
+            //ucRoleFunctionManagement = UcRoleFunctionManagement(true);
+            //ucBookTitleManagement = UcBookTitleManagement(true);
+            //ucLoanHistoryManagement = UcLoanHistoryManagement(true);
+            //ucBookManagement = UcBookManagement(true);
+            //ucBookISBNManagement = UcBookISBNManagement(true);
+            //ucLoanSlipManagement = UcLoanSlipManagement(true);
+            //ucReaderManagement = UcReaderManagement(true);
+            //ucLibrarianDashBoard = UcLibrarianDashBoard(true);
 
-            // Forms
-            frmAddTranslator = FrmAddTranslator(true);
-            frmAddBook = FrmAddBook(true);
-            frmAddParameter = FrmAddParameter(true);
-            frmAddProvince = FrmAddProvince(true);
-            frmAddPenaltyReason = FrmAddPenaltyReason(true);
-            frmAddAuthor = FrmAddAuthor(true);
-            frmAddPublisher = FrmAddPublisher(true);
-            frmChildFunctionInformation = FrmChildFunctionInformation(true);
-            frmTransferGuardian = FrmTransferGuardian(true);
-            frmLogin = FrmLogin(true);
-            frmAddReader = FrmAddReader(true);
-            frmAdultReaderInformation = FrmAdultReaderInformation(true);
-            frmChildReaderInformation = FrmChildReaderInformation(true);
-            frmBookISBNInformation = FrmBookISBNInformation(true);
-            frmAddCategory = FrmAddCategory(true);
+            //// Forms
+            //frmAddTranslator = FrmAddTranslator(true);
+            //frmAddBook = FrmAddBook(true);
+            //frmAddParameter = FrmAddParameter(true);
+            //frmAddProvince = FrmAddProvince(true);
+            //frmAddPenaltyReason = FrmAddPenaltyReason(true);
+            //frmAddAuthor = FrmAddAuthor(true);
+            //frmAddPublisher = FrmAddPublisher(true);
+            //frmChildFunctionInformation = FrmChildFunctionInformation(true);
+            //frmTransferGuardian = FrmTransferGuardian(true);
+            //frmLogin = FrmLogin(true);
+            //frmAddReader = FrmAddReader(true);
+            //frmAdultReaderInformation = FrmAdultReaderInformation(true);
+            //frmChildReaderInformation = FrmChildReaderInformation(true);
+            //frmBookISBNInformation = FrmBookISBNInformation(true);
+            //frmAddCategory = FrmAddCategory(true);
 
-            frmAddUser = FrmAddUser(true);
-            frmAddRole = FrmAddRole(true);
-            frmAddUserRole = FrmAddUserRole(true);
-            frmAddFunction = FrmAddFunction(true);
+            //frmAddUser = FrmAddUser(true);
+            //frmAddRole = FrmAddRole(true);
+            //frmAddUserRole = FrmAddUserRole(true);
+            //frmAddFunction = FrmAddFunction(true);
         }
 
         public void LoadServerNameForm()

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" Background="White"
-             d:DesignWidth="800"
+             d:DesignWidth="600"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              x:Name="myUserControl">
     <i:Interaction.Triggers>
@@ -14,12 +14,13 @@
                                    CommandParameter="{Binding ElementName=myUserControl}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    
     <UserControl.Resources>
         <local:PriceFormatConverter x:Key="PriceFormatConverter" />
     </UserControl.Resources>
     
     <Border Name="bdConfirmInformation"
-            Style="{StaticResource bdStyle1}"
+            Style="{StaticResource bdStyleGroupBox}"
             HorizontalAlignment="Stretch">
         <StackPanel>
             <Label Style="{StaticResource lblTitle}"
@@ -92,19 +93,19 @@
                         IsEnabled="False">
                     </TextBox>
                 </Grid>
-
-                <!-- Footer -->
-                <StackPanel Style="{StaticResource stkWrapButton}"
+            </StackPanel>
+            
+            <!-- Footer -->
+            <StackPanel Style="{StaticResource stkWrapButton}"
                         Margin="0 0 0 20">
-                    <Button Name="btnConfirm" Content="Confirm"
+                <Button Name="btnConfirm" Content="Confirm"
                         HorizontalAlignment="Stretch"
                         Style="{StaticResource btnConfirm}">
-                    </Button>
-                    <Button Name="btnCancel" Content="Cancel" 
+                </Button>
+                <Button Name="btnCancel" Content="Cancel" 
                         Style="{StaticResource btnCancel}"
                         HorizontalAlignment="Stretch"
                         Margin="10 0 0 0"/>
-                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Border>

@@ -92,6 +92,7 @@
       <DependentUpon>ucLoadingSpinnerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Converters\BorrowBook\BorrowBookSelectReaderButtonConfirmConverter.cs" />
     <Compile Include="Converters\Object-To-Id\FunctionToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\ProvinceToNameConverter.cs" />
     <Compile Include="Converters\Object-To-Id\AdultToIdConverter.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Converters\Object-To-Id\PublisherToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\BookISBNToISBNConverter.cs" />
     <Compile Include="Converters\Reader\IdAdultToFullNameConverter.cs" />
+    <Compile Include="Converters\ReturnBook\ReturnBookButtonConfirmConverter.cs" />
     <Compile Include="Converters\Utilities\DateMinToNullValueConverter.cs" />
     <Compile Include="Converters\Utilities\HalfLengthConverter.cs" />
     <Compile Include="Converters\LoanSlip\IsLoanOutOfDateConverter.cs" />
@@ -379,6 +381,9 @@
     <Compile Include="UserControls\Parameter-Information\ucParametersTable.xaml.cs">
       <DependentUpon>ucParametersTable.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UI\BorrowBooks-UI\ucLoanSlipConfirm.xaml.cs">
+      <DependentUpon>ucLoanSlipConfirm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UI\ReturnBook-UI\ucAddLoanHistory.xaml.cs">
       <DependentUpon>ucAddLoanHistory.xaml</DependentUpon>
     </Compile>
@@ -606,6 +611,9 @@
     </Compile>
     <Compile Include="Views\Category\frmAddCategory.xaml.cs">
       <DependentUpon>frmAddCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmSelectBookTable.xaml.cs">
+      <DependentUpon>frmSelectBookTable.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\frmExpand.xaml.cs">
       <DependentUpon>frmExpand.xaml</DependentUpon>
@@ -866,6 +874,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UserControls\UI\BorrowBooks-UI\ucLoanSlipConfirm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\UI\ReturnBook-UI\ucAddLoanHistory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1071,6 +1083,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Category\frmAddCategory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\frmSelectBookTable.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

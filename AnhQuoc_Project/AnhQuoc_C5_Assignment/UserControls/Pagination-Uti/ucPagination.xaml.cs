@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -36,6 +37,8 @@ namespace AnhQuoc_C5_Assignment
             }
         }
         public Func<int> getNumberItems { get; set; }
+
+        #region Forms
         public Func<ucReadersTable> getUcReadersTable { get; set; }
         public Func<ucBooksTable> getUcBooksTable { get; set; }
         public Func<ucUsersTable> getUcUsersTable { get; set; }
@@ -52,6 +55,7 @@ namespace AnhQuoc_C5_Assignment
         public Func<ucProvincesTable> getUcProvincesTable { get; set; }
         public Func<ucPenaltyReasonsTable> getUcPenaltyReasonsTable { get; set; }
         public Func<ucParametersTable> getUcParametersTable { get; set; }
+        #endregion
         #endregion
 
         public int[] ItemsPerPageList { get; set; } = new int[] { 5, 10, 15, 25 };
@@ -92,20 +96,21 @@ namespace AnhQuoc_C5_Assignment
         {
         }
 
+
         private void Refresh()
         {
             if (getNumberItems != null)
             {
-                //   var te = cbItemsPerPage.SelectedValue.ToString();
-                //   var te2 = cbItemsPerPage.SelectedItem.ToString();
-
-                numberItems = SelectedItemPerPage;
-
                 if (SelectedItemPerPage == 0)
                 {
                     cbItemsPerPage.SelectedIndex = 0;
-                    return;
-                }
+
+                    if (!(cbItemsPerPage.SelectedIndex == 0 && SelectedItemPerPage == 0))
+                        return;
+                    SelectedItemPerPage = ItemsPerPageList[0];
+                }    
+
+                numberItems = SelectedItemPerPage;
 
                 items = getItems();
 
@@ -134,50 +139,11 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-
-        private void BtnNumberPage_Click(object sender, RoutedEventArgs e)
-        {
-            string strNumber = (sender as Button).Content.ToString();
-            int numberContent = Convert.ToInt32(strNumber);
-            currentIndexPage = numberContent - 1;
-            GetItemsPerPage(currentIndexPage);
-        }
-
-        private void BtnFirst_Click(object sender, RoutedEventArgs e)
-        {
-            currentIndexPage = 0;
-            GetItemsPerPage(currentIndexPage);
-        }
-
-        private void BtnPrev_Click(object sender, RoutedEventArgs e)
-        {
-            if (currentIndexPage > 0)
-            {
-                currentIndexPage--;
-                GetItemsPerPage(currentIndexPage);
-            }
-        }
-
-        private void BtnNext_Click(object sender, RoutedEventArgs e)
-        {
-            if (currentIndexPage < maxPage - 1)
-            {
-                currentIndexPage++;
-                GetItemsPerPage(currentIndexPage);
-            }
-        }
-
-        private void BtnLast_Click(object sender, RoutedEventArgs e)
-        {
-            currentIndexPage = maxPage - 1;
-            GetItemsPerPage(currentIndexPage);
-        }
-
         private void GetItemsPerPage(int currentPage)
         {
             ObservableCollection<object> result = new ObservableCollection<object>();
             int startIndex = currentPage * numberItems;
-            
+
             int i = 0;
             for (i = startIndex; i < startIndex + numberItems; i++)
             {
@@ -268,5 +234,47 @@ namespace AnhQuoc_C5_Assignment
             ucBtnCircle.btnCircle.Foreground = Utilities.GetColorFromCode("#0770da");
             ucBtnCircle.Visibility = Visibility.Visible;
         }
+
+
+        #region Navigate-To-Page
+        private void BtnNumberPage_Click(object sender, RoutedEventArgs e)
+        {
+            string strNumber = (sender as Button).Content.ToString();
+            int numberContent = Convert.ToInt32(strNumber);
+            currentIndexPage = numberContent - 1;
+            GetItemsPerPage(currentIndexPage);
+        }
+
+        private void BtnFirst_Click(object sender, RoutedEventArgs e)
+        {
+            currentIndexPage = 0;
+            GetItemsPerPage(currentIndexPage);
+        }
+
+        private void BtnPrev_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentIndexPage > 0)
+            {
+                currentIndexPage--;
+                GetItemsPerPage(currentIndexPage);
+            }
+        }
+
+        private void BtnNext_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentIndexPage < maxPage - 1)
+            {
+                currentIndexPage++;
+                GetItemsPerPage(currentIndexPage);
+            }
+        }
+
+        private void BtnLast_Click(object sender, RoutedEventArgs e)
+        {
+            currentIndexPage = maxPage - 1;
+            GetItemsPerPage(currentIndexPage);
+        }
+        #endregion
+
     }
 }

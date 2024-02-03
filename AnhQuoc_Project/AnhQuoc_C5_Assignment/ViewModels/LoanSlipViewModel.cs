@@ -71,5 +71,35 @@ namespace AnhQuoc_C5_Assignment
 
             return result;
         }
+
+
+
+
+        public bool IsOutOfExpireDate(ObservableCollection<LoanSlip> loanSlips) 
+        {
+            return loanSlips.FirstOrDefault((item) => IsOutOfExpireDate(item)) != null;
+        }
+
+        public bool IsOutOfExpireDate(LoanSlip loan)
+        {
+            return DateTime.Now > loan.ExpDate;
+        }
+
+        public LoanSlip CreateByDto(LoanSlipDto dto)
+        {
+            LoanSlip loanSlip = new LoanSlip();
+            Copy(loanSlip, dto);
+            return loanSlip;
+        }
+
+        public void Copy(LoanSlip dest, LoanSlipDto source)
+        {
+            Utilities.Copy(dest, source);
+        }
+
+        public void Copy(LoanSlipDto dest, LoanSlipDto source)
+        {
+            Utilities.Copy(dest, source);
+        }
     }
 }

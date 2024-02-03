@@ -5,31 +5,34 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="750">
-    <Grid Margin="0 27">
-        <StackPanel Orientation="Horizontal"
-                    Margin="20 0 0 0"
-                    HorizontalAlignment="Left">
-            <Label Style="{StaticResource lblGeneral}"
-                   Content="Items per page" 
-                   VerticalAlignment="Center"/>
-            <ComboBox Name="cbItemsPerPage"
-                      Style="{StaticResource cbGeneral}"
-                      Width="50"
-                      Padding="10 5 5 5"
-                      Background="White"
-                      Margin="10 0 0 0"
-                      VerticalAlignment="Center"
-                      SelectedIndex="-1"
-                      ItemsSource="{Binding ItemsPerPageList}"
-                      SelectedItem="{Binding SelectedItemPerPage}">
-            </ComboBox>
-        </StackPanel>
+             d:DesignHeight="100" d:DesignWidth="750"
+             Background="White">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
         
-    
-        <StackPanel Orientation="Horizontal"
-                    HorizontalAlignment="Center">
+        <Grid Grid.Column="0" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Style="{StaticResource lblGeneral}"
+                   Content="Items per page" />
+            <ComboBox Grid.Column="1"
+                      Name="cbItemsPerPage"
+                      Style="{StaticResource cbStyleItemsPerPage}"
+                      Width="50"
+                      ItemsSource="{Binding ItemsPerPageList}"
+                      SelectedItem="{Binding SelectedItemPerPage}" />
+        </Grid>
 
+        <StackPanel Grid.Column="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
             <Button Name="btnFirst"
                     Content="&lt;&lt;"
                     Style="{StaticResource btnPaginationOptions}"></Button>
@@ -37,41 +40,37 @@
                     Content="&lt;"
                     Style="{StaticResource btnPaginationOptions}"
                     Margin="10 0 0 0" />
-        
             <StackPanel Name="stkNumberPages"
                         Orientation="Horizontal"
                         HorizontalAlignment="Center"
                         Margin="10 0">
             </StackPanel>
 
-
             <Button Name="btnNext"
                     Content="&gt;"
                     Style="{StaticResource btnPaginationOptions}"/>
-
             <Button Name="btnLast"
                     Content="&gt;&gt;"
                     Margin="10 0 0 0"
                     Style="{StaticResource btnPaginationOptions}"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal"
-                    Margin="0 0 20 0"
-                    HorizontalAlignment="Right">
-            <StackPanel.Resources>
-                <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}">
-                    <Setter Property="VerticalAlignment" Value="Center" />
-                </Style>
-            </StackPanel.Resources>
+        <StackPanel Grid.Column="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center">
             <Label Name="lblFirstPageNumber"
                    Content="1"/>
             <Label Content="-" />
             <Label Name="lblLastPageNumber"
                    Content="25"/>
+            
             <Label Content="of" />
+            
             <Label Name="lblTotalPageNumber"
                    Content="500" />
+            
             <Label Content="items" />
+            
         </StackPanel>
     </Grid>
 </UserControl>

@@ -67,8 +67,8 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        private decimal _LoanPaid;
 
+        private decimal _LoanPaid;
         public decimal LoanPaid
         {
             get { return _LoanPaid; }
@@ -80,7 +80,6 @@ namespace AnhQuoc_C5_Assignment
         }
 
         private decimal _Deposit;
-
         public decimal Deposit
         {
             get { return _Deposit; }
@@ -91,9 +90,7 @@ namespace AnhQuoc_C5_Assignment
             }
         }
         
-
         private decimal _FineMoney;
-
         public decimal FineMoney
         {
             get { return _FineMoney; }
@@ -105,7 +102,6 @@ namespace AnhQuoc_C5_Assignment
         }
         
         private decimal _Total;
-
         public decimal Total
         {
             get { return _Total; }
@@ -116,8 +112,8 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        private string _Note;
 
+        private string _Note;
         public string Note
         {
             get { return _Note; }

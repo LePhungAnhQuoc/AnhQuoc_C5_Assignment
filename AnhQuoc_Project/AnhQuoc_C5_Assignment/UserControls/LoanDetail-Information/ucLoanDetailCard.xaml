@@ -4,13 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="300"
              Name="YourUserControl"
              Background="White">
     <UserControl.Resources>
-        <Thickness x:Key="borderDistance" Top="10" Left="10" Right="10" Bottom="10" />
-
+        <GridLength x:Key="firstColumnWidth">75</GridLength>
+        
         <Storyboard x:Key="MouseEnterStoryboard">
             <DoubleAnimation Duration="0:0:0.300" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" To="-10">
             </DoubleAnimation>
@@ -35,9 +35,9 @@
         <TranslateTransform/>
     </UserControl.RenderTransform>
 
-    <Border Style="{StaticResource bdCard}">
-        <StackPanel Margin="{StaticResource borderDistance}"
-                    Height="auto">
+    <Border Style="{StaticResource bdCard}"
+            Width="200">
+        <StackPanel Height="auto">
             <StackPanel>
                 <StackPanel.Resources>
                     <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}">
@@ -52,16 +52,16 @@
                 </StackPanel.Resources>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Label Content="Book: " />
+                    <Label Content="Book: "/>
                     <TextBlock Grid.Column="1"
                                Text="{Binding Item.BookTitle.Name}" />
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="ISBN: " />
@@ -70,7 +70,7 @@
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Expire date: " />

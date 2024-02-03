@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace AnhQuoc_C5_Assignment
 {
@@ -19,8 +21,8 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Constants
-        private const double CardWidth = 220;
-        private const double CardMargin = 10;
+        private const double CardWidth = 200;
+        private const double CardMargin = 5;
 
         #endregion
 
@@ -205,6 +207,17 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private ObservableCollection<LoanDetail> _AllReaderLoanDetail;
+        public ObservableCollection<LoanDetail> AllReaderLoanDetail
+        {
+            get { return _AllReaderLoanDetail; }
+            set
+            {
+                _AllReaderLoanDetail = value;
+                OnPropertyChanged();
+            }
+        }
+
         private ObservableCollection<Book> _AllChildBook;
         public ObservableCollection<Book> AllChildBook
         {
@@ -309,18 +322,7 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-
-        private LoanSlip _LoanSlip;
-        public LoanSlip LoanSlip
-        {
-            get { return _LoanSlip; }
-            set
-            {
-                _LoanSlip = value;
-                OnPropertyChanged();
-            }
-        }
-
+        
 
         private LoanDetail _LoanDetail;
         public LoanDetail LoanDetail
@@ -417,14 +419,16 @@ namespace AnhQuoc_C5_Assignment
         private void NewItem()
         {
             LoanSlipDto = new LoanSlipDto(loanSlipVM.GetId());
+
             LoanSlipDto.IdUser = MainWindow.loginUser.Id;
+            LoanSlipDto.User = MainWindow.loginUser;
+
             LoanSlipDto.LoanDate = DateTime.Now;
 
             Parameter paramExpDate = paraVM.FindById(Constants.paraQD9);
             int days = Convert.ToInt32(paramExpDate.Value);
             LoanSlipDto.ExpDate = LoanSlipDto.LoanDate.AddDays(days);
         }
-
         
 
         #region AddLoan-Inplement-Commands
@@ -432,15 +436,17 @@ namespace AnhQuoc_C5_Assignment
         {
             // Load Form in ucAddLoan
             ucAddLoan = para as ucAddLoan;
+
             AllReader = readerMap.ConvertToDto(ucAddLoan.getReaderRepo().Gets());
-            
+            SelectedReader = null;
+
             ucSelectReaderInfo = MainWindow.UnitOfForm.UcSelectReaderInfo(true);
-            storeContent.Push(ucAddLoan.Content);
+
             ucAddLoan.Content = ucSelectReaderInfo;
 
             NewItem();
+            ucSelectReaderInfo.ucLoanDetailsBorrowedTable.dgDatas.LoadingRow += DgDatas_LoadingRow;
         }
-
 
         private Book FindTheLastestBook(ObservableCollection<Book> books)
         {
@@ -472,12 +478,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void CloseAndSave()
         {
-            CalculatePayment();
-
             // Truyền dữ liệu cho item
-            LoanSlip = new LoanSlip();
+            LoanSlip LoanSlip = new LoanSlip();
+            Utilities.Copy(LoanSlip, LoanSlipDto);
+            LoanSlip.Reader = null;
+            LoanSlip.User = null;
 
-            PassValueToItem(LoanSlip);
 
             ucAddLoan.getLoanSlipRepo().Add(LoanSlip);
             ucAddLoan.getLoanSlipRepo().WriteAdd(LoanSlip);
@@ -531,6 +537,16 @@ namespace AnhQuoc_C5_Assignment
             AllReaderTypes = Utilities.GetListFromEnum<ReaderType>().ToObservableCollection();
         }
 
+        private void DgDatas_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            LoanDetailDto detail = e.Row.Item as LoanDetailDto;
+
+            if (loanDetailVM.IsOutOfExpireDate(loanDetailVM.CreateByDto(detail)))
+            {
+                e.Row.Foreground = new SolidColorBrush(Colors.Red);
+            }
+        }
+        
         private bool IsAllSelecting()
         {
             if (SelectedReader == null)
@@ -544,8 +560,8 @@ namespace AnhQuoc_C5_Assignment
         private void ReaderBtnConfirmClick(object para)
         {
             ucInputBookInfo = MainWindow.UnitOfForm.UcInputBookInfo(true);
-            storeContent.Push(ucSelectReaderInfo.Content);
-            ucSelectReaderInfo.Content = ucInputBookInfo;
+            storeContent.Push(ucAddLoan.Content);
+            ucAddLoan.Content = ucInputBookInfo;
         }
 
         private void ReaderBtnCancelClick(object para)
@@ -589,7 +605,10 @@ namespace AnhQuoc_C5_Assignment
             ComboBox comBoBox = Utilities.FindVisualChild<ComboBox>(parent);
 
             if (Utilities.IsCheckEmptyString(txtInput.Text))
+            {
+                SelectedReader = null;
                 return;
+            }
 
             ObservableCollection<Reader> getfillList = readerVM.FillContainIds(sourceDto, txtInput.Text, ignoreCase, StatusValue);
 
@@ -598,47 +617,51 @@ namespace AnhQuoc_C5_Assignment
                 comBoBox.IsDropDownOpen = false;
 
                 Reader reader = getfillList.First();
+
                 SelectedReader = readerMap.ConvertToDto(reader);
 
+                LoanSlipDto.IdReader = SelectedReader.Id;
+                LoanSlipDto.Reader = reader;
+                LoanSlipDto.ReaderName = SelectedReader.FullName;
+
                 GetBooksFromReader();
-
                 GetReaderLoanAndLoanDetails();
-
-                if (SelectedReader.ReaderType == ReaderType.Adult)
-                {
-                    ucSelectReaderInfo.ucLoanDetailsBorrowedTable.getLoanDetails = () => AllAdultLoanDetail;
-                }
-                else if (SelectedReader.ReaderType == ReaderType.Child)
-                {
-                    ucSelectReaderInfo.ucLoanDetailsBorrowedTable.getLoanDetails = () => AllChildLoanDetail;
-                }
+                
+                ucSelectReaderInfo.ucLoanDetailsBorrowedTable.getLoanDetails = () => AllReaderLoanDetail;
+                
                 ucSelectReaderInfo.ucLoanDetailsBorrowedTable.ModifiedPagination();
+                
+                //SettingColorRed(ucSelectReaderInfo.ucLoanDetailsBorrowedTable.dgDatas);
 
                 return;
             }
-
             else
             {
                 SelectedReader = null;
+
+                LoanSlipDto.IdReader = null;
+                LoanSlipDto.Reader = null;
+                LoanSlipDto.ReaderName = null;
             }
             comBoBox.ItemsSource = readerMap.ConvertToDto(getfillList);
             comBoBox.IsDropDownOpen = true;
         }
 
         #endregion
-
-
+        
         private void GetReaderLoanAndLoanDetails()
         {
             if (SelectedReader.ReaderType == ReaderType.Adult)
             {
                 AllAdultLoan = loanSlipVM.FillByIdReader(SelectedReader.Id);
                 AllAdultLoanDetail = loanDetailVM.FillListByIdLoans(AllAdultLoan);
+                AllReaderLoanDetail = AllAdultLoanDetail;
             }
             else if (SelectedReader.ReaderType == ReaderType.Child)
             {
                 AllChildLoan = loanSlipVM.FillByIdReader(SelectedReader.Id);
                 AllChildLoanDetail = loanDetailVM.FillListByIdLoans(AllChildLoan);
+                AllReaderLoanDetail = AllChildLoanDetail;
             }
         }
 
@@ -673,7 +696,7 @@ namespace AnhQuoc_C5_Assignment
 
 
             LoanDetails = new ObservableCollection<LoanDetail>();
-            SelectedReader.ReaderType = ReaderType.Adult;
+
             AllBookNames = bookTitleMap.ConvertToDto(ucAddLoan.getBookTitleRepo().Gets());
             ucInputBookInfo.cbTxtBookName.ItemsSource = AllBookNames;
 
@@ -698,18 +721,46 @@ namespace AnhQuoc_C5_Assignment
 
         private void BookInfoBtnConfirmClick(object para)
         {
+            CalculatePayment();
+            LoanSlipDto.Quantity = LoanDetails.Count;
+
             if (LoanDetails.Count == 0)
             {
                 Utilities.ShowMessageBox1("You haven't chosen any book yet");
                 return;
             }
-            CloseAndSave();
+
+            frmDefault frmConfirmInformation = new frmDefault();
+            ucLoanSlipConfirm ucLoanSlipConfirm = new ucLoanSlipConfirm();
+
+            ucLoanSlipConfirm.Margin = new Thickness(10);
+
+            Button btnConfirm = ucLoanSlipConfirm.btnConfirm;
+            Button btnCancel = ucLoanSlipConfirm.btnCancel;
+
+            btnConfirm.Click += (_sender, _e) =>
+            {
+                CloseAndSave();
+                frmConfirmInformation.Close();
+            };
+
+            btnCancel.Click += (_sender, _e) =>
+            {
+                frmConfirmInformation.Close();
+            };
+
+            Utilities.AddItemToFormDefault(frmConfirmInformation, ucLoanSlipConfirm);
+
+            frmConfirmInformation.Width = 800;
+            frmConfirmInformation.SizeToContent = SizeToContent.Height;
+
+            frmConfirmInformation.ShowDialog();
         }
 
 
         private void BookInfoBtnCancelClick(object para)
         {
-            ucInputBookInfo.Content = storeContent.Pop();
+            ucAddLoan.Content = storeContent.Pop();
         }
 
         private void BtnBookDetailConfirm(object sender, RoutedEventArgs e)
@@ -881,8 +932,21 @@ namespace AnhQuoc_C5_Assignment
             bool ignoreCase = true;
             ComboBox comBoBox = Utilities.FindVisualChild<ComboBox>(parent);
 
+            Action<ObservableCollection<BookISBN>> handleBookISBN = (sourceISBN) =>
+            {
+                AllBookISBNCard.Clear();
+                ConvertToBookISBNCard(AllBookISBN);
+                AddBookISBNCardToWrap();
+            };
+
             if (Utilities.IsCheckEmptyString(txtInput.Text))
+            {
+                AllBookISBN = ucAddLoan.getBookISBNRepo().Gets();
+                handleBookISBN(AllBookISBN);
+
                 return;
+            }
+               
             comBoBox.IsDropDownOpen = true;
 
             ObservableCollection<BookTitle> getfillList = bookTitleVM.FillContainsName(source, txtInput.Text, ignoreCase);
@@ -898,9 +962,7 @@ namespace AnhQuoc_C5_Assignment
                 BookTitleDto bookTitleDto = ucInputBookInfo.cbTxtBookName.SelectedItem as BookTitleDto;
 
                 AllBookISBN = bookISBNVM.FillByIdBookTitle(bookTitleDto.Id, BookISBNStatusValue);
-                AllBookISBNCard.Clear();
-                ConvertToBookISBNCard(AllBookISBN);
-                AddBookISBNCardToWrap();
+                handleBookISBN(AllBookISBN);
 
                 return;
             }
@@ -920,7 +982,6 @@ namespace AnhQuoc_C5_Assignment
             decimal paraQD11_Value = Convert.ToDecimal(paraQD11.Value.Replace("%", "")) / 100;
 
             LoanSlipDto.LoanPaid = Convert.ToDecimal(paraQD10.Value.ToString());
-
             LoanSlipDto.Deposit = CalculateDeposit(paraQD11_Value);
         }
 
@@ -936,28 +997,17 @@ namespace AnhQuoc_C5_Assignment
             return price;
         }
         
-
-        private void PassValueToItem(LoanSlip item)
-        {
-            item.Id = LoanSlipDto.Id;
-            item.IdUser = LoanSlipDto.IdUser;
-            item.IdReader = SelectedReader.Id;
-            item.Quantity = LoanDetails.Count;
-            item.LoanDate = LoanSlipDto.LoanDate;
-            item.ExpDate = LoanSlipDto.ExpDate;
-            item.LoanPaid = LoanSlipDto.LoanPaid;
-            item.Deposit = LoanSlipDto.Deposit;
-        }
-
+        
         private void OpenSelectBookForm(ObservableCollection<Book> books)
         {
-            ucBooksTable ucSelectBooksTable = MainWindow.UnitOfForm.UcBooksTable(true);
+            frmSelectBooksTable frmSelectBooksTable = new frmSelectBooksTable();
+            ucBooksTable ucSelectBooksTable = frmSelectBooksTable.ucBooksTable;
 
             #region Set-ExceptProperty
             ucSelectBooksTable.getExceptProperties = () => Constants.exceptDtgBookCreateLoanSlip;
             #endregion
 
-            ucSelectBooksTable.Books = bookMap.ConvertToDto(books);
+            frmSelectBooksTable.getBooks = () => bookMap.ConvertToDto(books);
 
             Button btnConfirmSelectBook = new Button();
             Button btnCancelSelectBook = new Button();
@@ -965,7 +1015,6 @@ namespace AnhQuoc_C5_Assignment
             btnConfirmSelectBook.Style = Application.Current.FindResource(Constants.styleBtnConfirm) as Style;
             btnCancelSelectBook.Style = Application.Current.FindResource(Constants.styleBtnCancel) as Style;
 
-            frmDefault frmSelectBooksTable = new frmDefault();
             frmSelectBooksTable.Width = 900;
             frmSelectBooksTable.SizeToContent = SizeToContent.Height;
             frmSelectBooksTable.frmTitle = "Select book form";
@@ -987,10 +1036,8 @@ namespace AnhQuoc_C5_Assignment
                 SelectedBook = null;
             };
 
-            Utilities.AddItemToFormDefault(frmSelectBooksTable, ucSelectBooksTable, btnConfirmSelectBook, btnCancelSelectBook);
+            //Utilities.AddItemToFormDefault(frmSelectBooksTable, ucSelectBooksTable, btnConfirmSelectBook, btnCancelSelectBook);
             frmSelectBooksTable.ShowDialog();
         }
-        
-
     }
 }

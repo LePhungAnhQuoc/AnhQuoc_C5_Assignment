@@ -459,6 +459,7 @@ namespace AnhQuoc_C5_Assignment
                 || string.IsNullOrWhiteSpace(value);
             return result;
         }
+        
 
         public static string ToCapitalizeEachWord(string str)
         {

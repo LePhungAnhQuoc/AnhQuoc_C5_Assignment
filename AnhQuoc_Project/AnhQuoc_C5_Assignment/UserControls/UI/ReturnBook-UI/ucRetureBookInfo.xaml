@@ -7,6 +7,7 @@
              xmlns:System="clr-namespace:System;assembly=mscorlib"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d" 
+             d:DesignWidth="800"
              Background="White"
              x:Name="myUserControl">
     <i:Interaction.Triggers>
@@ -15,17 +16,17 @@
                                    CommandParameter="{Binding ElementName=myUserControl}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    
     <UserControl.Resources>
-        <System:Double x:Key="gridBarHeight">50</System:Double>
         <local:PriceFormatConverter x:Key="PriceFormatConverter" />
     </UserControl.Resources>
 
     <Grid Name="gdInputLoanHistory"
-          Width="980">
+          Style="{StaticResource gdContainerForUserControl}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
-
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <!-- Title -->
@@ -38,41 +39,30 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0">
-                    <Grid Background="#3968b4"
-                          Height="{StaticResource gridBarHeight}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <Label Style="{StaticResource lblTitleStyle3}"
-                               Content="List book of reader"
-                               VerticalAlignment="Center"/>
-                        <!-- Footer -->
-                        <Grid Grid.Column="1"
-                              Margin="20 10">
-                        </Grid>
-                    </Grid>
 
-                    <ScrollViewer Style="{StaticResource scrollStyleGeneral}"
-                                  Height="auto"
-                                  VerticalAlignment="Stretch">
-                        <WrapPanel Name="wrapUnPaidBooksTable"
-                                   HorizontalAlignment="Stretch">
-                        </WrapPanel>
-                    </ScrollViewer>
-                </StackPanel>
+                <Grid Grid.Row="0"
+                      Background="#3968b4">
+                    <Label Style="{StaticResource lblTitleStyleInBar}"
+                           Content="List book of reader"/>
+                </Grid>
+                <ScrollViewer Grid.Row="1"
+                              Style="{StaticResource scrollStyleContainWrap}"
+                              VerticalAlignment="Stretch">
+                    <WrapPanel Name="wrapUnPaidBooksTable"
+                               HorizontalAlignment="Stretch">
+                    </WrapPanel>
+                </ScrollViewer>
             </Grid>
 
             <Border Grid.Column="1"
-                    Style="{StaticResource bdStyle1}"
-                    Margin="0 0 0 5">
-                <StackPanel Name="stkBookDetailInformation"
-                                        Visibility="Visible">
+                    Style="{StaticResource bdStyleGroupBox}">
+                <StackPanel Name="stkBookDetailInformation">
                     <StackPanel.Resources>
                         <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
                         <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
@@ -88,9 +78,9 @@
                         <Label Content="Id Reader: " />
 
                         <TextBox Name="txtIdReader"
-                                     Grid.Column="1"
-                                     Text="{Binding SelectedReader.Id, Mode=OneWay}"
-                                     IsEnabled="False">
+                                 Grid.Column="1"
+                                 Text="{Binding SelectedReader.Id, Mode=OneWay}"
+                                 IsEnabled="False">
                         </TextBox>
                     </Grid>
                     <Grid>
@@ -100,9 +90,9 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Id Loan: " />
                         <TextBox Name="txtIdLoan"
-                                             Grid.Column="1"
-                                             Text="{Binding SelectedLoanSlip.Id, Mode=OneWay}"
-                                             IsEnabled="False">
+                                 Grid.Column="1"
+                                 Text="{Binding SelectedLoanSlip.Id, Mode=OneWay}"
+                                 IsEnabled="False">
                         </TextBox>
                     </Grid>
                     <Grid>
@@ -112,9 +102,9 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Reason: " />
 
-                        <Grid Name="gdInputReason"
-                              Style="{x:Null}"
-                              Grid.Column="1">
+                        <Grid Grid.Column="1"
+                              Name="gdInputReason"
+                              Style="{x:Null}">
                             <ComboBox Name="cbTxtReason"
                                       Style="{StaticResource cbGeneral}"
                                       DisplayMemberPath="Name">
@@ -130,7 +120,8 @@
                                 </i:Interaction.Triggers>
                             </ComboBox>
                             <TextBox Name="txtReason"
-                                     Grid.Column="1">
+                                     Grid.Column="1"
+                                     Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="TextChanged">
                                         <i:InvokeCommandAction Command="{Binding BooktxtReasonTextChangedCmd}"
@@ -140,7 +131,9 @@
                                 <TextBox.Text>
                                     <Binding Path="InputReason" UpdateSourceTrigger="PropertyChanged">
                                         <Binding.ValidationRules>
-                                            <local:InputUnicodeTextRule />
+                                            
+                                            <local:InputUnicodeTextNumberRule />
+                                            
                                         </Binding.ValidationRules>
                                     </Binding>
                                 </TextBox.Text>
@@ -185,32 +178,32 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Note: " />
                         <TextBox Name="txtNote"
-                                             Grid.Column="1">
+                                 Grid.Column="1"
+                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
                             <TextBox.Text>
                                 <Binding Path="Detail.Note" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
+                                        
                                     </Binding.ValidationRules>
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
                     </Grid>
-
-                    <StackPanel Name="stkWrapButton"
-                                Style="{StaticResource stkWrapButton}"
-                                Margin="0 0 0 20">
-                        <Button Name="btnConfirm"
-                                Style="{StaticResource btnConfirm}"
-                                Content="Confirm"
-                                Command="{Binding BookBtnConfirmClickCmd}" />
-                        <Button Name="btnCancel"
-                                Style="{StaticResource btnCancel}"
-                                Margin="10 0 0 0"
-                                Command="{Binding BookBtnCancelClickCmd}"/>
-                    </StackPanel>
                 </StackPanel>
             </Border>
-
         </Grid>
-    </Grid>
 
+        <StackPanel Grid.Row="2"
+                    Name="stkWrapButton"
+                    Style="{StaticResource stkWrapButton}">
+            <Button Name="btnConfirm"
+                    Style="{StaticResource btnConfirm}"
+                    Content="Confirm"
+                    Command="{Binding BookBtnConfirmClickCmd}" />
+            <Button Name="btnCancel"
+                    Style="{StaticResource btnCancel}"
+                    Margin="10 0 0 0"
+                    Command="{Binding BookBtnCancelClickCmd}"/>
+        </StackPanel>
+    </Grid>
 </UserControl>

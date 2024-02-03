@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace AnhQuoc_C5_Assignment
 {
@@ -57,7 +58,6 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-
         private LoanDetailHistoryDto _Detail;
         public LoanDetailHistoryDto Detail
         {
@@ -70,7 +70,6 @@ namespace AnhQuoc_C5_Assignment
         }
 
         private PenaltyReasonPaid _SelectedReason;
-
         public PenaltyReasonPaid SelectedReason
         {
             get { return _SelectedReason; }
@@ -118,6 +117,17 @@ namespace AnhQuoc_C5_Assignment
             set
             {
                 _AllAdultLoan = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<LoanSlip> _AllReaderLoan;
+        public ObservableCollection<LoanSlip> AllReaderLoan
+        {
+            get { return _AllReaderLoan; }
+            set
+            {
+                _AllReaderLoan = value;
                 OnPropertyChanged();
             }
         }
@@ -491,11 +501,11 @@ namespace AnhQuoc_C5_Assignment
 
             ucInputReaderLoanHistory = MainWindow.UnitOfForm.UcInputReaderLoanHistory(true);
             ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.dgDatas.SelectionChanged += DgDatas_SelectionChanged;
+            ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.dgDatas.LoadingRow += DgDatas_LoadingRow;
 
             LoanDetailHistoryDtos = new ObservableCollection<LoanDetailHistoryDto>();
             PenaltyReasonPaids = new ObservableCollection<PenaltyReasonPaid>();
 
-            storeContent.Push(ucAddLoanHistory.Content);
             ucAddLoanHistory.Content = ucInputReaderLoanHistory;
         }
         #endregion
@@ -526,8 +536,8 @@ namespace AnhQuoc_C5_Assignment
 
             ucRetureBookInfo = MainWindow.UnitOfForm.UcRetureBookInfo(true);
 
-            storeContent.Push(ucInputReaderLoanHistory.Content);
-            ucInputReaderLoanHistory.Content = ucRetureBookInfo;
+            storeContent.Push(ucAddLoanHistory.Content);
+            ucAddLoanHistory.Content = ucRetureBookInfo;
         }
 
         private void ReaderBtnCancelClick(object para)
@@ -566,11 +576,16 @@ namespace AnhQuoc_C5_Assignment
 
         private void TxtIdReader_Filter_TextChanged(TextBox txtInput, Grid parent, ObservableCollection<Reader> sourceDto)
         {
+            SelectedLoanSlip = null;
+
             bool ignoreCase = true;
             ComboBox comBoBox = Utilities.FindVisualChild<ComboBox>(parent);
 
             if (Utilities.IsCheckEmptyString(txtInput.Text))
+            {
+                SelectedReader = null;
                 return;
+            }
 
             ObservableCollection<Reader> getfillList = readerVM.FillContainIds(sourceDto, txtInput.Text, ignoreCase, StatusValue);
 
@@ -583,17 +598,18 @@ namespace AnhQuoc_C5_Assignment
 
                 GetReaderLoanAndLoanDetails();
 
-                if (SelectedReader.ReaderType == ReaderType.Adult)
-                    ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.getLoanSlips = () => AllAdultLoan;
-                else if (SelectedReader.ReaderType == ReaderType.Child)
-                    ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.getLoanSlips = () => AllChildLoan;
-
+                ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.getLoanSlips = () => AllReaderLoan;
                 ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.ModifiedPagination();
                 return;
             }
             else
             {
                 SelectedReader = null;
+
+                AllReaderLoan = new ObservableCollection<LoanSlip>();
+
+                ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.getLoanSlips = () => AllReaderLoan;
+                ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.ModifiedPagination();
             }
             comBoBox.ItemsSource = readerMap.ConvertToDto(getfillList);
             comBoBox.IsDropDownOpen = true;
@@ -605,11 +621,13 @@ namespace AnhQuoc_C5_Assignment
             {
                 AllAdultLoan = loanSlipVM.FillByIdReader(SelectedReader.Id);
                 AllAdultLoanDetail = loanDetailVM.FillListByIdLoans(AllAdultLoan);
+                AllReaderLoan = AllAdultLoan;
             }
             else if (SelectedReader.ReaderType == ReaderType.Child)
             {
                 AllChildLoan = loanSlipVM.FillByIdReader(SelectedReader.Id);
                 AllChildLoanDetail = loanDetailVM.FillListByIdLoans(AllChildLoan);
+                AllReaderLoan = AllChildLoan;
             }
         }
 
@@ -678,8 +696,8 @@ namespace AnhQuoc_C5_Assignment
         private void BookBtnConfirmClick(object para)
         {
             CalculatePayMent();
-            frmDefault frmConfirmInformation = new frmDefault();
 
+            frmDefault frmConfirmInformation = new frmDefault();
             ucLoanHistoryConfirm ucLoanHistoryConfirm = new ucLoanHistoryConfirm();
 
             ucLoanHistoryConfirm.Margin = new Thickness(10);
@@ -708,7 +726,7 @@ namespace AnhQuoc_C5_Assignment
 
         private void BookBtnCancelClick(object para)
         {
-            ucRetureBookInfo.Content = storeContent.Pop();
+            ucAddLoanHistory.Content = storeContent.Pop();
         }
 
         #region InputReason
@@ -916,6 +934,16 @@ namespace AnhQuoc_C5_Assignment
         }
         #endregion
 
+
+        private void DgDatas_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            LoanSlipDto loan = e.Row.Item as LoanSlipDto;
+
+            if (loanSlipVM.IsOutOfExpireDate(loanSlipVM.CreateByDto(loan)))
+            {
+                e.Row.Foreground = new SolidColorBrush(Colors.Red);
+            }
+        }
 
         private void Txt_LostFocus(object sender, RoutedEventArgs e)
         {

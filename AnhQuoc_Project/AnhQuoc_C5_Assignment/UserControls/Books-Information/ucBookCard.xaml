@@ -9,7 +9,8 @@
              Background="White">
     <UserControl.Resources>
         <Thickness x:Key="borderDistance" Top="10" Left="10" Right="10" Bottom="10" />
-
+        <GridLength x:Key="firstColumnWidth">65</GridLength>
+        
         <Storyboard x:Key="MouseEnterStoryboard">
             <DoubleAnimation Duration="0:0:0.300" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" To="-10">
             </DoubleAnimation>
@@ -34,9 +35,9 @@
         <TranslateTransform/>
     </UserControl.RenderTransform>
     
-    <Border Style="{StaticResource bdCard}">
-        <StackPanel Margin="{StaticResource borderDistance}"
-              Height="auto">
+    <Border Style="{StaticResource bdCard}"
+            Width="200">
+        <StackPanel Height="auto">
             <StackPanel>
                 <StackPanel.Resources>
                     <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}">
@@ -51,16 +52,16 @@
                 </StackPanel.Resources>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Book title: " />
                     <TextBlock Grid.Column="1"
-                               Text="{Binding Item.Title}" />
+                               Text="{Binding Item.BookTitle.Name}" />
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="ISBN: " />
@@ -69,16 +70,16 @@
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Author: " />
                     <TextBlock Grid.Column="1"
-                               Text="{Binding Item.Author}" />
+                               Text="{Binding Item.Author.Name}" />
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Language: " />

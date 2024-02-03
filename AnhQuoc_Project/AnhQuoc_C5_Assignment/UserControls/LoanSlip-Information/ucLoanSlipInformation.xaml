@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="800">
+             d:DesignHeight="700" d:DesignWidth="800"
+             Background="White">
     <UserControl.Resources>
-        <System:Double x:Key="datagridMargin">30</System:Double>
         <local:PriceFormatConverter x:Key="PriceFormatConverter" />
     </UserControl.Resources>
     <StackPanel>
@@ -110,7 +110,7 @@
         <GroupBox Header="Loan Details"
                   Style="{StaticResource gbDisplayInfo}">
             <GroupBox.Margin>
-                <Thickness Top="{StaticResource datagridMargin}" Left="20" Right="20" Bottom="0" />
+                <Thickness Left="20" Top="20" Right="20" Bottom="0" />
             </GroupBox.Margin>
             <local:ucLoanDetailsTable x:Name="ucLoanDetailsTable" 
                                       Style="{StaticResource ucStyleVertical}"

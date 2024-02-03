@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="900"
              Background="White"
@@ -17,186 +16,152 @@
                                    CommandParameter="{Binding ElementName=myUserControl}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <UserControl.Resources>
-        <System:Double x:Key="gridBarHeight">50</System:Double>
-        <Thickness x:Key="borderDistance" Top="10" Left="10" Right="10" Bottom="10" />
-    </UserControl.Resources>
-
-    <Grid Name="gdContent"
+    
+    <Grid Name="gdInputLoanSlip"
           HorizontalAlignment="Stretch">
-        
-        <!-- Borrow Book Information -->
-        <Grid Name="gdInputLoanSlip"
-              Visibility="Visible">
-            <Grid.Resources>
-                <Style TargetType="GroupBox" BasedOn="{StaticResource gbDisplayInfo}" />
-            </Grid.Resources>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
 
-            <!-- Title -->
-            <Label Grid.Row="0"
-                   Grid.ColumnSpan="2"
-                   Style="{StaticResource lblTitle}"
-                   Content="Select Book Information" />
+        <!-- Title -->
+        <Label Grid.Row="0"
+               Grid.ColumnSpan="2"
+               Style="{StaticResource lblTitle}"
+               Content="Select Book Information" />
 
-            <!-- Books template -->
-            <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+        <!-- Books template -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-                <GroupBox Grid.Column="0">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Border Grid.Row="0"
-                                Name="bdInputBookInformation"
-                                Style="{StaticResource bdStyle1}">
-                            <Grid Style="{x:Null}"
-                          Margin="0 10">
+            <GroupBox Grid.Column="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0"
+                            Name="bdInputBookInformation"
+                            Style="{StaticResource bdStyleGroupBox}"
+                            Margin="0">
+                        <StackPanel>
+                            <StackPanel.Resources>
+                                <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                                <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                                <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                                <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                                <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
+                            </StackPanel.Resources>
+                       
+                            <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.Resources>
-                                    <System:Double x:Key="gridWight">300</System:Double>
-
-                                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                                    <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
-                                    <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
-                                    <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
-                                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}">
-                                        <Setter Property="Width" Value="{StaticResource gridWight}" />
-                                        <Setter Property="Margin"  Value="0 0 20 0" />
-                                    </Style>
-                                </Grid.Resources>
-                                <Grid Grid.Column="0"
-                                      Style="{x:Null}"
-                                      Margin="10 0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="100" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="Book name: " />
-                                    <Grid Grid.Column="1"
-                                          Name="gdInputBookName"
-                                          Style="{x:Null}">
-                                        <ComboBox Name="cbTxtBookName"
-                                                  DisplayMemberPath="Name">
-                                            <i:Interaction.Triggers>
-                                                <i:EventTrigger EventName="DropDownClosed">
-                                                    <i:InvokeCommandAction Command="{Binding ReadercbTxtBookNameDropDownClosedCmd}" 
-                                                                           CommandParameter="{Binding ElementName=cbTxtBookName}" />
-                                                </i:EventTrigger>
-                                                <i:EventTrigger EventName="SelectionChanged">
-                                                    <i:InvokeCommandAction Command="{Binding ReadercbTxtBookNameSelectionChangedCmd}" 
-                                                                           CommandParameter="{Binding ElementName=cbTxtBookName}" />
-                                                </i:EventTrigger>
-                                            </i:Interaction.Triggers>
-                                        </ComboBox>
-                                        <TextBox Name="txtInputBookName"
-                                                 Grid.Column="1">
-                                            <i:Interaction.Triggers>
-                                                <i:EventTrigger EventName="TextChanged">
-                                                    <i:InvokeCommandAction Command="{Binding ReadertxtInputBookNameTextChangedCmd}" 
-                                                                           CommandParameter="{Binding ElementName=txtInputBookName}" />
-                                                </i:EventTrigger>
-                                            </i:Interaction.Triggers>
-
-                                            <TextBox.Text>
-                                                <Binding Path="InputBookName" UpdateSourceTrigger="PropertyChanged">
-                                                    <Binding.ValidationRules>
-                                                    </Binding.ValidationRules>
-                                                </Binding>
-                                            </TextBox.Text>
-                                        </TextBox>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </Border>
-
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            
-                            <Grid Grid.Row="0"
-                                  Background="#3968b4"
-                                  Height="{StaticResource gridBarHeight}">
-                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <Label Style="{StaticResource lblTitleStyle3}"
-                                       Content="Temporary book list" 
-                                       VerticalAlignment="Center"/>
-                            </Grid>
-                            <ScrollViewer Grid.Row="1"
-                                          Style="{StaticResource scrollStyleGeneral}"
-                                          Height="350">
-                                <WrapPanel Name="wrapBookISBN"
-                                           HorizontalAlignment="Stretch">
-                                </WrapPanel>
-                            </ScrollViewer>
-                        </Grid>
-                    </Grid>
-                </GroupBox>
+                                <Label Content="Book name: " />
+                                <Grid Grid.Column="1"
+                                      Name="gdInputBookName"
+                                      Style="{x:Null}">
+                                    <ComboBox Name="cbTxtBookName"
+                                                DisplayMemberPath="Name">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="DropDownClosed">
+                                                <i:InvokeCommandAction Command="{Binding ReadercbTxtBookNameDropDownClosedCmd}" 
+                                                                        CommandParameter="{Binding ElementName=cbTxtBookName}" />
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="SelectionChanged">
+                                                <i:InvokeCommandAction Command="{Binding ReadercbTxtBookNameSelectionChangedCmd}" 
+                                                                        CommandParameter="{Binding ElementName=cbTxtBookName}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </ComboBox>
+                                    <TextBox Name="txtInputBookName"
+                                             Grid.Column="1"
+                                             Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="TextChanged">
+                                                <i:InvokeCommandAction Command="{Binding ReadertxtInputBookNameTextChangedCmd}" 
+                                                                        CommandParameter="{Binding ElementName=txtInputBookName}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
 
-                <GroupBox Grid.Column="1">
-                    <Grid>
+                                        <TextBox.Text>
+                                            <Binding Path="InputBookName" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <local:InputUnicodeTextNumberRule />
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                </Grid>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+
+                    <Grid Grid.Row="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
+
                         <Grid Grid.Row="0"
-                              Background="#3968b4"
-                              Height="{StaticResource gridBarHeight}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label Style="{StaticResource lblTitleStyle3}"
-                                       Content="Saved book list" 
-                                       VerticalAlignment="Center"/>
+                              Background="#3968b4">
+                            <Label Style="{StaticResource lblTitleStyleInBar}"
+                                   Content="Temporary book list" />
                         </Grid>
-                      
                         <ScrollViewer Grid.Row="1"
-                                      Style="{StaticResource scrollStyleGeneral}"
-                                      Height="auto"
+                                      Style="{StaticResource scrollStyleContainWrap}"
                                       VerticalAlignment="Stretch">
-                            <WrapPanel Name="wrapLoanDetail"
+                            <WrapPanel Name="wrapBookISBN"
                                        HorizontalAlignment="Stretch">
                             </WrapPanel>
                         </ScrollViewer>
                     </Grid>
-                </GroupBox>
-            </Grid>
-         
+                </Grid>
+            </GroupBox>
 
-            <!-- Footer -->
-            <StackPanel Grid.Row="3"
-                        Grid.ColumnSpan="2"
-                        Style="{StaticResource stkWrapButton}">
-                <Button Name="btnConfirm" Content="Confirm"
-                        HorizontalAlignment="Stretch"
-                        Style="{StaticResource btnConfirm}"
-                        Command="{Binding BookInfoBtnConfirmClickCmd}">
-                </Button>
-                <Button Name="btnCancel" Content="Cancel" 
-                        Style="{StaticResource btnCancel}"
-                        HorizontalAlignment="Stretch"
-                        Margin="10 0 0 0"
-                        Command="{Binding BookInfoBtnCancelClickCmd}"/>
-            </StackPanel>
+            <GroupBox Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0"
+                          Background="#3968b4">
+                        <Label Style="{StaticResource lblTitleStyleInBar}"
+                               Content="Saved book list" />
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="1"
+                                  Style="{StaticResource scrollStyleContainWrap}"
+                                  VerticalAlignment="Stretch">
+                        <WrapPanel Name="wrapLoanDetail"
+                                   HorizontalAlignment="Stretch">
+                        </WrapPanel>
+                    </ScrollViewer>
+                </Grid>
+            </GroupBox>
         </Grid>
 
-       
+        <!-- Footer -->
+        <StackPanel Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource stkWrapButton}">
+            <Button Name="btnConfirm" Content="Confirm"
+                    HorizontalAlignment="Stretch"
+                    Style="{StaticResource btnConfirm}"
+                    Command="{Binding BookInfoBtnConfirmClickCmd}">
+            </Button>
+            <Button Name="btnCancel" Content="Cancel" 
+                    Style="{StaticResource btnCancel}"
+                    HorizontalAlignment="Stretch"
+                    Margin="10 0 0 0"
+                    Command="{Binding BookInfoBtnCancelClickCmd}"/>
+        </StackPanel>
     </Grid>
 
 </UserControl>

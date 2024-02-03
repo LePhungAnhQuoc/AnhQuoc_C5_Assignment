@@ -76,5 +76,34 @@ namespace AnhQuoc_C5_Assignment
             }
             return result;
         }
+
+
+        public bool IsOutOfExpireDate(ObservableCollection<LoanDetail> details)
+        {
+            return details.FirstOrDefault((item) => IsOutOfExpireDate(item)) != null;
+        }
+
+        public bool IsOutOfExpireDate(LoanDetail detail)
+        {
+            return DateTime.Now > detail.ExpDate;
+        }
+
+
+        public LoanDetail CreateByDto(LoanDetailDto dto)
+        {
+            LoanDetail loanDetail = new LoanDetail();
+            Copy(loanDetail, dto);
+            return loanDetail;
+        }
+
+        public void Copy(LoanDetail dest, LoanDetailDto source)
+        {
+            Utilities.Copy(dest, source);
+        }
+
+        public void Copy(LoanDetailDto dest, LoanDetailDto source)
+        {
+            Utilities.Copy(dest, source);
+        }
     }
 }
