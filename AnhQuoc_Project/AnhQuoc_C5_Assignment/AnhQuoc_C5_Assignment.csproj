@@ -612,9 +612,6 @@
     <Compile Include="Views\Category\frmAddCategory.xaml.cs">
       <DependentUpon>frmAddCategory.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\frmSelectBookTable.xaml.cs">
-      <DependentUpon>frmSelectBookTable.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\frmExpand.xaml.cs">
       <DependentUpon>frmExpand.xaml</DependentUpon>
     </Compile>
@@ -1083,10 +1080,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Category\frmAddCategory.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\frmSelectBookTable.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

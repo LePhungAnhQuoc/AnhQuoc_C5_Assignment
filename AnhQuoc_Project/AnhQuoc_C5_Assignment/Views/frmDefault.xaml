@@ -9,19 +9,28 @@
         Title="{Binding frmTitle, ElementName=window}"
         WindowStartupLocation="{StaticResource WSL}"
         Style="{StaticResource wdStyleGeneral}">
-    <StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
         <!-- Title -->
-        <Label Style="{StaticResource lblTitle}"
+        <Label Grid.Row="0"
+               Style="{StaticResource lblTitle}"
                Content="{Binding lblHeader, ElementName=window}"  />
         
         <!-- Body -->
-        <StackPanel Margin="20 0"
-                    Name="stkBody">
-        </StackPanel>
+        <Grid Grid.Row="1"
+              VerticalAlignment="Stretch"
+              Margin="20 0"
+              Name="stkBody">
+        </Grid>
         
         <!-- Footer -->
-        <StackPanel Name="stkWrapButton"
+        <StackPanel Grid.Row="2"
+                    Name="stkWrapButton"
                     Style="{StaticResource stkWrapButton}">
         </StackPanel>
-    </StackPanel>
+    </Grid>
 </Window>

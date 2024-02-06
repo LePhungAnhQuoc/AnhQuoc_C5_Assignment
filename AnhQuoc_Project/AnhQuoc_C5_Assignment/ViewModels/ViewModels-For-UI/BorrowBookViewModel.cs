@@ -1000,14 +1000,13 @@ namespace AnhQuoc_C5_Assignment
         
         private void OpenSelectBookForm(ObservableCollection<Book> books)
         {
-            frmSelectBooksTable frmSelectBooksTable = new frmSelectBooksTable();
-            ucBooksTable ucSelectBooksTable = frmSelectBooksTable.ucBooksTable;
+            frmDefault frmSelectBooksTable = new frmDefault();
 
-            #region Set-ExceptProperty
+            ucBooksTable ucSelectBooksTable = new ucBooksTable();
+            ucSelectBooksTable.AllowPagination = false;
+
             ucSelectBooksTable.getExceptProperties = () => Constants.exceptDtgBookCreateLoanSlip;
-            #endregion
-
-            frmSelectBooksTable.getBooks = () => bookMap.ConvertToDto(books);
+            ucSelectBooksTable.Books = bookMap.ConvertToDto(books);
 
             Button btnConfirmSelectBook = new Button();
             Button btnCancelSelectBook = new Button();
@@ -1015,12 +1014,14 @@ namespace AnhQuoc_C5_Assignment
             btnConfirmSelectBook.Style = Application.Current.FindResource(Constants.styleBtnConfirm) as Style;
             btnCancelSelectBook.Style = Application.Current.FindResource(Constants.styleBtnCancel) as Style;
 
-            frmSelectBooksTable.Width = 900;
-            frmSelectBooksTable.SizeToContent = SizeToContent.Height;
             frmSelectBooksTable.frmTitle = "Select book form";
             frmSelectBooksTable.lblHeader = "Please select book in this ISBN";
 
-            btnConfirmSelectBook.Click += (_sender, _e) =>
+            frmSelectBooksTable.Width = 900;
+            frmSelectBooksTable.Height = 500;
+            frmSelectBooksTable.SizeToContent = SizeToContent.Manual;
+
+            Action<object> confirmHandle = (sender) =>
             {
                 SelectedBook = ucSelectBooksTable.SelectedDto;
                 if (SelectedBook == null)
@@ -1030,13 +1031,20 @@ namespace AnhQuoc_C5_Assignment
                 }
                 frmSelectBooksTable.Close();
             };
+
+
+            btnConfirmSelectBook.Click += (_sender, _e) => confirmHandle(_sender);
             btnCancelSelectBook.Click += (_sender, _e) =>
             {
                 frmSelectBooksTable.Close();
                 SelectedBook = null;
             };
 
-            //Utilities.AddItemToFormDefault(frmSelectBooksTable, ucSelectBooksTable, btnConfirmSelectBook, btnCancelSelectBook);
+            ucSelectBooksTable.dgBooks.MouseDoubleClick += (_sender, _e) => confirmHandle(_sender);
+
+            Utilities.AddItemToFormDefault(frmSelectBooksTable, ucSelectBooksTable, btnConfirmSelectBook, btnCancelSelectBook);
+
+            // Show
             frmSelectBooksTable.ShowDialog();
         }
     }

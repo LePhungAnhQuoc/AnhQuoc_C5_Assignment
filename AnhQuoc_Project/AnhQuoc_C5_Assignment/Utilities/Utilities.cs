@@ -1417,7 +1417,10 @@ namespace AnhQuoc_C5_Assignment
 
         public static void AddItemToFormDefault(frmDefault form, UserControl uc, params Button[] arrayButton)
         {
-            StackPanel stkParent = form.stkBody;
+            Grid stkParent = form.stkBody;
+            uc.HorizontalAlignment = HorizontalAlignment.Stretch;
+            uc.VerticalAlignment = VerticalAlignment.Stretch;
+
             stkParent.Children.Add(uc);
 
             #region Add-Buttons

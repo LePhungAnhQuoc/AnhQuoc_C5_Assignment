@@ -32,6 +32,8 @@ namespace AnhQuoc_C5_Assignment
 
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        public delegate void LoadingSpinner(object para);
+
         public static BorrowBookViewModel borrowBookContext;
         public static ReturnBookViewModel returnBookContext;
 
@@ -110,6 +112,15 @@ namespace AnhQuoc_C5_Assignment
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Loading();
+
+
+            ////LoadingSpinner spinner = new frmLoadingSpinnerControl()
+            //for (int i = 0; i < 100000; i++)
+            //{
+            //    MessageBox.Show(i.ToString());
+
+            //}
+
         }
 
         public void Loading()
@@ -346,8 +357,6 @@ namespace AnhQuoc_C5_Assignment
         public void GetServerNameAndLoading()
         {
             SetUpServerName();
-
-            //frmLoadingSpinnerControl.ucLoadingSpinnerControl.lblContent.Content = "Load data...";
 
             #region LoadUnit2
             UnitOfRepo.Load();
