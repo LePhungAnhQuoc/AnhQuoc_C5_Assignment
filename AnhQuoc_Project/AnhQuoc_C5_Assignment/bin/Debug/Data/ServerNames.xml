@@ -3,11 +3,26 @@
   <ServerName>
     <Id>SV1</Id>
     <Name>DESKTOP-883447E</Name>
-    <Status>True</Status>
+    <Status>False</Status>
   </ServerName>
   <ServerName>
     <Id>SV2</Id>
     <Name>DESKTOP-883447E\SQLEXPRESS</Name>
     <Status>False</Status>
+  </ServerName>
+  <ServerName>
+    <Id>SV3</Id>
+    <Name>ADMIN</Name>
+    <Status>False</Status>
+  </ServerName>
+  <ServerName>
+    <Id>SV4</Id>
+    <Name>ADMIN\SQLEXPRESS</Name>
+    <Status>False</Status>
+  </ServerName>
+  <ServerName>
+    <Id>SV5</Id>
+    <Name>ADMIN\DATA_SQL</Name>
+    <Status>True</Status>
   </ServerName>
 </ServerNames>

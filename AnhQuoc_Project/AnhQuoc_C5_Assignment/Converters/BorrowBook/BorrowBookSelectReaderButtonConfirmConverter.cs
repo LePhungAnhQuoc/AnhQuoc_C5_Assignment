@@ -22,11 +22,24 @@ namespace AnhQuoc_C5_Assignment
                 return false;
             if (values[1] == null)
                 return false;
+            if (values[2] == null)
+                return false;
+            
+            var reader = values[0] as ReaderDto;
 
             var loanDetailVM = UnitOfViewModel.Instance.LoanDetailViewModel;
             bool isOutOfExpire = loanDetailVM.IsOutOfExpireDate(values[1] as ObservableCollection<LoanDetail>);
 
-            if (isOutOfExpire)
+            ObservableCollection<Book> booksOfReader = values[2] as ObservableCollection<Book>;
+
+            #region Parameter
+            ParameterViewModel paraVM = UnitOfViewModel.Instance.ParameterViewModel;
+            Parameter para = paraVM.FindById(Constants.paraQD2);
+            int value = -1;
+            int.TryParse(para.Value, out value);
+            #endregion
+
+            if (isOutOfExpire || booksOfReader.Count >= value)
                 return false;
 
             return true;

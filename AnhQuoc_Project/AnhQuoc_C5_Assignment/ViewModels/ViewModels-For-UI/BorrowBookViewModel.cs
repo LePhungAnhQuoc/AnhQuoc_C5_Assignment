@@ -137,20 +137,7 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-
-        private ObservableCollection<Book> _TotalBooksOfReader;
-        public ObservableCollection<Book> TotalBooksOfReader
-        {
-            get
-            {
-                if (BooksOfReader != null && AllChildBook != null)
-                {
-                    return BooksOfReader.Concat(AllChildBook).ToObservableCollection();
-                }
-                return null;
-            }
-        }
-
+        
 
         private ObservableCollection<Child> _AllChildOfAdult;
         public ObservableCollection<Child> AllChildOfAdult
@@ -217,17 +204,7 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-
-        private ObservableCollection<Book> _AllChildBook;
-        public ObservableCollection<Book> AllChildBook
-        {
-            get { return _AllChildBook; }
-            set
-            {
-                _AllChildBook = value;
-                OnPropertyChanged();
-            }
-        }
+        
 
         public ObservableCollection<BookISBN> AllBookISBN { get; set; }
         public ObservableCollection<ucBookISBNCard> AllBookISBNCard { get; set; }
@@ -672,19 +649,34 @@ namespace AnhQuoc_C5_Assignment
             var readerLoans = loanSlipVM.FillByIdReader(reader.Id, false);
             var readerBooks = bookVM.GetBooksInLoanSlips(readerLoans);
             BooksOfReader = readerBooks;
+
+            if (SelectedReader.ReaderType == ReaderType.Adult)
+            {
+                // get all child
+                ObservableCollection<Child> allChilds = childVM.FillByIdAdult(SelectedReader.Id, true);
+
+                allChilds.ForEach((childItem) =>
+                {
+                    var childLoans = loanSlipVM.FillByIdReader(childItem.IdReader, false);
+                    var childBooks = bookVM.GetBooksInLoanSlips(childLoans);
+                    BooksOfReader.AddRange(childBooks);
+                });
+            }
+
+            else if (SelectedReader.ReaderType == ReaderType.Child)
+            {
+                Child child = childVM.FindByIdReader(SelectedReader.Id, true);
+                var adultLoans = loanSlipVM.FillByIdReader(child.IdAdult, false);
+                var adultBooks = bookVM.GetBooksInLoanSlips(adultLoans);
+                BooksOfReader.AddRange(adultBooks);
+            }
         }
 
         private void GetChildrenFromAdult(Adult adult)
         {
             AllChildOfAdult = childVM.FillByIdAdult(adult.IdReader, null);
         }
-
-        private void GetChildBooks()
-        {
-            AllChildLoan = loanSlipVM.GetByListReader(AllChildOfAdult.Select(child => readerVM.FindById(child.IdReader)).ToObservableCollection());
-            AllChildLoanDetail = loanDetailVM.FillListByIdLoans(AllChildLoan);
-            AllChildBook = bookVM.GetBooksInLoanDetails(AllChildLoanDetail);
-        }
+        
         #endregion
 
         #region BookInfo-Implement-Commands
@@ -765,16 +757,34 @@ namespace AnhQuoc_C5_Assignment
 
         private void BtnBookDetailConfirm(object sender, RoutedEventArgs e)
         {
+            #region Parameter
+            Parameter para = paraVM.FindById(Constants.paraQD2);
+            int value = -1;
+            int.TryParse(para.Value, out value);
+            #endregion
+
+            if (BooksOfReader.Count + LoanDetails.Count >= value)
+            {
+                Utilities.ShowMessageBox1($"1 reader can only borrow a maximum of {value} books");
+                return;
+            }
+
             BookDto bookDto = SelectedBook;
+
+            // Kiểm tra xem book đã chọn đã có trong BooksOfReader (Cách sách đã có)
             var tempCheck = bookVM.FindById(BooksOfReader, bookDto.Id, null);
+
+            // Kiểm tra xem book đã chọn đã có trong danh sách đặt thêm sách (Các LoanDetails)
             if (tempCheck == null)
                 tempCheck = bookVM.FindById(bookVM.GetBooksInLoanDetails(LoanDetails), bookDto.Id, null);
+
             if (tempCheck != null)
             {
                 Utilities.ShowMessageBox1("This reader already borrow this book!", "Can not borrow this book");
                 return;
             }
 
+            // Kiểm tra tình trạng cuốn sách
             if (!bookDto.Status)
             {
                 Utilities.ShowMessageBox1(Utilities.NotifyBookStatus());
@@ -790,9 +800,9 @@ namespace AnhQuoc_C5_Assignment
                 ConvertToLoanDetailCard(LoanDetails);
                 AddLoanDetailCardToWrap();
 
+
                 AllBookISBN.Remove(AllBookISBN.FirstOrDefault(item => item.ISBN == SelectedISBN.ISBN));
                 AllBookISBNCard.Remove(AllBookISBNCard.FirstOrDefault(item => item.getItem().ISBN == SelectedISBN.ISBN));
-
                 AddBookISBNCardToWrap();
             }
         }

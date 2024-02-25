@@ -159,6 +159,7 @@
                     <MultiBinding Converter="{StaticResource BorrowBookSelectReaderButtonConfirmConverter}">
                         <Binding Path="SelectedReader"  />
                         <Binding Path="AllReaderLoanDetail"  />
+                        <Binding Path="BooksOfReader"  />
                     </MultiBinding>
                 </Button.IsEnabled>
             </Button>

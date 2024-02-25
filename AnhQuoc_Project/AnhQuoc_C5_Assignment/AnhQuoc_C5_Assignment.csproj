@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AnhQuoc_C5_Assignment</RootNamespace>
     <AssemblyName>AnhQuoc_C5_Assignment</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -85,11 +85,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Animations\frmLoadingSpinnerControl.xaml.cs">
-      <DependentUpon>frmLoadingSpinnerControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Animations\ucLoadingSpinnerControl.xaml.cs">
-      <DependentUpon>ucLoadingSpinnerControl.xaml</DependentUpon>
+    <Compile Include="Animations\LoadingSpinnerWD.xaml.cs">
+      <DependentUpon>LoadingSpinnerWD.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Converters\BorrowBook\BorrowBookSelectReaderButtonConfirmConverter.cs" />
@@ -675,13 +672,9 @@
     <Compile Include="Views\User\frmAddUser.xaml.cs">
       <DependentUpon>frmAddUser.xaml</DependentUpon>
     </Compile>
-    <Page Include="Animations\frmLoadingSpinnerControl.xaml">
+    <Page Include="Animations\LoadingSpinnerWD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Animations\ucLoadingSpinnerControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Assets\icons.xaml">
       <SubType>Designer</SubType>
@@ -1226,7 +1219,12 @@
     <Resource Include="Assets\Images\Others\info-icon.png" />
     <Resource Include="Assets\Images\Others\info.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\LoadingSpinnerControl\LoadingSpinnerControl.csproj">
+      <Project>{01947994-34f8-4948-bf32-ea6f2b2048b1}</Project>
+      <Name>LoadingSpinnerControl</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\BookImages\BT01.png" />
     <Resource Include="Assets\BookImages\BT02.png" />
@@ -1245,6 +1243,7 @@
     <Resource Include="Assets\BookImages\BT15.png" />
     <Resource Include="Assets\BookImages\BT16.png" />
     <Resource Include="Assets\BookImages\BT17.png" />
+    <Resource Include="Assets\Images\Others\LoadingSpinnerCircle.gif" />
     <Content Include="Models\QuanLyThuVienModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>

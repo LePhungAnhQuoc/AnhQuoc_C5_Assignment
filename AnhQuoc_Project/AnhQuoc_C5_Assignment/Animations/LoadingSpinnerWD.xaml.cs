@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace AnhQuoc_C5_Assignment
+namespace AnhQuoc_C5_Assignment.Animations
 {
     /// <summary>
-    /// Interaction logic for frmLoadingSpinnerControl.xaml
+    /// Interaction logic for LoadingSpinnerWD.xaml
     /// </summary>
-    public partial class frmLoadingSpinnerControl : Window
+    public partial class LoadingSpinnerWD : Window
     {
-        public frmLoadingSpinnerControl()
+        public LoadingSpinnerWD()
         {
             InitializeComponent();
         }

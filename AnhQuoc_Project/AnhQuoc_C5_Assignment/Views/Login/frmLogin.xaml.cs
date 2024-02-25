@@ -131,7 +131,7 @@ namespace AnhQuoc_C5_Assignment
         public void LogOut()
         {
             getFrmMain().gdContent.Children.Clear();
-            getFrmMain().Loading();
+            getFrmMain().LoginAndGo();
         }
     }
 }

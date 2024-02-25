@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+        xmlns:Custom="clr-namespace:LoadingSpinnerControl;assembly=LoadingSpinnerControl"
         mc:Ignorable="d"
         Title="Library management program"
         WindowStartupLocation="CenterScreen"
@@ -18,6 +19,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Name="gdDashBoard"/>
         <Grid Grid.Column="1" Name="gdContent">
+            <Button Name="btnNumber" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource btnGeneral}">1</Button>
         </Grid>
     </Grid>
 </Window>

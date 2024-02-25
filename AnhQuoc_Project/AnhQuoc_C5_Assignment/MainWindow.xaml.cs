@@ -23,6 +23,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Reflection;
 using System.Collections;
+using AnhQuoc_C5_Assignment.Animations;
 
 namespace AnhQuoc_C5_Assignment
 {
@@ -32,8 +33,6 @@ namespace AnhQuoc_C5_Assignment
 
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        public delegate void LoadingSpinner(object para);
-
         public static BorrowBookViewModel borrowBookContext;
         public static ReturnBookViewModel returnBookContext;
 
@@ -43,6 +42,7 @@ namespace AnhQuoc_C5_Assignment
         public static bool IntegratedSecurity;
 
         #region Fields
+
         public static UnitOfRepository UnitOfRepo;
         public static UnitOfForm UnitOfForm;
         public static ObservableCollection<string> RoleGroups;        
@@ -50,6 +50,8 @@ namespace AnhQuoc_C5_Assignment
 
         private ucLibrarianDashBoard _ucLibrarianDashBoard;
         private frmLogin frmLogin;
+        private LoadingSpinnerWD loadingSpinnerWD;
+
 
         private ServerName serverName;
         private DatabaseName databaseName;
@@ -78,7 +80,7 @@ namespace AnhQuoc_C5_Assignment
         public MainWindow()
         {
             InitializeComponent();
-
+            
             serverName = null;
             databaseName = null;
 
@@ -102,35 +104,49 @@ namespace AnhQuoc_C5_Assignment
             UnitOfForm.LoadServerNameForm();
             #endregion
 
-            GetServerNameAndLoading();
-            
             this.Loaded += MainWindow_Loaded;
             this.Closed += MainWindow_Closed;
+
         }
+
+
+        private void ShowLoadingSpinner()
+        {
+            Thread newThread = new Thread(() =>
+            {
+                loadingSpinnerWD = new LoadingSpinnerWD();
+
+                loadingSpinnerWD.Dispatcher.Invoke(() =>
+                {
+                    loadingSpinnerWD.ShowDialog();
+                });
+            });
+            newThread.SetApartmentState(ApartmentState.STA);
+            newThread.Start();
+            newThread.Join(1000);
+        }
+
+        private void StopLoadingSpinner()
+        {
+            Thread newThread = new Thread(() => loadingSpinnerWD.Dispatcher.Invoke(() => loadingSpinnerWD.Close()));
+            newThread.Start();
+        }
+
 
         #region Loading
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            Loading();
-
-
-            ////LoadingSpinner spinner = new frmLoadingSpinnerControl()
-            //for (int i = 0; i < 100000; i++)
-            //{
-            //    MessageBox.Show(i.ToString());
-
-            //}
-
+            this.Hide();
+            GetServerNameAndLoading();
+            LoginAndGo();
         }
 
-        public void Loading()
+        public void LoginAndGo()
         {
-            this.Hide();
         Goto:
             frmLogin = UnitOfForm.FrmLogin(true);
             frmLogin.getFrmMain = () => this;
             frmLogin.ClearLogin();
-
             do
             {
                 frmLogin.IsOpenConnectForm = false;
@@ -312,22 +328,29 @@ namespace AnhQuoc_C5_Assignment
                 DatabaseFirst.IsConnectValid = false;
 
                 OpenFormServerNameInformation(ref serverName, ref databaseName);
+
                 DatabaseFirst.ConnStr = ModifyAppConfig(serverName.Name, databaseName.Name);
 
                 DatabaseFirst.IsConnectValid = true;
-                
+
+
+
+                // Checking
+                ShowLoadingSpinner();
                 isCheckConnectionString = CheckIsRightConnection();
-                
+
                 if (!isCheckConnectionString)
                 {
+                    StopLoadingSpinner();
+
                     Utilities.ShowMessageBox1("Invalid Connections string!", "Error Connection", MessageBoxImage.Error);
                     ResetServerName();
                     continue;
                 }
+
             }
-
-
-        //     CheckingModelHasDecimalProp();
+            StopLoadingSpinner();
+            //  CheckingModelHasDecimalProp();
         }
 
         private bool CheckIsRightConnection()
@@ -358,6 +381,8 @@ namespace AnhQuoc_C5_Assignment
         {
             SetUpServerName();
 
+            ShowLoadingSpinner();
+
             #region LoadUnit2
             UnitOfRepo.Load();
 
@@ -378,9 +403,9 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             RoleGroups = roleVM.GetGroups();
-
-            //SetLoadAnimation("", false);
+            StopLoadingSpinner();
         }
+      
         #endregion
 
         #region Account-Area

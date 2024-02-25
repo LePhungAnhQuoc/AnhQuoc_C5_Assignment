@@ -45,6 +45,7 @@ namespace AnhQuoc_C5_Assignment
         public static string paraQD9 = "QD9";
         public static string paraQD11 = "QD11";
         public static string paraQD10 = "QD10";
+        public static string paraQD2 = "QD2";
 
         #region Function-Id
         public static string roleFunc_FunctionId = "F19";
