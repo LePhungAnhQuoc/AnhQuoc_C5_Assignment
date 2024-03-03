@@ -54,6 +54,8 @@ namespace AnhQuoc_C5_Assignment
             InitializeComponent();
             this.DataContext = this;
             Loaded += ucPublisherInformation_Loaded;
+
+            Utilities.SetToolTipForTextBlock(mainContent);
         }
         
         private void ucPublisherInformation_Loaded(object sender, RoutedEventArgs e)

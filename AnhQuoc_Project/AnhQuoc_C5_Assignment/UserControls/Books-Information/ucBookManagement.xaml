@@ -24,23 +24,29 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" />
                     <ColumnDefinition Width="auto" />
-                    <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
 
-                <!-- Text Search -->
+                
                 <StackPanel Grid.Column="0"
                             Orientation="Horizontal"
-                            Style="{x:Null}"
-                            Margin="10 0 0 0">
-                    <Grid Name="gdTxtSearchByName">
-                        <TextBox Name="txtSearchByName"
+                            Style="{x:Null}">
+                    <StackPanel.Resources>
+                        <Style TargetType="ComboBox" BasedOn="{StaticResource cbStyle2}" />
+                    
+                        <Style TargetType="Grid">
+                            <Setter Property="Margin" Value="10 0" />
+                        </Style>
+                    </StackPanel.Resources>
+                    
+                    <Grid Name="gdTxtSearchByBookTitle">
+                        <TextBox Name="txtSearchByBookTitle"
                                  Style="{StaticResource txtStyleSearch}"/>
-                        <TextBlock Text="Search by name here...">
+                        <TextBlock Text="Search by book title here...">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolder}">
                                     <Setter Property="Visibility" Value="Hidden" />
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ElementName=txtSearchByName, Path=Text}" Value="">
+                                        <DataTrigger Binding="{Binding ElementName=txtSearchByBookTitle, Path=Text}" Value="">
                                             <Setter Property="Visibility" Value="Visible" />
                                         </DataTrigger>
                                     </Style.Triggers>
@@ -48,32 +54,47 @@
                             </TextBlock.Style>
                         </TextBlock>
                     </Grid>
+                    <Grid Name="gdCbBookISBNs">
+                        <ComboBox Name="cbBookISBNs"
+                                  ItemsSource="{Binding AllBookISBNs}"
+                                  DisplayMemberPath="ISBN" />
+                        <TextBlock Text="Select Book ISBN">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolderComboBox}">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=cbBookISBNs, Path=SelectedIndex}" Value="-1">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                        <Button Name="btnClearCbBookISBN"
+                                Style="{StaticResource btnClearComboBox}" />
+                    </Grid>
+                    <Grid Name="gdCbCategorys">
+                        <ComboBox Name="cbCategorys"
+                                  ItemsSource="{Binding AllCategorys}"
+                                  DisplayMemberPath="Name" />
+                        <TextBlock Text="Select Category">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolderComboBox}">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=cbCategorys, Path=SelectedIndex}" Value="-1">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                        <Button Name="btnClearCbCategory"
+                                Style="{StaticResource btnClearComboBox}" />
+                    </Grid>
                 </StackPanel>
 
-                <!-- Select ComboBox Book titles -->
-                <Grid Grid.Column="1"
-                      Name="gdCbBookISBNs">
-                    <ComboBox Name="cbBookISBNs"
-                              Style="{StaticResource cbStyle2}"
-                              DisplayMemberPath="ISBN" />
-                    <TextBlock Text="Select Book ISBN">
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolderComboBox}">
-                                <Setter Property="Visibility" Value="Hidden" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=cbBookISBNs, Path=SelectedIndex}" Value="-1">
-                                        <Setter Property="Visibility" Value="Visible" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                    <Button Name="btnClearComboBox"
-                            Style="{StaticResource btnClearComboBox}" />
-                </Grid>
-
-                <!-- Add more books -->
-                <StackPanel Grid.Column="2"
+                <StackPanel Grid.Column="1"
                             Name="stkFeatures"
                             Style="{StaticResource stkWrapButton}"                           
                             Margin="30 0 0 0">

@@ -101,5 +101,17 @@ namespace AnhQuoc_C5_Assignment
         {
             Utilities.Copy(dest, source);
         }
+
+
+        public ObservableCollection<LoanHistory> FillByIdReader(ObservableCollection<LoanHistory> source, string idReader, bool ignoreCase = false)
+        {
+            return source.Where(item => string.Compare(item.IdReader, idReader, ignoreCase) == 0).ToObservableCollection();
+        }
+
+        public ObservableCollection<LoanHistory> FillByIdUser(ObservableCollection<LoanHistory> source, string idUser, bool ignoreCase = false)
+        {
+            return source.Where(item => string.Compare(item.IdUser, idUser, ignoreCase) == 0).ToObservableCollection();
+        }
+
     }
 }

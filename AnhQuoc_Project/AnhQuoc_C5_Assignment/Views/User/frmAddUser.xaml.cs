@@ -36,7 +36,14 @@ namespace AnhQuoc_C5_Assignment
         {
             InitializeComponent();
             Context = new AddUserViewModel<User, UserDto>();
+
+            this.Loaded += FrmAddUser_Loaded;
             this.DataContext = Context;
+        }
+
+        private void FrmAddUser_Loaded(object sender, RoutedEventArgs e)
+        {
+            Context.onLoaded(sender, e);
         }
     }
 }

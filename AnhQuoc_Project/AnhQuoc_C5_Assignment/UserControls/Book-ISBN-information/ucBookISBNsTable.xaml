@@ -20,10 +20,9 @@
         <DataGrid.Columns>
             <DataGridTextColumn Header="Index" Width="auto" Binding="{Binding Converter={StaticResource indexDataGridItemConverter}}" />
             <DataGridTextColumn Header="ISBN" Width="auto" Binding="{Binding ISBN}" />
-            <DataGridTextColumn Header="Title" Width="*" Binding="{Binding BookTitle.Name}" />
+            <DataGridTextColumn x:Name="dtgTitle" Header="Title" Width="*" Binding="{Binding BookTitle.Name}" />
             <DataGridTextColumn Header="Author" Width="auto" Binding="{Binding Author.Name}" />
             <DataGridTextColumn Header="Origin Language" Width="auto" Binding="{Binding OriginLanguage}" />
-            <DataGridTextColumn Header="Description" Width="auto" Binding="{Binding Description}" />
             <DataGridTextColumn Header="Books Quantity" Width="auto" Binding="{Binding Books.Count}" />
           
             <DataGridTextColumn Header="Status" Width="auto" 

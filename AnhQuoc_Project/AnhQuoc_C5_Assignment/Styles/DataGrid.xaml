@@ -65,7 +65,8 @@
                             Background="{TemplateBinding Background}" 
                             SnapsToDevicePixels="True">
                         <ContentPresenter 
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                VerticalAlignment="Center" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

@@ -5,78 +5,86 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300">
     <UserControl.Resources>
         <local:FunctionStatusConverter x:Key="functionStatusConverter" />
         <local:EmptyContentConverter x:Key="emptyContentConverter" />
     </UserControl.Resources>
-    <StackPanel>
+    <StackPanel Width="400">
         <!-- Title -->
         <Label Name="lblTitle" 
                Style="{StaticResource lblTitle}"
                Content="Function Information" />
 
         <!-- Body -->
-        <StackPanel Margin="20 0">
-            <StackPanel.Resources>
-                <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}" />
-                <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}" />
-            </StackPanel.Resources>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Id: " />
-                <TextBlock Grid.Column="1"
+        <Grid x:Name="mainContent"
+              Margin="20 0 20 10"
+              Height="auto">
+            <StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}" />
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}" />
+                </StackPanel.Resources>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Id: " />
+                    <TextBlock Grid.Column="1"
                            Text="{Binding Item.Id}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Name: " />
-                <TextBlock Grid.Column="1"
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Name: " />
+                    <TextBlock Grid.Column="1"
                            Text="{Binding Item.Name}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Description: " />
-                <TextBlock Grid.Column="1"
-                           Text="{Binding Item.Description, Converter={StaticResource emptyContentConverter}}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Parent: " />
-                <TextBlock Grid.Column="1"
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Description: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.Description, Converter={StaticResource emptyContentConverter}}"
+                               Style="{StaticResource tblDisplayInfoHighlight}"
+                               MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Parent: " />
+                    <TextBlock Grid.Column="1"
                            Text="{Binding Item.ParentName, Converter={StaticResource emptyContentConverter}}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Url Image: " />
-                <TextBlock Grid.Column="1"
-                           Text="{Binding Item.UrlImage, Converter={StaticResource emptyContentConverter}}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Status: " />
-                <TextBlock Grid.Column="1"
-                           Text="{Binding Item.Status, Converter={StaticResource functionStatusConverter}}" />
-            </Grid>
-        </StackPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Url Image: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.UrlImage, Converter={StaticResource emptyContentConverter}}" 
+                               Style="{StaticResource tblDisplayInfoHighlight}"
+                               MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Status: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.Status, Converter={StaticResource functionStatusConverter}}" />
+                </Grid>
+            </StackPanel>
+        </Grid>
     </StackPanel>
 </UserControl>

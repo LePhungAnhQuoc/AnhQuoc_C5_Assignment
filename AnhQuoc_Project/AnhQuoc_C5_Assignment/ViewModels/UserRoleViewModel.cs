@@ -51,6 +51,16 @@ namespace AnhQuoc_C5_Assignment
                 return string.Compare(role.Group, roleGroup, false) == 0;
             }).ToObservableCollection();
         }
+   
+        public ObservableCollection<UserRole> FillByIdRole(string idRole)
+        {
+            return Repo.Gets().Where(item => string.Compare(item.IdRole, idRole) == 0).ToObservableCollection();
+        }
+
+        public ObservableCollection<UserRole> FillByIdUser(string idUser)
+        {
+            return Repo.Gets().Where(item => string.Compare(item.IdUser, idUser) == 0).ToObservableCollection();
+        }
 
 
         public bool IsCheckEmptyItem(UserRoleDto item)

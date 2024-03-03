@@ -9,16 +9,17 @@
     <UserControl.Resources>
         <local:ProvinceStatusConverter x:Key="provinceStatusConverter" />
     </UserControl.Resources>
-    <StackPanel>
+    <StackPanel Width="400">
         <!-- Title -->
         <Label Style="{StaticResource lblTitle}"
                Content="Province Information" />
 
         <!-- Body -->
-        <Grid Height="auto"
+        <Grid x:Name="mainContent"
+              Height="auto"
               Margin="20 0 20 10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0"

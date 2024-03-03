@@ -54,11 +54,18 @@ namespace AnhQuoc_C5_Assignment
             InitializeComponent();
             this.DataContext = this;
             Loaded += ucParameterInformation_Loaded;
+
+            Utilities.SetToolTipForTextBlock(mainContent);
         }
         
         private void ucParameterInformation_Loaded(object sender, RoutedEventArgs e)
         {
             Item = getItem();
+        }
+
+        private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Utilities.ExpandMore((sender as TextBlock).Text);
         }
     }
 }

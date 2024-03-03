@@ -8,19 +8,19 @@
              d:DesignHeight="380" d:DesignWidth="515">
     <UserControl.Resources>
     </UserControl.Resources>
-    <StackPanel>
+    <StackPanel Width="400">
         <!-- Title -->
         <Label Style="{StaticResource lblTitle}"
                Content="Publisher Information" />
 
         <!-- Body -->
-        <Grid Height="auto"
+        <Grid x:Name="mainContent"
+              Height="auto"
               Margin="20 0 20 10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0"
-                        Margin="0 0 20 0">
+            <StackPanel Grid.Column="0">
                 <StackPanel.Resources>
                     <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
                     <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}" />

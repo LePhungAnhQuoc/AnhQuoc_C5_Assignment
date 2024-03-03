@@ -9,17 +9,19 @@
     <UserControl.Resources>
         <local:PenaltyReasonStatusConverter x:Key="penaltyReasonStatusConverter" />
         <local:PriceFormatConverter x:Key="PriceFormatConverter" />
+        <local:EmptyContentConverter x:Key="EmptyContentConverter" />
     </UserControl.Resources>
-    <StackPanel>
+    <StackPanel Width="400">
         <!-- Title -->
         <Label Style="{StaticResource lblTitle}"
                Content="Penalty Reason Information" />
 
         <!-- Body -->
-        <Grid Height="auto"
+        <Grid x:Name="mainContent"
+              Height="auto"
               Margin="20 0 20 10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0"
@@ -55,7 +57,9 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="Description: " />
                     <TextBlock Grid.Column="1"
-                               Text="{Binding Item.Description}" />
+                               Text="{Binding Item.Description, Converter={StaticResource EmptyContentConverter}}"
+                               MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"
+                               Style="{StaticResource tblDisplayInfoHighlight}"/>
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>

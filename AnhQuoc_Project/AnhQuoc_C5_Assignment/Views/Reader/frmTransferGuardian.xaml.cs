@@ -36,7 +36,14 @@ namespace AnhQuoc_C5_Assignment
             InitializeComponent();
 
             Context = new TransferGuardianViewModel();
+
+            this.Loaded += FrmTransferGuardian_Loaded;
             this.DataContext = Context;
+        }
+
+        private void FrmTransferGuardian_Loaded(object sender, RoutedEventArgs e)
+        {
+            Context.onLoaded(sender, e);
         }
     }
 }

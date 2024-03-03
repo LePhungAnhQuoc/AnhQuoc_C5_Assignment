@@ -44,7 +44,14 @@ namespace AnhQuoc_C5_Assignment
             
         
             Context = new AddReaderViewModel();
+
+            this.Loaded += FrmAddReader_Loaded;
             this.DataContext = Context;
+        }
+        
+        private void FrmAddReader_Loaded(object sender, RoutedEventArgs e)
+        {
+            Context.onLoaded(sender, e);
         }
     }
 }

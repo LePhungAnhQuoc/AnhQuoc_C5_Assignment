@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" d:DesignWidth="220"
-             Name="YourUserControl"
-             Background="White">
+             Name="YourUserControl">
     <UserControl.Resources>
+        <local:PriceFormatConverter x:Key="PriceFormatConverter" />
         <Thickness x:Key="borderDistance" Top="10" Left="10" Right="10" Bottom="10" />
         <GridLength x:Key="firstColumnWidth">65</GridLength>
         
@@ -36,7 +36,8 @@
     </UserControl.RenderTransform>
     
     <Border Style="{StaticResource bdCard}"
-            Width="200">
+            Width="200"
+            Focusable="True">
         <StackPanel Height="auto">
             <StackPanel>
                 <StackPanel.Resources>
@@ -85,6 +86,15 @@
                     <Label Content="Language: " />
                     <TextBlock Grid.Column="1"
                                Text="{Binding Item.Language}" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Price: " />
+                    <TextBlock Grid.Column="1"
+                Text="{Binding Item.Price, Converter={StaticResource PriceFormatConverter}}" />
                 </Grid>
             </StackPanel>
             <StackPanel Name="stkWrapButton"

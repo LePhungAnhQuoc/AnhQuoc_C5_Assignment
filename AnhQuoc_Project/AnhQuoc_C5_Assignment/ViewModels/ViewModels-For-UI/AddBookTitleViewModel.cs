@@ -2,7 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -10,36 +13,45 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddBookTitleViewModel: BaseViewModel<object>, IPageViewModel
+    public class AddBookTitleViewModel<T, TDto> : BaseViewModel<object>, IPageViewModel
     {
         #region Fields
-        private ucAddBookTitle thisForm;
+        public bool IsCancel { get; set; }
+        private frmAddBookTitle thisForm;
         private List<DependencyObject> mainContentControls;
         private List<TextBox> TextBoxes;
 
-        private ObservableCollection<BookTitle> allBookTitles;
         private OpenFileDialog openFile;
         private string tempUrlImage;
 
         #endregion
 
         #region Properties
-        private ObservableCollection<Category> _Categories;
-        public ObservableCollection<Category> Categories
+        private ObservableCollection<Category> _AllCategorys;
+        public ObservableCollection<Category> AllCategorys
         {
-            get
-            {
-                return _Categories;
-            }
-            set
-            {
-                _Categories = value;
+            get { return _AllCategorys; }
+            set 
+            { 
+                _AllCategorys = value;
                 OnPropertyChanged();
             }
         }
+
+
         #endregion
 
-        #region ResultProperties
+        #region ViewModels
+        private BookTitleViewModel bookTitleVM;
+        private CategoryViewModel categoryVM;
+        private ParameterViewModel paraVM;
+        #endregion
+
+        #region Mapping
+        private BookTitleMap bookTitleMap;
+        #endregion
+
+        #region ResultProperty
         private BookTitleDto _Item;
         public BookTitleDto Item
         {
@@ -53,46 +65,45 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-
-        public bool IsCheckValidForm { get; set; }
-        #endregion
-
-        #region ViewModels
-        private BookTitleViewModel bookTitleVM;
-        private AuthorViewModel authorVM;
-        #endregion
-
-        #region Mapping
-        private AuthorMap authorMap;
-        private CategoryMap categoryMap;
         #endregion
 
         #region Commands
         public RelayCommand LoadedCmd { get; private set; }
+        public RelayCommand ClosingCmd { get; private set; }
         public RelayCommand btnConfirmClickCmd { get; private set; }
         public RelayCommand btnCancelClickCmd { get; private set; }
+        public RelayCommand btnUpdateClickCmd { get; private set; }
+        public RelayCommand btnResetClickCmd { get; private set; }
         public RelayCommand btnBrowseImageClickCmd { get; private set; }
         #endregion
 
         public AddBookTitleViewModel()
         {
             bookTitleVM = UnitOfViewModel.Instance.BookTitleViewModel;
-            authorVM = UnitOfViewModel.Instance.AuthorViewModel;
-            authorMap = UnitOfMap.Instance.AuthorMap;
+            paraVM = UnitOfViewModel.Instance.ParameterViewModel;
+            categoryVM = UnitOfViewModel.Instance.CategoryViewModel;
+            bookTitleMap = UnitOfMap.Instance.BookTitleMap;
+
+            AllCategorys = categoryVM.Repo.Gets();
 
             #region Init-Commands
-            LoadedCmd = new RelayCommand((para) => frmAddBookTitle_Loaded(para, null));
-            btnConfirmClickCmd = new RelayCommand((para) => btnConfirm_Click(para, null));
-            btnCancelClickCmd = new RelayCommand((para) => btnCancel_Click(para, null));
-            btnBrowseImageClickCmd = new RelayCommand((para) => 
-            BtnBrowseImage_Click(para, null));
+            //LoadedCmd = new RelayCommand((para) => frmAddBookTitle_Loaded(para, null));
+            ClosingCmd = new RelayCommand(para => onClosing(para, null));
+            btnConfirmClickCmd = new RelayCommand((para) => BtnConfirm_Click(para, null));
+            btnCancelClickCmd = new RelayCommand((para) => BtnCancel_Click(para, null));
+            btnUpdateClickCmd = new RelayCommand((para) => BtnUpdate_Click(para, null));
+            btnResetClickCmd = new RelayCommand((para) => BtnReset_Click(para, null));
+            btnBrowseImageClickCmd = new RelayCommand((para) =>
+BtnBrowseImage_Click(para, null));
+
             #endregion
         }
 
-
-        private void frmAddBookTitle_Loaded(object sender, RoutedEventArgs e)
+        public void onLoaded(object sender, RoutedEventArgs e)
         {
-            thisForm = sender as ucAddBookTitle;
+            IsCancel = true;
+
+            thisForm = sender as frmAddBookTitle;
 
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
@@ -106,23 +117,30 @@ namespace AnhQuoc_C5_Assignment
                 textBox.MaxLength = Constants.textBoxMaxLength;
                 textBox.LostFocus += Txt_LostFocus;
             }
-            
-            NewItem();
 
-            Categories = thisForm.getCategoryRepo().Gets();
-            allBookTitles = thisForm.getBookTitleRepo().Gets();
 
-            IsCheckValidForm = false;
+
+            if (thisForm.getItemToUpdate == null)
+            {
+                NewItem();
+                SetFormByAddOrUpdate("ADD");
+            }
+            else
+            {
+                CopyItem();
+                SetFormByAddOrUpdate("UPDATE");
+            }
+
             tempUrlImage = Item.UrlImage;
         }
 
-        private void NewItem()
+
+        private void onClosing(object sender, CancelEventArgs e)
         {
-            Item = new BookTitleDto(bookTitleVM.GetId());
+            BtnCancel_Click(null, null, true);
         }
 
-
-        private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
             Utilities.RunAllValidations(mainContentControls);
@@ -133,47 +151,125 @@ namespace AnhQuoc_C5_Assignment
                 return;
             }
 
-            // Kiểm tra sự trùng lặp
-            var getBookTitle = bookTitleVM.CreateByDto(Item);
-            bool isExistInformation = Utilities.IsExistInformation(allBookTitles, getBookTitle, true, Constants.checkPropBookTitle);
-            if (isExistInformation)
+            BookTitle getBookTitle = bookTitleVM.CreateByDto(Item);
+            bool isCheck = Utilities.IsExistInformation(thisForm.getBookTitleRepo().Gets(), getBookTitle, true, Constants.checkPropBookTitle);
+            if (isCheck)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyBookTitleExistInfo());
+                Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("book title"));
                 return;
             }
 
-
-
-            AddNewBookTitle(getBookTitle);
-
-            var message = Utilities.NotifyAddSuccessfully("book title");
-            MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
-
-            IsCheckValidForm = true;
             SaveImage();
+            IsCancel = false;
+            thisForm.Close();
         }
 
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Item = null;
+            // Validation
+            Utilities.RunAllValidations(mainContentControls);
+
+            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            if (isHasError)
+            {
+                return;
+            }
+
+            BookTitle normalItem = bookTitleVM.CreateByDto(Item);
+            BookTitle normalSourceItem = bookTitleVM.CreateByDto(thisForm.getItemToUpdate());
+
+            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropBookTitle);
+            if (!isExistItemToUpdate)
+            {
+                bool isExistInformation = Utilities.IsExistInformation(thisForm.getBookTitleRepo().Gets(), normalItem, true, Constants.checkPropBookTitle);
+                if (isExistInformation)
+                {
+                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("book title"));
+                    return;
+                }
+            }
+
+            SaveImage();
+
+            IsCancel = false;
+            thisForm.Close();
         }
 
-        public void AddNewBookTitle(BookTitle newItem)
+        private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
-            thisForm.getBookTitleRepo().Add(newItem);
-            thisForm.getBookTitleRepo().WriteAdd(newItem);
+            bookTitleVM.Copy(Item, thisForm.getItemToUpdate());
         }
+
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e, bool isClosed = false)
+        {
+            if (IsCancel)
+            {
+                Item = null;
+            }
+
+
+            if (!isClosed)
+                thisForm.Close();
+        }
+
+
+        private void NewItem()
+        {
+            Item = new BookTitleDto(thisForm.getIdBookTitle());
+        }
+
+        private void CopyItem()
+        {
+            var getItem = thisForm.getItemToUpdate();
+            Item = getItem.Clone() as BookTitleDto;
+        }
+
+
+        private void SetFormByAddOrUpdate(string feature)
+        {
+            switch (feature)
+            {
+                case "ADD":
+                    thisForm.Title = "Add New Book Title Form";
+                    thisForm.lblTitle.Content = "Add New Book Title";
+
+                    thisForm.stkUpdateButton.Visibility = Visibility.Collapsed;
+                    thisForm.btnConfirm.Visibility = Visibility.Visible;
+                    break;
+                case "UPDATE":
+                    thisForm.Title = "Update Book Title Information Form";
+                    thisForm.lblTitle.Content = "Update Book Title Information";
+
+                    thisForm.stkUpdateButton.Visibility = Visibility.Visible;
+                    thisForm.btnConfirm.Visibility = Visibility.Collapsed;
+                    break;
+            }
+        }
+
+        private void Txt_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox txt = (sender as TextBox);
+            txt.Text = txt.Text.Trim();
+        }
+
 
         public void SaveImage()
         {
             Constants.rememberDirectoryOpenFile = openFile.FileName.Replace(openFile.SafeFileName, string.Empty);
             Utilities.SaveImage(openFile);
+
             if (tempUrlImage != null)
             {
-                if (MessageBox.Show("Do you want remove an old image?", string.Empty,
-           MessageBoxButton.OKCancel, MessageBoxImage.Information, MessageBoxResult.OK) == MessageBoxResult.OK)
+                tempUrlImage = tempUrlImage.Replace("/", "\\");
+                string tempImageFile = tempUrlImage.Replace(Constants.StartUrlImage, "");
+                if (tempUrlImage != null && tempImageFile != openFile.SafeFileName)
                 {
-                    Utilities.RemoveImage(tempUrlImage);
+                    if (MessageBox.Show("Do you want remove an old image?", string.Empty,
+              MessageBoxButton.OKCancel, MessageBoxImage.Information, MessageBoxResult.OK) == MessageBoxResult.OK)
+                    {
+                        Utilities.RemoveImage(tempUrlImage);
+                    }
                 }
             }
         }
@@ -196,10 +292,5 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        private void Txt_LostFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox txt = (sender as TextBox);
-            txt.Text = txt.Text.Trim();
-        }
     }
 }

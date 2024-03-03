@@ -35,6 +35,7 @@ namespace AnhQuoc_C5_Assignment
 
         #region ViewModels
         private ProvinceViewModel provinceVM;
+        private AdultViewModel adultVM;
         #endregion
 
         #region Mapping
@@ -129,6 +130,7 @@ namespace AnhQuoc_C5_Assignment
             listFillProvinces = new ObservableCollection<Province>();
 
             provinceVM = UnitOfViewModel.Instance.ProvinceViewModel;
+            adultVM = UnitOfViewModel.Instance.AdultViewModel;
 
             provinceMap = UnitOfMap.Instance.ProvinceMap;
             #endregion
@@ -215,6 +217,8 @@ namespace AnhQuoc_C5_Assignment
             listFillProvinces.Add(newProvince);
             AddItemsToDataGrid(listFillProvinces);
             #endregion
+
+            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("province"));
         }
 
         private void UcProvincesTable_btnInfoClick(object sender, RoutedEventArgs e)
@@ -265,6 +269,8 @@ namespace AnhQuoc_C5_Assignment
 
             if (updateStatus == false)
             {
+                var listTemp = adultVM.FillByCity(adultVM.Repo.Gets(), provinceSelect.Name, null);
+
                 message = Utilities.NotifySureToDelete();
                 if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                     return;
@@ -312,6 +318,7 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             ucProvincesTable.ModifiedPagination();
+            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("province"));
         }
 
         private void AddToListFill(ObservableCollection<Province> items)

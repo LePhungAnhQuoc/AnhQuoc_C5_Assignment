@@ -214,6 +214,8 @@ namespace AnhQuoc_C5_Assignment
             listFillPenaltyReasons.Add(newPenaltyReason);
             AddItemsToDataGrid(listFillPenaltyReasons);
             #endregion
+
+            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("penalty reason"));
         }
 
         private void UcPenaltyReasonsTable_btnInfoClick(object sender, RoutedEventArgs e)
@@ -251,6 +253,10 @@ namespace AnhQuoc_C5_Assignment
 
             PenaltyReasonDto penaltyReasonDtoSelect = ucPenaltyReasonsTable.SelectedPenaltyReasonDto;
             PenaltyReason penaltyReasonSelect = penaltyReasonVM.FindById(penaltyReasonDtoSelect.Id);
+
+
+            Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("penalty reason"));
+            return;
 
             message = Utilities.NotifySureToDelete();
             if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
@@ -296,6 +302,7 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             ucPenaltyReasonsTable.ModifiedPagination();
+            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("penalty reason"));
         }
 
         private void AddToListFill(ObservableCollection<PenaltyReason> items)

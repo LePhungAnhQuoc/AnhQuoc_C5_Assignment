@@ -36,8 +36,14 @@ namespace AnhQuoc_C5_Assignment
         {
             InitializeComponent();
 
+            this.Loaded += FrmAddBook_Loaded;
             Context = new AddBookViewModel();
             this.DataContext = Context;
+        }
+
+        private void FrmAddBook_Loaded(object sender, RoutedEventArgs e)
+        {
+            Context.onLoaded(sender, e);
         }
     }
 }

@@ -37,7 +37,14 @@ namespace AnhQuoc_C5_Assignment
             InitializeComponent();
 
             Context = new AddPenaltyReasonViewModel();
+
+            this.Loaded += FrmAddPenaltyReason_Loaded;
             this.DataContext = Context;
+        }
+
+        private void FrmAddPenaltyReason_Loaded(object sender, RoutedEventArgs e)
+        {
+            Context.onLoaded(sender, e);
         }
     }
 }

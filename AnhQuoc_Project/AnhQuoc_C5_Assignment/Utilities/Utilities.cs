@@ -139,6 +139,12 @@ namespace AnhQuoc_C5_Assignment
             return message;
         }
 
+        public static string NotifyNotValidToDelete(string item)
+        {
+            var message = string.Format("Can not delete this {0}. Because this {0} is currently use!", item);
+            return message;
+        }
+
         public static string NotifyRestoreSuccessfully(string item)
         {
             var message = string.Format("Restore {0} successfully!", item);
@@ -498,6 +504,21 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Control-Layouts
+        public static void SetToolTipForTextBlock(Grid mainContent)
+        {
+            foreach (DependencyObject child in mainContent.Children) // get all stkPanel in grid
+            {
+                var textblocks = Utilities.GetAllTextBlock(child); // get all textblock in stkPanel
+                foreach (TextBlock block in textblocks)
+                {
+                    Binding newBinding = new Binding("Text");
+                    newBinding.RelativeSource = new RelativeSource(RelativeSourceMode.Self);
+
+                    block.SetBinding(TextBlock.ToolTipProperty, newBinding);
+                }
+            }
+        }
+
         public static FrameworkElement FindChildInRoot(string name, FrameworkElement root)
         {
             Stack<FrameworkElement> tree = new Stack<FrameworkElement>();
@@ -742,6 +763,25 @@ namespace AnhQuoc_C5_Assignment
                 }
             }
             return list;
+        }
+
+        public static List<TextBlock> GetAllTextBlock(DependencyObject parent)
+        {
+            List<TextBlock> list = new List<TextBlock>();
+            foreach (DependencyObject obj in LogicalTreeHelper.GetChildren(parent))
+            {
+                var control = LogicalTreeHelper.GetChildren(obj).ToTypedCollection<List<DependencyObject>, DependencyObject>()[3];
+
+                var txt = control as TextBox;
+                list.Add(control as TextBlock);
+                
+            }
+            return list;
+        }
+
+        public static DependencyObject GetParentControl(DependencyObject child)
+        {
+            return LogicalTreeHelper.GetParent(child);
         }
 
         public static void RunAllValidations(List<DependencyObject> listObj)
@@ -1766,6 +1806,15 @@ namespace AnhQuoc_C5_Assignment
             // GetValue Indexer to get item property in collection
             string indexerName = ((DefaultMemberAttribute)collection.GetType().GetCustomAttributes(typeof(DefaultMemberAttribute), true)[0]).MemberName;
             return indexerName;
+        }
+
+
+
+        public static void ExpandMore(string text)
+        {
+            frmExpand frmExpand = new frmExpand();
+            frmExpand.textArea.Content = text;
+            frmExpand.ShowDialog();
         }
     }
 }

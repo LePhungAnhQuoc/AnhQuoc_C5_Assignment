@@ -36,7 +36,14 @@ namespace AnhQuoc_C5_Assignment
             InitializeComponent();
 
             Context = new AddParameterViewModel();
+
+            this.Loaded += FrmAddParameter_Loaded;
             this.DataContext = Context;
+        }
+
+        private void FrmAddParameter_Loaded(object sender, RoutedEventArgs e)
+        {
+            Context.onLoaded(sender, e);
         }
     }
 }

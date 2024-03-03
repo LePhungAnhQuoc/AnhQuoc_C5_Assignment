@@ -9,17 +9,18 @@
     <UserControl.Resources>
         <local:UserStatusConverter x:Key="userStatusConverter" />
     </UserControl.Resources>
-    <StackPanel>
+    <StackPanel Width="600">
         <!-- Title -->
         <Label Style="{StaticResource lblTitle}"
                Content="User Information" />
 
         <!-- Body -->
-        <Grid Height="auto"
+        <Grid x:Name="mainContent"
+                Height="auto"
               Margin="20 0 20 10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0"

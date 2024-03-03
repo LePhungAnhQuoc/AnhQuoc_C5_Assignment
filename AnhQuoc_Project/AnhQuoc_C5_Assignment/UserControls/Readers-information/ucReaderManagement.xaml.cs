@@ -44,6 +44,8 @@ namespace AnhQuoc_C5_Assignment
         private ReaderViewModel readerVM;
         private AdultViewModel adultVM;
         private ChildViewModel childVM;
+        private LoanSlipViewModel loanSlipVM;
+        private LoanHistoryViewModel loanHistoryVM;
         #endregion
 
         #region Mapping
@@ -197,6 +199,8 @@ namespace AnhQuoc_C5_Assignment
             readerVM = UnitOfViewModel.Instance.ReaderViewModel;
             adultVM = UnitOfViewModel.Instance.AdultViewModel;
             childVM = UnitOfViewModel.Instance.ChildViewModel;
+            loanSlipVM = UnitOfViewModel.Instance.LoanSlipViewModel;
+            loanHistoryVM = UnitOfViewModel.Instance.LoanHistoryViewModel;
 
             adultMap = UnitOfMap.Instance.AdultMap;
             childMap = UnitOfMap.Instance.ChildMap;
@@ -227,8 +231,6 @@ namespace AnhQuoc_C5_Assignment
             AddToListFillReaders(getReaderRepo().Gets());
             AddItemsToDataGrid(listFillReaders);
 
-            btnClearComboBox.Visibility = Visibility.Hidden;
-
             #region IsAllow-Feature
             ucReadersTable.Visibility = (IsAllowViewInformation) ? Visibility.Visible : Visibility.Collapsed;
             btnAdd.Visibility = (IsAllowAdd) ? Visibility.Visible : Visibility.Collapsed;
@@ -246,6 +248,14 @@ namespace AnhQuoc_C5_Assignment
         #region Fillter-Methods
         private void CbReaderTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if ((sender as ComboBox).SelectedIndex != -1)
+            {
+                btnClearComboBox.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnClearComboBox.Visibility = Visibility.Hidden;
+            }
             Fillter();
         }
 
@@ -273,7 +283,6 @@ namespace AnhQuoc_C5_Assignment
                 if (cbReaderTypes.SelectedIndex != -1)
                 {
                     selectedType = (ReaderType)cbReaderTypes.SelectedItem;
-                    btnClearComboBox.Visibility = Visibility.Visible;
                 }
                 else
                 {
@@ -396,6 +405,26 @@ namespace AnhQuoc_C5_Assignment
 
         private void UcReadersTable_btnDeleteClick(object sender, RoutedEventArgs e)
         {
+            Action<string> checkReaderAction = (idReader) =>
+            {
+                var tempList = loanSlipVM.FillByIdReader(idReader);
+                if (tempList.Count == 0)
+                {
+                    var listTemp = loanHistoryVM.FillByIdReader(loanHistoryVM.Repo.Gets(), idReader);
+
+                    if (listTemp.Count > 0)
+                    {
+                        Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("reader"));
+                        return;
+                    }
+                }
+                else
+                {
+                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("reader"));
+                    return;
+                }
+            };
+
             bool updateStatus = false;
             if (ucReadersTable.dgReaders.SelectedIndex == -1)
             {
@@ -405,6 +434,9 @@ namespace AnhQuoc_C5_Assignment
 
             ReaderDto readerDtoSelect = ucReadersTable.SelectedReaderDto;
             Reader readerSelect = readerVM.FindById(readerDtoSelect.Id);
+
+            checkReaderAction(readerSelect.Id);
+
 
             if (readerSelect.ReaderType.ConvertValue() == ReaderType.Adult)
             {
@@ -426,12 +458,18 @@ namespace AnhQuoc_C5_Assignment
 
                 btnDeleteAllChildAndAdult.Click += (_sender, _e) =>
                 {
+                    
+                    ObservableCollection<Child> listChildTemp = adultDtoFinded.ListChild;
+                    ObservableCollection<Child> listFilledChild = childVM.FillByStatus(listChildTemp, childStatus);
+
+                    foreach (Child child in listFilledChild)
+                    {
+                        checkReaderAction(child.IdReader);
+                    }
+
                     var message1 = Utilities.NotifySureToDelete();
                     if (Utilities.ShowMessageBox2(message1) == MessageBoxResult.Cancel)
                         return;
-                  
-                    ObservableCollection<Child> listChildTemp = adultDtoFinded.ListChild;
-                    ObservableCollection<Child> listFilledChild = childVM.FillByStatus(listChildTemp, childStatus);
 
                     for (int i = listFilledChild.Count - 1; i >= 0; i--)
                     {
@@ -648,6 +686,9 @@ namespace AnhQuoc_C5_Assignment
                 frmTransferGuardian.ShowDialog();
 
                 ucReadersTable.ModifiedPagination();
+
+                Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("child reader"));
+
             }
         }
 
@@ -655,7 +696,6 @@ namespace AnhQuoc_C5_Assignment
         private void BtnClearComboBox_Click(object sender, RoutedEventArgs e)
         {
             cbReaderTypes.SelectedIndex = -1;
-            btnClearComboBox.Visibility = Visibility.Hidden;
         }
 
         private void AddToListFillReaders(ObservableCollection<Reader> items)

@@ -59,7 +59,6 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-
         private Book _Book;
         public Book Book
         {
@@ -70,7 +69,6 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-
         #endregion
 
         #region PropertyChanged

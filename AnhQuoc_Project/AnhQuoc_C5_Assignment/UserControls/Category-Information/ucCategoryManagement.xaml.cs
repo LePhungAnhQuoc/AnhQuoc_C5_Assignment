@@ -35,6 +35,7 @@ namespace AnhQuoc_C5_Assignment
 
         #region ViewModels
         private CategoryViewModel categoryVM;
+        private BookTitleViewModel bookTitleVM;
         #endregion
 
         #region Mapping
@@ -129,6 +130,8 @@ namespace AnhQuoc_C5_Assignment
             listFills = new ObservableCollection<Category>();
 
             categoryVM = UnitOfViewModel.Instance.CategoryViewModel;
+            bookTitleVM = UnitOfViewModel.Instance.BookTitleViewModel;
+
             categoryMap = UnitOfMap.Instance.CategoryMap;
             #endregion
 
@@ -214,6 +217,10 @@ namespace AnhQuoc_C5_Assignment
             listFills.Add(newCategory);
             AddItemsToDataGrid(listFills);
             #endregion
+
+            var message = Utilities.NotifyAddSuccessfully("category");
+            Utilities.ShowMessageBox1(message);
+
         }
 
         private void UcCategorysTable_btnInfoClick(object sender, RoutedEventArgs e)
@@ -264,6 +271,13 @@ namespace AnhQuoc_C5_Assignment
 
             if (updateStatus == false)
             {
+                var listTemp = bookTitleVM.FillByIdCategory(bookTitleVM.Repo.Gets(), categorySelect.Id, null);
+                if (listTemp.Count > 0)
+                {
+                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("category"));
+                    return;
+                }
+
                 message = Utilities.NotifySureToDelete();
                 if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                     return;
@@ -311,6 +325,9 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             ucCategorysTable.ModifiedPagination();
+
+            var message = Utilities.NotifyUpdateSuccessfully("category");
+            Utilities.ShowMessageBox1(message);
         }
 
         private void AddToListFill(ObservableCollection<Category> items)

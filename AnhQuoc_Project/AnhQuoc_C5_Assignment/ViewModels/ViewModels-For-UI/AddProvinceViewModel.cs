@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace AnhQuoc_C5_Assignment
     public class AddProvinceViewModel: BaseViewModel<object>, IPageViewModel
     {
         #region Fields
+        public bool IsCancel { get; set; }
         private frmAddProvince thisForm;
         private List<DependencyObject> mainContentControls;
         private List<TextBox> TextBoxes;
@@ -42,7 +44,9 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Commands
-        public RelayCommand LoadedCmd { get; private set; }
+        //public RelayCommand LoadedCmd { get; private set; }
+        public RelayCommand ClosingCmd { get; private set; }
+
         public RelayCommand btnConfirmClickCmd { get; private set; }
         public RelayCommand btnCancelClickCmd { get; private set; }
         public RelayCommand btnUpdateClickCmd { get; private set; }
@@ -56,7 +60,9 @@ namespace AnhQuoc_C5_Assignment
             provinceMap = UnitOfMap.Instance.ProvinceMap;
 
             #region Init-Commands
-            LoadedCmd = new RelayCommand((para) => frmAddProvince_Loaded(para, null));
+            //LoadedCmd = new RelayCommand((para) => frmAddProvince_Loaded(para, null));
+            ClosingCmd = new RelayCommand((para) => onClosing(para, null));
+
             btnConfirmClickCmd = new RelayCommand((para) => BtnConfirm_Click(para, null));
             btnCancelClickCmd = new RelayCommand((para) => BtnCancel_Click(para, null));
             btnUpdateClickCmd = new RelayCommand((para) => BtnUpdate_Click(para, null));
@@ -64,22 +70,9 @@ namespace AnhQuoc_C5_Assignment
             #endregion
         }
 
-
-
-        private void NewItem()
+        public void onLoaded(object sender, RoutedEventArgs e)
         {
-            Item = new ProvinceDto(thisForm.getIdProvince());
-            Item.Status = true;
-        }
-
-        private void CopyItem()
-        {
-            var getItem = thisForm.getItemToUpdate();
-            Item = getItem.Clone() as ProvinceDto;
-        }
-
-        private void frmAddProvince_Loaded(object sender, RoutedEventArgs e)
-        {
+            IsCancel = true;
             thisForm = sender as frmAddProvince;
 
             mainContentControls = new List<DependencyObject>();
@@ -109,6 +102,25 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private void onClosing(object sender, CancelEventArgs e)
+        {
+            BtnCancel_Click(null, null, true);
+        }
+
+
+
+        private void NewItem()
+        {
+            Item = new ProvinceDto(thisForm.getIdProvince());
+            Item.Status = true;
+        }
+
+        private void CopyItem()
+        {
+            var getItem = thisForm.getItemToUpdate();
+            Item = getItem.Clone() as ProvinceDto;
+        }
+
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
@@ -127,6 +139,8 @@ namespace AnhQuoc_C5_Assignment
                 Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("province"));
                 return;
             }
+
+            IsCancel = false;
             thisForm.Close();
         }
 
@@ -154,6 +168,8 @@ namespace AnhQuoc_C5_Assignment
                     return;
                 }
             }
+
+            IsCancel = false;
             thisForm.Close();
         }
 
@@ -162,10 +178,12 @@ namespace AnhQuoc_C5_Assignment
             provinceVM.Copy(Item, thisForm.getItemToUpdate());
         }
 
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        private void BtnCancel_Click(object sender, RoutedEventArgs e, bool isClosed = false)
         {
-            Item = null;
-            thisForm.Close();
+            if (IsCancel)
+                Item = null;
+            if (!isClosed)
+                thisForm.Close();
         }
 
 

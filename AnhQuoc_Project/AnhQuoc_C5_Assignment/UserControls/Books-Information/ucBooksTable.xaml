@@ -28,9 +28,9 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Index" Width="auto" Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGridRow}}, Converter={StaticResource indexDataGridItemConverter}}" />
                 <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="ISBN" Width="auto" Binding="{Binding ISBN}" />
                 <DataGridTextColumn Header="Title" Width="auto" Binding="{Binding BookTitle.Name}" />
-                <DataGridTextColumn Header="Category" Width="auto" Binding="{Binding Category.Name}" />
+                <DataGridTextColumn x:Name="dtgISBN" Header="ISBN" Width="auto" Binding="{Binding ISBN}" />
+                <DataGridTextColumn x:Name="dtgCategory" Header="Category" Width="auto" Binding="{Binding Category.Name}" />
                 <DataGridTextColumn Header="Author" Width="auto" Binding="{Binding Author.Name}" />
                 <DataGridTextColumn Header="Translator" Width="auto" Binding="{Binding Translator.Name}" />
                 <DataGridTextColumn Header="Language" Width="auto" Binding="{Binding Language}" />

@@ -8,18 +8,20 @@
              d:DesignHeight="380" d:DesignWidth="515">
     <UserControl.Resources>
         <local:TranslatorStatusConverter x:Key="translatorStatusConverter" />
+        <local:EmptyContentConverter x:Key="EmptyContentConverter" />
     </UserControl.Resources>
-    <StackPanel>
+    <StackPanel Width="600"> 
         <!-- Title -->
         <Label Style="{StaticResource lblTitle}"
                Content="Translator Information" />
 
         <!-- Body -->
-        <Grid Height="auto"
+        <Grid Name="mainContent"
+              Height="auto"
               Margin="20 0 20 10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0"
@@ -55,7 +57,9 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="Description: " />
                     <TextBlock Grid.Column="1"
-                               Text="{Binding Item.Description}" />
+                               Text="{Binding Item.Description, Converter={StaticResource EmptyContentConverter}}"
+                               Style="{StaticResource tblDisplayInfoHighlight}"
+                               MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
                 </Grid>
                 <Grid Margin="0">
                     <Grid.ColumnDefinitions>
@@ -64,7 +68,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="Date of birth: " />
                     <TextBlock Grid.Column="1"
-                           Text="{Binding Item.boF, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                               Text="{Binding Item.boF, StringFormat='{}{0:dd/MM/yyyy}'}" />
                 </Grid>
 
             </StackPanel>
@@ -82,7 +86,9 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="Summary: " />
                     <TextBlock Grid.Column="1"
-                               Text="{Binding Item.Summary}" />
+                               Text="{Binding Item.Summary, Converter={StaticResource EmptyContentConverter}}"
+                               Style="{StaticResource tblDisplayInfoHighlight}"
+                               MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>

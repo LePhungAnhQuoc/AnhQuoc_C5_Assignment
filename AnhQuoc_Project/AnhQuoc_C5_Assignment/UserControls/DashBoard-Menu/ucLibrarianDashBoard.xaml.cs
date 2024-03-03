@@ -51,6 +51,7 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Fields
+        private ucStatisticalPage ucStatisticalPage;
         private ucPenaltyReasonManagement ucPenaltyReasonManagement;
         private ucTranslatorManagement ucTranslatorManagement;
         private ucProvinceManagement ucProvinceManagement;
@@ -94,6 +95,7 @@ namespace AnhQuoc_C5_Assignment
             userRoleVM = UnitOfViewModel.Instance.UserRoleViewModel;
             roleVM = UnitOfViewModel.Instance.RoleViewModel;
 
+            ucStatisticalPage = MainWindow.UnitOfForm.UcStatisticalPage(true);
             ucPenaltyReasonManagement = MainWindow.UnitOfForm.UcPenaltyReasonManagement(true);
             ucParameterManagement = MainWindow.UnitOfForm.UcParameterManagement(true);
             ucProvinceManagement = MainWindow.UnitOfForm.UcProvinceManagement(true);
@@ -552,6 +554,11 @@ namespace AnhQuoc_C5_Assignment
                         }
 
                         break;
+                    #endregion
+
+                    #region Statistical-Management
+                    case Constants.StatisticalPage_FunctionId:
+                        break;
                         #endregion
 
                 }
@@ -611,6 +618,9 @@ namespace AnhQuoc_C5_Assignment
                 case Constants.LoanHistoryManagement_FunctionId:
                     TvLoanHistoryManagement_Function();
                     break;
+                case Constants.StatisticalPage_FunctionId:
+                    TvStatisticalPageInformation_Function();
+                    break;
             }
         }
 
@@ -644,6 +654,14 @@ namespace AnhQuoc_C5_Assignment
 
             gdView.Children.Clear();
             gdView.Children.Add(ucPenaltyReasonManagement);
+        }
+
+        private void TvStatisticalPageInformation_Function()
+        {
+            Grid gdView = getGdView();
+
+            gdView.Children.Clear();
+            gdView.Children.Add(ucStatisticalPage);
         }
 
         private void TvParameterManagementInformation_Function()

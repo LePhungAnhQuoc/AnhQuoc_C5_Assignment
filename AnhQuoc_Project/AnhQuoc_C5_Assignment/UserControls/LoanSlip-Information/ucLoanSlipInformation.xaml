@@ -11,7 +11,7 @@
     <UserControl.Resources>
         <local:PriceFormatConverter x:Key="PriceFormatConverter" />
     </UserControl.Resources>
-    <StackPanel>
+    <StackPanel Width="800">
         <!-- Title -->
         <Label Style="{StaticResource lblTitle}"
                Content="Loan Information" />
@@ -19,7 +19,8 @@
         <!-- Body -->
         <GroupBox Header="Loan Slip"
                   Style="{StaticResource gbDisplayInfo}">
-            <Grid>
+            <Grid x:Name="mainContent"
+                  Height="auto">
                 <Grid.Resources>
                     <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
                     <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}" />
@@ -107,6 +108,7 @@
                 </StackPanel>
             </Grid>
         </GroupBox>
+        
         <GroupBox Header="Loan Details"
                   Style="{StaticResource gbDisplayInfo}">
             <GroupBox.Margin>
@@ -114,6 +116,7 @@
             </GroupBox.Margin>
             <local:ucLoanDetailsTable x:Name="ucLoanDetailsTable" 
                                       Style="{StaticResource ucStyleVertical}"
+                                      AllowPagination="False"
                                       Margin="0"
                                       Height="300"/>
         </GroupBox>

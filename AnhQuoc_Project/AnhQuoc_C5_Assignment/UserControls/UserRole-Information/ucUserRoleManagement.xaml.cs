@@ -177,6 +177,9 @@ namespace AnhQuoc_C5_Assignment
             listFillUserRoles.Add(newUserRole);
             AddItemsToDataGrid(listFillUserRoles);
             #endregion
+            
+            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("user role"));
+
         }
 
         private void UcUsersTable_btnInfoClick(object sender, RoutedEventArgs e)
@@ -244,6 +247,9 @@ namespace AnhQuoc_C5_Assignment
             #region Refresh-listFill
             ucUserRolesTable.ModifiedPagination();
             #endregion
+
+            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("user role"));
+
         }
 
         private void AddToListFill(ObservableCollection<UserRole> items)

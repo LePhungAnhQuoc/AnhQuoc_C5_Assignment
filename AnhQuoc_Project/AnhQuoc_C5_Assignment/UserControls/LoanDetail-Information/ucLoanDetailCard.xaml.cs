@@ -59,16 +59,15 @@ namespace AnhQuoc_C5_Assignment
         {
             InitializeComponent();
 
-
             #region Events
             btnInfo.Click += btnInfo_Click;
             btnDelete.Click += btnDelete_Click;
             #endregion
 
-
-
             this.DataContext = this;
             this.Loaded += ucLoanDetailCard_Loaded;
+
+            Utilities.SetToolTipForTextBlock(mainContent);
         }
 
         private void ucLoanDetailCard_Loaded(object sender, RoutedEventArgs e)

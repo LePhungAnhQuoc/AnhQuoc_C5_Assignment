@@ -39,6 +39,17 @@ namespace AnhQuoc_C5_Assignment
             XmlProvider.Instance.Close();
         }
 
+        public void WritePrepend(ServerName newServerName)
+        {
+            XmlProvider.Instance.Open(Constants.fServerNames);
+
+            XmlNode newNodeItem = WriteItem(newServerName);
+            XmlNode parentNode = XmlProvider.Instance.nodeRoot;
+
+            parentNode.PrependChild(newNodeItem);
+            XmlProvider.Instance.Close();
+        }
+
 
         public ServerName LoadItem(XmlNode nodeData)
         {

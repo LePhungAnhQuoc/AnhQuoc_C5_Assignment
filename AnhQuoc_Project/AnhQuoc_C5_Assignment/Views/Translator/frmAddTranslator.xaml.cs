@@ -36,8 +36,16 @@ namespace AnhQuoc_C5_Assignment
         {
             InitializeComponent();
 
+
             Context = new AddTranslatorViewModel();
+
+            this.Loaded += FrmAddTranslator_Loaded;
             this.DataContext = Context;
+        }
+
+        private void FrmAddTranslator_Loaded(object sender, RoutedEventArgs e)
+        {
+            Context.onLoaded(sender, e);
         }
     }
 }

@@ -75,6 +75,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.2\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
     <Reference Include="WPFCustomMessageBox, Version=1.0.7.39267, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WPFCustomMessageBox.1.0.7\lib\WPFCustomMessageBox.dll</HintPath>
       <Private>True</Private>
@@ -103,6 +106,7 @@
     <Compile Include="Converters\Object-To-Id\BookISBNToISBNConverter.cs" />
     <Compile Include="Converters\Reader\IdAdultToFullNameConverter.cs" />
     <Compile Include="Converters\ReturnBook\ReturnBookButtonConfirmConverter.cs" />
+    <Compile Include="Converters\StatusConvert\BookTitleStatusConverter.cs" />
     <Compile Include="Converters\Utilities\DateMinToNullValueConverter.cs" />
     <Compile Include="Converters\Utilities\HalfLengthConverter.cs" />
     <Compile Include="Converters\LoanSlip\IsLoanOutOfDateConverter.cs" />
@@ -321,17 +325,11 @@
     <Compile Include="UserControls\Author-Information\ucAuthorInformation.xaml.cs">
       <DependentUpon>ucAuthorInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Book-ISBN-information\ucAddBookISBN.xaml.cs">
-      <DependentUpon>ucAddBookISBN.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Book-ISBN-information\ucBookISBNCard.xaml.cs">
       <DependentUpon>ucBookISBNCard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Book-ISBN-information\ucBookISBNInformation.xaml.cs">
-      <DependentUpon>ucBookISBNInformation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Book-Title-Information\ucAddBookTitle.xaml.cs">
-      <DependentUpon>ucAddBookTitle.xaml</DependentUpon>
+    <Compile Include="UserControls\Book-Title-Information\ucBookTitleInformation.xaml.cs">
+      <DependentUpon>ucBookTitleInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Book-Title-Information\ucBookTitlesTable.xaml.cs">
       <DependentUpon>ucBookTitlesTable.xaml</DependentUpon>
@@ -359,6 +357,15 @@
     </Compile>
     <Compile Include="UserControls\LoanDetail-Information\ucLoanDetailCard.xaml.cs">
       <DependentUpon>ucLoanDetailCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Statistical\StatisticalDescription.xaml.cs">
+      <DependentUpon>StatisticalDescription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Statistical\ucStatisticalCard.xaml.cs">
+      <DependentUpon>ucStatisticalCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Statistical\ucStatisticalPage.xaml.cs">
+      <DependentUpon>ucStatisticalPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PenaltyReason-Information\ucPenaltyReasonInformation.xaml.cs">
       <DependentUpon>ucPenaltyReasonInformation.xaml</DependentUpon>
@@ -603,6 +610,12 @@
     <Compile Include="Views\Book\frmAddBook.xaml.cs">
       <DependentUpon>frmAddBook.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Book\frmAddBookTitle.xaml.cs">
+      <DependentUpon>frmAddBookTitle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Book\frmAddBookISBN.xaml.cs">
+      <DependentUpon>frmAddBookISBN.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Book\frmBookISBNInformation.xaml.cs">
       <DependentUpon>frmBookISBNInformation.xaml</DependentUpon>
     </Compile>
@@ -740,6 +753,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\Path.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\RadioButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -788,19 +805,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\Book-ISBN-information\ucAddBookISBN.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="UserControls\Book-ISBN-information\ucBookISBNCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Book-ISBN-information\ucBookISBNInformation.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControls\Book-Title-Information\ucAddBookTitle.xaml">
+    <Page Include="UserControls\Book-Title-Information\ucBookTitleInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -839,6 +848,18 @@
     <Page Include="UserControls\LoanDetail-Information\ucLoanDetailCard.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Statistical\StatisticalDescription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Statistical\ucStatisticalCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Statistical\ucStatisticalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\PenaltyReason-Information\ucPenaltyReasonInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -1068,6 +1089,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Book\frmAddBookTitle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Book\frmAddBookISBN.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Book\frmBookISBNInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1220,12 +1249,6 @@
     <Resource Include="Assets\Images\Others\info.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LoadingSpinnerControl\LoadingSpinnerControl.csproj">
-      <Project>{01947994-34f8-4948-bf32-ea6f2b2048b1}</Project>
-      <Name>LoadingSpinnerControl</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\BookImages\BT01.png" />
     <Resource Include="Assets\BookImages\BT02.png" />
     <Resource Include="Assets\BookImages\BT03.png" />
@@ -1244,6 +1267,9 @@
     <Resource Include="Assets\BookImages\BT16.png" />
     <Resource Include="Assets\BookImages\BT17.png" />
     <Resource Include="Assets\Images\Others\LoadingSpinnerCircle.gif" />
+    <Resource Include="Animations\LoadingSpinnerCircle.gif" />
+    <Resource Include="Assets\Images\Others\LoadingSpinnerCircle2.gif" />
+    <Resource Include="Animations\LoadingSpinnerCircle2.gif" />
     <Content Include="Models\QuanLyThuVienModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>

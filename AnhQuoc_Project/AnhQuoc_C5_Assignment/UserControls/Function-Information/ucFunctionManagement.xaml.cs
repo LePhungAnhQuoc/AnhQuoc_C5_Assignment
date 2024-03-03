@@ -135,6 +135,7 @@ namespace AnhQuoc_C5_Assignment
             functionMap = UnitOfMap.Instance.FunctionMap;
             #endregion
 
+            ucFunctionsTable.btnInfoClick += UcFunctionsTable_btnInfoClick;
             ucFunctionsTable.btnDeleteClick += UcFunctionsTable_btnDeleteClick;
             ucFunctionsTable.btnRestoreClick += UcFunctionsTable_btnRestoreClick;
             ucFunctionsTable.btnUpdateClick += UcFunctionsTable_btnUpdateClick;
@@ -191,7 +192,60 @@ namespace AnhQuoc_C5_Assignment
             return results;
         }
         #endregion
-        
+
+        private void UcFunctionsTable_btnInfoClick(object sender, RoutedEventArgs e)
+        {
+            if (ucFunctionsTable.dgDatas.SelectedIndex == -1)
+            {
+                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("function"));
+                return;
+            }
+
+            FunctionDto functionDtoSelect = ucFunctionsTable.SelectedFunctionDto;
+            Function functionSelect = functionVM.FindById(functionDtoSelect.Id);
+
+            ucFunctionInformation ucFunctionInformation = MainWindow.UnitOfForm.UcFunctionInformation(true);
+            ucFunctionInformation.getItem = () => functionDtoSelect;
+
+            Window frmFunctionInformation = Utilities.CreateDefaultForm();
+            frmFunctionInformation.Content = ucFunctionInformation;
+            frmFunctionInformation.Show();
+        }
+
+        private void UcFunctionsTable_btnUpdateClick(object sender, RoutedEventArgs e)
+        {
+            if (ucFunctionsTable.dgDatas.SelectedIndex == -1)
+            {
+                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("function"));
+                return;
+            }
+
+            var functionDtoSelect = ucFunctionsTable.SelectedFunctionDto;
+
+            frmAddFunction frmAddFunction = MainWindow.UnitOfForm.FrmAddFunction(true);
+            frmAddFunction.getItemToUpdate = () => functionDtoSelect;
+            frmAddFunction.ShowDialog();
+
+            if (frmAddFunction.Context.Item == null) // Cancel the operation
+            {
+                return;
+            }
+
+            FunctionDto newFunctionDto = frmAddFunction.Context.Item;
+
+            #region UpdateItemInformation
+            Function getFunction = functionVM.FindById(newFunctionDto.Id, StatusValue);
+
+            functionVM.Copy(getFunction, newFunctionDto);
+            getFunctionRepo().WriteUpdate(getFunction);
+            #endregion
+
+            ucFunctionsTable.ModifiedPagination();
+
+            string message = Utilities.NotifyUpdateSuccessfully("function");
+            MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
+        }
+
         private void UcFunctionsTable_btnDeleteClick(object sender, RoutedEventArgs e)
         {
             FunctionDto functionDtoSelect = ucFunctionsTable.SelectedFunctionDto;
@@ -200,7 +254,7 @@ namespace AnhQuoc_C5_Assignment
             var check = roleFunctionVM.FindByIdFunction(roleFunctionVM.Repo.Gets(), functionSelect.Id);
             if (check != null)
             {
-                Utilities.ShowMessageBox1("This function is currently use!");
+                Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("function"));
                 return;
             }
             
@@ -437,40 +491,6 @@ namespace AnhQuoc_C5_Assignment
             ucFunctionsTable.ModifiedPagination();
         }
 
-
-        private void UcFunctionsTable_btnUpdateClick(object sender, RoutedEventArgs e)
-        {
-            if (ucFunctionsTable.dgDatas.SelectedIndex == -1)
-            {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("function"));
-                return;
-            }
-
-            var functionDtoSelect = ucFunctionsTable.SelectedFunctionDto;
-
-            frmAddFunction frmAddFunction = MainWindow.UnitOfForm.FrmAddFunction(true);
-            frmAddFunction.getItemToUpdate = () => functionDtoSelect;
-            frmAddFunction.ShowDialog();
-
-            if (frmAddFunction.Context.Item == null) // Cancel the operation
-            {
-                return;
-            }
-
-            FunctionDto newFunctionDto = frmAddFunction.Context.Item;
-
-            #region UpdateItemInformation
-            Function getFunction = functionVM.FindById(newFunctionDto.Id, StatusValue);
-
-            functionVM.Copy(getFunction, newFunctionDto);
-            getFunctionRepo().WriteUpdate(getFunction);
-            #endregion
-
-            ucFunctionsTable.ModifiedPagination();
-
-            string message = Utilities.NotifyUpdateSuccessfully("function");
-            MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
-        }
 
         private void AddToListFill(ObservableCollection<Function> items)
         {

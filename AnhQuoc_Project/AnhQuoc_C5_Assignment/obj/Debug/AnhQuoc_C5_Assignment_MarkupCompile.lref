@@ -1,5 +1,6 @@
 ﻿
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\App.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Animations\LoadingSpinnerWD.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Assets\icons.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\MainWindow.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Styles\Border.xaml;;
@@ -25,10 +26,8 @@ FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Styles\Window.xa
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Author-Information\ucAuthorManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Author-Information\ucAuthorsTable.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Author-Information\ucAuthorInformation.xaml;;
-FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Book-ISBN-information\ucAddBookISBN.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Book-ISBN-information\ucBookISBNCard.xaml;;
-FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Book-ISBN-information\ucBookISBNInformation.xaml;;
-FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Book-Title-Information\ucAddBookTitle.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Book-Title-Information\ucBookTitleInformation.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Book-Title-Information\ucBookTitlesTable.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Book-Title-Information\ucBookTitleManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Books-Information\ucBookCard.xaml;;
@@ -38,6 +37,8 @@ FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Fun
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Function-Information\ucFunctionManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Function-Information\ucFunctionsTable.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\LoanDetail-Information\ucLoanDetailCard.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Statistical\ucStatisticalCard.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Statistical\ucStatisticalPage.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\PenaltyReason-Information\ucPenaltyReasonInformation.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\PenaltyReason-Information\ucPenaltyReasonManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\PenaltyReason-Information\ucPenaltyReasonsTable.xaml;;
@@ -95,6 +96,8 @@ FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Use
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\UserRole-Information\ucUserRolesTable.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\Author\frmAddAuthor.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\Book\frmAddBook.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\Book\frmAddBookTitle.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\Book\frmAddBookISBN.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\Book\frmBookISBNInformation.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\Category\frmAddCategory.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\frmExpand.xaml;;
@@ -118,5 +121,5 @@ FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\Role\frmAd
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\Translator\frmAddTranslator.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\UserRole\frmAddUserRole.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\User\frmAddUser.xaml;;
-FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Animations\LoadingSpinnerWD.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Statistical\StatisticalDescription.xaml;;
 

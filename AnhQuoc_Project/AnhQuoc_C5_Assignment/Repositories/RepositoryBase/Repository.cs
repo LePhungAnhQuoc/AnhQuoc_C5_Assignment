@@ -59,6 +59,11 @@ namespace AnhQuoc_C5_Assignment
             _Items.Add(item);
         }
 
+        public void Prepend(T item)
+        {
+            _Items.Insert(0, item);
+        }
+
         public void AddRange(IEnumerable<T> collection)
         {
             _Items.AddRange(collection);

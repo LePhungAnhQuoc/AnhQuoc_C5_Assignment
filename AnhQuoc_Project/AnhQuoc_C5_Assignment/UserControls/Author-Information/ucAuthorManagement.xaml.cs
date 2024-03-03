@@ -35,6 +35,7 @@ namespace AnhQuoc_C5_Assignment
 
         #region ViewModels
         private AuthorViewModel authorVM;
+        private BookISBNViewModel bookISBNVM;
         #endregion
 
         #region Mapping
@@ -129,6 +130,7 @@ namespace AnhQuoc_C5_Assignment
             listFillAuthors = new ObservableCollection<Author>();
 
             authorVM = UnitOfViewModel.Instance.AuthorViewModel;
+            bookISBNVM = UnitOfViewModel.Instance.BookISBNViewModel;
 
             authorMap = UnitOfMap.Instance.AuthorMap;
             #endregion
@@ -168,27 +170,12 @@ namespace AnhQuoc_C5_Assignment
 
         private void Fillter()
         {
-            var results = FillByTextSearch(getAuthorRepo().Gets());
+            var source = getAuthorRepo().Gets();
+
+            var results = authorVM.FillByTextSearch(source, txtSearch.Text, true);
 
             AddToListFill(results);
             AddItemsToDataGrid(results);
-        }
-
-        private ObservableCollection<Author> FillByTextSearch(ObservableCollection<Author> source)
-        {
-            string textSearch = txtSearch.Text.ToLower();
-
-            ObservableCollection<Author> results = new ObservableCollection<Author>();
-            foreach (Author item in source)
-            {
-                var itemDto = authorMap.ConvertToDto(item);
-                bool isCheck = itemDto.Name.ContainsCorrectly(textSearch, true);
-                if (isCheck)
-                {
-                    results.Add(item);
-                }
-            }
-            return results;
         }
         #endregion
 
@@ -216,6 +203,8 @@ namespace AnhQuoc_C5_Assignment
             listFillAuthors.Add(newAuthor);
             AddItemsToDataGrid(listFillAuthors);
             #endregion
+
+            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("author"));
         }
 
         private void UcAuthorsTable_btnInfoClick(object sender, RoutedEventArgs e)
@@ -266,6 +255,13 @@ namespace AnhQuoc_C5_Assignment
 
             if (updateStatus == false)
             {
+                var listTemp = bookISBNVM.FillByIdAuthor(bookISBNVM.Repo.Gets(), authorSelect.Id, null);
+                if (listTemp.Count > 0)
+                {
+                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("author"));
+                    return;
+                }
+
                 message = Utilities.NotifySureToDelete();
                 if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                     return;
@@ -314,6 +310,8 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             ucAuthorsTable.ModifiedPagination();
+
+            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("author"));
         }
 
         private void AddToListFill(ObservableCollection<Author> items)

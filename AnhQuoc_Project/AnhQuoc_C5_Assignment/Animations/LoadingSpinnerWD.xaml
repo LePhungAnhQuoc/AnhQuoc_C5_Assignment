@@ -4,14 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnhQuoc_C5_Assignment.Animations" 
-        xmlns:Custom="clr-namespace:LoadingSpinnerControl;assembly=LoadingSpinnerControl"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         Title="LoadingSpinnerWD"
         Style="{StaticResource wdStyleGeneral}"
         WindowStartupLocation="{StaticResource WSL}"
+        WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent">
     <Grid>
-        <Custom:LoadingSpinner IsLoading="True" />
+        <Image Name="imgCircle" Visibility="Visible" Width="250" Height="250" gif:ImageBehavior.AnimatedSource="/Animations/LoadingSpinnerCircle2.gif" />
     </Grid>
 </Window>

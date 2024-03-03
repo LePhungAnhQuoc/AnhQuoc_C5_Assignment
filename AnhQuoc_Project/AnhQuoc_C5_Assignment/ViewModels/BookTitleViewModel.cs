@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
@@ -56,6 +57,22 @@ namespace AnhQuoc_C5_Assignment
             return FillContainsName(CreateByDto(source), valueName, igNoreCase);
         }
 
+        public ObservableCollection<BookTitle> FillByIdCategory(ObservableCollection<BookTitle> source, string categoryId, bool? statusValue)
+        {
+            source = FillByStatus(source, statusValue);
+
+            ObservableCollection<BookTitle> result = new ObservableCollection<BookTitle>();
+            foreach (BookTitle item in source)
+            {
+                if (item.IdCategory == categoryId)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+
+
         public bool IsCheckEmptyItem(BookTitleDto item)
         {
             return Utilities.IsCheckEmptyItem(item, false);
@@ -80,6 +97,12 @@ namespace AnhQuoc_C5_Assignment
         }
 
         public void Copy(BookTitle dest, BookTitleDto source)
+        {
+            Utilities.Copy(dest, source);
+        }
+
+
+        public void Copy(BookTitleDto dest, BookTitleDto source)
         {
             Utilities.Copy(dest, source);
         }

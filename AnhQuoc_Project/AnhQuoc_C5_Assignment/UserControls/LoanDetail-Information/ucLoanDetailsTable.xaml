@@ -8,6 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="500">
     <UserControl.Resources>
         <local:IndexDataGridItemConverter x:Key="indexDataGridItemConverter" />
+        <local:PriceFormatConverter x:Key="PriceFormatConverter" />
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -26,8 +27,12 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Index" Width="auto" Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGridRow}}, Converter={StaticResource indexDataGridItemConverter}}" />
                 <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Id Loan" Width="auto" Binding="{Binding IdLoan}" />
-                <DataGridTextColumn Header="Id Book" Width="auto" Binding="{Binding IdBook}" />
+                <DataGridTextColumn Header="Id Loan" Width="auto" Binding="{Binding IdLoan}" Visibility="Collapsed" />
+                <DataGridTextColumn Header="Book" Width="*" Binding="{Binding BookTitle.Name}" />
+                <DataGridTextColumn Header="ISBN" Width="auto" Binding="{Binding BookISBN.ISBN}" />
+                <DataGridTextColumn Header="Book Id" Width="auto" Binding="{Binding IdBook}" />
+                <DataGridTextColumn Header="Price" Width="auto" Binding="{Binding Book.Price, Converter={StaticResource PriceFormatConverter}}" />
+                
                 <DataGridTextColumn Header="Expire Date" Width="auto" Binding="{Binding ExpDate, StringFormat='{}{0:dd/MM/yyyy}'}" />
                 <DataGridTemplateColumn x:Name="dtgBtnInfo">
                     <DataGridTemplateColumn.CellTemplate>

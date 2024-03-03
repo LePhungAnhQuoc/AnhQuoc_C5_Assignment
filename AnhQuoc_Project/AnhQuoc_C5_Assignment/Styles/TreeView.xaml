@@ -3,7 +3,6 @@
                     xmlns:local="clr-namespace:AnhQuoc_C5_Assignment">
     <Style x:Key="treeGeneral" TargetType="TreeView">
         <Setter Property="Background" Value="#4e73de" />
-        <Setter Property="Width" Value="240" />
     </Style>
 
     <Style x:Key="tvItemStyle1" TargetType="TreeViewItem">

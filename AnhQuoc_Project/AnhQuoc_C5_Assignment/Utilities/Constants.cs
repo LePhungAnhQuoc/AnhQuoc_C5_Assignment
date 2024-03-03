@@ -47,10 +47,16 @@ namespace AnhQuoc_C5_Assignment
         public static string paraQD10 = "QD10";
         public static string paraQD2 = "QD2";
 
+        public static string reason1 = "PR1";
+        public static string reason2 = "PR2";
+        public static string reason3 = "PR3";
+
+
         #region Function-Id
         public static string roleFunc_FunctionId = "F19";
         public static string updateBookISBN_FunctionId = "F35";
         public static string[] importantFunction = new string[] { roleFunc_FunctionId, updateBookISBN_FunctionId };
+
 
         public const string UserManagement_FunctionId = "F1";
         public const string FeatureManagement_FunctionId = "F7";
@@ -68,6 +74,7 @@ namespace AnhQuoc_C5_Assignment
         public const string PenaltyReasonManagement_FunctionId = "F69";
         public const string ProvinceManagement_FunctionId = "F64";
         public const string ParameterManagement_FunctionId = "F73";
+        public const string StatisticalPage_FunctionId = "F78";
         #endregion
 
         public static string Culture = "vi-VN";

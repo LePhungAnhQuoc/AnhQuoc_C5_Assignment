@@ -35,6 +35,7 @@ namespace AnhQuoc_C5_Assignment
 
         #region ViewModels
         private PublisherViewModel publisherVM;
+        private BookViewModel bookVM;
         #endregion
 
         #region Mapping
@@ -129,6 +130,7 @@ namespace AnhQuoc_C5_Assignment
             listFillPublishers = new ObservableCollection<Publisher>();
 
             publisherVM = UnitOfViewModel.Instance.PublisherViewModel;
+            bookVM = UnitOfViewModel.Instance.BookViewModel;
 
             publisherMap = UnitOfMap.Instance.PublisherMap;
             #endregion
@@ -215,6 +217,9 @@ namespace AnhQuoc_C5_Assignment
             listFillPublishers.Add(newPublisher);
             AddItemsToDataGrid(listFillPublishers);
             #endregion
+
+            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("publisher"));
+
         }
 
         private void UcPublishersTable_btnInfoClick(object sender, RoutedEventArgs e)
@@ -253,7 +258,13 @@ namespace AnhQuoc_C5_Assignment
             PublisherDto publisherDtoSelect = ucPublishersTable.SelectedPublisherDto;
             Publisher publisherSelect = publisherVM.FindById(publisherDtoSelect.Id);
 
-           
+            var listTemp = bookVM.FillByIdPublisher(bookVM.Repo.Gets(), publisherDtoSelect.Id, null);
+            if (listTemp.Count > 0)
+            {
+                Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("publisher"));
+                return;
+            }
+
             message = Utilities.NotifySureToDelete();
             if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                 return;
@@ -300,6 +311,7 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             ucPublishersTable.ModifiedPagination();
+            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("publisher"));
         }
 
         private void AddToListFill(ObservableCollection<Publisher> items)

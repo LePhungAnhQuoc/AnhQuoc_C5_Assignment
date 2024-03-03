@@ -15,84 +15,88 @@
                Content="Reader Information" />
 
         <!-- Body -->
-        <StackPanel Margin="20 0">
-            <StackPanel.Resources>
-                <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}" />
-                <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}" />
-            </StackPanel.Resources>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Id: " />
-                <TextBlock Grid.Column="1"
+        <Grid x:Name="mainContent"
+              Height="auto"
+               Margin="20 0 20 10">
+            <StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}" />
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}" />
+                </StackPanel.Resources>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Id: " />
+                    <TextBlock Grid.Column="1"
                            Text="{Binding Item.Id}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Last name: " />
-                <TextBlock Grid.Column="1"
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Last name: " />
+                    <TextBlock Grid.Column="1"
                            Text="{Binding Item.LName}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="First name: " />
-                <TextBlock Grid.Column="1"
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="First name: " />
+                    <TextBlock Grid.Column="1"
                            Text="{Binding Item.FName}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Date of birth: " />
-                <TextBlock Grid.Column="1"
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Date of birth: " />
+                    <TextBlock Grid.Column="1"
                            Text="{Binding Item.boF, StringFormat='{}{0:dd/MM/yyyy}'}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Reader type: " />
-                <TextBlock Grid.Column="1"
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Reader type: " />
+                    <TextBlock Grid.Column="1"
                            Text="{Binding Item.ReaderType}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Status: " />
-                <TextBlock Grid.Column="1"
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Status: " />
+                    <TextBlock Grid.Column="1"
                            Text="{Binding Item.Status, Converter={StaticResource readerStatusConverter}}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Created At: " />
-                <TextBlock Grid.Column="1"
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Created At: " />
+                    <TextBlock Grid.Column="1"
                            Text="{Binding Item.CreatedAt}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Modified At: " />
-                <TextBlock Grid.Column="1"
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Modified At: " />
+                    <TextBlock Grid.Column="1"
                            Text="{Binding Item.ModifiedAt}" />
-            </Grid>
-        </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Grid>
     </StackPanel>
 </UserControl>

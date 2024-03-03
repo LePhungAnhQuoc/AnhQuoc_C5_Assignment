@@ -41,6 +41,18 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
+
+        private BookTitleDto _SelectedBookTitleDto;
+        public BookTitleDto SelectedBookTitleDto
+        {
+            get { return _SelectedBookTitleDto; }
+            set 
+            {
+                _SelectedBookTitleDto = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
         #region PropertyChanged
@@ -54,18 +66,41 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
 
+        #region Events
+        public event RoutedEventHandler btnInfoClick;
+        public event RoutedEventHandler btnDeleteClick;
+        #endregion
+
         public ucBookTitlesTable()
         {
             InitializeComponent();
             Loaded += UcBookTitlesTable_Loaded;
+
+            dgDatas.MouseDoubleClick += DgDatas_MouseDoubleClick;
             this.DataContext = this;
         }
 
+
         private void UcBookTitlesTable_Loaded(object sender, RoutedEventArgs e)
         {
+            if (btnInfoClick == null)
+            {
+                dtgbtnInfo.Visibility = Visibility.Collapsed;
+            }
 
             if (getBookTitles != null)
                 BookTitles = getBookTitles();
         }
+
+        private void DgDatas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            btnInfo_Click(null, null);
+        }
+
+        private void btnInfo_Click(object sender, RoutedEventArgs e)
+        {
+            btnInfoClick?.Invoke(sender, e);
+        }
+
     }
 }

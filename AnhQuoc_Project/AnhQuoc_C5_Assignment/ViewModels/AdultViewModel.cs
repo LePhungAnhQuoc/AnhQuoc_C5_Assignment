@@ -107,6 +107,22 @@ namespace AnhQuoc_C5_Assignment
             return FillContainsIdentify(CreateByDto(source), valueName, igNoreCase, statusValue);
         }
 
+        public ObservableCollection<Adult> FillByCity(ObservableCollection<Adult> source, string cityValue, bool? statusValue)
+        {
+            source = FillByStatus(source, statusValue);
+
+            ObservableCollection<Adult> result = new ObservableCollection<Adult>();
+            foreach (Adult item in source)
+            {
+                if (item.City == cityValue)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+
+
         public DateTime GetExpireDate(Parameter parameter, DateTime createdAt)
         {
             int value = Convert.ToInt32(parameter.Value.ToString());

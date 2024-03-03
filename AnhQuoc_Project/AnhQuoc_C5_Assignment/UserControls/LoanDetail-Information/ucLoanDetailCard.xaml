@@ -37,47 +37,51 @@
 
     <Border Style="{StaticResource bdCard}"
             Width="200">
-        <StackPanel Height="auto">
-            <StackPanel>
-                <StackPanel.Resources>
-                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}">
-                        <Setter Property="FontSize" Value="12" />
-                    </Style>
-                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}">
-                        <!--<Setter Property="Margin"-->
-                    </Style>
-                    <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}">
-                        <Setter Property="FontSize" Value="12" />
-                    </Style>
-                </StackPanel.Resources>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Content="Book: "/>
-                    <TextBlock Grid.Column="1"
-                               Text="{Binding Item.BookTitle.Name}" />
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Content="ISBN: " />
-                    <TextBlock Grid.Column="1"
-                               Text="{Binding Item.BookISBN.ISBN}" />
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Content="Expire date: " />
-                    <TextBlock Grid.Column="1"
-                               Text="{Binding Item.ExpDate, StringFormat='{}{0:dd/MM/yyyy}'}" />
-                </Grid>
-            </StackPanel>
+        <StackPanel>
+            <Grid Height="auto"
+                  Name="mainContent">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}">
+                            <Setter Property="FontSize" Value="12" />
+                        </Style>
+                        <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}">
+                            <!--<Setter Property="Margin"-->
+                        </Style>
+                        <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}">
+                            <Setter Property="FontSize" Value="12" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Book: "/>
+                        <TextBlock Grid.Column="1"
+                    Text="{Binding Item.BookTitle.Name}" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="ISBN: " />
+                        <TextBlock Grid.Column="1"
+                    Text="{Binding Item.BookISBN.ISBN}" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Expire date: " />
+                        <TextBlock Grid.Column="1"
+                    Text="{Binding Item.ExpDate, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                    </Grid>
+                </StackPanel>
+            </Grid>
+
             <StackPanel Name="stkWrapButton"
                         Style="{StaticResource stkWrapButton}"
                         Visibility="Visible">
@@ -89,7 +93,6 @@
                         FontSize="12"
                         Margin="10 0 0 0"></Button>
             </StackPanel>
-
         </StackPanel>
     </Border>
 

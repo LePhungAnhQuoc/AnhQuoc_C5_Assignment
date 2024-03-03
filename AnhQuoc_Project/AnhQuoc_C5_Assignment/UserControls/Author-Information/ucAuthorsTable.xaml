@@ -29,9 +29,7 @@
                 <DataGridTextColumn Header="Index" Width="auto" Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGridRow}}, Converter={StaticResource indexDataGridItemConverter}}" />
                 <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description}" />
                 <DataGridTextColumn Header="boF" Width="auto" Binding="{Binding boF, StringFormat='{}{0:dd/MM/yyyy}'}" />
-                <DataGridTextColumn Header="Summary" Width="*" Binding="{Binding Summary}" />
 
                 <DataGridTextColumn Header="Status" Width="auto" 
                                     Binding="{Binding Status, Converter={StaticResource authorStatusConverter}}"

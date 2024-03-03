@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +12,8 @@ namespace AnhQuoc_C5_Assignment
 {
     public class AddRoleViewModel: BaseViewModel<object>, IPageViewModel
     {
-
         #region Fields
+        public bool IsCancel { get; set; }
         private frmAddRole thisForm;
         private List<DependencyObject> mainContentControls;
         private List<TextBox> TextBoxes;
@@ -58,7 +59,9 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Commands
-        public RelayCommand LoadedCmd { get; private set; }
+        //public RelayCommand LoadedCmd { get; private set; }
+        public RelayCommand ClosingCmd { get; private set; }
+
         public RelayCommand btnConfirmClickCmd { get; private set; }
         public RelayCommand btnCancelClickCmd { get; private set; }
         public RelayCommand btnUpdateClickCmd { get; private set; }
@@ -73,7 +76,9 @@ namespace AnhQuoc_C5_Assignment
             roleMap = UnitOfMap.Instance.RoleMap;
 
             #region Init-Commands
-            LoadedCmd = new RelayCommand((para) => frmAddRole_Loaded(para, null));
+            //LoadedCmd = new RelayCommand((para) => frmAddRole_Loaded(para, null));
+            ClosingCmd = new RelayCommand((para) => onClosing(para, null));
+
             btnConfirmClickCmd = new RelayCommand((para) => BtnConfirm_Click(para, null));
             btnCancelClickCmd = new RelayCommand((para) => BtnCancel_Click(para, null));
             btnUpdateClickCmd = new RelayCommand((para) => BtnUpdate_Click(para, null));
@@ -81,8 +86,9 @@ namespace AnhQuoc_C5_Assignment
             #endregion
         }
 
-        private void frmAddRole_Loaded(object sender, RoutedEventArgs e)
+        public void onLoaded(object sender, RoutedEventArgs e)
         {
+            IsCancel = true;
             thisForm = sender as frmAddRole;
 
             mainContentControls = new List<DependencyObject>();
@@ -114,6 +120,12 @@ namespace AnhQuoc_C5_Assignment
                 SetFormByAddOrUpdate("UPDATE");
             }
         }
+
+        private void onClosing(object sender, CancelEventArgs e)
+        {
+            BtnCancel_Click(null, null, true);
+        }
+
 
         private void NewItem()
         {
@@ -147,6 +159,8 @@ namespace AnhQuoc_C5_Assignment
                 Utilities.ShowMessageBox1(Utilities.NotifyItemExistInfo("Role"));
                 return;
             }
+
+            IsCancel = false;
             thisForm.Close();
         }
 
@@ -176,6 +190,8 @@ namespace AnhQuoc_C5_Assignment
                     return;
                 }
             }
+
+            IsCancel = false;
             thisForm.Close();
         }
 
@@ -184,10 +200,12 @@ namespace AnhQuoc_C5_Assignment
             roleVM.Copy(Item, thisForm.getItemToUpdate());
         }
 
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        private void BtnCancel_Click(object sender, RoutedEventArgs e, bool isClosed = false)
         {
-            Item = null;
-            thisForm.Close();
+            if (IsCancel)
+                Item = null;
+            if (!isClosed)
+                thisForm.Close();
         }
 
 

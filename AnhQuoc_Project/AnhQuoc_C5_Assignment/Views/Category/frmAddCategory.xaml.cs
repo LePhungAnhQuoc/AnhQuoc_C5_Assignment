@@ -36,8 +36,16 @@ namespace AnhQuoc_C5_Assignment
         {
             InitializeComponent();
             
+            
             Context = new AddCategoryViewModel();
+
+            this.Loaded += FrmAddCategory_Loaded;
             this.DataContext = Context;
+        }
+
+        private void FrmAddCategory_Loaded(object sender, RoutedEventArgs e)
+        {
+            Context.onLoaded(sender, e);
         }
     }
 }

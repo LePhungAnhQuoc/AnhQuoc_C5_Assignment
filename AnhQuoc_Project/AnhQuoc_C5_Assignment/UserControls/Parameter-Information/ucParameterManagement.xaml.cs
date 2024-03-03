@@ -214,6 +214,8 @@ namespace AnhQuoc_C5_Assignment
             listFillParameters.Add(newParameter);
             AddItemsToDataGrid(listFillParameters);
             #endregion
+
+            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("parameter"));
         }
 
         private void UcParametersTable_btnInfoClick(object sender, RoutedEventArgs e)
@@ -264,6 +266,9 @@ namespace AnhQuoc_C5_Assignment
 
             if (updateStatus == false)
             {
+                Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("parameter"));
+                return;
+
                 message = Utilities.NotifySureToDelete();
                 if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                     return;
@@ -311,6 +316,8 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             ucParametersTable.ModifiedPagination();
+
+            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("parameter"));
         }
 
         private void AddToListFill(ObservableCollection<Parameter> items)

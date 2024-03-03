@@ -10,6 +10,7 @@
     <UserControl.Resources>
         <System:Double x:Key="maxHeightTextArea">200</System:Double>
         <local:PriceFormatConverter x:Key="PriceFormatConverter" />
+        <local:EmptyContentConverter x:Key="EmptyContentConverter" />
     </UserControl.Resources>
     <StackPanel Width="400">
         <!-- Title -->
@@ -17,14 +18,14 @@
                Content="Detail Information" />
 
         <!-- Body -->
-        <Grid Height="auto"
+        <Grid x:Name="mainContent"  
+              Height="auto"
               Margin="20 0 20 10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0"
-                        Margin="0 0 20 0">
+            <StackPanel Grid.Column="0">
                 <StackPanel.Resources>
                     <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
                     <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}" />
@@ -63,19 +64,11 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Note: " />
-                    <Grid Grid.Column="1"
-                          Style="{x:Null}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0"
-                                   Text="{Binding Item.Note}" />
-                        <Button Grid.Column="1"
-                                Name="btnExpandNote"
-                                Style="{StaticResource btnGeneral}"
-                                Content="Expand" />
-                    </Grid>
+                    <TextBlock Grid.Column="1"
+                                Text="{Binding Item.Note, Converter={StaticResource EmptyContentConverter}}"
+                                Style="{StaticResource tblDisplayInfoHighlight}"
+                                MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" />
+                        
                 </Grid>
             </StackPanel>
         </Grid>

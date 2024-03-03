@@ -10,6 +10,7 @@
         Style="{StaticResource wdStyleGeneral}">
     <Window.Resources>
         <local:BookISBNStatusConverter x:Key="bookISBNStatusConverter" />
+        <local:EmptyContentConverter x:Key="EmptyContentConverter" />
     </Window.Resources>
     <StackPanel Width="400">
         <!-- Title -->
@@ -17,68 +18,77 @@
                Content="Book ISBN Information"  />
         
         <!-- Body -->
-        <StackPanel Margin="20 0">
-            <StackPanel.Resources>
-                <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}" />
-                <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}" />
-            </StackPanel.Resources>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="ISBN: " />
-                <TextBlock Grid.Column="1"
-                           Text="{Binding Item.ISBN}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Book title: " />
-                <TextBlock Grid.Column="1"
-                           Text="{Binding Item.BookTitle.Name}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Author: " />
-                <TextBlock Grid.Column="1"
-                           Text="{Binding Item.Author.Name}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Publish Date: " />
-                <TextBlock Grid.Column="1"
-                           Text="{Binding Item.PublishDate, StringFormat='{}{0:dd/MM/yyyy}'}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Language: " />
-                <TextBlock Grid.Column="1"
-                           Text="{Binding Item.Language}" />
-            </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Content="Status: " />
-                <TextBlock Grid.Column="1"
-                           Text="{Binding Item.Status, Converter={StaticResource bookISBNStatusConverter}}" />
-            </Grid>
-        </StackPanel>
-        
+        <Grid Name="mainContent"
+              Height="auto"
+              Margin="20 0 20 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <StackPanel.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}" />
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}" />
+                </StackPanel.Resources>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="ISBN: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.ISBN}" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Book title: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.BookTitle.Name}" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Author: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.Author.Name}" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Language: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.OriginLanguage}" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Description: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.Description, Converter={StaticResource EmptyContentConverter}}"
+                               Style="{StaticResource tblDisplayInfoHighlight}"
+                               MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Status: " />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Item.Status, Converter={StaticResource bookISBNStatusConverter}}" />
+                </Grid>
+            </StackPanel>
+        </Grid>
         <!-- Footer -->
         <StackPanel Name="stkWrapButton"
                     Style="{StaticResource stkWrapButton}">

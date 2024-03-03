@@ -16,18 +16,13 @@
               HorizontalAlignment="Left">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0"
-                  Margin="30 0 0 0"
-                  HorizontalAlignment="Left">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" />
-                    <ColumnDefinition Width="auto" />
-                </Grid.ColumnDefinitions>
 
-                <!-- TextBox search by Id -->
-                <Border Grid.Column="0"
-                        Style="{StaticResource bdStyle1}">
+            <StackPanel Grid.Column="0"
+                        Orientation="Horizontal">
+                
+                <Border Style="{StaticResource bdStyle1}">
                     <Grid>
                         <TextBox Name="txtSearch"
                                  Style="{StaticResource txtStyleSearch}"
@@ -47,22 +42,21 @@
                         </TextBlock>
                     </Grid>
                 </Border>
+            </StackPanel>
 
-                <!-- Features buttons -->
-                <StackPanel Grid.Column="1"
+            <StackPanel Grid.Column="1"
                             Name="stkFeatures"
                             Style="{StaticResource stkWrapButton}"                           
                             Margin="30 0 0 0">
-                    <Border Name="borderBtnAdd"
+                <Border Name="borderBtnAdd"
                             Style="{StaticResource bdStyle1}"
                             Visibility="Visible">
-                        <Button Name="btnAdd"
+                    <Button Name="btnAdd"
                                 Style="{StaticResource btnAdd}"
                                 BorderThickness="0"
                                 Content="Add new book title"/>
-                    </Border>
-                </StackPanel>
-            </Grid>
+                </Border>
+            </StackPanel>
         </Grid>
 
         <!-- Table -->

@@ -734,7 +734,10 @@ namespace AnhQuoc_C5_Assignment
         private bool HandleReason(TextBox txt, ComboBox cmb)
         {
             if (cmb.SelectedItem == null)
+            {
+                ucRetureBookInfo.txtFineAmount.IsEnabled = false;
                 return false;
+            }
             txt.Text = ((PenaltyReasonDto)cmb.SelectedItem).Name;
             return true;
         }
@@ -786,23 +789,30 @@ namespace AnhQuoc_C5_Assignment
                     SelectedReason.Reason = reason;
 
                     decimal fineAmount = 0;
-                    if (reason.Id == "PR1")
+                    if (reason.Id == Constants.reason1)
                     {
                         fineAmount = 0;
                     }
-                    else if (reason.Id == "PR2")
+                    else if (reason.Id == Constants.reason2)
                     {
                         fineAmount = SelectedUnPaidBookCard.Item.PriceCurrent;
                     }
-                    else if (reason.Id == "PR3")
+                    else if (reason.Id == Constants.reason3)
                     {
                         fineAmount = 0;
                     }
-                    Detail.PaidMoney = fineAmount;
 
+                    Detail.PaidMoney = fineAmount;
                     SelectedReason.IsPaided = true;
                 }
-                
+
+                if (SelectedReason.Reason != null)
+                {
+                    if (SelectedReason.Reason.Id == Constants.reason2)
+                        ucRetureBookInfo.txtFineAmount.IsEnabled = false;
+                    else
+                        ucRetureBookInfo.txtFineAmount.IsEnabled = true;
+                }
                 return;
             }
             else
@@ -833,7 +843,9 @@ namespace AnhQuoc_C5_Assignment
             if (SelectedReason.Reason == null)
                 ucRetureBookInfo.txtReason.Text = string.Empty;
             else
+            {
                 ucRetureBookInfo.txtReason.Text = SelectedReason.Reason.Name;
+            }
         }
 
 
@@ -912,8 +924,18 @@ namespace AnhQuoc_C5_Assignment
             ucBookCard card = sender as ucBookCard;
             if (SelectedUnPaidBookCard != null && SelectedUnPaidBookCard == card) return;
 
+
+            // old card
+            if (SelectedUnPaidBookCard != null)
+                SelectedUnPaidBookCard.Background = Brushes.White;
+
+            //  new card
             SelectedUnPaidBookCard = card;
+            SelectedUnPaidBookCard.Background = Brushes.Tomato;
+
             UnPaidBookCards_SelectionChanged();
+
+
         }
 
         private void AddUnPaidBookCardToWrap()
@@ -935,7 +957,7 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
 
-        private void DgDatas_LoadingRow(object sender, DataGridRowEventArgs e)
+        private void DgDatas_LoadingRow(object sender, System.Windows.Controls.DataGridRowEventArgs e)
         {
             LoanSlipDto loan = e.Row.Item as LoanSlipDto;
 

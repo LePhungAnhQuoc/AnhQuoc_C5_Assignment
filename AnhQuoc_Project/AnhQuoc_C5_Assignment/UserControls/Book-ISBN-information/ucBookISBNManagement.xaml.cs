@@ -46,6 +46,19 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private ObservableCollection<Author> _Authors;
+
+        public ObservableCollection<Author> Authors
+        {
+            get { return _Authors; }
+            set 
+            {
+                _Authors = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         private BookTitle _SelectedBookTitle;
         public BookTitle SelectedBookTitle
         {
@@ -139,6 +152,8 @@ namespace AnhQuoc_C5_Assignment
 
         #region ViewModels
         private BookISBNViewModel bookISBNVM;
+        private BookTitleViewModel bookTitleVM;
+        private AuthorViewModel authorVM;
         #endregion
 
         #region Mapping
@@ -163,14 +178,22 @@ namespace AnhQuoc_C5_Assignment
             listFillBookISBNs = new ObservableCollection<BookISBN>();
 
             bookISBNVM = UnitOfViewModel.Instance.BookISBNViewModel;
+            bookTitleVM = UnitOfViewModel.Instance.BookTitleViewModel;
+            authorVM = UnitOfViewModel.Instance.AuthorViewModel;
+
             bookISBNMap = UnitOfMap.Instance.BookISBNMap;
             #endregion
-            
+
+            BookTitles = bookTitleVM.Repo.Gets();
+            Authors = authorVM.Repo.Gets();
+
             btnAdd.Click += BtnAdd_Click;
             ucBookISBNsTable.btnInfoClick += UcBookISBNsTable_btnInfoClick;
             cbBookTitles.SelectionChanged += CbBookTitles_SelectionChanged;
-            btnClearComboBox.Click += BtnClearComboBox_Click;
-
+            cbAuthors.SelectionChanged += CbAuthors_SelectionChanged;
+            
+            btnClearCbBookTitles.Click += btnClearCbBookTitles_Click;
+            btnClearCbAuthors.Click += BtnClearCbAuthors_Click;
             this.Loaded += UcBookISBNManagement_Loaded;
             this.DataContext = this;
         }
@@ -180,9 +203,6 @@ namespace AnhQuoc_C5_Assignment
             AddToListFill(getBookISBNRepo().Gets());
             AddItemsToDataGrid(listFillBookISBNs);
 
-            BookTitles = getBookTitleRepo().Gets();
-
-            btnClearComboBox.Visibility = Visibility.Hidden;
 
             #region IsAllow-Feature
             ucBookISBNsTable.Visibility = (IsAllowViewInformation) ? Visibility.Visible : Visibility.Collapsed;
@@ -193,50 +213,67 @@ namespace AnhQuoc_C5_Assignment
         #region Filter-Methods
         private void CbBookTitles_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if ((sender as ComboBox).SelectedIndex == -1)
+            {
+                btnClearCbBookTitles.Visibility = Visibility.Hidden;
+                ucBookISBNsTable.dtgTitle.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnClearCbBookTitles.Visibility = Visibility.Visible;
+                ucBookISBNsTable.dtgTitle.Visibility = Visibility.Collapsed;
+            }
+
             Fillter();
         }
+
+        private void CbAuthors_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((sender as ComboBox).SelectedIndex == -1)
+            {
+                btnClearCbAuthors.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                btnClearCbAuthors.Visibility = Visibility.Visible;
+            }
+
+            Fillter();
+        }
+
 
         private void Fillter()
         {
             var source = getBookISBNRepo().Gets();
 
             // Filter 1
-            AddToListFill(FillByBookTitle(source));
+            var listFill = FillByBookTitle(source);
+            listFill = FillByAuthor(listFill);
 
+            AddToListFill(listFill);
             AddItemsToDataGrid(listFillBookISBNs);
         }
 
         private ObservableCollection<BookISBN> FillByBookTitle(ObservableCollection<BookISBN> source)
         {
-            BookTitle selectedTitle = null;
-            try
+            if (cbBookTitles.SelectedIndex != -1)
             {
-                if (cbBookTitles.SelectedIndex != -1)
-                {
-                    selectedTitle = (BookTitle)cbBookTitles.SelectedItem;
-                    btnClearComboBox.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    selectedTitle = null;
-                }
+                var selectedItem = (BookTitle)cbBookTitles.SelectedItem;
+                return bookISBNVM.FillByIdBookTitle(source, selectedItem.Id, StatusValue);
             }
-            catch
-            {
-            }
-            if (selectedTitle == null)
-            {
-                return source;
-            }
-            else
-            {
-                BookISBNViewModel viewModel = new BookISBNViewModel();
-                viewModel.Repo = new BookISBNRepository(source);
-
-                var listFillDto_Temp = viewModel.FillByIdBookTitle(selectedTitle.Id, StatusValue);
-                return listFillDto_Temp;
-            }
+            return source;
         }
+
+        private ObservableCollection<BookISBN> FillByAuthor(ObservableCollection<BookISBN> source)
+        {
+            if (cbAuthors.SelectedIndex != -1)
+            {
+                var selectedItem = (Author)cbAuthors.SelectedItem;
+                return bookISBNVM.FillByIdAuthor(source, selectedItem.Id, StatusValue);
+            }
+            return source;
+        }
+
         #endregion
 
 
@@ -251,30 +288,29 @@ namespace AnhQuoc_C5_Assignment
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            ucAddBookISBN ucAddBookISBN = MainWindow.UnitOfForm.UcAddBookISBN(true);
-            Window frmAddBookISBN = Utilities.CreateDefaultForm();
-            frmAddBookISBN.Content = ucAddBookISBN;
-
-            ucAddBookISBN.btnConfirm.Click += (_sender, _e) =>
-            {
-                if (ucAddBookISBN.Context.IsCheckValidForm)
-                    frmAddBookISBN.Close();
-            };
-            ucAddBookISBN.btnCancel.Click += (_sender, _e) =>
-            {
-                frmAddBookISBN.Close();
-            };
-
+            frmAddBookISBN frmAddBookISBN = MainWindow.UnitOfForm.FrmAddBookISBN(true);
+            frmAddBookISBN.getIdBookISBN = () => bookISBNVM.GetId();
             frmAddBookISBN.ShowDialog();
 
-            if (ucAddBookISBN.Context.Item == null)
+            if (frmAddBookISBN.Context.Item == null) // Cancel the operation
+            {
                 return;
+            }
 
-            BookISBN newItem = bookISBNVM.CreateByDto(ucAddBookISBN.Context.Item);
+            BookISBNDto newBookISBNDto = frmAddBookISBN.Context.Item;
 
-            // Add to listFilled
-            listFillBookISBNs.Add(newItem);
+            #region AddNewItem
+            BookISBN newBookISBN = bookISBNVM.CreateByDto(newBookISBNDto);
+            getBookISBNRepo().Add(newBookISBN);
+            getBookISBNRepo().WriteAdd(newBookISBN);
+            #endregion
+
+            #region AddTo-listFill
+            listFillBookISBNs.Add(newBookISBN);
             AddItemsToDataGrid(listFillBookISBNs);
+            #endregion
+
+            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("book ISBN"));
         }
 
 
@@ -291,10 +327,14 @@ namespace AnhQuoc_C5_Assignment
             ucBookISBNsTable.dgDatas.ItemsSource = itemDtos;
         }
 
-        private void BtnClearComboBox_Click(object sender, RoutedEventArgs e)
+        private void btnClearCbBookTitles_Click(object sender, RoutedEventArgs e)
         {
             cbBookTitles.SelectedItem = null;
-            btnClearComboBox.Visibility = Visibility.Hidden;
+        }
+
+        private void BtnClearCbAuthors_Click(object sender, RoutedEventArgs e)
+        {
+            cbAuthors.SelectedItem = null;
         }
     }
 }

@@ -19,9 +19,20 @@ namespace AnhQuoc_C5_Assignment.Animations
     /// </summary>
     public partial class LoadingSpinnerWD : Window
     {
-        public LoadingSpinnerWD()
+        private readonly Action _action;
+        public LoadingSpinnerWD(Action action)
         {
             InitializeComponent();
+
+            _action = action;
+
+            this.Loaded += LoadingSpinnerWD_Loaded;
+        }
+
+        private async void LoadingSpinnerWD_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Task.Run(_action);
+            this.Close();
         }
     }
 }

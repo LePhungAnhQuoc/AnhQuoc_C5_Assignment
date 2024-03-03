@@ -39,6 +39,9 @@ namespace AnhQuoc_C5_Assignment
         private UserViewModel userVM;
         private UserRoleViewModel userRoleVM;
         private UserInfoViewModel userInfoVM;
+
+        private LoanSlipViewModel loanSlipVM;
+        private LoanHistoryViewModel loanHistoryVM;
         #endregion
 
         #region Mapping
@@ -135,6 +138,9 @@ namespace AnhQuoc_C5_Assignment
             userVM = UnitOfViewModel.Instance.UserViewModel;
             userRoleVM = UnitOfViewModel.Instance.UserRoleViewModel;
             userInfoVM = UnitOfViewModel.Instance.UserInfoViewModel;
+            loanSlipVM = UnitOfViewModel.Instance.LoanSlipViewModel;
+            loanHistoryVM = UnitOfViewModel.Instance.LoanHistoryViewModel;
+
 
             userMap = UnitOfMap.Instance.UserMap;
             #endregion
@@ -227,6 +233,8 @@ namespace AnhQuoc_C5_Assignment
             listFillUsers.Add(newUser);
             AddItemsToDataGrid(listFillUsers);
             #endregion
+
+            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("user"));
         }
 
         private void UcUsersTable_btnInfoClick(object sender, RoutedEventArgs e)
@@ -288,6 +296,34 @@ namespace AnhQuoc_C5_Assignment
                 }
                 #endregion
 
+
+                var tempList = loanSlipVM.FillByIdUser(loanSlipVM.Repo.Gets(), userSelect.Id);
+                if (tempList.Count == 0)
+                {
+                    var listTemp = loanHistoryVM.FillByIdUser(loanHistoryVM.Repo.Gets(), userSelect.Id);
+
+
+                    if (listTemp.Count == 0)
+                    {
+                        var tempL = userRoleVM.FillByIdUser(userSelect.Id);
+                        if (tempL.Count > 0)
+                        {
+                            Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("user"));
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("user"));
+                        return;
+                    }
+                }
+                else
+                {
+                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("user"));
+                    return;
+                }
+
                 message = Utilities.NotifySureToDelete();
                 if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                     return;
@@ -340,6 +376,8 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             ucUsersTable.ModifiedPagination();
+            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("user"));
+
         }
 
         private void AddToListFill(ObservableCollection<User> items)

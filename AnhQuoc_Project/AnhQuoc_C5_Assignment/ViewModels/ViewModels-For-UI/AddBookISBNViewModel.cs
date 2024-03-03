@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -9,10 +11,11 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddBookISBNViewModel: BaseViewModel<object>, IPageViewModel
+    public class AddBookISBNViewModel<T, TDto> : BaseViewModel<object>, IPageViewModel
     {
         #region Fields
-        private ucAddBookISBN thisForm;
+        public bool IsCancel { get; set; }
+        private frmAddBookISBN thisForm;
         private List<DependencyObject> mainContentControls;
         private List<TextBox> TextBoxes;
         #endregion
@@ -21,11 +24,8 @@ namespace AnhQuoc_C5_Assignment
         private ObservableCollection<BookTitle> _AllBookTitles;
         public ObservableCollection<BookTitle> AllBookTitles
         {
-            get
-            {
-                return _AllBookTitles;
-            }
-            set
+            get { return _AllBookTitles; }
+            set 
             {
                 _AllBookTitles = value;
                 OnPropertyChanged();
@@ -33,33 +33,45 @@ namespace AnhQuoc_C5_Assignment
         }
 
         private ObservableCollection<Author> _AllAuthors;
+
         public ObservableCollection<Author> AllAuthors
         {
-            get
-            {
-                return _AllAuthors;
-            }
-            set
-            {
+            get { return _AllAuthors; }
+            set 
+            { 
                 _AllAuthors = value;
                 OnPropertyChanged();
             }
         }
 
         private ObservableCollection<string> _AllLanguages;
+
         public ObservableCollection<string> AllLanguages
         {
             get { return _AllLanguages; }
-            set
-            {
+            set 
+            { 
                 _AllLanguages = value;
                 OnPropertyChanged();
             }
         }
 
+
         #endregion
 
-        #region ResultProperties
+        #region ViewModels
+        private BookISBNViewModel bookISBNVM;
+        private BookTitleViewModel bookTitleVM;
+        private AuthorViewModel authorVM;
+        private ParameterViewModel paraVM;
+
+        #endregion
+
+        #region Mapping
+        private BookISBNMap bookISBNMap;
+        #endregion
+
+        #region ResultProperty
         private BookISBNDto _Item;
         public BookISBNDto Item
         {
@@ -73,44 +85,44 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-
-        public bool IsCheckValidForm { get; set; }
-        #endregion
-
-        #region ViewModels
-        private BookISBNViewModel bookISBNVM;
-        private AuthorViewModel authorVM;
-        #endregion
-
-        #region Mapping
-        private AuthorMap authorMap;
-        private BookTitleMap bookTitleMap;
         #endregion
 
         #region Commands
         public RelayCommand LoadedCmd { get; private set; }
+        public RelayCommand ClosingCmd { get; private set; }
         public RelayCommand btnConfirmClickCmd { get; private set; }
         public RelayCommand btnCancelClickCmd { get; private set; }
+        public RelayCommand btnUpdateClickCmd { get; private set; }
+        public RelayCommand btnResetClickCmd { get; private set; }
         #endregion
 
         public AddBookISBNViewModel()
         {
             bookISBNVM = UnitOfViewModel.Instance.BookISBNViewModel;
+            paraVM = UnitOfViewModel.Instance.ParameterViewModel;
+            bookTitleVM = UnitOfViewModel.Instance.BookTitleViewModel;
             authorVM = UnitOfViewModel.Instance.AuthorViewModel;
+            bookISBNMap = UnitOfMap.Instance.BookISBNMap;
 
-            authorMap = UnitOfMap.Instance.AuthorMap;
-            bookTitleMap = UnitOfMap.Instance.BookTitleMap;
+            AllBookTitles = bookTitleVM.Repo.Gets();
+            AllAuthors = authorVM.Repo.Gets();
+            AllLanguages = Utilities.GetListAllLanguages();
 
             #region Init-Commands
-            LoadedCmd = new RelayCommand((para) => frmAddBookISBN_Loaded(para, null));
-            btnConfirmClickCmd = new RelayCommand((para) => btnConfirm_Click(para, null));
-            btnCancelClickCmd = new RelayCommand((para) => btnCancel_Click(para, null));
+            //LoadedCmd = new RelayCommand((para) => frmAddBookISBN_Loaded(para, null));
+            ClosingCmd = new RelayCommand(para => onClosing(para, null));
+            btnConfirmClickCmd = new RelayCommand((para) => BtnConfirm_Click(para, null));
+            btnCancelClickCmd = new RelayCommand((para) => BtnCancel_Click(para, null));
+            btnUpdateClickCmd = new RelayCommand((para) => BtnUpdate_Click(para, null));
+            btnResetClickCmd = new RelayCommand((para) => BtnReset_Click(para, null));
             #endregion
         }
 
-        private void frmAddBookISBN_Loaded(object sender, RoutedEventArgs e)
+        public void onLoaded(object sender, RoutedEventArgs e)
         {
-            thisForm = sender as ucAddBookISBN;
+            IsCancel = true;
+
+            thisForm = sender as frmAddBookISBN;
 
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
@@ -124,22 +136,28 @@ namespace AnhQuoc_C5_Assignment
                 textBox.MaxLength = Constants.textBoxMaxLength;
                 textBox.LostFocus += Txt_LostFocus;
             }
-            
-            NewItem();
 
-            AllAuthors = thisForm.getAuthorRepo().Gets();
-            AllBookTitles = thisForm.getBookTitleRepo().Gets();
-            AllLanguages = Utilities.GetListAllLanguages();
-            IsCheckValidForm = false;
+
+
+            if (thisForm.getItemToUpdate == null)
+            {
+                NewItem();
+                SetFormByAddOrUpdate("ADD");
+            }
+            else
+            {
+                CopyItem();
+                SetFormByAddOrUpdate("UPDATE");
+            }
         }
 
-        private void NewItem()
+
+        private void onClosing(object sender, CancelEventArgs e)
         {
-            Item = new BookISBNDto(bookISBNVM.GetId());
-            Item.Status = true;
+            BtnCancel_Click(null, null, true);
         }
 
-        private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
             Utilities.RunAllValidations(mainContentControls);
@@ -150,38 +168,99 @@ namespace AnhQuoc_C5_Assignment
                 return;
             }
 
-            // Kiểm tra sự trùng lặp
-            var getBookISBN = bookISBNVM.CreateByDto(Item);
-
-            bool isExistInformation = Utilities.IsExistInformation(thisForm.getBookISBNRepo().Gets(), getBookISBN, true, Constants.checkPropBookISBN);
-
-            if (isExistInformation)
+            BookISBN getBookISBN = bookISBNVM.CreateByDto(Item);
+            bool isCheck = Utilities.IsExistInformation(thisForm.getBookISBNRepo().Gets(), getBookISBN, true, Constants.checkPropBookISBN);
+            if (isCheck)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyBookISBNExistInfo());
+                Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("book ISBN"));
                 return;
             }
 
-
-            // Add new Item
-            AddNewBookISBN(getBookISBN);
-            IsCheckValidForm = true;
-
-            var message = Utilities.NotifyAddSuccessfully("Book ISBN");
-            MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
+            IsCancel = false;
+            thisForm.Close();
         }
 
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Item = null;
+            // Validation
+            Utilities.RunAllValidations(mainContentControls);
+
+            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            if (isHasError)
+            {
+                return;
+            }
+
+            BookISBN normalItem = bookISBNVM.CreateByDto(Item);
+            BookISBN normalSourceItem = bookISBNVM.CreateByDto(thisForm.getItemToUpdate());
+
+            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropBookISBN);
+            if (!isExistItemToUpdate)
+            {
+                bool isExistInformation = Utilities.IsExistInformation(thisForm.getBookISBNRepo().Gets(), normalItem, true, Constants.checkPropBookISBN);
+                if (isExistInformation)
+                {
+                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("book ISBN"));
+                    return;
+                }
+            }
+
+            IsCancel = false;
+            thisForm.Close();
         }
 
-        public void AddNewBookISBN(BookISBN newItem)
+        private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
-            thisForm.getBookISBNRepo().Add(newItem);
-            thisForm.getBookISBNRepo().WriteAdd(newItem);
+            bookISBNVM.Copy(Item, thisForm.getItemToUpdate());
         }
 
 
+        private void BtnCancel_Click(object sender, RoutedEventArgs e, bool isClosed = false)
+        {
+            if (IsCancel)
+            {
+                Item = null;
+            }
+
+
+            if (!isClosed)
+                thisForm.Close();
+        }
+
+
+        private void NewItem()
+        {
+            Item = new BookISBNDto(thisForm.getIdBookISBN());
+            Item.Status = false; //!!
+        }
+
+        private void CopyItem()
+        {
+            var getItem = thisForm.getItemToUpdate();
+            Item = getItem.Clone() as BookISBNDto;
+        }
+
+
+        private void SetFormByAddOrUpdate(string feature)
+        {
+            switch (feature)
+            {
+                case "ADD":
+                    thisForm.Title = "Add New Book ISBN Form";
+                    thisForm.lblTitle.Content = "Add New Book ISBN";
+
+                    thisForm.stkUpdateButton.Visibility = Visibility.Collapsed;
+                    thisForm.btnConfirm.Visibility = Visibility.Visible;
+                    break;
+                case "UPDATE":
+                    thisForm.Title = "Update Book ISBN Information Form";
+                    thisForm.lblTitle.Content = "Update Book ISBN Information";
+
+                    thisForm.stkUpdateButton.Visibility = Visibility.Visible;
+                    thisForm.btnConfirm.Visibility = Visibility.Collapsed;
+                    break;
+            }
+        }
 
         private void Txt_LostFocus(object sender, RoutedEventArgs e)
         {

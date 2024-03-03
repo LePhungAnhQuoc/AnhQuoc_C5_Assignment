@@ -57,6 +57,8 @@ namespace AnhQuoc_C5_Assignment
 
             this.Loaded += frmBookISBNInformation_Loaded;
             this.DataContext = this;
+
+            Utilities.SetToolTipForTextBlock(mainContent);
         }
 
         private void frmBookISBNInformation_Loaded(object sender, RoutedEventArgs e)
@@ -67,6 +69,11 @@ namespace AnhQuoc_C5_Assignment
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Utilities.ExpandMore((sender as TextBlock).Text);
         }
     }
 }

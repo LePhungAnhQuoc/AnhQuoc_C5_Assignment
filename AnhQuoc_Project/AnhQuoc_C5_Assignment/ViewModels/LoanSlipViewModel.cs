@@ -59,6 +59,11 @@ namespace AnhQuoc_C5_Assignment
             return source.Where(item => string.Compare(item.IdReader , idReader, ignoreCase) == 0).ToObservableCollection();
         }
 
+        public ObservableCollection<LoanSlip> FillByIdUser(ObservableCollection<LoanSlip> source, string idUser, bool ignoreCase = false)
+        {
+            return source.Where(item => string.Compare(item.IdUser, idUser, ignoreCase) == 0).ToObservableCollection();
+        }
+
         public ObservableCollection<LoanSlip> GetByListReader(ObservableCollection<Reader> readers)
         {
             var source = Repo.Gets();
@@ -78,6 +83,17 @@ namespace AnhQuoc_C5_Assignment
         public bool IsOutOfExpireDate(ObservableCollection<LoanSlip> loanSlips) 
         {
             return loanSlips.FirstOrDefault((item) => IsOutOfExpireDate(item)) != null;
+        }
+
+
+        public ObservableCollection<LoanSlip> FillByLastYear()
+        {
+            return Repo.Gets().Where((item) => item.LoanDate.Year == (DateTime.Now.Year - 1)).ToObservableCollection();
+        }
+
+        public LoanSlip FindByMostQuantity()
+        {
+            return Repo.Gets().OrderByDescending(item => item.Quantity).FirstOrDefault();
         }
 
         public bool IsOutOfExpireDate(LoanSlip loan)

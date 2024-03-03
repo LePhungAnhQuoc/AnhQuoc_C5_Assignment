@@ -20,6 +20,22 @@
         <Setter Property="Height" Value="auto" />
     </Style>
 
+    
+    
+    <Style x:Key="txtStyleTextArea" TargetType="TextBox" BasedOn="{StaticResource txtGeneral}">
+        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+
+        <Setter Property="AcceptsReturn" Value="True" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+    </Style>
+
+    <Style x:Key="txtStyleTextAreaDisplayInfo" TargetType="TextBox" BasedOn="{StaticResource txtStyleTextArea}">
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
     <!-- Validation templates -->
     <ControlTemplate x:Key="txtErrorTemplate1">
         <Grid>

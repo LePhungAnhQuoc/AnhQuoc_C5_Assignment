@@ -61,13 +61,32 @@ namespace AnhQuoc_C5_Assignment
 
         public ObservableCollection<BookISBN> FillByIdBookTitle(string bookTitleId, bool? statusValue)
         {
-            var source = Repo.Gets();
+            return FillByIdBookTitle(Repo.Gets(), bookTitleId, statusValue);
+        }
+
+        public ObservableCollection<BookISBN> FillByIdBookTitle(ObservableCollection<BookISBN> source, string bookTitleId, bool? statusValue)
+        {
             source = FillByStatus(source, statusValue);
 
             ObservableCollection<BookISBN> result = new ObservableCollection<BookISBN>();
             foreach (BookISBN item in source)
             {
                 if (item.IdBookTitle == bookTitleId)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+
+        public ObservableCollection<BookISBN> FillByIdAuthor(ObservableCollection<BookISBN> source, string authorId, bool? statusValue)
+        {
+            source = FillByStatus(source, statusValue);
+
+            ObservableCollection<BookISBN> result = new ObservableCollection<BookISBN>();
+            foreach (BookISBN item in source)
+            {
+                if (item.IdAuthor == authorId)
                 {
                     result.Add(item);
                 }

@@ -987,18 +987,19 @@ namespace AnhQuoc_C5_Assignment
 
         public void CalculatePayment()
         {
+            var listBook = bookVM.GetBooksInLoanDetails(LoanDetails);
+
             Parameter paraQD10 = paraVM.FindById(Constants.paraQD10);
             Parameter paraQD11 = paraVM.FindById(Constants.paraQD11);
             decimal paraQD11_Value = Convert.ToDecimal(paraQD11.Value.Replace("%", "")) / 100;
 
-            LoanSlipDto.LoanPaid = Convert.ToDecimal(paraQD10.Value.ToString());
-            LoanSlipDto.Deposit = CalculateDeposit(paraQD11_Value);
+            LoanSlipDto.LoanPaid = Convert.ToDecimal(paraQD10.Value.ToString()) * listBook.Count;
+            LoanSlipDto.Deposit = CalculateDeposit(listBook, paraQD11_Value);
         }
 
-        private decimal CalculateDeposit(decimal percentValue)
+        private decimal CalculateDeposit(ObservableCollection<Book> listBook, decimal percentValue)
         {
             decimal price = 0.0M;
-            var listBook = bookVM.GetBooksInLoanDetails(LoanDetails);
 
             foreach (var book in listBook)
             {

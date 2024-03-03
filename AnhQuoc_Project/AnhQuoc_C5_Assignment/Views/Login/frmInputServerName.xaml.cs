@@ -106,7 +106,6 @@ namespace AnhQuoc_C5_Assignment
         public frmInputServerName()
         {
             InitializeComponent();
-            IsRememberMe = false;
 
             serverNameVM = UnitOfViewModel.Instance.ServerNameViewModel;
             databaseNameVM = UnitOfViewModel.Instance.DatabaseNameViewModel;
@@ -118,6 +117,7 @@ namespace AnhQuoc_C5_Assignment
             DatabaseName = null;
 
             btnConfirm.Click += BtnConfirm_Click;
+            btnExit.Click += BtnExit_Click;
             txtServerName.PreviewKeyDown += TxtServerName_PreviewKeyDown;
             txtDatabaseName.PreviewKeyDown += TxtDatabaseName_PreviewKeyDown;
 
@@ -125,10 +125,16 @@ namespace AnhQuoc_C5_Assignment
             this.DataContext = this;
         }
 
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
         private void FrmInputServerName_Loaded(object sender, RoutedEventArgs e)
         {
+            IsRememberMe = true;
+
             isCheckRemember = false;
-            IsRememberMe = false;
 
             ServerName = null;
             DatabaseName = null;
@@ -158,8 +164,8 @@ namespace AnhQuoc_C5_Assignment
             finded = XmlProvider.Instance.FindNode(Constants.childServerName, propName, newServer1.Name);
             if (finded == null)
             {
-                getServerNameRepo().Add(newServer1);
-                getServerNameRepo().WriteAdd(newServer1);
+                getServerNameRepo().Prepend(newServer1);
+                getServerNameRepo().WritePrepend(newServer1);
             }
 
             ServerName newServer2 = new ServerName(serverNameVM.GetId(), serverName2);
@@ -167,8 +173,8 @@ namespace AnhQuoc_C5_Assignment
             finded = XmlProvider.Instance.FindNode(Constants.childServerName, propName, newServer2.Name);
             if (finded == null)
             {
-                getServerNameRepo().Add(newServer2);
-                getServerNameRepo().WriteAdd(newServer2);
+                getServerNameRepo().Prepend(newServer2);
+                getServerNameRepo().WritePrepend(newServer2);
             }
 
             if (ServerName == null)

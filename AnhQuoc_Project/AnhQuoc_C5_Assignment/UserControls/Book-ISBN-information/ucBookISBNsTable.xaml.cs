@@ -85,11 +85,6 @@ namespace AnhQuoc_C5_Assignment
             this.DataContext = this;
         }
 
-        private void DgDatas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            btnInfo_Click(null, null);
-        }
-
         private void ucBookISBNsTable_Loaded(object sender, RoutedEventArgs e)
         {
             if (btnDeleteClick == null)
@@ -108,6 +103,11 @@ namespace AnhQuoc_C5_Assignment
                 BookISBNDtos = allBookISBNDtos;
             }
 
+        }
+
+        private void DgDatas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            btnInfo_Click(null, null);
         }
 
         private void btnInfo_Click(object sender, RoutedEventArgs e)

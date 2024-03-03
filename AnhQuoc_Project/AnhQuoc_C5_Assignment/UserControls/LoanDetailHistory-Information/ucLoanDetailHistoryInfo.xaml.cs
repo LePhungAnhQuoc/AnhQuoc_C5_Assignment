@@ -60,11 +60,11 @@ namespace AnhQuoc_C5_Assignment
 
             #region Events
             btnBack.Click += BtnBack_Click;
-            btnExpandNote.Click += BtnExpandNote_Click;
             #endregion
 
             this.DataContext = this;
             this.Loaded += ucLoanDetailHistoryInformation_Loaded;
+            Utilities.SetToolTipForTextBlock(mainContent);
         }
 
         private void ucLoanDetailHistoryInformation_Loaded(object sender, RoutedEventArgs e)
@@ -82,15 +82,9 @@ namespace AnhQuoc_C5_Assignment
             btnBackClick?.Invoke(sender, e);
         }
 
-        private void BtnExpandNote_Click(object sender, RoutedEventArgs e)
+        private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //frmExpandNote = new frmExpand();
-
-            //Binding newBinding = new Binding("Note");
-            //newBinding.Source = Item;
-            //frmExpandNote.textArea.SetBinding(ContentControl.ContentProperty, newBinding);
-
-            //frmExpandNote.ShowDialog();
+            Utilities.ExpandMore((sender as TextBlock).Text);
         }
     }
 }

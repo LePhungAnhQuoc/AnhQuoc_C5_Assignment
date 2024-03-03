@@ -15,6 +15,10 @@
             <i:InvokeCommandAction Command="{Binding LoadedCmd}" 
                                    CommandParameter="{Binding ElementName=myUserControl}" />
         </i:EventTrigger>
+        <i:EventTrigger EventName="Closing">
+            <i:InvokeCommandAction Command="{Binding ClosingCmd}" 
+                   CommandParameter="{Binding ElementName=myUserControl}" />
+        </i:EventTrigger>
     </i:Interaction.Triggers>
     <Window.Resources>
         <local:DateMinToNullValueConverter x:Key="dateMinToNullValueConverter" />

@@ -38,8 +38,15 @@ namespace AnhQuoc_C5_Assignment
             InitializeComponent();
             
             Context = new AddFunctionViewModel();
+
+            this.Loaded += FrmAddFunction_Loaded;
             this.DataContext = Context;
 
+        }
+
+        private void FrmAddFunction_Loaded(object sender, RoutedEventArgs e)
+        {
+            Context.onLoaded(sender, e);
         }
     }
 }

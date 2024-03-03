@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" 
-             d:DesignHeight="350" d:DesignWidth="260">
-    <Grid Width="230"
+             d:DesignHeight="350">
+    <Grid HorizontalAlignment="Left"
           Background="#4e73de">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -28,9 +28,10 @@
         </StackPanel>
         <TreeView Grid.Row="1" 
                   Name="tvDashBoard"
+                  HorizontalAlignment="Stretch"
                   Style="{StaticResource treeGeneral}"
-                  BorderThickness="0"
-                  >
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  BorderThickness="0">
             <TreeView.Resources>
                 <Style TargetType="TreeViewItem" BasedOn="{StaticResource tvItemStyle1}" />
             </TreeView.Resources>

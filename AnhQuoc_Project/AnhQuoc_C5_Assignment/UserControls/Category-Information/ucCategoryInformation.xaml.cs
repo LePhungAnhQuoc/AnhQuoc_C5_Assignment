@@ -54,6 +54,7 @@ namespace AnhQuoc_C5_Assignment
             InitializeComponent();
             this.DataContext = this;
             Loaded += ucCategoryInformation_Loaded;
+            Utilities.SetToolTipForTextBlock(mainContent);
         }
         
         private void ucCategoryInformation_Loaded(object sender, RoutedEventArgs e)

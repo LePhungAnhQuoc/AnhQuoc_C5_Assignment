@@ -24,6 +24,7 @@ using System.Runtime.CompilerServices;
 using System.Reflection;
 using System.Collections;
 using AnhQuoc_C5_Assignment.Animations;
+using System.Windows.Threading;
 
 namespace AnhQuoc_C5_Assignment
 {
@@ -80,7 +81,7 @@ namespace AnhQuoc_C5_Assignment
         public MainWindow()
         {
             InitializeComponent();
-            
+
             serverName = null;
             databaseName = null;
 
@@ -106,30 +107,6 @@ namespace AnhQuoc_C5_Assignment
 
             this.Loaded += MainWindow_Loaded;
             this.Closed += MainWindow_Closed;
-
-        }
-
-
-        private void ShowLoadingSpinner()
-        {
-            Thread newThread = new Thread(() =>
-            {
-                loadingSpinnerWD = new LoadingSpinnerWD();
-
-                loadingSpinnerWD.Dispatcher.Invoke(() =>
-                {
-                    loadingSpinnerWD.ShowDialog();
-                });
-            });
-            newThread.SetApartmentState(ApartmentState.STA);
-            newThread.Start();
-            newThread.Join(1000);
-        }
-
-        private void StopLoadingSpinner()
-        {
-            Thread newThread = new Thread(() => loadingSpinnerWD.Dispatcher.Invoke(() => loadingSpinnerWD.Close()));
-            newThread.Start();
         }
 
 
@@ -143,6 +120,7 @@ namespace AnhQuoc_C5_Assignment
 
         public void LoginAndGo()
         {
+            this.Hide();
         Goto:
             frmLogin = UnitOfForm.FrmLogin(true);
             frmLogin.getFrmMain = () => this;
@@ -336,20 +314,21 @@ namespace AnhQuoc_C5_Assignment
 
 
                 // Checking
-                ShowLoadingSpinner();
-                isCheckConnectionString = CheckIsRightConnection();
+                var wait = new LoadingSpinnerWD(() => 
+                { 
+                    isCheckConnectionString = CheckIsRightConnection();
+                });
+                wait.ShowDialog();
+
 
                 if (!isCheckConnectionString)
                 {
-                    StopLoadingSpinner();
-
                     Utilities.ShowMessageBox1("Invalid Connections string!", "Error Connection", MessageBoxImage.Error);
                     ResetServerName();
                     continue;
                 }
 
             }
-            StopLoadingSpinner();
             //  CheckingModelHasDecimalProp();
         }
 
@@ -381,29 +360,30 @@ namespace AnhQuoc_C5_Assignment
         {
             SetUpServerName();
 
-            ShowLoadingSpinner();
+            LoadingSpinnerWD wait = new LoadingSpinnerWD(() =>
+            {
+                #region LoadUnit2
+                UnitOfRepo.Load();
 
-            #region LoadUnit2
-            UnitOfRepo.Load();
+                UnitOfViewModel.Instance._UnitOfRepo = UnitOfRepo;
+                UnitOfViewModel.Instance.Load();
 
-            UnitOfViewModel.Instance._UnitOfRepo = UnitOfRepo;
-            UnitOfViewModel.Instance.Load();
+                UnitOfMap.Instance.UnitOfRepo = UnitOfRepo;
+                UnitOfMap.Instance.Load();
 
-            UnitOfMap.Instance.UnitOfRepo = UnitOfRepo;
-            UnitOfMap.Instance.Load();
+                UnitOfForm.Load();
+                #endregion
 
-            UnitOfForm.Load();
-            #endregion
+                #region ViewModels
+                roleVM = UnitOfViewModel.Instance.RoleViewModel;
+                functionVM = UnitOfViewModel.Instance.FunctionViewModel;
+                userRoleVM = UnitOfViewModel.Instance.UserRoleViewModel;
+                roleFunctionVM = UnitOfViewModel.Instance.RoleFunctionViewModel;
+                #endregion
 
-            #region ViewModels
-            roleVM = UnitOfViewModel.Instance.RoleViewModel;
-            functionVM = UnitOfViewModel.Instance.FunctionViewModel;
-            userRoleVM = UnitOfViewModel.Instance.UserRoleViewModel;
-            roleFunctionVM = UnitOfViewModel.Instance.RoleFunctionViewModel;
-            #endregion
-
-            RoleGroups = roleVM.GetGroups();
-            StopLoadingSpinner();
+                RoleGroups = roleVM.GetGroups();
+            });
+            wait.ShowDialog();
         }
       
         #endregion
@@ -422,6 +402,16 @@ namespace AnhQuoc_C5_Assignment
             var dsTinhNang = functionsByRole;
 
             var layThongTinDsTinhNang = functionVM.getFunctionsByListId(dsTinhNang.Select(i => i.IdFunction));
+
+
+            // Order Statistical function at top
+            var statisticalF = layThongTinDsTinhNang.FirstOrDefault(item => item.Id == Constants.StatisticalPage_FunctionId);
+            if (statisticalF != null)
+            {
+                layThongTinDsTinhNang.Remove(statisticalF);
+                layThongTinDsTinhNang.Insert(0, statisticalF);
+            }
+
 
             LoadUcDashBoard(layThongTinDsTinhNang);
             return true;

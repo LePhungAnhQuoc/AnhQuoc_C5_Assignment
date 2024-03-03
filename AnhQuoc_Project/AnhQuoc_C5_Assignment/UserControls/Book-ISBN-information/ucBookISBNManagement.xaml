@@ -18,29 +18,58 @@
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0"
+                        Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="ComboBox" BasedOn="{StaticResource cbStyle2}" />
+                    <Style TargetType="Grid">
+                        <Setter Property="Margin" Value="10 0" />
+                    </Style>
+                </StackPanel.Resources>
+                <Grid>
+                    <ComboBox Name="cbBookTitles"
+                              ItemsSource="{Binding BookTitles}"
+                              SelectedItem="{Binding SelectedBookTitle}"
+                              DisplayMemberPath="Name"  />
+                    <TextBlock Text="Select Book Title">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolderComboBox}">
+                                <Setter Property="Visibility" Value="Hidden" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=cbBookTitles, Path=SelectedIndex}" Value="-1">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <Button Name="btnClearCbBookTitles"
+                            Style="{StaticResource btnClearComboBox}" />
+                </Grid>
+                <Grid>
+                    <ComboBox Name="cbAuthors"
+                              ItemsSource="{Binding Authors}"
+                              SelectedItem="{Binding SelectedAuthor}"
+                              DisplayMemberPath="Name" 
+                              SelectedIndex="0" />
+                    <TextBlock Text="Select Author">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolderComboBox}">
+                                <Setter Property="Visibility" Value="Hidden" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=cbAuthors, Path=SelectedIndex}" Value="-1">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <Button Name="btnClearCbAuthors"
+                            Style="{StaticResource btnClearComboBox}" />
+                </Grid>
+            </StackPanel>
             
-            <Grid Grid.Column="0"
-                  Margin="10 0 0 0">
-                <ComboBox Name="cbBookTitles"
-                          Style="{StaticResource cbStyle2}"
-                          ItemsSource="{Binding BookTitles}"
-                          SelectedItem="{Binding SelectedBookTitle}"
-                          DisplayMemberPath="Name" />
-                <TextBlock Text="Select Book Title">
-                    <TextBlock.Style>
-                        <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolderComboBox}">
-                            <Setter Property="Visibility" Value="Hidden" />
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding ElementName=cbBookTitles, Path=SelectedIndex}" Value="-1">
-                                    <Setter Property="Visibility" Value="Visible" />
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBlock.Style>
-                </TextBlock>
-                <Button Name="btnClearComboBox"
-                        Style="{StaticResource btnClearComboBox}" />
-            </Grid>
             <StackPanel Grid.Column="1"
                         Orientation="Horizontal"
                         Margin="30 0 0 0">

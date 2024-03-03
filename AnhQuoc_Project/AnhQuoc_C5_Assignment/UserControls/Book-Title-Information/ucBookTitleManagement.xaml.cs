@@ -132,6 +132,7 @@ namespace AnhQuoc_C5_Assignment
             bookTitleMap = UnitOfMap.Instance.BookTitleMap;
             #endregion
 
+            ucBookTitlesTable.btnInfoClick += UcBookTitlesTable_btnInfoClick;
             btnAdd.Click += BtnAdd_Click;
             txtSearch.TextChanged += TxtSearch_TextChanged;
 
@@ -159,60 +160,65 @@ namespace AnhQuoc_C5_Assignment
 
         private void Fillter()
         {
-            var results = FillByTextSearch(getBookTitleRepo().Gets());
+            var source = getBookTitleRepo().Gets();
+
+            string textSearch = txtSearch.Text.ToLower();
+            var results = bookTitleVM.FillContainsName(source, textSearch, true);
+            
             AddToListFill(results);
             AddItemsToDataGrid(listFillBookTitles);
         }
-
-        private ObservableCollection<BookTitle> FillByTextSearch(ObservableCollection<BookTitle> source)
-        {
-            string textSearch = txtSearch.Text.ToLower();
-
-            ObservableCollection<BookTitle> results = new ObservableCollection<BookTitle>();
-            foreach (BookTitle itemDto in source)
-            {
-                bool isCheck = itemDto.Name.ContainsCorrectly(textSearch, true);
-                if (isCheck)
-                {
-                    results.Add(itemDto);
-                }
-            }
-            return results;
-        }
         #endregion
+
+        private void UcBookTitlesTable_btnInfoClick(object sender, RoutedEventArgs e)
+        {
+            if (ucBookTitlesTable.dgDatas.SelectedIndex == -1)
+            {
+                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("bookTitle"));
+                return;
+            }
+
+            BookTitleDto bookTitleDtoSelect = ucBookTitlesTable.SelectedBookTitleDto;
+            BookTitle bookTitleSelect = bookTitleVM.FindById(bookTitleDtoSelect.Id);
+
+            ucBookTitleInformation ucBookTitleInformation = MainWindow.UnitOfForm.UcBookTitleInformation(true);
+            ucBookTitleInformation.getItem = () => bookTitleDtoSelect;
+
+            Window frmBookTitleInformation = Utilities.CreateDefaultForm();
+            frmBookTitleInformation.Content = ucBookTitleInformation;
+            frmBookTitleInformation.Show();
+
+            ucBookTitleInformation.btnBack.Click += (_sender, _e) =>
+            {
+                frmBookTitleInformation.Close();
+            };
+        }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            ucAddBookTitle ucAddBookTitle = MainWindow.UnitOfForm.UcAddBookTitle(true);
-            ucAddBookTitle.getId = () => bookTitleVM.GetId();
-
-            Window frmAddBookTitle = Utilities.CreateDefaultForm();
-           
-            ucAddBookTitle.btnConfirm.Click += (_sender, _e) =>
-            {
-                if (ucAddBookTitle.Context.IsCheckValidForm)
-                    frmAddBookTitle.Close();
-            };
-            ucAddBookTitle.btnCancel.Click += (_sender, _e) =>
-            {
-                frmAddBookTitle.Close();
-            };
-
-            StackPanel stkPanel = new StackPanel();
-            stkPanel.Children.Add(ucAddBookTitle);
-            frmAddBookTitle.Content = stkPanel;
-
+            frmAddBookTitle frmAddBookTitle = MainWindow.UnitOfForm.FrmAddBookTitle(true);
+            frmAddBookTitle.getIdBookTitle = () => bookTitleVM.GetId();
             frmAddBookTitle.ShowDialog();
 
-            if (ucAddBookTitle.Context.Item == null)
+            if (frmAddBookTitle.Context.Item == null) // Cancel the operation
+            {
                 return;
+            }
 
-            BookTitle getBookTitle = bookTitleVM.CreateByDto(ucAddBookTitle.Context.Item);
+            BookTitleDto newBookTitleDto = frmAddBookTitle.Context.Item;
 
-            #region AddToListFill
-            listFillBookTitles.Add(getBookTitle);
+            #region AddNewItem
+            BookTitle newBookTitle = bookTitleVM.CreateByDto(newBookTitleDto);
+            getBookTitleRepo().Add(newBookTitle);
+            getBookTitleRepo().WriteAdd(newBookTitle);
+            #endregion
+
+            #region AddTo-listFill
+            listFillBookTitles.Add(newBookTitle);
             AddItemsToDataGrid(listFillBookTitles);
             #endregion
+
+            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("book title"));
         }
 
         private void AddItemsToDataGrid(ObservableCollection<BookTitle> items)

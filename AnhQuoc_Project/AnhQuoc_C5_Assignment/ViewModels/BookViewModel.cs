@@ -70,13 +70,82 @@ namespace AnhQuoc_C5_Assignment
 
         public ObservableCollection<Book> FillByBookISBN(string ISBNValue, bool? statusValue)
         {
-            var source = Repo.Gets();
+            return FillByBookISBN(Repo.Gets(), ISBNValue, statusValue);
+        }
+
+        public ObservableCollection<Book> FillByBookISBN(ObservableCollection<Book> source, string ISBNValue, bool? statusValue)
+        {
             source = FillByStatus(source, statusValue);
 
             ObservableCollection<Book> result = new ObservableCollection<Book>();
             foreach (Book item in source)
             {
                 if (item.ISBN == ISBNValue)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+
+        public ObservableCollection<Book> FillByIdPublisher(ObservableCollection<Book> source, string idPublisherValue, bool? statusValue)
+        {
+            source = FillByStatus(source, statusValue);
+
+            ObservableCollection<Book> result = new ObservableCollection<Book>();
+            foreach (Book item in source)
+            {
+                if (item.IdPublisher == idPublisherValue)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+
+        public ObservableCollection<Book> FillByIdTranslator(ObservableCollection<Book> source, string idTranslatorValue, bool? statusValue)
+        {
+            source = FillByStatus(source, statusValue);
+
+            ObservableCollection<Book> result = new ObservableCollection<Book>();
+            foreach (Book item in source)
+            {
+                if (item.IdTranslator == idTranslatorValue)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+
+        public ObservableCollection<Book> FillContainsBookTitleName(ObservableCollection<Book> source, string titleValue, bool igNoreCase)
+        {
+            BookMap bookMap = UnitOfMap.Instance.BookMap;
+
+            ObservableCollection<Book> newList = new ObservableCollection<Book>();
+            foreach (Book item in source)
+            {
+                BookDto itemDto = bookMap.ConvertToDto(item);
+
+                if (itemDto.BookTitle.Name.ContainsCorrectly(titleValue, igNoreCase))
+                {
+                    newList.Add(item);
+                }
+            }
+            return newList;
+        }
+
+        public ObservableCollection<Book> FillByCategory(ObservableCollection<Book> source, string catIdValue, bool? statusValue)
+        {
+            BookMap bookMap = UnitOfMap.Instance.BookMap;
+            source = FillByStatus(source, statusValue);
+
+            ObservableCollection<Book> result = new ObservableCollection<Book>();
+            foreach (Book item in source)
+            {
+                BookDto itemDto = bookMap.ConvertToDto(item);
+
+                if (itemDto.Category.Id == catIdValue)
                 {
                     result.Add(item);
                 }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,7 +21,7 @@ namespace AnhQuoc_C5_Assignment
     /// <summary>
     /// Interaction logic for ucBookManagement.xaml
     /// </summary>
-    public partial class ucBookManagement : UserControl
+    public partial class ucBookManagement : UserControl, INotifyPropertyChanged
     {
         #region GetDatas
         public Func<BookTitleRepository> getBookTitleRepo { get; set; }
@@ -36,15 +38,50 @@ namespace AnhQuoc_C5_Assignment
 
         #region Properties
         public bool? StatusValue { get; set; } = null;
+
+        private ObservableCollection<BookISBN> _AllBookISBNs;
+        public ObservableCollection<BookISBN> AllBookISBNs
+        {
+            get { return _AllBookISBNs; }
+            set
+            { 
+                _AllBookISBNs = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<Category> _AllCategorys;
+        public ObservableCollection<Category> AllCategorys
+        {
+            get { return _AllCategorys; }
+            set 
+            {
+                _AllCategorys = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         #endregion
 
         #region ViewModels
         private BookViewModel bookVM;
         private BookISBNViewModel bookISBNVM;
+        private CategoryViewModel catVM;
         #endregion
 
         #region Mapping
         private BookMap bookMap;
+        #endregion
+
+        #region PropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        // Create the OnPropertyChanged method to raise the event
+        // The calling member's name will be used as the parameter.
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
         #endregion
 
         #region UserControls
@@ -140,16 +177,23 @@ namespace AnhQuoc_C5_Assignment
 
             bookVM = UnitOfViewModel.Instance.BookViewModel;
             bookISBNVM = UnitOfViewModel.Instance.BookISBNViewModel;
+            catVM = UnitOfViewModel.Instance.CategoryViewModel;
 
             bookMap = UnitOfMap.Instance.BookMap;
             #endregion
 
-            ucBooksTable.btnDeleteClick += UcBooksTable_btnDeleteClick;
+            AllBookISBNs = bookISBNVM.Repo.Gets();
+            AllCategorys = catVM.Repo.Gets();
+
             cbBookISBNs.SelectionChanged += CbBookISBNs_SelectionChanged;
-            txtSearchByName.TextChanged += TxtSearch_TextChanged;
+            cbCategorys.SelectionChanged += CbCategorys_SelectionChanged;
+            txtSearchByBookTitle.TextChanged += TxtSearch_TextChanged;
             btnAdd.Click += BtnAdd_Click;
-            btnClearComboBox.Click += BtnClearComboBox_Click;
             
+            btnClearCbBookISBN.Click += btnClearCbBookISBN_Click;
+            btnClearCbCategory.Click += BtnClearCbCategory_Click;
+
+            this.DataContext = this;
             this.Loaded += UcBookManagement_Loaded;
         }
 
@@ -159,22 +203,44 @@ namespace AnhQuoc_C5_Assignment
 
             AddToListFill(allBooks);
             AddItemsToDataGrid(listFillBooks);
-
-            cbBookISBNs.ItemsSource = getBookISBNRepo().Gets();
             
-            btnClearComboBox.Visibility = Visibility.Hidden;
-
             #region IsAllow-Feature
             ucBooksTable.Visibility = (IsAllowViewInformation) ? Visibility.Visible : Visibility.Collapsed;
             btnAdd.Visibility = (IsAllowAdd) ? Visibility.Visible : Visibility.Collapsed;
             gdCbBookISBNs.Visibility = (IsAllowSearchByBookISBN) ? Visibility.Visible : Visibility.Collapsed;
-            gdTxtSearchByName.Visibility = (IsAllowSearchByName) ? Visibility.Visible : Visibility.Collapsed;
+            gdTxtSearchByBookTitle.Visibility = (IsAllowSearchByName) ? Visibility.Visible : Visibility.Collapsed;
             #endregion
         }
 
         #region Fillter-Methods
         private void CbBookISBNs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if ((sender as ComboBox).SelectedIndex == -1)
+            {
+                btnClearCbBookISBN.Visibility = Visibility.Hidden;
+                ucBooksTable.dtgISBN.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnClearCbBookISBN.Visibility = Visibility.Visible;
+                ucBooksTable.dtgISBN.Visibility = Visibility.Collapsed;
+            }
+            Fillter();
+        }
+
+        private void CbCategorys_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((sender as ComboBox).SelectedIndex == -1)
+            {
+                btnClearCbCategory.Visibility = Visibility.Hidden;
+                ucBooksTable.dtgCategory.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnClearCbCategory.Visibility = Visibility.Visible;
+                ucBooksTable.dtgCategory.Visibility = Visibility.Collapsed;
+            }
+
             Fillter();
         }
 
@@ -186,99 +252,37 @@ namespace AnhQuoc_C5_Assignment
         private void Fillter()
         {
             ObservableCollection<Book> source = getBookRepo().Gets();
-            ObservableCollection<Book> results = null;
+            ObservableCollection<Book> results = source;
 
-            results = FillByComboBoxBookISBN(source);
-            results = FillByTxtSearchByName(results);
+            results = FillByBookISBN(results);
+            results = bookVM.FillContainsBookTitleName(results, txtSearchByBookTitle.Text, true);
+            results = FillByCategory(results);
 
             AddToListFill(results);
             AddItemsToDataGrid(listFillBooks);
         }
 
-        private ObservableCollection<Book> FillByComboBoxBookISBN(ObservableCollection<Book> source)
+        private ObservableCollection<Book> FillByBookISBN(ObservableCollection<Book> source)
         {
-            BookISBN selectedISBN = null;
-            try
+            if (cbBookISBNs.SelectedIndex != -1)
             {
-                if (cbBookISBNs.SelectedIndex != -1)
-                {
-                    selectedISBN = (BookISBN)cbBookISBNs.SelectedItem;
-                    btnClearComboBox.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    selectedISBN = null;
-                }
+                var selectedItem = (BookISBN)cbBookISBNs.SelectedItem;
+                return bookVM.FillByBookISBN(source, selectedItem.ISBN, StatusValue);
             }
-            catch
-            {
-            }
-            if (selectedISBN == null)
-            {
-                return source;
-            }
-            else
-            {
-                BookViewModel viewModel = new BookViewModel();
-                viewModel.Repo = new BookRepository(source);
-                return viewModel.FillByBookISBN(selectedISBN.ISBN, StatusValue);
-            }
+            return source;
         }
 
-        private ObservableCollection<Book> FillByTxtSearchByName(ObservableCollection<Book> source)
+        private ObservableCollection<Book> FillByCategory(ObservableCollection<Book> source)
         {
-            string textSearch = txtSearchByName.Text.ToLower();
-
-            ObservableCollection<Book> results = new ObservableCollection<Book>();
-            foreach (Book item in source)
+            if (cbCategorys.SelectedIndex != -1)
             {
-                BookDto itemDto = bookMap.ConvertToDto(item);
-                bool isCheck = itemDto.BookTitle.Name.ContainsCorrectly(textSearch, true);
-                if (isCheck)
-                {
-                    results.Add(item);
-                }
+                var selectedItem = (Category)cbCategorys.SelectedItem;
+                return bookVM.FillByCategory(source, selectedItem.Id, StatusValue);
             }
-            return results;
+            return source;
         }
+
         #endregion
-
-        private void UcBooksTable_btnDeleteClick(object sender, RoutedEventArgs e)
-        {
-            bool? bookStatusBorrow = true;
-            bool? bookISBNStatusValue = null;
-
-            bool updateStatus = false;
-            if (ucBooksTable.dgBooks.SelectedIndex == -1)
-            {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("book"));
-                return;
-            }
-            var message = Utilities.NotifySureToDelete();
-            if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
-                return;
-
-            #region UpdateBookStatus
-            BookDto bookDtoSelect = ucBooksTable.SelectedDto;
-            Book bookSelect = bookVM.FindById(bookDtoSelect.Id, !updateStatus);
-
-            bookSelect.Status = updateStatus;
-            getBookRepo().WriteUpdateStatus(bookSelect, updateStatus);
-            #endregion
-
-            #region UpdateBookISBNStatus
-            BookISBN bookISBNFinded = bookISBNVM.FindByISBN(bookSelect.ISBN, bookISBNStatusValue);
-            var listFillISBN = bookVM.FillByBookISBN(bookISBNFinded.ISBN, bookStatusBorrow);
-            listFillISBN = bookVM.FillByStatus(listFillISBN, true);
-            if (listFillISBN.Count == 0)
-            {
-                bookISBNFinded.Status = false;
-                getBookISBNRepo().WriteUpdateStatus(bookISBNFinded, false);
-            }
-            #endregion
-
-            AddItemsToDataGrid(listFillBooks);
-        }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -305,6 +309,9 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFillBooks);
             #endregion
 
+
+            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("book"));
+
             #region SaveBookISBNStatus
             BookISBN selectedBookISBN = bookISBNVM.FindByISBN(newBook.ISBN, null);
             if (selectedBookISBN.Status == false)
@@ -329,10 +336,14 @@ namespace AnhQuoc_C5_Assignment
             ucBooksTable.Books = itemDtos;
         }
 
-        private void BtnClearComboBox_Click(object sender, RoutedEventArgs e)
+        private void btnClearCbBookISBN_Click(object sender, RoutedEventArgs e)
         {
             cbBookISBNs.SelectedItem = null;
-            btnClearComboBox.Visibility = Visibility.Hidden;
+        }
+
+        private void BtnClearCbCategory_Click(object sender, RoutedEventArgs e)
+        {
+            cbCategorys.SelectedItem = null;
         }
         #endregion
     }

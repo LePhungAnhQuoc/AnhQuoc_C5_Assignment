@@ -39,6 +39,17 @@ namespace AnhQuoc_C5_Assignment
             XmlProvider.Instance.Close();
         }
 
+        public void WritePrepend(DatabaseName newDatabaseName)
+        {
+            XmlProvider.Instance.Open(Constants.fDatabaseNames);
+
+            XmlNode newNodeItem = WriteItem(newDatabaseName);
+            XmlNode parentNode = XmlProvider.Instance.nodeRoot;
+
+            parentNode.PrependChild(newNodeItem);
+            XmlProvider.Instance.Close();
+        }
+
 
         public DatabaseName LoadItem(XmlNode nodeData)
         {

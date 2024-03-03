@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,14 +13,69 @@ namespace AnhQuoc_C5_Assignment
     public class AddBookViewModel: BaseViewModel<object>, IPageViewModel
     {
         #region Fields
+        public bool IsCancel { get; set; }
         private frmAddBook thisForm;
         private List<DependencyObject> mainContentControls;
         private List<TextBox> TextBoxes;
         #endregion
 
+        #region Properties
+        private ObservableCollection<BookISBN> _AllBookISBNs;
 
+        public ObservableCollection<BookISBN> AllBookISBNs
+        {
+            get { return _AllBookISBNs; }
+            set 
+            {
+                _AllBookISBNs = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<Publisher> _AllPublishers;
+
+        public ObservableCollection<Publisher> AllPublishers
+        {
+            get { return _AllPublishers; }
+            set
+            {
+                _AllPublishers = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<Translator> _AllTranslators;
+
+        public ObservableCollection<Translator> AllTranslators
+        {
+            get { return _AllTranslators; }
+            set
+            {
+                _AllTranslators = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<string> _AllLanguages;
+
+        public ObservableCollection<string> AllLanguages
+        {
+            get { return _AllLanguages; }
+            set
+            {
+                _AllLanguages = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+
+        #endregion
 
         #region ViewModels
+        private BookISBNViewModel bookISBNVM;
+        private PublisherViewModel publisherVM;
+        private TranslatorViewModel translatorVM;
         private BookViewModel bookVM;
         private ParameterViewModel paraVM;
         #endregion
@@ -45,6 +102,7 @@ namespace AnhQuoc_C5_Assignment
 
         #region Commands
         public RelayCommand LoadedCmd { get; private set; }
+        public RelayCommand ClosingCmd { get; private set; }
         public RelayCommand btnConfirmClickCmd { get; private set; }
         public RelayCommand btnCancelClickCmd { get; private set; }
         public RelayCommand btnUpdateClickCmd { get; private set; }
@@ -54,11 +112,21 @@ namespace AnhQuoc_C5_Assignment
         public AddBookViewModel()
         {
             bookVM = UnitOfViewModel.Instance.BookViewModel;
+            bookISBNVM = UnitOfViewModel.Instance.BookISBNViewModel;
+            publisherVM = UnitOfViewModel.Instance.PublisherViewModel;
+            translatorVM = UnitOfViewModel.Instance.TranslatorViewModel;
             paraVM = UnitOfViewModel.Instance.ParameterViewModel;
             bookMap = UnitOfMap.Instance.BookMap;
 
+            AllBookISBNs = bookISBNVM.Repo.Gets();
+            AllPublishers = publisherVM.Repo.Gets();
+            AllTranslators = translatorVM.Repo.Gets();
+            AllLanguages = Utilities.GetListAllLanguages();
+
             #region Init-Commands
-            LoadedCmd = new RelayCommand((para) => frmAddBook_Loaded(para, null));
+            //LoadedCmd = new RelayCommand((para) => frmAddBook_Loaded(para, null));
+            ClosingCmd = new RelayCommand((para) => onClosing(para, null));
+
             btnConfirmClickCmd = new RelayCommand((para) => BtnConfirm_Click(para, null));
             btnCancelClickCmd = new RelayCommand((para) => BtnCancel_Click(para, null));
             btnUpdateClickCmd = new RelayCommand((para) => BtnUpdate_Click(para, null));
@@ -68,8 +136,10 @@ namespace AnhQuoc_C5_Assignment
         }
 
 
-        private void frmAddBook_Loaded(object sender, RoutedEventArgs e)
+        public void onLoaded(object sender, RoutedEventArgs e)
         {
+            IsCancel = true;
+
             thisForm = sender as frmAddBook;
 
             mainContentControls = new List<DependencyObject>();
@@ -99,6 +169,13 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+
+        private void onClosing(object sender, CancelEventArgs e)
+        {
+            BtnCancel_Click(null, null, true);
+        }
+
+
         private void NewItem()
         {
             Item = new BookDto(thisForm.getIdBook());
@@ -114,6 +191,7 @@ namespace AnhQuoc_C5_Assignment
 
             Item.ModifiedAt = DateTime.Now;
         }
+
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
@@ -132,6 +210,8 @@ namespace AnhQuoc_C5_Assignment
                 Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("book"));
                 return;
             }
+
+            IsCancel = false;
             thisForm.Close();
         }
 
@@ -159,6 +239,8 @@ namespace AnhQuoc_C5_Assignment
                     return;
                 }
             }
+
+            IsCancel = false;
             thisForm.Close();
         }
 
@@ -167,10 +249,13 @@ namespace AnhQuoc_C5_Assignment
             bookVM.Copy(Item, thisForm.getItemToUpdate());
         }
 
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        private void BtnCancel_Click(object sender, RoutedEventArgs e, bool isClosed = false)
         {
-            Item = null;
-            thisForm.Close();
+            if (IsCancel)
+                Item = null;
+
+            if (!isClosed)
+                thisForm.Close();
         }
 
 

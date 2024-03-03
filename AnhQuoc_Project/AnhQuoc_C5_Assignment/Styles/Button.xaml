@@ -421,7 +421,7 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
 
     </Style>
-    
+
     <Style TargetType="Button" x:Key="btnPaginationOptions" BasedOn="{StaticResource btnGeneral}">
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontSize" Value="18" />
@@ -505,6 +505,12 @@
         <Setter Property="Foreground" Value="Black"/>
     </Style>
 
+    <Style TargetType="Button" x:Key="btnExit" BasedOn="{StaticResource btnCancel}">
+        <Setter Property="Content" Value="Exit" />
+        <Setter Property="Background" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+
     <Style TargetType="Button" x:Key="btnDelete" BasedOn="{StaticResource btnGeneral}">
         <Setter Property="Background" Value="Red"/>
         <Setter Property="Foreground" Value="White"/>
@@ -541,6 +547,7 @@
     </Style>
 
     <Style TargetType="Button" x:Key="btnClearComboBox" BasedOn="{StaticResource btnGeneral}">
+        <Setter Property="Visibility" Value="Hidden" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="FontSize" Value="15" />
         <Setter Property="Background" Value="Transparent" />

@@ -38,6 +38,7 @@ namespace AnhQuoc_C5_Assignment
         #region ViewModels
         private RoleViewModel roleVM;
         private RoleFunctionViewModel roleFunctionVM;
+        private UserRoleViewModel userRoleVM;
         #endregion
 
         #region Mapping
@@ -130,6 +131,7 @@ namespace AnhQuoc_C5_Assignment
 
             roleVM = UnitOfViewModel.Instance.RoleViewModel;
             roleFunctionVM = UnitOfViewModel.Instance.RoleFunctionViewModel;
+            userRoleVM = UnitOfViewModel.Instance.UserRoleViewModel;
 
             roleMap = UnitOfMap.Instance.RoleMap;
             #endregion
@@ -223,6 +225,8 @@ namespace AnhQuoc_C5_Assignment
             listFills.Add(newRole);
             AddItemsToDataGrid(listFills);
             #endregion
+
+            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("role"));
         }
 
         private void UcRolesTable_btnDeleteClick(object sender, RoutedEventArgs e)
@@ -236,6 +240,24 @@ namespace AnhQuoc_C5_Assignment
 
             RoleDto roleDtoSelect = ucRolesTable.SelectedRoleDto;
             Role roleSelect = roleVM.FindById(roleDtoSelect.Id);
+
+            var tempList = roleFunctionVM.FillByIdRole(roleSelect.Id).ToObservableCollection();
+            if (tempList.Count == 0)
+            {
+                var listTemp = userRoleVM.FillByIdRole(roleSelect.Id);
+
+                if (listTemp.Count > 0)
+                {
+                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("role"));
+                    return;
+                }
+            }
+            else
+            {
+                Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("role"));
+                return;
+            }
+
 
             string message = Utilities.NotifySureToDelete();
             if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
@@ -281,6 +303,9 @@ namespace AnhQuoc_C5_Assignment
             #region Refresh-listFill
             ucRolesTable.ModifiedPagination();
             #endregion
+
+            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("role"));
+
         }
 
         private void AddToListFill(ObservableCollection<Role> items)

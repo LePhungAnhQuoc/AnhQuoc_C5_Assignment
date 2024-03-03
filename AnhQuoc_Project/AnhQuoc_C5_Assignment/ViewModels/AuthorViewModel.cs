@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
@@ -32,6 +33,23 @@ namespace AnhQuoc_C5_Assignment
         {
             return source.FirstOrDefault(item => item.Id == idValue);
 
+        }
+
+
+        public ObservableCollection<Author> FillByTextSearch(ObservableCollection<Author> source, string textSearch, bool igNoreCase)
+        {
+            AuthorMap authorMap = UnitOfMap.Instance.AuthorMap;
+            ObservableCollection<Author> results = new ObservableCollection<Author>();
+            foreach (Author item in source)
+            {
+                var itemDto = authorMap.ConvertToDto(item);
+                bool isCheck = itemDto.Name.ContainsCorrectly(textSearch, igNoreCase);
+                if (isCheck)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
         }
 
 

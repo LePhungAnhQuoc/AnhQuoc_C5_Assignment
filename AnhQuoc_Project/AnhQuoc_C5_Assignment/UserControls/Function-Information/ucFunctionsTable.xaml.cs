@@ -146,6 +146,10 @@ namespace AnhQuoc_C5_Assignment
 
         private void ucFunctionsTable_Loaded(object sender, RoutedEventArgs e)
         {
+            if (btnInfoClick == null)
+            {
+                dtgbtnInfo.Visibility = Visibility.Collapsed;
+            }
             if (btnDeleteClick == null)
             {
                 dtgbtnDelete.Visibility = Visibility.Collapsed;

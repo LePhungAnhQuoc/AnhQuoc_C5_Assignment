@@ -35,6 +35,7 @@ namespace AnhQuoc_C5_Assignment
 
         #region ViewModels
         private TranslatorViewModel translatorVM;
+        private BookViewModel bookVM;
         #endregion
 
         #region Mapping
@@ -129,6 +130,7 @@ namespace AnhQuoc_C5_Assignment
             listFillTranslators = new ObservableCollection<Translator>();
 
             translatorVM = UnitOfViewModel.Instance.TranslatorViewModel;
+            bookVM = UnitOfViewModel.Instance.BookViewModel;
 
             translatorMap = UnitOfMap.Instance.TranslatorMap;
             #endregion
@@ -215,6 +217,9 @@ namespace AnhQuoc_C5_Assignment
             listFillTranslators.Add(newTranslator);
             AddItemsToDataGrid(listFillTranslators);
             #endregion
+
+            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("translator"));
+
         }
 
         private void UcTranslatorsTable_btnInfoClick(object sender, RoutedEventArgs e)
@@ -265,6 +270,14 @@ namespace AnhQuoc_C5_Assignment
 
             if (updateStatus == false)
             {
+                var listTemp = bookVM.FillByIdTranslator(bookVM.Repo.Gets(), translatorDtoSelect.Id, null);
+                if (listTemp.Count > 0)
+                {
+                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("translator"));
+                    return;
+                }
+
+
                 message = Utilities.NotifySureToDelete();
                 if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                     return;
@@ -312,6 +325,9 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             ucTranslatorsTable.ModifiedPagination();
+
+            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("translator"));
+
         }
 
         private void AddToListFill(ObservableCollection<Translator> items)

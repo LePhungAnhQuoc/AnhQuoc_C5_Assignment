@@ -7,6 +7,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Assets/icons.xaml" />
+                <ResourceDictionary Source="Styles/Path.xaml" />
                 <ResourceDictionary Source="Styles/ScrollViewer.xaml" />
                 <ResourceDictionary Source="Styles/ContentControl.xaml" />
                 <ResourceDictionary Source="Styles/Label.xaml" />
@@ -30,7 +31,11 @@
             </ResourceDictionary.MergedDictionaries>
             <WindowStartupLocation x:Key="WSL">CenterScreen</WindowStartupLocation>
 
-           <!--#region Color-Define -->
+            
+
+            
+            
+            <!--#region Color-Define -->
             <!--Control colors.-->
             <Color x:Key="WindowColor">#FFE8EDF9</Color>
             <Color x:Key="ContentAreaColorLight">#FFC5CBF9</Color>

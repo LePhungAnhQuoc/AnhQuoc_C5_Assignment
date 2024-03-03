@@ -14,13 +14,13 @@
               ColumnHeaderStyle="{StaticResource dtgColHeaderGeneral}"
               CellStyle="{StaticResource dtgCellGeneral}"
               RowStyle="{StaticResource dtgRowGeneral}"
-              ItemsSource="{Binding BookTitles}">
+              ItemsSource="{Binding BookTitles}"
+              SelectedItem="{Binding SelectedBookTitleDto}">
         <DataGrid.Columns>
             <DataGridTextColumn Header="Index" Width="auto" Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGridRow}}, Converter={StaticResource indexDataGridItemConverter}}" />
             <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Id}" />
             <DataGridTextColumn Header="Category" Width="auto" Binding="{Binding Category.Name}" />
-            <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}" />
-            <DataGridTextColumn Header="Summary" MinWidth="150" MaxWidth="200" Binding="{Binding Summary}" />
+            <DataGridTextColumn Header="Name" Width="auto" Binding="{Binding Name}" />
             <DataGridTextColumn Header="Note" MinWidth="150" MaxWidth="200" Binding="{Binding Note}" />
             <DataGridTextColumn Header="ISBN Quantity" Width="auto" Binding="{Binding BookISBNs.Count}" />
             <DataGridTemplateColumn Header="UrlImage" Width="auto">
@@ -35,6 +35,17 @@
                                 <ImageBrush ImageSource="{Binding UrlImage}" />
                             </Rectangle.Fill>
                         </Rectangle>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTemplateColumn x:Name="dtgbtnInfo">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Button Name="btnInfo"
+                                Style="{StaticResource btnInfo}"
+                                Margin="5"
+                                Click="btnInfo_Click">
+                        </Button>
                     </DataTemplate>
                 </DataGridTemplateColumn.CellTemplate>
             </DataGridTemplateColumn>

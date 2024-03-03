@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,6 +13,7 @@ namespace AnhQuoc_C5_Assignment
     public class AddUserViewModel<T, TDto>: BaseViewModel<object>, IPageViewModel
     {
         #region Fields
+        public bool IsCancel { get; set; }
         private frmAddUser thisForm;
         private List<DependencyObject> mainContentControls;
         private List<TextBox> TextBoxes;
@@ -44,6 +47,7 @@ namespace AnhQuoc_C5_Assignment
 
         #region Commands
         public RelayCommand LoadedCmd { get; private set; }
+        public RelayCommand ClosingCmd { get; private set; }
         public RelayCommand btnConfirmClickCmd { get; private set; }
         public RelayCommand btnCancelClickCmd { get; private set; }
         public RelayCommand btnUpdateClickCmd { get; private set; }
@@ -57,7 +61,8 @@ namespace AnhQuoc_C5_Assignment
             userMap = UnitOfMap.Instance.UserMap;
 
             #region Init-Commands
-            LoadedCmd = new RelayCommand((para) => frmAddUser_Loaded(para, null));
+            //LoadedCmd = new RelayCommand((para) => frmAddUser_Loaded(para, null));
+            ClosingCmd = new RelayCommand(para => onClosing(para, null));
             btnConfirmClickCmd = new RelayCommand((para) => BtnConfirm_Click(para, null));
             btnCancelClickCmd = new RelayCommand((para) => BtnCancel_Click(para, null));
             btnUpdateClickCmd = new RelayCommand((para) => BtnUpdate_Click(para, null));
@@ -65,8 +70,10 @@ namespace AnhQuoc_C5_Assignment
             #endregion
         }
 
-        private void frmAddUser_Loaded(object sender, RoutedEventArgs e)
+        public void onLoaded(object sender, RoutedEventArgs e)
         {
+            IsCancel = true;
+
             thisForm = sender as frmAddUser;
 
             mainContentControls = new List<DependencyObject>();
@@ -97,6 +104,11 @@ namespace AnhQuoc_C5_Assignment
         }
 
 
+        private void onClosing(object sender, CancelEventArgs e)
+        {
+            BtnCancel_Click(null, null, true);
+        }
+
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
@@ -115,6 +127,8 @@ namespace AnhQuoc_C5_Assignment
                 Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("user"));
                 return;
             }
+
+            IsCancel = false;
             thisForm.Close();
         }
 
@@ -142,6 +156,8 @@ namespace AnhQuoc_C5_Assignment
                     return;
                 }
             }
+
+            IsCancel = false;
             thisForm.Close();
         }
 
@@ -150,10 +166,17 @@ namespace AnhQuoc_C5_Assignment
             userVM.Copy(Item, thisForm.getItemToUpdate());
         }
 
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e, bool isClosed = false)
         {
-            Item = null;
-            thisForm.Close();
+            if (IsCancel)
+            {
+                Item = null;
+            }
+
+            
+            if (!isClosed)
+                thisForm.Close();
         }
 
 

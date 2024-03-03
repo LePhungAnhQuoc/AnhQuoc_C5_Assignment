@@ -75,7 +75,6 @@ namespace AnhQuoc_C5_Assignment
         }
 
 
-
         #region Other-Properties
 
         private Category _Category;

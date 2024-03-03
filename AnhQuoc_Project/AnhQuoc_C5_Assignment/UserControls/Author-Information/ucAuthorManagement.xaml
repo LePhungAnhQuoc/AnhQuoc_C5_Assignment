@@ -24,23 +24,27 @@
                     <ColumnDefinition Width="auto" />
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
-            
-                <Grid Grid.Column="0">
-                    <TextBox Name="txtSearch"
-                             Style="{StaticResource txtStyleSearch}"/>
-                    <TextBlock Text="Search by name here...">
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolder}">
-                                <Setter Property="Visibility" Value="Hidden" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=txtSearch, Path=Text}" Value="">
-                                        <Setter Property="Visibility" Value="Visible" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </Grid>
+
+                <StackPanel Grid.Column="0"
+                            Orientation="Horizontal">
+                    <Grid>
+                        <TextBox Name="txtSearch"
+                                 Style="{StaticResource txtStyleSearch}"/>
+                        <TextBlock Text="Search by name here...">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolder}">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=txtSearch, Path=Text}" Value="">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+                </StackPanel>
+                
                 <StackPanel Grid.Column="1"
                             Orientation="Horizontal"
                             Margin="30 0 0 0">

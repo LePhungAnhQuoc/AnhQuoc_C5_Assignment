@@ -8,7 +8,7 @@
         Title="Child Function Information" 
         Style="{StaticResource wdStyleGeneral}"
         WindowStartupLocation="{StaticResource WSL}">
-    <StackPanel Width="800">
+    <StackPanel Width="600">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />

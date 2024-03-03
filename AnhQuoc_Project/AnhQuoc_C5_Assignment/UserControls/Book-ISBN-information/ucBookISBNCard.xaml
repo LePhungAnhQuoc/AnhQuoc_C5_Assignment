@@ -37,8 +37,12 @@
     
     <Border Style="{StaticResource bdCard}"
             Width="200">
-        <Grid Height="auto">
-            <StackPanel>
+        <Grid x:Name="mainContent"
+              Height="auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
                 <StackPanel.Resources>
                     <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}">
                         <Setter Property="FontSize" Value="12" />
