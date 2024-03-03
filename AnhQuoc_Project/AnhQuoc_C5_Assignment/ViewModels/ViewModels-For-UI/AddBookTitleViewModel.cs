@@ -79,6 +79,8 @@ namespace AnhQuoc_C5_Assignment
 
         public AddBookTitleViewModel()
         {
+            openFile = Utilities.CreateOpenFileDialog();
+
             bookTitleVM = UnitOfViewModel.Instance.BookTitleViewModel;
             paraVM = UnitOfViewModel.Instance.ParameterViewModel;
             categoryVM = UnitOfViewModel.Instance.CategoryViewModel;
@@ -159,7 +161,7 @@ BtnBrowseImage_Click(para, null));
                 return;
             }
 
-            SaveImage();
+            Utilities.SaveImageInUserControl(tempUrlImage, Item, openFile);
             IsCancel = false;
             thisForm.Close();
         }
@@ -189,7 +191,7 @@ BtnBrowseImage_Click(para, null));
                 }
             }
 
-            SaveImage();
+            Utilities.SaveImageInUserControl(tempUrlImage, Item, openFile);
 
             IsCancel = false;
             thisForm.Close();
@@ -254,38 +256,8 @@ BtnBrowseImage_Click(para, null));
         }
 
 
-        public void SaveImage()
-        {
-            Constants.rememberDirectoryOpenFile = openFile.FileName.Replace(openFile.SafeFileName, string.Empty);
-            Utilities.SaveImage(openFile);
-
-            if (tempUrlImage != null)
-            {
-                tempUrlImage = tempUrlImage.Replace("/", "\\");
-                string tempImageFile = tempUrlImage.Replace(Constants.StartUrlImage, "");
-                if (tempUrlImage != null && tempImageFile != openFile.SafeFileName)
-                {
-                    if (MessageBox.Show("Do you want remove an old image?", string.Empty,
-              MessageBoxButton.OKCancel, MessageBoxImage.Information, MessageBoxResult.OK) == MessageBoxResult.OK)
-                    {
-                        Utilities.RemoveImage(tempUrlImage);
-                    }
-                }
-            }
-        }
-
         private void BtnBrowseImage_Click(object sender, RoutedEventArgs e)
         {
-            openFile = new OpenFileDialog();
-            openFile.Title = "Select Image";
-            openFile.InitialDirectory = Constants.rememberDirectoryOpenFile;
-
-            openFile.Filter = "Bitmaps|*.bmp|PNG files|*.png|JPEG files|*.jpg|GIF files|*.gif|TIFF files|*.tif|Image files|*.bmp;*.jpg;*.gif;*.png;*.tif";
-
-            openFile.FilterIndex = 6;
-            openFile.Multiselect = false;
-            openFile.RestoreDirectory = false;
-
             if (openFile.ShowDialog() == true)
             {
                 Item.UrlImage = Utilities.GetUrlImage(openFile);

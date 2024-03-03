@@ -93,6 +93,7 @@
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Converters\BorrowBook\BorrowBookSelectReaderButtonConfirmConverter.cs" />
+    <Compile Include="Converters\Object-To-Id\BookStatusToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\FunctionToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\ProvinceToNameConverter.cs" />
     <Compile Include="Converters\Object-To-Id\AdultToIdConverter.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Converters\Object-To-Id\TranslatorToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\PublisherToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\BookISBNToISBNConverter.cs" />
+    <Compile Include="Converters\Reader\IdReaderToFullNameConverter.cs" />
     <Compile Include="Converters\Reader\IdAdultToFullNameConverter.cs" />
     <Compile Include="Converters\ReturnBook\ReturnBookButtonConfirmConverter.cs" />
     <Compile Include="Converters\StatusConvert\BookTitleStatusConverter.cs" />
@@ -694,8 +696,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Assets\Images\Others\icons.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -1226,27 +1228,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\10.png" />
-    <Resource Include="Assets\Images\12.png" />
-    <Resource Include="Assets\Images\3.png" />
-    <Resource Include="Assets\Images\4.png" />
-    <Resource Include="Assets\Images\5.png" />
-    <Resource Include="Assets\Images\6.png" />
-    <Resource Include="Assets\Images\7.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Images\14.png" />
-    <Resource Include="Assets\Images\18.png" />
-    <Resource Include="Assets\Images\19.png" />
-    <Resource Include="Assets\Images\Others\delete-icon.png" />
-    <Resource Include="Assets\Images\Others\edit-icon.png" />
-    <Resource Include="Assets\Images\Others\human.png" />
-    <Resource Include="Assets\Images\Others\info %281%29.png" />
-    <Resource Include="Assets\Images\Others\info-icon.png" />
-    <Resource Include="Assets\Images\Others\info.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\BookImages\BT01.png" />
@@ -1266,10 +1248,30 @@
     <Resource Include="Assets\BookImages\BT15.png" />
     <Resource Include="Assets\BookImages\BT16.png" />
     <Resource Include="Assets\BookImages\BT17.png" />
-    <Resource Include="Assets\Images\Others\LoadingSpinnerCircle.gif" />
     <Resource Include="Animations\LoadingSpinnerCircle.gif" />
-    <Resource Include="Assets\Images\Others\LoadingSpinnerCircle2.gif" />
     <Resource Include="Animations\LoadingSpinnerCircle2.gif" />
+    <Resource Include="Assets\Images\11.jpg" />
+    <Resource Include="Assets\Images\13.png" />
+    <Resource Include="Assets\Images\19.png" />
+    <Resource Include="Assets\Images\8.png" />
+    <Resource Include="Assets\Images\9.png" />
+    <Resource Include="Assets\Images\ArrowLeft.png" />
+    <Resource Include="Assets\Images\ArrowLeftDisabled.png" />
+    <Resource Include="Assets\Images\ArrowRight.png" />
+    <Resource Include="Assets\Images\ArrowRightDisabled.png" />
+    <Resource Include="Assets\Images\DoubleArrowLeft.png" />
+    <Resource Include="Assets\Images\DoubleArrowLeftDisabled.png" />
+    <Resource Include="Assets\Images\DoubleArrowRight.png" />
+    <Resource Include="Assets\Images\DoubleArrowRightDisabled.png" />
+    <Resource Include="Assets\Images\ErrorImage.png" />
+    <Resource Include="Assets\Images\icon.ico" />
+    <Resource Include="Assets\Images\ic_CloseAct.png" />
+    <Resource Include="Assets\Images\ic_ClosePas.png" />
+    <Resource Include="Assets\Images\ic_MaximizeAct.png" />
+    <Resource Include="Assets\Images\ic_MaximizePas.png" />
+    <Resource Include="Assets\Images\ic_MinimizeAct.png" />
+    <Resource Include="Assets\Images\ic_MinimizePas.png" />
+    <Resource Include="Assets\Images\User.png" />
     <Content Include="Models\QuanLyThuVienModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>
@@ -1280,6 +1282,25 @@
       <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>
       <LastGenOutput>QuanLyThuVienModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Assets\Images\1.jpg" />
+    <Resource Include="Assets\Images\10.png" />
+    <Resource Include="Assets\Images\12.png" />
+    <Resource Include="Assets\Images\14.png" />
+    <Resource Include="Assets\Images\18.png" />
+    <Resource Include="Assets\Images\2.jpg" />
+    <Resource Include="Assets\Images\3.png" />
+    <Resource Include="Assets\Images\4.png" />
+    <Resource Include="Assets\Images\5.png" />
+    <Resource Include="Assets\Images\6.png" />
+    <Resource Include="Assets\Images\7.png" />
+    <Resource Include="Assets\Images\Others\delete-icon.png" />
+    <Resource Include="Assets\Images\Others\edit-icon.png" />
+    <Resource Include="Assets\Images\Others\human.png" />
+    <Resource Include="Assets\Images\Others\info %281%29.png" />
+    <Resource Include="Assets\Images\Others\info-icon.png" />
+    <Resource Include="Assets\Images\Others\info.png" />
+    <Resource Include="Assets\Images\Others\LoadingSpinnerCircle.gif" />
+    <Resource Include="Assets\Images\Others\LoadingSpinnerCircle2.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

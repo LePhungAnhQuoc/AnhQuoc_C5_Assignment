@@ -123,7 +123,7 @@ namespace AnhQuoc_C5_Assignment
         public static string[] checkPropProvince = new string[] { "Name" };
         public static string[] checkPropPenaltyReason = new string[] { "Name" };
         public static string[] checkPropParameter = new string[] { "Name" };
-        public static string[] checkPropBook = new string[] {};
+        public static string[] checkPropBook = new string[] { };
         #endregion
 
         #region ExceptDataGrid-Display

@@ -24,6 +24,7 @@
     
     <Window.Resources>
         <local:BookISBNToISBNConverter x:Key="bookISBNToISBNConverter" />
+        <local:BookStatusToIdConverter x:Key="bookStatusToIdConverter" />
         <local:PublisherToIdConverter x:Key="publisherToIdConverter" />
         <local:TranslatorToIdConverter x:Key="translatorToIdConverter" />
         <local:DateMinToNullValueConverter x:Key="dateMinToNullValueConverter" />
@@ -58,9 +59,27 @@
                         <ColumnDefinition Width="100" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Label Content="Id: " />
-                    <TextBox Grid.Column="1"
-                             Text="{Binding Item.Id}" 
+                    <Label Content="Quantity: " />
+                    <TextBox Name="txtQuantity"
+                             Grid.Column="1"
+                             Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                        <TextBox.Text>
+                            <Binding Path="InputQuantity" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:InputNumberRangeRule Min="1" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Ids: " />
+                    <TextBox Name="txtIds"
+                             Grid.Column="1"
                              IsEnabled="False"/>
                 </Grid>
                 <Grid>
@@ -142,6 +161,27 @@
                         </ComboBox.SelectedItem>
                     </ComboBox>
                 </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Book Status: " />
+                    <ComboBox Grid.Column="1"
+                              Name="cbBookStatus"
+                              ItemsSource="{Binding AllBookStatus}"
+                              DisplayMemberPath="Name"
+                              Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
+                              SelectedIndex="0">
+                        <ComboBox.SelectedItem>
+                            <Binding Path="Item.IdBookStatus" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource bookStatusToIdConverter}">
+                                <Binding.ValidationRules>
+                                    <local:SelectedItemRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+                </Grid>
             </StackPanel>
             <StackPanel Grid.Column="1"
                         Margin="20 0 0 0">
@@ -205,6 +245,42 @@
                         </TextBlock>
                     </Grid>
                     
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Price Current: " />
+                    <Grid Grid.Column="1"
+                          Style="{x:Null}">
+                        <TextBox Name="txtPriceCurrent"
+                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
+                                 IsEnabled="False">
+                            <TextBox.Text>
+                                <Binding 
+                                        Path="Item.PriceCurrent"
+                                        UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <local:FormNotEmptyRule />
+                                        <local:InputNumberRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+
+                        <TextBlock Style="{StaticResource tblPriceFormat}">
+                            <TextBlock.Text>
+                                <Binding 
+                    Path="Text"
+                    ElementName="txtPriceCurrent"
+                    UpdateSourceTrigger="PropertyChanged" 
+                    Converter="{StaticResource PriceFormatConverter}">
+                                </Binding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </Grid>
+
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>

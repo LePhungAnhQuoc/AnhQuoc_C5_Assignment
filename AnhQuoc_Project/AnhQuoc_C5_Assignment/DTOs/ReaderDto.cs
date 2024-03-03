@@ -138,7 +138,6 @@ namespace AnhQuoc_C5_Assignment
         {
             Id = id;
             Status = true;
-            boF = Constants.dateMinValue;
             ChildsQuantity = -1;
         }
 

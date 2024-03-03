@@ -20,6 +20,29 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Properties
+
+        private int _InputQuantity;
+        public int InputQuantity
+        {
+            get { return _InputQuantity; }
+            set
+            {
+                _InputQuantity = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private List<int> _ListId;
+        public List<int> ListId
+        {
+            get { return _ListId; }
+            set
+            {
+                _ListId = value;
+                OnPropertyChanged();
+            }
+        }
+
         private ObservableCollection<BookISBN> _AllBookISBNs;
 
         public ObservableCollection<BookISBN> AllBookISBNs
@@ -45,13 +68,23 @@ namespace AnhQuoc_C5_Assignment
         }
 
         private ObservableCollection<Translator> _AllTranslators;
-
         public ObservableCollection<Translator> AllTranslators
         {
             get { return _AllTranslators; }
             set
             {
                 _AllTranslators = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<BookStatu> _AllBookStatus;
+        public ObservableCollection<BookStatu> AllBookStatus
+        {
+            get { return _AllBookStatus; }
+            set
+            {
+                _AllBookStatus = value;
                 OnPropertyChanged();
             }
         }
@@ -68,6 +101,17 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private ObservableCollection<Book> _BooksResult;
+
+        public ObservableCollection<Book> BooksResult
+        {
+            get { return _BooksResult; }
+            set
+            { 
+                _BooksResult = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         #endregion
@@ -76,6 +120,7 @@ namespace AnhQuoc_C5_Assignment
         private BookISBNViewModel bookISBNVM;
         private PublisherViewModel publisherVM;
         private TranslatorViewModel translatorVM;
+        private BookStatusViewModel bookStatusVM;
         private BookViewModel bookVM;
         private ParameterViewModel paraVM;
         #endregion
@@ -115,12 +160,14 @@ namespace AnhQuoc_C5_Assignment
             bookISBNVM = UnitOfViewModel.Instance.BookISBNViewModel;
             publisherVM = UnitOfViewModel.Instance.PublisherViewModel;
             translatorVM = UnitOfViewModel.Instance.TranslatorViewModel;
+            bookStatusVM = UnitOfViewModel.Instance.BookStatusViewModel;
             paraVM = UnitOfViewModel.Instance.ParameterViewModel;
             bookMap = UnitOfMap.Instance.BookMap;
 
             AllBookISBNs = bookISBNVM.Repo.Gets();
             AllPublishers = publisherVM.Repo.Gets();
             AllTranslators = translatorVM.Repo.Gets();
+            AllBookStatus = bookStatusVM.Repo.Gets();
             AllLanguages = Utilities.GetListAllLanguages();
 
             #region Init-Commands
@@ -138,6 +185,8 @@ namespace AnhQuoc_C5_Assignment
 
         public void onLoaded(object sender, RoutedEventArgs e)
         {
+            InputQuantity = 1;
+
             IsCancel = true;
 
             thisForm = sender as frmAddBook;
@@ -203,12 +252,20 @@ namespace AnhQuoc_C5_Assignment
                 return;
             }
 
-            Book getBook = bookVM.CreateByDto(Item);
-            bool isCheck = Utilities.IsExistInformation(thisForm.getBookRepo().Gets(), getBook, true, Constants.checkPropBook);
-            if (isCheck)
+            //bool isCheck = Utilities.IsExistInformation(thisForm.getBookRepo().Gets(), getBook, true, Constants.checkPropBook);
+            //if (isCheck)
+            //{
+            //    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("book"));
+            //    return;
+            //}
+
+            BooksResult = new ObservableCollection<Book>();
+            for (int i = 0; i < ListId.Count; i++)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("book"));
-                return;
+                Book getBook = bookVM.CreateByDto(Item);
+                getBook.Id = ListId[i];
+
+                BooksResult.Add(getBook);
             }
 
             IsCancel = false;
@@ -256,6 +313,20 @@ namespace AnhQuoc_C5_Assignment
 
             if (!isClosed)
                 thisForm.Close();
+        }
+
+
+        public void TxtPrice_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Item.PriceCurrent = Item.Price;
+        }
+
+
+        public void TxtQuantity_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ListId = bookVM.GetListId(InputQuantity);
+
+            thisForm.txtIds.Text = string.Join(", ", ListId);
         }
 
 

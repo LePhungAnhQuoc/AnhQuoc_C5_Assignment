@@ -1,4 +1,4 @@
-﻿
+﻿E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\App.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Animations\LoadingSpinnerWD.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Assets\icons.xaml;;
@@ -37,6 +37,7 @@ FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Fun
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Function-Information\ucFunctionManagement.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Function-Information\ucFunctionsTable.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\LoanDetail-Information\ucLoanDetailCard.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Statistical\StatisticalDescription.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Statistical\ucStatisticalCard.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Statistical\ucStatisticalPage.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\PenaltyReason-Information\ucPenaltyReasonInformation.xaml;;
@@ -121,5 +122,4 @@ FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\Role\frmAd
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\Translator\frmAddTranslator.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\UserRole\frmAddUserRole.xaml;;
 FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Views\User\frmAddUser.xaml;;
-FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Statistical\StatisticalDescription.xaml;;
 

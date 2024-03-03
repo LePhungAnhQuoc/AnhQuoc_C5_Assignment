@@ -581,6 +581,8 @@ namespace AnhQuoc_C5_Assignment
             bool ignoreCase = true;
             ComboBox comBoBox = Utilities.FindVisualChild<ComboBox>(parent);
 
+            comBoBox.ItemsSource = AllReader;
+
             if (Utilities.IsCheckEmptyString(txtInput.Text))
             {
                 SelectedReader = null;
@@ -767,6 +769,8 @@ namespace AnhQuoc_C5_Assignment
             bool ignoreCase = true;
             ComboBox comBoBox = Utilities.FindVisualChild<ComboBox>(parent);
 
+            comBoBox.ItemsSource = AllReason;
+
             if (Utilities.IsCheckEmptyString(txtInput.Text))
                 return;
 
@@ -817,6 +821,7 @@ namespace AnhQuoc_C5_Assignment
             }
             else
             {
+                ucRetureBookInfo.txtFineAmount.IsEnabled = false;
             }
             comBoBox.ItemsSource = reasonMap.ConvertToDto(getfillList);
             comBoBox.IsDropDownOpen = true;
@@ -835,6 +840,8 @@ namespace AnhQuoc_C5_Assignment
 
         private void UnPaidBookCards_SelectionChanged()
         {
+            ucRetureBookInfo.txtFineAmount.IsEnabled = false;
+
             int index = AllUnPaidBookCard.IndexOf(SelectedUnPaidBookCard);
             Detail = LoanDetailHistoryDtos[index];
 
@@ -931,7 +938,7 @@ namespace AnhQuoc_C5_Assignment
 
             //  new card
             SelectedUnPaidBookCard = card;
-            SelectedUnPaidBookCard.Background = Brushes.Tomato;
+            SelectedUnPaidBookCard.Background = Brushes.AliceBlue;
 
             UnPaidBookCards_SelectionChanged();
 

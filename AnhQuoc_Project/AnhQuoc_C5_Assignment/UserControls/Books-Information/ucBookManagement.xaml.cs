@@ -294,26 +294,23 @@ namespace AnhQuoc_C5_Assignment
             {
                 return;
             }
-
-            BookDto newBookDto = frmAddBook.Context.Item;
+            var listBooks = frmAddBook.Context.BooksResult;
 
             #region AddNewItem
-            Book newBook = bookVM.CreateByDto(newBookDto);
-            getBookRepo().Add(newBook);
-            getBookRepo().WriteAdd(newBook);
+            getBookRepo().AddRange(listBooks);
+            getBookRepo().WriteAddRange(listBooks);
             
             #endregion
 
             #region AddTo-listFill
-            listFillBooks.Add(newBook);
+            listFillBooks.AddRange(listBooks);
             AddItemsToDataGrid(listFillBooks);
             #endregion
-
 
             Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("book"));
 
             #region SaveBookISBNStatus
-            BookISBN selectedBookISBN = bookISBNVM.FindByISBN(newBook.ISBN, null);
+            BookISBN selectedBookISBN = bookISBNVM.FindByISBN(listBooks.First().ISBN, null);
             if (selectedBookISBN.Status == false)
             {
                 selectedBookISBN.Status = true;

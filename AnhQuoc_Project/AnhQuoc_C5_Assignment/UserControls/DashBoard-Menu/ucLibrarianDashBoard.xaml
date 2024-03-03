@@ -28,7 +28,6 @@
         </StackPanel>
         <TreeView Grid.Row="1" 
                   Name="tvDashBoard"
-                  HorizontalAlignment="Stretch"
                   Style="{StaticResource treeGeneral}"
                   ScrollViewer.VerticalScrollBarVisibility="Hidden"
                   BorderThickness="0">

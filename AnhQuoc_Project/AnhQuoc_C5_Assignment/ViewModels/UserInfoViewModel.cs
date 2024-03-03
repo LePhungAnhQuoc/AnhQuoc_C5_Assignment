@@ -32,11 +32,7 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(UserInfo dest, UserDto source)
         {
-            dest.LName = source.LName;
-            dest.FName = source.FName;
-
-            dest.Phone = source.Phone;
-            dest.Address = source.Address;
+            Utilities.Copy(dest, source);
         }
     }
 }

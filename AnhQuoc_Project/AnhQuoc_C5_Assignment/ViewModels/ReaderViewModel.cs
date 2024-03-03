@@ -157,15 +157,8 @@ namespace AnhQuoc_C5_Assignment
         }
         public void Copy(Reader dest, ReaderDto source)
         {
-            dest.Id = source.Id;
-            dest.LName = source.LName;
-            dest.FName = source.FName;
-            dest.boF = source.boF;
+            Utilities.Copy(dest, source);
             dest.ReaderType = source.ReaderType.ConvertValue();
-
-            dest.Status = source.Status;
-            dest.CreatedAt = source.CreatedAt;
-            dest.ModifiedAt = source.ModifiedAt;
         }
 
         public Reader CreateByDto(ReaderDto source)

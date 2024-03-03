@@ -113,5 +113,27 @@ namespace AnhQuoc_C5_Assignment
             return source.Where(item => string.Compare(item.IdUser, idUser, ignoreCase) == 0).ToObservableCollection();
         }
 
+        public ObservableCollection<LoanHistory> FillByReaderFullName(ObservableCollection<LoanHistory> source, string readerFullName, bool igNoreCase)
+        {
+            ReaderViewModel readerVM = UnitOfViewModel.Instance.ReaderViewModel;
+            ReaderMap readerMap = UnitOfMap.Instance.ReaderMap;
+            LoanHistoryMap map = UnitOfMap.Instance.LoanHistoryMap;
+            ObservableCollection<LoanHistory> results = new ObservableCollection<LoanHistory>();
+            foreach (LoanHistory item in source)
+            {
+                var itemDto = map.ConvertToDto(item);
+
+                Reader readerFinded = readerVM.FindById(item.IdReader);
+                ReaderDto readerDtoFinded = readerMap.ConvertToDto(readerFinded);
+
+                bool isCheck = readerDtoFinded.FullName.ContainsCorrectly(readerFullName, igNoreCase);
+                if (isCheck)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+
     }
 }

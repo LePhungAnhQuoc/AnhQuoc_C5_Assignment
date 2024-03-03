@@ -188,27 +188,10 @@ namespace AnhQuoc_C5_Assignment
 
         private void Fillter()
         {
-            var results = FillByTextSearch(getLoanHistoryRepo().Gets());
+            var results = getLoanHistoryRepo().Gets();
 
             AddToListFill(results);
             AddItemsToDataGrid(results);
-        }
-
-        private ObservableCollection<LoanHistory> FillByTextSearch(ObservableCollection<LoanHistory> source)
-        {
-            string textSearch = txtSearch.Text.ToLower();
-
-            ObservableCollection<LoanHistory> results = new ObservableCollection<LoanHistory>();
-            //foreach (LoanHistory item in source)
-            //{
-            //    var itemDto = loanHistoryMap.ConvertToDto(item);
-            //    bool isCheck = itemDto.Username.ContainsCorrectly(textSearch, true);
-            //    if (isCheck)
-            //    {
-            //        results.Add(item);
-            //    }
-            //}
-            return results;
         }
         #endregion
 

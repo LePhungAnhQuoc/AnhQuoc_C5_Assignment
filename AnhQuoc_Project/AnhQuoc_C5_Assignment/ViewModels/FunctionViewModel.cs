@@ -146,43 +146,22 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Function dest, FunctionDto source)
         {
-            dest.Name = source.Name;
-            dest.Description = source.Description;
-
-            dest.IdParent = (source.Parent == null) ? null : source.Parent.Id;
-            dest.UrlImage = source.UrlImage;
-            dest.Status = source.Status;
+            Utilities.Copy(dest, source);
         }
 
         public void Copy(FunctionChildDto dest, Function source)
         {
-            dest.Name = source.Name;
-            dest.Description = source.Description;
-
-            dest.IdParent = source.IdParent;
-            dest.UrlImage = source.UrlImage;
-            dest.IsAdmin = source.IsAdmin;
-            dest.Status = source.Status;
+            Utilities.Copy(dest, source);
         }
 
         public void Copy(Function dest, FunctionChildDto source)
         {
-            dest.Name = source.Name;
-            dest.Description = source.Description;
-
-            dest.IdParent = source.IdParent;
-            dest.UrlImage = source.UrlImage;
-            dest.Status = source.Status;
+            Utilities.Copy(dest, source);
         }
 
         public void Copy(FunctionDto dest, FunctionDto source)
         {
-            dest.Name = source.Name;
-            dest.Description = source.Description;
-
-            dest.Parent = source.Parent;
-            dest.UrlImage = source.UrlImage;
-            dest.Status = source.Status;
+            Utilities.Copy(dest, source);
         }
     }
 }

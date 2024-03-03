@@ -75,16 +75,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Role dest, RoleDto source)
         {
-            dest.Name = source.Name;
-            dest.Group = source.Group;
-            dest.Status = source.Status;
+            Utilities.Copy(dest, source);
         }
 
         public void Copy(RoleDto dest, RoleDto source)
         {
-            dest.Name = source.Name;
-            dest.Group = source.Group;
-            dest.Status = source.Status;
+            Utilities.Copy(dest, source);
         }
     }
 }

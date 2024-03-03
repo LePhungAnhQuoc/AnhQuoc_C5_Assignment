@@ -159,7 +159,7 @@
             </StackPanel>
             <StackPanel Name="stkAdult"
                         Grid.Column="1"
-                        Visibility="Visible"
+                        Visibility="Collapsed"
                         Margin="10 0 0 0">
                 <StackPanel.Resources>
                     <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
@@ -290,7 +290,7 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                         <ComboBox.SelectedItem>
-                            <Binding Path="Item.IdAdult" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource adultToIdConverter}">
+                            <Binding Path="ChildItem.IdAdult" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource adultToIdConverter}">
                                 <Binding.ValidationRules>
                                     <local:SelectedItemRule />
                                 </Binding.ValidationRules>

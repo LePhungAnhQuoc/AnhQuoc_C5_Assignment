@@ -163,16 +163,7 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Adult dest, AdultDto source)
         {
-            dest.IdReader = source.IdReader;
-            dest.Identify = source.Identify;
-            dest.Address = source.Address;
-            dest.City = source.City;
-            dest.Phone = source.Phone;
-            dest.ExpireDate = source.ExpireDate;
-
-            dest.Status = source.Status;
-            dest.CreatedAt = source.CreatedAt;
-            dest.ModifiedAt = source.ModifiedAt;
+            Utilities.Copy(dest, source);
         }
 
         public Adult CreateByDto(AdultDto source)

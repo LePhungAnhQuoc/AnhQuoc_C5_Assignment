@@ -125,7 +125,6 @@ namespace AnhQuoc_C5_Assignment
         {
             Id = id;
             Description = string.Empty;
-            boF = Constants.dateMinValue;
             Summary = string.Empty;
         }
 

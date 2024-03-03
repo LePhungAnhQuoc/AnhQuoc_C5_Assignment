@@ -25,6 +25,18 @@ namespace AnhQuoc_C5_Assignment
             return GetId(index);
         }
 
+        public List<int> GetListId(int quantity)
+        {
+            List<int> result = new List<int>();
+
+            for (int i = 0; i < quantity; i++)
+            {
+                int index = base.getMaxIndexId(nameof(Item.Id)) + i;
+                result.Add(GetId(index));
+            }
+            return result;
+        }
+
         public new int GetId(int index)
         {
             int result = -1;

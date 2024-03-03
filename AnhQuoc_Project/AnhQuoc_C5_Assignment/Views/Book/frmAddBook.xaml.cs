@@ -38,7 +38,20 @@ namespace AnhQuoc_C5_Assignment
 
             this.Loaded += FrmAddBook_Loaded;
             Context = new AddBookViewModel();
+
+            txtPrice.TextChanged += TxtPrice_TextChanged;
+            txtQuantity.TextChanged += TxtQuantity_TextChanged;
             this.DataContext = Context;
+        }
+
+        private void TxtQuantity_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Context.TxtQuantity_TextChanged(sender, e);
+        }
+
+        private void TxtPrice_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Context.TxtPrice_TextChanged(sender, e);
         }
 
         private void FrmAddBook_Loaded(object sender, RoutedEventArgs e)

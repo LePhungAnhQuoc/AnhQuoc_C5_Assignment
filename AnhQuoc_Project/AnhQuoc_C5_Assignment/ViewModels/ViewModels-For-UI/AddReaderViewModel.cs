@@ -15,7 +15,12 @@ namespace AnhQuoc_C5_Assignment
         #region Fields
         public bool IsCancel { get; set; }
         private frmAddReader thisForm;
+
+        private List<DependencyObject> readerContentControls;
+        private List<DependencyObject> adultContentControls;
+        private List<DependencyObject> childContentControls;
         private List<DependencyObject> mainContentControls;
+
         private List<TextBox> TextBoxes;
 
         private DateTime AdultReader_ExpireDate;
@@ -138,12 +143,26 @@ namespace AnhQuoc_C5_Assignment
             AllAdults = thisForm.getAdultRepo().Gets();
 
             mainContentControls = new List<DependencyObject>();
-            foreach (DependencyObject child in thisForm.mainContent.Children)
-            {
-                mainContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
-            }
+            readerContentControls = new List<DependencyObject>();
+            adultContentControls = new List<DependencyObject>();
+            childContentControls = new List<DependencyObject>();
 
-            TextBoxes = mainContentControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
+            DependencyObject child = thisForm.mainContent.Children[0];
+            readerContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+            child = thisForm.mainContent.Children[1];
+            adultContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+            child = thisForm.mainContent.Children[2];
+            childContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+
+            mainContentControls.AddRange(readerContentControls);
+
+
+            var allControls = new List<DependencyObject>();
+            allControls.AddRange(readerContentControls);
+            allControls.AddRange(adultContentControls);
+            allControls.AddRange(childContentControls);
+
+            TextBoxes = allControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
             foreach (TextBox textBox in TextBoxes)
             {
                 textBox.MaxLength = Constants.textBoxMaxLength;
@@ -203,11 +222,23 @@ namespace AnhQuoc_C5_Assignment
             if (readerAge < ageValueRule)
             {
                 Item.ReaderType = ReaderType.Child;
+
+
+                
+                mainContentControls.RemoveRange(readerContentControls.Count, mainContentControls.Count - readerContentControls.Count);
+                mainContentControls.AddRange(childContentControls);
+
                 LoadUcAddChild();
+
+
             }
             else
             {
                 Item.ReaderType = ReaderType.Adult;
+
+                mainContentControls.RemoveRange(readerContentControls.Count, mainContentControls.Count - readerContentControls.Count);
+                mainContentControls.AddRange(adultContentControls);
+
                 LoadUcAddAdult();
             }
             #endregion

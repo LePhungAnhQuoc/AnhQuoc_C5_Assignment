@@ -928,7 +928,10 @@ namespace AnhQuoc_C5_Assignment
                 {
                     if (!IsGeneric(value2.GetType()))
                     {
-                        dest_prop.SetValue(dest, value2);
+                        if (dest_prop.PropertyType.Name == source_prop.PropertyType.Name)
+                        {
+                            dest_prop.SetValue(dest, value2);
+                        }
                     }
                 }
             }
@@ -1816,5 +1819,44 @@ namespace AnhQuoc_C5_Assignment
             frmExpand.textArea.Content = text;
             frmExpand.ShowDialog();
         }
+
+        public static OpenFileDialog CreateOpenFileDialog()
+        {
+            var openFile = new OpenFileDialog();
+            openFile.Title = "Select Image";
+            openFile.InitialDirectory = Constants.rememberDirectoryOpenFile;
+
+            openFile.Filter = "Bitmaps|*.bmp|PNG files|*.png|JPEG files|*.jpg|GIF files|*.gif|TIFF files|*.tif|Image files|*.bmp;*.jpg;*.gif;*.png;*.tif";
+
+            openFile.FilterIndex = 6;
+            openFile.Multiselect = false;
+            openFile.RestoreDirectory = false;
+
+            return openFile;
+        }
+
+        public static void SaveImageInUserControl(string tempUrlImage, dynamic Item, OpenFileDialog openFile)
+        {
+            if (!Utilities.IsCheckEmptyString(openFile.FileName))
+            {
+                Constants.rememberDirectoryOpenFile = openFile.FileName.Replace(openFile.SafeFileName, string.Empty);
+                Utilities.SaveImage(openFile);
+            }
+
+            if (tempUrlImage != null && tempUrlImage != Item.UrlImage)
+            {
+                tempUrlImage = tempUrlImage.Replace("/", "\\");
+                string tempImageFile = tempUrlImage.Replace(Constants.StartUrlImage, "");
+                if (tempUrlImage != null && tempImageFile != openFile.SafeFileName)
+                {
+                    if (MessageBox.Show("Do you want remove an old image?", string.Empty,
+              MessageBoxButton.OKCancel, MessageBoxImage.Information, MessageBoxResult.OK) == MessageBoxResult.OK)
+                    {
+                        Utilities.RemoveImage(tempUrlImage);
+                    }
+                }
+            }
+        }
+
     }
 }

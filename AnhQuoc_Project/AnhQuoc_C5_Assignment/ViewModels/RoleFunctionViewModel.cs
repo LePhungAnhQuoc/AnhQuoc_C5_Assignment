@@ -64,7 +64,7 @@ namespace AnhQuoc_C5_Assignment
         {
             return Repo.Gets().Where(item => string.Compare(item.IdRole, idRoleValue, false) == 0);
         }
-        
+
 
         public RoleFunction CreateByDto(RoleFunctionDto dto)
         {
@@ -87,14 +87,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(RoleFunction dest, RoleFunctionDto source)
         {
-            dest.IdRole = source.Role.Id;
-            dest.IdFunction = source.Function.Id;
+            Utilities.Copy(dest, source);
         }
 
         public void Copy(RoleFunctionDto dest, RoleFunctionDto source)
         {
-            dest.Role = source.Role;
-            dest.Function = source.Function;
+            Utilities.Copy(dest, source);
         }
     }
 }
