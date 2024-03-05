@@ -172,7 +172,7 @@
                               ItemsSource="{Binding AllBookStatus}"
                               DisplayMemberPath="Name"
                               Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
-                              SelectedIndex="0">
+                              IsEnabled="False">
                         <ComboBox.SelectedItem>
                             <Binding Path="Item.IdBookStatus" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource bookStatusToIdConverter}">
                                 <Binding.ValidationRules>

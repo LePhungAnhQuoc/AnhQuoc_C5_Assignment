@@ -109,6 +109,7 @@
     <Compile Include="Converters\Reader\IdAdultToFullNameConverter.cs" />
     <Compile Include="Converters\ReturnBook\ReturnBookButtonConfirmConverter.cs" />
     <Compile Include="Converters\StatusConvert\BookTitleStatusConverter.cs" />
+    <Compile Include="Converters\StringToArrayConverter.cs" />
     <Compile Include="Converters\Utilities\DateMinToNullValueConverter.cs" />
     <Compile Include="Converters\Utilities\HalfLengthConverter.cs" />
     <Compile Include="Converters\LoanSlip\IsLoanOutOfDateConverter.cs" />
@@ -359,6 +360,12 @@
     </Compile>
     <Compile Include="UserControls\LoanDetail-Information\ucLoanDetailCard.xaml.cs">
       <DependentUpon>ucLoanDetailCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LoanDetailHistory-Information\ucLoanDetailHistorysTable.xaml.cs">
+      <DependentUpon>ucLoanDetailHistorysTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LoanHistory-Information\ucLoanHistoryInformation.xaml.cs">
+      <DependentUpon>ucLoanHistoryInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Statistical\StatisticalDescription.xaml.cs">
       <DependentUpon>StatisticalDescription.xaml</DependentUpon>
@@ -848,6 +855,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\LoanDetail-Information\ucLoanDetailCard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\LoanDetailHistory-Information\ucLoanDetailHistorysTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\LoanHistory-Information\ucLoanHistoryInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

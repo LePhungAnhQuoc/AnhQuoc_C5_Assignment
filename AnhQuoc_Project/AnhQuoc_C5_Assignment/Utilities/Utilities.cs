@@ -1237,6 +1237,11 @@ namespace AnhQuoc_C5_Assignment
             return type.IsGenericType;
         }
 
+        public static bool IsGeneric(object obj)
+        {
+            return IsGeneric(obj.GetType());
+        }
+
         public static Type GetItemDataTypeInGenericList(IEnumerable list)
         {
             Type type = list.GetType();

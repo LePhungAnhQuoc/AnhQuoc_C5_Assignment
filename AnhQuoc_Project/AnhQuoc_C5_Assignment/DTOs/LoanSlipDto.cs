@@ -100,18 +100,6 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-
-        private string _ReaderName;
-        public string ReaderName
-        {
-            get { return _ReaderName; }
-            set
-            {
-                _ReaderName = value;
-                OnPropertyChanged();
-            }
-        }
-
         #endregion
 
 

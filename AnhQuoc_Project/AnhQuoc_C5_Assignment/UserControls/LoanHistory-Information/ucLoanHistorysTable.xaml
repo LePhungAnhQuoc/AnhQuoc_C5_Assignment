@@ -35,7 +35,19 @@
 
                 <DataGridTextColumn Header="Loan Paid" Width="auto" Binding="{Binding LoanPaid, Converter={StaticResource PriceFormatConverter}}" />
                 <DataGridTextColumn Header="Deposit" Width="auto" Binding="{Binding Deposit, Converter={StaticResource PriceFormatConverter}}" />
-                
+
+                <DataGridTemplateColumn x:Name="dtgBtnInfo">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnInfo"
+                                Style="{StaticResource btnInfo}"
+                                Margin="5"
+                                Click="btnInfo_Click">
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
                 <DataGridTemplateColumn x:Name="dtgbtnDelete">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

@@ -146,6 +146,7 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             #region Register-Event
+            txtSearch.TextChanged += TxtSearch_TextChanged;
             btnAdd.Click += BtnAdd_Click;
             ucLoanSlipsTable.btnInfoClick += UcLoanSlipsTable_btnInfoClick;
             #endregion
@@ -171,6 +172,23 @@ namespace AnhQuoc_C5_Assignment
 
             NewItemFromUcAdd();
         }
+
+        #region Fillter-Methods
+        private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Fillter();
+        }
+
+        private void Fillter()
+        {
+            var source = getLoanSlipRepo().Gets();
+            var results = loanSlipVM.FillByReaderFullName(source, txtSearch.Text, true);
+
+            AddToListFill(results);
+            AddItemsToDataGrid(results);
+        }
+        #endregion
+
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {

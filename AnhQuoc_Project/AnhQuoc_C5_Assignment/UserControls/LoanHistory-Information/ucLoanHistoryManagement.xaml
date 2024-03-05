@@ -25,10 +25,11 @@
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
             
+                
                 <Grid Grid.Column="0">
                     <TextBox Name="txtSearch"
                              Style="{StaticResource txtStyleSearch}"/>
-                    <TextBlock Text="Search by reader name here...">
+                    <TextBlock Text="Search by reader name here..." VerticalAlignment="Center">
                         <TextBlock.Style>
                             <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolder}">
                                 <Setter Property="Visibility" Value="Hidden" />

@@ -137,7 +137,33 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-        
+
+        #region Other-Prop
+        private User _User;
+        public User User
+        {
+            get { return _User; }
+            set
+            {
+                _User = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Reader _Reader;
+        public Reader Reader
+        {
+            get { return _Reader; }
+            set
+            {
+                _Reader = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
+
+
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         // Create the OnPropertyChanged method to raise the event

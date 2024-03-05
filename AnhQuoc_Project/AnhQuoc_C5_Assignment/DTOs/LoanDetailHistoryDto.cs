@@ -56,7 +56,42 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-        
+
+        #region OtherProperties
+        private BookTitle _BookTitle;
+        public BookTitle BookTitle
+        {
+            get { return _BookTitle; }
+            set
+            {
+                _BookTitle = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private BookISBN _BookISBN;
+        public BookISBN BookISBN
+        {
+            get { return _BookISBN; }
+            set
+            {
+                _BookISBN = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Book _Book;
+        public Book Book
+        {
+            get { return _Book; }
+            set
+            {
+                _Book = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+
 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

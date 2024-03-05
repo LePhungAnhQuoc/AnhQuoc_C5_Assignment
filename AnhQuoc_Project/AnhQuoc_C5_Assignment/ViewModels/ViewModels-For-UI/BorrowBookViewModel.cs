@@ -150,50 +150,6 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        private ObservableCollection<LoanSlip> _AllAdultLoan;
-        public ObservableCollection<LoanSlip> AllAdultLoan
-        {
-            get { return _AllAdultLoan; }
-            set
-            {
-                _AllAdultLoan = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private ObservableCollection<LoanSlip> _AllChildLoan;
-        public ObservableCollection<LoanSlip> AllChildLoan
-        {
-            get { return _AllChildLoan; }
-            set
-            {
-                _AllChildLoan = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private ObservableCollection<LoanDetail> _AllChildLoanDetail;
-        public ObservableCollection<LoanDetail> AllChildLoanDetail
-        {
-            get { return _AllChildLoanDetail; }
-            set
-            {
-                _AllChildLoanDetail = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private ObservableCollection<LoanDetail> _AllAdultLoanDetail;
-        public ObservableCollection<LoanDetail> AllAdultLoanDetail
-        {
-            get { return _AllAdultLoanDetail; }
-            set
-            {
-                _AllAdultLoanDetail = value;
-                OnPropertyChanged();
-            }
-        }
-
         private ObservableCollection<LoanDetail> _AllReaderLoanDetail;
         public ObservableCollection<LoanDetail> AllReaderLoanDetail
         {
@@ -228,7 +184,19 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-        
+
+        private AdultDto _Guardian;
+        public AdultDto Guardian
+        {
+            get { return _Guardian; }
+            set 
+            {
+                _Guardian = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         private BookDto _SelectedBook;
         public BookDto SelectedBook
         {
@@ -343,6 +311,7 @@ namespace AnhQuoc_C5_Assignment
         {
             AllBookISBNCard = new ObservableCollection<ucBookISBNCard>();
             AllReaderTypes = Utilities.GetListFromEnum<ReaderType>().ToObservableCollection();
+            AllReaderLoanDetail = new ObservableCollection<LoanDetail>();
 
             #region Allocates
             readerVM = UnitOfViewModel.Instance.ReaderViewModel;
@@ -597,9 +566,21 @@ namespace AnhQuoc_C5_Assignment
 
                 SelectedReader = readerMap.ConvertToDto(reader);
 
+                if (SelectedReader.ReaderType == ReaderType.Child)
+                {
+                    Child child = childVM.FindByIdReader(SelectedReader.Id, null);
+                    Guardian = adultMap.ConvertToDto(adultVM.FindByIdReader(child.IdAdult, null));
+                    
+                    ucSelectReaderInfo.stkGuardian.IsEnabled = true;
+                }
+                else if (SelectedReader.ReaderType == ReaderType.Adult)
+                {
+                    Guardian = null;
+                    ucSelectReaderInfo.stkGuardian.IsEnabled = false;
+                }
+
                 LoanSlipDto.IdReader = SelectedReader.Id;
                 LoanSlipDto.Reader = reader;
-                LoanSlipDto.ReaderName = SelectedReader.FullName;
 
                 GetBooksFromReader();
                 GetReaderLoanAndLoanDetails();
@@ -607,8 +588,6 @@ namespace AnhQuoc_C5_Assignment
                 ucSelectReaderInfo.ucLoanDetailsBorrowedTable.getLoanDetails = () => AllReaderLoanDetail;
                 
                 ucSelectReaderInfo.ucLoanDetailsBorrowedTable.ModifiedPagination();
-                
-                //SettingColorRed(ucSelectReaderInfo.ucLoanDetailsBorrowedTable.dgDatas);
 
                 return;
             }
@@ -618,7 +597,6 @@ namespace AnhQuoc_C5_Assignment
 
                 LoanSlipDto.IdReader = null;
                 LoanSlipDto.Reader = null;
-                LoanSlipDto.ReaderName = null;
             }
             comBoBox.ItemsSource = readerMap.ConvertToDto(getfillList);
             comBoBox.IsDropDownOpen = true;
@@ -628,17 +606,38 @@ namespace AnhQuoc_C5_Assignment
         
         private void GetReaderLoanAndLoanDetails()
         {
+            Action<string> adultAction = (IdAdultReader) =>
+            {
+                GetChildrenFromAdult(adultVM.FindByIdReader(IdAdultReader, null));
+
+
+                var allChildLoanDetails = new ObservableCollection<LoanDetail>();
+                foreach (Child child in AllChildOfAdult)
+                {
+                    var childLoans = loanSlipVM.FillByIdReader(child.IdReader);
+                    var childLoanDetails = loanDetailVM.FillListByIdLoans(childLoans);
+
+                    allChildLoanDetails.AddRange(childLoanDetails);
+                }
+
+                var adultLoans = loanSlipVM.FillByIdReader(IdAdultReader);
+                var adultLoanDetails = loanDetailVM.FillListByIdLoans(adultLoans);
+
+                AllReaderLoanDetail.Clear();
+
+                AllReaderLoanDetail.AddRange(adultLoanDetails);
+                AllReaderLoanDetail.AddRange(allChildLoanDetails);
+            };
+
             if (SelectedReader.ReaderType == ReaderType.Adult)
             {
-                AllAdultLoan = loanSlipVM.FillByIdReader(SelectedReader.Id);
-                AllAdultLoanDetail = loanDetailVM.FillListByIdLoans(AllAdultLoan);
-                AllReaderLoanDetail = AllAdultLoanDetail;
+                adultAction(SelectedReader.Id);
             }
             else if (SelectedReader.ReaderType == ReaderType.Child)
             {
-                AllChildLoan = loanSlipVM.FillByIdReader(SelectedReader.Id);
-                AllChildLoanDetail = loanDetailVM.FillListByIdLoans(AllChildLoan);
-                AllReaderLoanDetail = AllChildLoanDetail;
+                Child child = childVM.FindByIdReader(SelectedReader.Id, null);
+                Reader adult = readerVM.FindById(child.IdAdult);
+                adultAction(adult.Id);
             }
         }
 
@@ -646,14 +645,15 @@ namespace AnhQuoc_C5_Assignment
         {
             ReaderDto reader = SelectedReader;
 
-            var readerLoans = loanSlipVM.FillByIdReader(reader.Id, false);
-            var readerBooks = bookVM.GetBooksInLoanSlips(readerLoans);
-            BooksOfReader = readerBooks;
-
-            if (SelectedReader.ReaderType == ReaderType.Adult)
+            Action<ReaderDto> adultAction = (adultReader) =>
             {
+                var adultReaderLoans = loanSlipVM.FillByIdReader(adultReader.Id, false);
+                var adultReaderBooks = bookVM.GetBooksInLoanSlips(adultReaderLoans);
+                BooksOfReader = adultReaderBooks;
+
+
                 // get all child
-                ObservableCollection<Child> allChilds = childVM.FillByIdAdult(SelectedReader.Id, true);
+                ObservableCollection<Child> allChilds = childVM.FillByIdAdult(adultReader.Id, true);
 
                 allChilds.ForEach((childItem) =>
                 {
@@ -661,14 +661,19 @@ namespace AnhQuoc_C5_Assignment
                     var childBooks = bookVM.GetBooksInLoanSlips(childLoans);
                     BooksOfReader.AddRange(childBooks);
                 });
+            };
+
+            if (SelectedReader.ReaderType == ReaderType.Adult)
+            {
+                adultAction(SelectedReader);
             }
 
             else if (SelectedReader.ReaderType == ReaderType.Child)
             {
                 Child child = childVM.FindByIdReader(SelectedReader.Id, true);
-                var adultLoans = loanSlipVM.FillByIdReader(child.IdAdult, false);
-                var adultBooks = bookVM.GetBooksInLoanSlips(adultLoans);
-                BooksOfReader.AddRange(adultBooks);
+                Reader adultReader = readerVM.FindById(child.IdAdult);
+
+                adultAction(readerMap.ConvertToDto(adultReader));
             }
         }
 

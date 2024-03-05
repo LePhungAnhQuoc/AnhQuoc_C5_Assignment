@@ -47,6 +47,7 @@ namespace AnhQuoc_C5_Assignment
         public Func<ucRolesTable> getUcRolesTable { get; set; }
         public Func<ucLoanSlipsTable> getUcLoanSlipsTable { get; set; }
         public Func<ucLoanDetailsTable> getUcLoanDetailsTable { get; set; }
+        public Func<ucLoanDetailHistorysTable> getUcLoanDetailHistorysTable { get; set; }
         public Func<ucLoanHistorysTable> getUcLoanHistorysTable { get; set; }
         public Func<ucCategorysTable> getUcCategorysTable { get; set; }
         public Func<ucPublishersTable> getUcPublishersTable { get; set; }
@@ -188,6 +189,10 @@ namespace AnhQuoc_C5_Assignment
             if (getUcLoanDetailsTable != null)
             {
                 getUcLoanDetailsTable().dgDatas.ItemsSource = result;
+            }
+            if (getUcLoanDetailHistorysTable != null)
+            {
+                getUcLoanDetailHistorysTable().dgDatas.ItemsSource = result;
             }
             if (getUcLoanHistorysTable != null)
             {

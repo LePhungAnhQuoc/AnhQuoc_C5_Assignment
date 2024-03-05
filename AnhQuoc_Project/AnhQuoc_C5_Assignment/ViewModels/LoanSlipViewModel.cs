@@ -91,6 +91,29 @@ namespace AnhQuoc_C5_Assignment
             return Repo.Gets().Where((item) => item.LoanDate.Year == (DateTime.Now.Year - 1)).ToObservableCollection();
         }
 
+        public ObservableCollection<LoanSlip> FillByReaderFullName(ObservableCollection<LoanSlip> source, string readerFullName, bool igNoreCase)
+        {
+            ReaderViewModel readerVM = UnitOfViewModel.Instance.ReaderViewModel;
+            ReaderMap readerMap = UnitOfMap.Instance.ReaderMap;
+            LoanSlipMap map = UnitOfMap.Instance.LoanSlipMap;
+            ObservableCollection<LoanSlip> results = new ObservableCollection<LoanSlip>();
+            foreach (LoanSlip item in source)
+            {
+                var itemDto = map.ConvertToDto(item);
+
+                Reader readerFinded = readerVM.FindById(item.IdReader);
+                ReaderDto readerDtoFinded = readerMap.ConvertToDto(readerFinded);
+
+                bool isCheck = readerDtoFinded.FullName.ContainsCorrectly(readerFullName, igNoreCase);
+                if (isCheck)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+
+
         public LoanSlip FindByMostQuantity()
         {
             return Repo.Gets().OrderByDescending(item => item.Quantity).FirstOrDefault();

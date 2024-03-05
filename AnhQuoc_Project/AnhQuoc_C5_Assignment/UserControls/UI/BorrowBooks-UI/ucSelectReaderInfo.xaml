@@ -19,6 +19,7 @@
     
     <UserControl.Resources>
         <local:BorrowBookSelectReaderButtonConfirmConverter x:Key="BorrowBookSelectReaderButtonConfirmConverter" />
+        <local:IdAdultToFullNameConverter x:Key="IdAdultToFullNameConverter" />
     </UserControl.Resources>
 
     <Grid Name="gdInputLoanSlip"
@@ -47,96 +48,153 @@
             <!-- Reader Information -->
             <GroupBox Grid.Row="0"
                       Header="Reader Information">
-                <StackPanel>
-                    <StackPanel.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                        <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
-                        <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
-                        <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
-                        <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}">
-                            <Setter Property="Margin" Value="0 10" />
-                        </Style>
-                    </StackPanel.Resources>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Id Reader: " />
-                        <Grid Name="gdInputIdReader"
-                            Style="{x:Null}"
-                            Grid.Column="1">
-                            <ComboBox Name="cbTxtIdReader"
-                                    Style="{StaticResource cbGeneral}"
-                                    DisplayMemberPath="Id">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="DropDownClosed">
-                                        <i:InvokeCommandAction Command="{Binding ReadercbTxtIdReaderDropDownClosedCmd}" 
-                                                            CommandParameter="{Binding ElementName=cbTxtIdReader}" />
-                                    </i:EventTrigger>
-                                    <i:EventTrigger EventName="SelectionChanged">
-                                        <i:InvokeCommandAction Command="{Binding ReadercbTxtIdReaderSelectionChangedCmd}" 
-                                                            CommandParameter="{Binding ElementName=cbTxtIdReader}" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0"
+                                Margin="0 0 10 0">
+                        <StackPanel.Resources>
+                            <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                            <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                            <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                            <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                            <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}">
+                                <Setter Property="Margin" Value="0 10" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Id Reader: " />
+                            <Grid Name="gdInputIdReader"
+                                Style="{x:Null}"
+                                Grid.Column="1">
+                                <ComboBox Name="cbTxtIdReader"
+                                        Style="{StaticResource cbGeneral}"
+                                        DisplayMemberPath="Id">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="DropDownClosed">
+                                            <i:InvokeCommandAction Command="{Binding ReadercbTxtIdReaderDropDownClosedCmd}" 
+                                                                CommandParameter="{Binding ElementName=cbTxtIdReader}" />
+                                        </i:EventTrigger>
+                                        <i:EventTrigger EventName="SelectionChanged">
+                                            <i:InvokeCommandAction Command="{Binding ReadercbTxtIdReaderSelectionChangedCmd}" 
+                                                                CommandParameter="{Binding ElementName=cbTxtIdReader}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
 
-                            </ComboBox>
-                            <TextBox Name="txtIdReader"
-                                     Grid.Column="1"
-                                     Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="TextChanged">
-                                        <i:InvokeCommandAction Command="{Binding ReadertxtIdReaderTextChangedCmd}"
-                                                            CommandParameter="{Binding ElementName=txtIdReader}" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                                <TextBox.Text>
-                                    <Binding Path="SelectedReader.Id" UpdateSourceTrigger="PropertyChanged">
-                                        <Binding.ValidationRules>
+                                </ComboBox>
+                                <TextBox Name="txtIdReader"
+                                         Grid.Column="1"
+                                         Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                            <i:InvokeCommandAction Command="{Binding ReadertxtIdReaderTextChangedCmd}"
+                                                                CommandParameter="{Binding ElementName=txtIdReader}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    <TextBox.Text>
+                                        <Binding Path="SelectedReader.Id" UpdateSourceTrigger="PropertyChanged">
+                                            <Binding.ValidationRules>
 
-                                        </Binding.ValidationRules>
-                                    </Binding>
-                                </TextBox.Text>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+                            </Grid>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Name: " />
+                            <TextBox Name="txtName"
+                                    Grid.Column="1"
+                                    Text="{Binding SelectedReader.FullName, Mode=OneWay}"
+                                    IsEnabled="False">
                             </TextBox>
                         </Grid>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Name: " />
-                        <TextBox Name="txtName"
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Type: " />
+                            <TextBox Name="txtReaderType"
+                                    Grid.Column="1"
+                                    Text="{Binding SelectedReader.ReaderType, Mode=OneWay}"
+                                    IsEnabled="False">
+                            </TextBox>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Status: " />
+                            <TextBox Name="txtStatus"
+                                    Grid.Column="1"
+                                    Text="{Binding SelectedReader.Status, Mode=OneWay}"
+                                    IsEnabled="False">
+                            </TextBox>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Name="stkGuardian"
                                 Grid.Column="1"
-                                Text="{Binding SelectedReader.FullName, Mode=OneWay}"
-                                IsReadOnly="True">
-                        </TextBox>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Type: " />
-                        <TextBox Name="txtReaderType"
-                                Grid.Column="1"
-                                Text="{Binding SelectedReader.ReaderType, Mode=OneWay}"
-                                IsReadOnly="True">
-                        </TextBox>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Status: " />
-                        <TextBox Name="txtStatus"
-                                Grid.Column="1"
-                                Text="{Binding SelectedReader.Status, Mode=OneWay}"
-                                IsReadOnly="True">
-                        </TextBox>
-                    </Grid>
-                </StackPanel>
+                                Margin="10 0 0 0">
+                        <StackPanel.Resources>
+                            <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
+                            <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
+                            <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
+                            <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
+                            <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}">
+                                <Setter Property="Margin" Value="0 10" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Id Guardian: " />
+                            <TextBox Name="txtIdGuardian"
+                                     Grid.Column="1"
+                                     Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
+                                     Text="{Binding Guardian.IdReader}"
+                                     IsEnabled="False">
+                            </TextBox>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Name: " />
+                            <TextBox Name="txtGuardianName"
+                                     Grid.Column="1"
+                                     Text="{Binding Guardian.IdReader, Mode=OneWay, Converter={StaticResource IdAdultToFullNameConverter}}"
+                                     IsEnabled="False">
+                            </TextBox>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Status: " />
+                            <TextBox Name="txtGuardianStatus"
+                                     Grid.Column="1"
+                                     Text="{Binding Guardian.Status, Mode=OneWay}"
+                                     IsEnabled="False">
+                            </TextBox>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
             </GroupBox>
 
             <!-- List Loan details -->

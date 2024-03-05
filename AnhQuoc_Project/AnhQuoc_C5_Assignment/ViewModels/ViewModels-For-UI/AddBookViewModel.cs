@@ -186,7 +186,7 @@ namespace AnhQuoc_C5_Assignment
         public void onLoaded(object sender, RoutedEventArgs e)
         {
             InputQuantity = 1;
-
+            
             IsCancel = true;
 
             thisForm = sender as frmAddBook;
@@ -228,6 +228,8 @@ namespace AnhQuoc_C5_Assignment
         private void NewItem()
         {
             Item = new BookDto(thisForm.getIdBook());
+            Item.IdBookStatus = bookStatusVM.Repo.Gets().First().Id;
+
             Item.Status = true;
             Item.CreatedAt = DateTime.Now;
             Item.ModifiedAt = Item.CreatedAt;
@@ -318,6 +320,9 @@ namespace AnhQuoc_C5_Assignment
 
         public void TxtPrice_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (Item == null)
+                return;
+
             Item.PriceCurrent = Item.Price;
         }
 

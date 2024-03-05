@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource wdStyleBig}">
     <Window.Resources>
-        
+        <local:StringToArrayConverter x:Key="StringToArrayConverter" />
     </Window.Resources>
     <Grid Name="grid">
         <Grid.ColumnDefinitions>

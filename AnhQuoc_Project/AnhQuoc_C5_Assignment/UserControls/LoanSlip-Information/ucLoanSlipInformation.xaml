@@ -10,6 +10,7 @@
              Background="White">
     <UserControl.Resources>
         <local:PriceFormatConverter x:Key="PriceFormatConverter" />
+        <local:IdReaderToFullNameConverter x:Key="IdReaderToFullNameConverter" />
     </UserControl.Resources>
     <StackPanel Width="800">
         <!-- Title -->
@@ -56,7 +57,7 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Reader: " />
                         <TextBlock Grid.Column="1"
-                                   Text="{Binding Item.ReaderName}" />
+                                   Text="{Binding Item.IdReader, Converter={StaticResource IdReaderToFullNameConverter}}" />
                     </Grid>
                     <Grid>
                         <Grid.ColumnDefinitions>

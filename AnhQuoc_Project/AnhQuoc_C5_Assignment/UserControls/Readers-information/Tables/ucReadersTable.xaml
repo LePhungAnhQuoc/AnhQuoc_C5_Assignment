@@ -113,8 +113,16 @@
                             <Button Name="btnTransferGuardian"
                                     Margin="5"
                                     Content="Transfer guardian"
-                                    Click="btnTransferGuardian_Click"
-                                    Style="{StaticResource btnTransferGuardian}">
+                                    Click="btnTransferGuardian_Click">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource btnTransferGuardian}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ReaderType}" Value="Adult">
+                                                <Setter Property="Visibility" Value="Hidden" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
                             </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

@@ -370,8 +370,6 @@ namespace AnhQuoc_C5_Assignment
 
                 UnitOfMap.Instance.UnitOfRepo = UnitOfRepo;
                 UnitOfMap.Instance.Load();
-
-                UnitOfForm.Load();
                 #endregion
 
                 #region ViewModels

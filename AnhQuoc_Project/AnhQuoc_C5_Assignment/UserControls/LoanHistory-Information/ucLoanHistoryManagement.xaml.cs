@@ -152,12 +152,13 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             btnAdd.Click += BtnAdd_Click;
+            ucLoanHistorysTable.btnInfoClick += UcLoanHistorysTable_btnInfoClick;
             txtSearch.TextChanged += TxtSearch_TextChanged;
 
             this.Loaded += ucLoanHistoryManagement_Loaded;
             this.DataContext = this;
         }
-        
+
         private void ucLoanHistoryManagement_Loaded(object sender, RoutedEventArgs e)
         {
             ucLoanHistorysTable.getItem_Status = () => null;
@@ -188,7 +189,8 @@ namespace AnhQuoc_C5_Assignment
 
         private void Fillter()
         {
-            var results = getLoanHistoryRepo().Gets();
+            var source = getLoanHistoryRepo().Gets();
+            var results = loanHistoryVM.FillByReaderFullName(source, txtSearch.Text, true);
 
             AddToListFill(results);
             AddItemsToDataGrid(results);
@@ -221,6 +223,17 @@ namespace AnhQuoc_C5_Assignment
             storeContent.Push(this.Content);
             this.Content = ucAddLoanHistory;
 
+        }
+      
+        private void UcLoanHistorysTable_btnInfoClick(object sender, RoutedEventArgs e)
+        {
+            ucLoanHistoryInformation ucLoanHistoryInformation = MainWindow.UnitOfForm.UcLoanHistoryInformation(true);
+            ucLoanHistoryInformation.getItem = () => ucLoanHistorysTable.SelectedDto;
+
+            Window frmLoanHistoryInformation = Utilities.CreateFormToAddUserControlInfo();
+            frmLoanHistoryInformation.Content = ucLoanHistoryInformation;
+
+            frmLoanHistoryInformation.ShowDialog();
         }
 
         private void AddToListFill(ObservableCollection<LoanHistory> items)

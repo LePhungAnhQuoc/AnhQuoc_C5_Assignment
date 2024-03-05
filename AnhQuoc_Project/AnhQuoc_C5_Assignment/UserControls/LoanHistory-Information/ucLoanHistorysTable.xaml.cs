@@ -122,7 +122,14 @@ namespace AnhQuoc_C5_Assignment
 
             loanHistoryMap = UnitOfMap.Instance.LoanHistoryMap;
             Loaded += ucLoanHistorysTable_Loaded;
+
+            dgDatas.MouseDoubleClick += DgDatas_MouseDoubleClick;
             this.DataContext = this;
+        }
+
+        private void DgDatas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            btnInfo_Click(null, null);
         }
 
         private void ucLoanHistorysTable_Loaded(object sender, RoutedEventArgs e)

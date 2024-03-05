@@ -120,7 +120,14 @@ namespace AnhQuoc_C5_Assignment
 
             loanSlipMap = UnitOfMap.Instance.LoanSlipMap;
             Loaded += ucLoanSlipsTable_Loaded;
+
+            dgDatas.MouseDoubleClick += DgDatas_MouseDoubleClick;
             this.DataContext = this;
+        }
+
+        private void DgDatas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            btnInfo_Click(null, null);        
         }
 
         private void ucLoanSlipsTable_Loaded(object sender, RoutedEventArgs e)

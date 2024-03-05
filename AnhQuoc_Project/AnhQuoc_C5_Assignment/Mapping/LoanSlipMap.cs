@@ -20,7 +20,6 @@ namespace AnhQuoc_C5_Assignment
             LoanSlipDto newItem = new LoanSlipDto(sourceItem.Id);
 
             Utilities.Copy(newItem, sourceItem);
-            newItem.ReaderName = readerDto.FullName;
             newItem.Reader = reader;
             newItem.User = user;
 

@@ -44,6 +44,11 @@ namespace AnhQuoc_C5_Assignment
             this.DataContext = Context;
         }
 
+        private void FrmAddBook_Loaded(object sender, RoutedEventArgs e)
+        {
+            Context.onLoaded(sender, e);
+        }
+
         private void TxtQuantity_TextChanged(object sender, TextChangedEventArgs e)
         {
             Context.TxtQuantity_TextChanged(sender, e);
@@ -54,9 +59,5 @@ namespace AnhQuoc_C5_Assignment
             Context.TxtPrice_TextChanged(sender, e);
         }
 
-        private void FrmAddBook_Loaded(object sender, RoutedEventArgs e)
-        {
-            Context.onLoaded(sender, e);
-        }
     }
 }
