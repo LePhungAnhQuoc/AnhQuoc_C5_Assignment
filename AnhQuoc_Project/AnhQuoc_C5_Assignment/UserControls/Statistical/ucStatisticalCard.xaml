@@ -7,10 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Name="userControl">
-    <Border Style="{StaticResource bdCard}">
+    <GroupBox Style="{StaticResource gbDisplayInfo}"
+              Header="{Binding Header, ElementName=userControl, UpdateSourceTrigger=PropertyChanged}"
+              FontSize="20"
+              Margin="0">
         <RadioButton GroupName="Parent"
                      Style="{StaticResource radioBtnStatistical}"
                      Tag="{Binding Icon, ElementName=userControl, UpdateSourceTrigger=PropertyChanged}" 
                      Content="{Binding Content, ElementName=userControl, UpdateSourceTrigger=PropertyChanged}" />
-    </Border>
+    </GroupBox>
 </UserControl>

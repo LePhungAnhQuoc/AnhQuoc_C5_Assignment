@@ -270,6 +270,12 @@ namespace AnhQuoc_C5_Assignment
             if (updateStatus == false)
             {
                 var listTemp = adultVM.FillByCity(adultVM.Repo.Gets(), provinceSelect.Name, null);
+                if (listTemp.Count > 0)
+                {
+                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("province"));
+                    return;
+                }
+
 
                 message = Utilities.NotifySureToDelete();
                 if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)

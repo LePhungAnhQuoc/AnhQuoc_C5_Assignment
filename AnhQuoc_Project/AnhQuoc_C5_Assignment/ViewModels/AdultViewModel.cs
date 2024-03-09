@@ -21,7 +21,7 @@ namespace AnhQuoc_C5_Assignment
             numberPrefix = 0;
         }
         
-        public Adult FindByIdReader(string idReader, bool? statusValue)
+        public Adult FindByIdReader(string idReader, bool? statusValue = null)
         {
             var source = Repo.Gets();
             source = FillByStatus(source, statusValue);

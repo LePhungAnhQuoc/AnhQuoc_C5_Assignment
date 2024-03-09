@@ -24,7 +24,14 @@ namespace AnhQuoc_C5_Assignment
             int index = base.getMaxIndexId(propId);
             return base.GetId(index);
         }
-        
+
+        public LoanHistory FindByIdReader(string idReader, bool? statusValue = null)
+        {
+            var source = Repo.Gets();
+            source = FillByStatus(source, statusValue);
+            return source.FirstOrDefault(item => item.IdReader == idReader);
+        }
+
         public LoanHistory FindById(string idValue)
         {
             return Repo.Gets().FirstOrDefault(item => string.Compare(item.Id, idValue, false) == 0);

@@ -51,6 +51,10 @@ namespace AnhQuoc_C5_Assignment
         public static string reason2 = "PR2";
         public static string reason3 = "PR3";
 
+        public static string bookStatusNormal = "BS1";
+        public static string bookStatusLost = "BS2";
+        public static string bookStatusSpoil = "BS3";
+
 
         #region Function-Id
         public static string roleFunc_FunctionId = "F19";

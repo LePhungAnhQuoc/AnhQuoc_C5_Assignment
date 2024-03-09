@@ -48,6 +48,13 @@ namespace AnhQuoc_C5_Assignment
             return null;
         }
 
+        public LoanSlip FindByIdReader(string idReader, bool? statusValue = null)
+        {
+            var source = Repo.Gets();
+            source = FillByStatus(source, statusValue);
+            return source.FirstOrDefault(item => item.IdReader == idReader);
+        }
+
 
         public ObservableCollection<LoanSlip> FillByIdReader(string idReader, bool ignoreCase = false)
         {
@@ -76,7 +83,10 @@ namespace AnhQuoc_C5_Assignment
 
             return result;
         }
-
+        public ObservableCollection<LoanSlip> FillExpire()
+        {
+            return Repo.Gets().Where(item => IsOutOfExpireDate(item)).ToObservableCollection();
+        }
 
 
 

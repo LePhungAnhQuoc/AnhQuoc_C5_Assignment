@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -83,6 +84,21 @@ namespace AnhQuoc_C5_Assignment
         public ObservableCollection<Book> FillByBookISBN(string ISBNValue, bool? statusValue)
         {
             return FillByBookISBN(Repo.Gets(), ISBNValue, statusValue);
+        }
+
+        public ObservableCollection<Book> FillByIdBookStatus(ObservableCollection<Book> source, string idValue, bool? statusValue = null)
+        {
+            source = FillByStatus(source, statusValue);
+
+            ObservableCollection<Book> result = new ObservableCollection<Book>();
+            foreach (Book item in source)
+            {
+                if (item.IdBookStatus == idValue)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
         }
 
         public ObservableCollection<Book> FillByBookISBN(ObservableCollection<Book> source, string ISBNValue, bool? statusValue)
@@ -184,10 +200,21 @@ namespace AnhQuoc_C5_Assignment
             return result;
         }
 
+        public ObservableCollection<Book> GetBooksInLibrary()
+        {
+            return FillByStatus(true);
+        }
 
         public ObservableCollection<Book> GetBooksInLoanDetails(ObservableCollection<LoanDetail> loanDetails)
         {
             var lstId = loanDetails.Select(item => item.IdBook).ToObservableCollection();
+            var books = getListFromIds(lstId);
+            return books;
+        }
+
+        public ObservableCollection<Book> GetBooksInLoanDetailHistorys(ObservableCollection<LoanDetailHistory> loanDetailHistorys)
+        {
+            var lstId = loanDetailHistorys.Select(item => item.IdBook).ToObservableCollection();
             var books = getListFromIds(lstId);
             return books;
         }

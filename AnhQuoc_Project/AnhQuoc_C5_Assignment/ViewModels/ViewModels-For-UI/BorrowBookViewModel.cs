@@ -170,7 +170,7 @@ namespace AnhQuoc_C5_Assignment
         public ObservableCollection<Reader> FillReaderByType { get; set; }
         public bool? BookISBNStatusValue { get; set; } = null;
         public bool? BookStatusValue { get; set; } = null;
-        public bool? StatusValue { get; set; } = true;
+        public bool? ReaderStatusValue { get; set; } = true;
         public int TotalQuantity { get; set; }
 
 
@@ -387,11 +387,14 @@ namespace AnhQuoc_C5_Assignment
             SelectedReader = null;
 
             ucSelectReaderInfo = MainWindow.UnitOfForm.UcSelectReaderInfo(true);
+            ucSelectReaderInfo.ucLoanDetailsBorrowedTable.dtgReader.Visibility = Visibility.Visible;
+            ucSelectReaderInfo.ucLoanDetailsBorrowedTable.dtgReaderType.Visibility = Visibility.Visible;
+
+            ucSelectReaderInfo.ucLoanDetailsBorrowedTable.dgDatas.LoadingRow += DgDatas_LoadingRow;
 
             ucAddLoan.Content = ucSelectReaderInfo;
 
             NewItem();
-            ucSelectReaderInfo.ucLoanDetailsBorrowedTable.dgDatas.LoadingRow += DgDatas_LoadingRow;
         }
 
         private Book FindTheLastestBook(ObservableCollection<Book> books)
@@ -556,7 +559,7 @@ namespace AnhQuoc_C5_Assignment
                 return;
             }
 
-            ObservableCollection<Reader> getfillList = readerVM.FillContainIds(sourceDto, txtInput.Text, ignoreCase, StatusValue);
+            ObservableCollection<Reader> getfillList = readerVM.FillContainIds(sourceDto, txtInput.Text, ignoreCase, ReaderStatusValue);
 
             if (getfillList.Count == 1 && getfillList.First().Id == txtInput.Text)
             {
@@ -670,7 +673,7 @@ namespace AnhQuoc_C5_Assignment
 
             else if (SelectedReader.ReaderType == ReaderType.Child)
             {
-                Child child = childVM.FindByIdReader(SelectedReader.Id, true);
+                Child child = childVM.FindByIdReader(SelectedReader.Id);
                 Reader adultReader = readerVM.FindById(child.IdAdult);
 
                 adultAction(readerMap.ConvertToDto(adultReader));
@@ -707,7 +710,7 @@ namespace AnhQuoc_C5_Assignment
 
         private void NewDetail()
         {
-            int indexId = LoanDetails.Count + ucAddLoan.getLoanDetailRepo().Count;
+            int indexId = LoanDetails.Count + loanDetailVM.getMaxIndexId(nameof(LoanDetail.Id)); 
 
             LoanDetail = new LoanDetail();
             LoanDetail.Id = loanDetailVM.GetId(indexId);
@@ -1037,6 +1040,7 @@ namespace AnhQuoc_C5_Assignment
             frmSelectBooksTable.Height = 500;
             frmSelectBooksTable.SizeToContent = SizeToContent.Manual;
 
+            bool isConfirm = false;
             Action<object> confirmHandle = (sender) =>
             {
                 SelectedBook = ucSelectBooksTable.SelectedDto;
@@ -1045,6 +1049,8 @@ namespace AnhQuoc_C5_Assignment
                     Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("book"));
                     return;
                 }
+
+                isConfirm = true;
                 frmSelectBooksTable.Close();
             };
 
@@ -1054,6 +1060,12 @@ namespace AnhQuoc_C5_Assignment
             {
                 frmSelectBooksTable.Close();
                 SelectedBook = null;
+            };
+
+            frmSelectBooksTable.Closing += (_sender, _e) =>
+            {
+                if (isConfirm == false)
+                    SelectedBook = null;
             };
 
             ucSelectBooksTable.dgBooks.MouseDoubleClick += (_sender, _e) => confirmHandle(_sender);

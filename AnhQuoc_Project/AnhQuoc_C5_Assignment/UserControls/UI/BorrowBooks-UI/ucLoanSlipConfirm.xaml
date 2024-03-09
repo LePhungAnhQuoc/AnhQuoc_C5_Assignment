@@ -17,6 +17,7 @@
     
     <UserControl.Resources>
         <local:PriceFormatConverter x:Key="PriceFormatConverter" />
+        <local:IdReaderToFullNameConverter x:Key="IdReaderToFullNameConverter" />
     </UserControl.Resources>
 
     <Border Name="bdConfirmInformation"
@@ -60,7 +61,7 @@
                         <Label Content="Reader: " />
                         <TextBox Name="txtReader"
                                  Grid.Column="1"
-                                 Text="{Binding LoanSlipDto.ReaderName, Mode=OneWay}"
+                                 Text="{Binding LoanSlipDto.IdReader, Mode=OneWay, Converter={StaticResource IdReaderToFullNameConverter}}"
                                  IsEnabled="False">
                         </TextBox>
                     </Grid>

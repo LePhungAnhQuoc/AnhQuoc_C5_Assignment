@@ -581,8 +581,6 @@ namespace AnhQuoc_C5_Assignment
             bool ignoreCase = true;
             ComboBox comBoBox = Utilities.FindVisualChild<ComboBox>(parent);
 
-            comBoBox.ItemsSource = AllReader;
-
             if (Utilities.IsCheckEmptyString(txtInput.Text))
             {
                 SelectedReader = null;
@@ -769,13 +767,9 @@ namespace AnhQuoc_C5_Assignment
             bool ignoreCase = true;
             ComboBox comBoBox = Utilities.FindVisualChild<ComboBox>(parent);
 
-            comBoBox.ItemsSource = AllReason;
+            ObservableCollection<PenaltyReason> getfillList = null;
 
-            if (Utilities.IsCheckEmptyString(txtInput.Text))
-                return;
-
-            ObservableCollection<PenaltyReason> getfillList = reasonVM.FillContainsName(sourceDto, txtInput.Text, ignoreCase, StatusValue);
-
+            getfillList = reasonVM.FillContainsName(sourceDto, txtInput.Text, ignoreCase, StatusValue);
             if (getfillList.Count == 1 && getfillList.First().Name == txtInput.Text)
             {
                 comBoBox.IsDropDownOpen = false;
@@ -791,20 +785,27 @@ namespace AnhQuoc_C5_Assignment
                 if (SelectedReason.IsPaided == false)
                 {
                     SelectedReason.Reason = reason;
+                    Book book = bookVM.FindById(Detail.IdBook, null);
 
                     decimal fineAmount = 0;
                     if (reason.Id == Constants.reason1)
                     {
                         fineAmount = 0;
+                        book.IdBookStatus = Constants.bookStatusNormal;
                     }
                     else if (reason.Id == Constants.reason2)
                     {
                         fineAmount = SelectedUnPaidBookCard.Item.PriceCurrent;
+                        book.IdBookStatus = Constants.bookStatusLost;
                     }
                     else if (reason.Id == Constants.reason3)
                     {
                         fineAmount = 0;
+                        book.IdBookStatus = Constants.bookStatusSpoil;
                     }
+
+                    // Cập nhật tình trạng sách
+                    bookVM.Repo.WriteUpdate(book);
 
                     Detail.PaidMoney = fineAmount;
                     SelectedReason.IsPaided = true;
@@ -832,7 +833,7 @@ namespace AnhQuoc_C5_Assignment
 
         private void NewDetail()
         {
-            int indexId = ucAddLoanHistory.getLoanDetailHistoryRepo().Count + LoanDetailHistoryDtos.Count;
+            int indexId = LoanDetailHistoryDtos.Count + loanDetailHistoryVM.getMaxIndexId(nameof(Detail.Id));
             Detail = new LoanDetailHistoryDto(loanDetailHistoryVM.GetId(indexId));
             Detail.IdLoanHistory = Item.Id;
             Detail.ExpDate = Item.ExpDate;
@@ -858,19 +859,20 @@ namespace AnhQuoc_C5_Assignment
 
         private void ChangeBookStatus(bool updateStatus)
         {
-            foreach (var loanDetail in LoanDetailHistoryDtos)
+            var bookList = bookVM.GetBooksInLoanDetailHistorys(loanDetailHistoryVM.CreateByDto(LoanDetailHistoryDtos));
+            foreach (var book in bookList)
             {
-                Book book = bookVM.FindById(loanDetail.IdBook, null);
-
-                if (book.Status != updateStatus)
+                if (book.IdBookStatus != Constants.bookStatusLost)
                 {
                     book.Status = updateStatus;
-
+                
                     // Save change to database
                     ucAddLoanHistory.getBookRepo().WriteUpdateStatus(book, updateStatus);
                 }
             }
-            foreach (BookISBN isbn in ucAddLoanHistory.getBookISBNRepo())
+            var isbnList = bookISBNVM.GetISBNsFromBooks(bookList);
+
+            foreach (BookISBN isbn in isbnList)
             {
                 var books = bookVM.FillByBookISBN(isbn.ISBN, true);
                 if (books.Count == 0)
@@ -938,7 +940,7 @@ namespace AnhQuoc_C5_Assignment
 
             //  new card
             SelectedUnPaidBookCard = card;
-            SelectedUnPaidBookCard.Background = Brushes.AliceBlue;
+            SelectedUnPaidBookCard.Background = Utilities.GetColorFromCode("#b3dbff");
 
             UnPaidBookCards_SelectionChanged();
 

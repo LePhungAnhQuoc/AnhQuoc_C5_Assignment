@@ -105,6 +105,8 @@
     <Compile Include="Converters\Object-To-Id\TranslatorToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\PublisherToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\BookISBNToISBNConverter.cs" />
+    <Compile Include="Converters\Reader\IdLoanSlipToReaderTypeConverter.cs" />
+    <Compile Include="Converters\Reader\IdLoanSlipToFullNameConverter.cs" />
     <Compile Include="Converters\Reader\IdReaderToFullNameConverter.cs" />
     <Compile Include="Converters\Reader\IdAdultToFullNameConverter.cs" />
     <Compile Include="Converters\ReturnBook\ReturnBookButtonConfirmConverter.cs" />
@@ -556,6 +558,7 @@
     <Compile Include="Validations\Basic-Validations\InputUnicodeTextRule.cs" />
     <Compile Include="Validations\Basic-Validations\InputNumberLengthRangeRule.cs" />
     <Compile Include="Validations\Basic-Validations\SelectedItemRule.cs" />
+    <Compile Include="Validations\Particular-Validations\ExpireDateRule.cs" />
     <Compile Include="Validations\Particular-Validations\InputDataSourceRule.cs" />
     <Compile Include="Validations\Particular-Validations\InputNameRule.cs" />
     <Compile Include="Validations\Particular-Validations\InputBoFRule.cs" />

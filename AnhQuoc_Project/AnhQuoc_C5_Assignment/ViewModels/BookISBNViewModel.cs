@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Animation;
 
 namespace AnhQuoc_C5_Assignment
 {
@@ -39,6 +40,49 @@ namespace AnhQuoc_C5_Assignment
                 }
             }
             return null;
+        }
+
+        public BookISBN MostOfISBN(ObservableCollection<LoanSlip> loans)
+        {
+            Dictionary<string, int> collects = new Dictionary<string, int>();
+
+            LoanDetailViewModel loanDetailVM = UnitOfViewModel.Instance.LoanDetailViewModel;
+            BookViewModel bookVM = UnitOfViewModel.Instance.BookViewModel;
+            loans.ForEach(item =>
+            {
+                var loanDetails = loanDetailVM.FillListByIdLoan(item.Id);
+                var books = bookVM.GetBooksInLoanDetails(loanDetails);
+                var isbnsInBooks = books.Select(book => book.ISBN).ToObservableCollection();
+                var newDic = Utilities.GetOccurrenceInArray(isbnsInBooks);
+
+                newDic.ForEach(key =>
+                {
+                    var check = collects.FirstOrDefault(itemCollect => itemCollect.Key == key.Key);
+                    if (check.Equals(default(KeyValuePair<string, int>))) // khong co
+                    {
+                        collects.Add(key.Key, key.Value);
+                    }
+                    else
+                    {
+                        collects.Remove(check.Key);
+                        collects.Add(check.Key, check.Value + key.Value);
+                    }
+                });
+            });
+            KeyValuePair<string, int> maxValue = default(KeyValuePair<string, int>);
+            collects.ForEach(itemCollect =>
+            {
+                if (maxValue.Equals(default(KeyValuePair<string, int>)))
+                {
+                    maxValue = itemCollect;
+                }
+                else
+                {
+                    if (maxValue.Value < itemCollect.Value)
+                        maxValue = itemCollect;
+                }
+            });
+            return FindByISBN(maxValue.Key, null);
         }
 
         public BookISBN Find(string idBookTitle, string language, bool ignoreCase, bool? statusValue)
@@ -100,6 +144,10 @@ namespace AnhQuoc_C5_Assignment
             return source.Select(item => item.OriginLanguage).ToObservableCollection();
         }
 
+        public ObservableCollection<BookISBN> GetISBNsFromBooks(ObservableCollection<Book> books)
+        {
+            return books.Select(book => FindByISBN(book.ISBN, null)).Distinct().ToObservableCollection();
+        }
 
         public bool IsCheckEmptyItem(BookISBN item)
         {

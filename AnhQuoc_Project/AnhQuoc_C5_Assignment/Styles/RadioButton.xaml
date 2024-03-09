@@ -12,6 +12,7 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Padding" Value="29" />
+        <Setter Property="FontSize" Value="40" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
@@ -34,7 +35,7 @@
                                               TextBlock.TextAlignment="Left"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Content="{TemplateBinding Content}"
-                                              TextBlock.FontSize="40" />
+                                              TextBlock.FontSize="{TemplateBinding FontSize}" />
                         </Grid>
                     </Border>
 

@@ -142,7 +142,6 @@ namespace AnhQuoc_C5_Assignment
             Item.Adult = adult;
             
             #region UpdateItemInformation
-
             Child childFinded = childVM.FindByIdReader(Item.IdReader, null);
             childVM.Copy(childFinded, Item);
             thisForm.getChildRepo().WriteUpdate(childFinded);

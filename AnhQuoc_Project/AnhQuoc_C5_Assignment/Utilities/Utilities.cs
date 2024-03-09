@@ -85,7 +85,7 @@ namespace AnhQuoc_C5_Assignment
                 result = string.Format("This {0} is currently not in the list", item);
             return result;
         }
-        
+
         public static string NotifyListEmptyMessage(string item, string lstName = "List")
         {
             return $"There are no {item} in the {lstName}.";
@@ -465,7 +465,7 @@ namespace AnhQuoc_C5_Assignment
                 || string.IsNullOrWhiteSpace(value);
             return result;
         }
-        
+
 
         public static string ToCapitalizeEachWord(string str)
         {
@@ -774,7 +774,7 @@ namespace AnhQuoc_C5_Assignment
 
                 var txt = control as TextBox;
                 list.Add(control as TextBlock);
-                
+
             }
             return list;
         }
@@ -1059,22 +1059,22 @@ namespace AnhQuoc_C5_Assignment
         }
 
         public static void MoveComboBox(ComboBox comboBox, KeyEventArgs e)
+        {
+            if (e.Key == Key.Up)
             {
-                if (e.Key == Key.Up)
+                if (comboBox.SelectedIndex > -1)
                 {
-                    if (comboBox.SelectedIndex > -1)
-                    {
-                        comboBox.SelectedIndex--;
-                    }
-                }
-                else if (e.Key == Key.Down)
-                {
-                    if (comboBox.SelectedIndex < comboBox.Items.Count - 1)
-                    {
-                        comboBox.SelectedIndex++;
-                    }
+                    comboBox.SelectedIndex--;
                 }
             }
+            else if (e.Key == Key.Down)
+            {
+                if (comboBox.SelectedIndex < comboBox.Items.Count - 1)
+                {
+                    comboBox.SelectedIndex++;
+                }
+            }
+        }
 
         public static bool IsCheckEnter(TextCompositionEventArgs e)
         {
@@ -1171,7 +1171,7 @@ namespace AnhQuoc_C5_Assignment
             }
             return null;
         }
-    
+
         public static int ExtractNumberFromAString(string str)
         {
             string temp = string.Empty;
@@ -1214,7 +1214,7 @@ namespace AnhQuoc_C5_Assignment
                 if (itemDataType == typeof(T))
                 {
                     return tableProperty;
-                }              
+                }
             }
             return null;
         }
@@ -1385,7 +1385,7 @@ namespace AnhQuoc_C5_Assignment
             return null;
         }
 
-        
+
 
         #endregion
 
@@ -1405,7 +1405,7 @@ namespace AnhQuoc_C5_Assignment
         {
             bool? adultStatusValue = null;
             bool? childStatusValue = null;
-           
+
             Reader readerSelect = readerVM.FindById(readerDtoSelect.Id);
 
             if (readerSelect.ReaderType.ConvertValue() == ReaderType.Adult)
@@ -1476,7 +1476,7 @@ namespace AnhQuoc_C5_Assignment
             StackPanel stkWrapButton = form.stkWrapButton;
             if (arrayButton.Length == 0)
                 stkWrapButton.Visibility = Visibility.Collapsed;
-            
+
             bool flag = false;
             foreach (Button btn in arrayButton)
             {
@@ -1567,7 +1567,7 @@ namespace AnhQuoc_C5_Assignment
             string startupPath = GetProjectDirectory();
             string appPath = startupPath + Constants.StartUrlImage;
             Utilities.CreateDirectory(appPath);
-            
+
             return appPath;
         }
 
@@ -1737,7 +1737,7 @@ namespace AnhQuoc_C5_Assignment
         public static bool IsCheckEmptyItem(object item, bool isExceptProperty, params string[] checkProperties)
         {
             var props = Utilities.getPropsFromType(item);
-            
+
             bool isAllProperties = false;
             if (checkProperties.Length == 0)
             {
@@ -1803,7 +1803,7 @@ namespace AnhQuoc_C5_Assignment
         }
 
 
-        public static TreeViewItem GetTreeViewItemBySelectedItem (TreeView tree, object selectedItem)
+        public static TreeViewItem GetTreeViewItemBySelectedItem(TreeView tree, object selectedItem)
         {
             var treeViewItem = (TreeViewItem)tree.ItemContainerGenerator.ContainerFromItem(selectedItem);
             return treeViewItem;
@@ -1863,5 +1863,34 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+
+        public static object[] GetMaxOccurrenceInArray(ObservableCollection<string> source)
+        {
+            var sourceMerge = source.Distinct().ToList();
+
+            var counts = sourceMerge.Select(itemM => source.Count(itemS => itemS == itemM)).ToList();
+
+            var indexMax = counts.IndexOf(counts.Max());
+
+            var maxValue = sourceMerge[indexMax];
+            return new object[] { maxValue, counts.Max() };
+        }
+
+        public static Dictionary<string, int> GetOccurrenceInArray(ObservableCollection<string> source)
+        {
+            Dictionary<string, int> result = new Dictionary<string, int>();
+            var sourceMerge = source.Distinct().ToList();
+
+            var counts = sourceMerge.Select(itemM => source.Count(itemS => itemS == itemM)).ToList();
+
+            int index = 0;
+            sourceMerge.ForEach(item =>
+            {
+                result.Add(item, counts[index]);
+                index++;
+            });
+
+            return result;
+        }
     }
 }

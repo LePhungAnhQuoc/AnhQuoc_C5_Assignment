@@ -46,7 +46,7 @@
                             <Setter Property="FontSize" Value="12" />
                         </Style>
                         <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}">
-                            <!--<Setter Property="Margin"-->
+                            <Setter Property="Margin" Value="0 0 0 5" />
                         </Style>
                         <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}">
                             <Setter Property="FontSize" Value="12" />
@@ -79,20 +79,27 @@
                         <TextBlock Grid.Column="1"
                     Text="{Binding Item.ExpDate, StringFormat='{}{0:dd/MM/yyyy}'}" />
                     </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Price: " />
+                        <TextBlock Grid.Column="1"
+                    Text="{Binding Item.Book.Price}" />
+                    </Grid>
+
                 </StackPanel>
             </Grid>
 
-            <StackPanel Name="stkWrapButton"
-                        Style="{StaticResource stkWrapButton}"
-                        Visibility="Visible">
-                <Button Name="btnInfo"
-                        Style="{StaticResource btnInfo}"
-                        FontSize="12">More Info</Button>
+            <Grid Name="stkWrapButton"
+                  Visibility="Visible"
+                  Margin="10 5">
                 <Button Name="btnDelete"
                         Style="{StaticResource btnDelete}"
-                        FontSize="12"
-                        Margin="10 0 0 0"></Button>
-            </StackPanel>
+                        HorizontalAlignment="Stretch"
+                        FontSize="12"></Button>
+            </Grid>
         </StackPanel>
     </Border>
 

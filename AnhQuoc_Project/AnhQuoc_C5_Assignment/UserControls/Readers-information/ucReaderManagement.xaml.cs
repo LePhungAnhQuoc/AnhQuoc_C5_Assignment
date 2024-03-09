@@ -405,7 +405,7 @@ namespace AnhQuoc_C5_Assignment
 
         private void UcReadersTable_btnDeleteClick(object sender, RoutedEventArgs e)
         {
-            Action<string> checkReaderAction = (idReader) =>
+            Predicate<string> checkReaderAction = (idReader) =>
             {
                 var tempList = loanSlipVM.FillByIdReader(idReader);
                 if (tempList.Count == 0)
@@ -415,14 +415,15 @@ namespace AnhQuoc_C5_Assignment
                     if (listTemp.Count > 0)
                     {
                         Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("reader"));
-                        return;
+                        return false;
                     }
                 }
                 else
                 {
                     Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("reader"));
-                    return;
+                    return false;
                 }
+                return true;
             };
 
             bool updateStatus = false;
@@ -435,7 +436,10 @@ namespace AnhQuoc_C5_Assignment
             ReaderDto readerDtoSelect = ucReadersTable.SelectedReaderDto;
             Reader readerSelect = readerVM.FindById(readerDtoSelect.Id);
 
-            checkReaderAction(readerSelect.Id);
+            if (!checkReaderAction(readerSelect.Id))
+            {
+                return;
+            }
 
 
             if (readerSelect.ReaderType.ConvertValue() == ReaderType.Adult)
@@ -464,7 +468,10 @@ namespace AnhQuoc_C5_Assignment
 
                     foreach (Child child in listFilledChild)
                     {
-                        checkReaderAction(child.IdReader);
+                        if (!checkReaderAction(child.IdReader))
+                        {
+                            return;
+                        }
                     }
 
                     var message1 = Utilities.NotifySureToDelete();
@@ -684,6 +691,8 @@ namespace AnhQuoc_C5_Assignment
                 frmTransferGuardian.getGuardians = () => adults;
 
                 frmTransferGuardian.ShowDialog();
+                if (frmTransferGuardian.Context.Item == null)
+                    return;
 
                 ucReadersTable.ModifiedPagination();
 

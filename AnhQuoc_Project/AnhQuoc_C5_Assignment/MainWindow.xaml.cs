@@ -82,6 +82,7 @@ namespace AnhQuoc_C5_Assignment
         {
             InitializeComponent();
 
+
             serverName = null;
             databaseName = null;
 
@@ -380,11 +381,48 @@ namespace AnhQuoc_C5_Assignment
                 #endregion
 
                 RoleGroups = roleVM.GetGroups();
+
+                UpdateAtFirstLoadProgram();
             });
             wait.ShowDialog();
         }
       
         #endregion
+
+        private void UpdateAtFirstLoadProgram()
+        {
+            #region Check-ExpireDate
+            AdultViewModel adultVM = UnitOfViewModel.Instance.AdultViewModel;
+            ReaderViewModel readerVM = UnitOfViewModel.Instance.ReaderViewModel;
+            ChildViewModel childVM = UnitOfViewModel.Instance.ChildViewModel;
+
+            // Update DataRecord at first load Program
+
+            bool updateStatus = false;
+            foreach (Adult adult in adultVM.Repo)
+            {
+                if (DateTime.Now > adult.ExpireDate)
+                {
+                    Reader adultReader = readerVM.FindById(adult.IdReader);
+                    adult.Status = updateStatus;
+                    adultReader.Status = updateStatus;
+
+                    var childs = childVM.GetChildrenFromAdult(adult);
+                    foreach (Child child in childs)
+                    {
+                        Reader childReader = readerVM.FindById(child.IdReader);
+                        child.Status = updateStatus;
+                        childReader.Status = updateStatus;
+
+                        childVM.Repo.WriteUpdateStatus(child, updateStatus);
+                        readerVM.Repo.WriteUpdateStatus(childReader, updateStatus);
+                    }
+                    adultVM.Repo.WriteUpdateStatus(adult, updateStatus);
+                    readerVM.Repo.WriteUpdateStatus(adultReader, updateStatus);
+                }
+            }
+            #endregion
+        }
 
         #region Account-Area
         public bool GoToAccount(User user)

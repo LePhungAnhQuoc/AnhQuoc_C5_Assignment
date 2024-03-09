@@ -27,8 +27,12 @@ namespace AnhQuoc_C5_Assignment
             
             var reader = values[0] as ReaderDto;
 
-            var loanDetailVM = UnitOfViewModel.Instance.LoanDetailViewModel;
-            bool isOutOfExpire = loanDetailVM.IsOutOfExpireDate(values[1] as ObservableCollection<LoanDetail>);
+            LoanDetailViewModel loanDetailVM = UnitOfViewModel.Instance.LoanDetailViewModel;
+            ReaderViewModel readerVM = UnitOfViewModel.Instance.ReaderViewModel;
+            AdultViewModel adultVM = UnitOfViewModel.Instance.AdultViewModel;
+            ChildViewModel childVM = UnitOfViewModel.Instance.ChildViewModel;
+
+            bool isOutOfExpireLoanDetail = loanDetailVM.IsOutOfExpireDate(values[1] as ObservableCollection<LoanDetail>);
 
             ObservableCollection<Book> booksOfReader = values[2] as ObservableCollection<Book>;
 
@@ -39,7 +43,17 @@ namespace AnhQuoc_C5_Assignment
             int.TryParse(para.Value, out value);
             #endregion
 
-            if (isOutOfExpire || booksOfReader.Count >= value)
+            Reader adultReaderFind = null;
+            if (reader.ReaderType == ReaderType.Adult)
+                adultReaderFind = readerVM.FindById(reader.Id);
+            else if (reader.ReaderType == ReaderType.Child)
+            {
+                Child child = childVM.FindByIdReader(reader.Id);
+                Adult adult = adultVM.FindByIdReader(child.IdAdult);
+                adultReaderFind = readerVM.FindById(adult.IdReader);
+            }
+
+            if (adultReaderFind.Status == false || isOutOfExpireLoanDetail || booksOfReader.Count >= value)
                 return false;
 
             return true;

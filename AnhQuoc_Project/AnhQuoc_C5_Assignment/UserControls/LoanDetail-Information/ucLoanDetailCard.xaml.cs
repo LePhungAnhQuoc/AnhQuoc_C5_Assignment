@@ -60,7 +60,6 @@ namespace AnhQuoc_C5_Assignment
             InitializeComponent();
 
             #region Events
-            btnInfo.Click += btnInfo_Click;
             btnDelete.Click += btnDelete_Click;
             #endregion
 
@@ -72,14 +71,9 @@ namespace AnhQuoc_C5_Assignment
 
         private void ucLoanDetailCard_Loaded(object sender, RoutedEventArgs e)
         {
-
             if (btnDeleteClick == null)
             {
                 btnDelete.Visibility = Visibility.Collapsed;
-            }
-            if (btnInfoClick == null)
-            {
-                btnInfo.Visibility = Visibility.Collapsed;
             }
 
             Item = getItem();

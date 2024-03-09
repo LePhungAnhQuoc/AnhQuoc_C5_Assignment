@@ -18,7 +18,7 @@ namespace AnhQuoc_C5_Assignment
             numberPrefix = 0;
         }
 
-        public Child FindByIdReader(string idReader, bool? statusValue)
+        public Child FindByIdReader(string idReader, bool? statusValue = null)
         {
             var source = Repo.Gets();
             source = FillByStatus(source, statusValue);
@@ -48,6 +48,11 @@ namespace AnhQuoc_C5_Assignment
             return childsResult;
         }
 
+
+        public ObservableCollection<Child> GetChildrenFromAdult(Adult adult)
+        {
+            return Repo.Gets().Where(item => item.IdAdult == adult.IdReader).ToObservableCollection();
+        }
 
         public ObservableCollection<Child> GetListFromReaders(ObservableCollection<Reader> childReaders, bool? statusValue)
         {
