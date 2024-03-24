@@ -74,7 +74,8 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 
-                <DataGridTemplateColumn x:Name="dtgbtnRestore">
+                <DataGridTemplateColumn x:Name="dtgbtnRestore"
+                                        Visibility="Collapsed">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Name="btnRestore"

@@ -43,5 +43,10 @@ namespace AnhQuoc_C5_Assignment
             }
             return false;
         }
+
+        public static string RemoveString(this string source, string removeString)
+        {
+            return source.Replace(removeString, string.Empty);
+        }
     }
 }

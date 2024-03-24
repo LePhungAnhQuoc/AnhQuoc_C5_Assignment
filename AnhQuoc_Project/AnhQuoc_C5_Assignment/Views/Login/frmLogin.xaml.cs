@@ -60,12 +60,47 @@ namespace AnhQuoc_C5_Assignment
 
             boxPassword.PreviewTextInput += txtPassEnter_PreviewTextInput;
             txtUsername.PreviewTextInput += txtPassEnter_PreviewTextInput;
+
+            txtUsername.GotKeyboardFocus += Txt_GotKeyboardFocus;
+            txtUsername.LostMouseCapture += Txt_LostMouseCapture;
+            txtUsername.LostKeyboardFocus += Txt_LostKeyboardFocus;
+
+            boxPassword.GotKeyboardFocus += Txt_GotKeyboardFocus;
+            boxPassword.LostMouseCapture += Txt_LostMouseCapture;
+            boxPassword.LostKeyboardFocus += Txt_LostKeyboardFocus;
+
             btnSignIn.Click += btnSignIn_Click;
-            btnOpenConnectform.Click += BtnOpenConnectform_Click;
 
 
             this.Closed += FrmLogin_Closed;
             this.DataContext = this;
+        }
+
+        private void Txt_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            // once we've left the TextBox, return the select all behavior
+            textBox.LostMouseCapture += Txt_LostMouseCapture;
+        }
+
+        private void Txt_LostMouseCapture(object sender, MouseEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            // If user highlights some text, don't override it
+            if (textBox.SelectionLength == 0)
+                textBox.SelectAll();
+
+            // further clicks will not select all
+            textBox.LostMouseCapture -= Txt_LostMouseCapture;
+        }
+
+        private void Txt_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            // Fixes issue when clicking cut/copy/paste in context menu
+            if (textBox.SelectionLength == 0)
+                textBox.SelectAll();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -83,8 +118,6 @@ namespace AnhQuoc_C5_Assignment
         private void btnSignIn_Click(object sender, RoutedEventArgs e)
         {
             txtUsername.Focus();
-
-            Account.Password = boxPassword.Password;
             var userCheck = UserVM.FindAccount(Account);
 
             if (userCheck == null)
@@ -132,6 +165,16 @@ namespace AnhQuoc_C5_Assignment
         {
             getFrmMain().gdContent.Children.Clear();
             getFrmMain().LoginAndGo();
+        }
+
+        private void TblOpenConnectForm_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BtnOpenConnectform_Click((object)sender, e);
+        }
+
+        private void tblForgetPass_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Utilities.ShowMessageBox1(Utilities.NotifyFeatureNotDevelop());
         }
     }
 }

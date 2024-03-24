@@ -31,7 +31,7 @@
                            HorizontalAlignment="Center"
                            Text="{Binding Value, ElementName=myUserControl, UpdateSourceTrigger=PropertyChanged}"
                            Style="{StaticResource tblDisplayInfo}"
-                           FontSize="30" />
+                           FontSize="{Binding TextFontSize, ElementName=myUserControl, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
             <TextBox Grid.Row="1"
                      MaxHeight="50"

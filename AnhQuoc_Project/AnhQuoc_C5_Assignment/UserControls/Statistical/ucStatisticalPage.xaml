@@ -21,7 +21,7 @@
                 <WrapPanel.Resources>
                     <Style TargetType="local:ucStatisticalCard">
                         <Setter Property="Margin" Value="10" />
-                        <Setter Property="Width" Value="280" />
+                        <Setter Property="Width" Value="215" />
                     </Style>
                 </WrapPanel.Resources>
                 <local:ucStatisticalCard x:Name="ucBookQuantities" Header="Book Quantities" Icon="{StaticResource book}" Content="None" ToolTip="Number of books in the library" />
@@ -32,7 +32,7 @@
                 <local:ucStatisticalCard x:Name="ucLoanQuantities" Header="Loan Slips" Icon="{StaticResource newspaper}" ToolTip="Current number of loan slips" />
                 <local:ucStatisticalCard x:Name="ucLoanHistoryQuantities" Header="Loan Histories" Icon="{StaticResource return}" ToolTip="Current number of loan histories" />
                 <local:ucStatisticalCard x:Name="ucLoanSlipExp" Header="Expired loan slips" Icon="{StaticResource loanExp}" ToolTip="Current number of loan slips but has expired" />
-                <local:ucStatisticalCard x:Name="ucMostBorrowedISBN" Header="Most borrowed ISBN" Icon="{StaticResource like}" ToolTip="The most popular book ISBN" />
+                <local:ucStatisticalCard x:Name="ucMostBorrowedISBN" Header="Most borrowed ISBN" TextFontSize="15" Icon="{StaticResource like}" ToolTip="The most popular book ISBN" />
                 <local:ucStatisticalCard x:Name="ucDamagedBooks" Header="Damaged books" Icon="{StaticResource spoilBook}" ToolTip="Current number of damaged books" />
                 <local:ucStatisticalCard x:Name="ucLostBooks" Header="Lost books" Icon="{StaticResource noBook}" ToolTip="Current number of lost books" />
             </WrapPanel>

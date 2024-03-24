@@ -85,17 +85,25 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Description: " />
-                    <TextBox Name="txtDescription"
+
+                    <Grid Grid.Column="1"
+                          Style="{x:Null}">
+                        <TextBox Name="txtDescription"
                                 Grid.Column="1"
                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                        <TextBox.Text>
-                            <Binding Path="Item.Description" UpdateSourceTrigger="PropertyChanged">
-                                <Binding.ValidationRules>
-                                    
-                                </Binding.ValidationRules>
-                            </Binding>
-                        </TextBox.Text>
-                    </TextBox>
+                            <TextBox.Text>
+                                <Binding Path="Item.Description" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <Button Click="ButtonExpand_Click"    
+                                Style="{StaticResource btnExpandMore}">
+                        </Button>
+                    </Grid>
+
                 </Grid>
                 <Grid Name="gdFuncParent">
                     <Grid.ColumnDefinitions>
@@ -131,18 +139,26 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
-                        
-                        <TextBox Grid.Column="0"  
+
+                        <Grid Grid.Column="0"
+                          Style="{x:Null}">
+                            <TextBox   
                                  Name="txtUrlImage"
                                  Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                            <TextBox.Text>
-                                <Binding Path="Item.UrlImage" UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
-                                        
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                                <TextBox.Text>
+                                    <Binding Path="Item.UrlImage" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+
+                            <Button Click="ButtonExpand_Click"    
+                                Style="{StaticResource btnExpandMore}">
+                            </Button>
+                        </Grid>
+
                         <Button Grid.Column="1"
                                 Name="btnBrowseImage"
                                 Style="{StaticResource btnBrowse}"

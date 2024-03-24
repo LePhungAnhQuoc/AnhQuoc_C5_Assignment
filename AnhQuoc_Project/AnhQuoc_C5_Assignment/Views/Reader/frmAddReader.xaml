@@ -157,8 +157,8 @@
                 </Grid>
 
             </StackPanel>
-            <StackPanel Name="stkAdult"
-                        Grid.Column="1"
+            <StackPanel Grid.Column="1"
+                        Name="stkAdult"
                         Visibility="Collapsed"
                         Margin="10 0 0 0">
                 <StackPanel.Resources>
@@ -194,17 +194,23 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Address: " />
-                    <TextBox Name="txtAddress"
-                                Grid.Column="1"
-                                Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                        <TextBox.Text>
-                            <Binding Path="AdultItem.Address" UpdateSourceTrigger="PropertyChanged">
-                                <Binding.ValidationRules>
-                                    <local:FormNotEmptyRule />
-                                </Binding.ValidationRules>
-                            </Binding>
-                        </TextBox.Text>
-                    </TextBox>
+                    <Grid Grid.Column="1"
+                          Style="{x:Null}">
+                        <TextBox Name="txtAddress"
+                                 Grid.Column="1"
+                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                            <TextBox.Text>
+                                <Binding Path="AdultItem.Address" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <local:FormNotEmptyRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <Button Click="ButtonExpand_Click"    
+                                Style="{StaticResource btnExpandMore}">
+                        </Button>
+                    </Grid>
                 </Grid>
                 
                 <Grid>
@@ -261,8 +267,8 @@
                     </TextBox>
                 </Grid>
             </StackPanel>
-            <StackPanel Name="stkChild"
-                        Grid.Column="1"
+            <StackPanel Grid.Column="1"
+                        Name="stkChild"
                         Visibility="Collapsed"
                         Margin="10 0 0 0">
                 <StackPanel.Resources>
@@ -286,7 +292,14 @@
                               Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding IdReader, Converter={StaticResource idAdultToFullNameConverter}}" />
+                                <Grid Width="250">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{Binding Identify}" />
+                                    <TextBlock Margin="10 0 0 0" Grid.Column="1" Text="{Binding IdReader, Converter={StaticResource idAdultToFullNameConverter}}" />
+                                </Grid>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                         <ComboBox.SelectedItem>

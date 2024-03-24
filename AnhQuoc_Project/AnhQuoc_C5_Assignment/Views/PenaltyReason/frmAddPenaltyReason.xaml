@@ -83,17 +83,23 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Description: " />
-                    <TextBox Name="txtDescription"
+                    <Grid Grid.Column="1"
+                          Style="{x:Null}">
+                        <TextBox Name="txtDescription"
                                 Grid.Column="1"
                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                        <TextBox.Text>
-                            <Binding Path="Item.Description" UpdateSourceTrigger="PropertyChanged">
-                                <Binding.ValidationRules>
+                            <TextBox.Text>
+                                <Binding Path="Item.Description" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
 
-                                </Binding.ValidationRules>
-                            </Binding>
-                        </TextBox.Text>
-                    </TextBox>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <Button Click="ButtonExpand_Click"    
+                                Style="{StaticResource btnExpandMore}">
+                        </Button>
+                    </Grid>
                 </Grid>
             </StackPanel>
             <StackPanel Grid.Column="1"
@@ -115,7 +121,9 @@
                     <Grid Grid.Column="1"
                           Style="{x:Null}">
                         <TextBox Name="txtPrice"
-                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}" >
+                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}" 
+                                 Foreground="Transparent"
+                                 IsEnabled="False">
                             <TextBox.Text>
                                 <Binding 
                                     Path="Item.Price"
@@ -138,6 +146,12 @@
                                 </Binding>
                             </TextBlock.Text>
                         </TextBlock>
+
+                        <TextBlock Style="{StaticResource tblErrorNote}"
+                                   Text="Can not edit price value" 
+                                   Margin="0 0 10 0"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"/>
                     </Grid>
                 </Grid>
                 <Grid>

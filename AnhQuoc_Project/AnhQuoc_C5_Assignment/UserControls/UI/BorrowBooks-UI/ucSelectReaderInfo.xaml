@@ -18,8 +18,9 @@
     </i:Interaction.Triggers>
     
     <UserControl.Resources>
-        <local:BorrowBookSelectReaderButtonConfirmConverter x:Key="BorrowBookSelectReaderButtonConfirmConverter" />
+        <local:BindingProxy x:Key="proxy" Data="{Binding}"/>
         <local:IdAdultToFullNameConverter x:Key="IdAdultToFullNameConverter" />
+        <local:IdReaderToExpDateConverter x:Key="IdReaderToExpDateConverter" />
     </UserControl.Resources>
 
     <Grid Name="gdInputLoanSlip"
@@ -131,18 +132,33 @@
                                     IsEnabled="False">
                             </TextBox>
                         </Grid>
+    
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Label Content="Status: " />
-                            <TextBox Name="txtStatus"
-                                    Grid.Column="1"
-                                    Text="{Binding SelectedReader.Status, Mode=OneWay}"
-                                    IsEnabled="False">
+                            <Label Content="Expire date: " />
+                            <TextBox Name="txtExpireDate"
+                                     Grid.Column="1"
+                                     IsEnabled="False"
+                                     Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                                <TextBox.Text>
+                                    <Binding Path="SelectedReader.Id" UpdateSourceTrigger="PropertyChanged" Mode="OneWay" Converter="{StaticResource IdReaderToExpDateConverter}">
+                                        <Binding.ValidationRules>
+
+                                            <local:ExpireDateRule ValidationStep="UpdatedValue">
+                                                <local:ExpireDateRule.Wrapper>
+                                                    <local:Wrapper Reader="{Binding Data.SelectedReader, Source={StaticResource proxy}}"/>
+                                                </local:ExpireDateRule.Wrapper>
+                                            </local:ExpireDateRule>
+
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
                             </TextBox>
                         </Grid>
+
                     </StackPanel>
                     <StackPanel Name="stkGuardian"
                                 Grid.Column="1"
@@ -186,11 +202,27 @@
                                 <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Label Content="Status: " />
-                            <TextBox Name="txtGuardianStatus"
+                            <Label Content="Expire date: " />
+                            <TextBox Name="txtGuardianExpireDate"
                                      Grid.Column="1"
-                                     Text="{Binding Guardian.Status, Mode=OneWay}"
-                                     IsEnabled="False">
+                                     IsEnabled="False"
+                                     Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                                <TextBox.Resources>
+                                    <local:BindingProxy x:Key="proxy" Data="{Binding}"/>
+                                </TextBox.Resources>
+                                <TextBox.Text>
+                                    <Binding Path="Guardian.ExpireDate" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                        <Binding.ValidationRules>
+
+                                            <local:ExpireDateRule>
+                                                <local:ExpireDateRule.Wrapper>
+                                                    <local:Wrapper Reader="{Binding Data.SelectedReader, Source={StaticResource proxy}}"/>
+                                                </local:ExpireDateRule.Wrapper>
+                                            </local:ExpireDateRule>
+
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
                             </TextBox>
                         </Grid>
                     </StackPanel>
@@ -213,13 +245,6 @@
                     HorizontalAlignment="Stretch"
                     Style="{StaticResource btnConfirm}"
                     Command="{Binding ReaderBtnConfirmClickCmd}">
-                <Button.IsEnabled>
-                    <MultiBinding Converter="{StaticResource BorrowBookSelectReaderButtonConfirmConverter}">
-                        <Binding Path="SelectedReader"  />
-                        <Binding Path="AllReaderLoanDetail"  />
-                        <Binding Path="BooksOfReader"  />
-                    </MultiBinding>
-                </Button.IsEnabled>
             </Button>
             <Button Name="btnCancel" Content="Cancel" 
                     Style="{StaticResource btnCancel}"

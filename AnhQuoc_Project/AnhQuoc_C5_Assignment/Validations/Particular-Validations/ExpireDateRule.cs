@@ -9,6 +9,8 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
+
+
     public class ExpireDateRule : ValidationRule
     {
         public Wrapper Wrapper { get; set; }
@@ -51,6 +53,7 @@ namespace AnhQuoc_C5_Assignment
         }
 
     }
+
     public class Wrapper : DependencyObject
     {
 

@@ -20,11 +20,12 @@
     </UserControl.Resources>
     
     <Border Name="bdConfirmInformation"
-            Style="{StaticResource bdStyleGroupBox}"
+            Style="{StaticResource bdFormContainer}"
             HorizontalAlignment="Stretch">
         <StackPanel>
             <Label Style="{StaticResource lblTitle}"
                    Content="Confirm Loan History Information" />
+            
             <StackPanel>
                 <StackPanel.Resources>
                     <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />

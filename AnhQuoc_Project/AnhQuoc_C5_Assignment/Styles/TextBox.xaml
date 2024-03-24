@@ -12,19 +12,11 @@
         <Setter Property="BorderThickness" Value="1" />
     </Style>
 
-    <Style x:Key="txtStyleInputBig" TargetType="TextBox" BasedOn="{StaticResource txtGeneral}">
-        <Setter Property="VerticalContentAlignment" Value="Top" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="AcceptsReturn" Value="True" />
-        <Setter Property="AllowDrop" Value="True" />
-        <Setter Property="Height" Value="auto" />
-    </Style>
-
-    
-    
     <Style x:Key="txtStyleTextArea" TargetType="TextBox" BasedOn="{StaticResource txtGeneral}">
         <Setter Property="VerticalContentAlignment" Value="Top" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Height" Value="200" />
 
         <Setter Property="AcceptsReturn" Value="True" />
         <Setter Property="TextWrapping" Value="Wrap" />
@@ -33,7 +25,45 @@
 
     <Style x:Key="txtStyleTextAreaDisplayInfo" TargetType="TextBox" BasedOn="{StaticResource txtStyleTextArea}">
         <Setter Property="IsReadOnly" Value="True" />
-        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+
+    <Style TargetType="TextBox" x:Key="txtUnderlineBorder" BasedOn="{StaticResource txtGeneral}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border x:Name="Border"
+                            BorderThickness="0 0 0 1"
+                            BorderBrush="silver">
+                        <Grid Margin="0 0 0 10">
+                            <ScrollViewer FontSize="{TemplateBinding FontSize}"
+                                          Foreground="{TemplateBinding Foreground}"
+                                          TabIndex="{TemplateBinding TabIndex}"
+                                          BorderThickness="0"
+                                          Margin="0"
+                                          x:Name="PART_ContentHost"/>
+                            <TextBlock x:Name="tblPlaceHolder"
+                                       Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Tag}"
+                                       FontSize="{TemplateBinding FontSize}">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolder}">
+                                        <Setter Property="Foreground" Value="Silver" />
+                                        <Setter Property="Visibility" Value="Hidden" />
+
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=PART_ContentHost, Path=Content}" Value="">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <!-- Validation templates -->

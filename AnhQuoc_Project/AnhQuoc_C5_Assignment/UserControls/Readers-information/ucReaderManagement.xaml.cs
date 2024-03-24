@@ -544,6 +544,28 @@ namespace AnhQuoc_C5_Assignment
             ReaderDto readerDtoSelect = ucReadersTable.SelectedReaderDto;
             Reader readerSelect = readerVM.FindById(readerDtoSelect.Id);
 
+            if (readerSelect.ReaderType.ConvertValue() == ReaderType.Adult)
+            {
+                Adult adult = adultVM.FindByIdReader(readerSelect.Id);
+                
+                if (DateTime.Now > adult.ExpireDate)
+                {
+                    Utilities.ShowMessageBox1("Can not restore because this adult reader card has expired");
+                    return;
+                }
+            }
+            else
+            {
+                Child child = childVM.FindByIdReader(readerSelect.Id);
+                Adult adult = adultVM.FindByIdReader(child.IdAdult);
+
+                if (DateTime.Now > adult.ExpireDate)
+                {
+                    Utilities.ShowMessageBox1("Can not restore because this guardian's reader card has expired");
+                    return;
+                }
+            }
+
             if (readerSelect.ReaderType.ConvertValue() == ReaderType.Child)
             {
                 Child childFinded = childVM.FindByIdReader(readerSelect.Id, StatusValue);

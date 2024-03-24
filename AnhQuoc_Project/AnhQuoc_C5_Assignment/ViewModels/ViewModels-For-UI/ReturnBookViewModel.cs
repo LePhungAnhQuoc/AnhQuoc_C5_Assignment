@@ -34,13 +34,11 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Constants
-        private const double CardWidth = 200;
+        private const double CardWidth = 250;
         private const double CardMargin = 10;
         #endregion
 
         #region Properties
-
-
         public bool IsCancel { get; set; } = true;
         public bool? StatusValue { get; set; } = true;
 
@@ -83,7 +81,7 @@ namespace AnhQuoc_C5_Assignment
 
         public ObservableCollection<LoanDetailHistoryDto> LoanDetailHistoryDtos { get; set; }
         public ObservableCollection<PenaltyReasonPaid> PenaltyReasonPaids { get; set; }
-
+        public ObservableCollection<BookDto> BookPaids { get; set; }  
 
 
         #region Datas
@@ -428,7 +426,6 @@ namespace AnhQuoc_C5_Assignment
 
         #endregion
 
-
         public ReturnBookViewModel()
         {
             AllReaderTypes = Utilities.GetListFromEnum<ReaderType>().ToObservableCollection();
@@ -505,6 +502,7 @@ namespace AnhQuoc_C5_Assignment
 
             LoanDetailHistoryDtos = new ObservableCollection<LoanDetailHistoryDto>();
             PenaltyReasonPaids = new ObservableCollection<PenaltyReasonPaid>();
+            BookPaids = new ObservableCollection<BookDto>();
 
             ucAddLoanHistory.Content = ucInputReaderLoanHistory;
         }
@@ -515,6 +513,8 @@ namespace AnhQuoc_C5_Assignment
         {
             ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.getLoanSlips = () => AllLoanOfReader;
             ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.ModifiedPagination();
+
+            ucInputReaderLoanHistory.btnConfirm.IsEnabled = false;
         }
 
         private void ReaderBtnConfirmClick(object para)
@@ -600,6 +600,7 @@ namespace AnhQuoc_C5_Assignment
 
                 ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.getLoanSlips = () => AllReaderLoan;
                 ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.ModifiedPagination();
+
                 return;
             }
             else
@@ -637,9 +638,14 @@ namespace AnhQuoc_C5_Assignment
         
         private void DgDatas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.dgDatas.SelectedItem == null) return;
-
+            if (ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.dgDatas.SelectedItem == null)
+            {
+                ucInputReaderLoanHistory.btnConfirm.IsEnabled = false;
+                return;
+            }
             SelectedLoanSlip = ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.dgDatas.SelectedItem as LoanSlipDto;
+
+            ucInputReaderLoanHistory.btnConfirm.IsEnabled = true;
         }
 
         private void NewItem()
@@ -700,8 +706,6 @@ namespace AnhQuoc_C5_Assignment
             frmDefault frmConfirmInformation = new frmDefault();
             ucLoanHistoryConfirm ucLoanHistoryConfirm = new ucLoanHistoryConfirm();
 
-            ucLoanHistoryConfirm.Margin = new Thickness(10);
-            
             Button btnConfirm = ucLoanHistoryConfirm.btnConfirm;
             Button btnCancel = ucLoanHistoryConfirm.btnCancel;
 
@@ -785,27 +789,34 @@ namespace AnhQuoc_C5_Assignment
                 if (SelectedReason.IsPaided == false)
                 {
                     SelectedReason.Reason = reason;
-                    Book book = bookVM.FindById(Detail.IdBook, null);
-
                     decimal fineAmount = 0;
                     if (reason.Id == Constants.reason1)
                     {
                         fineAmount = 0;
-                        book.IdBookStatus = Constants.bookStatusNormal;
+                        SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusNormal;
+                        SelectedUnPaidBookCard.Background = Brushes.White;
+                        SelectedUnPaidBookCard.Foreground = Utilities.GetColorFromCode("#000000");
                     }
                     else if (reason.Id == Constants.reason2)
                     {
                         fineAmount = SelectedUnPaidBookCard.Item.PriceCurrent;
-                        book.IdBookStatus = Constants.bookStatusLost;
+                        SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusLost;
+                        SelectedUnPaidBookCard.Background = Utilities.GetColorFromCode("#da3445");
+                        SelectedUnPaidBookCard.Foreground = Utilities.GetColorFromCode("#ffffff");
                     }
                     else if (reason.Id == Constants.reason3)
                     {
                         fineAmount = 0;
-                        book.IdBookStatus = Constants.bookStatusSpoil;
+                        SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusSpoil;
+                        SelectedUnPaidBookCard.Background = Utilities.GetColorFromCode("#f7c300");
+                        SelectedUnPaidBookCard.Foreground = Utilities.GetColorFromCode("#000000");
                     }
 
-                    // Cập nhật tình trạng sách
-                    bookVM.Repo.WriteUpdate(book);
+                    if (BookPaids.FirstOrDefault(book => book.Id == SelectedUnPaidBookCard.getItem().Id) == null)
+                    {
+                        BookPaids.Add(SelectedUnPaidBookCard.getItem());
+                    }
+                    
 
                     Detail.PaidMoney = fineAmount;
                     SelectedReason.IsPaided = true;
@@ -919,6 +930,7 @@ namespace AnhQuoc_C5_Assignment
             foreach (var book in books)
             {
                 ucBookCard ucUnPaidBookCard = new ucBookCard();
+                ucUnPaidBookCard.Background = Brushes.White;
                 ucUnPaidBookCard.Width = CardWidth;
                 ucUnPaidBookCard.Margin = new Thickness(CardMargin);
                 ucUnPaidBookCard.Focusable = true;
@@ -936,11 +948,13 @@ namespace AnhQuoc_C5_Assignment
 
             // old card
             if (SelectedUnPaidBookCard != null)
-                SelectedUnPaidBookCard.Background = Brushes.White;
+            {
+                SelectedUnPaidBookCard.borderEffectContainer.Visibility = Visibility.Hidden;
+            }
 
             //  new card
             SelectedUnPaidBookCard = card;
-            SelectedUnPaidBookCard.Background = Utilities.GetColorFromCode("#b3dbff");
+            SelectedUnPaidBookCard.borderEffectContainer.Visibility = Visibility.Visible;
 
             UnPaidBookCards_SelectionChanged();
 
@@ -1033,9 +1047,19 @@ namespace AnhQuoc_C5_Assignment
             ucAddLoanHistory.getLoanDetailHistoryRepo().WriteAddRange(loanDetailHistorys);
             #endregion
 
-            ChangeBookStatus(true);
-            LoanDetailHistoryDtos.Clear();
+            // Cập nhật tình trạng sách (book status)
+            BookPaids.ForEach(bookDto =>
+            {
+                Book book = bookVM.FindById(bookDto.Id);
 
+                book.IdBookStatus = bookDto.IdBookStatus;
+                bookVM.Repo.WriteUpdate(book);
+            });
+
+            // Cập nhật tình trạng sách (status)
+            ChangeBookStatus(true);
+
+            LoanDetailHistoryDtos.Clear();
             IsCancel = false;
             Closing();
         }

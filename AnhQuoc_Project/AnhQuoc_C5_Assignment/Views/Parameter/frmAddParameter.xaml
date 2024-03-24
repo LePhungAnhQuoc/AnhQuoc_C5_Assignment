@@ -80,17 +80,24 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Description: " />
-                    <TextBox Name="txtDescription"
+                    <Grid Grid.Column="1"
+                          Style="{x:Null}">
+                        <TextBox Name="txtDescription"
                                 Grid.Column="1"
                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                        <TextBox.Text>
-                            <Binding Path="Item.Description" UpdateSourceTrigger="PropertyChanged">
-                                <Binding.ValidationRules>
-                                    
-                                </Binding.ValidationRules>
-                            </Binding>
-                        </TextBox.Text>
-                    </TextBox>
+                            <TextBox.Text>
+                                <Binding Path="Item.Description" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <Button Click="ButtonExpand_Click"    
+                                Style="{StaticResource btnExpandMore}">
+                        </Button>
+                    </Grid>
+
                 </Grid>
             </StackPanel>
             <StackPanel Grid.Column="1"

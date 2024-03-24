@@ -21,10 +21,11 @@
         <!-- Body -->
         <StackPanel Margin="20 0"
                     Name="stkBody">
-            <ContentControl Name="textArea"
-                            MaxHeight="{StaticResource maxHeightTextArea}"
-                            Template="{StaticResource styleTextArea}">
-            </ContentControl>
+            <TextBox Name="textArea"
+                     Height="{StaticResource maxHeightTextArea}"
+                     Width="500"
+                     Style="{StaticResource txtStyleTextAreaDisplayInfo}">
+            </TextBox>
         </StackPanel>
         
         <!-- Footer -->

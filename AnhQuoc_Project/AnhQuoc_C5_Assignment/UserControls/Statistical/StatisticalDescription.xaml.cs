@@ -21,6 +21,18 @@ namespace AnhQuoc_C5_Assignment
     {
 
 
+        public double TextFontSize
+        {
+            get { return (double)GetValue(TextFontSizeProperty); }
+            set { SetValue(TextFontSizeProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for TextFontSize.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TextFontSizeProperty =
+            DependencyProperty.Register("TextFontSize", typeof(double), typeof(StatisticalDescription), new PropertyMetadata(30.0));
+
+
+
         public Brush Foreground
         {
             get { return (Brush)GetValue(ForegroundProperty); }

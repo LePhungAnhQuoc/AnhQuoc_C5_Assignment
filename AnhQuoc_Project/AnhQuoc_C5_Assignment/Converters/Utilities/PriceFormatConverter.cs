@@ -12,14 +12,17 @@ namespace AnhQuoc_C5_Assignment
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string result = string.Empty;
             if (value == null)
                 return string.Empty;
             if (Utilities.IsCheckEmptyString(value.ToString()))
                 return string.Empty;
-            
-            result = value + " VND";
-            return result;
+
+            var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+            value = Utilities.FormatCurrency("VND", System.Convert.ToDecimal(value.ToString()));
+
+            value = value.ToString().RemoveString(" VND") + ".000" + " VND";
+
+            return value.ToString();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

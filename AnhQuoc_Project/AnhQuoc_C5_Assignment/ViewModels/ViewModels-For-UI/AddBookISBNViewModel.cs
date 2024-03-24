@@ -149,6 +149,8 @@ namespace AnhQuoc_C5_Assignment
                 CopyItem();
                 SetFormByAddOrUpdate("UPDATE");
             }
+
+            Item.OriginLanguage = AllLanguages.FirstOrDefault(lang => lang.ToLower().Contains("vietnamese"));
         }
 
 

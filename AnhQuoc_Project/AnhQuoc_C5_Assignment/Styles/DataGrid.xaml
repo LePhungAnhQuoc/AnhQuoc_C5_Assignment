@@ -90,6 +90,20 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="dtgcellBookStatus" TargetType="DataGridCell" BasedOn="{StaticResource dtgCellGeneral}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IdBookStatus}" Value="BS2">
+                <Setter Property="Foreground" Value="Red" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IdBookStatus}" Value="BS1">
+                <Setter Property="Foreground" Value="Green" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IdBookStatus}" Value="BS3">
+                <Setter Property="Foreground" Value="DarkGray" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="dtgRowGeneral" TargetType="{x:Type DataGridRow}">
         <Setter Property="MinHeight" Value="35" />
         <Setter Property="VerticalAlignment" Value="Center" />

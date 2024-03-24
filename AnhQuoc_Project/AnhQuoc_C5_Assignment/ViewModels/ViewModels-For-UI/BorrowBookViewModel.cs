@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -42,7 +44,9 @@ namespace AnhQuoc_C5_Assignment
             set { _storeContent = value; }
         }
 
-
+        BindingExpression bind = null;
+        ExpireDateRule expAdultRule = null;
+        ExpireDateRule expGuardianRule = null;
         #endregion
 
         #region Properties
@@ -170,7 +174,7 @@ namespace AnhQuoc_C5_Assignment
         public ObservableCollection<Reader> FillReaderByType { get; set; }
         public bool? BookISBNStatusValue { get; set; } = null;
         public bool? BookStatusValue { get; set; } = null;
-        public bool? ReaderStatusValue { get; set; } = true;
+        public bool? ReaderStatusValue { get; set; } = null;
         public int TotalQuantity { get; set; }
 
 
@@ -484,6 +488,12 @@ namespace AnhQuoc_C5_Assignment
         {
             // Load form in ucSelectReaderInfo
             AllReaderTypes = Utilities.GetListFromEnum<ReaderType>().ToObservableCollection();
+
+
+            bind = ucSelectReaderInfo.txtExpireDate.GetBindingExpression(System.Windows.Controls.TextBox.TextProperty);
+            expAdultRule = bind.ParentBinding.ValidationRules[0] as ExpireDateRule;
+            bind = ucSelectReaderInfo.txtGuardianExpireDate.GetBindingExpression(System.Windows.Controls.TextBox.TextProperty);
+            expGuardianRule = bind.ParentBinding.ValidationRules[0] as ExpireDateRule;
         }
 
         private void DgDatas_LoadingRow(object sender, DataGridRowEventArgs e)
@@ -589,8 +599,54 @@ namespace AnhQuoc_C5_Assignment
                 GetReaderLoanAndLoanDetails();
                 
                 ucSelectReaderInfo.ucLoanDetailsBorrowedTable.getLoanDetails = () => AllReaderLoanDetail;
-                
                 ucSelectReaderInfo.ucLoanDetailsBorrowedTable.ModifiedPagination();
+
+
+                #region Modify-btnConfirm-IsEnabled
+                bool isOutOfExpireLoanDetail = loanDetailVM.IsOutOfExpireDate(AllReaderLoanDetail);
+
+                #region Parameter
+                ParameterViewModel paraVM = UnitOfViewModel.Instance.ParameterViewModel;
+                Parameter para = paraVM.FindById(Constants.paraQD2);
+                int value = -1;
+                int.TryParse(para.Value, out value);
+                #endregion
+
+                Reader adultReaderFind = null;
+                if (SelectedReader.ReaderType == ReaderType.Adult)
+                    adultReaderFind = readerVM.FindById(reader.Id);
+                else if (SelectedReader.ReaderType == ReaderType.Child)
+                {
+                    Child child = childVM.FindByIdReader(reader.Id);
+                    Adult adult = adultVM.FindByIdReader(child.IdAdult);
+                    adultReaderFind = readerVM.FindById(adult.IdReader);
+                }
+
+                if (adultReaderFind.Status == false || isOutOfExpireLoanDetail || BooksOfReader.Count >= value)
+                    ucSelectReaderInfo.btnConfirm.IsEnabled = false;
+                else
+                    ucSelectReaderInfo.btnConfirm.IsEnabled = true;
+
+                if (SelectedReader.ReaderType == ReaderType.Adult)
+                {
+                    expAdultRule.ValidatesOnTargetUpdated = true;
+                    expGuardianRule.ValidatesOnTargetUpdated = false;
+
+                    // Toggle OnPropertyChanged (Debt code!)
+                    SelectedReader = SelectedReader;
+                    Guardian = Guardian;
+                }
+                else
+                {
+                    expAdultRule.ValidatesOnTargetUpdated = false;
+                    expGuardianRule.ValidatesOnTargetUpdated = true;
+
+                    // Toggle OnPropertyChanged (Debt code!)
+                    SelectedReader = SelectedReader;
+                    Guardian = Guardian;
+                }
+                
+                #endregion
 
                 return;
             }
@@ -777,42 +833,18 @@ namespace AnhQuoc_C5_Assignment
                 return;
             }
 
-            BookDto bookDto = SelectedBook;
+            NewDetail();
+            LoanDetail.IdBook = SelectedBook.Id;
 
-            // Kiểm tra xem book đã chọn đã có trong BooksOfReader (Cách sách đã có)
-            var tempCheck = bookVM.FindById(BooksOfReader, bookDto.Id, null);
+            LoanDetails.Add(LoanDetail);
 
-            // Kiểm tra xem book đã chọn đã có trong danh sách đặt thêm sách (Các LoanDetails)
-            if (tempCheck == null)
-                tempCheck = bookVM.FindById(bookVM.GetBooksInLoanDetails(LoanDetails), bookDto.Id, null);
-
-            if (tempCheck != null)
-            {
-                Utilities.ShowMessageBox1("This reader already borrow this book!", "Can not borrow this book");
-                return;
-            }
-
-            // Kiểm tra tình trạng cuốn sách
-            if (!bookDto.Status)
-            {
-                Utilities.ShowMessageBox1(Utilities.NotifyBookStatus());
-                return;
-            }
-            else
-            {
-                NewDetail();
-                LoanDetail.IdBook = bookDto.Id;
-
-                LoanDetails.Add(LoanDetail);
-
-                ConvertToLoanDetailCard(LoanDetails);
-                AddLoanDetailCardToWrap();
+            ConvertToLoanDetailCard(LoanDetails);
+            AddLoanDetailCardToWrap();
 
 
-                AllBookISBN.Remove(AllBookISBN.FirstOrDefault(item => item.ISBN == SelectedISBN.ISBN));
-                AllBookISBNCard.Remove(AllBookISBNCard.FirstOrDefault(item => item.getItem().ISBN == SelectedISBN.ISBN));
-                AddBookISBNCardToWrap();
-            }
+            AllBookISBN.Remove(AllBookISBN.FirstOrDefault(item => item.ISBN == SelectedISBN.ISBN));
+            AllBookISBNCard.Remove(AllBookISBNCard.FirstOrDefault(item => item.getItem().ISBN == SelectedISBN.ISBN));
+            AddBookISBNCardToWrap();
         }
 
         private void UcLoanDetailCard_btnDeleteClick(object sender, RoutedEventArgs e)
@@ -1001,7 +1033,7 @@ namespace AnhQuoc_C5_Assignment
             Parameter paraQD11 = paraVM.FindById(Constants.paraQD11);
             decimal paraQD11_Value = Convert.ToDecimal(paraQD11.Value.Replace("%", "")) / 100;
 
-            LoanSlipDto.LoanPaid = Convert.ToDecimal(paraQD10.Value.ToString()) * listBook.Count;
+            LoanSlipDto.LoanPaid = Convert.ToDecimal(paraQD10.Value.ToString().Replace(".000", "")) * listBook.Count;
             LoanSlipDto.Deposit = CalculateDeposit(listBook, paraQD11_Value);
         }
 
@@ -1047,6 +1079,19 @@ namespace AnhQuoc_C5_Assignment
                 if (SelectedBook == null)
                 {
                     Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("book"));
+                    return;
+                }
+
+                // Kiểm tra tình trạng cuốn sách
+                if (!SelectedBook.Status)
+                {
+                    Utilities.ShowMessageBox1(Utilities.NotifyBookStatus());
+                    return;
+                }
+
+                if (SelectedBook.IdBookStatus == Constants.bookStatusSpoil)
+                {
+                    Utilities.ShowMessageBox1("This book cannot be borrowed because the book is spoiled");
                     return;
                 }
 

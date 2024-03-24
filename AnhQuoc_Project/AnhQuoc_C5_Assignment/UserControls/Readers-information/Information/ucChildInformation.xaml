@@ -61,7 +61,7 @@
                     <TextBlock Grid.Column="1"
                            Text="{Binding Item.CreatedAt, StringFormat='{}{0:dd/MM/yyyy}'}" />
                 </Grid>
-                <Grid>
+                <Grid Margin="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100" />
                         <ColumnDefinition Width="*" />

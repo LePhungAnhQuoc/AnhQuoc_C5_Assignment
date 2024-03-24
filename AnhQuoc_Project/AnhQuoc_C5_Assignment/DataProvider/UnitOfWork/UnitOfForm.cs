@@ -42,8 +42,6 @@ namespace AnhQuoc_C5_Assignment
         private ucLoanSlipInformationStyle2 ucLoanSlipInformationStyle2;
         private ucFunctionInformation ucFunctionInformation;
         private ucDisplayFunction ucDisplayFunction;
-        private ucAddAdult ucAddAdult;
-        private ucAddChild ucAddChild;
         private ucUserInformation ucUserInformation;
 
         private ucUserManagement ucUserManagement;
@@ -310,21 +308,6 @@ namespace AnhQuoc_C5_Assignment
             get { return _UcAddLoan; }
         }
 
-
-
-        private Func<bool, ucAddAdult> _UcAddAdult;
-        public Func<bool, ucAddAdult> UcAddAdult
-        {
-            get { return _UcAddAdult; }
-            set { _UcAddAdult = value; }
-        }
-
-        private Func<bool, ucAddChild> _UcAddChild;
-        public Func<bool, ucAddChild> UcAddChild
-        {
-            get { return _UcAddChild; }
-            set { _UcAddChild = value; }
-        }
 
         private Func<bool, ucUserInformation> _UcUserInformation;
         public Func<bool, ucUserInformation> UcUserInformation
@@ -875,29 +858,6 @@ namespace AnhQuoc_C5_Assignment
                     ucAddLoan.getBookRepo = () => _UnitOfRepo.BookRepo;
                 }
                 return ucAddLoan;
-            };
-
-            _UcAddAdult = (isReAllocate) =>
-            {
-                if (isReAllocate)
-                {
-                    ucAddAdult = new ucAddAdult();
-                    ucAddAdult.getProvinceRepo = () => _UnitOfRepo.ProvinceRepo;
-                }
-                return ucAddAdult;
-            };
-
-            _UcAddChild = (isReAllocate) =>
-            {
-                if (isReAllocate)
-                {
-                    ucAddChild = new ucAddChild();
-                    ucAddChild.getReaderRepo = () => _UnitOfRepo.ReaderRepo;
-                    ucAddChild.getAdultRepo = () => _UnitOfRepo.AdultRepo;
-                    ucAddChild.getChildRepo = () => _UnitOfRepo.ChildRepo;
-                    ucAddChild.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
-                }
-                return ucAddChild;
             };
 
             _UcUserInformation = (isReAllocate) =>

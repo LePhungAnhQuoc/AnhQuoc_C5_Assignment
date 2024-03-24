@@ -17,7 +17,6 @@
     </i:Interaction.Triggers>
 
     <UserControl.Resources>
-        <local:ReturnBookSelectReaderButtonConfirmConverter x:Key="ReturnBookSelectReaderButtonConfirmConverter" />
     </UserControl.Resources>
     
     <Grid Name="gdInputLoanSlip"
@@ -154,12 +153,6 @@
                     HorizontalAlignment="Stretch"
                     Style="{StaticResource btnConfirm}"
                     Command="{Binding ReaderBtnConfirmClickCmd}">
-                <Button.IsEnabled>
-                    <MultiBinding Converter="{StaticResource ReturnBookSelectReaderButtonConfirmConverter}">
-                        <Binding Path="SelectedReader" />
-                        <Binding Path="SelectedLoanSlip" />
-                    </MultiBinding>
-                </Button.IsEnabled>
             </Button>
             <Button Name="btnCancel" Content="Cancel" 
                     Style="{StaticResource btnCancel}"

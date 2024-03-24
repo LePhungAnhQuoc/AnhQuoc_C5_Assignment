@@ -59,5 +59,11 @@ namespace AnhQuoc_C5_Assignment
             Context.TxtPrice_TextChanged(sender, e);
         }
 
+        private void ButtonExpand_Click(object sender, RoutedEventArgs e)
+        {
+            Grid grid = LogicalTreeHelper.GetParent((sender as Button)) as Grid;
+            TextBox txt = LogicalTreeHelper.GetChildren(grid).ToTypedCollection<List<DependencyObject>, DependencyObject>()[0] as TextBox;
+            Utilities.ExpandMore(txt, false);
+        }
     }
 }

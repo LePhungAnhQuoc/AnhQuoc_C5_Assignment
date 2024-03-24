@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System.Globalization;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,7 +12,6 @@ using System.Data.Entity.Core;
 using System.Data.Entity.Core.Objects.DataClasses;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -22,8 +22,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Xml;
+using System.Text.RegularExpressions;
+using System.Runtime.CompilerServices;
 
 namespace AnhQuoc_C5_Assignment
 {
@@ -725,11 +728,17 @@ namespace AnhQuoc_C5_Assignment
                 BindingExpression bind = null;
 
                 var control = LogicalTreeHelper.GetChildren(obj).ToTypedCollection<List<DependencyObject>, DependencyObject>()[3];
-                if (control is Grid)
+
+                while (control is Grid)
                 {
                     var subControls = LogicalTreeHelper.GetChildren(control as Grid);
                     var tempList = subControls.ToTypedCollection<List<DependencyObject>, DependencyObject>();
-                    control = tempList.First((item) => item is TextBox);
+                    control = tempList.FirstOrDefault((item) => item is TextBox);
+
+                    if (control == null)
+                    {
+                        control = tempList.FirstOrDefault((item) => item is Grid);
+                    }
                 }
 
                 if (control is TextBox)
@@ -1148,15 +1157,34 @@ namespace AnhQuoc_C5_Assignment
 
         public static ObservableCollection<string> GetListAllLanguages()
         {
-            ObservableCollection<string> result = new ObservableCollection<string>();
+            ObservableCollection<string[]> result = new ObservableCollection<string[]>();
 
-            CultureInfo[] cinfo = CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures);
+            //CultureInfo[] cinfo = CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures);
 
-            foreach (CultureInfo cul in cinfo)
+            //foreach (CultureInfo cul in cinfo)
+            //{
+            //    result.Add(cul.DisplayName);
+            //}
+            //return result;
+
+            CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.AllCultures);
+
+            foreach (CultureInfo culture in cultures)
             {
-                result.Add(cul.DisplayName);
+                result.Add(new string[2] {culture.Name, culture.DisplayName });
             }
-            return result;
+
+            ObservableCollection<string> getDistinct = new ObservableCollection<string>();
+            foreach (var item in result)
+            {
+                getDistinct.Add(item[0].Split('-')[0]);
+            }
+            getDistinct = getDistinct.Distinct().ToTypedCollection<ObservableCollection<string>, string>();
+
+            var query = getDistinct.Join(result, itemDis => itemDis, itemS => itemS[0], (itemDis, itemS) => itemS[1]);
+
+            var lastResult = query.OrderBy(item => item).ToTypedCollection<ObservableCollection<string>, string>();
+            return lastResult;
         }
 
         public static TreeViewItem FindTreeViewItemByName(ItemCollection lst, string name)
@@ -1476,6 +1504,7 @@ namespace AnhQuoc_C5_Assignment
             StackPanel stkWrapButton = form.stkWrapButton;
             if (arrayButton.Length == 0)
                 stkWrapButton.Visibility = Visibility.Collapsed;
+            form.labelHead.Visibility = Visibility.Collapsed;
 
             bool flag = false;
             foreach (Button btn in arrayButton)
@@ -1818,11 +1847,24 @@ namespace AnhQuoc_C5_Assignment
 
 
 
-        public static void ExpandMore(string text)
+        public static void ExpandMore(string text, bool isShowinfoOnly = true)
         {
             frmExpand frmExpand = new frmExpand();
-            frmExpand.textArea.Content = text;
+            frmExpand.textArea.Text = text;
+
+            frmExpand.IsShowInfoOnly = isShowinfoOnly;
             frmExpand.ShowDialog();
+        }
+
+        public static void ExpandMore(TextBox textBox, bool isShowinfoOnly = true)
+        {
+            frmExpand frmExpand = new frmExpand();
+            frmExpand.textArea.Text = textBox.Text;
+            frmExpand.TxtBox = textBox;
+
+            frmExpand.IsShowInfoOnly = isShowinfoOnly;
+            frmExpand.ShowDialog();
+
         }
 
         public static OpenFileDialog CreateOpenFileDialog()
@@ -1891,6 +1933,41 @@ namespace AnhQuoc_C5_Assignment
             });
 
             return result;
+        }
+
+        public static string FormatCurrency(string currencyCode, decimal amount)
+        {
+            CultureInfo culture = (from c in CultureInfo.GetCultures(CultureTypes.SpecificCultures)
+                                   let r = new RegionInfo(c.LCID)
+                                   where r != null
+                                   && r.ISOCurrencySymbol.ToUpper() == currencyCode.ToUpper()
+                                   select c).FirstOrDefault();
+            if (culture == null)
+            {
+                // fall back to current culture if none is found
+                // you could throw an exception here if that's not supposed to happen
+                culture = CultureInfo.CurrentCulture;
+            }
+            culture = (CultureInfo)culture.Clone();
+            culture.NumberFormat.CurrencySymbol = currencyCode;
+
+            // Add spaces between the figure and the currency code
+            culture.NumberFormat.CurrencyPositivePattern = culture.NumberFormat.CurrencyPositivePattern == 0 ? 2 : 3;
+            var cnp = culture.NumberFormat.CurrencyNegativePattern;
+            switch (cnp)
+            {
+                case 0: cnp = 14; break;
+                case 1: cnp = 9; break;
+                case 2: cnp = 12; break;
+                case 3: cnp = 11; break;
+                case 4: cnp = 15; break;
+                case 5: cnp = 8; break;
+                case 6: cnp = 13; break;
+                case 7: cnp = 10; break;
+            }
+            culture.NumberFormat.CurrencyNegativePattern = cnp;
+
+            return amount.ToString("C" + ((amount % 1) == 0 ? "0" : "2"), culture);
         }
     }
 }

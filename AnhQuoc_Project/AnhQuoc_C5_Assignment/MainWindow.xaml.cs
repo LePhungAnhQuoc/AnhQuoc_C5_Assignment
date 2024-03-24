@@ -31,6 +31,22 @@ namespace AnhQuoc_C5_Assignment
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    public class BindingProxy : System.Windows.Freezable
+    {
+        protected override Freezable CreateInstanceCore()
+        {
+            return new BindingProxy();
+        }
+
+        public object Data
+        {
+            get { return (object)GetValue(DataProperty); }
+            set { SetValue(DataProperty, value); }
+        }
+
+        public static readonly DependencyProperty DataProperty =
+            DependencyProperty.Register("Data", typeof(object), typeof(BindingProxy), new PropertyMetadata(null));
+    }
 
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
@@ -81,7 +97,6 @@ namespace AnhQuoc_C5_Assignment
         public MainWindow()
         {
             InitializeComponent();
-
 
             serverName = null;
             databaseName = null;
@@ -593,5 +608,10 @@ namespace AnhQuoc_C5_Assignment
 
         }
         #endregion
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Save thôi!");
+        }
     }
 }

@@ -88,6 +88,10 @@ namespace AnhQuoc_C5_Assignment
         private RoleViewModel roleVM;
         #endregion
 
+        #region Mappings
+        private UserMap userMap;
+        #endregion  
+
         public ucLibrarianDashBoard()
         {
             InitializeComponent();
@@ -116,7 +120,9 @@ namespace AnhQuoc_C5_Assignment
             ucCategoryManagement = MainWindow.UnitOfForm.UcCategoryManagement(true);
 
 
-            ucLogOut.btnLogOut.Click += BtnLogOut_Click;
+            userMap = UnitOfMap.Instance.UserMap;
+
+            ucUserLoginInformation.ucLogOut.btnLogOut.Click += BtnLogOut_Click;
             this.DataContext = this;
             this.Loaded += UcLibrarianDashBoard_Loaded;
         }
@@ -132,6 +138,8 @@ namespace AnhQuoc_C5_Assignment
             UserRole userRole = userRoleVM.FindByIdUser(getLoginUser().Id);
             Role role = roleVM.FindById(userRole.IdRole);
             lblAccount.Content = role.Name;
+
+            ucUserLoginInformation.getItem = () => userMap.ConvertToDto(getLoginUser());
 
             Utilities.GetDashBoardTreeView(treeViewInDashBoard, getFunctions(), TvFunction_MouseLeftButtonUp);
 
@@ -783,6 +791,11 @@ namespace AnhQuoc_C5_Assignment
         {
             var frmLogin = MainWindow.UnitOfForm.FrmLogin(false);
             frmLogin.LogOut();
+        }
+
+        private void btnUserInfo_Click(object sender, RoutedEventArgs e)
+        {
+            gridUserLoginInformation.Visibility = (gridUserLoginInformation.Visibility == Visibility.Hidden) ? Visibility.Visible : Visibility.Hidden;
         }
     }
 }

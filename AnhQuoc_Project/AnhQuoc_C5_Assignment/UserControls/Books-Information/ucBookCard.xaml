@@ -4,10 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
-             mc:Ignorable="d" d:DesignWidth="220"
+             mc:Ignorable="d" d:DesignWidth="250"
              Name="YourUserControl">
     <UserControl.Resources>
         <local:PriceFormatConverter x:Key="PriceFormatConverter" />
+        <local:IdBookStatusToNameConverter x:Key="IdBookStatusToNameConverter" />
+        
         <Thickness x:Key="borderDistance" Top="10" Left="10" Right="10" Bottom="10" />
         <GridLength x:Key="firstColumnWidth">65</GridLength>
         
@@ -34,81 +36,105 @@
     <UserControl.RenderTransform>
         <TranslateTransform/>
     </UserControl.RenderTransform>
-    
-    <Border Style="{StaticResource bdCard}"
-            Width="200"
-            Focusable="True">
-        <StackPanel Height="auto">
-            <StackPanel>
-                <StackPanel.Resources>
-                    <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}">
-                        <Setter Property="FontSize" Value="12" />
-                    </Style>
-                    <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}">
-                        <!--<Setter Property="Margin"--> 
-                    </Style>
-                    <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}">
-                        <Setter Property="FontSize" Value="12" />
-                    </Style>
-                </StackPanel.Resources>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Content="Book title: " />
-                    <TextBlock Grid.Column="1"
-                               Text="{Binding Item.BookTitle.Name}" />
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Content="ISBN: " />
-                    <TextBlock Grid.Column="1"
-                               Text="{Binding Item.ISBN}" />
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Content="Author: " />
-                    <TextBlock Grid.Column="1"
-                               Text="{Binding Item.Author.Name}" />
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Content="Language: " />
-                    <TextBlock Grid.Column="1"
-                               Text="{Binding Item.Language}" />
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Content="Price: " />
-                    <TextBlock Grid.Column="1"
-                Text="{Binding Item.Price, Converter={StaticResource PriceFormatConverter}}" />
-                </Grid>
-            </StackPanel>
-            <StackPanel Name="stkWrapButton"
-                        Style="{StaticResource stkWrapButton}"
-                        Visibility="Visible">
-                <Button Name="btnInfo"
-                        Style="{StaticResource btnInfo}"
-                        FontSize="12">More Info</Button>
-                <Button Name="btnDelete"
-                        Style="{StaticResource btnDelete}"
-                        FontSize="12"
-                        Margin="10 0 0 0"></Button>
-            </StackPanel>
-        </StackPanel>
-    </Border>
 
+    <Grid x:Name="gdContainer">
+        <Grid x:Name="borderEffectContainer"
+              Visibility="Hidden">
+            <Border x:Name="firstBd"
+                    BorderBrush="Black"
+                    Background="{Binding ElementName=YourUserControl, Path=Background}"
+                    BorderThickness="0"
+                    CornerRadius="10">
+                <Border.Effect>
+                    <DropShadowEffect  BlurRadius="16" ShadowDepth="0" Color="Black" Opacity="1" RenderingBias="Quality" />
+                </Border.Effect>
+            </Border>
+        </Grid>
+        
+        <Border Style="{StaticResource bdCard}"
+                Focusable="True">
+            <StackPanel Height="auto">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}">
+                            <Setter Property="FontSize" Value="12" />
+                            <Setter Property="Foreground" Value="{Binding ElementName=YourUserControl, Path=Foreground}" />
+                        </Style>
+                        <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}">
+                            <!--<Setter Property="Margin"--> 
+                        </Style>
+                        <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}">
+                            <Setter Property="FontSize" Value="12" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Book title: " />
+                        <TextBlock Grid.Column="1"
+                                   Text="{Binding Item.BookTitle.Name}" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="ISBN: " />
+                        <TextBlock Grid.Column="1"
+                                   Text="{Binding Item.ISBN}" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Author: " />
+                        <TextBlock Grid.Column="1"
+                                   Text="{Binding Item.Author.Name}" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Language: " />
+                        <TextBlock Grid.Column="1"
+                                   Text="{Binding Item.Language}" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Price: " />
+                        <TextBlock Grid.Column="1"
+                    Text="{Binding Item.Price, Converter={StaticResource PriceFormatConverter}}" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Status: " />
+                        <TextBlock Grid.Column="1"
+                                   Text="{Binding Item.IdBookStatus, Converter={StaticResource IdBookStatusToNameConverter}}" />
+                    </Grid>
+                </StackPanel>
+                <StackPanel Name="stkWrapButton"
+                            Style="{StaticResource stkWrapButton}"
+                            Margin="0 0 0 10"
+                            Visibility="Visible">
+                    <Button Name="btnInfo"
+                            Style="{StaticResource btnInfo}"
+                            FontSize="12">More Info</Button>
+                    <Button Name="btnDelete"
+                            Style="{StaticResource btnDelete}"
+                            FontSize="12"
+                            Margin="10 0 0 0"></Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
 </UserControl>

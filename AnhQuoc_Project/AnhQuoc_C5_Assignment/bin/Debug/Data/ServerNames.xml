@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ServerNames Count="0">
   <ServerName>
+    <Id>SV9</Id>
+    <Name>DESKTOP-U6H8CP6\SQLEXPRESS</Name>
+    <Status>False</Status>
+  </ServerName>
+  <ServerName>
+    <Id>SV8</Id>
+    <Name>DESKTOP-U6H8CP6</Name>
+    <Status>False</Status>
+  </ServerName>
+  <ServerName>
     <Id>SV7</Id>
     <Name>DESKTOP-Q6N4J46\SQLEXPRESS</Name>
     <Status>False</Status>
@@ -33,6 +43,6 @@
   <ServerName>
     <Id>SV5</Id>
     <Name>ADMIN\DATA_SQL</Name>
-    <Status>True</Status>
+    <Status>False</Status>
   </ServerName>
 </ServerNames>

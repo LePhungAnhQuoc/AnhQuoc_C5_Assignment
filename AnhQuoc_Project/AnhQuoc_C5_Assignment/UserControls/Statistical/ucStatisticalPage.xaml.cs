@@ -51,7 +51,9 @@ namespace AnhQuoc_C5_Assignment
             ucLoanHistoryQuantities.Content = loanHistoryVM.Repo.Count.ToString();
 
             ucLoanSlipExp.Content = loanSlipVM.FillExpire().Count.ToString();
-            ucMostBorrowedISBN.Content = bookISBNVM.MostOfISBN(loanSlipVM.Repo.Gets()).ISBN;
+
+            var isbnCheck = bookISBNVM.MostOfISBN(loanSlipVM.Repo.Gets());
+            ucMostBorrowedISBN.Content = isbnCheck == null ? "None" : isbnCheck.ISBN;
 
             ucDamagedBooks.Content = bookVM.FillByIdBookStatus(bookVM.Repo.Gets(), Constants.bookStatusSpoil).Count.ToString();
 
@@ -74,6 +76,10 @@ namespace AnhQuoc_C5_Assignment
             frmDescription.Description = card.ToolTip.ToString();
             frmDescription.Value = card.Content;
 
+            if (card.Name == "ucMostBorrowedISBN")
+            {
+                frmDescription.TextFontSize = 15.0;
+            }
             frmDescription.Show();
         }
     }

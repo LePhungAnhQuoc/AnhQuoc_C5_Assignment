@@ -10,7 +10,8 @@
              Background="White">
     <UserControl.Resources>
         <GridLength x:Key="firstColumnWidth">75</GridLength>
-        
+        <local:PriceFormatConverter x:Key="PriceFormatConverter" />
+
         <Storyboard x:Key="MouseEnterStoryboard">
             <DoubleAnimation Duration="0:0:0.300" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" To="-10">
             </DoubleAnimation>
@@ -86,7 +87,7 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Price: " />
                         <TextBlock Grid.Column="1"
-                    Text="{Binding Item.Book.Price}" />
+                    Text="{Binding Item.Book.Price, Converter={StaticResource PriceFormatConverter}}" />
                     </Grid>
 
                 </StackPanel>

@@ -7,16 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="40" d:DesignWidth="100">
     <Grid>
-        <Border BorderThickness="1"
-                BorderBrush="#FF69ADFF"
-                CornerRadius="0">
-            <Border BorderThickness="1"
-                    BorderBrush="White"
-                    CornerRadius="0">
-                <Button Name="btnLogOut"
-                        Style="{StaticResource btnLogOut}"
-                        Content="Log Out" Background="#FF80B9FF" />
-            </Border>
-        </Border>
+        <Button Name="btnLogOut"
+                Style="{StaticResource btnLogOut}"
+                Content="Log Out" Background="#FF80B9FF" />
     </Grid>
 </UserControl>

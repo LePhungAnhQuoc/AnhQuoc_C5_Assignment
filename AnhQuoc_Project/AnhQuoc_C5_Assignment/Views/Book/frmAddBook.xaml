@@ -21,7 +21,6 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     
-    
     <Window.Resources>
         <local:BookISBNToISBNConverter x:Key="bookISBNToISBNConverter" />
         <local:BookStatusToIdConverter x:Key="bookStatusToIdConverter" />
@@ -220,7 +219,8 @@
                     <Grid Grid.Column="1"
                           Style="{x:Null}">
                         <TextBox Name="txtPrice"
-                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}" >
+                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}" 
+                                 Foreground="Transparent">
                             <TextBox.Text>
                                 <Binding 
                                     Path="Item.Price"
@@ -256,7 +256,8 @@
                           Style="{x:Null}">
                         <TextBox Name="txtPriceCurrent"
                                  Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
-                                 IsEnabled="False">
+                                 IsEnabled="False"
+                                 Foreground="Transparent">
                             <TextBox.Text>
                                 <Binding 
                                         Path="Item.PriceCurrent"
@@ -288,17 +289,25 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Note: " />
-                    <TextBox Name="txtNote"
+
+                    <Grid Grid.Column="1"
+                          Style="{x:Null}">
+                        <TextBox Name="txtNote"
                                 Grid.Column="1"
                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                        <TextBox.Text>
-                            <Binding Path="Item.Note" UpdateSourceTrigger="PropertyChanged">
-                                <Binding.ValidationRules>
+                            <TextBox.Text>
+                                <Binding Path="Item.Note" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
 
-                                </Binding.ValidationRules>
-                            </Binding>
-                        </TextBox.Text>
-                    </TextBox>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <Button Click="ButtonExpand_Click"    
+                                Style="{StaticResource btnExpandMore}">
+                        </Button>
+                    </Grid>
+
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>

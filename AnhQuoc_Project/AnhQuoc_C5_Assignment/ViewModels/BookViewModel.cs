@@ -46,7 +46,7 @@ namespace AnhQuoc_C5_Assignment
             return result;
         }
 
-        public Book FindById(int id, bool? statusValue)
+        public Book FindById(int id, bool? statusValue = null)
         {
             return FindById(Repo.Gets(), id, statusValue);
         }

@@ -185,11 +185,10 @@ namespace AnhQuoc_C5_Assignment
 
         public void onLoaded(object sender, RoutedEventArgs e)
         {
+            thisForm = sender as frmAddBook;
             InputQuantity = 1;
             
             IsCancel = true;
-
-            thisForm = sender as frmAddBook;
 
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
@@ -216,6 +215,8 @@ namespace AnhQuoc_C5_Assignment
                 CopyItem();
                 SetFormByAddOrUpdate("UPDATE");
             }
+
+            Item.Language = AllLanguages.FirstOrDefault(lang => lang.ToLower().Contains("vietnamese"));
         }
 
 

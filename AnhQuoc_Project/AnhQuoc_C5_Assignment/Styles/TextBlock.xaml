@@ -18,7 +18,12 @@
         <Setter Property="Margin" Value="8 0 0 0" />
      
     </Style>
-    
+
+    <Style TargetType="TextBlock" x:Key="tblDisplayOn" BasedOn="{StaticResource tblPlaceHolder}">
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Margin" Value="8 0 0 0" />
+    </Style>
+
     <Style TargetType="TextBlock" x:Key="tblPlaceHolderComboBox" BasedOn="{StaticResource tblGeneral}">
         <Setter Property="IsHitTestVisible" Value="False" />
 
@@ -32,13 +37,29 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
+    <Style TargetType="TextBlock" x:Key="tblErrorNote" BasedOn="{StaticResource tblGeneral}">
+        <Setter Property="Foreground" Value="Red" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontStyle" Value="Italic" />
+    </Style>
 
+    <Style TargetType="TextBlock" x:Key="tblDisplayInfoLink" BasedOn="{StaticResource tblDisplayInfo}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="TextDecorations" Value="Underline" />
+                <Setter Property="Cursor" Value="Hand" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
     <Style TargetType="TextBlock" x:Key="tblDisplayInfoHighlight" BasedOn="{StaticResource tblDisplayInfo}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="Red" />
                 <Setter Property="TextDecorations" Value="Underline" />
+                <Setter Property="Cursor" Value="Hand" />
             </Trigger>
         </Style.Triggers>
     </Style>
+    
 </ResourceDictionary>

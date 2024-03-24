@@ -1,5 +1,8 @@
 ﻿
 
-FE:\Projects\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\MainWindow.xaml;;
-FE:\Projects\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\UI\BorrowBooks-UI\ucSelectReaderInfo.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\Styles\DataGrid.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Books-Information\ucBookCard.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\LoanDetail-Information\ucLoanDetailCard.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\Books-Information\ucBooksTable.xaml;;
+FE:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\UserControls\UI\ReturnBook-UI\ucRetureBookInfo.xaml;;
 

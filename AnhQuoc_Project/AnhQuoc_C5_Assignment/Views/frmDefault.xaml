@@ -16,14 +16,15 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <!-- Title -->
-        <Label Grid.Row="0"
+        <Label x:Name="labelHead"
+               Grid.Row="0"
                Style="{StaticResource lblTitle}"
-               Content="{Binding lblHeader, ElementName=window}"  />
+               Content="{Binding lblHeader, ElementName=window}" />
         
         <!-- Body -->
         <Grid Grid.Row="1"
               VerticalAlignment="Stretch"
-              Margin="20 0"
+              Margin="20 10"
               Name="stkBody">
         </Grid>
         

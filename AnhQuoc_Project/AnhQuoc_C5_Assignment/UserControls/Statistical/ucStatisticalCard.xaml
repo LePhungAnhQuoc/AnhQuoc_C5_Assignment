@@ -9,10 +9,11 @@
              Name="userControl">
     <GroupBox Style="{StaticResource gbDisplayInfo}"
               Header="{Binding Header, ElementName=userControl, UpdateSourceTrigger=PropertyChanged}"
-              FontSize="20"
+              FontSize="15"
               Margin="0">
         <RadioButton GroupName="Parent"
                      Style="{StaticResource radioBtnStatistical}"
+                     FontSize="{Binding TextFontSize, ElementName=userControl, UpdateSourceTrigger=PropertyChanged}"
                      Tag="{Binding Icon, ElementName=userControl, UpdateSourceTrigger=PropertyChanged}" 
                      Content="{Binding Content, ElementName=userControl, UpdateSourceTrigger=PropertyChanged}" />
     </GroupBox>

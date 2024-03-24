@@ -6,21 +6,20 @@
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" 
              d:DesignHeight="350">
-    <Grid HorizontalAlignment="Left"
-          Background="#4e73de">
+    <Grid Background="#4e73de"
+          HorizontalAlignment="Left">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
+     
         <StackPanel Grid.Row="0">
-            <Ellipse Margin="0 30 0 10"
-                     Height="56"
-                     Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}">
-                <Ellipse.Fill>
-                    <ImageBrush ImageSource="{Binding HumanUrlImage}" />
-                </Ellipse.Fill>
-            </Ellipse>
+            <Button x:Name="btnUserInfo"
+                    Margin="0 30 0 10"
+                    Tag="{Binding HumanUrlImage}"
+                    Style="{StaticResource btnUserInfo}"
+                    Click="btnUserInfo_Click">
+            </Button>
             <Label Name="lblAccount" Content="User role"
                    Style="{StaticResource lblGeneral}"
                    Foreground="White" HorizontalAlignment="Center"
@@ -35,9 +34,16 @@
                 <Style TargetType="TreeViewItem" BasedOn="{StaticResource tvItemStyle1}" />
             </TreeView.Resources>
         </TreeView>
-        <local:ucLogOut Grid.Row="2"
-                        x:Name="ucLogOut"
-                        HorizontalAlignment="Center"
-                        Margin="0 20 0 30"/>
+
+       
+        <Border x:Name="gridUserLoginInformation" 
+                Style="{StaticResource bdStyle1}"
+                Grid.RowSpan="3" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 100 0 0"
+                Visibility="Hidden" Background="White">
+             <local:ucUserLoginInformation x:Name="ucUserLoginInformation" HorizontalAlignment="Stretch" />
+        </Border>
+
     </Grid>
+
 </UserControl>

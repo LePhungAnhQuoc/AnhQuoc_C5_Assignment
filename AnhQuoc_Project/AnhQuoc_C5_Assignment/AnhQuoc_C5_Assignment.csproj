@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AnhQuoc_C5_Assignment</RootNamespace>
     <AssemblyName>AnhQuoc_C5_Assignment</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -92,7 +92,8 @@
       <DependentUpon>LoadingSpinnerWD.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Converters\BorrowBook\BorrowBookSelectReaderButtonConfirmConverter.cs" />
+    <Compile Include="Converters\Id-To-Name\IdBookStatusToNameConverter.cs" />
+    <Compile Include="Converters\Id-To-Name\IdUserToFullNameConverter.cs" />
     <Compile Include="Converters\Object-To-Id\BookStatusToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\FunctionToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\ProvinceToNameConverter.cs" />
@@ -105,13 +106,15 @@
     <Compile Include="Converters\Object-To-Id\TranslatorToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\PublisherToIdConverter.cs" />
     <Compile Include="Converters\Object-To-Id\BookISBNToISBNConverter.cs" />
-    <Compile Include="Converters\Reader\IdLoanSlipToReaderTypeConverter.cs" />
-    <Compile Include="Converters\Reader\IdLoanSlipToFullNameConverter.cs" />
-    <Compile Include="Converters\Reader\IdReaderToFullNameConverter.cs" />
-    <Compile Include="Converters\Reader\IdAdultToFullNameConverter.cs" />
-    <Compile Include="Converters\ReturnBook\ReturnBookButtonConfirmConverter.cs" />
+    <Compile Include="Converters\Id-To-Name\IdLoanSlipToReaderTypeConverter.cs" />
+    <Compile Include="Converters\Id-To-Name\IdLoanSlipToFullNameConverter.cs" />
+    <Compile Include="Converters\Id-To-Name\IdReaderToExpDateConverter.cs" />
+    <Compile Include="Converters\Id-To-Name\IdReaderToFullNameConverter.cs" />
+    <Compile Include="Converters\Id-To-Name\IdReaderToIdentifyConverter.cs" />
+    <Compile Include="Converters\Id-To-Name\IdAdultToFullNameConverter.cs" />
     <Compile Include="Converters\StatusConvert\BookTitleStatusConverter.cs" />
-    <Compile Include="Converters\StringToArrayConverter.cs" />
+    <Compile Include="Converters\Utilities\PasswordTextConverter.cs" />
+    <Compile Include="Converters\Utilities\StringToArrayConverter.cs" />
     <Compile Include="Converters\Utilities\DateMinToNullValueConverter.cs" />
     <Compile Include="Converters\Utilities\HalfLengthConverter.cs" />
     <Compile Include="Converters\LoanSlip\IsLoanOutOfDateConverter.cs" />
@@ -444,9 +447,6 @@
     <Compile Include="UserControls\Pagination-Uti\ucPagination.xaml.cs">
       <DependentUpon>ucPagination.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Readers-information\Add-Adult-Child\ucAddChild.xaml.cs">
-      <DependentUpon>ucAddChild.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Book-ISBN-information\ucBookISBNManagement.xaml.cs">
       <DependentUpon>ucBookISBNManagement.xaml</DependentUpon>
     </Compile>
@@ -470,9 +470,6 @@
     </Compile>
     <Compile Include="UserControls\Readers-information\Tables\ucReadersTable.xaml.cs">
       <DependentUpon>ucReadersTable.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Readers-information\Add-Adult-Child\ucAddAdult.xaml.cs">
-      <DependentUpon>ucAddAdult.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Role-Information\ucRolesTable.xaml.cs">
       <DependentUpon>ucRolesTable.xaml</DependentUpon>
@@ -527,6 +524,9 @@
     </Compile>
     <Compile Include="UserControls\Province-Information\ucProvincesTable.xaml.cs">
       <DependentUpon>ucProvincesTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\User-Information\ucUserLoginInformation.xaml.cs">
+      <DependentUpon>ucUserLoginInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\User-Information\ucUserInformation.xaml.cs">
       <DependentUpon>ucUserInformation.xaml</DependentUpon>
@@ -969,10 +969,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Readers-information\Add-Adult-Child\ucAddChild.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="UserControls\Book-ISBN-information\ucBookISBNManagement.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1002,10 +998,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Readers-information\Tables\ucReadersTable.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\Readers-information\Add-Adult-Child\ucAddAdult.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1078,6 +1070,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\Province-Information\ucProvincesTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\User-Information\ucUserLoginInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
