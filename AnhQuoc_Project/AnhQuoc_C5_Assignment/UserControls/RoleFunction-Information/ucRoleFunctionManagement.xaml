@@ -21,7 +21,8 @@
         
             <!-- Function Bar -->
             <Grid Margin="30 0 0 0"
-                  HorizontalAlignment="Left">
+                  HorizontalAlignment="Left"
+                  Visibility="Hidden">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" />
                     <ColumnDefinition Width="auto" />
@@ -29,7 +30,7 @@
             
                 <Grid Grid.Column="0">
                     <TextBox Name="txtSearch"
-                             Style="{StaticResource txtStyleSearch}"/>
+                             Style="{StaticResource txtLightBorder}"/>
                     <TextBlock Text="Search by name here...">
                         <TextBlock.Style>
                             <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolder}">

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using LiveCharts;
+using LiveCharts.Wpf;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,32 +33,20 @@ namespace AnhQuoc_C5_Assignment
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public class BindingProxy : System.Windows.Freezable
-    {
-        protected override Freezable CreateInstanceCore()
-        {
-            return new BindingProxy();
-        }
-
-        public object Data
-        {
-            get { return (object)GetValue(DataProperty); }
-            set { SetValue(DataProperty, value); }
-        }
-
-        public static readonly DependencyProperty DataProperty =
-            DependencyProperty.Register("Data", typeof(object), typeof(BindingProxy), new PropertyMetadata(null));
-    }
 
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        #region Contexts
         public static BorrowBookViewModel borrowBookContext;
         public static ReturnBookViewModel returnBookContext;
+        #endregion
 
+        #region Static-Var
         public static User loginUser;
         public static string DataSource;
         public static string InitCatalog;
         public static bool IntegratedSecurity;
+        #endregion
 
         #region Fields
 
@@ -614,4 +604,22 @@ namespace AnhQuoc_C5_Assignment
             MessageBox.Show("Save thôi!");
         }
     }
+
+    public class BindingProxy : System.Windows.Freezable
+    {
+        protected override Freezable CreateInstanceCore()
+        {
+            return new BindingProxy();
+        }
+
+        public object Data
+        {
+            get { return (object)GetValue(DataProperty); }
+            set { SetValue(DataProperty, value); }
+        }
+
+        public static readonly DependencyProperty DataProperty =
+            DependencyProperty.Register("Data", typeof(object), typeof(BindingProxy), new PropertyMetadata(null));
+    }
+
 }

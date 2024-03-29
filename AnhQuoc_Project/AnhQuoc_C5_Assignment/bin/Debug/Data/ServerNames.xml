@@ -43,6 +43,6 @@
   <ServerName>
     <Id>SV5</Id>
     <Name>ADMIN\DATA_SQL</Name>
-    <Status>False</Status>
+    <Status>True</Status>
   </ServerName>
 </ServerNames>

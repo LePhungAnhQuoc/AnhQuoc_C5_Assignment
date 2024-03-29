@@ -13,6 +13,6 @@
         AllowsTransparency="True"
         Background="Transparent">
     <Grid>
-        <Image Name="imgCircle" Visibility="Visible" Width="250" Height="250" gif:ImageBehavior.AnimatedSource="/Animations/LoadingSpinnerCircle2.gif" />
+        <Image Name="imgCircle" Visibility="Visible" Width="250" Height="250" gif:ImageBehavior.AnimatedSource="/Animations/LoadingSpinnerCircle.gif" />
     </Grid>
 </Window>

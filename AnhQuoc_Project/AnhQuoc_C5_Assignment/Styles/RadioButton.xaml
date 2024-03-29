@@ -6,40 +6,41 @@
     </Style>
 
     <Style x:Key="radioBtnStatistical" TargetType="RadioButton">
-        <Setter Property="Background" Value="WhiteSmoke"/>
-        <Setter Property="Foreground" Value="Gray"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="Padding" Value="29" />
+        <Setter Property="Padding" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
-                    <Border CornerRadius="10"
-                            Background="{TemplateBinding Background}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                        <Grid VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                              Margin="{TemplateBinding Padding}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
+                    <Grid x:Name="gdContainer">
+                        <Border CornerRadius="10"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                  Margin="{TemplateBinding Padding}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
 
-                            <Path Style="{StaticResource pathStyle1}"
-                                  Data="{TemplateBinding Tag}"
-                                  Fill="{TemplateBinding Foreground}" 
-                                  Height="60" Width="60"
-                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                                  Margin="0 0 15 0"/>
+                                <Path Style="{StaticResource pathStyle1}"
+                                      Data="{TemplateBinding Tag}"
+                                      Fill="{TemplateBinding Foreground}" 
+                                      Height="60" Width="60"
+                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                      Margin="0 0 15 0"/>
 
-                            <ContentPresenter Grid.Column="1"
-                                              TextBlock.TextAlignment="Left"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding Content}"
-                                              TextBlock.FontSize="{TemplateBinding FontSize}" />
-                        </Grid>
-                    </Border>
-
+                                <ContentPresenter Grid.Column="1"
+                                                  TextBlock.TextAlignment="Left"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  Content="{TemplateBinding Content}"
+                                                  TextBlock.FontSize="{TemplateBinding FontSize}" />
+                            </Grid>
+                        </Border>
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter Property="Background" Value="Teal"/>

@@ -39,6 +39,7 @@ namespace AnhQuoc_C5_Assignment
         public Func<int> getNumberItems { get; set; }
 
         #region Forms
+        public Func<ucBookStatussTable> getUcBookStatussTable { get; set; }
         public Func<ucReadersTable> getUcReadersTable { get; set; }
         public Func<ucBooksTable> getUcBooksTable { get; set; }
         public Func<ucUsersTable> getUcUsersTable { get; set; }
@@ -169,6 +170,10 @@ namespace AnhQuoc_C5_Assignment
             if (getUcUsersTable != null)
             {
                 getUcUsersTable().dgDatas.ItemsSource = result;
+            }
+            if (getUcBookStatussTable != null)
+            {
+                getUcBookStatussTable().dgDatas.ItemsSource = result;
             }
             if (getUcFunctionsTable != null)
             {

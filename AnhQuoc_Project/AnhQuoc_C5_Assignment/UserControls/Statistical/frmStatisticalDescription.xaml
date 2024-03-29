@@ -1,0 +1,44 @@
+﻿<Window x:Class="AnhQuoc_C5_Assignment.frmStatisticalDescription"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+        mc:Ignorable="d"
+        Title="Statistical Description"
+        WindowStartupLocation="{StaticResource WSL}"
+        Style="{StaticResource wdStyleGeneral}"
+        x:Name="myUserControl">
+    <Border Style="{StaticResource bdFormContainer}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="60" />
+                </Grid.ColumnDefinitions>
+                <Path Grid.Column="0" 
+                      Style="{StaticResource pathStyleDescription}"
+                      HorizontalAlignment="Stretch"
+                      Data="{Binding Icon, ElementName=myUserControl, UpdateSourceTrigger=PropertyChanged}"
+                      Fill="{Binding Foreground, ElementName=myUserControl, UpdateSourceTrigger=PropertyChanged}" 
+                      Margin="20"/>
+                <TextBlock Grid.Column="1"
+                           HorizontalAlignment="Center"
+                           Text="{Binding Value, ElementName=myUserControl, UpdateSourceTrigger=PropertyChanged}"
+                           Style="{StaticResource tblDisplayInfo}"
+                           FontSize="{Binding TextFontSize, ElementName=myUserControl, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+            <TextBox Grid.Row="1"
+                     MaxHeight="50"
+                     Width="300"
+                     Style="{StaticResource txtStyleTextAreaDisplayInfo}" 
+                     HorizontalContentAlignment="Center"
+                     Text="{Binding Description, ElementName=myUserControl, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+    </Border>
+</Window>

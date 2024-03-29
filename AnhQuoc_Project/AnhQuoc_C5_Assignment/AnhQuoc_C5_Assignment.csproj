@@ -46,6 +46,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
       <Private>True</Private>
@@ -113,6 +119,7 @@
     <Compile Include="Converters\Id-To-Name\IdReaderToIdentifyConverter.cs" />
     <Compile Include="Converters\Id-To-Name\IdAdultToFullNameConverter.cs" />
     <Compile Include="Converters\StatusConvert\BookTitleStatusConverter.cs" />
+    <Compile Include="Converters\StatusConvert\BookStatusStatusConverter.cs" />
     <Compile Include="Converters\Utilities\PasswordTextConverter.cs" />
     <Compile Include="Converters\Utilities\StringToArrayConverter.cs" />
     <Compile Include="Converters\Utilities\DateMinToNullValueConverter.cs" />
@@ -177,6 +184,7 @@
     <Compile Include="DTOs\ReaderDto.cs" />
     <Compile Include="DTOs\Other-Dtos\UserAccountLogIn.cs" />
     <Compile Include="DTOs\UserRoleDto.cs" />
+    <Compile Include="Mapping\BookStatusMap.cs" />
     <Compile Include="Repositories\BookStatusRepository.cs" />
     <Compile Include="Enums\ReaderType.cs" />
     <Compile Include="ExtensionMethods\BoolExtend.cs" />
@@ -372,11 +380,17 @@
     <Compile Include="UserControls\LoanHistory-Information\ucLoanHistoryInformation.xaml.cs">
       <DependentUpon>ucLoanHistoryInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Statistical\StatisticalDescription.xaml.cs">
-      <DependentUpon>StatisticalDescription.xaml</DependentUpon>
+    <Compile Include="UserControls\Statistical\frmStatisticalDescription.xaml.cs">
+      <DependentUpon>frmStatisticalDescription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Statistical\ucStatisticalCardStyle2.xaml.cs">
+      <DependentUpon>ucStatisticalCardStyle2.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Statistical\ucStatisticalCard.xaml.cs">
       <DependentUpon>ucStatisticalCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Statistical\ucStatisticalCircle.xaml.cs">
+      <DependentUpon>ucStatisticalCircle.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Statistical\ucStatisticalPage.xaml.cs">
       <DependentUpon>ucStatisticalPage.xaml</DependentUpon>
@@ -525,6 +539,15 @@
     <Compile Include="UserControls\Province-Information\ucProvincesTable.xaml.cs">
       <DependentUpon>ucProvincesTable.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Book-Status-Information\ucBookStatusInformation.xaml.cs">
+      <DependentUpon>ucBookStatusInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Book-Status-Information\ucBookStatusManagement.xaml.cs">
+      <DependentUpon>ucBookStatusManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Book-Status-Information\ucBookStatussTable.xaml.cs">
+      <DependentUpon>ucBookStatussTable.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\User-Information\ucUserLoginInformation.xaml.cs">
       <DependentUpon>ucUserLoginInformation.xaml</DependentUpon>
     </Compile>
@@ -600,6 +623,7 @@
     <Compile Include="ViewModels\ViewModels-For-UI\AddRoleViewModel.cs" />
     <Compile Include="ViewModels\ViewModels-For-UI\AddTranslatorViewModel.cs" />
     <Compile Include="ViewModels\ViewModels-For-UI\AddUserRoleViewModel.cs" />
+    <Compile Include="ViewModels\ViewModels-For-UI\AddBookStatusViewModel.cs" />
     <Compile Include="ViewModels\ViewModels-For-UI\AddUserViewModel.cs" />
     <Compile Include="ViewModels\ViewModels-For-UI\TransferGuardianViewModel.cs" />
     <Compile Include="ViewModels\Xml-ViewModels\DatabaseNameViewModel.cs" />
@@ -627,6 +651,9 @@
     </Compile>
     <Compile Include="Views\Book\frmAddBookISBN.xaml.cs">
       <DependentUpon>frmAddBookISBN.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Book\frmAddBookStatus.xaml.cs">
+      <DependentUpon>frmAddBookStatus.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Book\frmBookISBNInformation.xaml.cs">
       <DependentUpon>frmBookISBNInformation.xaml</DependentUpon>
@@ -869,11 +896,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\Statistical\StatisticalDescription.xaml">
+    <Page Include="UserControls\Statistical\frmStatisticalDescription.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Statistical\ucStatisticalCardStyle2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\Statistical\ucStatisticalCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Statistical\ucStatisticalCircle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1073,6 +1108,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UserControls\Book-Status-Information\ucBookStatusInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Book-Status-Information\ucBookStatusManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Book-Status-Information\ucBookStatussTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\User-Information\ucUserLoginInformation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1110,6 +1157,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Book\frmAddBookISBN.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Book\frmAddBookStatus.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1262,8 +1313,6 @@
     <Resource Include="Assets\BookImages\BT15.png" />
     <Resource Include="Assets\BookImages\BT16.png" />
     <Resource Include="Assets\BookImages\BT17.png" />
-    <Resource Include="Animations\LoadingSpinnerCircle.gif" />
-    <Resource Include="Animations\LoadingSpinnerCircle2.gif" />
     <Resource Include="Assets\Images\11.jpg" />
     <Resource Include="Assets\Images\13.png" />
     <Resource Include="Assets\Images\19.png" />
@@ -1286,6 +1335,7 @@
     <Resource Include="Assets\Images\ic_MinimizeAct.png" />
     <Resource Include="Assets\Images\ic_MinimizePas.png" />
     <Resource Include="Assets\Images\User.png" />
+    <Resource Include="Animations\LoadingSpinnerCircle.gif" />
     <Content Include="Models\QuanLyThuVienModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>
@@ -1314,7 +1364,6 @@
     <Resource Include="Assets\Images\Others\info-icon.png" />
     <Resource Include="Assets\Images\Others\info.png" />
     <Resource Include="Assets\Images\Others\LoadingSpinnerCircle.gif" />
-    <Resource Include="Assets\Images\Others\LoadingSpinnerCircle2.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

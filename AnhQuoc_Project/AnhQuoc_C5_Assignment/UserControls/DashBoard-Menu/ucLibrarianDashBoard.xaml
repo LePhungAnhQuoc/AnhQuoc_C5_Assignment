@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" 
              d:DesignHeight="350">
-    <Grid Background="#4e73de"
+    <Grid Background="#212529"
           HorizontalAlignment="Left">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />

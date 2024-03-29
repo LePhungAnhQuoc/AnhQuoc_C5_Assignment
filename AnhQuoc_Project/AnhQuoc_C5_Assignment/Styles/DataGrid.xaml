@@ -7,7 +7,7 @@
     <Style x:Key="dtgGeneral" TargetType="DataGrid">
         <Setter Property="EnableRowVirtualization" Value="False" />
         <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="False" />
-        
+
         <Setter Property="HeadersVisibility" Value="Column" />
         <Setter Property="AutoGenerateColumns" Value="False" />
         <Setter Property="IsReadOnly" Value="True" />
@@ -38,6 +38,12 @@
         <Setter Property="CanUserReorderColumns" Value="False" />
 
         <Setter Property="HorizontalAlignment" Value="Stretch" />
+
+        <!-- Make the border and grid lines a little less imposing -->
+        <Setter Property="BorderBrush" Value="#DDDDDD" />
+        <Setter Property="HorizontalGridLinesBrush" Value="#DDDDDD" />
+        <Setter Property="VerticalGridLinesBrush" Value="#DDDDDD" />
+        
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#EFEFEF" />
@@ -47,15 +53,17 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
     <Style x:Key="dtgColHeaderGeneral" TargetType="DataGridColumnHeader">
     </Style>
-   
-    <Style x:Key="dtgCellGeneral" TargetType="DataGridCell">
-        <Setter Property="Padding" Value="5"/>
-        <Setter Property="BorderBrush" Value="Gray"/>
-        <Setter Property="BorderThickness" Value="1"/>
 
+    <Style x:Key="dtgCellGeneral" TargetType="DataGridCell">
+
+        <!-- Add some padding around the contents of a cell -->
+        <Setter Property="Padding" Value="4,3,4,3" />
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="1"/>
+       
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGridCell}">
@@ -71,10 +79,27 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        
+
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style TargetType="Control">
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+
         <Style.Triggers>
-            <Trigger Property="DataGridCell.IsSelected" Value="True">
-                <Setter Property="Background" Value="#86D1FD"/>
+            <!-- Highlight selected rows -->
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#ff66ccff" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="Foreground" Value="Black" />
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Background" Value="#ff66ccff" />
+                <Setter Property="BorderBrush" Value="Black" />
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Foreground" Value="Black" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -110,6 +135,13 @@
         <Setter Property="Margin" Value="2,1" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Padding" Value="10,5" />
+
+        <Style.Triggers>
+            <!-- Highlight a grid row as the mouse passes over -->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="LightCyan" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

@@ -4,9 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignWidth="1000">
-
+    <UserControl.Resources>
+        <Thickness x:Key="margin" Left="10" Right="10" Bottom="10" Top="10" />
+        <System:Double x:Key="width">215.0</System:Double>
+    </UserControl.Resources>
     <Grid Margin="20 40" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -20,8 +25,12 @@
             <WrapPanel x:Name="wrapContainer">
                 <WrapPanel.Resources>
                     <Style TargetType="local:ucStatisticalCard">
-                        <Setter Property="Margin" Value="10" />
-                        <Setter Property="Width" Value="215" />
+                        <Setter Property="Margin" Value="{StaticResource margin}" />
+                        <Setter Property="Width" Value="{StaticResource width}" />
+                    </Style>
+                    <Style TargetType="local:ucStatisticalCardStyle2">
+                        <Setter Property="Margin" Value="{StaticResource margin}" />
+                        <Setter Property="Width" Value="{StaticResource width}" />
                     </Style>
                 </WrapPanel.Resources>
                 <local:ucStatisticalCard x:Name="ucBookQuantities" Header="Book Quantities" Icon="{StaticResource book}" Content="None" ToolTip="Number of books in the library" />
@@ -35,6 +44,7 @@
                 <local:ucStatisticalCard x:Name="ucMostBorrowedISBN" Header="Most borrowed ISBN" TextFontSize="15" Icon="{StaticResource like}" ToolTip="The most popular book ISBN" />
                 <local:ucStatisticalCard x:Name="ucDamagedBooks" Header="Damaged books" Icon="{StaticResource spoilBook}" ToolTip="Current number of damaged books" />
                 <local:ucStatisticalCard x:Name="ucLostBooks" Header="Lost books" Icon="{StaticResource noBook}" ToolTip="Current number of lost books" />
+                <local:ucStatisticalCardStyle2 x:Name="ucChildAdults" Header="Adult/Child Reader" ToolTip="Percentage of child/adult reader" />
             </WrapPanel>
         </ScrollViewer>
     </Grid>

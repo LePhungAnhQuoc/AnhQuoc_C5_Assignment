@@ -86,6 +86,11 @@ namespace AnhQuoc_C5_Assignment
             return FillByBookISBN(Repo.Gets(), ISBNValue, statusValue);
         }
 
+        public ObservableCollection<Book> FillByIdBookStatus(string idValue, bool? statusValue = null)
+        {
+            return FillByIdBookStatus(Repo.Gets(), idValue, statusValue);
+        }
+
         public ObservableCollection<Book> FillByIdBookStatus(ObservableCollection<Book> source, string idValue, bool? statusValue = null)
         {
             source = FillByStatus(source, statusValue);

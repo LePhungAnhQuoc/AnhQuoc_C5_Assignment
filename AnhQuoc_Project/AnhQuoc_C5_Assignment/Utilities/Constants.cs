@@ -74,11 +74,12 @@ namespace AnhQuoc_C5_Assignment
         public const string CategoryManagement_FunctionId = "F45";
         public const string PublisherManagement_FunctionId = "F50";
         public const string AuthorManagement_FunctionId = "F54";
+        public const string BookStatusManagement_FunctionId = "F78";
         public const string TranslatorManagement_FunctionId = "F59";
         public const string PenaltyReasonManagement_FunctionId = "F69";
         public const string ProvinceManagement_FunctionId = "F64";
         public const string ParameterManagement_FunctionId = "F73";
-        public const string StatisticalPage_FunctionId = "F78";
+        public const string StatisticalPage_FunctionId = "F83";
         #endregion
 
         public static string Culture = "vi-VN";
@@ -128,6 +129,7 @@ namespace AnhQuoc_C5_Assignment
         public static string[] checkPropPenaltyReason = new string[] { "Name" };
         public static string[] checkPropParameter = new string[] { "Name" };
         public static string[] checkPropBook = new string[] { };
+        public static string[] checkPropBookStatus = new string[] { "Name" };
         #endregion
 
         #region ExceptDataGrid-Display

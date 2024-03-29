@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:AnhQuoc_C5_Assignment">
     <Style x:Key="treeGeneral" TargetType="TreeView">
-        <Setter Property="Background" Value="#4e73de" />
+        <Setter Property="Background" Value="#212529" />
     </Style>
 
     <Style x:Key="tvItemStyle1" TargetType="TreeViewItem">
@@ -11,8 +11,8 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="Width" Value="auto" />
 
-        <Setter Property="Background" Value="#4e73de" />
-        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="#212529" />
+        <Setter Property="Foreground" Value="#adb5bd" />
         <Setter Property="Height" Value="auto"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -28,24 +28,43 @@
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
+
                         <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="ExpansionStates">
-                                <VisualState x:Name="Expanded">
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.5" />
+                                    <VisualTransition GeneratedDuration="0"
+                                                      To="Pressed" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
                                     <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames 
-                                                        Storyboard.TargetName="ItemsHost"
-                                                        Storyboard.TargetProperty="(UIElement.Visibility)">
-                                            <DiscreteObjectKeyFrame KeyTime="0"
-                                                                    Value="{x:Static Visibility.Visible}" />
-                                        </ObjectAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames
+                                                Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"
+                                                Storyboard.TargetName="Border">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                     Value="White" />
+                                        </ColorAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
-                                <VisualState x:Name="Collapsed" />
+                                <VisualState x:Name="Selected">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames
+                                                Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"
+                                                Storyboard.TargetName="Border">
+                                            <EasingColorKeyFrame KeyTime="0"
+                                                                     Value="White" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
+
+                        
                         <Border Grid.Column="0" Grid.Row="0"
-                                Name="container"
-                                Background="{TemplateBinding Property=Background}"
+                                Name="Border"
+                                Background="{TemplateBinding Property=Background}" 
+                                TextBlock.Foreground="{TemplateBinding Foreground}"
                                 Padding="{TemplateBinding Padding}"
                                 BorderThickness="0"
                                 BorderBrush="Black"
@@ -71,21 +90,23 @@
                                                   VerticalAlignment="Center"/>
                             </Grid>
                         </Border>
-                        <ItemsPresenter x:Name="ItemsHost"
-                                        Grid.Row="1" 
+                        <ItemsPresenter Grid.Row="1"
                                         Grid.Column="0"
+                                        x:Name="ItemsHost"
                                         Margin="15 0 0 0"
                                         Visibility="Collapsed"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers>
+        
+        <!--<Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="#E52F54BF"/>
-                <Setter Property="FontWeight" Value="SemiBold"/>
                 <Setter Property="Foreground" Value="White"/>
             </Trigger>
-        </Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+        </Style.Triggers>-->
     </Style>
 </ResourceDictionary>

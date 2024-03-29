@@ -32,7 +32,7 @@
     <Style TargetType="TextBox" x:Key="txtUnderlineBorder" BasedOn="{StaticResource txtGeneral}">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="TextBox">
+                <ControlTemplate TargetType="{x:Type TextBox}">
                     <Border x:Name="Border"
                             BorderThickness="0 0 0 1"
                             BorderBrush="silver">
@@ -42,17 +42,52 @@
                                           TabIndex="{TemplateBinding TabIndex}"
                                           BorderThickness="0"
                                           Margin="0"
-                                          x:Name="PART_ContentHost"/>
+                                          x:Name="PART_ContentHost" />
                             <TextBlock x:Name="tblPlaceHolder"
                                        Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Tag}"
-                                       FontSize="{TemplateBinding FontSize}">
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Foreground="Silver">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolder}">
-                                        <Setter Property="Foreground" Value="Silver" />
                                         <Setter Property="Visibility" Value="Hidden" />
-
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding ElementName=PART_ContentHost, Path=Content}" Value="">
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Text}" Value="">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="txtLightBorder" BasedOn="{StaticResource txtGeneral}">
+        <Setter Property="Width" Value="250" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border x:Name="Border"
+                            Style="{StaticResource bdStyle1}">
+                        <Grid Margin="0">
+                            <ScrollViewer FontSize="{TemplateBinding FontSize}"
+                                          Foreground="{TemplateBinding Foreground}"
+                                          TabIndex="{TemplateBinding TabIndex}"
+                                          BorderThickness="0"
+                                          Margin="0"
+                                          x:Name="PART_ContentHost" />
+                            <TextBlock x:Name="tblPlaceHolder"
+                                       Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Tag}"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Foreground="Silver">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolder}">
+                                        <Setter Property="Visibility" Value="Hidden" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Text}" Value="">
                                                 <Setter Property="Visibility" Value="Visible" />
                                             </DataTrigger>
                                         </Style.Triggers>

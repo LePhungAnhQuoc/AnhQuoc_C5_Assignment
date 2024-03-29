@@ -41,6 +41,17 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private BookStatusMap _BookStatusMap;
+        public BookStatusMap BookStatusMap
+        {
+            get
+            {
+                if (_BookStatusMap == null)
+                    _BookStatusMap = new BookStatusMap();
+                return _BookStatusMap;
+            }
+        }
+
         private ParameterMap _ParameterMap;
         public ParameterMap ParameterMap
         {
@@ -280,6 +291,7 @@ namespace AnhQuoc_C5_Assignment
         {
             _ParameterMap = new   ParameterMap();
             _TranslatorMap = new TranslatorMap();
+            _BookStatusMap = new BookStatusMap();
             _PublisherMap = new PublisherMap();
             _BookISBNMap = new BookISBNMap();
             _LoanDetailHistoryMap = new LoanDetailHistoryMap();

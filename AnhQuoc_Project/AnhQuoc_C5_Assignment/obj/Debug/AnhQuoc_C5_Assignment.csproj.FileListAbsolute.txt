@@ -2489,3 +2489,543 @@ E:\Projects\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debu
 E:\Projects\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_.4D0CC176.Up2Date
 E:\Projects\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.exe
 E:\Projects\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.pdb
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\AnhQuoc_C5_Assignment.exe.config
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\AnhQuoc_C5_Assignment.exe
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\AnhQuoc_C5_Assignment.pdb
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\EntityFramework.dll
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\EntityFramework.SqlServer.dll
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\Microsoft.Expression.Interactions.dll
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\System.Windows.Interactivity.dll
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\WpfAnimatedGif.dll
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\WPFCustomMessageBox.dll
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\EntityFramework.xml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\EntityFramework.SqlServer.xml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\Microsoft.Expression.Interactions.xml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\System.Windows.Interactivity.xml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\WpfAnimatedGif.pdb
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\WpfAnimatedGif.xml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\WPFCustomMessageBox.xml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csproj.AssemblyReference.cache
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Assets\Images\Others\icons.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Path.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Animations\LoadingSpinnerWD.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\MainWindow.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Author-Information\ucAuthorManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Author-Information\ucAuthorsTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Author-Information\ucAuthorInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNCard.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Title-Information\ucBookTitleInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBookCard.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Category-Information\ucCategoryInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucDisplayFunction.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionsTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetail-Information\ucLoanDetailCard.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetailHistory-Information\ucLoanDetailHistorysTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistoryInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\StatisticalDescription.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\ucStatisticalCard.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\ucStatisticalPage.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\PenaltyReason-Information\ucPenaltyReasonInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\PenaltyReason-Information\ucPenaltyReasonManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\PenaltyReason-Information\ucPenaltyReasonsTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Parameter-Information\ucParameterInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Parameter-Information\ucParameterManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Parameter-Information\ucParametersTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucLoanSlipConfirm.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucAddLoanHistory.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistoryManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistorysTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucInputBookInfo.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucSelectReaderInfo.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucAddLoan.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucReaderLoanInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipsTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipInformationStyle2.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetail-Information\ucLoanDetailsTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucButtonCircle.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Others\ucLogOut.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucPagination.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\DashBoard-Menu\ucLibrarianDashBoard.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Tables\ucChildsTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Tables\ucReadersTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Role-Information\ucRolesTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Role-Information\ucRoleManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\RoleFunction-Information\ucRoleFunctionManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucInputReaderLoanHistory.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetailHistory-Information\ucLoanDetailHistoryInfo.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucRetureBookInfo.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Category-Information\ucCategoryManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Category-Information\ucCategorysTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Publisher-Information\ucPublisherInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Publisher-Information\ucPublisherManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Publisher-Information\ucPublishersTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Translator-Information\ucTranslatorInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Translator-Information\ucTranslatorManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Translator-Information\ucTranslatorsTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Province-Information\ucProvinceInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Province-Information\ucProvinceManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Province-Information\ucProvincesTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Status-Information\ucBookStatusInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Status-Information\ucBookStatusManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Status-Information\ucBookStatussTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUserLoginInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUserInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUserManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUsersTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UserRole-Information\ucUserRoleManagement.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UserRole-Information\ucUserRolesTable.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Author\frmAddAuthor.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBook.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBookTitle.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBookISBN.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBookStatus.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Category\frmAddCategory.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\frmExpand.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\frmDefault.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Function\frmAddFunction.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Function\frmChildFunctionInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Login\frmLogin.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Login\frmInputServerName.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Parameter\frmAddParameter.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\PenaltyReason\frmAddPenaltyReason.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Province\frmAddProvince.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Publisher\frmAddPublisher.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\Information\frmChildReaderInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\Information\frmAdultReaderInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\frmAddReader.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Information\ucChildInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Information\ucReaderInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Information\ucAdultInformation.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\frmTransferGuardian.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Role\frmAddRole.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Translator\frmAddTranslator.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\UserRole\frmAddUserRole.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\User\frmAddUser.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\App.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment_Content.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment_MarkupCompile.cache
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment_MarkupCompile.lref
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\App.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Animations\LoadingSpinnerWD.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Assets\icons.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\MainWindow.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Border.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Button.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\CheckBox.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\ComboBox.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\ContentControl.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\DataGrid.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\DatePicker.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Ellipse.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Grid.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\GroupBox.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Label.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\RadioButton.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\ScrollViewer.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\StackPanel.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\TabControl.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\TextBlock.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\TextBox.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\TreeView.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\UserControl.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Window.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Author-Information\ucAuthorManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Author-Information\ucAuthorsTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Author-Information\ucAuthorInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNCard.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Title-Information\ucBookTitleInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBookCard.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Category-Information\ucCategoryInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucDisplayFunction.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionsTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetail-Information\ucLoanDetailCard.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetailHistory-Information\ucLoanDetailHistorysTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistoryInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\StatisticalDescription.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\ucStatisticalCard.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\ucStatisticalPage.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\PenaltyReason-Information\ucPenaltyReasonInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\PenaltyReason-Information\ucPenaltyReasonManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\PenaltyReason-Information\ucPenaltyReasonsTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Parameter-Information\ucParameterInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Parameter-Information\ucParameterManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Parameter-Information\ucParametersTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucLoanSlipConfirm.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucAddLoanHistory.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistoryManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistorysTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucInputBookInfo.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucSelectReaderInfo.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucAddLoan.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucReaderLoanInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipsTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipInformationStyle2.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetail-Information\ucLoanDetailsTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucButtonCircle.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Others\ucLogOut.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucPagination.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\DashBoard-Menu\ucLibrarianDashBoard.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Tables\ucChildsTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Tables\ucReadersTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Role-Information\ucRolesTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Role-Information\ucRoleManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\RoleFunction-Information\ucRoleFunctionManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucInputReaderLoanHistory.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetailHistory-Information\ucLoanDetailHistoryInfo.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucRetureBookInfo.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Category-Information\ucCategoryManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Category-Information\ucCategorysTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Publisher-Information\ucPublisherInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Publisher-Information\ucPublisherManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Publisher-Information\ucPublishersTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Translator-Information\ucTranslatorInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Translator-Information\ucTranslatorManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Translator-Information\ucTranslatorsTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Province-Information\ucProvinceInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Province-Information\ucProvinceManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Province-Information\ucProvincesTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Status-Information\ucBookStatusInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Status-Information\ucBookStatusManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Status-Information\ucBookStatussTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUserLoginInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUserInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUserManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUsersTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UserRole-Information\ucUserRoleManagement.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UserRole-Information\ucUserRolesTable.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Author\frmAddAuthor.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBook.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBookTitle.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBookISBN.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBookStatus.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmBookISBNInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Category\frmAddCategory.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\frmExpand.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\frmDefault.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Function\frmAddFunction.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Function\frmChildFunctionInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Login\frmLogin.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Login\frmInputServerName.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Parameter\frmAddParameter.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\PenaltyReason\frmAddPenaltyReason.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Province\frmAddProvince.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Publisher\frmAddPublisher.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\Information\frmChildReaderInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\Information\frmAdultReaderInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\frmAddReader.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Information\ucChildInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Information\ucReaderInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Information\ucAdultInformation.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\frmTransferGuardian.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Role\frmAddRole.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Translator\frmAddTranslator.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\UserRole\frmAddUserRole.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\User\frmAddUser.baml
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.g.resources
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.Properties.Resources.resources
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csproj.GenerateResource.cache
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csproj.CoreCompileInputs.cache
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_.4D0CC176.Up2Date
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.exe
+E:\New - pro\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.pdb
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csproj.AssemblyReference.cache
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Assets\Images\Others\icons.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Path.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Animations\LoadingSpinnerWD.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\MainWindow.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Author-Information\ucAuthorManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Author-Information\ucAuthorsTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Author-Information\ucAuthorInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNCard.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Title-Information\ucBookTitleInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBookCard.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Category-Information\ucCategoryInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucDisplayFunction.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionsTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetail-Information\ucLoanDetailCard.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetailHistory-Information\ucLoanDetailHistorysTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistoryInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\frmStatisticalDescription.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\ucStatisticalCard.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\ucStatisticalCircle.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\ucStatisticalPage.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\PenaltyReason-Information\ucPenaltyReasonInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\PenaltyReason-Information\ucPenaltyReasonManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\PenaltyReason-Information\ucPenaltyReasonsTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Parameter-Information\ucParameterInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Parameter-Information\ucParameterManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Parameter-Information\ucParametersTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucLoanSlipConfirm.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucAddLoanHistory.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistoryManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistorysTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucInputBookInfo.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucSelectReaderInfo.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucAddLoan.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucReaderLoanInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipsTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipInformationStyle2.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetail-Information\ucLoanDetailsTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucButtonCircle.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Others\ucLogOut.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucPagination.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBooksTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\DashBoard-Menu\ucLibrarianDashBoard.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBookManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Tables\ucChildsTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\ucReaderManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Tables\ucReadersTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Role-Information\ucRolesTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Role-Information\ucRoleManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\RoleFunction-Information\ucRoleFunctionManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucInputReaderLoanHistory.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetailHistory-Information\ucLoanDetailHistoryInfo.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucRetureBookInfo.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Category-Information\ucCategoryManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Category-Information\ucCategorysTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Publisher-Information\ucPublisherInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Publisher-Information\ucPublisherManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Publisher-Information\ucPublishersTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Translator-Information\ucTranslatorInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Translator-Information\ucTranslatorManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Translator-Information\ucTranslatorsTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Province-Information\ucProvinceInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Province-Information\ucProvinceManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Province-Information\ucProvincesTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Status-Information\ucBookStatusInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Status-Information\ucBookStatusManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Status-Information\ucBookStatussTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUserLoginInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUserInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUserManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUsersTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UserRole-Information\ucUserRoleManagement.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UserRole-Information\ucUserRolesTable.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Author\frmAddAuthor.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBook.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBookTitle.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBookISBN.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBookStatus.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmBookISBNInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Category\frmAddCategory.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\frmExpand.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\frmDefault.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Function\frmAddFunction.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Function\frmChildFunctionInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Login\frmLogin.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Login\frmInputServerName.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Parameter\frmAddParameter.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\PenaltyReason\frmAddPenaltyReason.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Province\frmAddProvince.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Publisher\frmAddPublisher.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\Information\frmChildReaderInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\Information\frmAdultReaderInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\frmAddReader.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Information\ucChildInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Information\ucReaderInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Information\ucAdultInformation.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\frmTransferGuardian.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Role\frmAddRole.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Translator\frmAddTranslator.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\UserRole\frmAddUserRole.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\User\frmAddUser.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\App.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment_Content.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment_MarkupCompile.cache
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment_MarkupCompile.lref
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.exe
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.pdb
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\AnhQuoc_C5_Assignment.exe.config
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\AnhQuoc_C5_Assignment.exe
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\AnhQuoc_C5_Assignment.pdb
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\EntityFramework.dll
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\EntityFramework.SqlServer.dll
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\Microsoft.Expression.Interactions.dll
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\System.Windows.Interactivity.dll
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\WpfAnimatedGif.dll
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\WPFCustomMessageBox.dll
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\EntityFramework.xml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\EntityFramework.SqlServer.xml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\Microsoft.Expression.Interactions.xml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\System.Windows.Interactivity.xml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\WpfAnimatedGif.pdb
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\WpfAnimatedGif.xml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\WPFCustomMessageBox.xml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\App.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Animations\LoadingSpinnerWD.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Assets\icons.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\MainWindow.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Border.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Button.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\CheckBox.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\ComboBox.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\ContentControl.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\DataGrid.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\DatePicker.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Ellipse.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Grid.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\GroupBox.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Label.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\RadioButton.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\ScrollViewer.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\StackPanel.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\TabControl.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\TextBlock.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\TextBox.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\TreeView.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\UserControl.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Window.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Author-Information\ucAuthorManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Author-Information\ucAuthorsTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Author-Information\ucAuthorInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNCard.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Title-Information\ucBookTitleInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Title-Information\ucBookTitlesTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Title-Information\ucBookTitleManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBookCard.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Category-Information\ucCategoryInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucDisplayFunction.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Function-Information\ucFunctionsTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetail-Information\ucLoanDetailCard.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetailHistory-Information\ucLoanDetailHistorysTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistoryInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\frmStatisticalDescription.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\ucStatisticalCard.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\ucStatisticalCircle.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\ucStatisticalPage.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\PenaltyReason-Information\ucPenaltyReasonInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\PenaltyReason-Information\ucPenaltyReasonManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\PenaltyReason-Information\ucPenaltyReasonsTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Parameter-Information\ucParameterInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Parameter-Information\ucParameterManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Parameter-Information\ucParametersTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucLoanSlipConfirm.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucAddLoanHistory.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistoryManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanHistory-Information\ucLoanHistorysTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucInputBookInfo.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucSelectReaderInfo.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\BorrowBooks-UI\ucAddLoan.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucReaderLoanInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipsTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipInformationStyle2.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanSlip-Information\ucLoanSlipManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetail-Information\ucLoanDetailsTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucButtonCircle.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Others\ucLogOut.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Pagination-Uti\ucPagination.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-ISBN-information\ucBookISBNsTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBooksTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\DashBoard-Menu\ucLibrarianDashBoard.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Books-Information\ucBookManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Tables\ucChildsTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\ucReaderManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Tables\ucReadersTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Role-Information\ucRolesTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Role-Information\ucRoleManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\RoleFunction-Information\ucRoleFunctionManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucInputReaderLoanHistory.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\LoanDetailHistory-Information\ucLoanDetailHistoryInfo.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucLoanHistoryConfirm.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UI\ReturnBook-UI\ucRetureBookInfo.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Category-Information\ucCategoryManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Category-Information\ucCategorysTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Publisher-Information\ucPublisherInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Publisher-Information\ucPublisherManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Publisher-Information\ucPublishersTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Translator-Information\ucTranslatorInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Translator-Information\ucTranslatorManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Translator-Information\ucTranslatorsTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Province-Information\ucProvinceInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Province-Information\ucProvinceManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Province-Information\ucProvincesTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Status-Information\ucBookStatusInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Status-Information\ucBookStatusManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Book-Status-Information\ucBookStatussTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUserLoginInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUserInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUserManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\User-Information\ucUsersTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UserRole-Information\ucUserRoleManagement.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\UserRole-Information\ucUserRolesTable.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Author\frmAddAuthor.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBook.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBookTitle.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBookISBN.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmAddBookStatus.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Book\frmBookISBNInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Category\frmAddCategory.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\frmExpand.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\frmDefault.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Function\frmAddFunction.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Function\frmChildFunctionInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Login\frmLogin.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Login\frmInputServerName.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Parameter\frmAddParameter.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\PenaltyReason\frmAddPenaltyReason.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Province\frmAddProvince.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Publisher\frmAddPublisher.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\Information\frmChildReaderInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\Information\frmAdultReaderInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\frmAddReader.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Information\ucChildInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Information\ucReaderInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Readers-information\Information\ucAdultInformation.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Reader\frmTransferGuardian.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Role\frmAddRole.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\Translator\frmAddTranslator.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\UserRole\frmAddUserRole.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Views\User\frmAddUser.baml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.g.resources
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.Properties.Resources.resources
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csproj.GenerateResource.cache
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csproj.CoreCompileInputs.cache
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_.4D0CC176.Up2Date
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\LiveCharts.dll
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\LiveCharts.Wpf.dll
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\LiveCharts.pdb
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\LiveCharts.xml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\LiveCharts.Wpf.pdb
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\LiveCharts.Wpf.xml
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\ucStatisticalCardStyle2.g.cs
+E:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\UserControls\Statistical\ucStatisticalCardStyle2.baml

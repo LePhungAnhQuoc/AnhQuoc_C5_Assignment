@@ -55,6 +55,7 @@ namespace AnhQuoc_C5_Assignment
         private ucPenaltyReasonManagement ucPenaltyReasonManagement;
         private ucTranslatorManagement ucTranslatorManagement;
         private ucProvinceManagement ucProvinceManagement;
+        private ucBookStatusManagement ucBookStatusManagement;
         private ucParameterManagement ucParameterManagement;
         private ucAuthorManagement ucAuthorManagement;
         private ucPublisherManagement ucPublisherManagement;
@@ -103,6 +104,7 @@ namespace AnhQuoc_C5_Assignment
             ucPenaltyReasonManagement = MainWindow.UnitOfForm.UcPenaltyReasonManagement(true);
             ucParameterManagement = MainWindow.UnitOfForm.UcParameterManagement(true);
             ucProvinceManagement = MainWindow.UnitOfForm.UcProvinceManagement(true);
+            ucBookStatusManagement = MainWindow.UnitOfForm.UcBookStatusManagement(true);
             ucTranslatorManagement = MainWindow.UnitOfForm.UcTranslatorManagement(true);
             ucUserManagement = MainWindow.UnitOfForm.UcUserManagement(true);
             ucAuthorManagement = MainWindow.UnitOfForm.UcAuthorManagement(true);
@@ -567,6 +569,35 @@ namespace AnhQuoc_C5_Assignment
                     #region Statistical-Management
                     case Constants.StatisticalPage_FunctionId:
                         break;
+                    #endregion
+
+                    #region BookStatus-Management
+                    case Constants.BookStatusManagement_FunctionId:
+                        addFunc = childs.FirstOrDefault(item => item.Id == "F79");
+                        if (addFunc == null)
+                        {
+                            ucBookStatusManagement.IsAllowAdd = false;
+                        }
+
+                        deleteFunc = childs.FirstOrDefault(item => item.Id == "F80");
+                        if (deleteFunc == null)
+                        {
+                            ucBookStatusManagement.IsAllowDelete = false;
+                        }
+
+                        restoreFunc = childs.FirstOrDefault(item => item.Id == "F81");
+                        if (restoreFunc == null)
+                        {
+                            ucBookStatusManagement.IsAllowRestore = false;
+                        }
+
+                        updateFunc = childs.FirstOrDefault(item => item.Id == "F82");
+                        if (updateFunc == null)
+                        {
+                            ucBookStatusManagement.IsAllowUpdate = false;
+                        }
+
+                        break;
                         #endregion
 
                 }
@@ -595,6 +626,9 @@ namespace AnhQuoc_C5_Assignment
                     break;
                 case Constants.ProvinceManagement_FunctionId:
                     TvProvinceManagementInformation_Function();
+                    break;
+                case Constants.BookStatusManagement_FunctionId:
+                    TvBookStatusManagementInformation_Function();
                     break;
                 case Constants.TranslatorManagement_FunctionId:
                     TvTranslatorManagementInformation_Function();
@@ -686,6 +720,14 @@ namespace AnhQuoc_C5_Assignment
 
             gdView.Children.Clear();
             gdView.Children.Add(ucProvinceManagement);
+        }
+
+        private void TvBookStatusManagementInformation_Function()
+        {
+            Grid gdView = getGdView();
+
+            gdView.Children.Clear();
+            gdView.Children.Add(ucBookStatusManagement);
         }
 
         private void TvTranslatorManagementInformation_Function()

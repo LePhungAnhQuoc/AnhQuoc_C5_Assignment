@@ -22,7 +22,7 @@
             <StackPanel Grid.Column="0"
                         Orientation="Horizontal">
                 <StackPanel.Resources>
-                    <Style TargetType="ComboBox" BasedOn="{StaticResource cbStyle2}" />
+                    <Style TargetType="ComboBox" BasedOn="{StaticResource cbLightBorder}" />
                     <Style TargetType="Grid">
                         <Setter Property="Margin" Value="10 0" />
                     </Style>

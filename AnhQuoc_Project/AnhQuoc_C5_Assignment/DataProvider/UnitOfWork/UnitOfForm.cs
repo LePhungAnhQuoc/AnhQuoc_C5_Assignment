@@ -14,9 +14,11 @@ namespace AnhQuoc_C5_Assignment
         // UserControl
         private ucBookTitleInformation ucBookTitleInformation;
         private ucLoanHistoryInformation ucLoanHistoryInformation;
-
         private ucProvinceInformation ucProvinceInformation;
+        private ucBookStatusInformation ucBookStatusInformation;
         private ucProvinceManagement ucProvinceManagement;
+        private ucBookStatusManagement ucBookStatusManagement;
+
         private ucParameterInformation ucParameterInformation;
         private ucParameterManagement ucParameterManagement;
         private ucPenaltyReasonInformation ucPenaltyReasonInformation;
@@ -67,6 +69,8 @@ namespace AnhQuoc_C5_Assignment
         private frmAddPublisher frmAddPublisher;
         private frmAddParameter frmAddParameter;
         private frmAddProvince frmAddProvince;
+        private frmAddBookStatus frmAddBookStatus;
+
         private frmAddPenaltyReason frmAddPenaltyReason;
         private frmAddTranslator frmAddTranslator;
         private frmAddAuthor frmAddAuthor;
@@ -128,6 +132,12 @@ namespace AnhQuoc_C5_Assignment
             get { return _UcProvinceInformation; }
         }
 
+        private Func<bool, ucBookStatusInformation> _UcBookStatusInformation;
+        public Func<bool, ucBookStatusInformation> UcBookStatusInformation
+        {
+            get { return _UcBookStatusInformation; }
+        }
+
         private Func<bool, ucBookTitleInformation> _UcBookTitleInformation;
         public Func<bool, ucBookTitleInformation> UcBookTitleInformation
         {
@@ -144,6 +154,12 @@ namespace AnhQuoc_C5_Assignment
         public Func<bool, ucProvinceManagement> UcProvinceManagement
         {
             get { return _UcProvinceManagement; }
+        }
+
+        private Func<bool, ucBookStatusManagement> _UcBookStatusManagement;
+        public Func<bool, ucBookStatusManagement> UcBookStatusManagement
+        {
+            get { return _UcBookStatusManagement; }
         }
 
         private Func<bool, ucPenaltyReasonInformation> _UcPenaltyReasonInformation;
@@ -372,6 +388,12 @@ namespace AnhQuoc_C5_Assignment
             get { return _FrmAddProvince; }
         }
 
+        private Func<bool, frmAddBookStatus> _FrmAddBookStatus;
+        public Func<bool, frmAddBookStatus> FrmAddBookStatus
+        {
+            get { return _FrmAddBookStatus; }
+        }
+
         private Func<bool, frmAddPenaltyReason> _FrmAddPenaltyReason;
         public Func<bool, frmAddPenaltyReason> FrmAddPenaltyReason
         {
@@ -523,6 +545,15 @@ namespace AnhQuoc_C5_Assignment
                     ucProvinceInformation = new ucProvinceInformation();
                 }
                 return ucProvinceInformation;
+            };
+
+            _UcBookStatusInformation = (isReAllocate) =>
+            {
+                if (isReAllocate)
+                {
+                    ucBookStatusInformation = new ucBookStatusInformation();
+                }
+                return ucBookStatusInformation;
             };
 
             _UcBookTitleInformation = (isReAllocate) =>
@@ -724,6 +755,17 @@ namespace AnhQuoc_C5_Assignment
                     ucProvinceManagement.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
                 }
                 return ucProvinceManagement;
+            };
+
+            _UcBookStatusManagement = (isReAllocate) =>
+            {
+                if (isReAllocate)
+                {
+                    ucBookStatusManagement = new ucBookStatusManagement();
+                    ucBookStatusManagement.getBookStatusRepo = () => _UnitOfRepo.BookStatusRepo;
+                    ucBookStatusManagement.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
+                }
+                return ucBookStatusManagement;
             };
 
             _UcPenaltyReasonManagement = (isReAllocate) =>
@@ -1057,6 +1099,17 @@ namespace AnhQuoc_C5_Assignment
                     frmAddProvince.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
                 }
                 return frmAddProvince;
+            };
+
+            _FrmAddBookStatus = (isReAllocate) =>
+            {
+                if (isReAllocate == true)
+                {
+                    frmAddBookStatus = new frmAddBookStatus();
+                    frmAddBookStatus.getBookStatusRepo = () => _UnitOfRepo.BookStatusRepo;
+                    frmAddBookStatus.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
+                }
+                return frmAddBookStatus;
             };
 
             _FrmAddPenaltyReason = (isReAllocate) =>

@@ -28,7 +28,7 @@
                 
                 <Grid Grid.Column="0">
                     <TextBox Name="txtSearch"
-                             Style="{StaticResource txtStyleSearch}"/>
+                             Style="{StaticResource txtLightBorder}"/>
                     <TextBlock Text="Search by reader name here..." VerticalAlignment="Center">
                         <TextBlock.Style>
                             <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolder}">

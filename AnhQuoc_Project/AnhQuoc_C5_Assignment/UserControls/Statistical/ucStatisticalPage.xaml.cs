@@ -60,9 +60,13 @@ namespace AnhQuoc_C5_Assignment
             ucLostBooks.Content = bookVM.FillByIdBookStatus(bookVM.Repo.Gets(), Constants.bookStatusLost).Count.ToString();
 
 
-            foreach (ucStatisticalCard card in LogicalTreeHelper.GetChildren(wrapContainer))
+            foreach (object card in LogicalTreeHelper.GetChildren(wrapContainer))
             {
-                card.MouseDoubleClick += Card_MouseDoubleClick;
+                var getCard = card as ucStatisticalCard;
+                if (getCard != null)
+                {
+                    getCard.MouseDoubleClick += Card_MouseDoubleClick;
+                }
             }
         }
 
@@ -70,7 +74,7 @@ namespace AnhQuoc_C5_Assignment
         {
             ucStatisticalCard card = sender as ucStatisticalCard;
 
-            StatisticalDescription frmDescription = new StatisticalDescription();
+            frmStatisticalDescription frmDescription = new frmStatisticalDescription();
 
             frmDescription.Icon = card.Icon;
             frmDescription.Description = card.ToolTip.ToString();

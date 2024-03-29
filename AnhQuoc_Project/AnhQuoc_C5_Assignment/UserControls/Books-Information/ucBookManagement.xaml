@@ -31,7 +31,7 @@
                             Orientation="Horizontal"
                             Style="{x:Null}">
                     <StackPanel.Resources>
-                        <Style TargetType="ComboBox" BasedOn="{StaticResource cbStyle2}" />
+                        <Style TargetType="ComboBox" BasedOn="{StaticResource cbLightBorder}" />
                     
                         <Style TargetType="Grid">
                             <Setter Property="Margin" Value="10 0" />
@@ -40,7 +40,7 @@
                     
                     <Grid Name="gdTxtSearchByBookTitle">
                         <TextBox Name="txtSearchByBookTitle"
-                                 Style="{StaticResource txtStyleSearch}"/>
+                                 Style="{StaticResource txtLightBorder}"/>
                         <TextBlock Text="Search by book title here...">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolder}">
@@ -98,14 +98,12 @@
                             Name="stkFeatures"
                             Style="{StaticResource stkWrapButton}"                           
                             Margin="30 0 0 0">
-                    <Border Name="borderBtnAdd"
-                            Style="{StaticResource bdStyle1}"
-                            Visibility="Visible">
-                        <Button Name="btnAdd"
-                                Style="{StaticResource btnAdd}"
-                                BorderThickness="0"
-                                Content="Add more books"/>
-                    </Border>
+                 
+                    <Button Name="btnAdd"
+                            Style="{StaticResource btnAdd}"
+                            BorderThickness="0"
+                            Content="Add more books"/>
+                
                 </StackPanel>
             </Grid>
         </StackPanel>
