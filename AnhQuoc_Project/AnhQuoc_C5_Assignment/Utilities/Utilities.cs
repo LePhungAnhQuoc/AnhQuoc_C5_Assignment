@@ -1969,5 +1969,10 @@ namespace AnhQuoc_C5_Assignment
 
             return amount.ToString("C" + ((amount % 1) == 0 ? "0" : "2"), culture);
         }
+
+        public static Color GetColorFromBrush(Brush brush)
+        {
+            return ((SolidColorBrush)brush).Color;
+        }
     }
 }

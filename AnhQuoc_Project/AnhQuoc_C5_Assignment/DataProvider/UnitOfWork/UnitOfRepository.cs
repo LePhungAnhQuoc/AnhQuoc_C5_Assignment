@@ -19,6 +19,17 @@ namespace AnhQuoc_C5_Assignment
                 return _LoanDetailRepo;
             }
         }
+    
+        private StatisticalRepository _StatisticalRepo;
+        public StatisticalRepository StatisticalRepo
+        {
+            get
+            {
+                if (_StatisticalRepo == null)
+                    _StatisticalRepo = new StatisticalRepository();
+                return _StatisticalRepo;
+            }
+        }
 
         private BookStatusRepository _BookStatusRepo;
         public BookStatusRepository BookStatusRepo
@@ -337,6 +348,9 @@ namespace AnhQuoc_C5_Assignment
 
             _LoanDetailRepo = new LoanDetailRepository();
             _LoanDetailRepo.LoadList();
+
+            _StatisticalRepo = new StatisticalRepository();
+            _StatisticalRepo.LoadList();
 
             _BookStatusRepo = new BookStatusRepository();
             _BookStatusRepo.LoadList();

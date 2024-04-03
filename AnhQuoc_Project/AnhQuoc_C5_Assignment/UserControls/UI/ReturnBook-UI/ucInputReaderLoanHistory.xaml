@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" 
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-             Background="White"
              x:Name="myUserControl"
              d:DesignHeight="700">
     <i:Interaction.Triggers>

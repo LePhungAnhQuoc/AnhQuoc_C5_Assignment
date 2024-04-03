@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1000">
-    <StackPanel Background="White">
+    <StackPanel>
         <!-- Header -->
         <Label Style="{StaticResource lblTitle}"
                Content="Book ISBN Management" />

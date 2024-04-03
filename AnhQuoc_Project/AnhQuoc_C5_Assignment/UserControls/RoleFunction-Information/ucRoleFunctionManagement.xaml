@@ -9,7 +9,7 @@
     <UserControl.Resources>
         <local:InverseBoolConverter x:Key="inverseBoolConverter" />
     </UserControl.Resources>
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />

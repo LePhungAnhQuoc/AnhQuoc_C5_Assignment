@@ -69,12 +69,12 @@ namespace AnhQuoc_C5_Assignment
             return true;
         }
 
-        public ObservableCollection<Reader> FillListByType(ReaderType type, bool? statusValue)
+        public ObservableCollection<Reader> FillListByType(ReaderType type, bool? statusValue = null)
         {
             return FillListByType(Repo.Gets(), type, statusValue);
         }
 
-        public ObservableCollection<Reader> FillListByType(ObservableCollection<Reader> source, ReaderType type, bool? statusValue)
+        public ObservableCollection<Reader> FillListByType(ObservableCollection<Reader> source, ReaderType type, bool? statusValue = null)
         {
             ObservableCollection<Reader> newList = source.Where(item => item.ReaderType.ConvertValue() == type).ToObservableCollection();
             newList = FillByStatus(newList, statusValue);

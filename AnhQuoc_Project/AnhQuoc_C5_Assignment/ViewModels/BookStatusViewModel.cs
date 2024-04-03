@@ -47,6 +47,11 @@ namespace AnhQuoc_C5_Assignment
             return bookStatus;
         }
 
+        public string[] FillName()
+        {
+            return Repo.Gets().Select(item => item.Name).ToArray();
+        }
+
         public void Copy(BookStatu dest, BookStatusDto source)
         {
             Utilities.Copy(dest, source);

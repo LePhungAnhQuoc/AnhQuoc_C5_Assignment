@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -38,6 +39,17 @@ namespace AnhQuoc_C5_Assignment
                 if (_TranslatorMap == null)
                     _TranslatorMap = new TranslatorMap();
                 return _TranslatorMap;
+            }
+        }
+
+        private StatisticalMap _StatisticalMap;
+        public StatisticalMap StatisticalMap
+        {
+            get
+            {
+                if (_StatisticalMap == null)
+                    _StatisticalMap = new StatisticalMap();
+                return _StatisticalMap;
             }
         }
 
@@ -289,8 +301,9 @@ namespace AnhQuoc_C5_Assignment
 
         public void Load()
         {
-            _ParameterMap = new   ParameterMap();
+            _ParameterMap = new ParameterMap();
             _TranslatorMap = new TranslatorMap();
+            _StatisticalMap = new StatisticalMap();
             _BookStatusMap = new BookStatusMap();
             _PublisherMap = new PublisherMap();
             _BookISBNMap = new BookISBNMap();

@@ -8,6 +8,7 @@
         Name="window"
         Title="{Binding frmTitle, ElementName=window}"
         WindowStartupLocation="{StaticResource WSL}"
+        Background="White"
         Style="{StaticResource wdStyleGeneral}">
     <Grid>
         <Grid.RowDefinitions>

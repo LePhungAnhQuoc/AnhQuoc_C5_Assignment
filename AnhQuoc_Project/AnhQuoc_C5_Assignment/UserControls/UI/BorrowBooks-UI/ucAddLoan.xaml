@@ -8,7 +8,6 @@
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="900"
-             Background="White"
              x:Name="myUserControl">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">

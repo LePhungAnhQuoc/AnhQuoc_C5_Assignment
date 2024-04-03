@@ -32,37 +32,24 @@
     <UserControl.RenderTransform>
         <TranslateTransform/>
     </UserControl.RenderTransform>
-    
-    <Grid>
-        <Grid x:Name="borderEffectContainer"
-                Visibility="Visible">
-            <Border x:Name="firstBd"
-                    BorderBrush="Black"
-                    Background="{Binding ElementName=YourUserControl, Path=Background}"
-                    BorderThickness="0"
-                    CornerRadius="10">
-                <Border.Effect>
-                    <DropShadowEffect  BlurRadius="16" ShadowDepth="0" Color="Black" Opacity="0.5" RenderingBias="Quality" />
-                </Border.Effect>
-            </Border>
-        </Grid>
 
-        <Border Padding="10">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Label Content="{Binding Header, ElementName=YourUserControl, UpdateSourceTrigger=PropertyChanged}"
-                       FontSize="15"
-                       Margin="0"></Label>
-                <RadioButton Grid.Row="1"
-                             GroupName="Parent"
-                             Style="{StaticResource radioBtnStatistical}"
-                             FontSize="{Binding TextFontSize, ElementName=YourUserControl, UpdateSourceTrigger=PropertyChanged}"
-                             Tag="{Binding Icon, ElementName=YourUserControl, UpdateSourceTrigger=PropertyChanged}" 
-                             Content="{Binding Content, ElementName=YourUserControl, UpdateSourceTrigger=PropertyChanged}" />
-            </Grid>
-        </Border>
-    </Grid>
+
+    <ContentControl Style="{StaticResource styleCard}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Content="{Binding Header, ElementName=YourUserControl, UpdateSourceTrigger=PropertyChanged}"
+                    FontSize="15"
+                    Margin="0"></Label>
+            <RadioButton Grid.Row="1"
+                        GroupName="Parent"
+                        Style="{StaticResource radioBtnStatistical}"
+                        FontSize="{Binding TextFontSize, ElementName=YourUserControl, UpdateSourceTrigger=PropertyChanged}"
+                        Tag="{Binding Icon, ElementName=YourUserControl, UpdateSourceTrigger=PropertyChanged}" 
+                        Content="{Binding Content, ElementName=YourUserControl, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+    </ContentControl>
+ 
 </UserControl>

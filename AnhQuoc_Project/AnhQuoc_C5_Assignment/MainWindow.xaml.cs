@@ -27,6 +27,7 @@ using System.Reflection;
 using System.Collections;
 using AnhQuoc_C5_Assignment.Animations;
 using System.Windows.Threading;
+using System.Diagnostics;
 
 namespace AnhQuoc_C5_Assignment
 {
@@ -84,17 +85,24 @@ namespace AnhQuoc_C5_Assignment
         }
         #endregion
 
+        #region Properties
+        public SeriesCollection BookStatusSeries { get; set; }
+        public string[] BookStatusTypes { get; set; }
+        public Func<double, string> BookStatusFormatter { get; set; }
+        #endregion
+
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
 
             serverName = null;
             databaseName = null;
 
             #region Settings
-            CultureInfo vietnameseCulture = new CultureInfo(Constants.Culture);
-            Thread.CurrentThread.CurrentCulture = vietnameseCulture;
-            Thread.CurrentThread.CurrentCulture.DateTimeFormat = vietnameseCulture.DateTimeFormat;
+            CultureInfo defaultCulture = new CultureInfo(Constants.Culture);
+            CultureInfo.DefaultThreadCurrentCulture = defaultCulture;
+            CultureInfo.DefaultThreadCurrentUICulture = defaultCulture;
             #endregion
 
             #region LoadUnit1

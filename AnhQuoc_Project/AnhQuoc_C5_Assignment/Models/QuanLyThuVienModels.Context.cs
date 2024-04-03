@@ -45,6 +45,7 @@ namespace AnhQuoc_C5_Assignment
         public virtual DbSet<Reader> Readers { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<RoleFunction> RoleFunctions { get; set; }
+        public virtual DbSet<Statistical> Statisticals { get; set; }
         public virtual DbSet<Translator> Translators { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserInfo> UserInfoes { get; set; }

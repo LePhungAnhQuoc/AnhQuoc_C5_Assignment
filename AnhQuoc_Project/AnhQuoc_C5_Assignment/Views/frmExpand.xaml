@@ -9,7 +9,8 @@
         Name="window"
         Title="{Binding frmTitle, ElementName=window}"
         WindowStartupLocation="{StaticResource WSL}"
-        Style="{StaticResource wdStyleGeneral}">
+        Style="{StaticResource wdStyleGeneral}"
+        Background="#ffffff">
     <Window.Resources>
         <System:Double x:Key="maxHeightTextArea">200</System:Double>
     </Window.Resources>

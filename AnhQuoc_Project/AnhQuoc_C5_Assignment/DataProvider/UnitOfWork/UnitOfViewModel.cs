@@ -52,6 +52,17 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private StatisticalViewModel _StatisticalViewModel;
+        public StatisticalViewModel StatisticalViewModel
+        {
+            get
+            {
+                if (_StatisticalViewModel == null)
+                    _StatisticalViewModel = new StatisticalViewModel();
+                return _StatisticalViewModel;
+            }
+        }
+
         private TranslatorViewModel _TranslatorViewModel;
         public TranslatorViewModel TranslatorViewModel
         {
@@ -395,6 +406,9 @@ namespace AnhQuoc_C5_Assignment
 
             _PenaltyReasonViewModel = new PenaltyReasonViewModel();
             _PenaltyReasonViewModel.Repo = _UnitOfRepo.PenaltyReasonRepo;
+
+            _StatisticalViewModel = new StatisticalViewModel();
+            _StatisticalViewModel.Repo = _UnitOfRepo.StatisticalRepo;
         }
 
         public void LoadServerName()

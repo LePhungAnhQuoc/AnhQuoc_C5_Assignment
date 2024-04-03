@@ -1,6 +1,33 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:AnhQuoc_C5_Assignment">
-    <ControlTemplate x:Key="styleGeneral" TargetType="ContentControl">
-    </ControlTemplate>
+    <Style x:Key="styleCard" TargetType="ContentControl">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Grid>
+                        <Grid x:Name="borderEffectContainer"
+                              Visibility="Visible">
+                            <Border x:Name="firstBd"
+                                    BorderBrush="Black"
+                                    Background="{TemplateBinding Background}"
+                                    BorderThickness="0"
+                                    CornerRadius="10">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="16" ShadowDepth="0" Color="Black" Opacity="0.1"                                       RenderingBias="Quality" />
+                                </Border.Effect>
+                            </Border>
+                        </Grid>
+
+                        <Border Padding="{TemplateBinding Padding}">
+                            <ContentPresenter />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
 </ResourceDictionary>

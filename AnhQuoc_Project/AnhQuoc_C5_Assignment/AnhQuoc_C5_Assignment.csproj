@@ -180,11 +180,104 @@
     <Compile Include="DTOs\RoleDto.cs" />
     <Compile Include="DTOs\RoleFunctionDto.cs" />
     <Compile Include="DTOs\LoanHistoryDto.cs" />
+    <Compile Include="DTOs\StatisticalDto.cs" />
     <Compile Include="DTOs\UserDto.cs" />
     <Compile Include="DTOs\ReaderDto.cs" />
     <Compile Include="DTOs\Other-Dtos\UserAccountLogIn.cs" />
     <Compile Include="DTOs\UserRoleDto.cs" />
     <Compile Include="Mapping\BookStatusMap.cs" />
+    <Compile Include="Mapping\StatisticalMap.cs" />
+    <Compile Include="Models\Adult.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Author.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Book.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookISBN.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookStatu.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookTitle.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Child.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Function.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoanDetail.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoanDetailHistory.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoanHistory.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoanSlip.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Parameter.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PenaltyReason.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Province.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Publisher.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyThuVienModels.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVienModels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyThuVienModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyThuVienModels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVienModels.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reader.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoleFunction.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Statistical.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Translator.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserInfo.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRole.cs">
+      <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\StatisticalRepository.cs" />
     <Compile Include="Repositories\BookStatusRepository.cs" />
     <Compile Include="Enums\ReaderType.cs" />
     <Compile Include="ExtensionMethods\BoolExtend.cs" />
@@ -214,96 +307,9 @@
     <Compile Include="Mapping\UserRoleMap.cs" />
     <Compile Include="Mapping\UserMap.cs" />
     <Compile Include="Mapping\ReaderMap.cs" />
-    <Compile Include="Models\Adult.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Author.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Book.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookISBN.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookStatu.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookTitle.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Category.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Child.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Function.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LoanDetail.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LoanDetailHistory.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LoanHistory.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LoanSlip.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\OtherModels\Base\IModelBase.cs" />
     <Compile Include="Models\OtherModels\DatabaseName.cs" />
     <Compile Include="Models\OtherModels\ServerName.cs" />
-    <Compile Include="Models\Parameter.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PenaltyReason.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Province.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Publisher.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuanLyThuVienModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyThuVienModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuanLyThuVienModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuanLyThuVienModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Reader.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Role.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RoleFunction.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Translator.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserInfo.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserRole.cs">
-      <DependentUpon>QuanLyThuVienModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Repositories\PenaltyReasonRepository.cs" />
     <Compile Include="Repositories\LoanDetailHistoryRepository.cs" />
     <Compile Include="Repositories\PublisherRepository.cs" />
@@ -609,6 +615,7 @@
     <Compile Include="ViewModels\LoanDetailHistoryViewModel.cs" />
     <Compile Include="ViewModels\LoanDetailViewModel.cs" />
     <Compile Include="ViewModels\LoanSlipViewModel.cs" />
+    <Compile Include="ViewModels\StatisticalViewModel.cs" />
     <Compile Include="ViewModels\ViewModels-For-UI\AddAuthorViewModel.cs" />
     <Compile Include="ViewModels\ViewModels-For-UI\AddBookISBNViewModel.cs" />
     <Compile Include="ViewModels\ViewModels-For-UI\AddBookTitleViewModel.cs" />
@@ -1275,12 +1282,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\QuanLyThuVienModel.edmx">
+    <EntityDeploy Include="Models\QuanLyThuVienModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuanLyThuVienModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuanLyThuVienModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\QuanLyThuVienModel.edmx.diagram">
-      <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>
+    <None Include="Models\QuanLyThuVienModels.edmx.diagram">
+      <DependentUpon>QuanLyThuVienModels.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -1336,16 +1343,6 @@
     <Resource Include="Assets\Images\ic_MinimizePas.png" />
     <Resource Include="Assets\Images\User.png" />
     <Resource Include="Animations\LoadingSpinnerCircle.gif" />
-    <Content Include="Models\QuanLyThuVienModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>
-      <LastGenOutput>QuanLyThuVienModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\QuanLyThuVienModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>
-      <LastGenOutput>QuanLyThuVienModel.cs</LastGenOutput>
-    </Content>
     <Resource Include="Assets\Images\1.jpg" />
     <Resource Include="Assets\Images\10.png" />
     <Resource Include="Assets\Images\12.png" />
@@ -1364,6 +1361,18 @@
     <Resource Include="Assets\Images\Others\info-icon.png" />
     <Resource Include="Assets\Images\Others\info.png" />
     <Resource Include="Assets\Images\Others\LoadingSpinnerCircle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\QuanLyThuVienModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyThuVienModels.edmx</DependentUpon>
+      <LastGenOutput>QuanLyThuVienModels.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\QuanLyThuVienModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyThuVienModels.edmx</DependentUpon>
+      <LastGenOutput>QuanLyThuVienModels.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

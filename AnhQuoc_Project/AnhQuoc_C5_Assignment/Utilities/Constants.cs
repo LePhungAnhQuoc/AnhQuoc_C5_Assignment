@@ -33,6 +33,8 @@ namespace AnhQuoc_C5_Assignment
         public static int textAreaMaxLength = 1000;
         #endregion
 
+        public const string formatDateString = "dd/MM/yyyy";
+
         public const int MaxAnsiCode = 127;
         public static List<char> allowCharacterInText = new List<char> { ',', '.' };
 

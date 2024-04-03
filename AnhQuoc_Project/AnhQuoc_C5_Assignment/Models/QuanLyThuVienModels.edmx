@@ -235,6 +235,14 @@
           <Property Name="IdRole" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="IdFunction" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <EntityType Name="Statistical">
+          <Key>
+            <PropertyRef Name="DateTime" />
+          </Key>
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="Data" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+        </EntityType>
         <EntityType Name="Translator">
           <Key>
             <PropertyRef Name="Id" />
@@ -587,6 +595,7 @@
           <EntitySet Name="Reader" EntityType="Self.Reader" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RoleFunction" EntityType="Self.RoleFunction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statistical" EntityType="Self.Statistical" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Translator" EntityType="Self.Translator" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
@@ -963,6 +972,14 @@
           <NavigationProperty Name="Function" Relationship="Self.FK__RoleFunct__IdFun__68487DD7" FromRole="RoleFunction" ToRole="Function" />
           <NavigationProperty Name="Role" Relationship="Self.FK__RoleFunct__IdRol__6754599E" FromRole="RoleFunction" ToRole="Role" />
         </EntityType>
+        <EntityType Name="Statistical">
+          <Key>
+            <PropertyRef Name="DateTime" />
+          </Key>
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Data" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="Translator">
           <Key>
             <PropertyRef Name="Id" />
@@ -1323,6 +1340,7 @@
           <EntitySet Name="Readers" EntityType="Self.Reader" />
           <EntitySet Name="Roles" EntityType="Self.Role" />
           <EntitySet Name="RoleFunctions" EntityType="Self.RoleFunction" />
+          <EntitySet Name="Statisticals" EntityType="Self.Statistical" />
           <EntitySet Name="Translators" EntityType="Self.Translator" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
@@ -1677,6 +1695,15 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="IdFunction" ColumnName="IdFunction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statisticals">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.Statistical">
+              <MappingFragment StoreEntitySet="Statistical">
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
