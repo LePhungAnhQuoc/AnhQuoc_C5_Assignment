@@ -91,13 +91,11 @@
                 <lvc:CartesianChart Series="{Binding LoanSlipLoanHistorySeries}"
                                     LegendLocation="Bottom">
                     <lvc:CartesianChart.AxisX>
-                        <lvc:Axis Title="."
-                                  Labels="{Binding LoanSlipLoanHistoryLabels}" />
+                        <lvc:Axis Labels="{Binding LoanSlipLoanHistoryLabels}" />
                     </lvc:CartesianChart.AxisX>
 
                     <lvc:CartesianChart.AxisY>
-                        <lvc:Axis Title="."
-                                  LabelFormatter="{Binding LoanSlipLoanHistoryFormatter}" />
+                        <lvc:Axis LabelFormatter="{Binding LoanSlipLoanHistoryFormatter}" />
                     </lvc:CartesianChart.AxisY>
                 </lvc:CartesianChart>
             </ContentControl>
@@ -142,8 +140,7 @@
                                             Series="{Binding BorrowedBookSeries}"
                                             LegendLocation="None">
                             <lvc:CartesianChart.AxisX>
-                                <lvc:Axis Title="."
-                                          Labels="{Binding BorrowedBookLabels}" />
+                                <lvc:Axis Labels="{Binding BorrowedBookLabels}" />
                             </lvc:CartesianChart.AxisX>
                             <lvc:CartesianChart.AxisY>
                                 <lvc:Axis Title="Quantity"
@@ -180,12 +177,10 @@
                                             LegendLocation="Bottom"
                                             Margin="3 10">
                             <lvc:CartesianChart.AxisX>
-                                <lvc:Axis Title="."
-                                          LabelFormatter="{Binding BookStatusFormatter}" />
+                                <lvc:Axis LabelFormatter="{Binding BookStatusFormatter}" />
                             </lvc:CartesianChart.AxisX>
                             <lvc:CartesianChart.AxisY>
-                                <lvc:Axis Title="."
-                                          Labels="{x:Null}" />
+                                <lvc:Axis Labels="{x:Null}" />
                             </lvc:CartesianChart.AxisY>
                         </lvc:CartesianChart>
                     </Grid>
@@ -211,12 +206,10 @@
                                             Series="{Binding LoanExpSeries}"
                                             Margin="-5 10">
                             <lvc:CartesianChart.AxisX>
-                                <lvc:Axis Title="."
-                                          LabelFormatter="{Binding LoanExpFormatter}" />
+                                <lvc:Axis LabelFormatter="{Binding LoanExpFormatter}" />
                             </lvc:CartesianChart.AxisX>
                             <lvc:CartesianChart.AxisY>
-                                <lvc:Axis Title="."
-                                          Labels="{x:Null}" />
+                                <lvc:Axis Labels="{x:Null}" />
                             </lvc:CartesianChart.AxisY>
                         </lvc:CartesianChart>
                     </Grid>

@@ -3051,7 +3051,6 @@ D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\System.
 D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\WpfAnimatedGif.pdb
 D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\WpfAnimatedGif.xml
 D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\WPFCustomMessageBox.xml
-D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csprojResolveAssemblyReference.cache
 D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Assets\Images\Others\icons.baml
 D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\Path.baml
 D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Animations\LoadingSpinnerWD.g.cs
@@ -3302,3 +3301,7 @@ D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc
 D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csproj.GenerateResource.Cache
 D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.exe
 D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.pdb
+D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csproj.AssemblyReference.cache
+D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\Styles\LiveChart.baml
+D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.csproj.CoreCompileInputs.cache
+D:\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_.4D0CC176.Up2Date

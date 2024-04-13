@@ -2,7 +2,7 @@
   <DatabaseName>
     <Id>DB1</Id>
     <Name>QuanLyThuVien</Name>
-    <Status>True</Status>
+    <Status>False</Status>
   </DatabaseName>
   <DatabaseName>
     <Id>DB1</Id>

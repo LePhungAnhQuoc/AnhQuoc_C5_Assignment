@@ -1,12 +1,53 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\",
-  "Documents": [],
+  "WorkspaceRootPath": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\anhquoc_c5_assignment\\usercontrols\\statistical\\ucstatisticalpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\usercontrols\\statistical\\ucstatisticalpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\App.xaml",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\App.xaml",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\App.xaml",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-13T14:19:47.721Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ucStatisticalPage.xaml",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\Statistical\\ucStatisticalPage.xaml",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\UserControls\\Statistical\\ucStatisticalPage.xaml",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\Statistical\\ucStatisticalPage.xaml",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\UserControls\\Statistical\\ucStatisticalPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-13T15:07:46.48Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
