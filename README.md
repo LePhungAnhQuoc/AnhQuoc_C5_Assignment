@@ -3,8 +3,6 @@ Roles: 2 roles
 2. librarian
 
 Accounts: 3 accounts
-Username   |  Password   |    Role
-
-nhatminh   |  nhatminh   |    admin
-hungvuong  |  hungvuong  |    librarian
-anhquoc    |  anhquoc    |    librarian
+1. nhatminh - nhatminh (admin)
+2. hungvuong - hungvuong (librarian)
+3. anhquoc  -  anhquoc (librarian)
