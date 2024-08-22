@@ -1,0 +1,52 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\quocl\\OneDrive\\Desktop\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|c:\\users\\quocl\\onedrive\\desktop\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\styles\\button.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\styles\\button.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|c:\\users\\quocl\\onedrive\\desktop\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\usercontrols\\dashboard-menu\\uclibrariandashboard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\usercontrols\\dashboard-menu\\uclibrariandashboard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Button.xaml",
+              "DocumentMoniker": "C:\\Users\\quocl\\OneDrive\\Desktop\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Styles\\Button.xaml",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Styles\\Button.xaml",
+              "ToolTip": "C:\\Users\\quocl\\OneDrive\\Desktop\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Styles\\Button.xaml",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Styles\\Button.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-08-22T05:51:38.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ucLibrarianDashBoard.xaml",
+              "DocumentMoniker": "C:\\Users\\quocl\\OneDrive\\Desktop\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml",
+              "ToolTip": "C:\\Users\\quocl\\OneDrive\\Desktop\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-08-22T05:51:30.641Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

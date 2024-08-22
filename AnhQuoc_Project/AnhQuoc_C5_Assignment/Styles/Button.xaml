@@ -751,11 +751,11 @@
                         <Grid x:Name="borderEffectContainer">
                             <Border x:Name="firstBd"
                                     BorderBrush="Black"
-                                    Background="Aqua"
+                                    Background="LightGray"
                                     BorderThickness="0"
                                     CornerRadius="40">
                                 <Border.Effect>
-                                    <DropShadowEffect  BlurRadius="16" ShadowDepth="0" Color="Black" Opacity="1" RenderingBias="Quality" />
+                                    <DropShadowEffect  BlurRadius="16" ShadowDepth="0" Color="White" Opacity="1" RenderingBias="Quality" />
                                 </Border.Effect>
                             </Border>
                         </Grid>
