@@ -14,7 +14,7 @@ namespace AnhQuoc_C5_Assignment
         public PublisherViewModel()
         {
             Item = new Publisher();
-            Repo = new PublisherRepository();
+            Repo = new PublisherRepository(new APIProvider<Publisher>(nameof(Publisher)));
             prefix = Constants.prefixPublisher;
             numberPrefix = 2;
         }

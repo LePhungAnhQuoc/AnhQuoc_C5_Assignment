@@ -14,7 +14,7 @@ namespace AnhQuoc_C5_Assignment
         {
             prefix = Constants.prefixDatabaseName;
             Item = new DatabaseName(string.Empty);
-            Repo = new DatabaseNameRepository();
+            Repo = new DatabaseNameRepository(new APIProvider<DatabaseName>(nameof(DatabaseName)));
             numberPrefix = 1;
         }
 

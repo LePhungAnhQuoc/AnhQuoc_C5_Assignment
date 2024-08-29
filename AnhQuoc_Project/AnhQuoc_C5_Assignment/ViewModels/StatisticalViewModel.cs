@@ -13,7 +13,7 @@ namespace AnhQuoc_C5_Assignment
         public StatisticalViewModel()
         {
             Item = new Statistical();
-            Repo = new StatisticalRepository();
+            Repo = new StatisticalRepository(new APIProvider<Statistical>(nameof(Statistical)));
             prefix = string.Empty;
             numberPrefix = 1;
         }

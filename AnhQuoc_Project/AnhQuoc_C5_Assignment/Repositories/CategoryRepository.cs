@@ -11,13 +11,9 @@ namespace AnhQuoc_C5_Assignment
 {
     public class CategoryRepository : Repository<Category>
     {
-        public CategoryRepository() : base()
+        public CategoryRepository(APIProvider<Category> apiCategory) : base(apiCategory)
         {
 
         }
-        public CategoryRepository(ObservableCollection<Category> items) : base(items)
-        {
-        }
-        
      }
 }

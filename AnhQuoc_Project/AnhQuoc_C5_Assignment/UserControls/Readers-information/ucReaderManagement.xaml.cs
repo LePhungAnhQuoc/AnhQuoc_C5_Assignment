@@ -299,9 +299,8 @@ namespace AnhQuoc_C5_Assignment
             else
             {
                 ReaderViewModel viewModel = new ReaderViewModel();
-                viewModel.Repo = new ReaderRepository(source);
 
-                return viewModel.FillListByType((ReaderType)selectedType, StatusValue);
+                return viewModel.FillListByType(source, (ReaderType)selectedType, StatusValue);
             }
         }
 
@@ -672,15 +671,15 @@ namespace AnhQuoc_C5_Assignment
             if (childFinded != null)
             {
                 childFinded.Status = updateStatus;
-                getChildRepo().WriteUpdateStatus(childFinded, updateStatus);
+                getChildRepo().WriteUpdate(childFinded);
             }
             else
             {
                 adultFinded.Status = updateStatus;
-                getAdultRepo().WriteUpdateStatus(adultFinded, updateStatus);
+                getAdultRepo().WriteUpdate(adultFinded);
             }
             reader.Status = updateStatus;
-            getReaderRepo().WriteUpdateStatus(reader, updateStatus);
+            getReaderRepo().WriteUpdate(reader);
         }
 
         private void UcReadersTable_btnTransferGuardian(object sender, RoutedEventArgs e)

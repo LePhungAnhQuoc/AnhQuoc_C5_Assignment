@@ -11,13 +11,8 @@ namespace AnhQuoc_C5_Assignment
 {
     public class TranslatorRepository : Repository<Translator>
     {
-        public TranslatorRepository(): base()
+        public TranslatorRepository(APIProvider<Translator> ApiProvider) : base(ApiProvider)
         {
         }
-
-        public TranslatorRepository(ObservableCollection<Translator> items): base(items)
-        {
-        }
-        
     }
 }

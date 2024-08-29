@@ -462,7 +462,7 @@ namespace AnhQuoc_C5_Assignment
                     book.Status = updateStatus;
 
                     // Save change to database
-                    ucAddLoan.getBookRepo().WriteUpdateStatus(book, updateStatus);
+                    ucAddLoan.getBookRepo().WriteUpdate(book);
                 }
             }
             foreach (BookISBN isbn in ucAddLoan.getBookISBNRepo())
@@ -476,7 +476,7 @@ namespace AnhQuoc_C5_Assignment
                 {
                     isbn.Status = true;
                 }
-                ucAddLoan.getBookISBNRepo().WriteUpdateStatus(isbn, isbn.Status);
+                ucAddLoan.getBookISBNRepo().WriteUpdate(isbn);
             }
         }
 

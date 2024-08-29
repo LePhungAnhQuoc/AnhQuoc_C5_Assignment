@@ -15,7 +15,7 @@ namespace AnhQuoc_C5_Assignment
         public BookISBNViewModel()
         {
             Item = new BookISBN();
-            Repo = new BookISBNRepository();
+            Repo = new BookISBNRepository(new APIProvider<BookISBN>(nameof(BookISBN)));
             prefix = Constants.prefixBookISBN;
             numberPrefix = 2;
         }

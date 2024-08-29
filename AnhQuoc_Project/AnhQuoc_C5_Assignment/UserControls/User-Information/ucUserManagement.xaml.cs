@@ -330,7 +330,7 @@ namespace AnhQuoc_C5_Assignment
             }
 
             userSelect.Status = updateStatus;
-            getUserRepo().WriteUpdateStatus(userSelect, updateStatus);
+            getUserRepo().WriteUpdate(userSelect);
 
             ucUsersTable.ModifiedPagination();
 

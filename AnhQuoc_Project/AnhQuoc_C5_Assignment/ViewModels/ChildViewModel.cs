@@ -13,7 +13,7 @@ namespace AnhQuoc_C5_Assignment
         public ChildViewModel()
         {
             Item = new Child();
-            Repo = new ChildRepository();
+            Repo = new ChildRepository(new APIProvider<Child>(nameof(Child)));
             prefix = string.Empty;
             numberPrefix = 0;
         }

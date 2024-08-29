@@ -11,11 +11,7 @@ namespace AnhQuoc_C5_Assignment
 {
     public class PenaltyReasonRepository : Repository<PenaltyReason>
     {
-        public PenaltyReasonRepository() : base()
-        {
-        }
-
-        public PenaltyReasonRepository(ObservableCollection<PenaltyReason> items) : base(items)
+        public PenaltyReasonRepository(APIProvider<PenaltyReason> ApiProvider) : base(ApiProvider)
         {
         }
     }

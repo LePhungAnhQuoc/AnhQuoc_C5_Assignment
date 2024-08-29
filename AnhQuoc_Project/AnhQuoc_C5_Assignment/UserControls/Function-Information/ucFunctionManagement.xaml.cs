@@ -361,11 +361,11 @@ namespace AnhQuoc_C5_Assignment
             foreach (Function funcChild in childs)
             {
                 funcChild.Status = updateStatus;
-                getFunctionRepo().WriteUpdateStatus(funcChild, updateStatus);
+                getFunctionRepo().WriteUpdate(funcChild);
             }
 
             functionSelect.Status = updateStatus;
-            getFunctionRepo().WriteUpdateStatus(functionSelect, updateStatus);
+            getFunctionRepo().WriteUpdate(functionSelect);
 
             bool isHasChild = childs.Count > 0;
 
@@ -383,7 +383,7 @@ namespace AnhQuoc_C5_Assignment
                 return;
             
             functionSelect.Status = updateStatus;
-            getFunctionRepo().WriteUpdateStatus(functionSelect, updateStatus);
+            getFunctionRepo().WriteUpdate(functionSelect);
 
             message = Utilities.NotifyDeleteSuccessfully("function");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
@@ -437,10 +437,10 @@ namespace AnhQuoc_C5_Assignment
                 btnRestoreParentAndChild.Click += (_sender, _e) =>
                 {
                     funcParent.Status = updateStatus;
-                    getFunctionRepo().WriteUpdateStatus(funcParent, updateStatus);
+                    getFunctionRepo().WriteUpdate(funcParent);
 
                     functionSelect.Status = updateStatus;
-                    getFunctionRepo().WriteUpdateStatus(functionSelect, updateStatus);
+                    getFunctionRepo().WriteUpdate(functionSelect);
 
                     message = Utilities.NotifyRestoreSuccessfullyParentFunction(true);
                     MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
@@ -483,7 +483,7 @@ namespace AnhQuoc_C5_Assignment
         {
             bool updateStatus = true;
             functionSelect.Status = updateStatus;
-            getFunctionRepo().WriteUpdateStatus(functionSelect, updateStatus);
+            getFunctionRepo().WriteUpdate(functionSelect);
 
             string message = Utilities.NotifyRestoreSuccessfully("function");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);

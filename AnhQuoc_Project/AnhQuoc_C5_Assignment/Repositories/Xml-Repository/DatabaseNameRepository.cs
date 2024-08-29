@@ -13,13 +13,9 @@ namespace AnhQuoc_C5_Assignment
 {
     public class DatabaseNameRepository : Repository<DatabaseName>, IXmlRepositoryBase<DatabaseName>
     {
-        public DatabaseNameRepository(): base()
+        public DatabaseNameRepository(APIProvider<DatabaseName> ApiProvider) : base(ApiProvider)
         {
         }
-        public DatabaseNameRepository(ObservableCollection<DatabaseName> items): base(items)
-        {
-        }
-
 
         public override void LoadList()
         {

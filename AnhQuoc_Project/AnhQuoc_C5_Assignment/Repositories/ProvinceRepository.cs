@@ -11,13 +11,8 @@ namespace AnhQuoc_C5_Assignment
 {
     public class ProvinceRepository : Repository<Province>
     {
-        public ProvinceRepository(): base()
+        public ProvinceRepository(APIProvider<Province> ApiProvider) : base(ApiProvider)
         {
         }
-
-        public ProvinceRepository(ObservableCollection<Province> items): base(items)
-        {
-        }
-        
     }
 }

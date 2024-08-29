@@ -264,7 +264,7 @@ namespace AnhQuoc_C5_Assignment
                 return;
         
             roleSelect.Status = updateStatus;
-            getRoleRepo().WriteUpdateStatus(roleSelect, updateStatus);
+            getRoleRepo().WriteUpdate(roleSelect);
 
             ucRolesTable.ModifiedPagination();
 

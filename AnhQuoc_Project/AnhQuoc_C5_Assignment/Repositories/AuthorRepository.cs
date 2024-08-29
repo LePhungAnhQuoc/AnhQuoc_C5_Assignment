@@ -11,12 +11,8 @@ namespace AnhQuoc_C5_Assignment
 {
     public class AuthorRepository : Repository<Author>
     {
-        public AuthorRepository() : base()
+        public AuthorRepository(APIProvider<Author> apiAuthor) : base(apiAuthor)
         {
-        }
-        public AuthorRepository(ObservableCollection<Author> items) : base(items)
-        {
-        }
-        
+        }        
     }
 }

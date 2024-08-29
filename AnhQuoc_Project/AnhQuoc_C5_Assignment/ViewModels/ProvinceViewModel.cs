@@ -13,7 +13,7 @@ namespace AnhQuoc_C5_Assignment
         {
             Item = new Province();
             Item.Id = 0;
-            Repo = new ProvinceRepository();
+            Repo = new ProvinceRepository(new APIProvider<Province>(nameof(Province)));
             prefix = Constants.prefixProvince;
             numberPrefix = 0;
         }

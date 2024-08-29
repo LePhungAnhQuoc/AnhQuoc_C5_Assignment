@@ -11,11 +11,7 @@ namespace AnhQuoc_C5_Assignment
 {
     public class StatisticalRepository : Repository<Statistical>
     {
-        public StatisticalRepository() : base()
-        {
-        }
-
-        public StatisticalRepository(ObservableCollection<Statistical> items) : base(items)
+        public StatisticalRepository(APIProvider<Statistical> ApiProvider) : base(ApiProvider)
         {
         }
     }

@@ -16,7 +16,7 @@ namespace AnhQuoc_C5_Assignment
         public AdultViewModel()
         {
             Item = new Adult();
-            Repo = new AdultRepository();
+            Repo = new AdultRepository(new APIProvider<Adult>(nameof(Adult)));
             prefix = string.Empty;
             numberPrefix = 0;
         }

@@ -1249,6 +1249,36 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Property-Uti
+
+        public static IEnumerable<string> InnerJoin<T>(IEnumerable<T> bigSource, IEnumerable<T> smallSource, string propSelector)
+        {
+            Func<T, string> outerKeySelector = bigItem => getValueFromProperty(bigItem.GetType().GetProperty(propSelector), bigItem).ToString();
+            Func<T, string> innerKeySelector = smallItem => getValueFromProperty(smallItem.GetType().GetProperty(propSelector), smallItem).ToString();
+
+            IEnumerable<string> result = bigSource.Join(smallSource, outerKeySelector, innerKeySelector, (bigItem, smallItem) => getValueFromProperty(bigItem.GetType().GetProperty(propSelector), bigItem).ToString());
+            return result;
+        }
+
+        public static IEnumerable<string> OuterJoin<T>(IEnumerable<T> bigSource, IEnumerable<T> smallSource, string propSelector)
+        {
+            List<string> result = new List<string>();
+
+            foreach (var bigItem in bigSource)
+            {
+                var bigItemName = getValueFromProperty(bigItem.GetType().GetProperty(propSelector), bigItem).ToString();
+                var itemFinded = smallSource.FirstOrDefault(smallItem =>
+                {
+                    var smallItemName = getValueFromProperty(smallItem.GetType().GetProperty(propSelector), smallItem).ToString();
+                    return smallItemName == bigItemName;
+                });
+                if (itemFinded == null)
+                {
+                    result.Add(bigItemName);
+                }
+            }
+            return result;
+        }
+
         // check if it's a generic List<T> or IEnumerable<T>, ...
         public static Type GetGenericDataType(Type type)
         {
@@ -1713,35 +1743,6 @@ namespace AnhQuoc_C5_Assignment
         public static IEnumerable<T> RemoveItemInList<T>(IEnumerable<T> list, IEnumerable<T> removeItems)
         {
             IEnumerable<T> result = list.Where(item => !removeItems.Any(sub => sub.Equals(item)));
-            return result;
-        }
-
-        public static IEnumerable<string> InnerJoin<T>(IEnumerable<T> bigSource, IEnumerable<T> smallSource, string propSelector)
-        {
-            Func<T, string> outerKeySelector = bigItem => getValueFromProperty(bigItem.GetType().GetProperty(propSelector), bigItem).ToString();
-            Func<T, string> innerKeySelector = smallItem => getValueFromProperty(smallItem.GetType().GetProperty(propSelector), smallItem).ToString();
-
-            IEnumerable<string> result = bigSource.Join(smallSource, outerKeySelector, innerKeySelector, (bigItem, smallItem) => getValueFromProperty(bigItem.GetType().GetProperty(propSelector), bigItem).ToString());
-            return result;
-        }
-
-        public static IEnumerable<string> OuterJoin<T>(IEnumerable<T> bigSource, IEnumerable<T> smallSource, string propSelector)
-        {
-            List<string> result = new List<string>();
-
-            foreach (var bigItem in bigSource)
-            {
-                var bigItemName = getValueFromProperty(bigItem.GetType().GetProperty(propSelector), bigItem).ToString();
-                var itemFinded = smallSource.FirstOrDefault(smallItem =>
-                {
-                    var smallItemName = getValueFromProperty(smallItem.GetType().GetProperty(propSelector), smallItem).ToString();
-                    return smallItemName == bigItemName;
-                });
-                if (itemFinded == null)
-                {
-                    result.Add(bigItemName);
-                }
-            }
             return result;
         }
 

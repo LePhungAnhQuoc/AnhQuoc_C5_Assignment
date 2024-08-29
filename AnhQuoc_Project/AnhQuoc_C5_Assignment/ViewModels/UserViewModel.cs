@@ -13,7 +13,7 @@ namespace AnhQuoc_C5_Assignment
         public UserViewModel()
         {
             Item = new User();
-            Repo = new UserRepository();
+            Repo = new UserRepository(new APIProvider<User>(nameof(User)));
             prefix = Constants.prefixUser;
             numberPrefix = 1;
         }

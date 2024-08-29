@@ -15,7 +15,7 @@ namespace AnhQuoc_C5_Assignment
         public BookViewModel()
         {
             Item = new Book();
-            Repo = new BookRepository();
+            Repo = new BookRepository(new APIProvider<Book>(nameof(Book)));
             prefix = Constants.prefixBook;
             numberPrefix = 0;
         }

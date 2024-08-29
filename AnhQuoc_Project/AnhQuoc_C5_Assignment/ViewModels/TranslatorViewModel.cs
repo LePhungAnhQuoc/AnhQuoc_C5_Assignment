@@ -12,7 +12,7 @@ namespace AnhQuoc_C5_Assignment
         public TranslatorViewModel()
         {
             Item = new Translator();
-            Repo = new TranslatorRepository();
+            Repo = new TranslatorRepository(new APIProvider<Translator>(nameof(Translator)));
             prefix = Constants.prefixTranslator;
             numberPrefix = 2;
         }

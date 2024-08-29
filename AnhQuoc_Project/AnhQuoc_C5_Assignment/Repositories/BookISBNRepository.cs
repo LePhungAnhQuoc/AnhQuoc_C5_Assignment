@@ -11,12 +11,8 @@ namespace AnhQuoc_C5_Assignment
 {
     public class BookISBNRepository : Repository<BookISBN>
     {
-        public BookISBNRepository() : base()
+        public BookISBNRepository(APIProvider<BookISBN> apiBookISBN) : base(apiBookISBN)
         {
-        }
-        public BookISBNRepository(ObservableCollection<BookISBN> items) : base(items)
-        {
-        }
-        
+        }    
      }
 }

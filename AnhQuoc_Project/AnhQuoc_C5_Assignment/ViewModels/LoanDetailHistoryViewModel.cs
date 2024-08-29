@@ -12,7 +12,7 @@ namespace AnhQuoc_C5_Assignment
         public LoanDetailHistoryViewModel()
         {
             Item = new LoanDetailHistory();
-            Repo = new LoanDetailHistoryRepository();
+            Repo = new LoanDetailHistoryRepository(new APIProvider<LoanDetailHistory>(nameof(LoanDetailHistory)));
             prefix = Constants.prefixLoanDetailHistory;
             numberPrefix = 2;
         }

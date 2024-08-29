@@ -1,14 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\quocl\\OneDrive\\Desktop\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\",
+  "WorkspaceRootPath": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|c:\\users\\quocl\\onedrive\\desktop\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\styles\\button.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\styles\\button.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|c:\\users\\quocl\\onedrive\\desktop\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\usercontrols\\dashboard-menu\\uclibrariandashboard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\usercontrols\\dashboard-menu\\uclibrariandashboard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\api\\controllers\\childcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|solutionrelative:api\\controllers\\childcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\dataprovider\\apiprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\dataprovider\\apiprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,30 +22,45 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Button.xaml",
-              "DocumentMoniker": "C:\\Users\\quocl\\OneDrive\\Desktop\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Styles\\Button.xaml",
-              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Styles\\Button.xaml",
-              "ToolTip": "C:\\Users\\quocl\\OneDrive\\Desktop\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Styles\\Button.xaml",
-              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Styles\\Button.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-22T05:51:38.964Z",
+              "DocumentIndex": 1,
+              "Title": "ChildController.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\ChildController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\ChildController.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\ChildController.cs",
+              "RelativeToolTip": "Api\\Controllers\\ChildController.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAxwD8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T08:02:03.44Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ucLibrarianDashBoard.xaml",
-              "DocumentMoniker": "C:\\Users\\quocl\\OneDrive\\Desktop\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml",
-              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml",
-              "ToolTip": "C:\\Users\\quocl\\OneDrive\\Desktop\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml",
-              "RelativeToolTip": "AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-22T05:51:30.641Z",
+              "DocumentIndex": 2,
+              "Title": "APIProvider.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\DataProvider\\APIProvider.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\DataProvider\\APIProvider.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\DataProvider\\APIProvider.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\DataProvider\\APIProvider.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAywFsAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T07:48:33.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\MainWindow.xaml.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\MainWindow.xaml.cs",
+              "ViewState": "AgIAADEBAAAAAAAAAAAxwJIBAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T07:18:44.198Z",
               "EditorCaption": ""
             }
           ]

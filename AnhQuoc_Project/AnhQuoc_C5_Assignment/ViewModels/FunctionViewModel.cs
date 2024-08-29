@@ -13,7 +13,7 @@ namespace AnhQuoc_C5_Assignment
         public FunctionViewModel()
         {
             Item = new Function();
-            Repo = new FunctionRepository();
+            Repo = new FunctionRepository(new APIProvider<Function>(nameof(Function)));
             prefix = Constants.prefixFunction;
             numberPrefix = 1;
         }

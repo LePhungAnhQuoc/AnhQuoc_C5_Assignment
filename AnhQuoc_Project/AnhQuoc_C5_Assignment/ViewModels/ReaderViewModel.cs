@@ -15,7 +15,7 @@ namespace AnhQuoc_C5_Assignment
         public ReaderViewModel()
         {
             Item = new Reader();
-            Repo = new ReaderRepository();
+            Repo = new ReaderRepository(new APIProvider<Reader>(nameof(Reader)));
             prefix = Constants.prefixReader;
 
             readerMap = UnitOfMap.Instance.ReaderMap;

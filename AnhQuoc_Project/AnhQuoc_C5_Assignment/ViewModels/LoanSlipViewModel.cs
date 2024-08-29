@@ -12,7 +12,7 @@ namespace AnhQuoc_C5_Assignment
         public LoanSlipViewModel()
         {
             Item = new LoanSlip();
-            Repo = new LoanSlipRepository();
+            Repo = new LoanSlipRepository(new APIProvider<LoanSlip>(nameof(LoanSlip)));
             prefix = Constants.prefixLoan;
             numberPrefix = 2;
         }

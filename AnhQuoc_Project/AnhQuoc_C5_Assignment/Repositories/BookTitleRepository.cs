@@ -11,10 +11,7 @@ namespace AnhQuoc_C5_Assignment
 {
     public class BookTitleRepository : Repository<BookTitle>
     {
-        public BookTitleRepository() : base()
-        {
-        }
-        public BookTitleRepository(ObservableCollection<BookTitle> items) : base(items)
+        public BookTitleRepository(APIProvider<BookTitle> apiBookTitle) : base(apiBookTitle)
         {
         }
         

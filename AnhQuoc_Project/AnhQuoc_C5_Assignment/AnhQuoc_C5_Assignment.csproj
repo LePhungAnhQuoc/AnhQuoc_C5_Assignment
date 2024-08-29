@@ -56,12 +56,17 @@
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
@@ -151,12 +156,20 @@
     <Compile Include="Converters\User\boFToAgeConverter.cs" />
     <Compile Include="Converters\StatusConvert\StatusConverter.cs" />
     <Compile Include="Converters\Utilities\PriceFormatConverter.cs" />
+    <Compile Include="DataProvider\APIProvider.cs" />
     <Compile Include="DataProvider\DatabaseFirst.cs" />
     <Compile Include="DataProvider\UnitOfWork\UnitOfForm.cs" />
     <Compile Include="DataProvider\UnitOfWork\UnitOfMap.cs" />
     <Compile Include="DataProvider\UnitOfWork\UnitOfRepository.cs" />
     <Compile Include="DataProvider\UnitOfWork\UnitOfViewModel.cs" />
     <Compile Include="DataProvider\XmlProvider.cs" />
+    <Compile Include="DTOs\ApiDtos\AddAdultDto.cs" />
+    <Compile Include="DTOs\ApiDtos\AddChildDto.cs" />
+    <Compile Include="DTOs\ApiDtos\AddUserDto.cs" />
+    <Compile Include="DTOs\ApiDtos\IMap.cs" />
+    <Compile Include="DTOs\ApiDtos\UpdateAdultDto.cs" />
+    <Compile Include="DTOs\ApiDtos\UpdateChildDto.cs" />
+    <Compile Include="DTOs\ApiDtos\UpdateUserDto.cs" />
     <Compile Include="DTOs\Reason-Dtos\PenaltyReasonPaid.cs" />
     <Compile Include="DTOs\TranslatorDto.cs" />
     <Compile Include="DTOs\PublisherDto.cs" />

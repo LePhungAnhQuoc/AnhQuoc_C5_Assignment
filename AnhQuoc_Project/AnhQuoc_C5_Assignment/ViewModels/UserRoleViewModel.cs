@@ -14,7 +14,7 @@ namespace AnhQuoc_C5_Assignment
         {
             Item = new UserRole();
             Item.Id = string.Empty;
-            Repo = new UserRoleRepository();
+            Repo = new UserRoleRepository(new APIProvider<UserRole>(nameof(UserRole)));
             prefix = Constants.prefixUserRole;
             numberPrefix = 1;
         }

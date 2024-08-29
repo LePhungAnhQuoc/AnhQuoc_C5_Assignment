@@ -14,7 +14,7 @@ namespace AnhQuoc_C5_Assignment
         {
             prefix = Constants.prefixServerName;
             Item = new ServerName(string.Empty);
-            Repo = new ServerNameRepository();
+            Repo = new ServerNameRepository(new APIProvider<ServerName>(nameof(ServerName)));
             numberPrefix = 1;
         }
 

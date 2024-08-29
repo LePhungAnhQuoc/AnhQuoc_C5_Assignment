@@ -283,7 +283,7 @@ namespace AnhQuoc_C5_Assignment
             }
 
             provinceSelect.Status = updateStatus;
-            getProvinceRepo().WriteUpdateStatus(provinceSelect, updateStatus);
+            getProvinceRepo().WriteUpdate(provinceSelect);
 
             ucProvincesTable.ModifiedPagination();
 

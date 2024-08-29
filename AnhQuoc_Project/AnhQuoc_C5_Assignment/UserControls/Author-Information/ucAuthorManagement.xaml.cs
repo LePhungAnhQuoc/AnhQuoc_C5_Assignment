@@ -268,7 +268,7 @@ namespace AnhQuoc_C5_Assignment
             }
 
             authorSelect.Status = updateStatus;
-            getAuthorRepo().WriteUpdateStatus(authorSelect, updateStatus);
+            getAuthorRepo().WriteUpdate(authorSelect);
 
             ucAuthorsTable.ModifiedPagination();
 

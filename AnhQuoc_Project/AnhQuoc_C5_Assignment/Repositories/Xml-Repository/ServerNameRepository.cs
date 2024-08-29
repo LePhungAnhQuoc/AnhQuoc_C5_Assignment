@@ -13,13 +13,9 @@ namespace AnhQuoc_C5_Assignment
 {
     public class ServerNameRepository : Repository<ServerName>, IXmlRepositoryBase<ServerName>
     {
-        public ServerNameRepository() : base()
+        public ServerNameRepository(APIProvider<ServerName> ApiProvider) : base(ApiProvider)
         {
         }
-        public ServerNameRepository(ObservableCollection<ServerName> items): base(items)
-        {
-        }
-
 
         public override void LoadList()
         {

@@ -12,7 +12,7 @@ namespace AnhQuoc_C5_Assignment
         public BookStatusViewModel()
         {
             Item = new BookStatu();
-            Repo = new BookStatusRepository();
+            Repo = new BookStatusRepository(new APIProvider<BookStatu>("BookStatus"));
             prefix = Constants.prefixBookStatus;
             numberPrefix = 1;
         }

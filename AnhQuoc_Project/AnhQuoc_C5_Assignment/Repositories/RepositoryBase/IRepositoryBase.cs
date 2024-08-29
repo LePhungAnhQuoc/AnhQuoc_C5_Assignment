@@ -23,7 +23,6 @@ namespace AnhQuoc_C5_Assignment
         void WriteAdd(T item);
         void WriteAddRange(ObservableCollection<T> items);
 
-        void WriteUpdateStatus(T item, bool status);
         void WriteDelete(T item);
         void WriteUpdate(T item);
     }

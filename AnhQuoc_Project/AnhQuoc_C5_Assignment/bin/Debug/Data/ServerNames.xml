@@ -65,4 +65,14 @@
     <Name>ADMIN\DATA_SQL</Name>
     <Status>False</Status>
   </ServerName>
+  <ServerName>
+    <Id>SV14</Id>
+    <Name>DESKTOP-NFDQ9G\SQLEXPRESS</Name>
+    <Status>False</Status>
+  </ServerName>
+  <ServerName>
+    <Id>SV15</Id>
+    <Name>DESKTOP-DNQ9G\SQLEXPRESS</Name>
+    <Status>False</Status>
+  </ServerName>
 </ServerNames>

@@ -9,11 +9,7 @@ namespace AnhQuoc_C5_Assignment
 {
     public class LoanDetailHistoryRepository : Repository<LoanDetailHistory>
     {
-        public LoanDetailHistoryRepository()
-        {
-        }
-
-        public LoanDetailHistoryRepository(ObservableCollection<LoanDetailHistory> items) : base(items)
+        public LoanDetailHistoryRepository(APIProvider<LoanDetailHistory> ApiProvider) : base(ApiProvider)
         {
         }
     }

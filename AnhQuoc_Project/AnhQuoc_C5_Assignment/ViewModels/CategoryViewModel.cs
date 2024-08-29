@@ -14,7 +14,7 @@ namespace AnhQuoc_C5_Assignment
         public CategoryViewModel()
         {
             Item = new Category();
-            Repo = new CategoryRepository();
+            Repo = new CategoryRepository(new APIProvider<Category>(nameof(Category)));
             prefix = Constants.prefixCategory;
             numberPrefix = 2;
         }

@@ -275,7 +275,7 @@ namespace AnhQuoc_C5_Assignment
             }
 
             parameterSelect.Status = updateStatus;
-            getParameterRepo().WriteUpdateStatus(parameterSelect, updateStatus);
+            getParameterRepo().WriteUpdate(parameterSelect);
 
             ucParametersTable.ModifiedPagination();
 

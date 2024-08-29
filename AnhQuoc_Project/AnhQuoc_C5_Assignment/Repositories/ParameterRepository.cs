@@ -11,12 +11,8 @@ namespace AnhQuoc_C5_Assignment
 {
     public class ParameterRepository : Repository<Parameter>
     {
-        public ParameterRepository() : base()
+        public ParameterRepository(APIProvider<Parameter> ApiProvider) : base(ApiProvider)
         {
         }
-        public ParameterRepository(ObservableCollection<Parameter> items) : base(items)
-        {
-        }
-        
-     }
+    }
 }

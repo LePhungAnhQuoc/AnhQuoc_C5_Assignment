@@ -11,13 +11,8 @@ namespace AnhQuoc_C5_Assignment
 {
     public class ReaderRepository : Repository<Reader>
     {
-        public ReaderRepository(): base()
+        public ReaderRepository(APIProvider<Reader> ApiProvider) : base(ApiProvider)
         {
         }
-
-        public ReaderRepository(ObservableCollection<Reader> items): base(items)
-        {
-        }
-        
-      }
+    }
 }

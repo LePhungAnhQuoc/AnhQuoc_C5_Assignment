@@ -11,11 +11,7 @@ namespace AnhQuoc_C5_Assignment
 {
     public class AdultRepository : Repository<Adult>
     {
-        public AdultRepository() : base()
-        {
-        }
-
-        public AdultRepository(ObservableCollection<Adult> items) : base(items)
+        public AdultRepository(APIProvider<Adult> ApiAdult) : base(ApiAdult)
         {
         }
     }

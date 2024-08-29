@@ -12,13 +12,8 @@ namespace AnhQuoc_C5_Assignment
 {
     public class FunctionRepository : Repository<Function>
     {
-        public FunctionRepository(): base()
+        public FunctionRepository(APIProvider<Function> apiFunction): base(apiFunction)
         {
         }
-
-        public FunctionRepository(ObservableCollection<Function> items): base(items)
-        {
-        }
-
     }
 }

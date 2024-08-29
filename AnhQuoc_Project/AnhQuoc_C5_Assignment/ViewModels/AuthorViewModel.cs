@@ -13,7 +13,7 @@ namespace AnhQuoc_C5_Assignment
         public AuthorViewModel()
         {
             Item = new Author();
-            Repo = new AuthorRepository();
+            Repo = new AuthorRepository(new APIProvider<Author>(nameof(Author)));
             prefix = Constants.prefixAuthor;
             numberPrefix = 2;
         }

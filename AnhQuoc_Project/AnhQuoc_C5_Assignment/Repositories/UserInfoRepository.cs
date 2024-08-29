@@ -11,13 +11,8 @@ namespace AnhQuoc_C5_Assignment
 {
     public class UserInfoRepository : Repository<UserInfo>
     {
-        public UserInfoRepository(): base()
+        public UserInfoRepository(APIProvider<UserInfo> ApiProvider) : base(ApiProvider)
         {
         }
-
-        public UserInfoRepository(ObservableCollection<UserInfo> items): base(items)
-        {
-        }
-        
-     }
+    }
 }

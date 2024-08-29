@@ -11,13 +11,10 @@ namespace AnhQuoc_C5_Assignment
 {
     public class ChildRepository : Repository<Child>
     {
-        public ChildRepository() : base()
+        public ChildRepository(APIProvider<Child> apiChild) : base(apiChild)
         {
 
         }
-        public ChildRepository(ObservableCollection<Child> items) : base(items)
-        {
-        }
-        
-      }
+
+    }
 }

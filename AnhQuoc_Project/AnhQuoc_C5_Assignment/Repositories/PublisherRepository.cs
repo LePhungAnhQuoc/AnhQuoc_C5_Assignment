@@ -11,13 +11,8 @@ namespace AnhQuoc_C5_Assignment
 {
     public class PublisherRepository : Repository<Publisher>
     {
-        public PublisherRepository() : base()
+        public PublisherRepository(APIProvider<Publisher> ApiProvider) : base(ApiProvider)
         {
         }
-        public PublisherRepository(ObservableCollection<Publisher> items) : base(items)
-        {
-        }
-
-       
     }
 }

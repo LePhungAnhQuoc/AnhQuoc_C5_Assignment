@@ -11,13 +11,8 @@ namespace AnhQuoc_C5_Assignment
 {
     public class UserRoleRepository : Repository<UserRole>
     {
-        public UserRoleRepository(): base()
+        public UserRoleRepository(APIProvider<UserRole> ApiProvider) : base(ApiProvider)
         {
         }
-
-        public UserRoleRepository(ObservableCollection<UserRole> items) : base(items)
-        {
-        }
-        
-       }
+    }
 }

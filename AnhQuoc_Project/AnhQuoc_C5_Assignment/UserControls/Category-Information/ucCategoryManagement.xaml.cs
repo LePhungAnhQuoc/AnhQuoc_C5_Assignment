@@ -284,7 +284,7 @@ namespace AnhQuoc_C5_Assignment
             }
 
             categorySelect.Status = updateStatus;
-            getCategoryRepo().WriteUpdateStatus(categorySelect, updateStatus);
+            getCategoryRepo().WriteUpdate(categorySelect);
 
             ucCategorysTable.ModifiedPagination();
 

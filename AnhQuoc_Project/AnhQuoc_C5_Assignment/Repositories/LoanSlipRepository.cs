@@ -9,13 +9,8 @@ namespace AnhQuoc_C5_Assignment
 {
     public class LoanSlipRepository : Repository<LoanSlip>
     {
-        public LoanSlipRepository() : base()
+        public LoanSlipRepository(APIProvider<LoanSlip> ApiProvider) : base(ApiProvider)
         {
         }
-        public LoanSlipRepository(ObservableCollection<LoanSlip> items) : base(items)
-        {
-        }
-
-       
     }
 }

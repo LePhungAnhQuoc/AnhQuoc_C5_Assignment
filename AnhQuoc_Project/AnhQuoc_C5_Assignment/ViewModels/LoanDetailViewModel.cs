@@ -12,7 +12,7 @@ namespace AnhQuoc_C5_Assignment
         public LoanDetailViewModel()
         {
             Item = new LoanDetail();
-            Repo = new LoanDetailRepository();
+            Repo = new LoanDetailRepository(new APIProvider<LoanDetail>(nameof(LoanDetail)));
             prefix = Constants.prefixLoanDetail;
             numberPrefix = 2;
         }

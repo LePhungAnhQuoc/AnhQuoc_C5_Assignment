@@ -1,4 +1,5 @@
-﻿using AnhQuoc_C5_Assignment;
+﻿
+using AnhQuoc_C5_Assignment;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Data.Entity.Design.PluralizationServices;
+using System.Globalization;
 
 namespace AnhQuoc_C5_Assignment
 {
@@ -20,6 +23,7 @@ namespace AnhQuoc_C5_Assignment
 
         #region Fields
         protected ObservableCollection<T> _Items;
+        protected readonly APIProvider<T> APIProvider;
         #endregion
 
         #region Properties
@@ -33,16 +37,11 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Constructors
-        public Repository()
+        public Repository(APIProvider<T> ApiProvider)
         {
-            _Items = new ObservableCollection<T>();
-            if (DatabaseFirst.Instance != null)
-                dbSource = DatabaseFirst.Instance.dbSource;
-        }
+            this._Items = new ObservableCollection<T>();
+            this.APIProvider = ApiProvider;
 
-        public Repository(ObservableCollection<T> items)
-        {
-            _Items = items;
             if (DatabaseFirst.Instance != null)
                 dbSource = DatabaseFirst.Instance.dbSource;
         }
@@ -64,6 +63,11 @@ namespace AnhQuoc_C5_Assignment
             _Items.Insert(0, item);
         }
 
+        public void Remove(T item)
+        {
+            _Items.Remove(item);
+        }
+
         public void AddRange(IEnumerable<T> collection)
         {
             _Items.AddRange(collection);
@@ -77,10 +81,32 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        public void Remove(T item)
+
+        public virtual void LoadList()
         {
-            _Items.Remove(item);
+            _Items = APIProvider.GetAll().ToObservableCollection();
         }
+
+
+        public virtual void WriteAdd(T item)
+        {
+            string key = GetPrimaryKeyName();
+            APIProvider.Post(item, key);
+        }
+
+        public virtual void WriteDelete(T item)
+        {
+            string key = GetPrimaryKeyName();
+
+            APIProvider.Delete(Utilities.getValueFromProperty(key, item).ToString());
+        }
+
+        public virtual void WriteUpdate(T updated)
+        {
+            string key = GetPrimaryKeyName();
+            APIProvider.Put(Utilities.getValueFromProperty(key, updated).ToString(), updated, key);
+        }
+
 
         public virtual void WriteAddRange(ObservableCollection<T> items)
         {
@@ -88,32 +114,6 @@ namespace AnhQuoc_C5_Assignment
             {
                 WriteAdd(item);
             }
-        }
-
-        public virtual void LoadList()
-        {
-            PropertyInfo tableProperty = Utilities.GetTablePropertyFromDatabase<T>(dbSource);
-            var dbTable = (System.Data.Entity.DbSet<T>) Utilities.getValueFromProperty(tableProperty, dbSource);
-            
-            _Items = dbTable.ToObservableCollection();
-        }
-
-        public virtual void WriteAdd(T item)
-        {
-            PropertyInfo tableProperty = Utilities.GetTablePropertyFromDatabase<T>(dbSource);
-            var getValue = (System.Data.Entity.DbSet<T>)Utilities.getValueFromProperty(tableProperty, dbSource);
-            getValue.Add(item);
-
-            dbSource.SaveChanges();
-        }
-        
-        public virtual void WriteDelete(T item)
-        {
-            PropertyInfo tableProperty = Utilities.GetTablePropertyFromDatabase<T>(dbSource);
-            var getValue = (System.Data.Entity.DbSet<T>)Utilities.getValueFromProperty(tableProperty, dbSource);
-
-            getValue.Remove(item);
-            dbSource.SaveChanges();
         }
 
         public virtual void WriteDeleteRange(ObservableCollection<T> items)
@@ -124,54 +124,6 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        public virtual void WriteUpdate(T updated)
-        {
-            string key = string.Empty;
-            using (SqlConnection conn = new SqlConnection(Constants.ShortConnStr()))
-            {
-                key = Utilities.GetPrimaryKeys(conn, typeof(T).Name).SingleOrDefault();
-            }
-
-            Func<T, bool> predicate = (sourceItem) =>
-            {
-                return Utilities.getValueFromProperty(key, sourceItem).Equals(Utilities.getValueFromProperty(key, updated));
-            };
-
-            PropertyInfo tableProperty = Utilities.GetTablePropertyFromDatabase<T>(dbSource);
-            var dbTable = (System.Data.Entity.DbSet<T>)Utilities.getValueFromProperty(tableProperty, dbSource);
-
-
-            T itemSource = dbTable.FirstOrDefault(predicate);
-            Utilities.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-
-
-        public virtual void WriteUpdateStatus(T updated, bool status)
-        {
-            string key = string.Empty;
-            using (SqlConnection conn = new SqlConnection(Constants.ShortConnStr()))
-            {
-                key = Utilities.GetPrimaryKeys(conn, typeof(T).Name).SingleOrDefault();
-            }
-
-            Func<T, bool> predicate = (sourceItem) =>
-            {
-                return Utilities.getValueFromProperty(key, sourceItem).Equals(Utilities.getValueFromProperty(key, updated));
-            };
-
-            PropertyInfo tableProperty = Utilities.GetTablePropertyFromDatabase<T>(dbSource);
-            var dbTable = (System.Data.Entity.DbSet<T>)Utilities.getValueFromProperty(tableProperty, dbSource);
-
-
-            T itemSource = dbTable.FirstOrDefault(predicate);
-            Utilities.Copy(itemSource, updated);
-
-            dbSource.SaveChanges();
-        }
-
-
         public IEnumerator GetEnumerator()
         {
             foreach (T item in _Items)
@@ -179,5 +131,18 @@ namespace AnhQuoc_C5_Assignment
                 yield return item;
             }
         }
+
+
+        #region PrivateMethods
+        private string GetPrimaryKeyName()
+        {
+            string key = string.Empty;
+            using (SqlConnection conn = new SqlConnection(Constants.ShortConnStr()))
+            {
+                key = Utilities.GetPrimaryKeys(conn, typeof(T).Name).SingleOrDefault();
+            }
+            return key;
+        }
+        #endregion
     }
 }

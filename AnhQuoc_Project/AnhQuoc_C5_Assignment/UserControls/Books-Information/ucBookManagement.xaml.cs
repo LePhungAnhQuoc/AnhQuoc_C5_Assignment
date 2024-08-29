@@ -314,7 +314,7 @@ namespace AnhQuoc_C5_Assignment
             if (selectedBookISBN.Status == false)
             {
                 selectedBookISBN.Status = true;
-                getBookISBNRepo().WriteUpdateStatus(selectedBookISBN, true);
+                getBookISBNRepo().WriteUpdate(selectedBookISBN);
             }
             #endregion
         }

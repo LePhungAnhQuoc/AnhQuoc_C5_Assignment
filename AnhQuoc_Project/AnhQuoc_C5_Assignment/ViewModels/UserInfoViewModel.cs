@@ -12,7 +12,7 @@ namespace AnhQuoc_C5_Assignment
         public UserInfoViewModel()
         {
             Item = new UserInfo();
-            Repo = new UserInfoRepository();
+            Repo = new UserInfoRepository(new APIProvider<UserInfo>(nameof(UserInfo)));
             prefix = Constants.prefixUserInfo;
             numberPrefix = 0;
         }

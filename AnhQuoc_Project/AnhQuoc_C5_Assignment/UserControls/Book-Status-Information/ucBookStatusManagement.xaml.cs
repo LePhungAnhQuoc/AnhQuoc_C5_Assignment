@@ -281,7 +281,7 @@ namespace AnhQuoc_C5_Assignment
             }
 
             bookStatusSelect.Status = updateStatus;
-            getBookStatusRepo().WriteUpdateStatus(bookStatusSelect, updateStatus);
+            getBookStatusRepo().WriteUpdate(bookStatusSelect);
 
             ucBookStatussTable.ModifiedPagination();
 

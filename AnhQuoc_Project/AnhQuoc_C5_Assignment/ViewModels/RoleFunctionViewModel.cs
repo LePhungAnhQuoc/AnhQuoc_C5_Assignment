@@ -13,7 +13,7 @@ namespace AnhQuoc_C5_Assignment
         public RoleFunctionViewModel()
         {
             Item = new RoleFunction();
-            Repo = new RoleFunctionRepository();
+            Repo = new RoleFunctionRepository(new APIProvider<RoleFunction>(nameof(RoleFunction)));
             prefix = Constants.prefixRoleFunction;
             numberPrefix = 1;
         }

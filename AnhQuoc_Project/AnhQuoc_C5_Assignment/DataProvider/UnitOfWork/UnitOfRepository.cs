@@ -15,7 +15,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_LoanDetailRepo == null)
-                    _LoanDetailRepo = new LoanDetailRepository();
+                    _LoanDetailRepo = new LoanDetailRepository(new APIProvider<LoanDetail>(nameof(LoanDetail)));
                 return _LoanDetailRepo;
             }
         }
@@ -26,7 +26,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_StatisticalRepo == null)
-                    _StatisticalRepo = new StatisticalRepository();
+                    _StatisticalRepo = new StatisticalRepository(new APIProvider<Statistical>(nameof(Statistical)));
                 return _StatisticalRepo;
             }
         }
@@ -37,7 +37,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_BookStatusRepo == null)
-                    _BookStatusRepo = new BookStatusRepository();
+                    _BookStatusRepo = new BookStatusRepository(new APIProvider<BookStatu>("BookStatus"));
                 return _BookStatusRepo;
             }
         }
@@ -48,7 +48,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_PenaltyReasonRepo == null)
-                    _PenaltyReasonRepo = new PenaltyReasonRepository();
+                    _PenaltyReasonRepo = new PenaltyReasonRepository(new APIProvider<PenaltyReason>(nameof(PenaltyReason)));
                 return _PenaltyReasonRepo;
             }
         }
@@ -59,7 +59,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_LoanHistoryRepo == null)
-                    _LoanHistoryRepo = new LoanHistoryRepository();
+                    _LoanHistoryRepo = new LoanHistoryRepository(new APIProvider<LoanHistory>(nameof(LoanHistory)));
                 return _LoanHistoryRepo;
             }
         }
@@ -70,7 +70,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_LoanDetailHistoryRepo == null)
-                    _LoanDetailHistoryRepo = new LoanDetailHistoryRepository();
+                    _LoanDetailHistoryRepo = new LoanDetailHistoryRepository(new APIProvider<LoanDetailHistory>(nameof(LoanDetailHistory)));
                 return _LoanDetailHistoryRepo;
             }
         }
@@ -81,7 +81,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_PublisherRepo == null)
-                    _PublisherRepo = new PublisherRepository();
+                    _PublisherRepo = new PublisherRepository(new APIProvider<Publisher>(nameof(Publisher)));
                 return _PublisherRepo;
             }
         }
@@ -92,7 +92,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_LoanSlipRepo == null)
-                    _LoanSlipRepo = new LoanSlipRepository();
+                    _LoanSlipRepo = new LoanSlipRepository(new APIProvider<LoanSlip>(nameof(LoanSlip)));
                 return _LoanSlipRepo;
             }
         }
@@ -103,7 +103,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_ReaderRepo == null)
-                    _ReaderRepo = new ReaderRepository();
+                    _ReaderRepo = new ReaderRepository(new APIProvider<Reader>(nameof(Reader)));
                 return _ReaderRepo;
             }
         }
@@ -114,7 +114,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_AdultRepo == null)
-                    _AdultRepo = new AdultRepository();
+                    _AdultRepo = new AdultRepository(new APIProvider<Adult>(nameof(Adult)));
                 return _AdultRepo;
             }
         }
@@ -125,7 +125,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_ChildRepo == null)
-                    _ChildRepo = new ChildRepository();
+                    _ChildRepo = new ChildRepository(new APIProvider<Child>(nameof(Child)));
                 return _ChildRepo;
             }
         }
@@ -136,7 +136,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_ParameterRepo == null)
-                    _ParameterRepo = new ParameterRepository();
+                    _ParameterRepo = new ParameterRepository(new APIProvider<Parameter>(nameof(Parameter)));
                 return _ParameterRepo;
             }
         }
@@ -147,7 +147,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_BookTitleRepo == null)
-                    _BookTitleRepo = new BookTitleRepository();
+                    _BookTitleRepo = new BookTitleRepository(new APIProvider<BookTitle>(nameof(BookTitle)));
                 return _BookTitleRepo;
             }
         }
@@ -158,7 +158,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_BookISBNRepo == null)
-                    _BookISBNRepo = new BookISBNRepository();
+                    _BookISBNRepo = new BookISBNRepository(new APIProvider<BookISBN>(nameof(BookISBN)));
                 return _BookISBNRepo;
             }
         }
@@ -169,7 +169,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_BookRepo == null)
-                    _BookRepo = new BookRepository();
+                    _BookRepo = new BookRepository(new APIProvider<Book>(nameof(Book)));
                 return _BookRepo;
             }
         }
@@ -180,7 +180,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_AuthorRepo == null)
-                    _AuthorRepo = new AuthorRepository();
+                    _AuthorRepo = new AuthorRepository(new APIProvider<Author>(nameof(Author)));
                 return _AuthorRepo;
             }
         }
@@ -192,7 +192,7 @@ namespace AnhQuoc_C5_Assignment
             {
                 if (_CategoryRepo == null)
                 {
-                    _CategoryRepo = new CategoryRepository();
+                    _CategoryRepo = new CategoryRepository(new APIProvider<Category>(nameof(Category)));
                 }
                 return _CategoryRepo;
             }
@@ -205,7 +205,7 @@ namespace AnhQuoc_C5_Assignment
             {
                 if (_ProvinceRepo == null)
                 {
-                    _ProvinceRepo = new ProvinceRepository();
+                    _ProvinceRepo = new ProvinceRepository(new APIProvider<Province>(nameof(Province)));
                 }
                 return _ProvinceRepo;
             }
@@ -218,7 +218,7 @@ namespace AnhQuoc_C5_Assignment
             {
                 if (_TranslatorRepo == null)
                 {
-                    _TranslatorRepo = new TranslatorRepository();
+                    _TranslatorRepo = new TranslatorRepository(new APIProvider<Translator>(nameof(Translator)));
                 }
                 return _TranslatorRepo;
             }
@@ -231,7 +231,7 @@ namespace AnhQuoc_C5_Assignment
             {
                 if (_UserRepo == null)
                 {
-                    _UserRepo = new UserRepository();
+                    _UserRepo = new UserRepository(new APIProvider<User>(nameof(User)));
                 }
                 return _UserRepo;
             }
@@ -244,7 +244,7 @@ namespace AnhQuoc_C5_Assignment
             {
                 if (_UserInfoRepo == null)
                 {
-                    _UserInfoRepo = new UserInfoRepository();
+                    _UserInfoRepo = new UserInfoRepository(new APIProvider<UserInfo>(nameof(UserInfo)));
                 }
                 return _UserInfoRepo;
             }
@@ -257,7 +257,7 @@ namespace AnhQuoc_C5_Assignment
             {
                 if (_RoleRepo == null)
                 {
-                    _RoleRepo = new RoleRepository();
+                    _RoleRepo = new RoleRepository(new APIProvider<Role>(nameof(Role)));
                 }
                 return _RoleRepo;
             }
@@ -270,7 +270,7 @@ namespace AnhQuoc_C5_Assignment
             {
                 if (_UserRoleRepo == null)
                 {
-                    _UserRoleRepo = new UserRoleRepository();
+                    _UserRoleRepo = new UserRoleRepository(new APIProvider<UserRole>(nameof(UserRole)));
                 }
                 return _UserRoleRepo;
             }
@@ -283,7 +283,7 @@ namespace AnhQuoc_C5_Assignment
             {
                 if (_FunctionRepo == null)
                 {
-                    _FunctionRepo = new FunctionRepository();
+                    _FunctionRepo = new FunctionRepository(new APIProvider<Function>(nameof(Function)));
                 }
                 return _FunctionRepo;
             }
@@ -296,7 +296,7 @@ namespace AnhQuoc_C5_Assignment
             {
                 if (_RoleFunctionRepo == null)
                 {
-                    _RoleFunctionRepo = new RoleFunctionRepository();
+                    _RoleFunctionRepo = new RoleFunctionRepository(new APIProvider<RoleFunction>(nameof(RoleFunction)));
                 }
                 return _RoleFunctionRepo;
             }
@@ -309,7 +309,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_ServerNameRepo == null)
-                    _ServerNameRepo = new ServerNameRepository();
+                    _ServerNameRepo = new ServerNameRepository(new APIProvider<ServerName>(nameof(ServerName)));
                 return _ServerNameRepo;
             }
         }
@@ -320,7 +320,7 @@ namespace AnhQuoc_C5_Assignment
             get
             {
                 if (_DatabaseNameRepo == null)
-                    _DatabaseNameRepo = new DatabaseNameRepository();
+                    _DatabaseNameRepo = new DatabaseNameRepository(new APIProvider<DatabaseName>(nameof(DatabaseName)));
                 return _DatabaseNameRepo;
             }
         }
@@ -331,89 +331,40 @@ namespace AnhQuoc_C5_Assignment
 
         public void LoadServerNameRepo()
         {
-            _ServerNameRepo = new ServerNameRepository();
+            _ServerNameRepo = new ServerNameRepository(new APIProvider<ServerName>(nameof(ServerName)));
             _ServerNameRepo.LoadList();
 
-            _DatabaseNameRepo = new DatabaseNameRepository();
+            _DatabaseNameRepo = new DatabaseNameRepository(new APIProvider<DatabaseName>(nameof(DatabaseName)));
             _DatabaseNameRepo.LoadList();
         }
 
         public void Load()
         {
-            _AdultRepo = new AdultRepository();
-            _AdultRepo.LoadList();
-          
-            _AuthorRepo = new AuthorRepository();
-            _AuthorRepo.LoadList();
-
-            _LoanDetailRepo = new LoanDetailRepository();
-            _LoanDetailRepo.LoadList();
-
-            _StatisticalRepo = new StatisticalRepository();
-            _StatisticalRepo.LoadList();
-
-            _BookStatusRepo = new BookStatusRepository();
-            _BookStatusRepo.LoadList();
-
-            _PenaltyReasonRepo = new PenaltyReasonRepository();
-            _PenaltyReasonRepo.LoadList();
-
-            _LoanHistoryRepo = new LoanHistoryRepository();
-            _LoanHistoryRepo.LoadList();
-
-            _LoanDetailHistoryRepo = new LoanDetailHistoryRepository();
-            _LoanDetailHistoryRepo.LoadList();
-
-            _PublisherRepo = new PublisherRepository();
-            _PublisherRepo.LoadList();
-
-            _LoanSlipRepo = new LoanSlipRepository();
-            _LoanSlipRepo.LoadList();
-
-            _ReaderRepo = new ReaderRepository();
-            _ReaderRepo.LoadList();
-
-            _ChildRepo = new ChildRepository();
-            _ChildRepo.LoadList();
-
-            _ParameterRepo = new ParameterRepository();
-            _ParameterRepo.LoadList();
-
-            _BookTitleRepo = new BookTitleRepository();
-            _BookTitleRepo.LoadList();
-
-            _BookISBNRepo = new BookISBNRepository();
-            _BookISBNRepo.LoadList();
-
-            _BookRepo = new BookRepository();
-            _BookRepo.LoadList();
-
-            _CategoryRepo = new CategoryRepository();
-            _CategoryRepo.LoadList();
-
-            _ProvinceRepo = new ProvinceRepository();
-            _ProvinceRepo.LoadList();
-
-            _TranslatorRepo = new TranslatorRepository();
-            _TranslatorRepo.LoadList();
-
-            _UserRepo = new UserRepository();
-            _UserRepo.LoadList();
-
-            _UserInfoRepo = new UserInfoRepository();
-            _UserInfoRepo.LoadList();
-
-            _RoleRepo = new RoleRepository();
-            _RoleRepo.LoadList();
-
-            _UserRoleRepo = new UserRoleRepository();
-            _UserRoleRepo.LoadList();
-
-            _FunctionRepo = new FunctionRepository();
-            _FunctionRepo.LoadList();
-
-            _RoleFunctionRepo = new RoleFunctionRepository();
-            _RoleFunctionRepo.LoadList();
+            AdultRepo.LoadList();
+            AuthorRepo.LoadList();
+            LoanDetailRepo.LoadList();
+            StatisticalRepo.LoadList();
+            BookStatusRepo.LoadList();
+            PenaltyReasonRepo.LoadList();
+            LoanHistoryRepo.LoadList();
+            LoanDetailHistoryRepo.LoadList();
+            PublisherRepo.LoadList();
+            LoanSlipRepo.LoadList();
+            ReaderRepo.LoadList();
+            ChildRepo.LoadList();
+            ParameterRepo.LoadList();
+            BookTitleRepo.LoadList();
+            BookISBNRepo.LoadList();
+            BookRepo.LoadList();
+            CategoryRepo.LoadList();
+            ProvinceRepo.LoadList();
+            TranslatorRepo.LoadList();
+            UserRepo.LoadList();
+            UserInfoRepo.LoadList();
+            RoleRepo.LoadList();
+            UserRoleRepo.LoadList();
+            FunctionRepo.LoadList();
+            RoleFunctionRepo.LoadList();
         }
     }
 }

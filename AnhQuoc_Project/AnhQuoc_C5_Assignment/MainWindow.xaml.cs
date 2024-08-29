@@ -357,10 +357,7 @@ namespace AnhQuoc_C5_Assignment
                 try
                 {
                     value = (IEnumerable)Utilities.getValueFromProperty(tableProperty, dbSource);
-                    foreach (var item in value)
-                    {
-                        break;
-                    }
+                    value.ToListObject(); // Check EntityException
                 }
                 catch
                 {
@@ -399,17 +396,16 @@ namespace AnhQuoc_C5_Assignment
             });
             wait.ShowDialog();
         }
-      
+
         #endregion
 
+        // Update DataRecord at first load Program
         private void UpdateAtFirstLoadProgram()
         {
             #region Check-ExpireDate
             AdultViewModel adultVM = UnitOfViewModel.Instance.AdultViewModel;
             ReaderViewModel readerVM = UnitOfViewModel.Instance.ReaderViewModel;
             ChildViewModel childVM = UnitOfViewModel.Instance.ChildViewModel;
-
-            // Update DataRecord at first load Program
 
             bool updateStatus = false;
             foreach (Adult adult in adultVM.Repo)
@@ -427,11 +423,11 @@ namespace AnhQuoc_C5_Assignment
                         child.Status = updateStatus;
                         childReader.Status = updateStatus;
 
-                        childVM.Repo.WriteUpdateStatus(child, updateStatus);
-                        readerVM.Repo.WriteUpdateStatus(childReader, updateStatus);
+                        childVM.Repo.WriteUpdate(child);
+                        readerVM.Repo.WriteUpdate(childReader);
                     }
-                    adultVM.Repo.WriteUpdateStatus(adult, updateStatus);
-                    readerVM.Repo.WriteUpdateStatus(adultReader, updateStatus);
+                    adultVM.Repo.WriteUpdate(adult);
+                    readerVM.Repo.WriteUpdate(adultReader);
                 }
             }
             #endregion
@@ -539,71 +535,6 @@ namespace AnhQuoc_C5_Assignment
                 int a = 5;
                 //goto RunAgain;
             }
-        }
-
-        private void CheckingModelHasDecimalProp()
-        {
-            List<string> resultHere = new List<string>();
-            // Checking Dto
-            foreach (PropertyInfo tableProperty in Utilities.getDerivePropsFromType(DatabaseFirst.Instance.dbSource))
-            {
-            RunAgain:
-                IEnumerable value = null;
-                try
-                {
-                    value = (IEnumerable)Utilities.getValueFromProperty(tableProperty, DatabaseFirst.Instance.dbSource);
-                }
-                catch
-                {
-                    continue;
-                }
-                Type itemDataType = Utilities.GetItemDataTypeInGenericList(value);
-
-
-                string modelName = itemDataType.Name;
-
-                List<string> listName = resultHere;
-
-
-                var listProps = Utilities.getPropsFromType(itemDataType);
-                foreach (var prop in listProps)
-                {
-                    var name = prop.PropertyType.Name;
-
-                    if (name == "Decimal")
-                    {
-                        listName.Add(modelName);
-                        break;
-                    }
-                }
-                continue;
-
-                var props = Utilities.getPropsFromType(itemDataType);
-                var propsInDto = Utilities.getPropsFromType(typeof(BookDto));
-
-                string checkingResult = modelName + "\n";
-
-
-
-                var list = Utilities.OuterJoin(props, propsInDto, "Name");
-
-                if (list.Count() > 0)
-                    checkingResult += "Dto thieu: " + string.Join(", ", list.ToArray()) + "\n";
-
-                list = Utilities.OuterJoin(propsInDto, props, "Name");
-
-                if (list.Count() > 0)
-                    checkingResult += "Model chinh thuc thieu: " + string.Join(", ", list.ToArray()) + "\n";
-
-              //  Utilities.ShowMessageBox1(checkingResult);
-
-                int b = 5;
-                //goto RunAgain;
-            }
-            int a = 5;
-            string str = string.Join(", ", resultHere.ToArray());
-            Utilities.ShowMessageBox1(str);
-
         }
         #endregion
 

@@ -13,7 +13,7 @@ namespace AnhQuoc_C5_Assignment
         public ParameterViewModel()
         {
             Item = new Parameter();
-            Repo = new ParameterRepository();
+            Repo = new ParameterRepository(new APIProvider<Parameter>(nameof(Parameter)));
             prefix = Constants.prefixParameter;
             numberPrefix = 1;
         }

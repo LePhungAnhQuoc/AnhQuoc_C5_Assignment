@@ -284,7 +284,7 @@ namespace AnhQuoc_C5_Assignment
             }
 
             translatorSelect.Status = updateStatus;
-            getTranslatorRepo().WriteUpdateStatus(translatorSelect, updateStatus);
+            getTranslatorRepo().WriteUpdate(translatorSelect);
 
             ucTranslatorsTable.ModifiedPagination();
 

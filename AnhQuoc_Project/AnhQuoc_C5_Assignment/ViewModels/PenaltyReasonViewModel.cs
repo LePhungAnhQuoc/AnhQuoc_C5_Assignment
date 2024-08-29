@@ -16,7 +16,7 @@ namespace AnhQuoc_C5_Assignment
         public PenaltyReasonViewModel()
         {
             Item = new PenaltyReason();
-            Repo = new PenaltyReasonRepository();
+            Repo = new PenaltyReasonRepository(new APIProvider<PenaltyReason>(nameof(PenaltyReason)));
             prefix = "PR";
             numberPrefix = 1;
         }
