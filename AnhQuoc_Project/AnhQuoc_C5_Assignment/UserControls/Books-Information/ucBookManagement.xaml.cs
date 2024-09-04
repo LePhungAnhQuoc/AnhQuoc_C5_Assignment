@@ -307,7 +307,7 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFillBooks);
             #endregion
 
-            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("book"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyAddSuccessfully("book"));
 
             #region SaveBookISBNStatus
             BookISBN selectedBookISBN = bookISBNVM.FindByISBN(listBooks.First().ISBN, null);

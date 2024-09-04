@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Api.Models.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -11,10 +12,8 @@ namespace AnhQuoc_C5_Assignment
 {
     public class ChildRepository : Repository<Child>
     {
-        public ChildRepository(APIProvider<Child> apiChild) : base(apiChild)
+        public ChildRepository(APIProvider<Child> ApiProvider) : base(ApiProvider)
         {
-
         }
-
     }
 }

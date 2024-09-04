@@ -224,7 +224,7 @@ namespace AnhQuoc_C5_Assignment
 
         private void UcReaderManagement_Loaded(object sender, RoutedEventArgs e)
         {
-            var temp = Utilities.GetListFromEnum<ReaderType>().ToList();
+            var temp = Utilitys.GetListFromEnum<ReaderType>().ToList();
             ReaderTypes = new ObservableCollection<ReaderType>(temp);
             
             ucReadersTable.getItem_Status = () => null;
@@ -325,7 +325,7 @@ namespace AnhQuoc_C5_Assignment
         {
             string textSearch = txtSearchByIdentify.Text.ToLower();
 
-            if (Utilities.IsCheckEmptyString(textSearch))
+            if (Utilitys.IsCheckEmptyString(textSearch))
             {
                 return source;
             }
@@ -374,7 +374,7 @@ namespace AnhQuoc_C5_Assignment
                 getAdultRepo().Add(newAdult);
                 getAdultRepo().WriteAdd(newAdult);
 
-                var message = Utilities.NotifyAddSuccessfully("Adult Reader");
+                var message = Utilitys.NotifyAddSuccessfully("Adult Reader");
                 MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
             }
             else if (newReaderDto.ReaderType == ReaderType.Child)
@@ -384,7 +384,7 @@ namespace AnhQuoc_C5_Assignment
                 getChildRepo().Add(newChild);
                 getChildRepo().WriteAdd(newChild);
 
-                var message = Utilities.NotifyAddSuccessfully("Child Reader");
+                var message = Utilitys.NotifyAddSuccessfully("Child Reader");
                 MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
             }
             #endregion
@@ -399,7 +399,7 @@ namespace AnhQuoc_C5_Assignment
         {
             bool childs_Status = true;
 
-            Utilities.OnClickButtonReaderInfo(ucReadersTable, childs_Status, readerVM, adultVM, childVM, adultMap, childMap);
+            Utilitys.OnClickButtonReaderInfo(ucReadersTable, childs_Status, readerVM, adultVM, childVM, adultMap, childMap);
         }
 
         private void UcReadersTable_btnDeleteClick(object sender, RoutedEventArgs e)
@@ -413,13 +413,13 @@ namespace AnhQuoc_C5_Assignment
 
                     if (listTemp.Count > 0)
                     {
-                        Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("reader"));
+                        Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("reader"));
                         return false;
                     }
                 }
                 else
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("reader"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("reader"));
                     return false;
                 }
                 return true;
@@ -428,7 +428,7 @@ namespace AnhQuoc_C5_Assignment
             bool updateStatus = false;
             if (ucReadersTable.dgReaders.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("reader"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("reader"));
                 return;
             }
 
@@ -473,8 +473,8 @@ namespace AnhQuoc_C5_Assignment
                         }
                     }
 
-                    var message1 = Utilities.NotifySureToDelete();
-                    if (Utilities.ShowMessageBox2(message1) == MessageBoxResult.Cancel)
+                    var message1 = Utilitys.NotifySureToDelete();
+                    if (Utilitys.ShowMessageBox2(message1) == MessageBoxResult.Cancel)
                         return;
 
                     for (int i = listFilledChild.Count - 1; i >= 0; i--)
@@ -489,7 +489,7 @@ namespace AnhQuoc_C5_Assignment
                     ucReadersTable.ModifiedPagination();
 
                     bool isAdultHasChild = listFilledChild.Count > 0;
-                    var message2 = Utilities.NotifyDeleteSuccessfullyAdultReader(isAdultHasChild);
+                    var message2 = Utilitys.NotifyDeleteSuccessfullyAdultReader(isAdultHasChild);
                     MessageBox.Show(message2, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
 
                     frmAdultReaderInformation.Close();
@@ -518,15 +518,15 @@ namespace AnhQuoc_C5_Assignment
             }
             else if (readerSelect.ReaderType.ConvertValue() == ReaderType.Child)
             {
-                var message = Utilities.NotifySureToDelete();
-                if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
+                var message = Utilitys.NotifySureToDelete();
+                if (Utilitys.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                     return;
 
                 UpdateReadersStatus(readerSelect, updateStatus);
 
                 ucReadersTable.ModifiedPagination();
 
-                message = Utilities.NotifyDeleteSuccessfully("Child Reader");
+                message = Utilitys.NotifyDeleteSuccessfully("Child Reader");
                 MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
             }
         }
@@ -537,7 +537,7 @@ namespace AnhQuoc_C5_Assignment
             bool updateStatus = true;
             if (ucReadersTable.dgReaders.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("reader"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("reader"));
                 return;
             }
             ReaderDto readerDtoSelect = ucReadersTable.SelectedReaderDto;
@@ -549,7 +549,7 @@ namespace AnhQuoc_C5_Assignment
                 
                 if (DateTime.Now > adult.ExpireDate)
                 {
-                    Utilities.ShowMessageBox1("Can not restore because this adult reader card has expired");
+                    Utilitys.ShowMessageBox1("Can not restore because this adult reader card has expired");
                     return;
                 }
             }
@@ -560,7 +560,7 @@ namespace AnhQuoc_C5_Assignment
 
                 if (DateTime.Now > adult.ExpireDate)
                 {
-                    Utilities.ShowMessageBox1("Can not restore because this guardian's reader card has expired");
+                    Utilitys.ShowMessageBox1("Can not restore because this guardian's reader card has expired");
                     return;
                 }
             }
@@ -571,7 +571,7 @@ namespace AnhQuoc_C5_Assignment
                 Adult adultFinded = adultVM.FindByIdReader(childFinded.IdAdult, StatusValue);
                 if (adultFinded == null)
                 {
-                    Utilities.CatchExceptionError();
+                    Utilitys.CatchExceptionError();
                     return;
                 }
                 ChildDto childDtoFinded = childMap.ConvertToDto(childFinded);
@@ -584,7 +584,7 @@ namespace AnhQuoc_C5_Assignment
 
                     ucReadersTable.ModifiedPagination();
 
-                    message = Utilities.NotifyRestoreSuccessfullyAdultReader(false);
+                    message = Utilitys.NotifyRestoreSuccessfullyAdultReader(false);
                     MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
                     return;
                 }
@@ -610,7 +610,7 @@ namespace AnhQuoc_C5_Assignment
 
                     ucReadersTable.ModifiedPagination();
 
-                    message = Utilities.NotifyRestoreSuccessfullyAdultReader(true);
+                    message = Utilitys.NotifyRestoreSuccessfullyAdultReader(true);
                     MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
 
                     frmChildReaderInformation.Close();
@@ -644,7 +644,7 @@ namespace AnhQuoc_C5_Assignment
 
                 ucReadersTable.ModifiedPagination();
 
-                message = Utilities.NotifyRestoreSuccessfully("Adult Reader");
+                message = Utilitys.NotifyRestoreSuccessfully("Adult Reader");
                 MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
             }
         }
@@ -663,7 +663,7 @@ namespace AnhQuoc_C5_Assignment
                 adultFinded = adultVM.FindByIdReader(reader.Id, adultStatusValue);
                 if (adultFinded == null)
                 {
-                    Utilities.CatchExceptionError();
+                    Utilitys.CatchExceptionError();
                     return;
                 }
             }
@@ -689,7 +689,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (ucReadersTable.dgReaders.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("reader"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("reader"));
                 return;
             }
 
@@ -698,7 +698,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (readerSelect.ReaderType.ConvertValue() == ReaderType.Adult)
             {
-                Utilities.ShowMessageBox1("Adult reader can not use this feature!");
+                Utilitys.ShowMessageBox1("Adult reader can not use this feature!");
                 return;
             }
             else if (readerSelect.ReaderType.ConvertValue() == ReaderType.Child)
@@ -717,7 +717,7 @@ namespace AnhQuoc_C5_Assignment
 
                 ucReadersTable.ModifiedPagination();
 
-                Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("child reader"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyUpdateSuccessfully("child reader"));
 
             }
         }

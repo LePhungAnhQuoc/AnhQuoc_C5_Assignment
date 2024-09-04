@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class ServerName : IModelBase
+    public class ServerName : IModelBase, IMapFromModel
     {
         public string Id { get; set; }
 
@@ -71,6 +72,16 @@ namespace AnhQuoc_C5_Assignment
         public object Clone()
         {
             return this.MemberwiseClone();
+        }
+
+        public object MapToAdd()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object MapToUpdate()
+        {
+            throw new NotImplementedException();
         }
     }
 }

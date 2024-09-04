@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddTranslatorViewModel: BaseViewModel<object>, IPageViewModel
+    public class AddTranslatorViewModel: BaseViewModel<Translator>, IPageViewModel
     {
         #region Fields
         public bool IsCancel { get; set; }
@@ -84,7 +84,7 @@ namespace AnhQuoc_C5_Assignment
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
             {
-                mainContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+                mainContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
             }
 
             TextBoxes = mainContentControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
@@ -133,19 +133,19 @@ namespace AnhQuoc_C5_Assignment
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
             }
 
             Translator getTranslator = translatorVM.CreateByDto(Item);
-            bool isCheck = Utilities.IsExistInformation(thisForm.getTranslatorRepo().Gets(), getTranslator, true, Constants.checkPropTranslator);
+            bool isCheck = Utilitys.IsExistInformation(thisForm.getTranslatorRepo().Gets(), getTranslator, true, Constants.checkPropTranslator);
             if (isCheck)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("translator"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("translator"));
                 return;
             }
 
@@ -156,9 +156,9 @@ namespace AnhQuoc_C5_Assignment
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -167,13 +167,13 @@ namespace AnhQuoc_C5_Assignment
             Translator normalItem = translatorVM.CreateByDto(Item);
             Translator normalSourceItem = translatorVM.CreateByDto(thisForm.getItemToUpdate());
 
-            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropTranslator);
+            bool isExistItemToUpdate = Utilitys.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropTranslator);
             if (!isExistItemToUpdate)
             {
-                bool isExistInformation = Utilities.IsExistInformation(thisForm.getTranslatorRepo().Gets(), normalItem, true, Constants.checkPropTranslator);
+                bool isExistInformation = Utilitys.IsExistInformation(thisForm.getTranslatorRepo().Gets(), normalItem, true, Constants.checkPropTranslator);
                 if (isExistInformation)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("translator"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("translator"));
                     return;
                 }
             }

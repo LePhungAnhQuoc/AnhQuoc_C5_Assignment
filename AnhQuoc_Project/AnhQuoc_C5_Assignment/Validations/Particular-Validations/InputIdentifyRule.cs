@@ -14,20 +14,20 @@ namespace AnhQuoc_C5_Assignment
         {
             string getValue = (string)value;
 
-            if (Utilities.IsCheckEmptyString(getValue))
+            if (Utilitys.IsCheckEmptyString(getValue))
             {
-                return new ValidationResult(false, Utilities.ValidateNoteFormNotEmptyRule());
+                return new ValidationResult(false, Utilitys.ValidateNoteFormNotEmptyRule());
             }
 
-            if (!Utilities.InputNumberRule(getValue))
+            if (!Utilitys.InputNumberRule(getValue))
             {
-                return new ValidationResult(false, Utilities.ValidateNoteInputNumberRule());
+                return new ValidationResult(false, Utilitys.ValidateNoteInputNumberRule());
             }
 
             int fixLength = Constants.textIdentifyLength;
-            if (!Utilities.FixLengthRule(getValue, fixLength))
+            if (!Utilitys.FixLengthRule(getValue, fixLength))
             {
-                return new ValidationResult(false, Utilities.ValidateNoteFixLengthRule(fixLength));
+                return new ValidationResult(false, Utilitys.ValidateNoteFixLengthRule(fixLength));
             }
             return ValidationResult.ValidResult;
         }

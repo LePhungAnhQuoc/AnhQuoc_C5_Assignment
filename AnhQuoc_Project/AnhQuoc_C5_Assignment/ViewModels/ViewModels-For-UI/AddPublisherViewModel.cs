@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddPublisherViewModel: BaseViewModel<object>, IPageViewModel
+    public class AddPublisherViewModel: BaseViewModel<Publisher>, IPageViewModel
     {
         #region Fields
         public bool IsCancel { get; set; }
@@ -78,7 +78,7 @@ namespace AnhQuoc_C5_Assignment
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
             {
-                mainContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+                mainContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
             }
 
             TextBoxes = mainContentControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
@@ -121,19 +121,19 @@ namespace AnhQuoc_C5_Assignment
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
             }
 
             Publisher getPublisher = publisherVM.CreateByDto(Item);
-            bool isCheck = Utilities.IsExistInformation(thisForm.getPublisherRepo().Gets(), getPublisher, true, Constants.checkPropPublisher);
+            bool isCheck = Utilitys.IsExistInformation(thisForm.getPublisherRepo().Gets(), getPublisher, true, Constants.checkPropPublisher);
             if (isCheck)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("publisher"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("publisher"));
                 return;
             }
 
@@ -144,9 +144,9 @@ namespace AnhQuoc_C5_Assignment
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -155,13 +155,13 @@ namespace AnhQuoc_C5_Assignment
             Publisher normalItem = publisherVM.CreateByDto(Item);
             Publisher normalSourceItem = publisherVM.CreateByDto(thisForm.getItemToUpdate());
 
-            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropPublisher);
+            bool isExistItemToUpdate = Utilitys.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropPublisher);
             if (!isExistItemToUpdate)
             {
-                bool isExistInformation = Utilities.IsExistInformation(thisForm.getPublisherRepo().Gets(), normalItem, true, Constants.checkPropPublisher);
+                bool isExistInformation = Utilitys.IsExistInformation(thisForm.getPublisherRepo().Gets(), normalItem, true, Constants.checkPropPublisher);
                 if (isExistInformation)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("publisher"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("publisher"));
                     return;
                 }
             }

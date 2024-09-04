@@ -218,7 +218,7 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFillTranslators);
             #endregion
 
-            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("translator"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyAddSuccessfully("translator"));
 
         }
 
@@ -226,7 +226,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucTranslatorsTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("translator"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("translator"));
                 return;
             }
 
@@ -236,7 +236,7 @@ namespace AnhQuoc_C5_Assignment
             ucTranslatorInformation ucTranslatorInformation = MainWindow.UnitOfForm.UcTranslatorInformation(true);
             ucTranslatorInformation.getItem = () => translatorDtoSelect;
 
-            Window frmTranslatorInformation = Utilities.CreateDefaultForm();
+            Window frmTranslatorInformation = Utilitys.CreateDefaultForm();
             frmTranslatorInformation.Content = ucTranslatorInformation;
             frmTranslatorInformation.Show();
 
@@ -261,7 +261,7 @@ namespace AnhQuoc_C5_Assignment
             string message = string.Empty;
             if (ucTranslatorsTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("translator"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("translator"));
                 return;
             }
 
@@ -273,13 +273,13 @@ namespace AnhQuoc_C5_Assignment
                 var listTemp = bookVM.FillByIdTranslator(bookVM.Repo.Gets(), translatorDtoSelect.Id, null);
                 if (listTemp.Count > 0)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("translator"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("translator"));
                     return;
                 }
 
 
-                message = Utilities.NotifySureToDelete();
-                if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
+                message = Utilitys.NotifySureToDelete();
+                if (Utilitys.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                     return;
             }
 
@@ -289,9 +289,9 @@ namespace AnhQuoc_C5_Assignment
             ucTranslatorsTable.ModifiedPagination();
 
             if (updateStatus == false)
-                message = Utilities.NotifyDeleteSuccessfully("translator");
+                message = Utilitys.NotifyDeleteSuccessfully("translator");
             else
-                message = Utilities.NotifyRestoreSuccessfully("translator");
+                message = Utilitys.NotifyRestoreSuccessfully("translator");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
         }
 
@@ -299,7 +299,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucTranslatorsTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("translator"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("translator"));
                 return;
             }
 
@@ -326,7 +326,7 @@ namespace AnhQuoc_C5_Assignment
 
             ucTranslatorsTable.ModifiedPagination();
 
-            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("translator"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyUpdateSuccessfully("translator"));
 
         }
 

@@ -86,12 +86,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(UserRole dest, UserRoleDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(UserRoleDto dest, UserRoleDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

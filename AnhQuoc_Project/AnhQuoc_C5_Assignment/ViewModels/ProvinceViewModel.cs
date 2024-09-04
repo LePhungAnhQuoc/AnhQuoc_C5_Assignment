@@ -49,7 +49,7 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(ProvinceDto item)
         {
-            return Utilities.IsCheckEmptyItem(item, false);
+            return Utilitys.IsCheckEmptyItem(item, false);
         }
 
         public Province CreateByDto(ProvinceDto dto)
@@ -61,12 +61,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Province dest, ProvinceDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(ProvinceDto dest, ProvinceDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

@@ -233,7 +233,7 @@ namespace AnhQuoc_C5_Assignment
             ucLoanSlipInformation ucLoanSlipInformation = MainWindow.UnitOfForm.UcLoanSlipInformation(true);
             ucLoanSlipInformation.getItem = () => ucLoanSlipsTable.SelectedDto;
 
-            Window frmLoanSlipInformation = Utilities.CreateFormToAddUserControlInfo();
+            Window frmLoanSlipInformation = Utilitys.CreateFormToAddUserControlInfo();
             frmLoanSlipInformation.Content = ucLoanSlipInformation;
 
             frmLoanSlipInformation.ShowDialog();

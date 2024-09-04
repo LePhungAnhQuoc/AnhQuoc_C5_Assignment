@@ -218,14 +218,14 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFillBookStatuss);
             #endregion
 
-            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("book status"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyAddSuccessfully("book status"));
         }
 
         private void UcBookStatussTable_btnInfoClick(object sender, RoutedEventArgs e)
         {
             if (ucBookStatussTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("book status"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("book status"));
                 return;
             }
 
@@ -235,7 +235,7 @@ namespace AnhQuoc_C5_Assignment
             ucBookStatusInformation ucBookStatusInformation = MainWindow.UnitOfForm.UcBookStatusInformation(true);
             ucBookStatusInformation.getItem = () => bookStatusDtoSelect;
 
-            Window frmBookStatusInformation = Utilities.CreateDefaultForm();
+            Window frmBookStatusInformation = Utilitys.CreateDefaultForm();
             frmBookStatusInformation.Content = ucBookStatusInformation;
             frmBookStatusInformation.Show();
 
@@ -260,7 +260,7 @@ namespace AnhQuoc_C5_Assignment
             string message = string.Empty;
             if (ucBookStatussTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("book status"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("book status"));
                 return;
             }
 
@@ -272,11 +272,11 @@ namespace AnhQuoc_C5_Assignment
                 var tempList = bookVM.FillByIdBookStatus(bookStatusSelect.Id);
                 if (tempList.Count > 0)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("book status"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("book status"));
                     return;
                 }
-                message = Utilities.NotifySureToDelete();
-                if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
+                message = Utilitys.NotifySureToDelete();
+                if (Utilitys.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                     return;
             }
 
@@ -286,9 +286,9 @@ namespace AnhQuoc_C5_Assignment
             ucBookStatussTable.ModifiedPagination();
 
             if (updateStatus == false)
-                message = Utilities.NotifyDeleteSuccessfully("book status");
+                message = Utilitys.NotifyDeleteSuccessfully("book status");
             else
-                message = Utilities.NotifyRestoreSuccessfully("book status");
+                message = Utilitys.NotifyRestoreSuccessfully("book status");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
         }
 
@@ -296,7 +296,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucBookStatussTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("book status"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("book status"));
                 return;
             }
 
@@ -322,7 +322,7 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             ucBookStatussTable.ModifiedPagination();
-            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("book status"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyUpdateSuccessfully("book status"));
 
         }
 

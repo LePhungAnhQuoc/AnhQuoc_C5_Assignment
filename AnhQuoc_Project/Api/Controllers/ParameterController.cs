@@ -37,8 +37,11 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Parameter newItem)
+        public IActionResult Create(AddParameterDto addParameterDto)
         {
+            Parameter newItem = new Parameter();
+            addParameterDto.MapTo(ref newItem);
+
             quanLyThuVienContext.Parameters.Add(newItem);
 
             quanLyThuVienContext.SaveChanges();
@@ -47,16 +50,14 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Update(string id, Parameter updateItem)
+        public IActionResult Update(string id, UpdateParameterDto updateParameterDto)
         {
             var getItem = quanLyThuVienContext.Parameters.Find(id);
 
             if (getItem is null)
                 return NotFound();
 
-            Utilitys.Copy(getItem, updateItem);
-            getItem.ModifiedAt = DateTime.Now;
-            
+            updateParameterDto.MapTo(ref getItem);
             quanLyThuVienContext.SaveChanges();
             return Ok(getItem);
         }

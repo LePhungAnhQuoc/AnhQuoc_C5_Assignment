@@ -174,7 +174,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucBookTitlesTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("bookTitle"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("bookTitle"));
                 return;
             }
 
@@ -184,7 +184,7 @@ namespace AnhQuoc_C5_Assignment
             ucBookTitleInformation ucBookTitleInformation = MainWindow.UnitOfForm.UcBookTitleInformation(true);
             ucBookTitleInformation.getItem = () => bookTitleDtoSelect;
 
-            Window frmBookTitleInformation = Utilities.CreateDefaultForm();
+            Window frmBookTitleInformation = Utilitys.CreateDefaultForm();
             frmBookTitleInformation.Content = ucBookTitleInformation;
             frmBookTitleInformation.Show();
 
@@ -218,7 +218,7 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFillBookTitles);
             #endregion
 
-            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("book title"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyAddSuccessfully("book title"));
         }
 
         private void AddItemsToDataGrid(ObservableCollection<BookTitle> items)

@@ -178,7 +178,7 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFillUserRoles);
             #endregion
             
-            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("user role"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyAddSuccessfully("user role"));
 
         }
 
@@ -186,7 +186,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucUserRolesTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("user"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("user"));
                 return;
             }
 
@@ -198,7 +198,7 @@ namespace AnhQuoc_C5_Assignment
             ucUserInformation ucUserInformation = MainWindow.UnitOfForm.UcUserInformation(true);
             ucUserInformation.getItem = () => userDtoSelect;
 
-            Window frmUserInformation = Utilities.CreateDefaultForm();
+            Window frmUserInformation = Utilitys.CreateDefaultForm();
             frmUserInformation.Content = ucUserInformation;
 
             ucUserInformation.btnBack.Click += (_sender, _e) =>
@@ -212,7 +212,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucUserRolesTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("user"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("user"));
                 return;
             }
 
@@ -220,7 +220,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (userRoleDtoSelect.Role.Id == Constants.adminRoleId)
             {
-                Utilities.ShowMessageBox1("Can not set role for admin");
+                Utilitys.ShowMessageBox1("Can not set role for admin");
                 return;
             }
 
@@ -248,7 +248,7 @@ namespace AnhQuoc_C5_Assignment
             ucUserRolesTable.ModifiedPagination();
             #endregion
 
-            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("user role"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyUpdateSuccessfully("user role"));
 
         }
 

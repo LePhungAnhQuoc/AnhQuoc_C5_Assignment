@@ -53,7 +53,7 @@ namespace AnhQuoc_C5_Assignment
 
         public Book FindById(ObservableCollection<Book> source, int id, bool? statusValue)
         {
-            source = Utilities.FillByStatus(source, statusValue);
+            source = Utilitys.FillByStatus(source, statusValue);
 
             foreach (Book item in source)
             {
@@ -68,7 +68,7 @@ namespace AnhQuoc_C5_Assignment
 
         public BookDto FindById(ObservableCollection<BookDto> source, int id, bool? statusValue)
         {
-            source = Utilities.FillByStatus(source, statusValue);
+            source = Utilitys.FillByStatus(source, statusValue);
 
             foreach (BookDto item in source)
             {
@@ -232,7 +232,7 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(BookDto item)
         {
-            return Utilities.IsCheckEmptyItem(item, false);
+            return Utilitys.IsCheckEmptyItem(item, false);
         }
 
         public Book CreateByDto(BookDto dto)
@@ -244,12 +244,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Book dest, BookDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(BookDto dest, BookDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

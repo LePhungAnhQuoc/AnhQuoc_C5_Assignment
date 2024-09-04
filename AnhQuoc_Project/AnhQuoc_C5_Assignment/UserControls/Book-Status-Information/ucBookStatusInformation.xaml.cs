@@ -54,7 +54,7 @@ namespace AnhQuoc_C5_Assignment
             InitializeComponent();
             this.DataContext = this;
             Loaded += ucBookStatusInformation_Loaded;
-            Utilities.SetToolTipForTextBlock(mainContent);
+            Utilitys.SetToolTipForTextBlock(mainContent);
         }
         
         private void ucBookStatusInformation_Loaded(object sender, RoutedEventArgs e)
@@ -65,7 +65,7 @@ namespace AnhQuoc_C5_Assignment
 
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Utilities.ExpandMore((sender as TextBlock).Text);
+            Utilitys.ExpandMore((sender as TextBlock).Text);
         }
     }
 }

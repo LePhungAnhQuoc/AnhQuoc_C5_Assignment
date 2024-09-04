@@ -37,8 +37,10 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(User newItem)
+        public IActionResult Create(AddUserDto addUserDto)
         {
+            User newItem = new User();
+            addUserDto.MapTo(ref newItem);
             quanLyThuVienContext.Users.Add(newItem);
             quanLyThuVienContext.SaveChanges();
 
@@ -47,16 +49,14 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Update(string id, User updateItem)
+        public IActionResult Update(string id, UpdateUserDto updateUserDto)
         {
             var getItem = quanLyThuVienContext.Users.Find(id);
 
             if (getItem is null)
                 return NotFound();
 
-            Utilitys.Copy(getItem, updateItem);
-            getItem.ModifiedAt = DateTime.Now;
-            
+            updateUserDto.MapTo(ref getItem);
             quanLyThuVienContext.SaveChanges();
             return Ok(getItem);
         }

@@ -19,7 +19,7 @@ namespace AnhQuoc_C5_Assignment
             User user = userVM.FindById(sourceItem.IdUser);
             LoanSlipDto newItem = new LoanSlipDto(sourceItem.Id);
 
-            Utilities.Copy(newItem, sourceItem);
+            Utilitys.Copy(newItem, sourceItem);
             newItem.Reader = reader;
             newItem.User = user;
 

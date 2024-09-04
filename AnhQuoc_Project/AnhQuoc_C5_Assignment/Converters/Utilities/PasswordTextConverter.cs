@@ -12,7 +12,7 @@ namespace AnhQuoc_C5_Assignment
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value == null || Utilities.IsCheckEmptyString(value.ToString()))
+            if (value == null || Utilitys.IsCheckEmptyString(value.ToString()))
             {
                 return null;
             }

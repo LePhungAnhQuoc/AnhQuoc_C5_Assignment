@@ -64,7 +64,7 @@ namespace AnhQuoc_C5_Assignment
 
             this.DataContext = this;
             this.Loaded += ucLoanDetailHistoryInformation_Loaded;
-            Utilities.SetToolTipForTextBlock(mainContent);
+            Utilitys.SetToolTipForTextBlock(mainContent);
         }
 
         private void ucLoanDetailHistoryInformation_Loaded(object sender, RoutedEventArgs e)
@@ -84,7 +84,7 @@ namespace AnhQuoc_C5_Assignment
 
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Utilities.ExpandMore((sender as TextBlock).Text);
+            Utilitys.ExpandMore((sender as TextBlock).Text);
         }
     }
 }

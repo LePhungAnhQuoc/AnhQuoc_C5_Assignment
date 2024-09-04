@@ -15,7 +15,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (value == null) return string.Empty;
 
-            if (!Utilities.IsGeneric(value))
+            if (!Utilitys.IsGeneric(value))
                 return string.Empty;
 
             if (value is ObservableCollection<string>)

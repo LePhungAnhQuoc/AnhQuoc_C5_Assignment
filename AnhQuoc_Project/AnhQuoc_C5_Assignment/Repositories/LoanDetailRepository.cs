@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Api.Models.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;

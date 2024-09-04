@@ -143,7 +143,7 @@ namespace AnhQuoc_C5_Assignment
 
             ucUserLoginInformation.getItem = () => userMap.ConvertToDto(getLoginUser());
 
-            Utilities.GetDashBoardTreeView(treeViewInDashBoard, getFunctions(), TvFunction_MouseLeftButtonUp);
+            Utilitys.GetDashBoardTreeView(treeViewInDashBoard, getFunctions(), TvFunction_MouseLeftButtonUp);
 
             ObservableCollection<Function> parents = functionVM.FillParent(getFunctions(), statusParentFunction);
 

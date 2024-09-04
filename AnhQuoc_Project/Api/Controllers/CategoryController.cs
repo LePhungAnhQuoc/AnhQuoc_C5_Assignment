@@ -37,8 +37,10 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Category newItem)
+        public IActionResult Create(AddCategoryDto addCategoryDto)
         {
+            Category newItem = new Category();
+            addCategoryDto.MapTo(ref newItem);
             quanLyThuVienContext.Categories.Add(newItem);
 
             quanLyThuVienContext.SaveChanges();
@@ -47,16 +49,14 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Update(string id, Category updateItem)
+        public IActionResult Update(string id, UpdateCategoryDto updateCategoryDto)
         {
             var getItem = quanLyThuVienContext.Categories.Find(id);
 
             if (getItem is null)
                 return NotFound();
 
-            Utilitys.Copy(getItem, updateItem);
-            getItem.ModifiedAt = DateTime.Now;
-            
+            updateCategoryDto.MapTo(ref getItem);
             quanLyThuVienContext.SaveChanges();
             return Ok(getItem);
         }

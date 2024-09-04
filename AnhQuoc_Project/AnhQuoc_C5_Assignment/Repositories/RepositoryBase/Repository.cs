@@ -1,5 +1,4 @@
-﻿
-using AnhQuoc_C5_Assignment;
+﻿using AnhQuoc_C5_Assignment;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,14 +13,14 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Data.Entity.Design.PluralizationServices;
 using System.Globalization;
+using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public abstract class Repository<T> : IRepositoryBase<T> where T : class, new()
+    public abstract class Repository<T> : IRepositoryBase<T> where T : class, IMapFromModel, new()
     {
-        protected QuanLyThuVienEntities dbSource;
-
         #region Fields
+        protected QuanLyThuVienEntities dbSource;
         protected ObservableCollection<T> _Items;
         protected readonly APIProvider<T> APIProvider;
         #endregion
@@ -90,21 +89,19 @@ namespace AnhQuoc_C5_Assignment
 
         public virtual void WriteAdd(T item)
         {
-            string key = GetPrimaryKeyName();
-            APIProvider.Post(item, key);
+            APIProvider.Post(item);
         }
 
         public virtual void WriteDelete(T item)
         {
             string key = GetPrimaryKeyName();
-
-            APIProvider.Delete(Utilities.getValueFromProperty(key, item).ToString());
+            APIProvider.Delete(Utilitys.getValueFromProperty(key, item).ToString());
         }
 
         public virtual void WriteUpdate(T updated)
         {
             string key = GetPrimaryKeyName();
-            APIProvider.Put(Utilities.getValueFromProperty(key, updated).ToString(), updated, key);
+            APIProvider.Put(Utilitys.getValueFromProperty(key, updated).ToString(), updated);
         }
 
 
@@ -139,7 +136,7 @@ namespace AnhQuoc_C5_Assignment
             string key = string.Empty;
             using (SqlConnection conn = new SqlConnection(Constants.ShortConnStr()))
             {
-                key = Utilities.GetPrimaryKeys(conn, typeof(T).Name).SingleOrDefault();
+                key = Utilitys.GetPrimaryKeys(conn, typeof(T).Name).SingleOrDefault();
             }
             return key;
         }

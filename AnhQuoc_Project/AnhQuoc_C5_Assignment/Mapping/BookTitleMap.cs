@@ -18,7 +18,7 @@ namespace AnhQuoc_C5_Assignment
             Category category = categoryVM.FindById(sourceItem.IdCategory);
 
             BookTitleDto newItem = new BookTitleDto(sourceItem.Id);
-            Utilities.Copy(newItem, sourceItem);
+            Utilitys.Copy(newItem, sourceItem);
             newItem.Category = category;
             newItem.BookISBNs = bookISBNVM.FillByIdBookTitle(sourceItem.Id, null);
 

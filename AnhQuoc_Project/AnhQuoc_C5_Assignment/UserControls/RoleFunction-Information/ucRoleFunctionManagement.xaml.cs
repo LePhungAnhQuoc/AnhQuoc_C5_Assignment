@@ -135,7 +135,7 @@ namespace AnhQuoc_C5_Assignment
             {
                 foreach (FunctionChildDto child in parent.Childs)
                 {
-                    if (Utilities.FindInList(Constants.importantFunction, child.Id) != null)
+                    if (Utilitys.FindInList(Constants.importantFunction, child.Id) != null)
                     {
                         child.IsSeal = true;
                     }
@@ -225,7 +225,7 @@ namespace AnhQuoc_C5_Assignment
             bool? updateCheck = true;
             foreach (Function func in listFuncs)
             {
-                if (!Utilities.IsCheckEmptyString(func.IdParent))
+                if (!Utilitys.IsCheckEmptyString(func.IdParent))
                 {
                     Function getParent = functionVM.FindById(func.IdParent);
 
@@ -300,7 +300,7 @@ namespace AnhQuoc_C5_Assignment
                     }
                 }
             }
-            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("role functions"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyAddSuccessfully("role functions"));
         }
 
         private void ClearTreeViewFunctions()

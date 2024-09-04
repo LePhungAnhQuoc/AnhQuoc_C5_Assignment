@@ -12,7 +12,7 @@ namespace AnhQuoc_C5_Assignment
         public override PenaltyReasonDto ConvertToDto(PenaltyReason itemSource)
         {
             PenaltyReasonDto newItem = new PenaltyReasonDto(itemSource.Id);
-            Utilities.Copy(newItem, itemSource);
+            Utilitys.Copy(newItem, itemSource);
             return newItem;
         }
     }

@@ -37,25 +37,27 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(LoanSlip newItem)
+        public IActionResult Create(AddLoanSlipDto addLoanSlipDto)
         {
-            quanLyThuVienContext.LoanSlips.Add(newItem);
+            LoanSlip newItem = new LoanSlip();
+            addLoanSlipDto.MapTo(ref newItem);
 
+            quanLyThuVienContext.LoanSlips.Add(newItem);
             quanLyThuVienContext.SaveChanges();
+
             return Ok(newItem);
         }
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Update(string id, LoanSlip updateItem)
+        public IActionResult Update(string id, UpdateLoanSlipDto updateLoanSlipDto)
         {
             var getItem = quanLyThuVienContext.LoanSlips.Find(id);
 
             if (getItem is null)
                 return NotFound();
 
-            Utilitys.Copy(getItem, updateItem);
-            
+            updateLoanSlipDto.MapTo(ref getItem);
             quanLyThuVienContext.SaveChanges();
             return Ok(getItem);
         }

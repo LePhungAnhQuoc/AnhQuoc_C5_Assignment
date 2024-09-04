@@ -18,9 +18,9 @@ namespace AnhQuoc_C5_Assignment
                 return ValidationResult.ValidResult;
             }
 
-            if (Utilities.IsCheckEmptyString(getValue))
+            if (Utilitys.IsCheckEmptyString(getValue))
             {
-                return new ValidationResult(false, Utilities.ValidateNoteFormNotEmptyRule());
+                return new ValidationResult(false, Utilitys.ValidateNoteFormNotEmptyRule());
             }
             return ValidationResult.ValidResult;
         }

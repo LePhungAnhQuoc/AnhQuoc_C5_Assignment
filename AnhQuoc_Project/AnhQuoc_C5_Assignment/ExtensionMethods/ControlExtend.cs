@@ -12,7 +12,7 @@ namespace AnhQuoc_C5_Assignment
         public static List<T> GetLogicalChildCollection<T>(this DependencyObject parent) where T : DependencyObject
         {
             List<T> logicalCollection = new List<T>();
-            Utilities.GetLogicalChildCollection(parent, logicalCollection);
+            Utilitys.GetLogicalChildCollection(parent, logicalCollection);
             return logicalCollection;
         }
     }

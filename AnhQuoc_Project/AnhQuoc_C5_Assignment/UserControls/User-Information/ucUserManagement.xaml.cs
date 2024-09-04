@@ -234,14 +234,14 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFillUsers);
             #endregion
 
-            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("user"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyAddSuccessfully("user"));
         }
 
         private void UcUsersTable_btnInfoClick(object sender, RoutedEventArgs e)
         {
             if (ucUsersTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("user"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("user"));
                 return;
             }
 
@@ -251,7 +251,7 @@ namespace AnhQuoc_C5_Assignment
             ucUserInformation ucUserInformation = MainWindow.UnitOfForm.UcUserInformation(true);
             ucUserInformation.getItem = () => userDtoSelect;
 
-            Window frmUserInformation = Utilities.CreateDefaultForm();
+            Window frmUserInformation = Utilitys.CreateDefaultForm();
             frmUserInformation.Content = ucUserInformation;
             frmUserInformation.Show();
 
@@ -276,7 +276,7 @@ namespace AnhQuoc_C5_Assignment
             string message = string.Empty;
             if (ucUsersTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("user"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("user"));
                 return;
             }
 
@@ -308,24 +308,24 @@ namespace AnhQuoc_C5_Assignment
                         var tempL = userRoleVM.FillByIdUser(userSelect.Id);
                         if (tempL.Count > 0)
                         {
-                            Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("user"));
+                            Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("user"));
                             return;
                         }
                     }
                     else
                     {
-                        Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("user"));
+                        Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("user"));
                         return;
                     }
                 }
                 else
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("user"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("user"));
                     return;
                 }
 
-                message = Utilities.NotifySureToDelete();
-                if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
+                message = Utilitys.NotifySureToDelete();
+                if (Utilitys.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                     return;
             }
 
@@ -335,9 +335,9 @@ namespace AnhQuoc_C5_Assignment
             ucUsersTable.ModifiedPagination();
 
             if (updateStatus == false)
-                message = Utilities.NotifyDeleteSuccessfully("user");
+                message = Utilitys.NotifyDeleteSuccessfully("user");
             else
-                message = Utilities.NotifyRestoreSuccessfully("user");
+                message = Utilitys.NotifyRestoreSuccessfully("user");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
         }
 
@@ -345,7 +345,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucUsersTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("user"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("user"));
                 return;
             }
 
@@ -376,7 +376,7 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             ucUsersTable.ModifiedPagination();
-            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("user"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyUpdateSuccessfully("user"));
 
         }
 

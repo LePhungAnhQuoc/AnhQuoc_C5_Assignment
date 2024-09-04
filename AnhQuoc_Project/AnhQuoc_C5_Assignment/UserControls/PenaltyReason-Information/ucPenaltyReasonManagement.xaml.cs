@@ -215,14 +215,14 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFillPenaltyReasons);
             #endregion
 
-            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("penalty reason"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyAddSuccessfully("penalty reason"));
         }
 
         private void UcPenaltyReasonsTable_btnInfoClick(object sender, RoutedEventArgs e)
         {
             if (ucPenaltyReasonsTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("penaltyReason"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("penaltyReason"));
                 return;
             }
 
@@ -232,7 +232,7 @@ namespace AnhQuoc_C5_Assignment
             ucPenaltyReasonInformation ucPenaltyReasonInformation = MainWindow.UnitOfForm.UcPenaltyReasonInformation(true);
             ucPenaltyReasonInformation.getItem = () => penaltyReasonDtoSelect;
 
-            Window frmPenaltyReasonInformation = Utilities.CreateDefaultForm();
+            Window frmPenaltyReasonInformation = Utilitys.CreateDefaultForm();
             frmPenaltyReasonInformation.Content = ucPenaltyReasonInformation;
             frmPenaltyReasonInformation.Show();
 
@@ -247,7 +247,7 @@ namespace AnhQuoc_C5_Assignment
             string message = string.Empty;
             if (ucPenaltyReasonsTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("penaltyReason"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("penaltyReason"));
                 return;
             }
 
@@ -255,11 +255,11 @@ namespace AnhQuoc_C5_Assignment
             PenaltyReason penaltyReasonSelect = penaltyReasonVM.FindById(penaltyReasonDtoSelect.Id);
 
 
-            Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("penalty reason"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("penalty reason"));
             return;
 
-            message = Utilities.NotifySureToDelete();
-            if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
+            message = Utilitys.NotifySureToDelete();
+            if (Utilitys.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                 return;
             
             getPenaltyReasonRepo().Remove(penaltyReasonSelect);
@@ -267,7 +267,7 @@ namespace AnhQuoc_C5_Assignment
 
             ucPenaltyReasonsTable.ModifiedPagination();
          
-            message = Utilities.NotifyDeleteSuccessfully("penaltyReason");
+            message = Utilitys.NotifyDeleteSuccessfully("penaltyReason");
          
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
         }
@@ -276,7 +276,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucPenaltyReasonsTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("penaltyReason"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("penaltyReason"));
                 return;
             }
 
@@ -302,7 +302,7 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             ucPenaltyReasonsTable.ModifiedPagination();
-            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("penalty reason"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyUpdateSuccessfully("penalty reason"));
         }
 
         private void AddToListFill(ObservableCollection<PenaltyReason> items)

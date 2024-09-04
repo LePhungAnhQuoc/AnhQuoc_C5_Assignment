@@ -10,7 +10,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddUserRoleViewModel: BaseViewModel<object>, IPageViewModel
+    public class AddUserRoleViewModel: BaseViewModel<UserRole>, IPageViewModel
     {
         #region Fields
         public bool IsCancel { get; set; }
@@ -115,7 +115,7 @@ namespace AnhQuoc_C5_Assignment
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
             {
-                mainContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+                mainContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
             }
 
             TextBoxes = mainContentControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
@@ -146,7 +146,7 @@ namespace AnhQuoc_C5_Assignment
 
                 if (getFillUserNotHasRole.Count == 0)
                 {
-                    Utilities.ShowMessageBox1("There are no users to add roles", string.Empty);
+                    Utilitys.ShowMessageBox1("There are no users to add roles", string.Empty);
                     BtnCancel_Click(null, null);
                     return;
                 }
@@ -187,8 +187,8 @@ namespace AnhQuoc_C5_Assignment
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -201,8 +201,8 @@ namespace AnhQuoc_C5_Assignment
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;

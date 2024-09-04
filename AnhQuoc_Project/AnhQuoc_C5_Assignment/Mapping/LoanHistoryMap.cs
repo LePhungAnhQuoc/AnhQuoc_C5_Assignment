@@ -15,7 +15,7 @@ namespace AnhQuoc_C5_Assignment
             UserViewModel userVM = UnitOfViewModel.Instance.UserViewModel;
 
             LoanHistoryDto newItem = new LoanHistoryDto(sourceItem.Id);
-            Utilities.Copy(newItem, sourceItem);
+            Utilitys.Copy(newItem, sourceItem);
 
 
             newItem.User = userVM.FindById(sourceItem.IdUser);

@@ -230,7 +230,7 @@ namespace AnhQuoc_C5_Assignment
             ucLoanHistoryInformation ucLoanHistoryInformation = MainWindow.UnitOfForm.UcLoanHistoryInformation(true);
             ucLoanHistoryInformation.getItem = () => ucLoanHistorysTable.SelectedDto;
 
-            Window frmLoanHistoryInformation = Utilities.CreateFormToAddUserControlInfo();
+            Window frmLoanHistoryInformation = Utilitys.CreateFormToAddUserControlInfo();
             frmLoanHistoryInformation.Content = ucLoanHistoryInformation;
 
             frmLoanHistoryInformation.ShowDialog();

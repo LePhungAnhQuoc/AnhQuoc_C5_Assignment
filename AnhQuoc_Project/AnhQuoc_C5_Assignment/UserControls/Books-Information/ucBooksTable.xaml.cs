@@ -119,7 +119,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (getExceptProperties != null)
             {
-                Utilities.SetExceptPropertiesForDataGrid(dgBooks, getExceptProperties());
+                Utilitys.SetExceptPropertiesForDataGrid(dgBooks, getExceptProperties());
             }
         }
 

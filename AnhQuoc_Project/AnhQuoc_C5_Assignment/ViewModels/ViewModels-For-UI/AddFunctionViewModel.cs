@@ -11,7 +11,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddFunctionViewModel: BaseViewModel<object>, IPageViewModel
+    public class AddFunctionViewModel: BaseViewModel<Function>, IPageViewModel
     {
         #region Fields
         public bool IsCancel { get; set; }
@@ -89,7 +89,7 @@ namespace AnhQuoc_C5_Assignment
 
             functionMap = UnitOfMap.Instance.FunctionMap;
 
-            openFile = Utilities.CreateOpenFileDialog();
+            openFile = Utilitys.CreateOpenFileDialog();
 
             #region Init-Commands
             //LoadedCmd = new RelayCommand((para) => frmAddFunction_Loaded(para, null));
@@ -112,7 +112,7 @@ namespace AnhQuoc_C5_Assignment
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
             {
-                mainContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+                mainContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
             }
 
             TextBoxes = mainContentControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
@@ -170,9 +170,9 @@ namespace AnhQuoc_C5_Assignment
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -182,19 +182,19 @@ namespace AnhQuoc_C5_Assignment
             var normalItem = functionVM.CreateByDto(Item);
             var normalSourceItem = functionVM.CreateByDto(thisForm.getItemToUpdate());
 
-            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropFunction);
+            bool isExistItemToUpdate = Utilitys.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropFunction);
 
             if (!isExistItemToUpdate)
             {
-                bool isExistInformation = Utilities.IsExistInformation(thisForm.getFunctionRepo().Gets(), normalItem, true, Constants.checkPropFunction);
+                bool isExistInformation = Utilitys.IsExistInformation(thisForm.getFunctionRepo().Gets(), normalItem, true, Constants.checkPropFunction);
 
                 if (isExistInformation)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInfo("function"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInfo("function"));
                     return;
                 }
             }
-            Utilities.SaveImageInUserControl(tempUrlImage, Item, openFile);
+            Utilitys.SaveImageInUserControl(tempUrlImage, Item, openFile);
 
             IsCancel = false;
             thisForm.Close();
@@ -219,7 +219,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (openFile.ShowDialog() == true)
             {
-                Item.UrlImage = Utilities.GetUrlImage(openFile);
+                Item.UrlImage = Utilitys.GetUrlImage(openFile);
             }
         }
 

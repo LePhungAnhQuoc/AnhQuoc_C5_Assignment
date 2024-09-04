@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddAuthorViewModel: BaseViewModel<object>, IPageViewModel
+    public class AddAuthorViewModel: BaseViewModel<Author>, IPageViewModel
     {
         #region Fields
         public bool IsCancel { get; set; }  
@@ -79,7 +79,7 @@ namespace AnhQuoc_C5_Assignment
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children) // get all stkPanel in grid
             {
-                mainContentControls.AddRange(Utilities.GetControlHaveValidationRules(child)); // get all textbox in stkPanel
+                mainContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child)); // get all textbox in stkPanel
             }
 
             TextBoxes = mainContentControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
@@ -127,19 +127,19 @@ namespace AnhQuoc_C5_Assignment
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
             }
 
             Author getAuthor = authorVM.CreateByDto(Item);
-            bool isCheck = Utilities.IsExistInformation(thisForm.getAuthorRepo().Gets(), getAuthor, true, Constants.checkPropAuthor);
+            bool isCheck = Utilitys.IsExistInformation(thisForm.getAuthorRepo().Gets(), getAuthor, true, Constants.checkPropAuthor);
             if (isCheck)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("author"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("author"));
                 return;
             }
 
@@ -150,9 +150,9 @@ namespace AnhQuoc_C5_Assignment
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -161,13 +161,13 @@ namespace AnhQuoc_C5_Assignment
             Author normalItem = authorVM.CreateByDto(Item);
             Author normalSourceItem = authorVM.CreateByDto(thisForm.getItemToUpdate());
 
-            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropAuthor);
+            bool isExistItemToUpdate = Utilitys.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropAuthor);
             if (!isExistItemToUpdate)
             {
-                bool isExistInformation = Utilities.IsExistInformation(thisForm.getAuthorRepo().Gets(), normalItem, true, Constants.checkPropAuthor);
+                bool isExistInformation = Utilitys.IsExistInformation(thisForm.getAuthorRepo().Gets(), normalItem, true, Constants.checkPropAuthor);
                 if (isExistInformation)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("author"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("author"));
                     return;
                 }
             }

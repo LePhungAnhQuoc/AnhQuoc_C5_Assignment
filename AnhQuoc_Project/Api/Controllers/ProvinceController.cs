@@ -37,8 +37,11 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Province newItem)
+        public IActionResult Create(AddProvinceDto addProvinceDto)
         {
+            Province newItem = new Province();
+            addProvinceDto.MapTo(ref newItem);
+
             quanLyThuVienContext.Provinces.Add(newItem);
 
             quanLyThuVienContext.SaveChanges();
@@ -47,15 +50,14 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Update(string id, Province updateItem)
+        public IActionResult Update(string id, UpdateProvinceDto updateProvinceDto)
         {
             var getItem = quanLyThuVienContext.Provinces.Find(id);
 
             if (getItem is null)
                 return NotFound();
 
-            Utilitys.Copy(getItem, updateItem);
-            
+            updateProvinceDto.MapTo(ref getItem);
             quanLyThuVienContext.SaveChanges();
             return Ok(getItem);
         }

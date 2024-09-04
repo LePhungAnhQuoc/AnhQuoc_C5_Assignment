@@ -54,11 +54,11 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(RoleDto item)
         {
-            if (Utilities.IsCheckEmptyString(item.Name))
+            if (Utilitys.IsCheckEmptyString(item.Name))
             {
                 return false;
             }
-            if (Utilities.IsCheckEmptyString(item.Group))
+            if (Utilitys.IsCheckEmptyString(item.Group))
             {
                 return false;
             }
@@ -75,12 +75,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Role dest, RoleDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(RoleDto dest, RoleDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

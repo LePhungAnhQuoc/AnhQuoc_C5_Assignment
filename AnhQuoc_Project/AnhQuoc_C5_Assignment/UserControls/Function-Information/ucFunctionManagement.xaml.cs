@@ -197,7 +197,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucFunctionsTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("function"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("function"));
                 return;
             }
 
@@ -207,7 +207,7 @@ namespace AnhQuoc_C5_Assignment
             ucFunctionInformation ucFunctionInformation = MainWindow.UnitOfForm.UcFunctionInformation(true);
             ucFunctionInformation.getItem = () => functionDtoSelect;
 
-            Window frmFunctionInformation = Utilities.CreateDefaultForm();
+            Window frmFunctionInformation = Utilitys.CreateDefaultForm();
             frmFunctionInformation.Content = ucFunctionInformation;
             frmFunctionInformation.Show();
         }
@@ -216,7 +216,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucFunctionsTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("function"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("function"));
                 return;
             }
 
@@ -242,7 +242,7 @@ namespace AnhQuoc_C5_Assignment
 
             ucFunctionsTable.ModifiedPagination();
 
-            string message = Utilities.NotifyUpdateSuccessfully("function");
+            string message = Utilitys.NotifyUpdateSuccessfully("function");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
         }
 
@@ -254,13 +254,13 @@ namespace AnhQuoc_C5_Assignment
             var check = roleFunctionVM.FindByIdFunction(roleFunctionVM.Repo.Gets(), functionSelect.Id);
             if (check != null)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("function"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("function"));
                 return;
             }
             
-            if (Utilities.FindInList(Constants.importantFunction, functionSelect.Id) != null)
+            if (Utilitys.FindInList(Constants.importantFunction, functionSelect.Id) != null)
             {
-                Utilities.ShowMessageBox1(string.Format("This feature cannot be removed because it is important"));
+                Utilitys.ShowMessageBox1(string.Format("This feature cannot be removed because it is important"));
                 return;
             }
             DeleteFunc();
@@ -280,7 +280,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (ucFunctionsTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("function"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("function"));
                 return;
             }
 
@@ -288,7 +288,7 @@ namespace AnhQuoc_C5_Assignment
             Function functionSelect = functionVM.FindById(functionDtoSelect.Id, StatusValue);
 
             #region functionDtoSelect.Parent 
-            if (Utilities.IsCheckEmptyString(functionSelect.IdParent))
+            if (Utilitys.IsCheckEmptyString(functionSelect.IdParent))
             {
                 ObservableCollection<Function> childs = functionVM.getChildsByIdParent(functionSelect.Id, !updateStatus);
                 if (childs.Count == 0)
@@ -298,7 +298,7 @@ namespace AnhQuoc_C5_Assignment
                 }
 
                 #region Form
-                Window frmDisplayFunction = Utilities.CreateDefaultForm();
+                Window frmDisplayFunction = Utilitys.CreateDefaultForm();
                 frmDisplayFunction.SizeToContent = SizeToContent.WidthAndHeight;
 
                 ucDisplayFunction ucDisplayFunction = MainWindow.UnitOfForm.UcDisplayFunction(true);
@@ -354,8 +354,8 @@ namespace AnhQuoc_C5_Assignment
         private void DeleteParentFunc(Function functionSelect, ObservableCollection<Function> childs, bool updateStatus)
         {
             string message;
-            message = Utilities.NotifySureToDelete();
-            if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
+            message = Utilitys.NotifySureToDelete();
+            if (Utilitys.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                 return;
 
             foreach (Function funcChild in childs)
@@ -369,7 +369,7 @@ namespace AnhQuoc_C5_Assignment
 
             bool isHasChild = childs.Count > 0;
 
-            message = Utilities.NotifyDeleteSuccessfullyParentFunction(isHasChild);
+            message = Utilitys.NotifyDeleteSuccessfullyParentFunction(isHasChild);
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
 
             ucFunctionsTable.ModifiedPagination();
@@ -378,14 +378,14 @@ namespace AnhQuoc_C5_Assignment
         private void DeleteChildFunc(Function functionSelect, bool updateStatus)
         {
             string message;
-            message = Utilities.NotifySureToDelete();
-            if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
+            message = Utilitys.NotifySureToDelete();
+            if (Utilitys.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                 return;
             
             functionSelect.Status = updateStatus;
             getFunctionRepo().WriteUpdate(functionSelect);
 
-            message = Utilities.NotifyDeleteSuccessfully("function");
+            message = Utilitys.NotifyDeleteSuccessfully("function");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
 
             ucFunctionsTable.ModifiedPagination();
@@ -402,7 +402,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (ucFunctionsTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("function"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("function"));
                 return;
             }
 
@@ -410,7 +410,7 @@ namespace AnhQuoc_C5_Assignment
             Function functionSelect = functionVM.FindById(funcDtoSelect.Id, StatusValue);
       
             #region functionDtoSelect.Parent 
-            if (!Utilities.IsCheckEmptyString(functionSelect.IdParent))
+            if (!Utilitys.IsCheckEmptyString(functionSelect.IdParent))
             {
                 funcParent = functionVM.FindById(functionSelect.IdParent, StatusValue);
                 funcDtoParent = functionMap.ConvertToDto(funcParent);
@@ -442,7 +442,7 @@ namespace AnhQuoc_C5_Assignment
                     functionSelect.Status = updateStatus;
                     getFunctionRepo().WriteUpdate(functionSelect);
 
-                    message = Utilities.NotifyRestoreSuccessfullyParentFunction(true);
+                    message = Utilitys.NotifyRestoreSuccessfullyParentFunction(true);
                     MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
 
                     ucFunctionsTable.ModifiedPagination();
@@ -485,7 +485,7 @@ namespace AnhQuoc_C5_Assignment
             functionSelect.Status = updateStatus;
             getFunctionRepo().WriteUpdate(functionSelect);
 
-            string message = Utilities.NotifyRestoreSuccessfully("function");
+            string message = Utilitys.NotifyRestoreSuccessfully("function");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
 
             ucFunctionsTable.ModifiedPagination();

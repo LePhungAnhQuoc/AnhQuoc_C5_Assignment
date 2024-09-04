@@ -5,6 +5,8 @@ namespace Api.Models.Dtos
 {
     public class AddUserDto : IMap<User>
     {
+        public string Id { get; set; }
+
         public string Username { get; set; }
 
         public string Password { get; set; }
@@ -26,12 +28,12 @@ namespace Api.Models.Dtos
 
         public void MapFrom(User entity)
         {
-            Utilities.Copy(this, entity);
+            Utilitys.Copy(this, entity);
         }
 
         public void MapTo(ref User entity)
         {
-            Utilities.Copy(entity, this);
+            Utilitys.Copy(entity, this);
         }
     }
 }

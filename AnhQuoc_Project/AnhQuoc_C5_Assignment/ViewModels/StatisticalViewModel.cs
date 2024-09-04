@@ -37,12 +37,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Statistical dest, StatisticalDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(StatisticalDto dest, StatisticalDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

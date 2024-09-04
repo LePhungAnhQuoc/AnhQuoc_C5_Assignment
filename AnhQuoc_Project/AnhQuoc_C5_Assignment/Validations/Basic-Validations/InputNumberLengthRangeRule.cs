@@ -21,30 +21,30 @@ namespace AnhQuoc_C5_Assignment
 
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            if (Utilities.FormNotEmptyRule(value))
+            if (Utilitys.FormNotEmptyRule(value))
             {
                 string getValue = (string)value;
-                if (Utilities.InputNumberRule(getValue))
+                if (Utilitys.InputNumberRule(getValue))
                 {
                     int getLength = getValue.Length;
 
-                    if (Utilities.IsCheckRange(getLength, Min, Max))
+                    if (Utilitys.IsCheckRange(getLength, Min, Max))
                     {
                         return ValidationResult.ValidResult;
                     }
                     else
                     {
-                        return new ValidationResult(false, Utilities.ValidateNoteInputNumberLengthRangeRule(Min, Max));
+                        return new ValidationResult(false, Utilitys.ValidateNoteInputNumberLengthRangeRule(Min, Max));
                     }
                 }
                 else
                 {
-                    return new ValidationResult(false, Utilities.ValidateNoteInputNumberRule());
+                    return new ValidationResult(false, Utilitys.ValidateNoteInputNumberRule());
                 }
             }
             else
             {
-                return new ValidationResult(false, Utilities.ValidateNoteFormNotEmptyRule());
+                return new ValidationResult(false, Utilitys.ValidateNoteFormNotEmptyRule());
             }
         }
     }

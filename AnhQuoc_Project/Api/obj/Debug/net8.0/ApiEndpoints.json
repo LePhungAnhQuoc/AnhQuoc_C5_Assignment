@@ -60,8 +60,8 @@
         "IsRequired": false
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Dtos.AddAdultDto",
+        "Name": "updateAdultDto",
+        "Type": "Api.Models.Dtos.UpdateAdultDto",
         "IsRequired": true
       },
       {
@@ -112,8 +112,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.Author",
+        "Name": "addAuthorDto",
+        "Type": "Api.Models.Dtos.AddAuthorDto",
         "IsRequired": true
       }
     ],
@@ -149,8 +149,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.Author",
+        "Name": "updateAuthorDto",
+        "Type": "Api.Models.Dtos.UpdateAuthorDto",
         "IsRequired": true
       }
     ],
@@ -191,8 +191,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.Book",
+        "Name": "addBookDto",
+        "Type": "Api.Models.Dtos.AddBookDto",
         "IsRequired": true
       }
     ],
@@ -228,8 +228,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.Book",
+        "Name": "updateBookDto",
+        "Type": "Api.Models.Dtos.UpdateBookDto",
         "IsRequired": true
       }
     ],
@@ -270,8 +270,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.BookIsbn",
+        "Name": "addBookISBNDto",
+        "Type": "Api.Models.Dtos.AddBookISBNDto",
         "IsRequired": true
       }
     ],
@@ -312,8 +312,8 @@
         "IsRequired": false
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.BookIsbn",
+        "Name": "updateBookISBNDto",
+        "Type": "Api.Models.Dtos.UpdateBookISBNDto",
         "IsRequired": true
       },
       {
@@ -364,8 +364,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.BookStatus",
+        "Name": "addBookStatusDto",
+        "Type": "Api.Models.Dtos.AddBookStatusDto",
         "IsRequired": true
       }
     ],
@@ -401,8 +401,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.BookStatus",
+        "Name": "updateBookStatusDto",
+        "Type": "Api.Models.Dtos.UpdateBookStatusDto",
         "IsRequired": true
       }
     ],
@@ -443,8 +443,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.BookTitle",
+        "Name": "addBookTitleDto",
+        "Type": "Api.Models.Dtos.AddBookTitleDto",
         "IsRequired": true
       }
     ],
@@ -480,8 +480,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.BookTitle",
+        "Name": "updateBookTitleDto",
+        "Type": "Api.Models.Dtos.UpdateBookTitleDto",
         "IsRequired": true
       }
     ],
@@ -522,8 +522,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.Category",
+        "Name": "addCategoryDto",
+        "Type": "Api.Models.Dtos.AddCategoryDto",
         "IsRequired": true
       }
     ],
@@ -559,8 +559,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.Category",
+        "Name": "updateCategoryDto",
+        "Type": "Api.Models.Dtos.UpdateCategoryDto",
         "IsRequired": true
       }
     ],
@@ -638,7 +638,7 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
+        "Name": "updateChildDto",
         "Type": "Api.Models.Dtos.UpdateChildDto",
         "IsRequired": true
       }
@@ -680,8 +680,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.Function",
+        "Name": "addFunctionDto",
+        "Type": "Api.Models.Dtos.AddFunctionDto",
         "IsRequired": true
       }
     ],
@@ -717,8 +717,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.Function",
+        "Name": "updateFunctionDto",
+        "Type": "Api.Models.Dtos.UpdateFunctionDto",
         "IsRequired": true
       }
     ],
@@ -759,8 +759,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.LoanDetail",
+        "Name": "addLoanDetailDto",
+        "Type": "Api.Models.Dtos.AddLoanDetailDto",
         "IsRequired": true
       }
     ],
@@ -796,8 +796,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.LoanDetail",
+        "Name": "updateLoanDetailDto",
+        "Type": "Api.Models.Dtos.UpdateLoanDetailDto",
         "IsRequired": true
       }
     ],
@@ -838,8 +838,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.LoanDetailHistory",
+        "Name": "addLoanDetailHistoryDto",
+        "Type": "Api.Models.Dtos.AddLoanDetailHistoryDto",
         "IsRequired": true
       }
     ],
@@ -875,8 +875,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.LoanDetailHistory",
+        "Name": "updateLoanDetailHistoryDto",
+        "Type": "Api.Models.Dtos.UpdateLoanDetailHistoryDto",
         "IsRequired": true
       }
     ],
@@ -917,8 +917,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.LoanHistory",
+        "Name": "addLoanHistoryDto",
+        "Type": "Api.Models.Dtos.AddLoanHistoryDto",
         "IsRequired": true
       }
     ],
@@ -954,8 +954,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.LoanHistory",
+        "Name": "updateLoanHistoryDto",
+        "Type": "Api.Models.Dtos.UpdateLoanHistoryDto",
         "IsRequired": true
       }
     ],
@@ -996,8 +996,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.LoanSlip",
+        "Name": "addLoanSlipDto",
+        "Type": "Api.Models.Dtos.AddLoanSlipDto",
         "IsRequired": true
       }
     ],
@@ -1033,8 +1033,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.LoanSlip",
+        "Name": "updateLoanSlipDto",
+        "Type": "Api.Models.Dtos.UpdateLoanSlipDto",
         "IsRequired": true
       }
     ],
@@ -1075,8 +1075,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.Parameter",
+        "Name": "addParameterDto",
+        "Type": "Api.Models.Dtos.AddParameterDto",
         "IsRequired": true
       }
     ],
@@ -1112,8 +1112,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.Parameter",
+        "Name": "updateParameterDto",
+        "Type": "Api.Models.Dtos.UpdateParameterDto",
         "IsRequired": true
       }
     ],
@@ -1154,8 +1154,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.PenaltyReason",
+        "Name": "addPenaltyReasonDto",
+        "Type": "Api.Models.Dtos.AddPenaltyReasonDto",
         "IsRequired": true
       }
     ],
@@ -1191,8 +1191,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.PenaltyReason",
+        "Name": "updatePenaltyReasonDto",
+        "Type": "Api.Models.Dtos.UpdatePenaltyReasonDto",
         "IsRequired": true
       }
     ],
@@ -1233,8 +1233,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.Province",
+        "Name": "addProvinceDto",
+        "Type": "Api.Models.Dtos.AddProvinceDto",
         "IsRequired": true
       }
     ],
@@ -1270,8 +1270,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.Province",
+        "Name": "updateProvinceDto",
+        "Type": "Api.Models.Dtos.UpdateProvinceDto",
         "IsRequired": true
       }
     ],
@@ -1312,8 +1312,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.Publisher",
+        "Name": "addPublisherDto",
+        "Type": "Api.Models.Dtos.AddPublisherDto",
         "IsRequired": true
       }
     ],
@@ -1349,8 +1349,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.Publisher",
+        "Name": "updatePublisherDto",
+        "Type": "Api.Models.Dtos.UpdatePublisherDto",
         "IsRequired": true
       }
     ],
@@ -1391,8 +1391,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.Reader",
+        "Name": "addReaderDto",
+        "Type": "Api.Models.Dtos.AddReaderDto",
         "IsRequired": true
       }
     ],
@@ -1428,8 +1428,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.Reader",
+        "Name": "updateReaderDto",
+        "Type": "Api.Models.Dtos.UpdateReaderDto",
         "IsRequired": true
       }
     ],
@@ -1470,8 +1470,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.Role",
+        "Name": "addRoleDto",
+        "Type": "Api.Models.Dtos.AddRoleDto",
         "IsRequired": true
       }
     ],
@@ -1507,8 +1507,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.Role",
+        "Name": "updateRoleDto",
+        "Type": "Api.Models.Dtos.UpdateRoleDto",
         "IsRequired": true
       }
     ],
@@ -1549,8 +1549,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.RoleFunction",
+        "Name": "addRoleFunctionDto",
+        "Type": "Api.Models.Dtos.AddRoleFunctionDto",
         "IsRequired": true
       }
     ],
@@ -1586,8 +1586,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.RoleFunction",
+        "Name": "updateRoleFunctionDto",
+        "Type": "Api.Models.Dtos.UpdateRoleFunctionDto",
         "IsRequired": true
       }
     ],
@@ -1628,8 +1628,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.Statistical",
+        "Name": "addStatisticalDto",
+        "Type": "Api.Models.Dtos.AddStatisticalDto",
         "IsRequired": true
       }
     ],
@@ -1670,8 +1670,8 @@
         "IsRequired": false
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.Statistical",
+        "Name": "updateStatisticalDto",
+        "Type": "Api.Models.Dtos.UpdateStatisticalDto",
         "IsRequired": true
       },
       {
@@ -1722,8 +1722,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.Translator",
+        "Name": "addTranslatorDto",
+        "Type": "Api.Models.Dtos.AddTranslatorDto",
         "IsRequired": true
       }
     ],
@@ -1759,8 +1759,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.Translator",
+        "Name": "updateTranslatorDto",
+        "Type": "Api.Models.Dtos.UpdateTranslatorDto",
         "IsRequired": true
       }
     ],
@@ -1801,8 +1801,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.User",
+        "Name": "addUserDto",
+        "Type": "Api.Models.Dtos.AddUserDto",
         "IsRequired": true
       }
     ],
@@ -1838,8 +1838,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.User",
+        "Name": "updateUserDto",
+        "Type": "Api.Models.Dtos.UpdateUserDto",
         "IsRequired": true
       }
     ],
@@ -1880,8 +1880,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.UserInfo",
+        "Name": "addUserInfoDto",
+        "Type": "Api.Models.Dtos.AddUserInfoDto",
         "IsRequired": true
       }
     ],
@@ -1922,8 +1922,8 @@
         "IsRequired": false
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.UserInfo",
+        "Name": "updateUserInfoDto",
+        "Type": "Api.Models.Dtos.UpdateUserInfoDto",
         "IsRequired": true
       },
       {
@@ -1974,8 +1974,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newItem",
-        "Type": "Api.Models.Entities.UserRole",
+        "Name": "addUserRoleDto",
+        "Type": "Api.Models.Dtos.AddUserRoleDto",
         "IsRequired": true
       }
     ],
@@ -2011,8 +2011,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateItem",
-        "Type": "Api.Models.Entities.UserRole",
+        "Name": "updateUserRoleDto",
+        "Type": "Api.Models.Dtos.UpdateUserRoleDto",
         "IsRequired": true
       }
     ],

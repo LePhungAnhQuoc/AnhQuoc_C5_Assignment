@@ -37,8 +37,10 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Statistical newItem)
+        public IActionResult Create(AddStatisticalDto addStatisticalDto)
         {
+            Statistical newItem = new Statistical();
+            addStatisticalDto.MapTo(ref newItem);
             quanLyThuVienContext.Statisticals.Add(newItem);
 
             quanLyThuVienContext.SaveChanges();
@@ -47,15 +49,14 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{DateTime}")]
-        public IActionResult Update(string id, Statistical updateItem)
+        public IActionResult Update(string id, UpdateStatisticalDto updateStatisticalDto)
         {
             var getItem = quanLyThuVienContext.Statisticals.Find(id);
 
             if (getItem is null)
                 return NotFound();
 
-            Utilitys.Copy(getItem, updateItem);
-            
+            updateStatisticalDto.MapTo(ref getItem);
             quanLyThuVienContext.SaveChanges();
             return Ok(getItem);
         }

@@ -17,11 +17,11 @@ namespace AnhQuoc_C5_Assignment
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             string getValue = (string)value;
-            if (Utilities.FormNotEmptyRule(value))
+            if (Utilitys.FormNotEmptyRule(value))
             {
-                if (!Utilities.InputNumberRule(getValue))
+                if (!Utilitys.InputNumberRule(getValue))
                 {
-                    return new ValidationResult(false, Utilities.ValidateNoteInputNumberRule());
+                    return new ValidationResult(false, Utilitys.ValidateNoteInputNumberRule());
                 }
             }
             return ValidationResult.ValidResult;

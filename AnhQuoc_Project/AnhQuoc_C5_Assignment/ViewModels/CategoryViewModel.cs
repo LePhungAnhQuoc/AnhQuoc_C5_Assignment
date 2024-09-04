@@ -41,7 +41,7 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(CategoryDto item)
         {
-            return Utilities.IsCheckEmptyItem(item, false);
+            return Utilitys.IsCheckEmptyItem(item, false);
         }
 
         public Category CreateByDto(CategoryDto dto)
@@ -53,12 +53,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Category dest, CategoryDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(CategoryDto dest, CategoryDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

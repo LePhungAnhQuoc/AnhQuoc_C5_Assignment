@@ -56,7 +56,7 @@ namespace AnhQuoc_C5_Assignment
 
         public ObservableCollection<Child> GetListFromReaders(ObservableCollection<Reader> childReaders, bool? statusValue)
         {
-            childReaders = Utilities.FillByStatus(childReaders, statusValue);
+            childReaders = Utilitys.FillByStatus(childReaders, statusValue);
 
             ObservableCollection<Child> newList = new ObservableCollection<Child>();
             foreach (Reader reader in childReaders)
@@ -111,12 +111,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Child dest, ChildDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(ChildDto dest, ChildDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

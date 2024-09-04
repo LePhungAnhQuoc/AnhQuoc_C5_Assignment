@@ -11,7 +11,7 @@ namespace AnhQuoc_C5_Assignment
         public override PublisherDto ConvertToDto(Publisher sourceItem)
         {
             PublisherDto newItem = new PublisherDto(sourceItem.Id);
-            Utilities.Copy(newItem, sourceItem);
+            Utilitys.Copy(newItem, sourceItem);
             return newItem;
         }
     }

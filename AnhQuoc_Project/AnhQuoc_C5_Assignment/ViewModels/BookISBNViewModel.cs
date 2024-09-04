@@ -53,7 +53,7 @@ namespace AnhQuoc_C5_Assignment
                 var loanDetails = loanDetailVM.FillListByIdLoan(item.Id);
                 var books = bookVM.GetBooksInLoanDetails(loanDetails);
                 var isbnsInBooks = books.Select(book => book.ISBN).ToObservableCollection();
-                var newDic = Utilities.GetOccurrenceInArray(isbnsInBooks);
+                var newDic = Utilitys.GetOccurrenceInArray(isbnsInBooks);
 
                 newDic.ForEach(key =>
                 {
@@ -140,7 +140,7 @@ namespace AnhQuoc_C5_Assignment
 
         public ObservableCollection<string> FillLanguages(ObservableCollection<BookISBN> source, bool? statusValue)
         {
-            source = Utilities.FillByStatus(source, statusValue);
+            source = Utilitys.FillByStatus(source, statusValue);
             return source.Select(item => item.OriginLanguage).ToObservableCollection();
         }
 
@@ -151,7 +151,7 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(BookISBN item)
         {
-            return Utilities.IsCheckEmptyItem(item, false);
+            return Utilitys.IsCheckEmptyItem(item, false);
         }
 
         public BookISBN CreateByDto(BookISBNDto dto)
@@ -163,12 +163,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(BookISBN dest, BookISBNDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(BookISBNDto dest, BookISBNDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

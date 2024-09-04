@@ -10,10 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 using Api.Models.Dtos;
+using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
+using static System.Net.WebRequestMethods;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class APIProvider<T> where T : class
+    public class APIProvider<T> where T : class, IMapFromModel
     {
         private readonly string objectName;
         private readonly string localHost = "https://localhost:7287/";
@@ -59,11 +61,13 @@ namespace AnhQuoc_C5_Assignment
             return null;
         }
 
-        public void Post(T newItem, string keyName)
+        public void Post(T newItem)
         {
-            string jsonString = JsonConvert.SerializeObject(newItem);
+            var addTDto = newItem.MapToAdd();
 
-            string parameterUrl = GetParameterUrl(newItem);
+            string jsonString = JsonConvert.SerializeObject(addTDto);
+
+            string parameterUrl = GetParameterUrl(addTDto);
             var baseAddress = $"{localHost}api/{objectName}?" + parameterUrl;
 
             var http = (HttpWebRequest)WebRequest.Create(new Uri(baseAddress));
@@ -71,30 +75,18 @@ namespace AnhQuoc_C5_Assignment
             http.ContentType = "application/json";
             http.Method = "POST";
 
-            ASCIIEncoding encoding = new ASCIIEncoding();
+            UTF8Encoding encoding = new UTF8Encoding();
             Byte[] bytes = encoding.GetBytes(jsonString);
 
-            Stream newStream = http.GetRequestStream();
-            newStream.Write(bytes, 0, bytes.Length);
-            newStream.Close();
-
-
-            var response = http.GetResponse();
-            var stream = response.GetResponseStream();
+            GetStreamAndResponse(http, bytes);
         }
 
-        public void Put(string id, T updateItem, string keyName)
+        public void Put(string id, T updateItem)
         {
-            UpdateChildDto updateChildDto = new UpdateChildDto
-            {
-                IdAdult = "R03",
-                Status = false,
-                ModifiedAt = DateTime.Now
-            };
+            var updateTDto = updateItem.MapToUpdate();
 
-            string jsonString = JsonConvert.SerializeObject(updateChildDto);
-
-            string parameter = GetParameterUrl(updateChildDto);
+            string jsonString = JsonConvert.SerializeObject(updateTDto);
+            string parameter = GetParameterUrl(updateTDto);
 
             var baseAddress = $"{localHost}api/{objectName}/{id}?" + parameter;
 
@@ -103,15 +95,10 @@ namespace AnhQuoc_C5_Assignment
             http.ContentType = "application/json";
             http.Method = "PUT";
 
-            ASCIIEncoding encoding = new ASCIIEncoding();
+            UTF8Encoding encoding = new UTF8Encoding();
             Byte[] bytes = encoding.GetBytes(jsonString);
 
-            Stream newStream = http.GetRequestStream();
-            newStream.Write(bytes, 0, bytes.Length);
-            newStream.Close();
-
-            var response = http.GetResponse();
-            var stream = response.GetResponseStream();
+            GetStreamAndResponse(http, bytes);
         }
 
         public void Delete(string id)
@@ -123,22 +110,41 @@ namespace AnhQuoc_C5_Assignment
             http.ContentType = "application/json";
             http.Method = "DELETE";
 
-            var response = http.GetResponse();
-            var stream = response.GetResponseStream();
+            using (var response = http.GetResponse())
+            {
+                using (var stream = response.GetResponseStream())
+                {
+                }
+            }
         }
 
         #region PrivateMethods
         private string GetParameterUrl(object newItem)
         {
-            var listProps = Utilities.getPropsFromType(newItem.GetType());
+            var listProps = Utilitys.getPropsFromType(newItem.GetType());
 
             StringBuilder parameter = new StringBuilder();
             foreach (var prop in listProps)
             {
-                parameter.Append($"{prop.Name} = " + Utilities.getValueFromProperty(prop, newItem) + "&");
+                parameter.Append($"{prop.Name} = " + Utilitys.getValueFromProperty(prop, newItem) + "&");
             }
             parameter.Remove(parameter.Length - 1, 1);
             return parameter.ToString();
+        }
+
+        private void GetStreamAndResponse(HttpWebRequest http, Byte[] bytes)
+        {
+            using (Stream newStream = http.GetRequestStream())
+            {
+                newStream.Write(bytes, 0, bytes.Length);
+            }
+
+            using (var response = http.GetResponse())
+            {
+                using (var stream = response.GetResponseStream())
+                {
+                }
+            }
         }
         #endregion
     }

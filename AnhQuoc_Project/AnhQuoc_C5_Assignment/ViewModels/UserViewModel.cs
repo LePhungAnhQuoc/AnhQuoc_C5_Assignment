@@ -74,7 +74,7 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(UserDto item)
         {
-            return Utilities.IsCheckEmptyItem(item, false);
+            return Utilitys.IsCheckEmptyItem(item, false);
         }
 
         public User CreateByDto(UserDto dto)
@@ -86,12 +86,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(User dest, UserDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(UserDto dest, UserDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

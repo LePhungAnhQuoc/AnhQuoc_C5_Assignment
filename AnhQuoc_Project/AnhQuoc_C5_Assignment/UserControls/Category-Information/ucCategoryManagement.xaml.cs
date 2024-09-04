@@ -218,8 +218,8 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFills);
             #endregion
 
-            var message = Utilities.NotifyAddSuccessfully("category");
-            Utilities.ShowMessageBox1(message);
+            var message = Utilitys.NotifyAddSuccessfully("category");
+            Utilitys.ShowMessageBox1(message);
 
         }
 
@@ -227,7 +227,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucCategorysTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("category"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("category"));
                 return;
             }
 
@@ -237,7 +237,7 @@ namespace AnhQuoc_C5_Assignment
             ucCategoryInformation ucCategoryInformation = MainWindow.UnitOfForm.UcCategoryInformation(true);
             ucCategoryInformation.getItem = () => categoryDtoSelect;
 
-            Window frmCategoryInformation = Utilities.CreateDefaultForm();
+            Window frmCategoryInformation = Utilitys.CreateDefaultForm();
             frmCategoryInformation.Content = ucCategoryInformation;
             frmCategoryInformation.Show();
 
@@ -262,7 +262,7 @@ namespace AnhQuoc_C5_Assignment
             string message = string.Empty;
             if (ucCategorysTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("category"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("category"));
                 return;
             }
 
@@ -274,12 +274,12 @@ namespace AnhQuoc_C5_Assignment
                 var listTemp = bookTitleVM.FillByIdCategory(bookTitleVM.Repo.Gets(), categorySelect.Id, null);
                 if (listTemp.Count > 0)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("category"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("category"));
                     return;
                 }
 
-                message = Utilities.NotifySureToDelete();
-                if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
+                message = Utilitys.NotifySureToDelete();
+                if (Utilitys.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                     return;
             }
 
@@ -289,9 +289,9 @@ namespace AnhQuoc_C5_Assignment
             ucCategorysTable.ModifiedPagination();
 
             if (updateStatus == false)
-                message = Utilities.NotifyDeleteSuccessfully("category");
+                message = Utilitys.NotifyDeleteSuccessfully("category");
             else
-                message = Utilities.NotifyRestoreSuccessfully("category");
+                message = Utilitys.NotifyRestoreSuccessfully("category");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
         }
 
@@ -299,7 +299,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucCategorysTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("category"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("category"));
                 return;
             }
 
@@ -326,8 +326,8 @@ namespace AnhQuoc_C5_Assignment
 
             ucCategorysTable.ModifiedPagination();
 
-            var message = Utilities.NotifyUpdateSuccessfully("category");
-            Utilities.ShowMessageBox1(message);
+            var message = Utilitys.NotifyUpdateSuccessfully("category");
+            Utilitys.ShowMessageBox1(message);
         }
 
         private void AddToListFill(ObservableCollection<Category> items)

@@ -196,12 +196,12 @@ namespace AnhQuoc_C5_Assignment
 
         private void TxtServerName_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            Utilities.MoveComboBox(cbServerName, e);
+            Utilitys.MoveComboBox(cbServerName, e);
         }
 
         private void TxtDatabaseName_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            Utilities.MoveComboBox(cbDatabaseName, e);
+            Utilitys.MoveComboBox(cbDatabaseName, e);
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
@@ -224,9 +224,9 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ServerName == null)
             {
-                if (Utilities.IsCheckEmptyString(txtServerName.Text))
+                if (Utilitys.IsCheckEmptyString(txtServerName.Text))
                 {
-                    Utilities.ShowMessageBox1(Utilities.ValidateNoteFormNotEmptyRule());
+                    Utilitys.ShowMessageBox1(Utilitys.ValidateNoteFormNotEmptyRule());
                     return false;
                 }
                 else
@@ -237,9 +237,9 @@ namespace AnhQuoc_C5_Assignment
 
             if (ServerName != null)
             {
-                if (Utilities.IsCheckEmptyString(txtServerName.Text))
+                if (Utilitys.IsCheckEmptyString(txtServerName.Text))
                 {
-                    Utilities.ShowMessageBox1(Utilities.ValidateNoteFormNotEmptyRule());
+                    Utilitys.ShowMessageBox1(Utilitys.ValidateNoteFormNotEmptyRule());
                     return false;
                 }
                 else
@@ -260,9 +260,9 @@ namespace AnhQuoc_C5_Assignment
         {
             if (DatabaseName == null)
             {
-                if (Utilities.IsCheckEmptyString(txtDatabaseName.Text))
+                if (Utilitys.IsCheckEmptyString(txtDatabaseName.Text))
                 {
-                    Utilities.ShowMessageBox1(Utilities.ValidateNoteFormNotEmptyRule());
+                    Utilitys.ShowMessageBox1(Utilitys.ValidateNoteFormNotEmptyRule());
                     return false;
                 }
                 else
@@ -273,9 +273,9 @@ namespace AnhQuoc_C5_Assignment
 
             if (DatabaseName != null)
             {
-                if (Utilities.IsCheckEmptyString(txtDatabaseName.Text))
+                if (Utilitys.IsCheckEmptyString(txtDatabaseName.Text))
                 {
-                    Utilities.ShowMessageBox1(Utilities.ValidateNoteFormNotEmptyRule());
+                    Utilitys.ShowMessageBox1(Utilitys.ValidateNoteFormNotEmptyRule());
                     return false;
                 }
                 else

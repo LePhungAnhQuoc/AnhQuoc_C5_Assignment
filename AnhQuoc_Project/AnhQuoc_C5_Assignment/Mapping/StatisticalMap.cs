@@ -12,7 +12,7 @@ namespace AnhQuoc_C5_Assignment
         public override StatisticalDto ConvertToDto(Statistical sourceItem)
         {
             StatisticalDto newItem = new StatisticalDto(sourceItem.DateTime);
-            Utilities.Copy(newItem, sourceItem);
+            Utilitys.Copy(newItem, sourceItem);
 
             return newItem;
         }

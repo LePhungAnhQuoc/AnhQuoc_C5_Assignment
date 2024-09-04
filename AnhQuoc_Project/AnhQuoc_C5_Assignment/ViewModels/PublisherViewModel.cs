@@ -41,7 +41,7 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(PublisherDto item)
         {
-            return Utilities.IsCheckEmptyItem(item, false);
+            return Utilitys.IsCheckEmptyItem(item, false);
         }
 
         public Publisher CreateByDto(PublisherDto dto)
@@ -53,12 +53,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Publisher dest, PublisherDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(PublisherDto dest, PublisherDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

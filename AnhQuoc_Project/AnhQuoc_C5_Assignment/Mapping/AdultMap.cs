@@ -19,7 +19,7 @@ namespace AnhQuoc_C5_Assignment
             ReaderDto readerDto = readerMap.ConvertToDto(readerVM.FindById(itemSource.IdReader));
 
             AdultDto newItem = new AdultDto(itemSource.IdReader);
-            Utilities.Copy(newItem, itemSource);
+            Utilitys.Copy(newItem, itemSource);
             
             newItem.ReaderName = readerDto.FullName;
             newItem.ListChild = childVM.FillByIdAdult(itemSource.IdReader, child_Status);

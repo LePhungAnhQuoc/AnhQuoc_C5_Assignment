@@ -28,7 +28,7 @@ namespace AnhQuoc_C5_Assignment
             BookStatu bookStatus = bookStatusVM.FindById(sourceItem.IdBookStatus);
 
             BookDto newItem = new BookDto(sourceItem.Id);
-            Utilities.Copy(newItem, sourceItem);
+            Utilitys.Copy(newItem, sourceItem);
 
             newItem.ISBN = bookISBN.ISBN;
             newItem.BookTitle = bookTitle;

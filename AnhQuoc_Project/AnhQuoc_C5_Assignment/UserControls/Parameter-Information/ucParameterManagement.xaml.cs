@@ -215,14 +215,14 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFillParameters);
             #endregion
 
-            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("parameter"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyAddSuccessfully("parameter"));
         }
 
         private void UcParametersTable_btnInfoClick(object sender, RoutedEventArgs e)
         {
             if (ucParametersTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("parameter"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("parameter"));
                 return;
             }
 
@@ -232,7 +232,7 @@ namespace AnhQuoc_C5_Assignment
             ucParameterInformation ucParameterInformation = MainWindow.UnitOfForm.UcParameterInformation(true);
             ucParameterInformation.getItem = () => parameterDtoSelect;
 
-            Window frmParameterInformation = Utilities.CreateDefaultForm();
+            Window frmParameterInformation = Utilitys.CreateDefaultForm();
             frmParameterInformation.Content = ucParameterInformation;
             frmParameterInformation.Show();
 
@@ -257,7 +257,7 @@ namespace AnhQuoc_C5_Assignment
             string message = string.Empty;
             if (ucParametersTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("parameter"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("parameter"));
                 return;
             }
 
@@ -266,11 +266,11 @@ namespace AnhQuoc_C5_Assignment
 
             if (updateStatus == false)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("parameter"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("parameter"));
                 return;
 
-                message = Utilities.NotifySureToDelete();
-                if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
+                message = Utilitys.NotifySureToDelete();
+                if (Utilitys.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                     return;
             }
 
@@ -280,9 +280,9 @@ namespace AnhQuoc_C5_Assignment
             ucParametersTable.ModifiedPagination();
 
             if (updateStatus == false)
-                message = Utilities.NotifyDeleteSuccessfully("parameter");
+                message = Utilitys.NotifyDeleteSuccessfully("parameter");
             else
-                message = Utilities.NotifyRestoreSuccessfully("parameter");
+                message = Utilitys.NotifyRestoreSuccessfully("parameter");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
         }
 
@@ -290,7 +290,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucParametersTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("parameter"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("parameter"));
                 return;
             }
 
@@ -317,7 +317,7 @@ namespace AnhQuoc_C5_Assignment
 
             ucParametersTable.ModifiedPagination();
 
-            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("parameter"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyUpdateSuccessfully("parameter"));
         }
 
         private void AddToListFill(ObservableCollection<Parameter> items)

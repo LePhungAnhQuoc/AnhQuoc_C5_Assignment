@@ -226,7 +226,7 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFills);
             #endregion
 
-            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("role"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyAddSuccessfully("role"));
         }
 
         private void UcRolesTable_btnDeleteClick(object sender, RoutedEventArgs e)
@@ -234,7 +234,7 @@ namespace AnhQuoc_C5_Assignment
             bool updateStatus = false;
             if (ucRolesTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("role"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("role"));
                 return;
             }
 
@@ -248,19 +248,19 @@ namespace AnhQuoc_C5_Assignment
 
                 if (listTemp.Count > 0)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("role"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("role"));
                     return;
                 }
             }
             else
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("role"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("role"));
                 return;
             }
 
 
-            string message = Utilities.NotifySureToDelete();
-            if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
+            string message = Utilitys.NotifySureToDelete();
+            if (Utilitys.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                 return;
         
             roleSelect.Status = updateStatus;
@@ -268,7 +268,7 @@ namespace AnhQuoc_C5_Assignment
 
             ucRolesTable.ModifiedPagination();
 
-            message = Utilities.NotifyDeleteSuccessfully("role");
+            message = Utilitys.NotifyDeleteSuccessfully("role");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
         }
 
@@ -276,7 +276,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucRolesTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("role"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("role"));
                 return;
             }
 
@@ -304,7 +304,7 @@ namespace AnhQuoc_C5_Assignment
             ucRolesTable.ModifiedPagination();
             #endregion
 
-            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("role"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyUpdateSuccessfully("role"));
 
         }
 

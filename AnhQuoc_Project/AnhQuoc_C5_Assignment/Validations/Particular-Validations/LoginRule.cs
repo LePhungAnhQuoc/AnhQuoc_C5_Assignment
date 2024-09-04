@@ -15,11 +15,11 @@ namespace AnhQuoc_C5_Assignment
         {
             string strInput = (string)value;
 
-            if (Utilities.IsCheckEmptyString(strInput))
-                return new ValidationResult(false, Utilities.ValidateNoteFormNotEmptyRule());
+            if (Utilitys.IsCheckEmptyString(strInput))
+                return new ValidationResult(false, Utilitys.ValidateNoteFormNotEmptyRule());
 
-            if (Utilities.InputUnicodeTextNumberRule(strInput, true) == false)
-                return new ValidationResult(false, Utilities.ValidateNoteInputUnicodeTextNumberRule());
+            if (Utilitys.InputUnicodeTextNumberRule(strInput, true) == false)
+                return new ValidationResult(false, Utilitys.ValidateNoteInputUnicodeTextNumberRule());
 
             return ValidationResult.ValidResult;
         }

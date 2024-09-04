@@ -32,7 +32,7 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(UserInfo dest, UserDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

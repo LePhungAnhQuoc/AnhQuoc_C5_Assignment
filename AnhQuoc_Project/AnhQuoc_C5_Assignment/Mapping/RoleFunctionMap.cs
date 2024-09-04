@@ -18,7 +18,7 @@ namespace AnhQuoc_C5_Assignment
             Function function = functionVM.FindById(sourceItem.IdFunction, null);
 
             RoleFunctionDto newItem = new RoleFunctionDto(sourceItem.Id);
-            Utilities.Copy(newItem, sourceItem);
+            Utilitys.Copy(newItem, sourceItem);
             newItem.Role = role;
             newItem.Function = function;
 

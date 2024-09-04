@@ -18,12 +18,12 @@ namespace Api.Models.Dtos
 
         public void MapFrom(User entity)
         {
-            Utilities.Copy(this, entity);
+            Utilitys.Copy(this, entity);
         }
 
         public void MapTo(ref User entity)
         {
-            Utilities.Copy(entity, this);
+            Utilitys.Copy(entity, this);
         }
     }
 }

@@ -44,12 +44,12 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(LoanHistoryDto item)
         {
-            if (Utilities.IsCheckEmptyString(item.Id))
+            if (Utilitys.IsCheckEmptyString(item.Id))
             {
                 return false;
             }
 
-            if (Utilities.IsCheckEmptyString(item.IdReader))
+            if (Utilitys.IsCheckEmptyString(item.IdReader))
             {
                 return false;
             }
@@ -101,12 +101,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(LoanHistory dest, LoanHistoryDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(LoanHistoryDto dest, LoanHistoryDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
 

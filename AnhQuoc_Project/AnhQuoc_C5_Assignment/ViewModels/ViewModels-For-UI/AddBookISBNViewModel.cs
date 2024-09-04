@@ -11,7 +11,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddBookISBNViewModel<T, TDto> : BaseViewModel<object>, IPageViewModel
+    public class AddBookISBNViewModel<T, TDto> : BaseViewModel<BookISBN>, IPageViewModel
     {
         #region Fields
         public bool IsCancel { get; set; }
@@ -106,7 +106,7 @@ namespace AnhQuoc_C5_Assignment
 
             AllBookTitles = bookTitleVM.Repo.Gets();
             AllAuthors = authorVM.Repo.Gets();
-            AllLanguages = Utilities.GetListAllLanguages();
+            AllLanguages = Utilitys.GetListAllLanguages();
 
             #region Init-Commands
             //LoadedCmd = new RelayCommand((para) => frmAddBookISBN_Loaded(para, null));
@@ -127,7 +127,7 @@ namespace AnhQuoc_C5_Assignment
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
             {
-                mainContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+                mainContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
             }
 
             TextBoxes = mainContentControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
@@ -162,19 +162,19 @@ namespace AnhQuoc_C5_Assignment
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
             }
 
             BookISBN getBookISBN = bookISBNVM.CreateByDto(Item);
-            bool isCheck = Utilities.IsExistInformation(thisForm.getBookISBNRepo().Gets(), getBookISBN, true, Constants.checkPropBookISBN);
+            bool isCheck = Utilitys.IsExistInformation(thisForm.getBookISBNRepo().Gets(), getBookISBN, true, Constants.checkPropBookISBN);
             if (isCheck)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("book ISBN"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("book ISBN"));
                 return;
             }
 
@@ -185,9 +185,9 @@ namespace AnhQuoc_C5_Assignment
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -196,13 +196,13 @@ namespace AnhQuoc_C5_Assignment
             BookISBN normalItem = bookISBNVM.CreateByDto(Item);
             BookISBN normalSourceItem = bookISBNVM.CreateByDto(thisForm.getItemToUpdate());
 
-            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropBookISBN);
+            bool isExistItemToUpdate = Utilitys.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropBookISBN);
             if (!isExistItemToUpdate)
             {
-                bool isExistInformation = Utilities.IsExistInformation(thisForm.getBookISBNRepo().Gets(), normalItem, true, Constants.checkPropBookISBN);
+                bool isExistInformation = Utilitys.IsExistInformation(thisForm.getBookISBNRepo().Gets(), normalItem, true, Constants.checkPropBookISBN);
                 if (isExistInformation)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("book ISBN"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("book ISBN"));
                     return;
                 }
             }

@@ -37,26 +37,25 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Translator newItem)
+        public IActionResult Create(AddTranslatorDto addTranslatorDto)
         {
+            Translator newItem = new Translator();
+            addTranslatorDto.MapTo(ref newItem);
             quanLyThuVienContext.Translators.Add(newItem);
-
             quanLyThuVienContext.SaveChanges();
             return Ok(newItem);
         }
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Update(string id, Translator updateItem)
+        public IActionResult Update(string id, UpdateTranslatorDto updateTranslatorDto)
         {
             var getItem = quanLyThuVienContext.Translators.Find(id);
 
             if (getItem is null)
                 return NotFound();
 
-            Utilitys.Copy(getItem, updateItem);
-            getItem.ModifiedAt = DateTime.Now;
-            
+            updateTranslatorDto.MapTo(ref getItem);
             quanLyThuVienContext.SaveChanges();
             return Ok(getItem);
         }

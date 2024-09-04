@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddProvinceViewModel: BaseViewModel<object>, IPageViewModel
+    public class AddProvinceViewModel: BaseViewModel<Province>, IPageViewModel
     {
         #region Fields
         public bool IsCancel { get; set; }
@@ -78,7 +78,7 @@ namespace AnhQuoc_C5_Assignment
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
             {
-                mainContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+                mainContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
             }
 
             TextBoxes = mainContentControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
@@ -124,19 +124,19 @@ namespace AnhQuoc_C5_Assignment
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
             }
 
             Province getProvince = provinceVM.CreateByDto(Item);
-            bool isCheck = Utilities.IsExistInformation(thisForm.getProvinceRepo().Gets(), getProvince, true, Constants.checkPropProvince);
+            bool isCheck = Utilitys.IsExistInformation(thisForm.getProvinceRepo().Gets(), getProvince, true, Constants.checkPropProvince);
             if (isCheck)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("province"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("province"));
                 return;
             }
 
@@ -147,9 +147,9 @@ namespace AnhQuoc_C5_Assignment
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -158,13 +158,13 @@ namespace AnhQuoc_C5_Assignment
             Province normalItem = provinceVM.CreateByDto(Item);
             Province normalSourceItem = provinceVM.CreateByDto(thisForm.getItemToUpdate());
 
-            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropProvince);
+            bool isExistItemToUpdate = Utilitys.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropProvince);
             if (!isExistItemToUpdate)
             {
-                bool isExistInformation = Utilities.IsExistInformation(thisForm.getProvinceRepo().Gets(), normalItem, true, Constants.checkPropProvince);
+                bool isExistInformation = Utilitys.IsExistInformation(thisForm.getProvinceRepo().Gets(), normalItem, true, Constants.checkPropProvince);
                 if (isExistInformation)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("province"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("province"));
                     return;
                 }
             }

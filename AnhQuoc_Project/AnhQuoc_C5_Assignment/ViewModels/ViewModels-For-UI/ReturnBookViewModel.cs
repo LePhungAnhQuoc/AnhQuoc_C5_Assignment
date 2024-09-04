@@ -11,7 +11,7 @@ using System.Windows.Media;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class ReturnBookViewModel : BaseViewModel<object>, IPageViewModel
+    public class ReturnBookViewModel : BaseViewModel<Book>, IPageViewModel
     {
         #region Fields
         private bool handle = true;
@@ -428,7 +428,7 @@ namespace AnhQuoc_C5_Assignment
 
         public ReturnBookViewModel()
         {
-            AllReaderTypes = Utilities.GetListFromEnum<ReaderType>().ToObservableCollection();
+            AllReaderTypes = Utilitys.GetListFromEnum<ReaderType>().ToObservableCollection();
             AllLoanOfReader = new ObservableCollection<LoanSlip>();
             AllUnPaidBookCard = new ObservableCollection<ucBookCard>();
 
@@ -521,14 +521,14 @@ namespace AnhQuoc_C5_Assignment
         {
             if (SelectedReader == null)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("reader"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("reader"));
                 return;
             }
             SelectedReader = SelectedReader;
 
             if (ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.dgDatas.SelectedItem == null)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("loan slip"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("loan slip"));
                 return;
             }
 
@@ -579,9 +579,9 @@ namespace AnhQuoc_C5_Assignment
             SelectedLoanSlip = null;
 
             bool ignoreCase = true;
-            ComboBox comBoBox = Utilities.FindVisualChild<ComboBox>(parent);
+            ComboBox comBoBox = Utilitys.FindVisualChild<ComboBox>(parent);
 
-            if (Utilities.IsCheckEmptyString(txtInput.Text))
+            if (Utilitys.IsCheckEmptyString(txtInput.Text))
             {
                 SelectedReader = null;
                 return;
@@ -653,7 +653,7 @@ namespace AnhQuoc_C5_Assignment
             string newId = loanHistoryVM.GetId();
             Item = new LoanHistoryDto(newId);
             IsCheckProperties isCheckProperties = new IsCheckProperties(CheckPropertyType.Except);
-            Utilities.Copy(Item, SelectedLoanSlip, isCheckProperties);
+            Utilitys.Copy(Item, SelectedLoanSlip, isCheckProperties);
             Item.Id = newId;
             Item.CreateAt = DateTime.Now;
         }
@@ -720,7 +720,7 @@ namespace AnhQuoc_C5_Assignment
                 frmConfirmInformation.Close();
             };
             
-            Utilities.AddItemToFormDefault(frmConfirmInformation, ucLoanHistoryConfirm);
+            Utilitys.AddItemToFormDefault(frmConfirmInformation, ucLoanHistoryConfirm);
 
             frmConfirmInformation.Width = 800;
             frmConfirmInformation.SizeToContent = SizeToContent.Height;
@@ -769,7 +769,7 @@ namespace AnhQuoc_C5_Assignment
         private void TxtInputReason_Filter_TextChanged(TextBox txtInput, Grid parent, ObservableCollection<PenaltyReasonDto> sourceDto)
         {
             bool ignoreCase = true;
-            ComboBox comBoBox = Utilities.FindVisualChild<ComboBox>(parent);
+            ComboBox comBoBox = Utilitys.FindVisualChild<ComboBox>(parent);
 
             ObservableCollection<PenaltyReason> getfillList = null;
 
@@ -795,21 +795,21 @@ namespace AnhQuoc_C5_Assignment
                         fineAmount = 0;
                         SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusNormal;
                         SelectedUnPaidBookCard.Background = Brushes.White;
-                        SelectedUnPaidBookCard.Foreground = Utilities.GetColorFromCode("#000000");
+                        SelectedUnPaidBookCard.Foreground = Utilitys.GetColorFromCode("#000000");
                     }
                     else if (reason.Id == Constants.reason2)
                     {
                         fineAmount = SelectedUnPaidBookCard.Item.PriceCurrent;
                         SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusLost;
-                        SelectedUnPaidBookCard.Background = Utilities.GetColorFromCode("#da3445");
-                        SelectedUnPaidBookCard.Foreground = Utilities.GetColorFromCode("#ffffff");
+                        SelectedUnPaidBookCard.Background = Utilitys.GetColorFromCode("#da3445");
+                        SelectedUnPaidBookCard.Foreground = Utilitys.GetColorFromCode("#ffffff");
                     }
                     else if (reason.Id == Constants.reason3)
                     {
                         fineAmount = 0;
                         SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusSpoil;
-                        SelectedUnPaidBookCard.Background = Utilities.GetColorFromCode("#f7c300");
-                        SelectedUnPaidBookCard.Foreground = Utilities.GetColorFromCode("#000000");
+                        SelectedUnPaidBookCard.Background = Utilitys.GetColorFromCode("#f7c300");
+                        SelectedUnPaidBookCard.Foreground = Utilitys.GetColorFromCode("#000000");
                     }
 
                     if (BookPaids.FirstOrDefault(book => book.Id == SelectedUnPaidBookCard.getItem().Id) == null)
@@ -910,7 +910,7 @@ namespace AnhQuoc_C5_Assignment
         private void PassValueToItem(LoanHistory item)
         {
             IsCheckProperties isCheckProperties = new IsCheckProperties(CheckPropertyType.Except);
-            Utilities.Copy(item, Item, isCheckProperties);
+            Utilitys.Copy(item, Item, isCheckProperties);
         }
 
         private void GetDetailsFromLoanSlip()
@@ -1008,7 +1008,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (LoanDetailHistoryDtos.Count == 0)
             {
-                Utilities.ShowMessageBox1("You haven't return any book yet");
+                Utilitys.ShowMessageBox1("You haven't return any book yet");
                 return;
             }
 
@@ -1017,7 +1017,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (LoanDetailHistoryDtos.Count < loanDetails.Count)
             {
-                Utilities.ShowMessageBox1("Please return all the books of this loan slip");
+                Utilitys.ShowMessageBox1("Please return all the books of this loan slip");
                 return;
             }
 

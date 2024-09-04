@@ -55,7 +55,7 @@ namespace AnhQuoc_C5_Assignment
             this.DataContext = this;
             this.Loaded += FrmAdultInformation_Loaded;
 
-            Utilities.SetToolTipForTextBlock(mainContent);
+            Utilitys.SetToolTipForTextBlock(mainContent);
         }
         
         private void FrmAdultInformation_Loaded(object sender, RoutedEventArgs e)

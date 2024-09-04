@@ -31,12 +31,12 @@ namespace Api.Models.Dtos
 
         public void MapFrom(Adult entity)
         {
-            Utilities.Copy(this, entity);
+            Utilitys.Copy(this, entity);
         }
 
         public void MapTo(ref Adult entity)
         {
-            Utilities.Copy(entity, this);
+            Utilitys.Copy(entity, this);
         }
     }
 }

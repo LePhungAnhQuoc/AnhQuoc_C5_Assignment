@@ -218,14 +218,14 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFillProvinces);
             #endregion
 
-            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("province"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyAddSuccessfully("province"));
         }
 
         private void UcProvincesTable_btnInfoClick(object sender, RoutedEventArgs e)
         {
             if (ucProvincesTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("province"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("province"));
                 return;
             }
 
@@ -235,7 +235,7 @@ namespace AnhQuoc_C5_Assignment
             ucProvinceInformation ucProvinceInformation = MainWindow.UnitOfForm.UcProvinceInformation(true);
             ucProvinceInformation.getItem = () => provinceDtoSelect;
 
-            Window frmProvinceInformation = Utilities.CreateDefaultForm();
+            Window frmProvinceInformation = Utilitys.CreateDefaultForm();
             frmProvinceInformation.Content = ucProvinceInformation;
             frmProvinceInformation.Show();
 
@@ -260,7 +260,7 @@ namespace AnhQuoc_C5_Assignment
             string message = string.Empty;
             if (ucProvincesTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("province"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("province"));
                 return;
             }
 
@@ -272,13 +272,13 @@ namespace AnhQuoc_C5_Assignment
                 var listTemp = adultVM.FillByCity(adultVM.Repo.Gets(), provinceSelect.Name, null);
                 if (listTemp.Count > 0)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("province"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("province"));
                     return;
                 }
 
 
-                message = Utilities.NotifySureToDelete();
-                if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
+                message = Utilitys.NotifySureToDelete();
+                if (Utilitys.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                     return;
             }
 
@@ -288,9 +288,9 @@ namespace AnhQuoc_C5_Assignment
             ucProvincesTable.ModifiedPagination();
 
             if (updateStatus == false)
-                message = Utilities.NotifyDeleteSuccessfully("province");
+                message = Utilitys.NotifyDeleteSuccessfully("province");
             else
-                message = Utilities.NotifyRestoreSuccessfully("province");
+                message = Utilitys.NotifyRestoreSuccessfully("province");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
         }
 
@@ -298,7 +298,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucProvincesTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("province"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("province"));
                 return;
             }
 
@@ -324,7 +324,7 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             ucProvincesTable.ModifiedPagination();
-            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("province"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyUpdateSuccessfully("province"));
         }
 
         private void AddToListFill(ObservableCollection<Province> items)

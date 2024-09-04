@@ -90,7 +90,7 @@ namespace AnhQuoc_C5_Assignment
 
             this.DataContext = this;
             this.Loaded += ucLoanSlipInformation_Loaded;
-            Utilities.SetToolTipForTextBlock(mainContent);
+            Utilitys.SetToolTipForTextBlock(mainContent);
         }
         
         private void ucLoanSlipInformation_Loaded(object sender, RoutedEventArgs e)

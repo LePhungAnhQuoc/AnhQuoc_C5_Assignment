@@ -37,8 +37,11 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(PenaltyReason newItem)
+        public IActionResult Create(AddPenaltyReasonDto addPenaltyReasonDto)
         {
+            PenaltyReason newItem = new PenaltyReason();
+            addPenaltyReasonDto.MapTo(ref newItem);
+
             quanLyThuVienContext.PenaltyReasons.Add(newItem);
 
             quanLyThuVienContext.SaveChanges();
@@ -47,16 +50,14 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Update(string id, PenaltyReason updateItem)
+        public IActionResult Update(string id, UpdatePenaltyReasonDto updatePenaltyReasonDto)
         {
             var getItem = quanLyThuVienContext.PenaltyReasons.Find(id);
 
             if (getItem is null)
                 return NotFound();
 
-            Utilitys.Copy(getItem, updateItem);
-            getItem.ModifiedAt = DateTime.Now;
-            
+            updatePenaltyReasonDto.MapTo(ref getItem);
             quanLyThuVienContext.SaveChanges();
             return Ok(getItem);
         }

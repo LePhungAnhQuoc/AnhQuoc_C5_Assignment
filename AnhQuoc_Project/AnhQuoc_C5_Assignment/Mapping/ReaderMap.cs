@@ -17,7 +17,7 @@ namespace AnhQuoc_C5_Assignment
             ReaderDto newItem = new ReaderDto(sourceItem.Id);
 
             var isCheckProp = new IsCheckProperties(CheckPropertyType.Except, nameof(sourceItem.ReaderType));
-            Utilities.Copy(newItem, sourceItem, isCheckProp);
+            Utilitys.Copy(newItem, sourceItem, isCheckProp);
  
             newItem.ReaderType = sourceItem.ReaderType.ConvertValue();
 

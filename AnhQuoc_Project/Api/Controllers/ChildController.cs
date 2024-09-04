@@ -50,14 +50,14 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{idReader}")]
-        public IActionResult Update(string idReader, UpdateChildDto updateItem)
+        public IActionResult Update(string idReader, UpdateChildDto updateChildDto)
         {
             var getItem = quanLyThuVienContext.Children.Find(idReader);
 
             if (getItem is null)
                 return NotFound();
 
-            updateItem.MapTo(ref getItem);
+            updateChildDto.MapTo(ref getItem);
             quanLyThuVienContext.SaveChanges();
 
             return Ok(getItem);

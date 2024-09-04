@@ -16,7 +16,7 @@ namespace AnhQuoc_C5_Assignment
             var bookVM = UnitOfViewModel.Instance.BookViewModel;
 
             BookISBNDto newItem = new BookISBNDto(sourceItem.ISBN);
-            Utilities.Copy(newItem, sourceItem);
+            Utilitys.Copy(newItem, sourceItem);
 
             newItem.BookTitle = bookTitleVM.FindById(sourceItem.IdBookTitle);
             newItem.Author = authorVM.FindById(sourceItem.IdAuthor);

@@ -37,26 +37,29 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(BookIsbn newItem)
+        public IActionResult Create(AddBookISBNDto addBookISBNDto)
         {
-            quanLyThuVienContext.BookIsbns.Add(newItem);
+            BookIsbn newItem = new BookIsbn();
+            addBookISBNDto.MapTo(ref newItem);
 
+            quanLyThuVienContext.BookIsbns.Add(newItem);
             quanLyThuVienContext.SaveChanges();
+            
             return Ok(newItem);
         }
 
         [HttpPut]
         [Route("{isbn}")]
-        public IActionResult Update(string id, BookIsbn updateItem)
+        public IActionResult Update(string id, UpdateBookISBNDto updateBookISBNDto)
         {
             var getItem = quanLyThuVienContext.BookIsbns.Find(id);
 
             if (getItem is null)
                 return NotFound();
 
-            Utilitys.Copy(getItem, updateItem);
-            
+            updateBookISBNDto.MapTo(ref getItem);
             quanLyThuVienContext.SaveChanges();
+            
             return Ok(getItem);
         }
 

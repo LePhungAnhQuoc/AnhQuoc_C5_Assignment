@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Api.Models.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -11,7 +12,7 @@ namespace AnhQuoc_C5_Assignment
 {
     public class AdultRepository : Repository<Adult>
     {
-        public AdultRepository(APIProvider<Adult> ApiAdult) : base(ApiAdult)
+        public AdultRepository(APIProvider<Adult> ApiProvider) : base(ApiProvider)
         {
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Api.Models.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace AnhQuoc_C5_Assignment
 {
     public class BookStatusRepository : Repository<BookStatu>
     {
-        public BookStatusRepository(APIProvider<BookStatu> apiBookStatus) : base(apiBookStatus)
+        public BookStatusRepository(APIProvider<BookStatu> ApiProvider) : base(ApiProvider)
         {
         }
     }

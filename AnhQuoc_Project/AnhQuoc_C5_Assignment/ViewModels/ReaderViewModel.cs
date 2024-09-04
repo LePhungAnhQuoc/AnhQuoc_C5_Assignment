@@ -56,12 +56,12 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(Reader item)
         {
-            if (Utilities.IsCheckEmptyString(item.FName))
+            if (Utilitys.IsCheckEmptyString(item.FName))
             {
                 return false;
             }
 
-            if (Utilities.IsCheckEmptyString(item.LName))
+            if (Utilitys.IsCheckEmptyString(item.LName))
             {
                 return false;
             }
@@ -157,7 +157,7 @@ namespace AnhQuoc_C5_Assignment
         }
         public void Copy(Reader dest, ReaderDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
             dest.ReaderType = source.ReaderType.ConvertValue();
         }
 

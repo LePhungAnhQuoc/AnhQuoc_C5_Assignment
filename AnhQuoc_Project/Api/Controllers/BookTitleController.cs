@@ -37,8 +37,11 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(BookTitle newItem)
+        public IActionResult Create(AddBookTitleDto addBookTitleDto)
         {
+            BookTitle newItem = new BookTitle();
+
+            addBookTitleDto.MapTo(ref newItem);
             quanLyThuVienContext.BookTitles.Add(newItem);
 
             quanLyThuVienContext.SaveChanges();
@@ -47,14 +50,14 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Update(string id, BookTitle updateItem)
+        public IActionResult Update(string id, UpdateBookTitleDto updateBookTitleDto)
         {
             var getItem = quanLyThuVienContext.BookTitles.Find(id);
 
             if (getItem is null)
                 return NotFound();
 
-            Utilitys.Copy(getItem, updateItem);
+            updateBookTitleDto.MapTo(ref getItem);
             
             quanLyThuVienContext.SaveChanges();
             return Ok(getItem);

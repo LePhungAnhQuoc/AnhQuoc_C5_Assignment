@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddParameterViewModel: BaseViewModel<object>, IPageViewModel
+    public class AddParameterViewModel: BaseViewModel<Parameter>, IPageViewModel
     {
         #region Fields
         public bool IsCancel { get; set; }
@@ -78,7 +78,7 @@ namespace AnhQuoc_C5_Assignment
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
             {
-                mainContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+                mainContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
             }
 
             TextBoxes = mainContentControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
@@ -127,19 +127,19 @@ namespace AnhQuoc_C5_Assignment
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
             }
 
             Parameter getParameter = parameterVM.CreateByDto(Item);
-            bool isCheck = Utilities.IsExistInformation(thisForm.getParameterRepo().Gets(), getParameter, true, Constants.checkPropParameter);
+            bool isCheck = Utilitys.IsExistInformation(thisForm.getParameterRepo().Gets(), getParameter, true, Constants.checkPropParameter);
             if (isCheck)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("parameter"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("parameter"));
                 return;
             }
 
@@ -150,9 +150,9 @@ namespace AnhQuoc_C5_Assignment
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -161,13 +161,13 @@ namespace AnhQuoc_C5_Assignment
             Parameter normalItem = parameterVM.CreateByDto(Item);
             Parameter normalSourceItem = parameterVM.CreateByDto(thisForm.getItemToUpdate());
 
-            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropParameter);
+            bool isExistItemToUpdate = Utilitys.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropParameter);
             if (!isExistItemToUpdate)
             {
-                bool isExistInformation = Utilities.IsExistInformation(thisForm.getParameterRepo().Gets(), normalItem, true, Constants.checkPropParameter);
+                bool isExistInformation = Utilitys.IsExistInformation(thisForm.getParameterRepo().Gets(), normalItem, true, Constants.checkPropParameter);
                 if (isExistInformation)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("parameter"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("parameter"));
                     return;
                 }
             }

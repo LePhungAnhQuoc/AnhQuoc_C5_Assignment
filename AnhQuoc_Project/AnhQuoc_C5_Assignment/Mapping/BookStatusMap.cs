@@ -12,7 +12,7 @@ namespace AnhQuoc_C5_Assignment
         public override BookStatusDto ConvertToDto(BookStatu sourceItem)
         {
             BookStatusDto newItem = new BookStatusDto(sourceItem.Id);
-            Utilities.Copy(newItem, sourceItem);
+            Utilitys.Copy(newItem, sourceItem);
 
             return newItem;
         }

@@ -10,7 +10,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddBookViewModel: BaseViewModel<object>, IPageViewModel
+    public class AddBookViewModel: BaseViewModel<Book>, IPageViewModel
     {
         #region Fields
         public bool IsCancel { get; set; }
@@ -168,7 +168,7 @@ namespace AnhQuoc_C5_Assignment
             AllPublishers = publisherVM.Repo.Gets();
             AllTranslators = translatorVM.Repo.Gets();
             AllBookStatus = bookStatusVM.Repo.Gets();
-            AllLanguages = Utilities.GetListAllLanguages();
+            AllLanguages = Utilitys.GetListAllLanguages();
 
             #region Init-Commands
             //LoadedCmd = new RelayCommand((para) => frmAddBook_Loaded(para, null));
@@ -193,7 +193,7 @@ namespace AnhQuoc_C5_Assignment
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
             {
-                mainContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+                mainContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
             }
 
             TextBoxes = mainContentControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
@@ -247,9 +247,9 @@ namespace AnhQuoc_C5_Assignment
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -278,9 +278,9 @@ namespace AnhQuoc_C5_Assignment
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -289,13 +289,13 @@ namespace AnhQuoc_C5_Assignment
             Book normalItem = bookVM.CreateByDto(Item);
             Book normalSourceItem = bookVM.CreateByDto(thisForm.getItemToUpdate());
 
-            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropBook);
+            bool isExistItemToUpdate = Utilitys.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropBook);
             if (!isExistItemToUpdate)
             {
-                bool isExistInformation = Utilities.IsExistInformation(thisForm.getBookRepo().Gets(), normalItem, true, Constants.checkPropBook);
+                bool isExistInformation = Utilitys.IsExistInformation(thisForm.getBookRepo().Gets(), normalItem, true, Constants.checkPropBook);
                 if (isExistInformation)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("book"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("book"));
                     return;
                 }
             }

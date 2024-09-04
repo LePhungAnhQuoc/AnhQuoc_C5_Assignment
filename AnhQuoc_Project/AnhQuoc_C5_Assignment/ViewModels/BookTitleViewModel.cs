@@ -75,7 +75,7 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(BookTitleDto item)
         {
-            return Utilities.IsCheckEmptyItem(item, false);
+            return Utilitys.IsCheckEmptyItem(item, false);
         }
 
         public BookTitle CreateByDto(BookTitleDto source)
@@ -98,13 +98,13 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(BookTitle dest, BookTitleDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
 
         public void Copy(BookTitleDto dest, BookTitleDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

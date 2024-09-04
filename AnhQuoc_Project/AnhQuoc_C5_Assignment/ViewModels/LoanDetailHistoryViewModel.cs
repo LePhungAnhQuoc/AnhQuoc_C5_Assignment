@@ -82,7 +82,7 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(LoanDetailHistoryDto item, bool isExceptProperty, params string[] checkProperties)
         {
-            return Utilities.IsCheckEmptyItem(item, isExceptProperty, checkProperties);
+            return Utilitys.IsCheckEmptyItem(item, isExceptProperty, checkProperties);
         }
 
         public LoanDetailHistory CreateByDto(LoanDetailHistoryDto dto)
@@ -99,12 +99,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(LoanDetailHistory dest, LoanDetailHistoryDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(LoanDetailHistoryDto dest, LoanDetailHistoryDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

@@ -55,7 +55,7 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(AuthorDto item)
         {
-            return Utilities.IsCheckEmptyItem(item, false);
+            return Utilitys.IsCheckEmptyItem(item, false);
         }
 
         public Author CreateByDto(AuthorDto dto)
@@ -67,12 +67,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Author dest, AuthorDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(AuthorDto dest, AuthorDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

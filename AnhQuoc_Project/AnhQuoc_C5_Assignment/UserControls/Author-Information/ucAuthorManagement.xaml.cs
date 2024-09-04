@@ -204,14 +204,14 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFillAuthors);
             #endregion
 
-            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("author"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyAddSuccessfully("author"));
         }
 
         private void UcAuthorsTable_btnInfoClick(object sender, RoutedEventArgs e)
         {
             if (ucAuthorsTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("author"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("author"));
                 return;
             }
 
@@ -221,7 +221,7 @@ namespace AnhQuoc_C5_Assignment
             ucAuthorInformation ucAuthorInformation = MainWindow.UnitOfForm.UcAuthorInformation(true);
             ucAuthorInformation.getItem = () => authorDtoSelect;
 
-            Window frmAuthorInformation = Utilities.CreateDefaultForm();
+            Window frmAuthorInformation = Utilitys.CreateDefaultForm();
             frmAuthorInformation.Content = ucAuthorInformation;
             frmAuthorInformation.Show();
 
@@ -246,7 +246,7 @@ namespace AnhQuoc_C5_Assignment
             string message = string.Empty;
             if (ucAuthorsTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("author"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("author"));
                 return;
             }
 
@@ -258,12 +258,12 @@ namespace AnhQuoc_C5_Assignment
                 var listTemp = bookISBNVM.FillByIdAuthor(bookISBNVM.Repo.Gets(), authorSelect.Id, null);
                 if (listTemp.Count > 0)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyNotValidToDelete("author"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyNotValidToDelete("author"));
                     return;
                 }
 
-                message = Utilities.NotifySureToDelete();
-                if (Utilities.ShowMessageBox2(message) == MessageBoxResult.Cancel)
+                message = Utilitys.NotifySureToDelete();
+                if (Utilitys.ShowMessageBox2(message) == MessageBoxResult.Cancel)
                     return;
             }
 
@@ -273,9 +273,9 @@ namespace AnhQuoc_C5_Assignment
             ucAuthorsTable.ModifiedPagination();
 
             if (updateStatus == false)
-                message = Utilities.NotifyDeleteSuccessfully("author");
+                message = Utilitys.NotifyDeleteSuccessfully("author");
             else
-                message = Utilities.NotifyRestoreSuccessfully("author");
+                message = Utilitys.NotifyRestoreSuccessfully("author");
             MessageBox.Show(message, string.Empty, MessageBoxButton.OK, MessageBoxImage.None);
         }
 
@@ -283,7 +283,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (ucAuthorsTable.dgDatas.SelectedIndex == -1)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("author"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("author"));
                 return;
             }
 
@@ -311,7 +311,7 @@ namespace AnhQuoc_C5_Assignment
 
             ucAuthorsTable.ModifiedPagination();
 
-            Utilities.ShowMessageBox1(Utilities.NotifyUpdateSuccessfully("author"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyUpdateSuccessfully("author"));
         }
 
         private void AddToListFill(ObservableCollection<Author> items)

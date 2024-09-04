@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class BaseViewModel<T> : INotifyPropertyChanged where T : class, new()
+    public class BaseViewModel<T> : INotifyPropertyChanged where T : class, IMapFromModel, new()
     {
         #region Fields
         protected string prefix = string.Empty;
@@ -37,7 +38,7 @@ namespace AnhQuoc_C5_Assignment
                 string numberStr = string.Join("", idValue);
                 int indexId = Convert.ToInt32(numberStr);
 
-                int? getMax = Utilities.GetMax(result, indexId);
+                int? getMax = Utilitys.GetMax(result, indexId);
                 if (getMax == null)
                 {
                     continue;
@@ -62,12 +63,12 @@ namespace AnhQuoc_C5_Assignment
 
         public ObservableCollection<T> FillByStatus(ObservableCollection<T> items, bool? statusValue)
         {
-            return Utilities.FillByStatus(items, statusValue);
+            return Utilitys.FillByStatus(items, statusValue);
         }
 
         public void Copy(T dest, T source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         #region PropertyChanged

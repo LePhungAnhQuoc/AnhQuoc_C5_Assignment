@@ -15,7 +15,7 @@ namespace AnhQuoc_C5_Assignment
             string getValue = null;
             if (value != null)
                 getValue = (string)value;
-            return (Utilities.IsCheckEmptyString(getValue)) ? "None" : getValue;
+            return (Utilitys.IsCheckEmptyString(getValue)) ? "None" : getValue;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

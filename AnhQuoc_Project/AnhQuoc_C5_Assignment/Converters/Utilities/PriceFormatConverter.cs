@@ -14,11 +14,11 @@ namespace AnhQuoc_C5_Assignment
         {
             if (value == null)
                 return string.Empty;
-            if (Utilities.IsCheckEmptyString(value.ToString()))
+            if (Utilitys.IsCheckEmptyString(value.ToString()))
                 return string.Empty;
 
             var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
-            value = Utilities.FormatCurrency("VND", System.Convert.ToDecimal(value.ToString()));
+            value = Utilitys.FormatCurrency("VND", System.Convert.ToDecimal(value.ToString()));
 
             value = value.ToString().RemoveString(" VND") + ".000" + " VND";
 

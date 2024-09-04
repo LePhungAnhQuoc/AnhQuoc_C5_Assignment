@@ -10,7 +10,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddUserViewModel<T, TDto>: BaseViewModel<object>, IPageViewModel
+    public class AddUserViewModel<T, TDto>: BaseViewModel<User>, IPageViewModel
     {
         #region Fields
         public bool IsCancel { get; set; }
@@ -79,7 +79,7 @@ namespace AnhQuoc_C5_Assignment
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
             {
-                mainContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+                mainContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
             }
 
             TextBoxes = mainContentControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
@@ -112,19 +112,19 @@ namespace AnhQuoc_C5_Assignment
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
             }
 
             User getUser = userVM.CreateByDto(Item);
-            bool isCheck = Utilities.IsExistInformation(thisForm.getUserRepo().Gets(), getUser, true, Constants.checkPropUser);
+            bool isCheck = Utilitys.IsExistInformation(thisForm.getUserRepo().Gets(), getUser, true, Constants.checkPropUser);
             if (isCheck)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("user"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("user"));
                 return;
             }
 
@@ -135,9 +135,9 @@ namespace AnhQuoc_C5_Assignment
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -146,13 +146,13 @@ namespace AnhQuoc_C5_Assignment
             User normalItem = userVM.CreateByDto(Item);
             User normalSourceItem = userVM.CreateByDto(thisForm.getItemToUpdate());
 
-            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropUser);
+            bool isExistItemToUpdate = Utilitys.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropUser);
             if (!isExistItemToUpdate)
             {
-                bool isExistInformation = Utilities.IsExistInformation(thisForm.getUserRepo().Gets(), normalItem, true, Constants.checkPropUser);
+                bool isExistInformation = Utilitys.IsExistInformation(thisForm.getUserRepo().Gets(), normalItem, true, Constants.checkPropUser);
                 if (isExistInformation)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("user"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("user"));
                     return;
                 }
             }

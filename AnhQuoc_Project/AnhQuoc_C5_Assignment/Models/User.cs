@@ -9,10 +9,12 @@
 
 namespace AnhQuoc_C5_Assignment
 {
+    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
+    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class User : IMapFromModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
@@ -37,5 +39,19 @@ namespace AnhQuoc_C5_Assignment
         public virtual UserInfo UserInfo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserRole> UserRoles { get; set; }
+
+        public object MapToAdd()
+        {
+            AddUserDto result = new AddUserDto();
+            Utilitys.Copy(result, this);
+            return result;
+        }
+
+        public object MapToUpdate()
+        {
+            UpdateUserDto result = new UpdateUserDto();
+            Utilitys.Copy(result, this);
+            return result;
+        }
     }
 }

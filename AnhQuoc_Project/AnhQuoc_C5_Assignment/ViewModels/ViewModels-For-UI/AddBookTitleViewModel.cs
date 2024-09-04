@@ -13,7 +13,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddBookTitleViewModel<T, TDto> : BaseViewModel<object>, IPageViewModel
+    public class AddBookTitleViewModel<T, TDto> : BaseViewModel<BookTitle>, IPageViewModel
     {
         #region Fields
         public bool IsCancel { get; set; }
@@ -79,7 +79,7 @@ namespace AnhQuoc_C5_Assignment
 
         public AddBookTitleViewModel()
         {
-            openFile = Utilities.CreateOpenFileDialog();
+            openFile = Utilitys.CreateOpenFileDialog();
 
             bookTitleVM = UnitOfViewModel.Instance.BookTitleViewModel;
             paraVM = UnitOfViewModel.Instance.ParameterViewModel;
@@ -110,7 +110,7 @@ BtnBrowseImage_Click(para, null));
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
             {
-                mainContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+                mainContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
             }
 
             TextBoxes = mainContentControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
@@ -145,23 +145,23 @@ BtnBrowseImage_Click(para, null));
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
             }
 
             BookTitle getBookTitle = bookTitleVM.CreateByDto(Item);
-            bool isCheck = Utilities.IsExistInformation(thisForm.getBookTitleRepo().Gets(), getBookTitle, true, Constants.checkPropBookTitle);
+            bool isCheck = Utilitys.IsExistInformation(thisForm.getBookTitleRepo().Gets(), getBookTitle, true, Constants.checkPropBookTitle);
             if (isCheck)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("book title"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("book title"));
                 return;
             }
 
-            Utilities.SaveImageInUserControl(tempUrlImage, Item, openFile);
+            Utilitys.SaveImageInUserControl(tempUrlImage, Item, openFile);
             IsCancel = false;
             thisForm.Close();
         }
@@ -169,9 +169,9 @@ BtnBrowseImage_Click(para, null));
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -180,18 +180,18 @@ BtnBrowseImage_Click(para, null));
             BookTitle normalItem = bookTitleVM.CreateByDto(Item);
             BookTitle normalSourceItem = bookTitleVM.CreateByDto(thisForm.getItemToUpdate());
 
-            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropBookTitle);
+            bool isExistItemToUpdate = Utilitys.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropBookTitle);
             if (!isExistItemToUpdate)
             {
-                bool isExistInformation = Utilities.IsExistInformation(thisForm.getBookTitleRepo().Gets(), normalItem, true, Constants.checkPropBookTitle);
+                bool isExistInformation = Utilitys.IsExistInformation(thisForm.getBookTitleRepo().Gets(), normalItem, true, Constants.checkPropBookTitle);
                 if (isExistInformation)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("book title"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("book title"));
                     return;
                 }
             }
 
-            Utilities.SaveImageInUserControl(tempUrlImage, Item, openFile);
+            Utilitys.SaveImageInUserControl(tempUrlImage, Item, openFile);
 
             IsCancel = false;
             thisForm.Close();
@@ -260,7 +260,7 @@ BtnBrowseImage_Click(para, null));
         {
             if (openFile.ShowDialog() == true)
             {
-                Item.UrlImage = Utilities.GetUrlImage(openFile);
+                Item.UrlImage = Utilitys.GetUrlImage(openFile);
             }
         }
 

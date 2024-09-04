@@ -37,8 +37,10 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(UserRole newItem)
+        public IActionResult Create(AddUserRoleDto addUserRoleDto)
         {
+            UserRole newItem = new UserRole();
+            addUserRoleDto.MapTo(ref newItem);
             quanLyThuVienContext.UserRoles.Add(newItem);
 
             quanLyThuVienContext.SaveChanges();
@@ -47,15 +49,14 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Update(string id, UserRole updateItem)
+        public IActionResult Update(string id, UpdateUserRoleDto updateUserRoleDto)
         {
             var getItem = quanLyThuVienContext.UserRoles.Find(id);
 
             if (getItem is null)
                 return NotFound();
 
-            Utilitys.Copy(getItem, updateItem);
-            
+            updateUserRoleDto.MapTo(ref getItem);
             quanLyThuVienContext.SaveChanges();
             return Ok(getItem);
         }

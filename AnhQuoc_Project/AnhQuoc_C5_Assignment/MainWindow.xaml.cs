@@ -337,7 +337,7 @@ namespace AnhQuoc_C5_Assignment
 
                 if (!isCheckConnectionString)
                 {
-                    Utilities.ShowMessageBox1("Invalid Connections string!", "Error Connection", MessageBoxImage.Error);
+                    Utilitys.ShowMessageBox1("Invalid Connections string!", "Error Connection", MessageBoxImage.Error);
                     ResetServerName();
                     continue;
                 }
@@ -351,12 +351,12 @@ namespace AnhQuoc_C5_Assignment
             // Access the database or perform other operations
             var dbSource = DatabaseFirst.Instance.dbSource;
 
-            foreach (PropertyInfo tableProperty in Utilities.getDerivePropsFromType(dbSource))
+            foreach (PropertyInfo tableProperty in Utilitys.getDerivePropsFromType(dbSource))
             {
                 IEnumerable value = null;
                 try
                 {
-                    value = (IEnumerable)Utilities.getValueFromProperty(tableProperty, dbSource);
+                    value = (IEnumerable)Utilitys.getValueFromProperty(tableProperty, dbSource);
                     value.ToListObject(); // Check EntityException
                 }
                 catch
@@ -413,21 +413,29 @@ namespace AnhQuoc_C5_Assignment
                 if (DateTime.Now > adult.ExpireDate)
                 {
                     Reader adultReader = readerVM.FindById(adult.IdReader);
-                    adult.Status = updateStatus;
-                    adultReader.Status = updateStatus;
 
-                    var childs = childVM.GetChildrenFromAdult(adult);
-                    foreach (Child child in childs)
+                    if (adult.Status != updateStatus)
                     {
-                        Reader childReader = readerVM.FindById(child.IdReader);
-                        child.Status = updateStatus;
-                        childReader.Status = updateStatus;
+                        adult.Status = updateStatus;
+                        adultReader.Status = updateStatus;
 
-                        childVM.Repo.WriteUpdate(child);
-                        readerVM.Repo.WriteUpdate(childReader);
+                        var childs = childVM.GetChildrenFromAdult(adult);
+                        foreach (Child child in childs)
+                        {
+                            Reader childReader = readerVM.FindById(child.IdReader);
+
+                            if (child.Status != updateStatus)
+                            {
+                                child.Status = updateStatus;
+                                childReader.Status = updateStatus;
+
+                                childVM.Repo.WriteUpdate(child);
+                                readerVM.Repo.WriteUpdate(childReader);
+                            }
+                        }
+                        adultVM.Repo.WriteUpdate(adult);
+                        readerVM.Repo.WriteUpdate(adultReader);
                     }
-                    adultVM.Repo.WriteUpdate(adult);
-                    readerVM.Repo.WriteUpdate(adultReader);
                 }
             }
             #endregion
@@ -467,7 +475,7 @@ namespace AnhQuoc_C5_Assignment
             UserRole userRoleFinded = userRoleVM.FindByIdUser(user.Id);
             if (userRoleFinded == null)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyNotHaveRole());
+                Utilitys.ShowMessageBox1(Utilitys.NotifyNotHaveRole());
                 return false;
             }
 
@@ -475,14 +483,14 @@ namespace AnhQuoc_C5_Assignment
             Role role = roleVM.FindById(userRoleFinded.IdRole);
             if (role.Status == false)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyRoleLock());
+                Utilitys.ShowMessageBox1(Utilitys.NotifyRoleLock());
                 return false;
             }
 
             functionsByRole = roleFunctionVM.GetListFunctionByRole(userRoleFinded.IdRole);
             if (functionsByRole.Count() == 0)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyNotHaveFunctions("user"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyNotHaveFunctions("user"));
                 return false;
             }
             return true;
@@ -493,19 +501,19 @@ namespace AnhQuoc_C5_Assignment
         private void CheckingDtos()
         {
             // Checking Dto
-            foreach (PropertyInfo tableProperty in Utilities.getDerivePropsFromType(DatabaseFirst.Instance.dbSource))
+            foreach (PropertyInfo tableProperty in Utilitys.getDerivePropsFromType(DatabaseFirst.Instance.dbSource))
             {
                 RunAgain:
                 IEnumerable value = null;
                 try
                 {
-                    value = (IEnumerable)Utilities.getValueFromProperty(tableProperty, DatabaseFirst.Instance.dbSource);
+                    value = (IEnumerable)Utilitys.getValueFromProperty(tableProperty, DatabaseFirst.Instance.dbSource);
                 }
                 catch
                 {
                     continue;
                 }
-                Type itemDataType = Utilities.GetItemDataTypeInGenericList(value);
+                Type itemDataType = Utilitys.GetItemDataTypeInGenericList(value);
                 string modelName = itemDataType.Name;
 
                 if (modelName != "Book")
@@ -513,35 +521,30 @@ namespace AnhQuoc_C5_Assignment
                     continue;
                 }
 
-                var props = Utilities.getPropsFromType(itemDataType);
-                var propsInDto = Utilities.getPropsFromType(typeof(BookDto));
+                var props = Utilitys.getPropsFromType(itemDataType);
+                var propsInDto = Utilitys.getPropsFromType(typeof(BookDto));
 
                 string checkingResult = modelName + "\n";
 
 
 
-                var list = Utilities.OuterJoin(props, propsInDto, "Name");
+                var list = Utilitys.OuterJoin(props, propsInDto, "Name");
 
                 if (list.Count() > 0)
                     checkingResult += "Dto thieu: " + string.Join(", ", list.ToArray()) + "\n";
 
-                list = Utilities.OuterJoin(propsInDto, props, "Name");
+                list = Utilitys.OuterJoin(propsInDto, props, "Name");
 
                 if (list.Count() > 0)
                     checkingResult += "Model chinh thuc thieu: " + string.Join(", ", list.ToArray()) + "\n";
 
-                Utilities.ShowMessageBox1(checkingResult);
+                Utilitys.ShowMessageBox1(checkingResult);
 
                 int a = 5;
                 //goto RunAgain;
             }
         }
         #endregion
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Save thôi!");
-        }
     }
 
     public class BindingProxy : System.Windows.Freezable

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Api.Models.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -11,8 +12,8 @@ namespace AnhQuoc_C5_Assignment
 {
     public class AuthorRepository : Repository<Author>
     {
-        public AuthorRepository(APIProvider<Author> apiAuthor) : base(apiAuthor)
+        public AuthorRepository(APIProvider<Author> ApiProvider) : base(ApiProvider)
         {
-        }        
+        }
     }
 }

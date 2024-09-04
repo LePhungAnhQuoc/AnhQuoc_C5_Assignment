@@ -9,10 +9,12 @@
 
 namespace AnhQuoc_C5_Assignment
 {
+    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
+    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
     
-    public partial class RoleFunction
+    public partial class RoleFunction : IMapFromModel
     {
         public string Id { get; set; }
         public string IdRole { get; set; }
@@ -20,5 +22,19 @@ namespace AnhQuoc_C5_Assignment
     
         public virtual Function Function { get; set; }
         public virtual Role Role { get; set; }
+
+        public object MapToAdd()
+        {
+            AddRoleFunctionDto result = new AddRoleFunctionDto();
+            Utilitys.Copy(result, this);
+            return result;
+        }
+
+        public object MapToUpdate()
+        {
+            UpdateRoleFunctionDto result = new UpdateRoleFunctionDto();
+            Utilitys.Copy(result, this);
+            return result;
+        }
     }
 }

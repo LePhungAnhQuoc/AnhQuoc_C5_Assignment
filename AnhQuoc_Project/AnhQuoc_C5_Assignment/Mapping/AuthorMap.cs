@@ -12,7 +12,7 @@ namespace AnhQuoc_C5_Assignment
         public override AuthorDto ConvertToDto(Author sourceItem)
         {
             AuthorDto newItem = new AuthorDto(sourceItem.Id);
-            Utilities.Copy(newItem, sourceItem);
+            Utilitys.Copy(newItem, sourceItem);
             
             return newItem;
         }

@@ -241,7 +241,7 @@ namespace AnhQuoc_C5_Assignment
                 ucBtnCircle.Visibility = Visibility.Collapsed;
             }
             ucBtnCircle = stkNumberPages.Children[currentPage] as ucButtonCircle;
-            ucBtnCircle.btnCircle.Foreground = Utilities.GetColorFromCode("#0770da");
+            ucBtnCircle.btnCircle.Foreground = Utilitys.GetColorFromCode("#0770da");
             ucBtnCircle.Visibility = Visibility.Visible;
         }
 

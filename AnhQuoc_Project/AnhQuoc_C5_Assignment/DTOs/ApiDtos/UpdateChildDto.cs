@@ -11,14 +11,15 @@ namespace Api.Models.Dtos
 
         public DateTime ModifiedAt { get; set; }
 
+
         public void MapFrom(Child entity)
         {
-            Utilities.Copy(this, entity);
+            Utilitys.Copy(this, entity);
         }
 
         public void MapTo(ref Child entity)
         {
-            Utilities.Copy(entity, this);
+            Utilitys.Copy(entity, this);
         }
     }
 }

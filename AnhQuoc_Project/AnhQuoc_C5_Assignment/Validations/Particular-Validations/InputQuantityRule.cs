@@ -14,20 +14,20 @@ namespace AnhQuoc_C5_Assignment
         {
             string getValue = (string)value;
 
-            if (Utilities.IsCheckEmptyString(getValue))
+            if (Utilitys.IsCheckEmptyString(getValue))
             {
-                return new ValidationResult(false, Utilities.ValidateNoteFormNotEmptyRule());
+                return new ValidationResult(false, Utilitys.ValidateNoteFormNotEmptyRule());
             }
 
-            if (!Utilities.InputNumberRule(getValue))
+            if (!Utilitys.InputNumberRule(getValue))
             {
-                return new ValidationResult(false, Utilities.ValidateNoteInputNumberRule());
+                return new ValidationResult(false, Utilitys.ValidateNoteInputNumberRule());
             }
 
             int getValueNumber = Convert.ToInt32(getValue);
             if (getValueNumber == 0)
             {
-                return new ValidationResult(false, Utilities.ValidateNoteQuantityEqual0());
+                return new ValidationResult(false, Utilitys.ValidateNoteQuantityEqual0());
             }
 
             return ValidationResult.ValidResult;

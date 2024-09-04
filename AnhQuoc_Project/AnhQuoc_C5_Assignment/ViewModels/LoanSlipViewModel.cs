@@ -143,12 +143,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(LoanSlip dest, LoanSlipDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(LoanSlipDto dest, LoanSlipDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

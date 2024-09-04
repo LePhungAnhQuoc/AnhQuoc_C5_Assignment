@@ -19,7 +19,7 @@ namespace AnhQuoc_C5_Assignment
             var bookTitle = bookTitleVM.FindById(bookISBN.IdBookTitle);
 
             LoanDetailHistoryDto newItem = new LoanDetailHistoryDto(sourceItem.Id);
-            Utilities.Copy(newItem, sourceItem);
+            Utilitys.Copy(newItem, sourceItem);
 
             newItem.Book = book;
             newItem.BookTitle = bookTitle;

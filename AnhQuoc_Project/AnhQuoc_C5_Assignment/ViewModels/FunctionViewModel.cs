@@ -27,7 +27,7 @@ namespace AnhQuoc_C5_Assignment
         public Function FindById(string idValue, bool? statusValue = null)
         {
             var source = Repo.Gets();
-            source = Utilities.FillByStatus(source, statusValue);
+            source = Utilitys.FillByStatus(source, statusValue);
             return FindById(source, idValue);
         }
 
@@ -39,7 +39,7 @@ namespace AnhQuoc_C5_Assignment
         public ObservableCollection<Function> getFunctionsByListId(IEnumerable<string> lstIdFunc)
         {
             return Repo.Gets().Join(lstIdFunc, f => f.Id, lstId => lstId, (f, lstId) => f)
-                .OrderBy(f => Utilities.ExtractNumberFromAString(f.Id)).ToObservableCollection();
+                .OrderBy(f => Utilitys.ExtractNumberFromAString(f.Id)).ToObservableCollection();
         }
         
         public ObservableCollection<Function> getChildsByIdParent(string idParent, bool? status)
@@ -52,16 +52,16 @@ namespace AnhQuoc_C5_Assignment
         
         public ObservableCollection<Function> FillParent(ObservableCollection<Function> source, bool? statusValue = null)
         {
-            var result = source.Where(item => Utilities.IsCheckEmptyString(item.IdParent));
+            var result = source.Where(item => Utilitys.IsCheckEmptyString(item.IdParent));
 
-            result = Utilities.FillByStatus(result.ToObservableCollection(), statusValue);
+            result = Utilitys.FillByStatus(result.ToObservableCollection(), statusValue);
             return result.ToObservableCollection();
         }
 
         public ObservableCollection<FunctionDto> FillParent(ObservableCollection<FunctionDto> source, bool? statusValue = null)
         {
             var result = source.Where(item => item.Parent == null);
-            result = Utilities.FillByStatus(result.ToObservableCollection(), statusValue);
+            result = Utilitys.FillByStatus(result.ToObservableCollection(), statusValue);
             return result.ToObservableCollection();
         }
 
@@ -69,21 +69,21 @@ namespace AnhQuoc_C5_Assignment
         public ObservableCollection<FunctionDto> FillAdminFunction(ObservableCollection<FunctionDto> source, bool isAdminValue, bool? statusValue = null)
         {
             var result = source.Where(item => item.IsAdmin == isAdminValue);
-            result = Utilities.FillByStatus(result.ToObservableCollection(), statusValue);
+            result = Utilitys.FillByStatus(result.ToObservableCollection(), statusValue);
             return result.ToObservableCollection();
         }
 
         public ObservableCollection<Function> FillAdminFunction(ObservableCollection<Function> source, bool isAdminValue, bool? statusValue = null)
         {
             var result = source.Where(item => item.IsAdmin == isAdminValue);
-            result = Utilities.FillByStatus(result.ToObservableCollection(), statusValue);
+            result = Utilitys.FillByStatus(result.ToObservableCollection(), statusValue);
             return result.ToObservableCollection();
         }
 
         public ObservableCollection<FunctionChildDto> FillAdminFunction(ObservableCollection<FunctionChildDto> source, bool isAdminValue, bool? statusValue = null)
         {
             var result = source.Where(item => item.IsAdmin == isAdminValue);
-            result = Utilities.FillByStatus(result.ToObservableCollection(), statusValue);
+            result = Utilitys.FillByStatus(result.ToObservableCollection(), statusValue);
             return result.ToObservableCollection();
         }
 
@@ -91,7 +91,7 @@ namespace AnhQuoc_C5_Assignment
         public ObservableCollection<Function> FillByIdParent(ObservableCollection<Function> source, string idParent, bool? statusValue)
         {
             var result = source.Where(f => string.Compare(f.IdParent, idParent, false) == 0).ToObservableCollection();
-            result = Utilities.FillByStatus(result.ToObservableCollection(), statusValue);
+            result = Utilitys.FillByStatus(result.ToObservableCollection(), statusValue);
             return result;
         }
         
@@ -99,7 +99,7 @@ namespace AnhQuoc_C5_Assignment
         {
             foreach (FunctionDto item in items)
             {
-                item.Childs = Utilities.FillByStatus(item.Childs, statusValue);
+                item.Childs = Utilitys.FillByStatus(item.Childs, statusValue);
             }
         }
 
@@ -108,14 +108,14 @@ namespace AnhQuoc_C5_Assignment
             foreach (FunctionDto item in items)
             {
                 item.Childs = FillAdminFunction(item.Childs, isAdminValue, statusValue);
-                item.Childs = Utilities.FillByStatus(item.Childs, statusValue);
+                item.Childs = Utilitys.FillByStatus(item.Childs, statusValue);
             }
         }
 
 
         public bool IsCheckEmptyItem(FunctionDto item)
         {
-            if (Utilities.IsCheckEmptyString(item.Name))
+            if (Utilitys.IsCheckEmptyString(item.Name))
             {
                 return false;
             }
@@ -146,22 +146,22 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Function dest, FunctionDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(FunctionChildDto dest, Function source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(Function dest, FunctionChildDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(FunctionDto dest, FunctionDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

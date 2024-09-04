@@ -37,7 +37,7 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(TranslatorDto item)
         {
-            return Utilities.IsCheckEmptyItem(item, false);
+            return Utilitys.IsCheckEmptyItem(item, false);
         }
 
         public Translator CreateByDto(TranslatorDto dto)
@@ -49,12 +49,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Translator dest, TranslatorDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(TranslatorDto dest, TranslatorDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

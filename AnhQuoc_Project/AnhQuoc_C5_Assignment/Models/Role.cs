@@ -9,10 +9,12 @@
 
 namespace AnhQuoc_C5_Assignment
 {
+    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
+    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class Role : IMapFromModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Role()
@@ -30,5 +32,19 @@ namespace AnhQuoc_C5_Assignment
         public virtual ICollection<RoleFunction> RoleFunctions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserRole> UserRoles { get; set; }
+
+        public object MapToAdd()
+        {
+            AddRoleDto result = new AddRoleDto();
+            Utilitys.Copy(result, this);
+            return result;
+        }
+
+        public object MapToUpdate()
+        {
+            UpdateRoleDto result = new UpdateRoleDto();
+            Utilitys.Copy(result, this);
+            return result;
+        }
     }
 }

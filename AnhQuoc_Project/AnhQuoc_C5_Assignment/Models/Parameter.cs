@@ -9,10 +9,12 @@
 
 namespace AnhQuoc_C5_Assignment
 {
+    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
+    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
     
-    public partial class Parameter
+    public partial class Parameter : IMapFromModel
     {
         public string Id { get; set; }
         public string Name { get; set; }
@@ -21,5 +23,20 @@ namespace AnhQuoc_C5_Assignment
         public bool Status { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime ModifiedAt { get; set; }
+
+
+        public object MapToAdd()
+        {
+            AddParameterDto result = new AddParameterDto();
+            Utilitys.Copy(result, this);
+            return result;
+        }
+
+        public object MapToUpdate()
+        {
+            UpdateParameterDto result = new UpdateParameterDto();
+            Utilitys.Copy(result, this);
+            return result;
+        }
     }
 }

@@ -55,7 +55,7 @@ namespace AnhQuoc_C5_Assignment
             this.DataContext = this;
             Loaded += ucProvinceInformation_Loaded;
 
-            Utilities.SetToolTipForTextBlock(mainContent);
+            Utilitys.SetToolTipForTextBlock(mainContent);
         }
         
         private void ucProvinceInformation_Loaded(object sender, RoutedEventArgs e)

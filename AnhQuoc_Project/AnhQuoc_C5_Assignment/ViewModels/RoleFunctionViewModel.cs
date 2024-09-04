@@ -87,12 +87,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(RoleFunction dest, RoleFunctionDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(RoleFunctionDto dest, RoleFunctionDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

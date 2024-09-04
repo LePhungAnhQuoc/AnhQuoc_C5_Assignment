@@ -310,7 +310,7 @@ namespace AnhQuoc_C5_Assignment
             AddItemsToDataGrid(listFillBookISBNs);
             #endregion
 
-            Utilities.ShowMessageBox1(Utilities.NotifyAddSuccessfully("book ISBN"));
+            Utilitys.ShowMessageBox1(Utilitys.NotifyAddSuccessfully("book ISBN"));
         }
 
 

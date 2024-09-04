@@ -15,7 +15,7 @@ namespace AnhQuoc_C5_Assignment
             var adultVM = UnitOfViewModel.Instance.AdultViewModel;
 
             ChildDto newItem = new ChildDto(itemSource.IdReader);
-            Utilities.Copy(newItem, itemSource);
+            Utilitys.Copy(newItem, itemSource);
 
             newItem.Reader = readerVM.FindById(itemSource.IdReader);
             newItem.AdultReader = readerVM.FindById(itemSource.IdAdult);

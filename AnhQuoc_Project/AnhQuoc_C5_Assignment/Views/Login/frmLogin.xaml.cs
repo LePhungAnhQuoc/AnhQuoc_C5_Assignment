@@ -154,7 +154,7 @@ namespace AnhQuoc_C5_Assignment
 
         private void txtPassEnter_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (Utilities.IsCheckEnter(e))
+            if (Utilitys.IsCheckEnter(e))
             {
                 btnSignIn_Click(btnSignIn, null);
             }
@@ -174,7 +174,7 @@ namespace AnhQuoc_C5_Assignment
 
         private void tblForgetPass_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Utilities.ShowMessageBox1(Utilities.NotifyFeatureNotDevelop());
+            Utilitys.ShowMessageBox1(Utilitys.NotifyFeatureNotDevelop());
         }
     }
 }

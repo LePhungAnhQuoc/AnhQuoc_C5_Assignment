@@ -86,7 +86,7 @@ namespace AnhQuoc_C5_Assignment
             this.DataContext = this;
             Loaded += UcChildInformation_Loaded;
 
-            Utilities.SetToolTipForTextBlock(mainContent);
+            Utilitys.SetToolTipForTextBlock(mainContent);
         }
 
         private void UcChildInformation_Loaded(object sender, RoutedEventArgs e)

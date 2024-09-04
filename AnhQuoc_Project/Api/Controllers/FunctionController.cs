@@ -37,25 +37,26 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Function newItem)
+        public IActionResult Create(AddFunctionDto addFunctionDto)
         {
-            quanLyThuVienContext.Functions.Add(newItem);
+            Function newItem = new Function();
+            addFunctionDto.MapTo(ref newItem);
 
+            quanLyThuVienContext.Functions.Add(newItem);
             quanLyThuVienContext.SaveChanges();
             return Ok(newItem);
         }
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Update(string id, Function updateItem)
+        public IActionResult Update(string id, UpdateFunctionDto updateFunctionDto)
         {
             var getItem = quanLyThuVienContext.Functions.Find(id);
 
             if (getItem is null)
                 return NotFound();
 
-            Utilitys.Copy(getItem, updateItem);
-            
+            updateFunctionDto.MapTo(ref getItem);
             quanLyThuVienContext.SaveChanges();
             return Ok(getItem);
         }

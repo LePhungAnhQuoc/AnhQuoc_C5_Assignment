@@ -41,7 +41,7 @@ namespace AnhQuoc_C5_Assignment
         }
     }
 
-    public class Utilities
+    public class Utilitys
     {
         #region Notify
         public static MessageBoxResult ShowMessageBox1(string message, string caption = "", MessageBoxImage msbImg = MessageBoxImage.Information)
@@ -511,7 +511,7 @@ namespace AnhQuoc_C5_Assignment
         {
             foreach (DependencyObject child in mainContent.Children) // get all stkPanel in grid
             {
-                var textblocks = Utilities.GetAllTextBlock(child); // get all textblock in stkPanel
+                var textblocks = Utilitys.GetAllTextBlock(child); // get all textblock in stkPanel
                 foreach (TextBlock block in textblocks)
                 {
                     Binding newBinding = new Binding("Text");
@@ -899,7 +899,7 @@ namespace AnhQuoc_C5_Assignment
             var dest_props = getPropsFromType(dest);
             var source_props = getPropsFromType(source);
 
-            var propsString = Utilities.InnerJoin(dest_props, source_props, propSelector).ToList();
+            var propsString = Utilitys.InnerJoin(dest_props, source_props, propSelector).ToList();
             dest_props = FillPropertiesByName(dest_props, propsString.ToArray());
             source_props = FillPropertiesByName(source_props, propsString.ToArray());
 
@@ -1050,7 +1050,7 @@ namespace AnhQuoc_C5_Assignment
                     continue;
                     if (function.IdParent == Constants.LoanSlipManagement_FunctionId)
                     {
-                        TreeViewItem findedItem = Utilities.FindTreeViewItemByName(treeView.Items, function.IdParent);
+                        TreeViewItem findedItem = Utilitys.FindTreeViewItemByName(treeView.Items, function.IdParent);
 
                         newTreeView.MouseLeftButtonUp += implementMethod;
                         findedItem.Items.Add(newTreeView);
@@ -1227,18 +1227,18 @@ namespace AnhQuoc_C5_Assignment
         #region QuanLyThuVien-Entities
         public static PropertyInfo GetTablePropertyFromDatabase<T>(QuanLyThuVienEntities dbSource)
         {
-            foreach (PropertyInfo tableProperty in Utilities.getDerivePropsFromType(dbSource))
+            foreach (PropertyInfo tableProperty in Utilitys.getDerivePropsFromType(dbSource))
             {
                 IEnumerable value = null;
                 try
                 {
-                    value = (IEnumerable)Utilities.getValueFromProperty(tableProperty, dbSource);
+                    value = (IEnumerable)Utilitys.getValueFromProperty(tableProperty, dbSource);
                 }
                 catch
                 {
                     continue;
                 }
-                Type itemDataType = Utilities.GetItemDataTypeInGenericList(value);
+                Type itemDataType = Utilitys.GetItemDataTypeInGenericList(value);
                 if (itemDataType == typeof(T))
                 {
                     return tableProperty;
@@ -1457,7 +1457,7 @@ namespace AnhQuoc_C5_Assignment
             }
             ReaderDto readerDtoSelect = ucReadersTable.SelectedReaderDto;
 
-            return Utilities.OnClickButtonReaderInfo(readerDtoSelect, adult_Childs_Status, readerVM, adultVM, childVM, adultMap, childMap);
+            return Utilitys.OnClickButtonReaderInfo(readerDtoSelect, adult_Childs_Status, readerVM, adultVM, childVM, adultMap, childMap);
         }
         public static bool OnClickButtonReaderInfo(ReaderDto readerDtoSelect, bool? adult_Childs_Status, ReaderViewModel readerVM, AdultViewModel adultVM, ChildViewModel childVM, AdultMap adultMap, ChildMap childMap)
         {
@@ -1625,7 +1625,7 @@ namespace AnhQuoc_C5_Assignment
         {
             string startupPath = GetProjectDirectory();
             string appPath = startupPath + Constants.StartUrlImage;
-            Utilities.CreateDirectory(appPath);
+            Utilitys.CreateDirectory(appPath);
 
             return appPath;
         }
@@ -1651,7 +1651,7 @@ namespace AnhQuoc_C5_Assignment
         public static string SaveImage(OpenFileDialog openFile)
         {
             string source = openFile.FileName;
-            string dest = Utilities.GetDirectoryImage();
+            string dest = Utilitys.GetDirectoryImage();
             string fileName = openFile.SafeFileName;
 
             string sourceDir = source.Replace(fileName, "");
@@ -1766,7 +1766,7 @@ namespace AnhQuoc_C5_Assignment
 
         public static bool IsCheckEmptyItem(object item, bool isExceptProperty, params string[] checkProperties)
         {
-            var props = Utilities.getPropsFromType(item);
+            var props = Utilitys.getPropsFromType(item);
 
             bool isAllProperties = false;
             if (checkProperties.Length == 0)
@@ -1795,35 +1795,35 @@ namespace AnhQuoc_C5_Assignment
 
                 if (property.PropertyType == typeof(string))
                 {
-                    if (Utilities.IsCheckEmptyString(Utilities.getValueFromProperty(property, item)?.ToString()))
+                    if (Utilitys.IsCheckEmptyString(Utilitys.getValueFromProperty(property, item)?.ToString()))
                     {
                         return false;
                     }
                 }
                 else if (property.PropertyType == typeof(DateTime))
                 {
-                    if ((DateTime)Utilities.getValueFromProperty(property, item) == Constants.dateEmptyValue)
+                    if ((DateTime)Utilitys.getValueFromProperty(property, item) == Constants.dateEmptyValue)
                     {
                         return false;
                     }
                 }
                 else if (property.PropertyType == typeof(int))
                 {
-                    if ((int)Utilities.getValueFromProperty(property, item) == 0)
+                    if ((int)Utilitys.getValueFromProperty(property, item) == 0)
                     {
                         return false;
                     }
                 }
                 else if (property.PropertyType == typeof(double))
                 {
-                    if ((double)Utilities.getValueFromProperty(property, item) == 0)
+                    if ((double)Utilitys.getValueFromProperty(property, item) == 0)
                     {
                         return false;
                     }
                 }
                 else if (property.PropertyType == typeof(decimal))
                 {
-                    if ((decimal)Utilities.getValueFromProperty(property, item) == 0)
+                    if ((decimal)Utilitys.getValueFromProperty(property, item) == 0)
                     {
                         return false;
                     }
@@ -1885,10 +1885,10 @@ namespace AnhQuoc_C5_Assignment
 
         public static void SaveImageInUserControl(string tempUrlImage, dynamic Item, OpenFileDialog openFile)
         {
-            if (!Utilities.IsCheckEmptyString(openFile.FileName))
+            if (!Utilitys.IsCheckEmptyString(openFile.FileName))
             {
                 Constants.rememberDirectoryOpenFile = openFile.FileName.Replace(openFile.SafeFileName, string.Empty);
-                Utilities.SaveImage(openFile);
+                Utilitys.SaveImage(openFile);
             }
 
             if (tempUrlImage != null && tempUrlImage != Item.UrlImage)
@@ -1900,7 +1900,7 @@ namespace AnhQuoc_C5_Assignment
                     if (MessageBox.Show("Do you want remove an old image?", string.Empty,
               MessageBoxButton.OKCancel, MessageBoxImage.Information, MessageBoxResult.OK) == MessageBoxResult.OK)
                     {
-                        Utilities.RemoveImage(tempUrlImage);
+                        Utilitys.RemoveImage(tempUrlImage);
                     }
                 }
             }

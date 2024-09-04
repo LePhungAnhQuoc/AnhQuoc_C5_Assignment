@@ -15,7 +15,7 @@ namespace AnhQuoc_C5_Assignment
             object getValue = value;
             if (getValue == null)
             {
-                return new ValidationResult(false, Utilities.ValidateNoteSelectedItemRule());
+                return new ValidationResult(false, Utilitys.ValidateNoteSelectedItemRule());
             }
             return ValidationResult.ValidResult;
         }

@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddPenaltyReasonViewModel: BaseViewModel<object>, IPageViewModel
+    public class AddPenaltyReasonViewModel: BaseViewModel<PenaltyReason>, IPageViewModel
     {
         #region Fields
         public bool IsCancel { get; set; }
@@ -79,7 +79,7 @@ namespace AnhQuoc_C5_Assignment
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
             {
-                mainContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+                mainContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
             }
 
             TextBoxes = mainContentControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
@@ -127,19 +127,19 @@ namespace AnhQuoc_C5_Assignment
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
             }
 
             PenaltyReason getPenaltyReason = penaltyReasonVM.CreateByDto(Item);
-            bool isCheck = Utilities.IsExistInformation(thisForm.getPenaltyReasonRepo().Gets(), getPenaltyReason, true, Constants.checkPropPenaltyReason);
+            bool isCheck = Utilitys.IsExistInformation(thisForm.getPenaltyReasonRepo().Gets(), getPenaltyReason, true, Constants.checkPropPenaltyReason);
             if (isCheck)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("penalty reason"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("penalty reason"));
                 return;
             }
 
@@ -150,9 +150,9 @@ namespace AnhQuoc_C5_Assignment
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -161,13 +161,13 @@ namespace AnhQuoc_C5_Assignment
             PenaltyReason normalItem = penaltyReasonVM.CreateByDto(Item);
             PenaltyReason normalSourceItem = penaltyReasonVM.CreateByDto(thisForm.getItemToUpdate());
 
-            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropPenaltyReason);
+            bool isExistItemToUpdate = Utilitys.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropPenaltyReason);
             if (!isExistItemToUpdate)
             {
-                bool isExistInformation = Utilities.IsExistInformation(thisForm.getPenaltyReasonRepo().Gets(), normalItem, true, Constants.checkPropPenaltyReason);
+                bool isExistInformation = Utilitys.IsExistInformation(thisForm.getPenaltyReasonRepo().Gets(), normalItem, true, Constants.checkPropPenaltyReason);
                 if (isExistInformation)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("penalty reason"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("penalty reason"));
                     return;
                 }
             }

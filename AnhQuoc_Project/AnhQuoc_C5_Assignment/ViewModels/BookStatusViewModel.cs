@@ -37,7 +37,7 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(BookStatusDto item)
         {
-            return Utilities.IsCheckEmptyItem(item, false);
+            return Utilitys.IsCheckEmptyItem(item, false);
         }
 
         public BookStatu CreateByDto(BookStatusDto dto)
@@ -54,12 +54,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(BookStatu dest, BookStatusDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(BookStatusDto dest, BookStatusDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

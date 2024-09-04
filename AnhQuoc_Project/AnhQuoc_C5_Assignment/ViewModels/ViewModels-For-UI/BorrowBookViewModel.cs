@@ -15,7 +15,7 @@ using System.Windows.Media;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class BorrowBookViewModel : BaseViewModel<object>, IPageViewModel
+    public class BorrowBookViewModel : BaseViewModel<Book>, IPageViewModel
     {
         #region Forms
         private ucSelectReaderInfo ucSelectReaderInfo;
@@ -314,7 +314,7 @@ namespace AnhQuoc_C5_Assignment
         public BorrowBookViewModel()
         {
             AllBookISBNCard = new ObservableCollection<ucBookISBNCard>();
-            AllReaderTypes = Utilities.GetListFromEnum<ReaderType>().ToObservableCollection();
+            AllReaderTypes = Utilitys.GetListFromEnum<ReaderType>().ToObservableCollection();
             AllReaderLoanDetail = new ObservableCollection<LoanDetail>();
 
             #region Allocates
@@ -433,7 +433,7 @@ namespace AnhQuoc_C5_Assignment
         {
             // Truyền dữ liệu cho item
             LoanSlip LoanSlip = new LoanSlip();
-            Utilities.Copy(LoanSlip, LoanSlipDto);
+            Utilitys.Copy(LoanSlip, LoanSlipDto);
             LoanSlip.Reader = null;
             LoanSlip.User = null;
 
@@ -487,7 +487,7 @@ namespace AnhQuoc_C5_Assignment
         private void ReaderLoaded(object para)
         {
             // Load form in ucSelectReaderInfo
-            AllReaderTypes = Utilities.GetListFromEnum<ReaderType>().ToObservableCollection();
+            AllReaderTypes = Utilitys.GetListFromEnum<ReaderType>().ToObservableCollection();
 
 
             bind = ucSelectReaderInfo.txtExpireDate.GetBindingExpression(System.Windows.Controls.TextBox.TextProperty);
@@ -510,7 +510,7 @@ namespace AnhQuoc_C5_Assignment
         {
             if (SelectedReader == null)
             {
-                Utilities.ShowMessageBox1("Please select reader");
+                Utilitys.ShowMessageBox1("Please select reader");
                 return false;
             }
             return true;
@@ -561,9 +561,9 @@ namespace AnhQuoc_C5_Assignment
         private void TxtIdReader_Filter_TextChanged(TextBox txtInput, Grid parent, ObservableCollection<Reader> sourceDto)
         {
             bool ignoreCase = true;
-            ComboBox comBoBox = Utilities.FindVisualChild<ComboBox>(parent);
+            ComboBox comBoBox = Utilitys.FindVisualChild<ComboBox>(parent);
 
-            if (Utilities.IsCheckEmptyString(txtInput.Text))
+            if (Utilitys.IsCheckEmptyString(txtInput.Text))
             {
                 SelectedReader = null;
                 return;
@@ -782,7 +782,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (LoanDetails.Count == 0)
             {
-                Utilities.ShowMessageBox1("You haven't chosen any book yet");
+                Utilitys.ShowMessageBox1("You haven't chosen any book yet");
                 return;
             }
 
@@ -805,7 +805,7 @@ namespace AnhQuoc_C5_Assignment
                 frmConfirmInformation.Close();
             };
 
-            Utilities.AddItemToFormDefault(frmConfirmInformation, ucLoanSlipConfirm);
+            Utilitys.AddItemToFormDefault(frmConfirmInformation, ucLoanSlipConfirm);
 
             frmConfirmInformation.Width = 800;
             frmConfirmInformation.SizeToContent = SizeToContent.Height;
@@ -829,7 +829,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (BooksOfReader.Count + LoanDetails.Count >= value)
             {
-                Utilities.ShowMessageBox1($"1 reader can only borrow a maximum of {value} books");
+                Utilitys.ShowMessageBox1($"1 reader can only borrow a maximum of {value} books");
                 return;
             }
 
@@ -876,12 +876,12 @@ namespace AnhQuoc_C5_Assignment
             var books = bookVM.FillByBookISBN(isbn.ISBN, BookStatusValue);
             if (!isbn.Status)
             {
-                Utilities.ShowMessageBox1("All Books of this ISBN has been borrowed already");
+                Utilitys.ShowMessageBox1("All Books of this ISBN has been borrowed already");
                 return;
             }
             else if (books.Count == 0)
             {
-                Utilities.ShowMessageBox1("This ISBN doesn't have book already");
+                Utilitys.ShowMessageBox1("This ISBN doesn't have book already");
                 return;
             }
 
@@ -980,7 +980,7 @@ namespace AnhQuoc_C5_Assignment
         private void TxtInputBookName_Filter_TextChanged(TextBox txtInput, Grid parent, ObservableCollection<BookTitleDto> source)
         {
             bool ignoreCase = true;
-            ComboBox comBoBox = Utilities.FindVisualChild<ComboBox>(parent);
+            ComboBox comBoBox = Utilitys.FindVisualChild<ComboBox>(parent);
 
             Action<ObservableCollection<BookISBN>> handleBookISBN = (sourceISBN) =>
             {
@@ -989,7 +989,7 @@ namespace AnhQuoc_C5_Assignment
                 AddBookISBNCardToWrap();
             };
 
-            if (Utilities.IsCheckEmptyString(txtInput.Text))
+            if (Utilitys.IsCheckEmptyString(txtInput.Text))
             {
                 AllBookISBN = ucAddLoan.getBookISBNRepo().Gets();
                 handleBookISBN(AllBookISBN);
@@ -1078,20 +1078,20 @@ namespace AnhQuoc_C5_Assignment
                 SelectedBook = ucSelectBooksTable.SelectedDto;
                 if (SelectedBook == null)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyPleaseSelect("book"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("book"));
                     return;
                 }
 
                 // Kiểm tra tình trạng cuốn sách
                 if (!SelectedBook.Status)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyBookStatus());
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyBookStatus());
                     return;
                 }
 
                 if (SelectedBook.IdBookStatus == Constants.bookStatusSpoil)
                 {
-                    Utilities.ShowMessageBox1("This book cannot be borrowed because the book is spoiled");
+                    Utilitys.ShowMessageBox1("This book cannot be borrowed because the book is spoiled");
                     return;
                 }
 
@@ -1115,7 +1115,7 @@ namespace AnhQuoc_C5_Assignment
 
             ucSelectBooksTable.dgBooks.MouseDoubleClick += (_sender, _e) => confirmHandle(_sender);
 
-            Utilities.AddItemToFormDefault(frmSelectBooksTable, ucSelectBooksTable, btnConfirmSelectBook, btnCancelSelectBook);
+            Utilitys.AddItemToFormDefault(frmSelectBooksTable, ucSelectBooksTable, btnConfirmSelectBook, btnCancelSelectBook);
 
             // Show
             frmSelectBooksTable.ShowDialog();

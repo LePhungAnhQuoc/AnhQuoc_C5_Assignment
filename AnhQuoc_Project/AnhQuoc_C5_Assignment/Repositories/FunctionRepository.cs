@@ -1,4 +1,5 @@
 ﻿using AnhQuoc_C5_Assignment;
+using Api.Models.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +13,7 @@ namespace AnhQuoc_C5_Assignment
 {
     public class FunctionRepository : Repository<Function>
     {
-        public FunctionRepository(APIProvider<Function> apiFunction): base(apiFunction)
+        public FunctionRepository(APIProvider<Function> ApiProvider) : base(ApiProvider)
         {
         }
     }

@@ -15,8 +15,8 @@ namespace AnhQuoc_C5_Assignment
             UserInfo getInfo = userInfoVM.FindByIdUser(sourceItem.Id);
 
             UserDto newItem = new UserDto(sourceItem.Id);
-            Utilities.Copy(newItem, sourceItem);
-            Utilities.Copy(newItem, getInfo);
+            Utilitys.Copy(newItem, sourceItem);
+            Utilitys.Copy(newItem, getInfo);
 
             return newItem;
         }

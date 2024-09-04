@@ -10,7 +10,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddReaderViewModel : BaseViewModel<object>, IPageViewModel
+    public class AddReaderViewModel : BaseViewModel<Reader>, IPageViewModel
     {
         #region Fields
         public bool IsCancel { get; set; }
@@ -148,11 +148,11 @@ namespace AnhQuoc_C5_Assignment
             childContentControls = new List<DependencyObject>();
 
             DependencyObject child = thisForm.mainContent.Children[0];
-            readerContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+            readerContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
             child = thisForm.mainContent.Children[1];
-            adultContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+            adultContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
             child = thisForm.mainContent.Children[2];
-            childContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+            childContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
 
             mainContentControls.AddRange(readerContentControls);
 
@@ -247,9 +247,9 @@ namespace AnhQuoc_C5_Assignment
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -257,17 +257,17 @@ namespace AnhQuoc_C5_Assignment
 
             // Kiểm tra thông tin của item có tồn tại trong danh sách
             Reader getReader = readerVM.CreateByDto(Item);
-            bool isExistReaderInformation = Utilities.IsExistInformation(thisForm.getReaderRepo().Gets(), getReader, true, Constants.checkPropReader);
+            bool isExistReaderInformation = Utilitys.IsExistInformation(thisForm.getReaderRepo().Gets(), getReader, true, Constants.checkPropReader);
 
             if (Item.ReaderType == ReaderType.Adult)
             {
                 Adult getAdult = adultVM.CreateByDto(AdultItem);
-                bool isCheck = Utilities.IsExistInformation(thisForm.getAdultRepo().Gets(), getAdult, true, Constants.checkPropAdult);
+                bool isCheck = Utilitys.IsExistInformation(thisForm.getAdultRepo().Gets(), getAdult, true, Constants.checkPropAdult);
 
                 // Kiểm tra thông tin của item có tồn tại trong danh sách
                 if (isCheck)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("adult reader"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("adult reader"));
                     return;
                 }
             }
@@ -277,11 +277,11 @@ namespace AnhQuoc_C5_Assignment
                 if (isExistReaderInformation)
                 {
                     Child getChild = childVM.CreateByDto(ChildItem);
-                    bool IsExistChild = Utilities.IsExistInformation(thisForm.getChildRepo().Gets(), getChild, true, Constants.checkPropChild);
+                    bool IsExistChild = Utilitys.IsExistInformation(thisForm.getChildRepo().Gets(), getChild, true, Constants.checkPropChild);
 
                     if (IsExistChild)
                     {
-                        Utilities.ShowMessageBox1(Utilities.NotifyItemExistInfo("child reader"));
+                        Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInfo("child reader"));
                         return;
                     }
                 }

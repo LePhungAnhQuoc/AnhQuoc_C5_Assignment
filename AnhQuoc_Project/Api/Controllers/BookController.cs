@@ -2,6 +2,7 @@
 using Api.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Api.Utilities;
+using System.Security.Cryptography.Xml;
 
 namespace Api.Controllers
 {
@@ -37,27 +38,29 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Book newItem)
+        public IActionResult Create(AddBookDto addBookDto)
         {
-            quanLyThuVienContext.Books.Add(newItem);
+            Book newItem = new Book();
+            addBookDto.MapTo(ref newItem);
 
+            quanLyThuVienContext.Books.Add(newItem);
             quanLyThuVienContext.SaveChanges();
+
             return Ok(newItem);
         }
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Update(string id, Book updateItem)
+        public IActionResult Update(string id, UpdateBookDto updateBookDto)
         {
             var getItem = quanLyThuVienContext.Books.Find(id);
 
             if (getItem is null)
                 return NotFound();
 
-            Utilitys.Copy(getItem, updateItem);
-            getItem.ModifiedAt = DateTime.Now;
-            
+            updateBookDto.MapTo(ref getItem);
             quanLyThuVienContext.SaveChanges();
+
             return Ok(getItem);
         }
 

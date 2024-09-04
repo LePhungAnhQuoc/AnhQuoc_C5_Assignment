@@ -57,17 +57,17 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(PenaltyReasonDto item)
         {
-            return Utilities.IsCheckEmptyItem(item, false);
+            return Utilitys.IsCheckEmptyItem(item, false);
         }
 
         public void Copy(PenaltyReasonDto dest, PenaltyReasonDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(PenaltyReason dest, PenaltyReasonDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public PenaltyReason CreateByDto(PenaltyReasonDto source)

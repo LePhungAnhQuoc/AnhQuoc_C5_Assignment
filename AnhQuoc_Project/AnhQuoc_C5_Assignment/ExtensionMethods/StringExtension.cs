@@ -28,8 +28,8 @@ namespace AnhQuoc_C5_Assignment
             }
             if (ignoringAccentedLetters)
             {
-                value = Utilities.RemoveDiacritics(value);
-                source = Utilities.RemoveDiacritics(source);
+                value = Utilitys.RemoveDiacritics(value);
+                source = Utilitys.RemoveDiacritics(source);
             }
             
             bool isContains = Contains(source, value, ignoreCase);

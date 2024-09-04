@@ -98,12 +98,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(LoanDetail dest, LoanDetailDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(LoanDetailDto dest, LoanDetailDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

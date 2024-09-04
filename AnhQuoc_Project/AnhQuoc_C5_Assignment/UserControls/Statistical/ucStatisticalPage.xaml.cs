@@ -181,8 +181,8 @@ namespace AnhQuoc_C5_Assignment
             var linearGradient = new LinearGradientBrush();
             linearGradient.StartPoint = new Point(0.5, 1.1);
             linearGradient.EndPoint = new Point(0.5, 0);
-            linearGradient.GradientStops.Add(new GradientStop(Utilities.GetColorFromBrush(firstColor), 0));
-            linearGradient.GradientStops.Add(new GradientStop(Utilities.GetColorFromBrush(secondColor), 1));
+            linearGradient.GradientStops.Add(new GradientStop(Utilitys.GetColorFromBrush(firstColor), 0));
+            linearGradient.GradientStops.Add(new GradientStop(Utilitys.GetColorFromBrush(secondColor), 1));
             #endregion
 
             BorrowedBookLabels = dateLabels;

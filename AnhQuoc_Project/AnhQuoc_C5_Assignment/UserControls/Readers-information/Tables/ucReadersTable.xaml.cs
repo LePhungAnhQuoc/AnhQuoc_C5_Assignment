@@ -156,7 +156,7 @@ namespace AnhQuoc_C5_Assignment
 
             if (getExceptProperties != null)
             {
-                Utilities.SetExceptPropertiesForDataGrid(dgReaders, getExceptProperties());
+                Utilitys.SetExceptPropertiesForDataGrid(dgReaders, getExceptProperties());
             }
 
             if (getReaders != null)

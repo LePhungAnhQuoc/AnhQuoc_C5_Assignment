@@ -9,10 +9,12 @@
 
 namespace AnhQuoc_C5_Assignment
 {
+    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
+    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
     
-    public partial class LoanHistory
+    public partial class LoanHistory : IMapFromModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoanHistory()
@@ -37,5 +39,19 @@ namespace AnhQuoc_C5_Assignment
         public virtual ICollection<LoanDetailHistory> LoanDetailHistories { get; set; }
         public virtual Reader Reader { get; set; }
         public virtual User User { get; set; }
+
+        public object MapToAdd()
+        {
+            AddLoanHistoryDto result = new AddLoanHistoryDto();
+            Utilitys.Copy(result, this);
+            return result;
+        }
+
+        public object MapToUpdate()
+        {
+            UpdateLoanHistoryDto result = new UpdateLoanHistoryDto();
+            Utilitys.Copy(result, this);
+            return result;
+        }
     }
 }

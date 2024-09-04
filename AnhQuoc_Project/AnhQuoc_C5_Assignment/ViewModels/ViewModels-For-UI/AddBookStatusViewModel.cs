@@ -10,7 +10,7 @@ using System.Windows.Controls;
 
 namespace AnhQuoc_C5_Assignment
 {
-    public class AddBookStatusViewModel<T, TDto>: BaseViewModel<object>, IPageViewModel
+    public class AddBookStatusViewModel<T, TDto>: BaseViewModel<BookStatu>, IPageViewModel
     {
         #region Fields
         public bool IsCancel { get; set; }
@@ -79,7 +79,7 @@ namespace AnhQuoc_C5_Assignment
             mainContentControls = new List<DependencyObject>();
             foreach (DependencyObject child in thisForm.mainContent.Children)
             {
-                mainContentControls.AddRange(Utilities.GetControlHaveValidationRules(child));
+                mainContentControls.AddRange(Utilitys.GetControlHaveValidationRules(child));
             }
 
             TextBoxes = mainContentControls.Where(obj => obj is TextBox).Select(obj => obj as TextBox).ToList();
@@ -112,19 +112,19 @@ namespace AnhQuoc_C5_Assignment
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
             }
 
             BookStatu getBookStatus = bookStatusVM.CreateByDto(Item);
-            bool isCheck = Utilities.IsExistInformation(thisForm.getBookStatusRepo().Gets(), getBookStatus, true, Constants.checkPropBookStatus);
+            bool isCheck = Utilitys.IsExistInformation(thisForm.getBookStatusRepo().Gets(), getBookStatus, true, Constants.checkPropBookStatus);
             if (isCheck)
             {
-                Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("book status"));
+                Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("book status"));
                 return;
             }
 
@@ -135,9 +135,9 @@ namespace AnhQuoc_C5_Assignment
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             // Validation
-            Utilities.RunAllValidations(mainContentControls);
+            Utilitys.RunAllValidations(mainContentControls);
 
-            bool isHasError = Utilities.IsValidationGetHasError(mainContentControls);
+            bool isHasError = Utilitys.IsValidationGetHasError(mainContentControls);
             if (isHasError)
             {
                 return;
@@ -146,13 +146,13 @@ namespace AnhQuoc_C5_Assignment
             BookStatu normalItem = bookStatusVM.CreateByDto(Item);
             BookStatu normalSourceItem = bookStatusVM.CreateByDto(thisForm.getItemToUpdate());
 
-            bool isExistItemToUpdate = Utilities.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropBookStatus);
+            bool isExistItemToUpdate = Utilitys.IsExistInformation(normalSourceItem, normalItem, false, Constants.checkPropBookStatus);
             if (!isExistItemToUpdate)
             {
-                bool isExistInformation = Utilities.IsExistInformation(thisForm.getBookStatusRepo().Gets(), normalItem, true, Constants.checkPropBookStatus);
+                bool isExistInformation = Utilitys.IsExistInformation(thisForm.getBookStatusRepo().Gets(), normalItem, true, Constants.checkPropBookStatus);
                 if (isExistInformation)
                 {
-                    Utilities.ShowMessageBox1(Utilities.NotifyItemExistInTheList("book status"));
+                    Utilitys.ShowMessageBox1(Utilitys.NotifyItemExistInTheList("book status"));
                     return;
                 }
             }

@@ -23,9 +23,9 @@ namespace AnhQuoc_C5_Assignment
             var functionVM = UnitOfViewModel.Instance.FunctionViewModel;
 
             FunctionDto newItem = new FunctionDto(sourceItem.Id);
-            Utilities.Copy(newItem, sourceItem);
+            Utilitys.Copy(newItem, sourceItem);
 
-            newItem.Parent = (Utilities.IsCheckEmptyString(sourceItem.IdParent)) ? null : functionVM.FindById(sourceItem.IdParent, null);
+            newItem.Parent = (Utilitys.IsCheckEmptyString(sourceItem.IdParent)) ? null : functionVM.FindById(sourceItem.IdParent, null);
 
             var allChildsFunc = functionVM.getChildsByIdParent(newItem.Id, null);
             foreach (Function childFunc in allChildsFunc)

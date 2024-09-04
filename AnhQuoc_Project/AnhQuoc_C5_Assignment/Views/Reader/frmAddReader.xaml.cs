@@ -58,7 +58,7 @@ namespace AnhQuoc_C5_Assignment
         {
             Grid grid = LogicalTreeHelper.GetParent((sender as Button)) as Grid;
             TextBox txt = LogicalTreeHelper.GetChildren(grid).ToTypedCollection<List<DependencyObject>, DependencyObject>()[0] as TextBox;
-            Utilities.ExpandMore(txt, false);
+            Utilitys.ExpandMore(txt, false);
         }
     }
 }

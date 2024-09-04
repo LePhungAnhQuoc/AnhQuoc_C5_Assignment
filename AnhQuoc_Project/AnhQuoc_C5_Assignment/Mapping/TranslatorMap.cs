@@ -12,7 +12,7 @@ namespace AnhQuoc_C5_Assignment
         public override TranslatorDto ConvertToDto(Translator sourceItem)
         {
             TranslatorDto newItem = new TranslatorDto(sourceItem.Id);
-            Utilities.Copy(newItem, sourceItem);
+            Utilitys.Copy(newItem, sourceItem);
 
             return newItem;
         }

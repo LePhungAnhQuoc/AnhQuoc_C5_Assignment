@@ -22,11 +22,11 @@ namespace AnhQuoc_C5_Assignment
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             string getValue = (string)value;
-            if (Utilities.FormNotEmptyRule(value))
+            if (Utilitys.FormNotEmptyRule(value))
             {
-                if (!Utilities.InputParagraphRule(getValue, IsAllowSpace, AllowCharacters))
+                if (!Utilitys.InputParagraphRule(getValue, IsAllowSpace, AllowCharacters))
                 {
-                    return new ValidationResult(false, Utilities.ValidateNoteInputParagraphRule());
+                    return new ValidationResult(false, Utilitys.ValidateNoteInputParagraphRule());
                 }
             }
             return ValidationResult.ValidResult;

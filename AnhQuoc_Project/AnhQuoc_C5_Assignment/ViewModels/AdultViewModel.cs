@@ -42,7 +42,7 @@ namespace AnhQuoc_C5_Assignment
         
         public ObservableCollection<AdultDto> FillByChildsQuantityRule(ObservableCollection<AdultDto> items, int maxChildsQuantity, bool? statusValue)
         {
-            items = Utilities.FillByStatus(items, statusValue);
+            items = Utilitys.FillByStatus(items, statusValue);
 
             ObservableCollection<AdultDto> result = new ObservableCollection<AdultDto>();
             foreach (AdultDto item in items)
@@ -61,7 +61,7 @@ namespace AnhQuoc_C5_Assignment
             var childVM = (UnitOfViewModel.Instance.ChildViewModel);
 
             var childReaders = readerVM.GetListFromChilds(childs);
-            childReaders = Utilities.FillByStatus(childReaders, statusValue);
+            childReaders = Utilitys.FillByStatus(childReaders, statusValue);
             childs = childVM.GetListFromReaders(childReaders, statusValue);
 
             ObservableCollection<Adult> newList = new ObservableCollection<Adult>();
@@ -77,7 +77,7 @@ namespace AnhQuoc_C5_Assignment
 
         public ObservableCollection<Adult> GetListFromReaders(ObservableCollection<Reader> adultReaders, bool? statusValue)
         {
-            adultReaders = Utilities.FillByStatus(adultReaders, statusValue);
+            adultReaders = Utilitys.FillByStatus(adultReaders, statusValue);
 
             ObservableCollection<Adult> newList = new ObservableCollection<Adult>();
             foreach (Reader reader in adultReaders)
@@ -133,22 +133,22 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(Adult item)
         {
-            if (Utilities.IsCheckEmptyString(item.Identify))
+            if (Utilitys.IsCheckEmptyString(item.Identify))
             {
                 return false;
             }
 
-            if (Utilities.IsCheckEmptyString(item.Address))
+            if (Utilitys.IsCheckEmptyString(item.Address))
             {
                 return false;
             }
 
-            if (Utilities.IsCheckEmptyString(item.City))
+            if (Utilitys.IsCheckEmptyString(item.City))
             {
                 return false;
             }
 
-            if (Utilities.IsCheckEmptyString(item.Phone))
+            if (Utilitys.IsCheckEmptyString(item.Phone))
             {
                 return false;
             }
@@ -163,7 +163,7 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Adult dest, AdultDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public Adult CreateByDto(AdultDto source)

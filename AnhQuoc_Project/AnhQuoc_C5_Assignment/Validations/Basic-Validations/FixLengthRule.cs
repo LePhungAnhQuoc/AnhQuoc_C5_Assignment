@@ -14,9 +14,9 @@ namespace AnhQuoc_C5_Assignment
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             string getValue = (string)value;
-            if (Utilities.FormNotEmptyRule(value))
+            if (Utilitys.FormNotEmptyRule(value))
             {
-                if (Utilities.InputNumberRule(getValue))
+                if (Utilitys.InputNumberRule(getValue))
                 {
                     int getLength = getValue.Length;
 
@@ -26,7 +26,7 @@ namespace AnhQuoc_C5_Assignment
                     }
                     else
                     {
-                        return new ValidationResult(false, Utilities.ValidateNoteFixLengthRule(FixLength));
+                        return new ValidationResult(false, Utilitys.ValidateNoteFixLengthRule(FixLength));
                     }
                 }
             }

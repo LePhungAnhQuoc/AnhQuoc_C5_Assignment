@@ -40,7 +40,7 @@ namespace AnhQuoc_C5_Assignment
 
         public bool IsCheckEmptyItem(ParameterDto item)
         {
-            return Utilities.IsCheckEmptyItem(item, false);
+            return Utilitys.IsCheckEmptyItem(item, false);
         }
 
         public Parameter CreateByDto(ParameterDto dto)
@@ -52,12 +52,12 @@ namespace AnhQuoc_C5_Assignment
 
         public void Copy(Parameter dest, ParameterDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
 
         public void Copy(ParameterDto dest, ParameterDto source)
         {
-            Utilities.Copy(dest, source);
+            Utilitys.Copy(dest, source);
         }
     }
 }

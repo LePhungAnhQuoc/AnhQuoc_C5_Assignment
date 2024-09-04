@@ -75,7 +75,7 @@ namespace AnhQuoc_C5_Assignment
             roleVM = UnitOfViewModel.Instance.RoleViewModel;
 
             Loaded += ucUserLoginInformation_Loaded;
-            Utilities.SetToolTipForTextBlock(mainContent);
+            Utilitys.SetToolTipForTextBlock(mainContent);
         }
 
         private void ucUserLoginInformation_Loaded(object sender, RoutedEventArgs e)

@@ -2,6 +2,7 @@ using Api.Models.Entities;
 using Microsoft.OpenApi.Models;
 using Api.Utilities;
 using System.Text.Json.Serialization;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 Global.WebApplicationBuilder = builder;
@@ -50,5 +51,11 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
 });
+
+#region Settings
+CultureInfo defaultCulture = new CultureInfo("vi-VN");
+CultureInfo.DefaultThreadCurrentCulture = defaultCulture;
+CultureInfo.DefaultThreadCurrentUICulture = defaultCulture;
+#endregion
 
 app.Run();
