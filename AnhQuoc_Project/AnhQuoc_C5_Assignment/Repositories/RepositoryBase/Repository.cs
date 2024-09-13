@@ -133,12 +133,7 @@ namespace AnhQuoc_C5_Assignment
         #region PrivateMethods
         private string GetPrimaryKeyName()
         {
-            string key = string.Empty;
-            using (SqlConnection conn = new SqlConnection(Constants.ShortConnStr()))
-            {
-                key = Utilitys.GetPrimaryKeys(conn, typeof(T).Name).SingleOrDefault();
-            }
-            return key;
+            return Utilitys.GetPrimaryKeys(typeof(T)).SingleOrDefault();
         }
         #endregion
     }

@@ -27,9 +27,9 @@ namespace Api.Controllers
 
         [HttpGet]
         [Route("{idreader}")]
-        public IActionResult GetById(string id)
+        public IActionResult GetById(string idreader)
         {
-            var getItem = quanLyThuVienContext.Adults.Find(id);
+            var getItem = quanLyThuVienContext.Adults.Find(idreader);
 
             if (getItem is null)
                 return NotFound();
@@ -50,9 +50,9 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{idreader}")]
-        public IActionResult Update(string id, UpdateAdultDto updateAdultDto)
+        public IActionResult Update(string idreader, UpdateAdultDto updateAdultDto)
         {
-            var getItem = quanLyThuVienContext.Adults.Find(id);
+            var getItem = quanLyThuVienContext.Adults.Find(idreader);
 
             if (getItem is null)
                 return NotFound();
@@ -65,9 +65,9 @@ namespace Api.Controllers
 
         [HttpDelete]
         [Route("{idreader}")]
-        public IActionResult Delete(string id)
+        public IActionResult Delete(string idreader)
         {
-            if (quanLyThuVienContext.Adults.Remove(id) == false)
+            if (quanLyThuVienContext.Adults.Remove(idreader) == false)
                 return NotFound();
             quanLyThuVienContext.SaveChanges();
             

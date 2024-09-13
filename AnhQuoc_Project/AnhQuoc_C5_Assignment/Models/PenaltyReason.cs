@@ -13,9 +13,11 @@ namespace AnhQuoc_C5_Assignment
     using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class PenaltyReason : IMapFromModel
     {
+        [Key]
         public string Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

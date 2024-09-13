@@ -13,7 +13,8 @@ namespace AnhQuoc_C5_Assignment
     using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Role : IMapFromModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +23,7 @@ namespace AnhQuoc_C5_Assignment
             this.RoleFunctions = new HashSet<RoleFunction>();
             this.UserRoles = new HashSet<UserRole>();
         }
-    
+        [Key]
         public string Id { get; set; }
         public string Name { get; set; }
         public string Group { get; set; }

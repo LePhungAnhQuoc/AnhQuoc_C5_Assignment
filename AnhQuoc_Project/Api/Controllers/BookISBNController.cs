@@ -27,9 +27,9 @@ namespace Api.Controllers
 
         [HttpGet]
         [Route("{isbn}")]
-        public IActionResult GetById(string id)
+        public IActionResult GetById(string isbn)
         {
-            var getItem = quanLyThuVienContext.BookIsbns.Find(id);
+            var getItem = quanLyThuVienContext.BookIsbns.Find(isbn);
 
             if (getItem is null)
                 return NotFound();
@@ -50,9 +50,9 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{isbn}")]
-        public IActionResult Update(string id, UpdateBookISBNDto updateBookISBNDto)
+        public IActionResult Update(string isbn, UpdateBookISBNDto updateBookISBNDto)
         {
-            var getItem = quanLyThuVienContext.BookIsbns.Find(id);
+            var getItem = quanLyThuVienContext.BookIsbns.Find(isbn);
 
             if (getItem is null)
                 return NotFound();
@@ -65,9 +65,9 @@ namespace Api.Controllers
 
         [HttpDelete]
         [Route("{isbn}")]
-        public IActionResult Delete(string id)
+        public IActionResult Delete(string isbn)
         {
-            if (quanLyThuVienContext.BookIsbns.Remove(id) == false)
+            if (quanLyThuVienContext.BookIsbns.Remove(isbn) == false)
                 return NotFound();
             quanLyThuVienContext.SaveChanges();
             

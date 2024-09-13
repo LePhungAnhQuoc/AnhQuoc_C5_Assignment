@@ -157,7 +157,5 @@ namespace AnhQuoc_C5_Assignment
         public static double maxHeightTextArea = 200;
 
         public static WindowStartupLocation WDLocation = WindowStartupLocation.CenterScreen;
-
-        public static Func<string> ShortConnStr = () => $"data source={MainWindow.DataSource};initial catalog={MainWindow.InitCatalog};integrated security={MainWindow.IntegratedSecurity.ToString()}";
     }
 }

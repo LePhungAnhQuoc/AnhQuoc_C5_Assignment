@@ -27,7 +27,7 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Properties
-        public UnitOfRepository _UnitOfRepo { get; set; }
+        public UnitOfRepository UnitOfRepo { get; set; }
 
 
         private DatabaseNameViewModel _DatabaseNameViewModel;
@@ -335,89 +335,89 @@ namespace AnhQuoc_C5_Assignment
         public void Load()
         {
             _TranslatorViewModel = new TranslatorViewModel();
-            _TranslatorViewModel.Repo = _UnitOfRepo.TranslatorRepo;
+            _TranslatorViewModel.Repo = UnitOfRepo.TranslatorRepo;
 
 
             _LoanDetailHistoryViewModel = new LoanDetailHistoryViewModel();
-            _LoanDetailHistoryViewModel.Repo = _UnitOfRepo.LoanDetailHistoryRepo;
+            _LoanDetailHistoryViewModel.Repo = UnitOfRepo.LoanDetailHistoryRepo;
 
             _LoanHistoryViewModel = new LoanHistoryViewModel();
-            _LoanHistoryViewModel.Repo = _UnitOfRepo.LoanHistoryRepo;
+            _LoanHistoryViewModel.Repo = UnitOfRepo.LoanHistoryRepo;
 
             _PublisherViewModel = new PublisherViewModel();
-            _PublisherViewModel.Repo = _UnitOfRepo.PublisherRepo;
+            _PublisherViewModel.Repo = UnitOfRepo.PublisherRepo;
             
             _LoanSlipViewModel = new LoanSlipViewModel();
-            _LoanSlipViewModel.Repo = _UnitOfRepo.LoanSlipRepo;
+            _LoanSlipViewModel.Repo = UnitOfRepo.LoanSlipRepo;
 
             _LoanDetailViewModel = new LoanDetailViewModel();
-            _LoanDetailViewModel.Repo = _UnitOfRepo.LoanDetailRepo;
+            _LoanDetailViewModel.Repo = UnitOfRepo.LoanDetailRepo;
 
             _BookISBNViewModel = new BookISBNViewModel();
-            _BookISBNViewModel.Repo = _UnitOfRepo.BookISBNRepo;
+            _BookISBNViewModel.Repo = UnitOfRepo.BookISBNRepo;
            
             _BookTitleViewModel = new BookTitleViewModel();
-            _BookTitleViewModel.Repo = _UnitOfRepo.BookTitleRepo;
+            _BookTitleViewModel.Repo = UnitOfRepo.BookTitleRepo;
 
             _BookStatusViewModel = new BookStatusViewModel();
-            _BookStatusViewModel.Repo = _UnitOfRepo.BookStatusRepo;
+            _BookStatusViewModel.Repo = UnitOfRepo.BookStatusRepo;
 
             _BookViewModel = new BookViewModel();
-            _BookViewModel.Repo = _UnitOfRepo.BookRepo;
+            _BookViewModel.Repo = UnitOfRepo.BookRepo;
            
             _ProvinceViewModel = new ProvinceViewModel();
-            _ProvinceViewModel.Repo = _UnitOfRepo.ProvinceRepo;
+            _ProvinceViewModel.Repo = UnitOfRepo.ProvinceRepo;
 
             _AuthorViewModel = new AuthorViewModel();
-            _AuthorViewModel.Repo = _UnitOfRepo.AuthorRepo;
+            _AuthorViewModel.Repo = UnitOfRepo.AuthorRepo;
 
             _ReaderViewModel = new ReaderViewModel();
-            _ReaderViewModel.Repo = _UnitOfRepo.ReaderRepo;
+            _ReaderViewModel.Repo = UnitOfRepo.ReaderRepo;
 
             _UserViewModel = new UserViewModel();
-            _UserViewModel.Repo = _UnitOfRepo.UserRepo;
+            _UserViewModel.Repo = UnitOfRepo.UserRepo;
 
             _UserInfoViewModel = new UserInfoViewModel();
-            _UserInfoViewModel.Repo = _UnitOfRepo.UserInfoRepo;
+            _UserInfoViewModel.Repo = UnitOfRepo.UserInfoRepo;
 
             _FunctionViewModel = new FunctionViewModel();
-            _FunctionViewModel.Repo = _UnitOfRepo.FunctionRepo;
+            _FunctionViewModel.Repo = UnitOfRepo.FunctionRepo;
 
             _RoleViewModel = new RoleViewModel();
-            _RoleViewModel.Repo = _UnitOfRepo.RoleRepo;
+            _RoleViewModel.Repo = UnitOfRepo.RoleRepo;
 
             _UserRoleViewModel = new UserRoleViewModel();
-            _UserRoleViewModel.Repo = _UnitOfRepo.UserRoleRepo;
+            _UserRoleViewModel.Repo = UnitOfRepo.UserRoleRepo;
 
             _RoleFunctionViewModel = new RoleFunctionViewModel();
-            _RoleFunctionViewModel.Repo = _UnitOfRepo.RoleFunctionRepo;
+            _RoleFunctionViewModel.Repo = UnitOfRepo.RoleFunctionRepo;
 
             _ChildViewModel = new ChildViewModel();
-            _ChildViewModel.Repo = _UnitOfRepo.ChildRepo;
+            _ChildViewModel.Repo = UnitOfRepo.ChildRepo;
 
             _CategoryViewModel = new CategoryViewModel();
-            _CategoryViewModel.Repo = _UnitOfRepo.CategoryRepo;
+            _CategoryViewModel.Repo = UnitOfRepo.CategoryRepo;
 
             _AdultViewModel = new AdultViewModel();
-            _AdultViewModel.Repo = _UnitOfRepo.AdultRepo;
+            _AdultViewModel.Repo = UnitOfRepo.AdultRepo;
 
             _ParameterViewModel = new ParameterViewModel();
-            _ParameterViewModel.Repo = _UnitOfRepo.ParameterRepo;
+            _ParameterViewModel.Repo = UnitOfRepo.ParameterRepo;
 
             _PenaltyReasonViewModel = new PenaltyReasonViewModel();
-            _PenaltyReasonViewModel.Repo = _UnitOfRepo.PenaltyReasonRepo;
+            _PenaltyReasonViewModel.Repo = UnitOfRepo.PenaltyReasonRepo;
 
             _StatisticalViewModel = new StatisticalViewModel();
-            _StatisticalViewModel.Repo = _UnitOfRepo.StatisticalRepo;
+            _StatisticalViewModel.Repo = UnitOfRepo.StatisticalRepo;
         }
 
         public void LoadServerName()
         {
             _DatabaseNameViewModel = new DatabaseNameViewModel();
-            _DatabaseNameViewModel.Repo = _UnitOfRepo.DatabaseNameRepo;
+            _DatabaseNameViewModel.Repo = UnitOfRepo.DatabaseNameRepo;
 
             _ServerNameViewModel = new ServerNameViewModel();
-            _ServerNameViewModel.Repo = _UnitOfRepo.ServerNameRepo;
+            _ServerNameViewModel.Repo = UnitOfRepo.ServerNameRepo;
 
         }
     }

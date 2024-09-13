@@ -1,54 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\dataprovider\\apiprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\dataprovider\\apiprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|solutionrelative:api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedHeight": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\CategoryController.cs",
-              "RelativeDocumentMoniker": "Api\\Controllers\\CategoryController.cs",
-              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\CategoryController.cs",
-              "RelativeToolTip": "Api\\Controllers\\CategoryController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAxwDQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T00:15:44.944Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "APIProvider.cs",
-              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\DataProvider\\APIProvider.cs",
-              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\DataProvider\\APIProvider.cs",
-              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\DataProvider\\APIProvider.cs",
-              "RelativeToolTip": "AnhQuoc_C5_Assignment\\DataProvider\\APIProvider.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAywGUAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T23:37:37.549Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

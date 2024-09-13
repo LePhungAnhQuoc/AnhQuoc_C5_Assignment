@@ -109,7 +109,7 @@ namespace AnhQuoc_C5_Assignment
             UnitOfRepo = new UnitOfRepository();
             UnitOfRepo.LoadServerNameRepo();
 
-            UnitOfViewModel.Instance._UnitOfRepo = UnitOfRepo;
+            UnitOfViewModel.Instance.UnitOfRepo = UnitOfRepo;
             UnitOfViewModel.Instance.LoadServerName();
 
             serverNameVM = UnitOfViewModel.Instance.ServerNameViewModel;
@@ -314,9 +314,9 @@ namespace AnhQuoc_C5_Assignment
                 {
                     DatabaseFirst.Instance.dbSource.Dispose();
                     DatabaseFirst.Instance.dbSource = null;
+                    DatabaseFirst.Instance = null;
                 }
 
-                DatabaseFirst.Instance = null;
                 DatabaseFirst.IsConnectValid = false;
 
                 OpenFormServerNameInformation(ref serverName, ref databaseName);
@@ -324,8 +324,6 @@ namespace AnhQuoc_C5_Assignment
                 DatabaseFirst.ConnStr = ModifyAppConfig(serverName.Name, databaseName.Name);
 
                 DatabaseFirst.IsConnectValid = true;
-
-
 
                 // Checking
                 var wait = new LoadingSpinnerWD(() => 
@@ -341,9 +339,7 @@ namespace AnhQuoc_C5_Assignment
                     ResetServerName();
                     continue;
                 }
-
             }
-            //  CheckingModelHasDecimalProp();
         }
 
         private bool CheckIsRightConnection()
@@ -357,7 +353,11 @@ namespace AnhQuoc_C5_Assignment
                 try
                 {
                     value = (IEnumerable)Utilitys.getValueFromProperty(tableProperty, dbSource);
-                    value.ToListObject(); // Check EntityException
+                    
+                    foreach (var itemCheck in value) // Check EntityException
+                    {
+                        break;
+                    }
                 }
                 catch
                 {
@@ -369,14 +369,14 @@ namespace AnhQuoc_C5_Assignment
 
         public void GetServerNameAndLoading()
         {
-            SetUpServerName();
+            // SetUpServerName();
 
-            LoadingSpinnerWD wait = new LoadingSpinnerWD(() =>
+            var wait = new LoadingSpinnerWD(() =>
             {
                 #region LoadUnit2
                 UnitOfRepo.Load();
 
-                UnitOfViewModel.Instance._UnitOfRepo = UnitOfRepo;
+                UnitOfViewModel.Instance.UnitOfRepo = UnitOfRepo;
                 UnitOfViewModel.Instance.Load();
 
                 UnitOfMap.Instance.UnitOfRepo = UnitOfRepo;
@@ -399,7 +399,7 @@ namespace AnhQuoc_C5_Assignment
 
         #endregion
 
-        // Update DataRecord at first load Program
+        // Update DataRecord at First load Program
         private void UpdateAtFirstLoadProgram()
         {
             #region Check-ExpireDate
@@ -563,5 +563,4 @@ namespace AnhQuoc_C5_Assignment
         public static readonly DependencyProperty DataProperty =
             DependencyProperty.Register("Data", typeof(object), typeof(BindingProxy), new PropertyMetadata(null));
     }
-
 }

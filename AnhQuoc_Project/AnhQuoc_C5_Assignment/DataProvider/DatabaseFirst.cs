@@ -43,6 +43,7 @@ namespace AnhQuoc_C5_Assignment
 
         public QuanLyThuVienEntities dbSource;
         public static string ConnStr;
+        public static Func<string> ShortConnStr = () => $"data source={MainWindow.DataSource};initial catalog={MainWindow.InitCatalog};integrated security={MainWindow.IntegratedSecurity.ToString()}";
         public static bool IsConnectValid = false;
 
         private DatabaseFirst()

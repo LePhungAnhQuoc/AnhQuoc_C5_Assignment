@@ -123,6 +123,12 @@
                                             <DataTrigger Binding="{Binding ReaderType}" Value="Adult">
                                                 <Setter Property="Visibility" Value="Hidden" />
                                             </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="True">
+                                                <Setter Property="IsEnabled" Value="True" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="False">
+                                                <Setter Property="IsEnabled" Value="False" />
+                                            </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
                                 </Button.Style>

@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\dataprovider\\apiprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\dataprovider\\apiprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\api\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|solutionrelative:api\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|solutionrelative:api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\api\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|solutionrelative:api\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\api\\controllers\\adultcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|solutionrelative:api\\controllers\\adultcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\usercontrols\\readers-information\\tables\\ucreaderstable.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\usercontrols\\readers-information\\tables\\ucreaderstable.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\usercontrols\\readers-information\\ucreadermanagement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\usercontrols\\readers-information\\ucreadermanagement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\usercontrols\\readers-information\\ucreadermanagement.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\usercontrols\\readers-information\\ucreadermanagement.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\usercontrols\\dashboard-menu\\uclibrariandashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\usercontrols\\dashboard-menu\\uclibrariandashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +38,95 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\CategoryController.cs",
-              "RelativeDocumentMoniker": "Api\\Controllers\\CategoryController.cs",
-              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\CategoryController.cs",
-              "RelativeToolTip": "Api\\Controllers\\CategoryController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAxwDQAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\BookController.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\BookController.cs",
+              "RelativeToolTip": "Api\\Controllers\\BookController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAawBkAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T00:15:44.944Z",
+              "WhenOpened": "2024-09-13T04:29:02.188Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "APIProvider.cs",
-              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\DataProvider\\APIProvider.cs",
-              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\DataProvider\\APIProvider.cs",
-              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\DataProvider\\APIProvider.cs",
-              "RelativeToolTip": "AnhQuoc_C5_Assignment\\DataProvider\\APIProvider.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAywGUAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "AuthorController.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\AuthorController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\AuthorController.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\AuthorController.cs",
+              "RelativeToolTip": "Api\\Controllers\\AuthorController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T23:37:37.549Z",
+              "WhenOpened": "2024-09-13T04:31:52.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdultController.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\AdultController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\AdultController.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\AdultController.cs",
+              "RelativeToolTip": "Api\\Controllers\\AdultController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAADIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T04:31:36.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ucReadersTable.xaml",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\Tables\\ucReadersTable.xaml",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\Tables\\ucReadersTable.xaml",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\Tables\\ucReadersTable.xaml",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\Tables\\ucReadersTable.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-13T03:59:56.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ucReaderManagement.xaml",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-13T03:59:37.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ucReaderManagement.xaml.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml.cs",
+              "ViewState": "AgIAALkCAAAAAAAAAAAtwMUCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T03:58:20.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ucLibrarianDashBoard.xaml.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml.cs",
+              "ViewState": "AgIAABwDAAAAAAAAAAAkwD0DAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T03:53:51.549Z",
               "EditorCaption": ""
             }
           ]

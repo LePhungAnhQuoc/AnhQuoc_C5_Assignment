@@ -157,11 +157,10 @@ namespace AnhQuoc_C5_Assignment
 
             ServerName newServer1 = new ServerName(serverNameVM.GetId(), serverName);
 
-            string propName = nameof(newServer1.Name);
             XmlNode finded = null;
 
             XmlProvider.Instance.Open(Constants.fServerNames);
-            finded = XmlProvider.Instance.FindNode(Constants.childServerName, propName, newServer1.Name);
+            finded = XmlProvider.Instance.FindNode(Constants.childServerName, nameof(newServer1.Name), newServer1.Name);
             if (finded == null)
             {
                 getServerNameRepo().Prepend(newServer1);
@@ -170,7 +169,7 @@ namespace AnhQuoc_C5_Assignment
 
             ServerName newServer2 = new ServerName(serverNameVM.GetId(), serverName2);
             
-            finded = XmlProvider.Instance.FindNode(Constants.childServerName, propName, newServer2.Name);
+            finded = XmlProvider.Instance.FindNode(Constants.childServerName, nameof(newServer2.Name), newServer2.Name);
             if (finded == null)
             {
                 getServerNameRepo().Prepend(newServer2);

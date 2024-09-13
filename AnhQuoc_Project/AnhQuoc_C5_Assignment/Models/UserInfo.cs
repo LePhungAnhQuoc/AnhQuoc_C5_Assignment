@@ -13,9 +13,11 @@ namespace AnhQuoc_C5_Assignment
     using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class UserInfo : IMapFromModel
     {
+        [Key]
         public string IdUser { get; set; }
         public string LName { get; set; }
         public string FName { get; set; }

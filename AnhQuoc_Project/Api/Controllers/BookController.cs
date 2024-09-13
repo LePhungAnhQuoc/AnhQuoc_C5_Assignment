@@ -30,7 +30,7 @@ namespace Api.Controllers
         [Route("{id}")]
         public IActionResult GetById(string id)
         {
-            var getItem = quanLyThuVienContext.Books.Find(id);
+            var getItem = quanLyThuVienContext.Books.Find(Convert.ToInt32(id));
 
             if (getItem is null)
                 return NotFound();
@@ -53,7 +53,7 @@ namespace Api.Controllers
         [Route("{id}")]
         public IActionResult Update(string id, UpdateBookDto updateBookDto)
         {
-            var getItem = quanLyThuVienContext.Books.Find(id);
+            var getItem = quanLyThuVienContext.Books.Find(Convert.ToInt32(id));
 
             if (getItem is null)
                 return NotFound();
@@ -68,7 +68,7 @@ namespace Api.Controllers
         [Route("{id}")]
         public IActionResult Delete(string id)
         {
-            if (quanLyThuVienContext.Books.Remove(id) == false)
+            if (quanLyThuVienContext.Books.Remove(Convert.ToInt32(id)) == false)
                 return NotFound();
             quanLyThuVienContext.SaveChanges();
             

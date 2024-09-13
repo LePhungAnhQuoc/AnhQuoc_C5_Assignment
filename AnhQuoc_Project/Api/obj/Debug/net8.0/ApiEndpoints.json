@@ -34,13 +34,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "idreader",
-        "Type": "",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -55,18 +50,13 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "idreader",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "updateAdultDto",
         "Type": "Api.Models.Dtos.UpdateAdultDto",
-        "IsRequired": true
-      },
-      {
-        "Name": "idreader",
-        "Type": "",
         "IsRequired": true
       }
     ],
@@ -81,13 +71,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "idreader",
-        "Type": "",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -286,13 +271,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "isbn",
-        "Type": "",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -307,18 +287,13 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "isbn",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "updateBookISBNDto",
         "Type": "Api.Models.Dtos.UpdateBookISBNDto",
-        "IsRequired": true
-      },
-      {
-        "Name": "isbn",
-        "Type": "",
         "IsRequired": true
       }
     ],
@@ -333,13 +308,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "isbn",
-        "Type": "",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -1644,13 +1614,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "DateTime",
-        "Type": "",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -1665,18 +1630,13 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "DateTime",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "updateStatisticalDto",
         "Type": "Api.Models.Dtos.UpdateStatisticalDto",
-        "IsRequired": true
-      },
-      {
-        "Name": "DateTime",
-        "Type": "",
         "IsRequired": true
       }
     ],
@@ -1691,13 +1651,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "DateTime",
-        "Type": "",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -1896,13 +1851,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "iduser",
-        "Type": "",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -1917,18 +1867,13 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "iduser",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "updateUserInfoDto",
         "Type": "Api.Models.Dtos.UpdateUserInfoDto",
-        "IsRequired": true
-      },
-      {
-        "Name": "iduser",
-        "Type": "",
         "IsRequired": true
       }
     ],
@@ -1943,13 +1888,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "iduser",
-        "Type": "",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

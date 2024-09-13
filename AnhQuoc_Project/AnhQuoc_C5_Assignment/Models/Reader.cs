@@ -13,7 +13,8 @@ namespace AnhQuoc_C5_Assignment
     using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Reader : IMapFromModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +23,7 @@ namespace AnhQuoc_C5_Assignment
             this.LoanHistories = new HashSet<LoanHistory>();
             this.LoanSlips = new HashSet<LoanSlip>();
         }
-    
+        [Key]
         public string Id { get; set; }
         public string LName { get; set; }
         public string FName { get; set; }

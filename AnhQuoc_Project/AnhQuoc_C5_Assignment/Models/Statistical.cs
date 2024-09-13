@@ -13,9 +13,11 @@ namespace AnhQuoc_C5_Assignment
     using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Statistical : IMapFromModel
     {
+        [Key]
         public System.DateTime DateTime { get; set; }
         public string Data { get; set; }
         public string Description { get; set; }

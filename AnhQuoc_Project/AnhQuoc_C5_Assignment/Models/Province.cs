@@ -13,9 +13,11 @@ namespace AnhQuoc_C5_Assignment
     using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Province : IMapFromModel
     {
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public bool Status { get; set; }

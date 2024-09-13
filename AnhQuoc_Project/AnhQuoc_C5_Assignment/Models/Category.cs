@@ -13,7 +13,8 @@ namespace AnhQuoc_C5_Assignment
     using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Category : IMapFromModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,7 @@ namespace AnhQuoc_C5_Assignment
         {
             this.BookTitles = new HashSet<BookTitle>();
         }
-    
+        [Key]
         public string Id { get; set; }
         public string Name { get; set; }
         public bool Status { get; set; }

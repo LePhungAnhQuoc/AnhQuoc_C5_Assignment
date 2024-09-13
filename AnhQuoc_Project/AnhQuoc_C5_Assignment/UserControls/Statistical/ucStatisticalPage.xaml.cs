@@ -28,6 +28,12 @@ namespace AnhQuoc_C5_Assignment
     /// </summary>
     public partial class ucStatisticalPage : UserControl
     {
+        #region Constants
+        const int indexLoanSlip = 0;
+        const int indexLoanHistory = 1;
+        const int indexBorrowedBooks = 2;
+        #endregion
+
         #region ViewModels
         private BookViewModel bookVM;
         private LoanSlipViewModel loanSlipVM;
@@ -72,14 +78,11 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             #region Statistical2
-            const int indexLoanSlip = 0;
-            const int indexLoanHistory = 1;
             var firstColor = this.FindResource("firstColor") as Brush;
             var secondColor = this.FindResource("secondColor") as Brush;
-            const int indexBorrowedBooks = 2; var dateLabels = statisticalVM.Repo.Gets().Select(i => i.DateTime.ToString("dd/MM")).ToArray();
+            var dateLabels = statisticalVM.Repo.Gets().Select(i => i.DateTime.ToString("dd/MM")).ToArray();
 
             var borrowBooks = bookVM.GetBooksInLoanSlips(loanSlipVM.Repo.Gets());
-
             var normalBookQty = bookVM.FillByIdBookStatus(bookVM.Repo.Gets(), Constants.bookStatusNormal).Count;
             var lostBooksQty = bookVM.FillByIdBookStatus(bookVM.Repo.Gets(), Constants.bookStatusLost).Count;
             var damageBooksQty = bookVM.FillByIdBookStatus(bookVM.Repo.Gets(), Constants.bookStatusSpoil).Count;

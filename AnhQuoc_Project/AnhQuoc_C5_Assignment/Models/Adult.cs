@@ -13,7 +13,8 @@ namespace AnhQuoc_C5_Assignment
     using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Adult : IMapFromModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +22,9 @@ namespace AnhQuoc_C5_Assignment
         {
             this.Children = new HashSet<Child>();
         }
-    
+        [Key]
         public string IdReader { get; set; }
+
         public string Identify { get; set; }
         public string Address { get; set; }
         public string City { get; set; }

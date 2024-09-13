@@ -1249,6 +1249,17 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Property-Uti
+        public static T GetAttributeFrom<T>(Type type, string propertyName) where T : Attribute
+        {
+            var attrType = typeof(T);
+            var property = type.GetProperty(propertyName);
+
+            var result  = property.GetCustomAttributes(attrType, false).FirstOrDefault();
+            if (result == null)
+                return null;
+            return (T)result;
+        }
+
 
         public static IEnumerable<string> InnerJoin<T>(IEnumerable<T> bigSource, IEnumerable<T> smallSource, string propSelector)
         {
@@ -1373,17 +1384,17 @@ namespace AnhQuoc_C5_Assignment
             return result;
         }
 
-        public static string[] GetPrimaryKeys(SqlConnection connection, string tableName)
+        public static string[] GetPrimaryKeys(Type type)
         {
-            using (SqlDataAdapter adapter = new SqlDataAdapter(string.Format("select * from [{0}]", tableName), connection))
-            using (DataTable table = new DataTable(tableName))
+            List<string> listKeys = new List<string>();
+            foreach (var prop in getPropsFromType(type))
             {
-                return adapter
-                    .FillSchema(table, SchemaType.Mapped)
-                    .PrimaryKey
-                    .Select(c => c.ColumnName)
-                    .ToArray();
+                if (GetAttributeFrom<System.ComponentModel.DataAnnotations.KeyAttribute>(type, prop.Name) != null)
+                {
+                    listKeys.Add(prop.Name);
+                }
             }
+            return listKeys.ToArray();
         }
 
         public static void SetExceptPropertiesForDataGrid(DataGrid dataGrid, params string[] ExceptProperties)
