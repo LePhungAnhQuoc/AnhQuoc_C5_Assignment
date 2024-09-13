@@ -700,6 +700,8 @@ namespace AnhQuoc_C5_Assignment
 
         private void TvStatisticalPageInformation_Function()
         {
+            MessageBox.Show(Utilitys.NotifyFeatureNotDevelop(), "");
+            return;
             Grid gdView = getGdView();
 
             gdView.Children.Clear();

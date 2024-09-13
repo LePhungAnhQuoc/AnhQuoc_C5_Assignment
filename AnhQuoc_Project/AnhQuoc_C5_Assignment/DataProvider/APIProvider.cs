@@ -31,7 +31,9 @@ namespace AnhQuoc_C5_Assignment
 
             httpClient.BaseAddress = new Uri(localHost);
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            
             HttpResponseMessage response = httpClient.GetAsync($"api/{objectName}").Result;
+            response.EnsureSuccessStatusCode();
 
             if (response.IsSuccessStatusCode)
             {
