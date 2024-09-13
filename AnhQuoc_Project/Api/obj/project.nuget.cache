@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+qcX7I9dAio=",
+  "dgSpecHash": "ZP7+klcVLik=",
   "success": true,
-  "projectFilePath": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Api.csproj",
+  "projectFilePath": "D:\\OnGitHub\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\quocl\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\quocl\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

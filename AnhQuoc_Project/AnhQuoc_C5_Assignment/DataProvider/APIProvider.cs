@@ -12,6 +12,8 @@ using System.Reflection;
 using Api.Models.Dtos;
 using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
 using static System.Net.WebRequestMethods;
+using AnhQuoc_C5_Assignment.Animations;
+using System.Windows;
 
 namespace AnhQuoc_C5_Assignment
 {
@@ -31,16 +33,29 @@ namespace AnhQuoc_C5_Assignment
 
             httpClient.BaseAddress = new Uri(localHost);
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            
-            HttpResponseMessage response = httpClient.GetAsync($"api/{objectName}").Result;
-            response.EnsureSuccessStatusCode();
 
-            if (response.IsSuccessStatusCode)
+            int nLoad = 0;
+            while (nLoad < 5)
             {
-                var datas = response.Content.ReadAsAsync<IEnumerable<T>>().Result;
-                return datas;
+                try
+                {
+                    HttpResponseMessage response = httpClient.GetAsync($"api/{objectName}").Result;
+                    response.EnsureSuccessStatusCode();
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var datas = response.Content.ReadAsAsync<IEnumerable<T>>().Result;
+                        return datas;
+                    }
+                    return null;
+                }
+                catch
+                {
+                    nLoad++;
+                }
             }
-            return null;
+            MessageBox.Show("An error when fetching data, please restart app again");
+            Environment.Exit(0);
         }
 
         public T GetById(string id)
