@@ -3,32 +3,116 @@
   "WorkspaceRootPath": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\api\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|solutionrelative:api\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\api\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|solutionrelative:api\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\userinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\userinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\api\\controllers\\adultcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|solutionrelative:api\\controllers\\adultcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\usercontrols\\readers-information\\tables\\ucreaderstable.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\usercontrols\\readers-information\\tables\\ucreaderstable.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\translator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\translator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\usercontrols\\readers-information\\ucreadermanagement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\usercontrols\\readers-information\\ucreadermanagement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\statistical.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\statistical.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\usercontrols\\readers-information\\ucreadermanagement.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\usercontrols\\readers-information\\ucreadermanagement.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\api\\controllers\\statisticalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|solutionrelative:api\\controllers\\statisticalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\usercontrols\\dashboard-menu\\uclibrariandashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\usercontrols\\dashboard-menu\\uclibrariandashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\rolefunction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\rolefunction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\quanlythuvienmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\quanlythuvienmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\publisher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\publisher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\province.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\province.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\api\\controllers\\provincecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E37F69FE-F1B8-4B37-AF9A-E4E553F3B76E}|Api\\Api.csproj|solutionrelative:api\\controllers\\provincecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\penaltyreason.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\penaltyreason.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\parameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\parameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\loandetailhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\loandetailhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\loandetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\loandetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\function.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\function.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\child.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\child.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\booktitle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\booktitle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\bookstatu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\bookstatu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\bookisbn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\bookisbn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\adult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\adult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\othermodels\\servername.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\othermodels\\servername.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|d:\\anhquoc_c5_assignment\\anhquoc_project\\anhquoc_c5_assignment\\models\\othermodels\\databasename.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903764DE-6428-414A-9E76-B28B4D5D4380}|AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj|solutionrelative:anhquoc_c5_assignment\\models\\othermodels\\databasename.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,90 +127,365 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BookController.cs",
-              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\BookController.cs",
-              "RelativeDocumentMoniker": "Api\\Controllers\\BookController.cs",
-              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\BookController.cs",
-              "RelativeToolTip": "Api\\Controllers\\BookController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAawBkAAAA7AAAAAAAAAA==",
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\UserRole.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\UserRole.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\UserRole.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\UserRole.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T04:29:02.188Z",
+              "WhenOpened": "2024-09-13T05:49:36.785Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AuthorController.cs",
-              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\AuthorController.cs",
-              "RelativeDocumentMoniker": "Api\\Controllers\\AuthorController.cs",
-              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\AuthorController.cs",
-              "RelativeToolTip": "Api\\Controllers\\AuthorController.cs",
+              "Title": "UserInfo.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\UserInfo.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\UserInfo.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\UserInfo.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\UserInfo.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T04:31:52.437Z",
+              "WhenOpened": "2024-09-13T05:49:34.41Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AdultController.cs",
-              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\AdultController.cs",
-              "RelativeDocumentMoniker": "Api\\Controllers\\AdultController.cs",
-              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\AdultController.cs",
-              "RelativeToolTip": "Api\\Controllers\\AdultController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAADIAAAARAAAAAAAAAA==",
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\User.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\User.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\User.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\User.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T04:31:36.717Z",
+              "WhenOpened": "2024-09-13T05:49:31.519Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ucReadersTable.xaml",
-              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\Tables\\ucReadersTable.xaml",
-              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\Tables\\ucReadersTable.xaml",
-              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\Tables\\ucReadersTable.xaml",
-              "RelativeToolTip": "AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\Tables\\ucReadersTable.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-13T03:59:56.49Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ucReaderManagement.xaml",
-              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml",
-              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml",
-              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml",
-              "RelativeToolTip": "AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-13T03:59:37.289Z",
+              "Title": "Translator.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Translator.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\Translator.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Translator.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\Translator.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:49:27.348Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ucReaderManagement.xaml.cs",
-              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml.cs",
-              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml.cs",
-              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml.cs",
-              "RelativeToolTip": "AnhQuoc_C5_Assignment\\UserControls\\Readers-information\\ucReaderManagement.xaml.cs",
-              "ViewState": "AgIAALkCAAAAAAAAAAAtwMUCAAAAAAAAAAAAAA==",
+              "Title": "StatisticalController.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\StatisticalController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\StatisticalController.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\StatisticalController.cs",
+              "RelativeToolTip": "Api\\Controllers\\StatisticalController.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAEMAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T03:58:20.307Z",
+              "WhenOpened": "2024-09-13T05:47:35.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Statistical.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Statistical.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\Statistical.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Statistical.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\Statistical.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:47:26.341Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "ucLibrarianDashBoard.xaml.cs",
-              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml.cs",
-              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml.cs",
-              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml.cs",
-              "RelativeToolTip": "AnhQuoc_C5_Assignment\\UserControls\\DashBoard-Menu\\ucLibrarianDashBoard.xaml.cs",
-              "ViewState": "AgIAABwDAAAAAAAAAAAkwD0DAAASAAAAAAAAAA==",
+              "Title": "RoleFunction.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\RoleFunction.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\RoleFunction.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\RoleFunction.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\RoleFunction.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T03:53:51.549Z",
+              "WhenOpened": "2024-09-13T05:47:22.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Role.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Role.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\Role.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Role.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\Role.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:47:18.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Reader.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Reader.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\Reader.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Reader.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\Reader.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:47:16.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "QuanLyThuVienModels.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\QuanLyThuVienModels.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\QuanLyThuVienModels.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\QuanLyThuVienModels.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\QuanLyThuVienModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:47:15.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Publisher.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Publisher.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\Publisher.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Publisher.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\Publisher.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:47:10.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ProvinceController.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\ProvinceController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\ProvinceController.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\Api\\Controllers\\ProvinceController.cs",
+              "RelativeToolTip": "Api\\Controllers\\ProvinceController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAEQAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:46:02.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Province.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Province.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\Province.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Province.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\Province.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABQAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:45:39.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PenaltyReason.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\PenaltyReason.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\PenaltyReason.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\PenaltyReason.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\PenaltyReason.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:45:17.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Parameter.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Parameter.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\Parameter.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Parameter.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\Parameter.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABQAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:45:16.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "LoanDetailHistory.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\LoanDetailHistory.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\LoanDetailHistory.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\LoanDetailHistory.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\LoanDetailHistory.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:45:13.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LoanDetail.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\LoanDetail.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\LoanDetail.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\LoanDetail.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\LoanDetail.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:45:08.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Function.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Function.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\Function.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Function.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\Function.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:45:05.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Child.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Child.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\Child.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Child.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\Child.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:45:01.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\Category.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Category.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\Category.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABkAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:44:56.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "BookTitle.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\BookTitle.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\BookTitle.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\BookTitle.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\BookTitle.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:44:54.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "BookStatu.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\BookStatu.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\BookStatu.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\BookStatu.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\BookStatu.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:44:49.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "BookISBN.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\BookISBN.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\BookISBN.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\BookISBN.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\BookISBN.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:44:46.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Book.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Book.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\Book.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Book.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\Book.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:44:43.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Author.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Author.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\Author.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Author.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\Author.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:44:39.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Adult.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Adult.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\Adult.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\Adult.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\Adult.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:44:27.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ServerName.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\OtherModels\\ServerName.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\OtherModels\\ServerName.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\OtherModels\\ServerName.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\OtherModels\\ServerName.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:44:13.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "DatabaseName.cs",
+              "DocumentMoniker": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\OtherModels\\DatabaseName.cs",
+              "RelativeDocumentMoniker": "AnhQuoc_C5_Assignment\\Models\\OtherModels\\DatabaseName.cs",
+              "ToolTip": "D:\\AnhQuoc_C5_Assignment\\AnhQuoc_Project\\AnhQuoc_C5_Assignment\\Models\\OtherModels\\DatabaseName.cs",
+              "RelativeToolTip": "AnhQuoc_C5_Assignment\\Models\\OtherModels\\DatabaseName.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T05:44:07.125Z",
               "EditorCaption": ""
             }
           ]

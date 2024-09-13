@@ -29,7 +29,7 @@ namespace Api.Controllers
         [Route("{DateTime}")]
         public IActionResult GetById(string DateTime)
         {
-            var getItem = quanLyThuVienContext.Statisticals.Find(DateTime);
+            var getItem = quanLyThuVienContext.Statisticals.Find(Convert.ToDateTime(DateTime));
 
             if (getItem is null)
                 return NotFound();
@@ -51,7 +51,7 @@ namespace Api.Controllers
         [Route("{DateTime}")]
         public IActionResult Update(string DateTime, UpdateStatisticalDto updateStatisticalDto)
         {
-            var getItem = quanLyThuVienContext.Statisticals.Find(DateTime);
+            var getItem = quanLyThuVienContext.Statisticals.Find(Convert.ToDateTime(DateTime));
 
             if (getItem is null)
                 return NotFound();
@@ -65,7 +65,7 @@ namespace Api.Controllers
         [Route("{DateTime}")]
         public IActionResult Delete(string DateTime)
         {
-            if (quanLyThuVienContext.Statisticals.Remove(DateTime) == false)
+            if (quanLyThuVienContext.Statisticals.Remove(Convert.ToDateTime(DateTime)) == false)
                 return NotFound();
             quanLyThuVienContext.SaveChanges();
             

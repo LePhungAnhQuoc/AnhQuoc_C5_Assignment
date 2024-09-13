@@ -29,7 +29,7 @@ namespace Api.Controllers
         [Route("{id}")]
         public IActionResult GetById(string id)
         {
-            var getItem = quanLyThuVienContext.Provinces.Find(id);
+            var getItem = quanLyThuVienContext.Provinces.Find(Convert.ToInt32(id));
 
             if (getItem is null)
                 return NotFound();
@@ -52,7 +52,7 @@ namespace Api.Controllers
         [Route("{id}")]
         public IActionResult Update(string id, UpdateProvinceDto updateProvinceDto)
         {
-            var getItem = quanLyThuVienContext.Provinces.Find(id);
+            var getItem = quanLyThuVienContext.Provinces.Find(Convert.ToInt32(id));
 
             if (getItem is null)
                 return NotFound();
@@ -66,7 +66,7 @@ namespace Api.Controllers
         [Route("{id}")]
         public IActionResult Delete(string id)
         {
-            if (quanLyThuVienContext.Provinces.Remove(id) == false)
+            if (quanLyThuVienContext.Provinces.Remove(Convert.ToInt32(id)) == false)
                 return NotFound();
             quanLyThuVienContext.SaveChanges();
             

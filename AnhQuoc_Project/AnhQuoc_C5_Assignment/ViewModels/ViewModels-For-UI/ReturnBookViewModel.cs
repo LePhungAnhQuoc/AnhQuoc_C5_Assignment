@@ -81,7 +81,7 @@ namespace AnhQuoc_C5_Assignment
 
         public ObservableCollection<LoanDetailHistoryDto> LoanDetailHistoryDtos { get; set; }
         public ObservableCollection<PenaltyReasonPaid> PenaltyReasonPaids { get; set; }
-        public ObservableCollection<BookDto> BookPaids { get; set; }  
+        public ObservableCollection<BookDto> BookPaidsChangedStatus { get; set; }  
 
 
         #region Datas
@@ -502,7 +502,7 @@ namespace AnhQuoc_C5_Assignment
 
             LoanDetailHistoryDtos = new ObservableCollection<LoanDetailHistoryDto>();
             PenaltyReasonPaids = new ObservableCollection<PenaltyReasonPaid>();
-            BookPaids = new ObservableCollection<BookDto>();
+            BookPaidsChangedStatus = new ObservableCollection<BookDto>();
 
             ucAddLoanHistory.Content = ucInputReaderLoanHistory;
         }
@@ -812,9 +812,9 @@ namespace AnhQuoc_C5_Assignment
                         SelectedUnPaidBookCard.Foreground = Utilitys.GetColorFromCode("#000000");
                     }
 
-                    if (BookPaids.FirstOrDefault(book => book.Id == SelectedUnPaidBookCard.getItem().Id) == null)
+                    if (BookPaidsChangedStatus.FirstOrDefault(book => book.Id == SelectedUnPaidBookCard.getItem().Id) == null)
                     {
-                        BookPaids.Add(SelectedUnPaidBookCard.getItem());
+                        BookPaidsChangedStatus.Add(SelectedUnPaidBookCard.getItem());
                     }
                     
 
@@ -868,9 +868,8 @@ namespace AnhQuoc_C5_Assignment
         }
 
 
-        private void ChangeBookStatus(bool updateStatus)
+        private void ChangeBookStatus(ObservableCollection<Book> bookList, bool updateStatus)
         {
-            var bookList = bookVM.GetBooksInLoanDetailHistorys(loanDetailHistoryVM.CreateByDto(LoanDetailHistoryDtos));
             foreach (var book in bookList)
             {
                 if (book.IdBookStatus != Constants.bookStatusLost)
@@ -1048,7 +1047,7 @@ namespace AnhQuoc_C5_Assignment
             #endregion
 
             // Cập nhật tình trạng sách (book status)
-            BookPaids.ForEach(bookDto =>
+            BookPaidsChangedStatus.ForEach(bookDto =>
             {
                 Book book = bookVM.FindById(bookDto.Id);
 
@@ -1056,8 +1055,9 @@ namespace AnhQuoc_C5_Assignment
                 bookVM.Repo.WriteUpdate(book);
             });
 
+            var bookList = bookVM.GetBooksInLoanDetailHistorys(loanDetailHistoryVM.CreateByDto(LoanDetailHistoryDtos));
             // Cập nhật tình trạng sách (status)
-            ChangeBookStatus(true);
+            ChangeBookStatus(bookList, true);
 
             LoanDetailHistoryDtos.Clear();
             IsCancel = false;
