@@ -56,6 +56,7 @@ namespace AnhQuoc_C5_Assignment
             }
             MessageBox.Show("An error when fetching data, please restart app again");
             Environment.Exit(0);
+            return null;
         }
 
         public T GetById(string id)
