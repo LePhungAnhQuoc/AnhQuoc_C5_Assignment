@@ -9,15 +9,11 @@
 
 namespace AnhQuoc_C5_Assignment
 {
-    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
-    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class UserInfo : IMapFromModel
+    
+    public partial class UserInfo
     {
-        [Key]
         public string IdUser { get; set; }
         public string LName { get; set; }
         public string FName { get; set; }
@@ -25,19 +21,5 @@ namespace AnhQuoc_C5_Assignment
         public string Address { get; set; }
     
         public virtual User User { get; set; }
-
-        public object MapToAdd()
-        {
-            AddUserInfoDto result = new AddUserInfoDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
-
-        public object MapToUpdate()
-        {
-            UpdateUserInfoDto result = new UpdateUserInfoDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
     }
 }

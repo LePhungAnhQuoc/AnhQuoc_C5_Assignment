@@ -9,32 +9,13 @@
 
 namespace AnhQuoc_C5_Assignment
 {
-    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
-    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class Province : IMapFromModel
+    
+    public partial class Province
     {
-        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public bool Status { get; set; }
-
-
-        public object MapToAdd()
-        {
-            AddProvinceDto result = new AddProvinceDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
-
-        public object MapToUpdate()
-        {
-            UpdateProvinceDto result = new UpdateProvinceDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
     }
 }

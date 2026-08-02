@@ -414,9 +414,8 @@ namespace AnhQuoc_C5_Assignment
                 {
                     Reader adultReader = readerVM.FindById(adult.IdReader);
 
-                    if (adult.Status != updateStatus)
+                    if (adultReader.Status != updateStatus)
                     {
-                        adult.Status = updateStatus;
                         adultReader.Status = updateStatus;
 
                         var childs = childVM.GetChildrenFromAdult(adult);

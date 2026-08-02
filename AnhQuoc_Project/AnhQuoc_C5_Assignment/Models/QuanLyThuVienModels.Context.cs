@@ -16,7 +16,7 @@ namespace AnhQuoc_C5_Assignment
     public partial class QuanLyThuVienEntities : DbContext
     {
         public QuanLyThuVienEntities()
-            : base(DatabaseFirst.ConnStr)
+            : base("name=QuanLyThuVienEntities")
         {
         }
     

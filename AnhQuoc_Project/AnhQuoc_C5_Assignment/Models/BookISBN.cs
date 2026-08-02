@@ -9,20 +9,17 @@
 
 namespace AnhQuoc_C5_Assignment
 {
-    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
-    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class BookISBN : IMapFromModel
+    
+    public partial class BookISBN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BookISBN()
         {
             this.Books = new HashSet<Book>();
         }
-        [Key]
+    
         public string ISBN { get; set; }
         public string IdBookTitle { get; set; }
         public string IdAuthor { get; set; }
@@ -34,19 +31,5 @@ namespace AnhQuoc_C5_Assignment
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Book> Books { get; set; }
         public virtual BookTitle BookTitle { get; set; }
-
-        public object MapToAdd()
-        {
-            AddBookISBNDto result = new AddBookISBNDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
-
-        public object MapToUpdate()
-        {
-            UpdateBookISBNDto result = new UpdateBookISBNDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
     }
 }

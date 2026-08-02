@@ -9,31 +9,13 @@
 
 namespace AnhQuoc_C5_Assignment
 {
-    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
-    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class Statistical : IMapFromModel
+    
+    public partial class Statistical
     {
-        [Key]
         public System.DateTime DateTime { get; set; }
         public string Data { get; set; }
         public string Description { get; set; }
-
-        public object MapToAdd()
-        {
-            AddStatisticalDto result = new AddStatisticalDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
-
-        public object MapToUpdate()
-        {
-            UpdateStatisticalDto result = new UpdateStatisticalDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
     }
 }

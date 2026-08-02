@@ -39,7 +39,17 @@ namespace AnhQuoc_C5_Assignment
             {
                 try
                 {
+                    // Execute the request
                     HttpResponseMessage response = httpClient.GetAsync($"api/{objectName}").Result;
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        // Read the actual exception string returned by the server
+                        string errorResponseBody = response.Content.ReadAsStringAsync().Result;
+
+                        throw new Exception($"Server returned HTTP {(int)response.StatusCode} ({response.ReasonPhrase}). Details:\n{errorResponseBody}");
+                    }
+
                     response.EnsureSuccessStatusCode();
 
                     if (response.IsSuccessStatusCode)
@@ -49,7 +59,7 @@ namespace AnhQuoc_C5_Assignment
                     }
                     return null;
                 }
-                catch
+                catch (Exception ex)
                 {
                     nLoad++;
                 }

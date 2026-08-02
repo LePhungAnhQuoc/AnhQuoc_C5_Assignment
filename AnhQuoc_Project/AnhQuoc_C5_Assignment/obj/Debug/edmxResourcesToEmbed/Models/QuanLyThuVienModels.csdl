@@ -10,7 +10,6 @@
     <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ExpireDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Status" Type="Boolean" Nullable="false" />
     <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Reader" Relationship="Self.FK__Adult__IdReader__07020F21" FromRole="Adult" ToRole="Reader" />

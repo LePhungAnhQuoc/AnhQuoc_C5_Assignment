@@ -9,15 +9,11 @@
 
 namespace AnhQuoc_C5_Assignment
 {
-    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
-    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class Child : IMapFromModel
+    
+    public partial class Child
     {
-        [Key]
         public string IdReader { get; set; }
         public string IdAdult { get; set; }
         public bool Status { get; set; }
@@ -26,19 +22,5 @@ namespace AnhQuoc_C5_Assignment
     
         public virtual Adult Adult { get; set; }
         public virtual Reader Reader { get; set; }
-
-        public object MapToAdd()
-        {
-            AddChildDto result = new AddChildDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
-
-        public object MapToUpdate()
-        {
-            UpdateChildDto result = new UpdateChildDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
     }
 }

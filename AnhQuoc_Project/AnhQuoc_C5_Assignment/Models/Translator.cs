@@ -9,20 +9,17 @@
 
 namespace AnhQuoc_C5_Assignment
 {
-    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
-    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class Translator : IMapFromModel
+    
+    public partial class Translator
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Translator()
         {
             this.Books = new HashSet<Book>();
         }
-        [Key]
+    
         public string Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -34,19 +31,5 @@ namespace AnhQuoc_C5_Assignment
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Book> Books { get; set; }
-
-        public object MapToAdd()
-        {
-            AddTranslatorDto result = new AddTranslatorDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
-
-        public object MapToUpdate()
-        {
-            UpdateTranslatorDto result = new UpdateTranslatorDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
     }
 }

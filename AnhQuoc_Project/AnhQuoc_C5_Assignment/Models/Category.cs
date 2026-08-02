@@ -9,20 +9,17 @@
 
 namespace AnhQuoc_C5_Assignment
 {
-    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
-    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class Category : IMapFromModel
+    
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Category()
         {
             this.BookTitles = new HashSet<BookTitle>();
         }
-        [Key]
+    
         public string Id { get; set; }
         public string Name { get; set; }
         public bool Status { get; set; }
@@ -31,19 +28,5 @@ namespace AnhQuoc_C5_Assignment
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookTitle> BookTitles { get; set; }
-
-        public object MapToAdd()
-        {
-            AddCategoryDto result = new AddCategoryDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
-
-        public object MapToUpdate()
-        {
-            UpdateCategoryDto result = new UpdateCategoryDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
     }
 }

@@ -9,13 +9,10 @@
 
 namespace AnhQuoc_C5_Assignment
 {
-    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
-    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class User : IMapFromModel
+    
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
@@ -24,7 +21,7 @@ namespace AnhQuoc_C5_Assignment
             this.LoanSlips = new HashSet<LoanSlip>();
             this.UserRoles = new HashSet<UserRole>();
         }
-        [Key]
+    
         public string Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
@@ -40,19 +37,5 @@ namespace AnhQuoc_C5_Assignment
         public virtual UserInfo UserInfo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserRole> UserRoles { get; set; }
-
-        public object MapToAdd()
-        {
-            AddUserDto result = new AddUserDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
-
-        public object MapToUpdate()
-        {
-            UpdateUserDto result = new UpdateUserDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
     }
 }

@@ -250,54 +250,71 @@
     <Compile Include="Models\Adult.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Adult.Custom.cs" />
     <Compile Include="Models\Author.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Author.Custom.cs" />
     <Compile Include="Models\Book.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Book.Custom.cs" />
     <Compile Include="Models\BookISBN.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BookISBN.Custom.cs" />
     <Compile Include="Models\BookStatu.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BookStatu.Custom.cs" />
     <Compile Include="Models\BookTitle.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BookTitle.Custom.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Category.Custom.cs" />
     <Compile Include="Models\Child.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Child.Custom.cs" />
     <Compile Include="Models\Function.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Function.Custom.cs" />
     <Compile Include="Models\LoanDetail.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoanDetail.Custom.cs" />
     <Compile Include="Models\LoanDetailHistory.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoanDetailHistory.Custom.cs" />
     <Compile Include="Models\LoanHistory.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoanHistory.Custom.cs" />
     <Compile Include="Models\LoanSlip.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoanSlip.Custom.cs" />
     <Compile Include="Models\Parameter.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Parameter.Custom.cs" />
     <Compile Include="Models\PenaltyReason.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PenaltyReason.Custom.cs" />
     <Compile Include="Models\Province.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Province.Custom.cs" />
     <Compile Include="Models\Publisher.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Publisher.Custom.cs" />
     <Compile Include="Models\QuanLyThuVienModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -316,27 +333,35 @@
     <Compile Include="Models\Reader.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Reader.Custom.cs" />
     <Compile Include="Models\Role.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Role.Custom.cs" />
     <Compile Include="Models\RoleFunction.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RoleFunction.Custom.cs" />
     <Compile Include="Models\Statistical.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Statistical.Custom.cs" />
     <Compile Include="Models\Translator.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Translator.Custom.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\User.Custom.cs" />
     <Compile Include="Models\UserInfo.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserInfo.Custom.cs" />
     <Compile Include="Models\UserRole.cs">
       <DependentUpon>QuanLyThuVienModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserRole.Custom.cs" />
     <Compile Include="Repositories\StatisticalRepository.cs" />
     <Compile Include="Repositories\BookStatusRepository.cs" />
     <Compile Include="Enums\ReaderType.cs" />

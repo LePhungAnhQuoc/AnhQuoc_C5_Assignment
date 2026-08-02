@@ -9,34 +9,16 @@
 
 namespace AnhQuoc_C5_Assignment
 {
-    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
-    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class PenaltyReason : IMapFromModel
+    
+    public partial class PenaltyReason
     {
-        [Key]
         public string Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime ModifiedAt { get; set; }
-
-        public object MapToAdd()
-        {
-            AddPenaltyReasonDto result = new AddPenaltyReasonDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
-
-        public object MapToUpdate()
-        {
-            UpdatePenaltyReasonDto result = new UpdatePenaltyReasonDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
     }
 }

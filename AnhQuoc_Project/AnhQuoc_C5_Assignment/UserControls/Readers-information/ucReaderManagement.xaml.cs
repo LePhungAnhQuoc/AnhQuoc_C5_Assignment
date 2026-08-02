@@ -569,6 +569,7 @@ namespace AnhQuoc_C5_Assignment
             {
                 Child childFinded = childVM.FindByIdReader(readerSelect.Id, StatusValue);
                 Adult adultFinded = adultVM.FindByIdReader(childFinded.IdAdult, StatusValue);
+                Reader adultReader = readerVM.FindById(adultFinded.IdReader);
                 if (adultFinded == null)
                 {
                     Utilitys.CatchExceptionError();
@@ -577,7 +578,7 @@ namespace AnhQuoc_C5_Assignment
                 ChildDto childDtoFinded = childMap.ConvertToDto(childFinded);
                 AdultDto adultDtoFinded = adultMap.ConvertToDto(adultFinded);
 
-                if (adultFinded.Status == updateStatus)
+                if (adultReader.Status == updateStatus)
                 {
                     Reader childReader = readerVM.FindById(childFinded.IdReader);
                     UpdateReadersStatus(childReader, updateStatus);
@@ -675,7 +676,6 @@ namespace AnhQuoc_C5_Assignment
             }
             else
             {
-                adultFinded.Status = updateStatus;
                 getAdultRepo().WriteUpdate(adultFinded);
             }
             reader.Status = updateStatus;

@@ -9,13 +9,10 @@
 
 namespace AnhQuoc_C5_Assignment
 {
-    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
-    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class Function : IMapFromModel
+    
+    public partial class Function
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Function()
@@ -23,7 +20,7 @@ namespace AnhQuoc_C5_Assignment
             this.Function1 = new HashSet<Function>();
             this.RoleFunctions = new HashSet<RoleFunction>();
         }
-        [Key]
+    
         public string Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -37,19 +34,5 @@ namespace AnhQuoc_C5_Assignment
         public virtual Function Function2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RoleFunction> RoleFunctions { get; set; }
-
-        public object MapToAdd()
-        {
-            AddFunctionDto result = new AddFunctionDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
-
-        public object MapToUpdate()
-        {
-            UpdateFunctionDto result = new UpdateFunctionDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
     }
 }

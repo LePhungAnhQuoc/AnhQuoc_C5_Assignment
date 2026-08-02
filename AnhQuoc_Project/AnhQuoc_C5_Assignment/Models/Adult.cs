@@ -9,47 +9,28 @@
 
 namespace AnhQuoc_C5_Assignment
 {
-    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
-    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class Adult : IMapFromModel
+    
+    public partial class Adult
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Adult()
         {
             this.Children = new HashSet<Child>();
         }
-        [Key]
+    
         public string IdReader { get; set; }
-
         public string Identify { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         public string Phone { get; set; }
         public System.DateTime ExpireDate { get; set; }
-        public bool Status { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime ModifiedAt { get; set; }
     
         public virtual Reader Reader { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Child> Children { get; set; }
-
-        public object MapToAdd()
-        {
-            AddAdultDto result = new AddAdultDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
-
-        public object MapToUpdate()
-        {
-            UpdateAdultDto result = new UpdateAdultDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
     }
 }

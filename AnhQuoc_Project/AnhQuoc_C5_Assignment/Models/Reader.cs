@@ -9,13 +9,10 @@
 
 namespace AnhQuoc_C5_Assignment
 {
-    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
-    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class Reader : IMapFromModel
+    
+    public partial class Reader
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Reader()
@@ -23,7 +20,7 @@ namespace AnhQuoc_C5_Assignment
             this.LoanHistories = new HashSet<LoanHistory>();
             this.LoanSlips = new HashSet<LoanSlip>();
         }
-        [Key]
+    
         public string Id { get; set; }
         public string LName { get; set; }
         public string FName { get; set; }
@@ -39,19 +36,5 @@ namespace AnhQuoc_C5_Assignment
         public virtual ICollection<LoanHistory> LoanHistories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LoanSlip> LoanSlips { get; set; }
-
-        public object MapToAdd()
-        {
-            AddReaderDto result = new AddReaderDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
-
-        public object MapToUpdate()
-        {
-            UpdateReaderDto result = new UpdateReaderDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
     }
 }

@@ -9,34 +9,16 @@
 
 namespace AnhQuoc_C5_Assignment
 {
-    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
-    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class UserRole : IMapFromModel
+    
+    public partial class UserRole
     {
-        [Key]
         public string Id { get; set; }
         public string IdUser { get; set; }
         public string IdRole { get; set; }
     
         public virtual Role Role { get; set; }
         public virtual User User { get; set; }
-
-        public object MapToAdd()
-        {
-            AddUserRoleDto result = new AddUserRoleDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
-
-        public object MapToUpdate()
-        {
-            UpdateUserRoleDto result = new UpdateUserRoleDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
     }
 }

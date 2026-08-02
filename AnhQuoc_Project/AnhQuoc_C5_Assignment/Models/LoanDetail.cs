@@ -9,15 +9,11 @@
 
 namespace AnhQuoc_C5_Assignment
 {
-    using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
-    using Api.Models.Dtos;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class LoanDetail : IMapFromModel
+    
+    public partial class LoanDetail
     {
-        [Key]
         public string Id { get; set; }
         public string IdLoan { get; set; }
         public int IdBook { get; set; }
@@ -25,19 +21,5 @@ namespace AnhQuoc_C5_Assignment
     
         public virtual Book Book { get; set; }
         public virtual LoanSlip LoanSlip { get; set; }
-
-        public object MapToAdd()
-        {
-            AddLoanDetailDto result = new AddLoanDetailDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
-
-        public object MapToUpdate()
-        {
-            UpdateLoanDetailDto result = new UpdateLoanDetailDto();
-            Utilitys.Copy(result, this);
-            return result;
-        }
     }
 }
