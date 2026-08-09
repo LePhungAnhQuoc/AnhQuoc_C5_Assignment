@@ -18,6 +18,9 @@ namespace AnhQuoc_C5_Assignment
             var translatorVM = UnitOfViewModel.Instance.TranslatorViewModel;
             var publisherVM = UnitOfViewModel.Instance.PublisherViewModel;
             var bookStatusVM = UnitOfViewModel.Instance.BookStatusViewModel;
+            var readerVM = UnitOfViewModel.Instance.ReaderViewModel;
+            var loanDetailVM = UnitOfViewModel.Instance.LoanDetailViewModel;
+            var loanSlipVM = UnitOfViewModel.Instance.LoanSlipViewModel;
 
             BookISBN bookISBN = bookISBNVM.FindByISBN(sourceItem.ISBN, null);
             BookTitle bookTitle = bookTitleVM.FindById(bookISBN.IdBookTitle);
@@ -29,6 +32,21 @@ namespace AnhQuoc_C5_Assignment
 
             BookDto newItem = new BookDto(sourceItem.Id);
             Utilitys.Copy(newItem, sourceItem);
+
+            var loanDetail = loanDetailVM.FindByIdBook(sourceItem.Id);
+            if (loanDetail != null)
+            {
+                var loanSlip = loanSlipVM.FindById(loanDetail.IdLoan);
+                if (loanSlip != null)
+                {
+                    Reader reader = readerVM.FindById(loanSlip.IdReader);
+                    newItem.BorrowedBy = reader.Id;
+                }
+            }
+            else
+            {
+                newItem.BorrowedBy = null;
+            }
 
             newItem.ISBN = bookISBN.ISBN;
             newItem.BookTitle = bookTitle;

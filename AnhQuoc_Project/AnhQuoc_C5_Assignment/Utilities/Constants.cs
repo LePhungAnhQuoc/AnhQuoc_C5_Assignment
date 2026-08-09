@@ -147,6 +147,7 @@ namespace AnhQuoc_C5_Assignment
         public static string styleWDGeneral = "wdStyleGeneral";
         public static string styleStkWrapButton = "stkWrapButton";
         public static string stylelblNote = "lblNote";
+        public static string styleTblErrorMessage = "tblErrorMessage";
         #endregion
 
         public static int maxWDHeight = 700;

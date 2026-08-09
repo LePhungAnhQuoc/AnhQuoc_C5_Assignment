@@ -11,9 +11,11 @@ namespace AnhQuoc_C5_Assignment
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class LoanDetail
     {
+        [System.ComponentModel.DataAnnotations.Key]
         public string Id { get; set; }
         public string IdLoan { get; set; }
         public int IdBook { get; set; }

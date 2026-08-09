@@ -11,6 +11,7 @@ namespace AnhQuoc_C5_Assignment
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Reader
     {
@@ -21,6 +22,7 @@ namespace AnhQuoc_C5_Assignment
             this.LoanSlips = new HashSet<LoanSlip>();
         }
     
+        [System.ComponentModel.DataAnnotations.Key]
         public string Id { get; set; }
         public string LName { get; set; }
         public string FName { get; set; }

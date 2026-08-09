@@ -11,6 +11,7 @@ namespace AnhQuoc_C5_Assignment
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Book
     {
@@ -21,6 +22,7 @@ namespace AnhQuoc_C5_Assignment
             this.LoanDetailHistories = new HashSet<LoanDetailHistory>();
         }
     
+        [System.ComponentModel.DataAnnotations.Key]
         public int Id { get; set; }
         public string ISBN { get; set; }
         public string IdPublisher { get; set; }
@@ -34,6 +36,7 @@ namespace AnhQuoc_C5_Assignment
         public bool Status { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime ModifiedAt { get; set; }
+        public bool IsBorrowed { get; set; }
     
         public virtual BookStatu BookStatu { get; set; }
         public virtual Publisher Publisher { get; set; }

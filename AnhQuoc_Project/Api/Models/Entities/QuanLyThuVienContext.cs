@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Api.Utilities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Models.Entities;
@@ -32,8 +31,6 @@ public partial class QuanLyThuVienContext : DbContext
 
     public virtual DbSet<Child> Children { get; set; }
 
-    public virtual DbSet<Function> Functions { get; set; }
-
     public virtual DbSet<LoanDetail> LoanDetails { get; set; }
 
     public virtual DbSet<LoanDetailHistory> LoanDetailHistories { get; set; }
@@ -62,20 +59,21 @@ public partial class QuanLyThuVienContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
+    public virtual DbSet<UserFunction> UserFunctions { get; set; }
+
     public virtual DbSet<UserInfo> UserInfos { get; set; }
 
     public virtual DbSet<UserRole> UserRoles { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer(Global.WebApplicationBuilder.Configuration.GetConnectionString("Default"));
-    }
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=localhost;Database=QuanLyThuVien;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Adult>(entity =>
         {
-            entity.HasKey(e => e.IdReader).HasName("PK__Adult__D616DA89B6F3392E");
+            entity.HasKey(e => e.IdReader).HasName("PK__Adult__D616DA89D98BC945");
 
             entity.ToTable("Adult");
 
@@ -93,7 +91,6 @@ public partial class QuanLyThuVienContext : DbContext
             entity.Property(e => e.Phone)
                 .HasMaxLength(12)
                 .IsUnicode(false);
-            entity.Property(e => e.Status).HasDefaultValue(true);
 
             entity.HasOne(d => d.IdReaderNavigation).WithOne(p => p.Adult)
                 .HasForeignKey<Adult>(d => d.IdReader)
@@ -103,7 +100,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Author>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Author__3214EC07A6055336");
+            entity.HasKey(e => e.Id).HasName("PK__Author__3214EC07E0C63457");
 
             entity.ToTable("Author");
 
@@ -123,7 +120,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Book>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Book__3214EC0778057D86");
+            entity.HasKey(e => e.Id).HasName("PK__Book__3214EC0737D8EA57");
 
             entity.ToTable("Book");
 
@@ -176,7 +173,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<BookIsbn>(entity =>
         {
-            entity.HasKey(e => e.Isbn).HasName("PK__BookISBN__447D36EB5DA7A84D");
+            entity.HasKey(e => e.Isbn).HasName("PK__BookISBN__447D36EB293A37B6");
 
             entity.ToTable("BookISBN");
 
@@ -209,7 +206,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<BookStatus>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__BookStat__3214EC07848CB36E");
+            entity.HasKey(e => e.Id).HasName("PK__BookStat__3214EC07535F1A4E");
 
             entity.ToTable("BookStatus");
 
@@ -227,7 +224,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<BookTitle>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__BookTitl__3214EC07ACC24269");
+            entity.HasKey(e => e.Id).HasName("PK__BookTitl__3214EC0718BD7C71");
 
             entity.ToTable("BookTitle");
 
@@ -254,7 +251,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC078D3F3FD2");
+            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC07D36B6A7E");
 
             entity.ToTable("Category");
 
@@ -269,7 +266,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Child>(entity =>
         {
-            entity.HasKey(e => e.IdReader).HasName("PK__Child__D616DA89A120FD26");
+            entity.HasKey(e => e.IdReader).HasName("PK__Child__D616DA89BAC693B3");
 
             entity.ToTable("Child");
 
@@ -294,32 +291,9 @@ public partial class QuanLyThuVienContext : DbContext
                 .HasConstraintName("FK__Child__IdReader__3F466844");
         });
 
-        modelBuilder.Entity<Function>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__Function__3214EC078B852A9C");
-
-            entity.ToTable("Function");
-
-            entity.Property(e => e.Id)
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.Description).HasColumnType("ntext");
-            entity.Property(e => e.IdParent)
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.IsAdmin).HasDefaultValue(true);
-            entity.Property(e => e.Name).HasMaxLength(60);
-            entity.Property(e => e.Status).HasDefaultValue(true);
-            entity.Property(e => e.UrlImage).HasColumnType("text");
-
-            entity.HasOne(d => d.IdParentNavigation).WithMany(p => p.InverseIdParentNavigation)
-                .HasForeignKey(d => d.IdParent)
-                .HasConstraintName("FK__Function__IdPare__787EE5A0");
-        });
-
         modelBuilder.Entity<LoanDetail>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LoanDeta__3214EC07154CD72E");
+            entity.HasKey(e => e.Id).HasName("PK__LoanDeta__3214EC0736FCCCB6");
 
             entity.ToTable("LoanDetail");
 
@@ -344,7 +318,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<LoanDetailHistory>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LoanDeta__3214EC07CAFC1F41");
+            entity.HasKey(e => e.Id).HasName("PK__LoanDeta__3214EC07CF23512F");
 
             entity.ToTable("LoanDetailHistory");
 
@@ -371,7 +345,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<LoanHistory>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LoanHist__3214EC07D85EAB9F");
+            entity.HasKey(e => e.Id).HasName("PK__LoanHist__3214EC07F9F208AD");
 
             entity.ToTable("LoanHistory");
 
@@ -406,7 +380,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<LoanSlip>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LoanSlip__3214EC073BBFBB35");
+            entity.HasKey(e => e.Id).HasName("PK__LoanSlip__3214EC07BEAAC0C8");
 
             entity.ToTable("LoanSlip");
 
@@ -437,7 +411,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Parameter>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Paramete__3214EC07F47B844C");
+            entity.HasKey(e => e.Id).HasName("PK__Paramete__3214EC07927470A8");
 
             entity.ToTable("Parameter");
 
@@ -458,7 +432,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<PenaltyReason>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__PenaltyR__3214EC0719F716A1");
+            entity.HasKey(e => e.Id).HasName("PK__PenaltyR__3214EC07A58A4E87");
 
             entity.ToTable("PenaltyReason");
 
@@ -476,7 +450,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Province>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Province__3214EC0775B1B67D");
+            entity.HasKey(e => e.Id).HasName("PK__Province__3214EC071E0625F5");
 
             entity.ToTable("Province");
 
@@ -486,7 +460,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Publisher>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Publishe__3214EC073968A677");
+            entity.HasKey(e => e.Id).HasName("PK__Publishe__3214EC0729D53F2D");
 
             entity.ToTable("Publisher");
 
@@ -502,7 +476,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Reader>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Reader__3214EC07D8487444");
+            entity.HasKey(e => e.Id).HasName("PK__Reader__3214EC074D5B2271");
 
             entity.ToTable("Reader");
 
@@ -525,7 +499,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Role__3214EC07C848E4B1");
+            entity.HasKey(e => e.Id).HasName("PK__Role__3214EC07E4BBA562");
 
             entity.ToTable("Role");
 
@@ -539,7 +513,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<RoleFunction>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__RoleFunc__3214EC077E4FBB0A");
+            entity.HasKey(e => e.Id).HasName("PK__RoleFunc__3214EC075C497D73");
 
             entity.ToTable("RoleFunction");
 
@@ -566,7 +540,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Statistical>(entity =>
         {
-            entity.HasKey(e => e.DateTime).HasName("PK__Statisti__03BE4CA04A295DE5");
+            entity.HasKey(e => e.DateTime).HasName("PK__Statisti__03BE4CA04EB8638F");
 
             entity.ToTable("Statistical");
 
@@ -581,7 +555,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Translator>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Translat__3214EC075C76D95E");
+            entity.HasKey(e => e.Id).HasName("PK__Translat__3214EC0761563BB7");
 
             entity.ToTable("Translator");
 
@@ -601,7 +575,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__User__3214EC07A5B78539");
+            entity.HasKey(e => e.Id).HasName("PK__User__3214EC07B81DEC48");
 
             entity.ToTable("User");
 
@@ -622,9 +596,32 @@ public partial class QuanLyThuVienContext : DbContext
                 .IsUnicode(false);
         });
 
+        modelBuilder.Entity<UserFunction>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Function__3214EC0795BE6016");
+
+            entity.ToTable("UserFunction");
+
+            entity.Property(e => e.Id)
+                .HasMaxLength(10)
+                .IsUnicode(false);
+            entity.Property(e => e.Description).HasColumnType("ntext");
+            entity.Property(e => e.IdParent)
+                .HasMaxLength(10)
+                .IsUnicode(false);
+            entity.Property(e => e.IsAdmin).HasDefaultValue(true);
+            entity.Property(e => e.Name).HasMaxLength(60);
+            entity.Property(e => e.Status).HasDefaultValue(true);
+            entity.Property(e => e.UrlImage).HasColumnType("text");
+
+            entity.HasOne(d => d.IdParentNavigation).WithMany(p => p.InverseIdParentNavigation)
+                .HasForeignKey(d => d.IdParent)
+                .HasConstraintName("FK__Function__IdPare__787EE5A0");
+        });
+
         modelBuilder.Entity<UserInfo>(entity =>
         {
-            entity.HasKey(e => e.IdUser).HasName("PK__UserInfo__B7C9263825956759");
+            entity.HasKey(e => e.IdUser).HasName("PK__UserInfo__B7C92638CD67825D");
 
             entity.ToTable("UserInfo");
 
@@ -650,7 +647,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<UserRole>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__UserRole__3214EC070A94942E");
+            entity.HasKey(e => e.Id).HasName("PK__UserRole__3214EC073E5341CB");
 
             entity.ToTable("UserRole");
 

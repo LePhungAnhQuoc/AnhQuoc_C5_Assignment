@@ -11,6 +11,7 @@ namespace AnhQuoc_C5_Assignment
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Adult
     {
@@ -20,6 +21,7 @@ namespace AnhQuoc_C5_Assignment
             this.Children = new HashSet<Child>();
         }
     
+        [System.ComponentModel.DataAnnotations.Key]
         public string IdReader { get; set; }
         public string Identify { get; set; }
         public string Address { get; set; }

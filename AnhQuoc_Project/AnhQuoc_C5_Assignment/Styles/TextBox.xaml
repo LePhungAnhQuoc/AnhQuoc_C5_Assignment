@@ -109,7 +109,8 @@
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
             <AdornedElementPlaceholder Grid.Row="0"/>
-            <TextBlock Foreground="Red" Grid.Row="1" 
+            <TextBlock Style="{StaticResource tblErrorMessage}"
+                       Grid.Row="1"
                        Text="{Binding ErrorContent}"/>
         </Grid>
     </ControlTemplate>

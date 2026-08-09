@@ -37,10 +37,24 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
-    <Style TargetType="TextBlock" x:Key="tblErrorNote" BasedOn="{StaticResource tblGeneral}">
+    <Style TargetType="TextBlock" x:Key="tblErrorMessage" BasedOn="{StaticResource tblGeneral}">
         <Setter Property="Foreground" Value="Red" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="FontStyle" Value="Italic" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Background" Value="#fcc9c5" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}}" Value="">
+                <Setter Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}}" Value="{x:Null}">
+                <Setter Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
+        </Style.Triggers>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="tblDisplayInfoLink" BasedOn="{StaticResource tblDisplayInfo}">

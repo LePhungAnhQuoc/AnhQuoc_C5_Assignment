@@ -33,39 +33,32 @@ namespace AnhQuoc_C5_Assignment
 
             httpClient.BaseAddress = new Uri(localHost);
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            int nLoad = 0;
-            while (nLoad < 5)
+            
+            try
             {
-                try
+                // Execute the request
+                HttpResponseMessage response = httpClient.GetAsync($"api/{objectName}").Result;
+
+                response.EnsureSuccessStatusCode();
+
+                if (response.IsSuccessStatusCode)
                 {
-                    // Execute the request
-                    HttpResponseMessage response = httpClient.GetAsync($"api/{objectName}").Result;
-
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        // Read the actual exception string returned by the server
-                        string errorResponseBody = response.Content.ReadAsStringAsync().Result;
-
-                        throw new Exception($"Server returned HTTP {(int)response.StatusCode} ({response.ReasonPhrase}). Details:\n{errorResponseBody}");
-                    }
-
-                    response.EnsureSuccessStatusCode();
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var datas = response.Content.ReadAsAsync<IEnumerable<T>>().Result;
-                        return datas;
-                    }
-                    return null;
+                    var datas = response.Content.ReadAsAsync<IEnumerable<T>>().Result;
+                    return datas;
                 }
-                catch (Exception ex)
+                else
                 {
-                    nLoad++;
+                    // Read the actual exception string returned by the server
+                    string errorResponseBody = response.Content.ReadAsStringAsync().Result;
+
+                    throw new Exception($"Server returned HTTP {(int)response.StatusCode} ({response.ReasonPhrase}). Details:\n{errorResponseBody}");
                 }
             }
-            MessageBox.Show("An error when fetching data, please restart app again");
-            Environment.Exit(0);
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error when fetching data, please restart app again");
+                Environment.Exit(0);
+            }
             return null;
         }
 

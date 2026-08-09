@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation.Peers;
 
 namespace AnhQuoc_C5_Assignment
 {
@@ -21,6 +22,19 @@ namespace AnhQuoc_C5_Assignment
             readerMap = UnitOfMap.Instance.ReaderMap;
             numberPrefix = 2;
 
+        }
+
+        public IEnumerable<ReaderDto> GetAllReaderHasLoanSlip(IEnumerable<ReaderDto> source)
+        {
+            LoanSlipViewModel loanSlipViewModel = UnitOfViewModel.Instance.LoanSlipViewModel;
+            List<ReaderDto> readers = new List<ReaderDto>();
+            foreach (var item in source)
+            {
+                var loanSlip = loanSlipViewModel.FindByIdReader(item.Id);
+                if (loanSlip != null)
+                    readers.Add(item);
+            }
+            return readers;
         }
 
         public string GetId()
@@ -155,10 +169,21 @@ namespace AnhQuoc_C5_Assignment
             }
             return newList;
         }
+
         public void Copy(Reader dest, ReaderDto source)
         {
             Utilitys.Copy(dest, source);
             dest.ReaderType = source.ReaderType.ConvertValue();
+        }
+
+        public IEnumerable<ReaderDto> ConvertToDto(IEnumerable<Reader> readers)
+        {
+            IEnumerable<ReaderDto> readerDtos = new List<ReaderDto>();
+            foreach (var item in readers)
+            {
+                readerDtos = readerDtos.Concat(new[] { readerMap.ConvertToDto(item) });
+            }
+            return readerDtos;
         }
 
         public Reader CreateByDto(ReaderDto source)

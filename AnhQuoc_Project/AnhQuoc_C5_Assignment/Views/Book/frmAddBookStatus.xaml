@@ -75,7 +75,7 @@
                     </TextBox>
 
                     <TextBlock Grid.Column="1"
-                                Style="{StaticResource tblErrorNote}"
+                                Style="{StaticResource tblErrorMessage}"
                                 Text="Can not edit book status name" 
                                 Margin="0 0 10 0"
                                 HorizontalAlignment="Right"

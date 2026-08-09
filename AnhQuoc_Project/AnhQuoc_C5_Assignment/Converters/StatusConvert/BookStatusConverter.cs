@@ -18,7 +18,7 @@ namespace AnhQuoc_C5_Assignment
             if (getValue == true)
                 result = "Available";
             else
-                result = "borrowed";
+                result = "Not available";
             return result;
         }
 

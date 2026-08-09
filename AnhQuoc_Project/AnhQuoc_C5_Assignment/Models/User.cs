@@ -11,6 +11,7 @@ namespace AnhQuoc_C5_Assignment
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class User
     {
@@ -22,6 +23,7 @@ namespace AnhQuoc_C5_Assignment
             this.UserRoles = new HashSet<UserRole>();
         }
     
+        [System.ComponentModel.DataAnnotations.Key]
         public string Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }

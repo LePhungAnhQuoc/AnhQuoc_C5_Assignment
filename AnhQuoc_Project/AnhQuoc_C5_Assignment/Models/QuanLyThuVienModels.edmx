@@ -707,6 +707,7 @@
           <NavigationProperty Name="BookISBN" Relationship="Self.FK__Book__ISBN__3A81B327" FromRole="Book" ToRole="BookISBN" />
           <NavigationProperty Name="LoanDetails" Relationship="Self.FK__LoanDetai__IdBoo__73BA3083" FromRole="Book" ToRole="LoanDetail" />
           <NavigationProperty Name="LoanDetailHistories" Relationship="Self.FK__LoanDetai__IdBoo__7F2BE32F" FromRole="Book" ToRole="LoanDetailHistory" />
+          <Property Name="IsBorrowed" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="BookISBN">
           <Key>

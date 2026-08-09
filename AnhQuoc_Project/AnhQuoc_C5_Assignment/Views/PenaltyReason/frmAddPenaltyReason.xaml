@@ -147,7 +147,7 @@
                             </TextBlock.Text>
                         </TextBlock>
 
-                        <TextBlock Style="{StaticResource tblErrorNote}"
+                        <TextBlock Style="{StaticResource tblErrorMessage}"
                                    Text="Can not edit price value" 
                                    Margin="0 0 10 0"
                                    HorizontalAlignment="Right"

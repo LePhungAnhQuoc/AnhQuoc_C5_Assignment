@@ -17,7 +17,7 @@
 
     <UserControl.Resources>
     </UserControl.Resources>
-    
+
     <Grid Name="gdInputLoanSlip"
           Style="{StaticResource gdContainerForUserControl}">
         <Grid.RowDefinitions>
@@ -36,7 +36,7 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-      
+
             <!-- Reader Information -->
             <GroupBox Grid.Row="0"
                       Style="{StaticResource gbDisplayInfo}"
@@ -52,48 +52,16 @@
                                 <Setter Property="Margin" Value="0 10" />
                             </Style>
                         </StackPanel.Resources>
-                        <Grid>
+                        <Grid IsEnabled="False">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Label Content="Id Reader: " />
-                            <Grid Name="gdInputIdReader"
-                                    Style="{x:Null}"
-                                    Grid.Column="1">
-                                <ComboBox Name="cbTxtIdReader"
-                                          Style="{StaticResource cbGeneral}"
-                                          DisplayMemberPath="Id">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="DropDownClosed">
-                                            <i:InvokeCommandAction Command="{Binding ReadercbTxtIdReaderDropDownClosedCmd}" 
-                                                                   CommandParameter="{Binding ElementName=cbTxtIdReader}" />
-                                        </i:EventTrigger>
-                                        <i:EventTrigger EventName="SelectionChanged">
-                                            <i:InvokeCommandAction Command="{Binding ReadercbTxtIdReaderSelectionChangedCmd}" 
-                                                                   CommandParameter="{Binding ElementName=cbTxtIdReader}" />
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-
-                                </ComboBox>
-                                <TextBox Name="txtIdReader"
-                                         Grid.Column="1"
-                                         Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="TextChanged">
-                                            <i:InvokeCommandAction Command="{Binding ReadertxtIdReaderTextChangedCmd}"
-                                                                   CommandParameter="{Binding ElementName=txtIdReader}" />
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                    <TextBox.Text>
-                                        <Binding Path="SelectedReader.Id" UpdateSourceTrigger="PropertyChanged">
-                                            <Binding.ValidationRules>
-
-                                            </Binding.ValidationRules>
-                                        </Binding>
-                                    </TextBox.Text>
-                                </TextBox>
-                            </Grid>
+                            <TextBox Name="txtIdReader"
+                                     Text="{Binding SelectedReader.Id}"
+                                     Grid.Column="1"
+                                     Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}" />
                         </Grid>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -101,11 +69,35 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Label Content="Name: " />
-                            <TextBox Name="txtName"
-                                     Grid.Column="1"
-                                     Text="{Binding SelectedReader.FullName, Mode=OneWay}"
-                                     IsReadOnly="True">
-                            </TextBox>
+                            <Grid Name="gdInputReaderName"
+                                  Style="{x:Null}"
+                                  Grid.Column="1">
+                                <ComboBox Name="cbTxtReaderFind"
+                                          Style="{StaticResource cbGeneral}"
+                                          DisplayMemberPath="FullName">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="DropDownClosed">
+                                            <i:InvokeCommandAction Command="{Binding ReadercbTxtReaderFindDropDownClosedCmd}" 
+                                                                   CommandParameter="{Binding ElementName=cbTxtReaderFind}" />
+                                        </i:EventTrigger>
+                                        <i:EventTrigger EventName="SelectionChanged">
+                                            <i:InvokeCommandAction Command="{Binding ReadercbTxtReaderFindSelectionChangedCmd}" 
+                                                                   CommandParameter="{Binding ElementName=cbTxtReaderFind}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+
+                                </ComboBox>
+                                <TextBox Name="txtName"
+                                         Grid.Column="1"
+                                         Text="{Binding SelectedReader.FullName, Mode=OneWay}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                            <i:InvokeCommandAction Command="{Binding ReadertxtFindReaderTextChangedCmd}"
+                                    CommandParameter="{Binding ElementName=txtName}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </TextBox>
+                            </Grid>
                         </Grid>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -147,7 +139,7 @@
         <!-- Footer -->
         <StackPanel Grid.Row="2"
                     Style="{StaticResource stkWrapButton}"
-                    Margin="0 0 0 20">
+                    Margin="0 20 0 20">
             <Button Name="btnConfirm" Content="Confirm"
                     HorizontalAlignment="Stretch"
                     Style="{StaticResource btnConfirm}"

@@ -24,7 +24,9 @@
                   CellStyle="{StaticResource dtgCellGeneral}"
                   RowStyle="{StaticResource dtgRowGeneral}"
                   SelectedItem="{Binding SelectedDto}"
-                  ItemsSource="{Binding Books}">
+                  ItemsSource="{Binding Books}"
+                  HorizontalScrollBarVisibility="Disabled"
+                  ColumnWidth="*">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Index" Width="auto" Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGridRow}}, Converter={StaticResource indexDataGridItemConverter}}" />
                 <DataGridTextColumn Header="Id" Width="auto" Binding="{Binding Id}" />
@@ -49,19 +51,7 @@
 
                 <DataGridTextColumn Header="CreatedAt" Width="auto" Binding="{Binding CreatedAt, StringFormat='{}{0:dd/MM/yyyy}'}" />
                 <DataGridTextColumn Header="ModifiedAt" Width="auto" Binding="{Binding ModifiedAt, StringFormat='{}{0:dd/MM/yyyy}'}" />
-            
-                <DataGridTemplateColumn Visibility="Collapsed">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Name="btnDelete"
-                                    Style="{StaticResource btnDelete}"
-                                    IsEnabled="{Binding Status}"
-                                    Margin="5"
-                                    Click="btnDelete_Click">
-                            </Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Borrowed by" Width="auto" Binding="{Binding BorrowedBy}" />
             </DataGrid.Columns>
         </DataGrid>
         <local:ucPagination Grid.Row="1"

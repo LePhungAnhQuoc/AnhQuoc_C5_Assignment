@@ -224,6 +224,13 @@ namespace AnhQuoc_C5_Assignment
             return books;
         }
 
+        public ObservableCollection<Book> GetBooksInLoanDetailHistorys(ObservableCollection<LoanDetailHistoryDto> loanDetailHistoryDtos)
+        {
+            var lstId = loanDetailHistoryDtos.Select(item => item.IdBook).ToObservableCollection();
+            var books = getListFromIds(lstId);
+            return books;
+        }
+
         public ObservableCollection<Book> getListFromIds(ObservableCollection<int> lstId)
         {
             return lstId.Select(item => FindById(item, null)).ToObservableCollection();

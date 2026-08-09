@@ -603,8 +603,8 @@ namespace AnhQuoc_C5_Assignment
 
                 btnRestoreAdultAndChild.Click += (_sender, _e) =>
                 {
-                    Reader adultReader = readerVM.FindById(childFinded.IdAdult);
-                    UpdateReadersStatus(adultReader, updateStatus);
+                    Reader adultReaderByChild = readerVM.FindById(childFinded.IdAdult);
+                    UpdateReadersStatus(adultReaderByChild, updateStatus);
 
                     Reader childReader = readerVM.FindById(childFinded.IdReader);
                     UpdateReadersStatus(childReader, updateStatus);

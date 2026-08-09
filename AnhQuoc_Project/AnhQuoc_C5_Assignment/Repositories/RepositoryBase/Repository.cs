@@ -133,7 +133,7 @@ namespace AnhQuoc_C5_Assignment
         #region PrivateMethods
         private string GetPrimaryKeyName()
         {
-            return Utilitys.GetPrimaryKeys(typeof(T)).SingleOrDefault();
+            return Utilitys.GetPrimaryKeys(typeof(T)).FirstOrDefault();
         }
         #endregion
     }

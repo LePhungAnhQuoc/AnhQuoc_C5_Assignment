@@ -823,6 +823,12 @@ namespace AnhQuoc_C5_Assignment
 
         private void TvLoanHistoryManagement_Function()
         {
+            LoanSlipViewModel loanSlipViewModel = UnitOfViewModel.Instance.LoanSlipViewModel;
+            if (loanSlipViewModel.Repo.Count == 0)
+            {
+                MessageBox.Show("No loan slip available for returning the book.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             Grid gdView = getGdView();
 
             gdView.Children.Clear();

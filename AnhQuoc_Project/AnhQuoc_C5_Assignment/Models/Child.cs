@@ -11,9 +11,11 @@ namespace AnhQuoc_C5_Assignment
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Child
     {
+        [System.ComponentModel.DataAnnotations.Key]
         public string IdReader { get; set; }
         public string IdAdult { get; set; }
         public bool Status { get; set; }

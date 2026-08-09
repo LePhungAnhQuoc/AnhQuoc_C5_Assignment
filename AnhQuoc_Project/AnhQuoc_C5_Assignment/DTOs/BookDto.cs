@@ -230,6 +230,19 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        private string _BorrowedBy;
+        public string BorrowedBy
+        {
+            get { return _BorrowedBy; }
+            set 
+            { 
+                _BorrowedBy = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+
         #endregion
 
         #region PropertyChanged

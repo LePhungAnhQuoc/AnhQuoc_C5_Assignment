@@ -71,7 +71,7 @@
                             <ColumnDefinition Width="120" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Quantity: " />
+                        <Label Content="Books quantity: " />
                         <TextBox Name="txtQuantity"
                                 Grid.Column="1"
                                 Text="{Binding LoanSlipDto.Quantity, Mode=OneWay}"

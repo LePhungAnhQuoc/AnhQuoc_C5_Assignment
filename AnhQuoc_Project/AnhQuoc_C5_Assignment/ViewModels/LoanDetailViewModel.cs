@@ -77,6 +77,16 @@ namespace AnhQuoc_C5_Assignment
             return result;
         }
 
+        public LoanDetail FindByIdBook(int idBook, bool? statusValue = null)
+        {
+            return FindByIdBook(Repo.Gets(), idBook, statusValue);
+        }
+
+        public LoanDetail FindByIdBook(ObservableCollection<LoanDetail> source, int idBook, bool? statusValue = null)
+        {
+            source = FillByStatus(source, statusValue);
+            return source.FirstOrDefault(item => item.IdBook == idBook);
+        }
 
         public bool IsOutOfExpireDate(ObservableCollection<LoanDetail> details)
         {

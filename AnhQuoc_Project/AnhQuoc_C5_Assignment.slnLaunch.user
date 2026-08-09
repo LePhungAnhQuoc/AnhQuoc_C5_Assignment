@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Run multiple projects",
+    "Projects": [
+      {
+        "Path": "Api\\Api.csproj",
+        "Action": "StartWithoutDebugging"
+      },
+      {
+        "Path": "AnhQuoc_C5_Assignment\\AnhQuoc_C5_Assignment.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

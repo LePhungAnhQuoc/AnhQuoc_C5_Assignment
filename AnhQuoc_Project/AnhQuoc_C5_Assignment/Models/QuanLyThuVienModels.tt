@@ -70,7 +70,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
         foreach (var edmProperty in simpleProperties)
         {
 #>
-    <#=codeStringGenerator.Property(edmProperty)#>
+<#=codeStringGenerator.Property(edmProperty)#>
 <#
         }
     }
@@ -83,7 +83,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
         foreach(var complexProperty in complexProperties)
         {
 #>
-    <#=codeStringGenerator.Property(complexProperty)#>
+<#=codeStringGenerator.Property(complexProperty)#>
 <#
         }
     }
@@ -156,7 +156,7 @@ foreach (var complex in typeMapper.GetItemsToGenerate<ComplexType>(itemCollectio
         foreach(var edmProperty in simpleProperties)
         {
 #>
-    <#=codeStringGenerator.Property(edmProperty)#>
+<#=codeStringGenerator.Property(edmProperty)#>
 <#
         }
     }
@@ -169,7 +169,7 @@ foreach (var complex in typeMapper.GetItemsToGenerate<ComplexType>(itemCollectio
         foreach(var edmProperty in complexProperties)
         {
 #>
-    <#=codeStringGenerator.Property(edmProperty)#>
+<#=codeStringGenerator.Property(edmProperty)#>
 <#
         }
     }
@@ -283,7 +283,8 @@ public class CodeStringGenerator
 
     public string Property(EdmProperty edmProperty)
     {
-        return string.Format(
+        // Build the property declaration
+        var prop = string.Format(
             CultureInfo.InvariantCulture,
             "{0} {1} {2} {{ {3}get; {4}set; }}",
             Accessibility.ForProperty(edmProperty),
@@ -291,6 +292,31 @@ public class CodeStringGenerator
             _code.Escape(edmProperty),
             _code.SpaceAfter(Accessibility.ForGetter(edmProperty)),
             _code.SpaceAfter(Accessibility.ForSetter(edmProperty)));
+
+        // Detect primary key properties and add [Key] attribute
+        var declaringEntity = edmProperty.DeclaringType as EntityType;
+        var isKey = false;
+        if (declaringEntity != null)
+        {
+            foreach (var keyMember in declaringEntity.KeyMembers)
+            {
+                if (keyMember.Name == edmProperty.Name)
+                {
+                    isKey = true;
+                    break;
+                }
+            }
+        }
+
+        if (isKey)
+        {
+            // We include a leading indentation here; the template will place this at column 0
+            // so we add 4 spaces to align the generated code inside the class body.
+            return string.Format("    [System.ComponentModel.DataAnnotations.Key]{0}    {1}", Environment.NewLine, prop);
+        }
+
+        // Non-key property: indent the property so it lines up inside the class
+        return "    " + prop;
     }
 
     public string NavigationProperty(NavigationProperty navProp)
@@ -425,10 +451,10 @@ public class CodeStringGenerator
         return inHeader == string.IsNullOrEmpty(_code.VsNamespaceSuggestion())
             ? string.Format(
                 CultureInfo.InvariantCulture,
-                "{0}using System;{1}" +
-                "{2}",
+                "{0}using System;{1}{2}{3}",
                 inHeader ? Environment.NewLine : "",
                 includeCollections ? (Environment.NewLine + "using System.Collections.Generic;") : "",
+                Environment.NewLine + "using System.ComponentModel.DataAnnotations;",
                 inHeader ? "" : Environment.NewLine)
             : "";
     }

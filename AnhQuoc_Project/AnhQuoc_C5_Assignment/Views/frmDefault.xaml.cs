@@ -22,8 +22,6 @@ namespace AnhQuoc_C5_Assignment
     public partial class frmDefault : Window, INotifyPropertyChanged
     {
         #region dp-prop
-
-
         public string frmTitle
         {
             get { return (string)GetValue(frmTitleProperty); }
@@ -63,7 +61,17 @@ namespace AnhQuoc_C5_Assignment
         public frmDefault()
         {
             InitializeComponent();
+
+            this.Loaded += FrmDefault_Loaded;
             this.DataContext = this;
+        }
+
+        private void FrmDefault_Loaded(object sender, RoutedEventArgs e)
+        {
+            //dataGrid.UpdateLayout();
+            //double columns = dataGrid.Columns.Sum(c => c.ActualWidth);
+            //double extra = SystemParameters.VerticalScrollBarWidth + 40; // scrollbar + padding/chrome
+            //this.Width = columns + extra;
         }
     }
 }

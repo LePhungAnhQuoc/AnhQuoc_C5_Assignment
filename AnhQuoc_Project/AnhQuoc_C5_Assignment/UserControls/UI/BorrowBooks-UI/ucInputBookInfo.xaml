@@ -112,13 +112,42 @@
                             <Label Style="{StaticResource lblTitleStyleInBar}"
                                    Content="Temporary book list" />
                         </Grid>
-                        <ScrollViewer Grid.Row="1"
-                                      Style="{StaticResource scrollStyleContainWrap}"
-                                      VerticalAlignment="Stretch">
-                            <WrapPanel Name="wrapBookISBN"
-                                       HorizontalAlignment="Stretch">
-                            </WrapPanel>
-                        </ScrollViewer>
+                        <ListBox Grid.Row="1"
+                                 Name="wrapBookISBN"
+                                 HorizontalAlignment="Stretch"
+                                 BorderThickness="0"
+                                 Background="Transparent"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                 VerticalAlignment="Stretch">
+
+                            <!-- Remove blue focus/selection outline and default selected background while preserving selection behavior -->
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Setter Property="BorderThickness" Value="0" />
+                                    <Setter Property="Padding" Value="0" />
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="Transparent" />
+                                            <Setter Property="BorderBrush" Value="Transparent" />
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Transparent" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
                     </Grid>
                 </Grid>
             </GroupBox>

@@ -11,6 +11,7 @@ namespace AnhQuoc_C5_Assignment
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class LoanHistory
     {
@@ -20,6 +21,7 @@ namespace AnhQuoc_C5_Assignment
             this.LoanDetailHistories = new HashSet<LoanDetailHistory>();
         }
     
+        [System.ComponentModel.DataAnnotations.Key]
         public string Id { get; set; }
         public string IdUser { get; set; }
         public string IdReader { get; set; }

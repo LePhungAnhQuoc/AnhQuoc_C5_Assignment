@@ -11,9 +11,11 @@ namespace AnhQuoc_C5_Assignment
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class UserRole
     {
+        [System.ComponentModel.DataAnnotations.Key]
         public string Id { get; set; }
         public string IdUser { get; set; }
         public string IdRole { get; set; }

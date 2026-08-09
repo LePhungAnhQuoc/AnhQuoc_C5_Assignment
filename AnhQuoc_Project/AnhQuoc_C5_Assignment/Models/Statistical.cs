@@ -11,9 +11,11 @@ namespace AnhQuoc_C5_Assignment
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Statistical
     {
+        [System.ComponentModel.DataAnnotations.Key]
         public System.DateTime DateTime { get; set; }
         public string Data { get; set; }
         public string Description { get; set; }

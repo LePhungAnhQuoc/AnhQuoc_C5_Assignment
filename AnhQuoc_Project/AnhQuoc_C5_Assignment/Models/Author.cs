@@ -11,6 +11,7 @@ namespace AnhQuoc_C5_Assignment
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Author
     {
@@ -20,6 +21,7 @@ namespace AnhQuoc_C5_Assignment
             this.BookISBNs = new HashSet<BookISBN>();
         }
     
+        [System.ComponentModel.DataAnnotations.Key]
         public string Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

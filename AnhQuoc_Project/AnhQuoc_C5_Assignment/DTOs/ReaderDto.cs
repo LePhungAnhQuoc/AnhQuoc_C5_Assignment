@@ -41,6 +41,14 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
+        public string FullName
+        {
+            get
+            {
+                return $"{_LName} {_FName}";
+            }
+        }
+
         private ReaderType _ReaderType;
         public ReaderType ReaderType
         {
@@ -122,17 +130,6 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
-
-        #region Others-props
-        public string FullName
-        {
-            get
-            {
-                return $"{_LName} {_FName}";
-            }
-        }
-
-        #endregion
 
         public ReaderDto(string id)
         {

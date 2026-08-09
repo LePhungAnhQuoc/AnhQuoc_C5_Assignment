@@ -48,10 +48,9 @@ namespace AnhQuoc_C5_Assignment
             return null;
         }
 
-        public LoanSlip FindByIdReader(string idReader, bool? statusValue = null)
+        public LoanSlip FindByIdReader(string idReader)
         {
             var source = Repo.Gets();
-            source = FillByStatus(source, statusValue);
             return source.FirstOrDefault(item => item.IdReader == idReader);
         }
 

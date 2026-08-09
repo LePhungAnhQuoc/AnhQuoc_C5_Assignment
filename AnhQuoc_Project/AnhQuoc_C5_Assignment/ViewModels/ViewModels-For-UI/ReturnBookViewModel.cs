@@ -411,9 +411,9 @@ namespace AnhQuoc_C5_Assignment
         public RelayCommand ReaderBtnCancelClickCmd { get; private set; }
 
 
-        public RelayCommand ReadercbTxtIdReaderDropDownClosedCmd { get; private set; }
-        public RelayCommand ReadercbTxtIdReaderSelectionChangedCmd { get; private set; }
-        public RelayCommand ReadertxtIdReaderTextChangedCmd { get; private set; }
+        public RelayCommand ReadercbTxtReaderFindDropDownClosedCmd { get; private set; }
+        public RelayCommand ReadercbTxtReaderFindSelectionChangedCmd { get; private set; }
+        public RelayCommand ReadertxtFindReaderTextChangedCmd { get; private set; }
         
         
         public RelayCommand BookBtnConfirmClickCmd { get; private set; }
@@ -473,9 +473,9 @@ namespace AnhQuoc_C5_Assignment
             ReaderBtnConfirmClickCmd = new RelayCommand(ReaderBtnConfirmClick);
             ReaderBtnCancelClickCmd = new RelayCommand(ReaderBtnCancelClick);
 
-            ReadercbTxtIdReaderDropDownClosedCmd = new RelayCommand(null, ReadercbTxtIdReaderDropDownClosed);
-            ReadercbTxtIdReaderSelectionChangedCmd = new RelayCommand(null, ReadercbTxtIdReaderSelectionChanged);
-            ReadertxtIdReaderTextChangedCmd = new RelayCommand(null, ReadertxtIdReaderTextChanged);
+            ReadercbTxtReaderFindDropDownClosedCmd = new RelayCommand(null, ReadercbTxtReaderFindDropDownClosed);
+            ReadercbTxtReaderFindSelectionChangedCmd = new RelayCommand(null, ReadercbTxtReaderFindSelectionChanged);
+            ReadertxtFindReaderTextChangedCmd = new RelayCommand(null, ReadertxtFindReaderTextChanged);
 
             BookBtnConfirmClickCmd = new RelayCommand(BookBtnConfirmClick);
             BookBtnCancelClickCmd = new RelayCommand(BookBtnCancelClick);
@@ -494,6 +494,7 @@ namespace AnhQuoc_C5_Assignment
             ucAddLoanHistory = para as ucAddLoanHistory;
 
             AllReader = readerMap.ConvertToDto(ucAddLoanHistory.getReaderRepo().Gets());
+            AllReader = new ObservableCollection<ReaderDto>(readerVM.GetAllReaderHasLoanSlip(AllReader));
             AllReason = reasonMap.ConvertToDto(ucAddLoanHistory.getReasonRepo().Gets());
 
             ucInputReaderLoanHistory = MainWindow.UnitOfForm.UcInputReaderLoanHistory(true);
@@ -551,35 +552,35 @@ namespace AnhQuoc_C5_Assignment
         {
             if (cmb.SelectedItem == null)
                 return false;
-            txt.Text = ((ReaderDto)cmb.SelectedItem).Id;
+            txt.Text = ((ReaderDto)cmb.SelectedItem).FullName;
             return true;
         }
 
-        private void ReadercbTxtIdReaderDropDownClosed(object para)
+        private void ReadercbTxtReaderFindDropDownClosed(object para)
         {
             ComboBox cmb = para as ComboBox;
-            if (handle) HandleReader(ucInputReaderLoanHistory.txtIdReader, cmb);
+            if (handle) HandleReader(ucInputReaderLoanHistory.txtName, cmb);
             handle = true;
         }
 
-        private void ReadercbTxtIdReaderSelectionChanged(object para)
+        private void ReadercbTxtReaderFindSelectionChanged(object para)
         {
             ComboBox cmb = para as ComboBox;
             handle = !cmb.IsDropDownOpen;
-            HandleReader(ucInputReaderLoanHistory.txtIdReader, cmb);
+            HandleReader(ucInputReaderLoanHistory.txtName, cmb);
         }
 
-        private void ReadertxtIdReaderTextChanged(object para)
+        private void ReadertxtFindReaderTextChanged(object para)
         {
-            TxtIdReader_Filter_TextChanged(ucInputReaderLoanHistory.txtIdReader, ucInputReaderLoanHistory.gdInputIdReader, readerVM.CreateByDto(AllReader));
+            TxtReaderFind_Filter_TextChanged(ucInputReaderLoanHistory.txtName, ucInputReaderLoanHistory.gdInputReaderName, readerVM.CreateByDto(AllReader));
         }
 
-        private void TxtIdReader_Filter_TextChanged(TextBox txtInput, Grid parent, ObservableCollection<Reader> sourceDto)
+        private void TxtReaderFind_Filter_TextChanged(TextBox txtInput, Grid parent, ObservableCollection<Reader> sourceDto)
         {
             SelectedLoanSlip = null;
 
             bool ignoreCase = true;
-            ComboBox comBoBox = Utilitys.FindVisualChild<ComboBox>(parent);
+            ComboBox cbTxtReaderFind = ucInputReaderLoanHistory.cbTxtReaderFind;
 
             if (Utilitys.IsCheckEmptyString(txtInput.Text))
             {
@@ -587,14 +588,13 @@ namespace AnhQuoc_C5_Assignment
                 return;
             }
 
-            ObservableCollection<Reader> getfillList = readerVM.FillContainIds(sourceDto, txtInput.Text, ignoreCase, StatusValue);
+            ObservableCollection<Reader> getfillList = readerVM.FillContainNames(sourceDto, txtInput.Text, ignoreCase, StatusValue);
+            ObservableCollection<ReaderDto> readerDtosFillList = new ObservableCollection<ReaderDto>(readerVM.ConvertToDto(getfillList));
 
-            if (getfillList.Count == 1 && getfillList.First().Id == txtInput.Text)
+            if (readerDtosFillList.Count == 1 && readerDtosFillList.First().FullName == txtInput.Text)
             {
-                comBoBox.IsDropDownOpen = false;
-
-                Reader reader = getfillList.First();
-                SelectedReader = readerMap.ConvertToDto(reader);
+                cbTxtReaderFind.IsDropDownOpen = false;
+                SelectedReader = readerDtosFillList.First();
 
                 GetReaderLoanAndLoanDetails();
 
@@ -612,8 +612,8 @@ namespace AnhQuoc_C5_Assignment
                 ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.getLoanSlips = () => AllReaderLoan;
                 ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.ModifiedPagination();
             }
-            comBoBox.ItemsSource = readerMap.ConvertToDto(getfillList);
-            comBoBox.IsDropDownOpen = true;
+            cbTxtReaderFind.ItemsSource = readerDtosFillList;
+            cbTxtReaderFind.IsDropDownOpen = true;
         }
 
         private void GetReaderLoanAndLoanDetails()
@@ -656,14 +656,6 @@ namespace AnhQuoc_C5_Assignment
             Utilitys.Copy(Item, SelectedLoanSlip, isCheckProperties);
             Item.Id = newId;
             Item.CreateAt = DateTime.Now;
-        }
-
-        private void GetLoanSlipFromReader()
-        {
-            ObservableCollection<LoanSlip> loans = loanSlipVM.FillByIdReader(SelectedReader.Id);
-            AllLoanOfReader.AddRange(loans);
-
-            ucInputReaderLoanHistory.ucLoanSlipsBorrowedTable.ModifiedPagination();
         }
         #endregion
 
@@ -1020,10 +1012,6 @@ namespace AnhQuoc_C5_Assignment
                 return;
             }
 
-            #region CheckIsExistInformation
-
-            #endregion
-
             // Truyền dữ liệu cho item
             var loanHistory = new LoanHistory();
             PassValueToItem(loanHistory);
@@ -1055,7 +1043,7 @@ namespace AnhQuoc_C5_Assignment
                 bookVM.Repo.WriteUpdate(book);
             });
 
-            var bookList = bookVM.GetBooksInLoanDetailHistorys(loanDetailHistoryVM.CreateByDto(LoanDetailHistoryDtos));
+            var bookList = bookVM.GetBooksInLoanDetailHistorys(LoanDetailHistoryDtos);
             // Cập nhật tình trạng sách (status)
             ChangeBookStatus(bookList, true);
 
