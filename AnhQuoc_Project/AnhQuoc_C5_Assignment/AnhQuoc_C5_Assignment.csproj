@@ -1452,6 +1452,12 @@
     <Resource Include="Assets\Images\Others\LoadingSpinnerCircle.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\DatabaseNames.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\ServerNames.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Models\QuanLyThuVienModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QuanLyThuVienModels.edmx</DependentUpon>

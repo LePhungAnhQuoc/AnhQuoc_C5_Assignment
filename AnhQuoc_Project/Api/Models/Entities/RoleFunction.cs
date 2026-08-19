@@ -11,7 +11,7 @@ public partial class RoleFunction
 
     public string IdFunction { get; set; } = null!;
 
-    public virtual UserFunction IdFunctionNavigation { get; set; } = null!;
+    public virtual Function IdFunctionNavigation { get; set; } = null!;
 
     public virtual Role IdRoleNavigation { get; set; } = null!;
 }

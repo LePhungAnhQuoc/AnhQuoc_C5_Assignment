@@ -217,6 +217,12 @@ namespace AnhQuoc_C5_Assignment
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            LoanSlipViewModel loanSlipViewModel = UnitOfViewModel.Instance.LoanSlipViewModel;
+            if (loanSlipViewModel.Repo.Count == 0)
+            {
+                MessageBox.Show("No loan slip available for returning the book.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
 
             ucAddLoanHistory = MainWindow.UnitOfForm.UcAddLoanHistory(true);
             ucAddLoanHistory.getParentUc = () => this;

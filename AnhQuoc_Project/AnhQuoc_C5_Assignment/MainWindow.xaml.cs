@@ -53,8 +53,8 @@ namespace AnhQuoc_C5_Assignment
 
         public static UnitOfRepository UnitOfRepo;
         public static UnitOfForm UnitOfForm;
-        public static ObservableCollection<string> RoleGroups;        
-        
+        public static ObservableCollection<string> RoleGroups;
+
 
         private ucLibrarianDashBoard _ucLibrarianDashBoard;
         private frmLogin frmLogin;
@@ -326,8 +326,8 @@ namespace AnhQuoc_C5_Assignment
                 DatabaseFirst.IsConnectValid = true;
 
                 // Checking
-                var wait = new LoadingSpinnerWD(() => 
-                { 
+                var wait = new LoadingSpinnerWD(() =>
+                {
                     isCheckConnectionString = CheckIsRightConnection();
                 });
                 wait.ShowDialog();
@@ -353,7 +353,7 @@ namespace AnhQuoc_C5_Assignment
                 try
                 {
                     value = (IEnumerable)Utilitys.getValueFromProperty(tableProperty, dbSource);
-                    
+
                     foreach (var itemCheck in value) // Check EntityException
                     {
                         break;
@@ -502,7 +502,7 @@ namespace AnhQuoc_C5_Assignment
             // Checking Dto
             foreach (PropertyInfo tableProperty in Utilitys.getDerivePropsFromType(DatabaseFirst.Instance.dbSource))
             {
-                RunAgain:
+            RunAgain:
                 IEnumerable value = null;
                 try
                 {

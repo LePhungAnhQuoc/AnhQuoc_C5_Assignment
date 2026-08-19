@@ -31,6 +31,8 @@ public partial class QuanLyThuVienContext : DbContext
 
     public virtual DbSet<Child> Children { get; set; }
 
+    public virtual DbSet<Function> Functions { get; set; }
+
     public virtual DbSet<LoanDetail> LoanDetails { get; set; }
 
     public virtual DbSet<LoanDetailHistory> LoanDetailHistories { get; set; }
@@ -59,8 +61,6 @@ public partial class QuanLyThuVienContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    public virtual DbSet<UserFunction> UserFunctions { get; set; }
-
     public virtual DbSet<UserInfo> UserInfos { get; set; }
 
     public virtual DbSet<UserRole> UserRoles { get; set; }
@@ -73,7 +73,7 @@ public partial class QuanLyThuVienContext : DbContext
     {
         modelBuilder.Entity<Adult>(entity =>
         {
-            entity.HasKey(e => e.IdReader).HasName("PK__Adult__D616DA89D98BC945");
+            entity.HasKey(e => e.IdReader).HasName("PK__Adult__D616DA89703CD086");
 
             entity.ToTable("Adult");
 
@@ -95,12 +95,12 @@ public partial class QuanLyThuVienContext : DbContext
             entity.HasOne(d => d.IdReaderNavigation).WithOne(p => p.Adult)
                 .HasForeignKey<Adult>(d => d.IdReader)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Adult__IdReader__3B75D760");
+                .HasConstraintName("FK__Adult__IdReader__7A672E12");
         });
 
         modelBuilder.Entity<Author>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Author__3214EC07E0C63457");
+            entity.HasKey(e => e.Id).HasName("PK__Author__3214EC07786AD8A2");
 
             entity.ToTable("Author");
 
@@ -120,7 +120,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Book>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Book__3214EC0737D8EA57");
+            entity.HasKey(e => e.Id).HasName("PK__Book__3214EC07475061D7");
 
             entity.ToTable("Book");
 
@@ -153,27 +153,27 @@ public partial class QuanLyThuVienContext : DbContext
             entity.HasOne(d => d.IdBookStatusNavigation).WithMany(p => p.Books)
                 .HasForeignKey(d => d.IdBookStatus)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Book__IdBookStat__60A75C0F");
+                .HasConstraintName("FK__Book__IdBookStat__7B5B524B");
 
             entity.HasOne(d => d.IdPublisherNavigation).WithMany(p => p.Books)
                 .HasForeignKey(d => d.IdPublisher)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Book__IdPublishe__5EBF139D");
+                .HasConstraintName("FK__Book__IdPublishe__7C4F7684");
 
             entity.HasOne(d => d.IdTranslatorNavigation).WithMany(p => p.Books)
                 .HasForeignKey(d => d.IdTranslator)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Book__IdTranslat__5FB337D6");
+                .HasConstraintName("FK__Book__IdTranslat__7D439ABD");
 
             entity.HasOne(d => d.IsbnNavigation).WithMany(p => p.Books)
                 .HasForeignKey(d => d.Isbn)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Book__ISBN__5DCAEF64");
+                .HasConstraintName("FK__Book__ISBN__7E37BEF6");
         });
 
         modelBuilder.Entity<BookIsbn>(entity =>
         {
-            entity.HasKey(e => e.Isbn).HasName("PK__BookISBN__447D36EB293A37B6");
+            entity.HasKey(e => e.Isbn).HasName("PK__BookISBN__447D36EB3D811C84");
 
             entity.ToTable("BookISBN");
 
@@ -196,17 +196,17 @@ public partial class QuanLyThuVienContext : DbContext
             entity.HasOne(d => d.IdAuthorNavigation).WithMany(p => p.BookIsbns)
                 .HasForeignKey(d => d.IdAuthor)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__BookISBN__IdAuth__5812160E");
+                .HasConstraintName("FK__BookISBN__IdAuth__7F2BE32F");
 
             entity.HasOne(d => d.IdBookTitleNavigation).WithMany(p => p.BookIsbns)
                 .HasForeignKey(d => d.IdBookTitle)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__BookISBN__IdBook__571DF1D5");
+                .HasConstraintName("FK__BookISBN__IdBook__00200768");
         });
 
         modelBuilder.Entity<BookStatus>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__BookStat__3214EC07535F1A4E");
+            entity.HasKey(e => e.Id).HasName("PK__BookStat__3214EC073240CA0E");
 
             entity.ToTable("BookStatus");
 
@@ -224,7 +224,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<BookTitle>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__BookTitl__3214EC0718BD7C71");
+            entity.HasKey(e => e.Id).HasName("PK__BookTitl__3214EC0787251901");
 
             entity.ToTable("BookTitle");
 
@@ -246,12 +246,12 @@ public partial class QuanLyThuVienContext : DbContext
             entity.HasOne(d => d.IdCategoryNavigation).WithMany(p => p.BookTitles)
                 .HasForeignKey(d => d.IdCategory)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__BookTitle__IdCat__52593CB8");
+                .HasConstraintName("FK__BookTitle__IdCat__01142BA1");
         });
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC07D36B6A7E");
+            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC07A4ACFE41");
 
             entity.ToTable("Category");
 
@@ -266,7 +266,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Child>(entity =>
         {
-            entity.HasKey(e => e.IdReader).HasName("PK__Child__D616DA89BAC693B3");
+            entity.HasKey(e => e.IdReader).HasName("PK__Child__D616DA89460CC411");
 
             entity.ToTable("Child");
 
@@ -283,17 +283,40 @@ public partial class QuanLyThuVienContext : DbContext
             entity.HasOne(d => d.IdAdultNavigation).WithMany(p => p.Children)
                 .HasForeignKey(d => d.IdAdult)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Child__IdAdult__403A8C7D");
+                .HasConstraintName("FK__Child__IdAdult__02084FDA");
 
             entity.HasOne(d => d.IdReaderNavigation).WithOne(p => p.Child)
                 .HasForeignKey<Child>(d => d.IdReader)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Child__IdReader__3F466844");
+                .HasConstraintName("FK__Child__IdReader__02FC7413");
+        });
+
+        modelBuilder.Entity<Function>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Function__3214EC07B6719270");
+
+            entity.ToTable("Function");
+
+            entity.Property(e => e.Id)
+                .HasMaxLength(10)
+                .IsUnicode(false);
+            entity.Property(e => e.Description).HasColumnType("ntext");
+            entity.Property(e => e.IdParent)
+                .HasMaxLength(10)
+                .IsUnicode(false);
+            entity.Property(e => e.IsAdmin).HasDefaultValue(true);
+            entity.Property(e => e.Name).HasMaxLength(60);
+            entity.Property(e => e.Status).HasDefaultValue(true);
+            entity.Property(e => e.UrlImage).HasColumnType("text");
+
+            entity.HasOne(d => d.IdParentNavigation).WithMany(p => p.InverseIdParentNavigation)
+                .HasForeignKey(d => d.IdParent)
+                .HasConstraintName("FK__Function__IdPare__03F0984C");
         });
 
         modelBuilder.Entity<LoanDetail>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LoanDeta__3214EC0736FCCCB6");
+            entity.HasKey(e => e.Id).HasName("PK__LoanDeta__3214EC073EB63C7C");
 
             entity.ToTable("LoanDetail");
 
@@ -308,17 +331,17 @@ public partial class QuanLyThuVienContext : DbContext
             entity.HasOne(d => d.IdBookNavigation).WithMany(p => p.LoanDetails)
                 .HasForeignKey(d => d.IdBook)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__LoanDetai__IdBoo__03F0984C");
+                .HasConstraintName("FK__LoanDetai__IdBoo__04E4BC85");
 
             entity.HasOne(d => d.IdLoanNavigation).WithMany(p => p.LoanDetails)
                 .HasForeignKey(d => d.IdLoan)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__LoanDetai__IdLoa__02FC7413");
+                .HasConstraintName("FK__LoanDetai__IdLoa__05D8E0BE");
         });
 
         modelBuilder.Entity<LoanDetailHistory>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LoanDeta__3214EC07CF23512F");
+            entity.HasKey(e => e.Id).HasName("PK__LoanDeta__3214EC075A6E7300");
 
             entity.ToTable("LoanDetailHistory");
 
@@ -335,17 +358,17 @@ public partial class QuanLyThuVienContext : DbContext
             entity.HasOne(d => d.IdBookNavigation).WithMany(p => p.LoanDetailHistories)
                 .HasForeignKey(d => d.IdBook)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__LoanDetai__IdBoo__0B91BA14");
+                .HasConstraintName("FK__LoanDetai__IdBoo__06CD04F7");
 
             entity.HasOne(d => d.IdLoanHistoryNavigation).WithMany(p => p.LoanDetailHistories)
                 .HasForeignKey(d => d.IdLoanHistory)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__LoanDetai__IdLoa__0A9D95DB");
+                .HasConstraintName("FK__LoanDetai__IdLoa__07C12930");
         });
 
         modelBuilder.Entity<LoanHistory>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LoanHist__3214EC07F9F208AD");
+            entity.HasKey(e => e.Id).HasName("PK__LoanHist__3214EC076A6A8034");
 
             entity.ToTable("LoanHistory");
 
@@ -370,17 +393,17 @@ public partial class QuanLyThuVienContext : DbContext
             entity.HasOne(d => d.IdReaderNavigation).WithMany(p => p.LoanHistories)
                 .HasForeignKey(d => d.IdReader)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__LoanHisto__IdRea__06CD04F7");
+                .HasConstraintName("FK__LoanHisto__IdRea__08B54D69");
 
             entity.HasOne(d => d.IdUserNavigation).WithMany(p => p.LoanHistories)
                 .HasForeignKey(d => d.IdUser)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__LoanHisto__IdUse__07C12930");
+                .HasConstraintName("FK__LoanHisto__IdUse__09A971A2");
         });
 
         modelBuilder.Entity<LoanSlip>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LoanSlip__3214EC07BEAAC0C8");
+            entity.HasKey(e => e.Id).HasName("PK__LoanSlip__3214EC07C44328C5");
 
             entity.ToTable("LoanSlip");
 
@@ -401,17 +424,17 @@ public partial class QuanLyThuVienContext : DbContext
             entity.HasOne(d => d.IdReaderNavigation).WithMany(p => p.LoanSlips)
                 .HasForeignKey(d => d.IdReader)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__LoanSlip__IdRead__7F2BE32F");
+                .HasConstraintName("FK__LoanSlip__IdRead__0A9D95DB");
 
             entity.HasOne(d => d.IdUserNavigation).WithMany(p => p.LoanSlips)
                 .HasForeignKey(d => d.IdUser)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__LoanSlip__IdUser__00200768");
+                .HasConstraintName("FK__LoanSlip__IdUser__0B91BA14");
         });
 
         modelBuilder.Entity<Parameter>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Paramete__3214EC07927470A8");
+            entity.HasKey(e => e.Id).HasName("PK__Paramete__3214EC07FE4EEEEC");
 
             entity.ToTable("Parameter");
 
@@ -432,7 +455,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<PenaltyReason>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__PenaltyR__3214EC07A58A4E87");
+            entity.HasKey(e => e.Id).HasName("PK__PenaltyR__3214EC074F3D9028");
 
             entity.ToTable("PenaltyReason");
 
@@ -450,7 +473,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Province>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Province__3214EC071E0625F5");
+            entity.HasKey(e => e.Id).HasName("PK__Province__3214EC07A5EC1109");
 
             entity.ToTable("Province");
 
@@ -460,7 +483,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Publisher>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Publishe__3214EC0729D53F2D");
+            entity.HasKey(e => e.Id).HasName("PK__Publishe__3214EC078A821771");
 
             entity.ToTable("Publisher");
 
@@ -476,7 +499,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Reader>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Reader__3214EC074D5B2271");
+            entity.HasKey(e => e.Id).HasName("PK__Reader__3214EC07449A0168");
 
             entity.ToTable("Reader");
 
@@ -499,7 +522,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Role__3214EC07E4BBA562");
+            entity.HasKey(e => e.Id).HasName("PK__Role__3214EC0708059F08");
 
             entity.ToTable("Role");
 
@@ -513,7 +536,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<RoleFunction>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__RoleFunc__3214EC075C497D73");
+            entity.HasKey(e => e.Id).HasName("PK__RoleFunc__3214EC077AC21165");
 
             entity.ToTable("RoleFunction");
 
@@ -530,17 +553,17 @@ public partial class QuanLyThuVienContext : DbContext
             entity.HasOne(d => d.IdFunctionNavigation).WithMany(p => p.RoleFunctions)
                 .HasForeignKey(d => d.IdFunction)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__RoleFunct__IdFun__7C4F7684");
+                .HasConstraintName("FK__RoleFunct__IdFun__0C85DE4D");
 
             entity.HasOne(d => d.IdRoleNavigation).WithMany(p => p.RoleFunctions)
                 .HasForeignKey(d => d.IdRole)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__RoleFunct__IdRol__7B5B524B");
+                .HasConstraintName("FK__RoleFunct__IdRol__0D7A0286");
         });
 
         modelBuilder.Entity<Statistical>(entity =>
         {
-            entity.HasKey(e => e.DateTime).HasName("PK__Statisti__03BE4CA04EB8638F");
+            entity.HasKey(e => e.DateTime).HasName("PK__Statisti__03BE4CA0BDABAB20");
 
             entity.ToTable("Statistical");
 
@@ -555,7 +578,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<Translator>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Translat__3214EC0761563BB7");
+            entity.HasKey(e => e.Id).HasName("PK__Translat__3214EC079167A01F");
 
             entity.ToTable("Translator");
 
@@ -575,7 +598,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__User__3214EC07B81DEC48");
+            entity.HasKey(e => e.Id).HasName("PK__User__3214EC07E49AF2A4");
 
             entity.ToTable("User");
 
@@ -596,32 +619,9 @@ public partial class QuanLyThuVienContext : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<UserFunction>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__Function__3214EC0795BE6016");
-
-            entity.ToTable("UserFunction");
-
-            entity.Property(e => e.Id)
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.Description).HasColumnType("ntext");
-            entity.Property(e => e.IdParent)
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.IsAdmin).HasDefaultValue(true);
-            entity.Property(e => e.Name).HasMaxLength(60);
-            entity.Property(e => e.Status).HasDefaultValue(true);
-            entity.Property(e => e.UrlImage).HasColumnType("text");
-
-            entity.HasOne(d => d.IdParentNavigation).WithMany(p => p.InverseIdParentNavigation)
-                .HasForeignKey(d => d.IdParent)
-                .HasConstraintName("FK__Function__IdPare__787EE5A0");
-        });
-
         modelBuilder.Entity<UserInfo>(entity =>
         {
-            entity.HasKey(e => e.IdUser).HasName("PK__UserInfo__B7C92638CD67825D");
+            entity.HasKey(e => e.IdUser).HasName("PK__UserInfo__B7C926380DB0BC6A");
 
             entity.ToTable("UserInfo");
 
@@ -642,12 +642,12 @@ public partial class QuanLyThuVienContext : DbContext
             entity.HasOne(d => d.IdUserNavigation).WithOne(p => p.UserInfo)
                 .HasForeignKey<UserInfo>(d => d.IdUser)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__UserInfo__IdUser__6D0D32F4");
+                .HasConstraintName("FK__UserInfo__IdUser__0E6E26BF");
         });
 
         modelBuilder.Entity<UserRole>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__UserRole__3214EC073E5341CB");
+            entity.HasKey(e => e.Id).HasName("PK__UserRole__3214EC07D3BECB01");
 
             entity.ToTable("UserRole");
 
@@ -664,12 +664,12 @@ public partial class QuanLyThuVienContext : DbContext
             entity.HasOne(d => d.IdRoleNavigation).WithMany(p => p.UserRoles)
                 .HasForeignKey(d => d.IdRole)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__UserRole__IdRole__73BA3083");
+                .HasConstraintName("FK__UserRole__IdRole__0F624AF8");
 
             entity.HasOne(d => d.IdUserNavigation).WithMany(p => p.UserRoles)
                 .HasForeignKey(d => d.IdUser)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__UserRole__IdUser__72C60C4A");
+                .HasConstraintName("FK__UserRole__IdUser__10566F31");
         });
 
         OnModelCreatingPartial(modelBuilder);

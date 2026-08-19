@@ -3,7 +3,7 @@ using Api.Utilities;
 
 namespace Api.Models.Dtos
 {
-    public class UpdateFunctionDto : IMap<UserFunction>
+    public class UpdateFunctionDto : IMap<Function>
     {
         public string Name { get; set; } = null!;
 
@@ -18,12 +18,12 @@ namespace Api.Models.Dtos
         public bool Status { get; set; }
 
 
-        public void MapFrom(UserFunction entity)
+        public void MapFrom(Function entity)
         {
             Utilitys.Copy(this, entity);
         }
 
-        public void MapTo(ref UserFunction entity)
+        public void MapTo(ref Function entity)
         {
             Utilitys.Copy(entity, this);
         }
