@@ -134,10 +134,11 @@ D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Release\net8.0\staticweb
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Release\net8.0\staticwebassets.development.json
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Release\net8.0\staticwebassets.build.endpoints.json
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Release\net8.0\swae.build.ex.cache
-D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Release\net8.0\staticwebassets.upToDateCheck.txt
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Release\net8.0\Api.csproj.Up2Date
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Release\net8.0\Api.dll
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Release\net8.0\refint\Api.dll
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Release\net8.0\Api.pdb
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Release\net8.0\Api.genruntimeconfig.cache
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Release\net8.0\ref\Api.dll
+D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\bin\Release\net8.0\dotnet-tools.json
+D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Release\net8.0\staticwebassets.upToDateCheck.txt

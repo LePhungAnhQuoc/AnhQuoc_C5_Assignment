@@ -418,3 +418,4 @@ D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Debug\net8.0\refint\Api.
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Debug\net8.0\Api.pdb
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Debug\net8.0\Api.genruntimeconfig.cache
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\obj\Debug\net8.0\ref\Api.dll
+D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\Api\bin\Debug\net8.0\dotnet-tools.json

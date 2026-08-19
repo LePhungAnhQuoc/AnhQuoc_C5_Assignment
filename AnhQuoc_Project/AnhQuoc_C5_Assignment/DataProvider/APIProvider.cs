@@ -20,7 +20,7 @@ namespace AnhQuoc_C5_Assignment
     public class APIProvider<T> where T : class, IMapFromModel
     {
         private readonly string objectName;
-        private readonly string localHost = "https://localhost:7287/";
+        private readonly string localHost = "http://localhost:5000/";
 
         public APIProvider(string objectName)
         {
