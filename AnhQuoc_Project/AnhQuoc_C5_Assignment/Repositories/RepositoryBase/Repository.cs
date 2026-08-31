@@ -83,7 +83,7 @@ namespace AnhQuoc_C5_Assignment
 
         public virtual void LoadList()
         {
-            _Items = APIProvider.GetAll().ToObservableCollection();
+            _Items = APIProvider.GetAllAsync().Result.ToObservableCollection();
         }
 
 

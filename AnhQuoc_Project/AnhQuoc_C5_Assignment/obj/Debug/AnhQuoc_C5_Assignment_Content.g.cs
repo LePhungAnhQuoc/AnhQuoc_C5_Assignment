@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/databasenames.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/servernames.xml")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/quanlythuvienmodels.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/quanlythuvienmodels.tt")]
 

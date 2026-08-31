@@ -4142,3 +4142,5 @@ D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_.4D0CC176.Up2Date
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.exe
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Debug\AnhQuoc_C5_Assignment.pdb
+D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\Data\DatabaseNames.xml
+D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Debug\Data\ServerNames.xml

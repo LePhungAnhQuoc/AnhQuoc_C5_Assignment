@@ -7,23 +7,23 @@
       <Diagram DiagramId="fd92ef4ea71e412eaf0f106653bf1ba1" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="QuanLyThuVienModel.Adult" Width="1.5" PointX="7.5" PointY="26.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.Author" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyThuVienModel.Book" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.Book" Width="1.5" PointX="8.5" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.BookISBN" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.BookStatu" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.BookTitle" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.Category" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.Child" Width="1.5" PointX="9.75" PointY="22.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyThuVienModel.Function" Width="1.5" PointX="7.75" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyThuVienModel.LoanDetail" Width="1.5" PointX="9.75" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyThuVienModel.LoanDetailHistory" Width="1.5" PointX="12.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.Function" Width="1.5" PointX="7.875" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.LoanDetail" Width="1.5" PointX="11.125" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.LoanDetailHistory" Width="1.5" PointX="13.625" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.LoanHistory" Width="1.5" PointX="10.5" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyThuVienModel.LoanSlip" Width="1.5" PointX="7.5" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.LoanSlip" Width="1.5" PointX="7.75" PointY="18.625" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.Parameter" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.PenaltyReason" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.Province" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.Publisher" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.Reader" Width="1.5" PointX="5.25" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyThuVienModel.Role" Width="1.5" PointX="7.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.Role" Width="1.5" PointX="7.375" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.RoleFunction" Width="1.5" PointX="10" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.Statistical" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyThuVienModel.Translator" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />

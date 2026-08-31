@@ -14,54 +14,52 @@ using AnhQuoc_C5_Assignment.DTOs.ApiDtos;
 using static System.Net.WebRequestMethods;
 using AnhQuoc_C5_Assignment.Animations;
 using System.Windows;
+using System.Diagnostics;
 
 namespace AnhQuoc_C5_Assignment
 {
     public class APIProvider<T> where T : class, IMapFromModel
     {
         private readonly string objectName;
-        private readonly string localHost = "http://localhost:5000/";
+        private readonly string localHost = "https://localhost:7287/";
 
         public APIProvider(string objectName)
         {
             this.objectName = objectName;
         }
 
-        public IEnumerable<T> GetAll()
-        {
-            HttpClient httpClient = new HttpClient();
+        // Store a single instance to prevent socket exhaustion
+        private static readonly HttpClient httpClient = new HttpClient();
 
-            httpClient.BaseAddress = new Uri(localHost);
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            
+        public async Task<IEnumerable<T>> GetAllAsync()
+        {
+            // Ensure TLS 1.2 is enabled for .NET Framework 4.8
+            System.Net.ServicePointManager.SecurityProtocol |= System.Net.SecurityProtocolType.Tls12;
+
             try
             {
-                // Execute the request
-                HttpResponseMessage response = httpClient.GetAsync($"api/{objectName}").Result;
+                // Build request URL using relative path
+                var requestUri = new Uri(new Uri(localHost), $"api/{objectName}");
 
-                response.EnsureSuccessStatusCode();
-
-                if (response.IsSuccessStatusCode)
+                using (var response = await httpClient.GetAsync(requestUri))
                 {
-                    var datas = response.Content.ReadAsAsync<IEnumerable<T>>().Result;
-                    return datas;
-                }
-                else
-                {
-                    // Read the actual exception string returned by the server
-                    string errorResponseBody = response.Content.ReadAsStringAsync().Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return await response.Content.ReadAsAsync<IEnumerable<T>>();
+                    }
 
+                    string errorResponseBody = await response.Content.ReadAsStringAsync();
                     throw new Exception($"Server returned HTTP {(int)response.StatusCode} ({response.ReasonPhrase}). Details:\n{errorResponseBody}");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error when fetching data, please restart app again");
-                Environment.Exit(0);
+                // Display the actual exception message for easier debugging
+                MessageBox.Show($"An error occurred when fetching data:\n{ex.Message}", "API Error");
+                Debug.WriteLine(ex.ToString());
+                return null;
             }
-            return null;
         }
-
         public T GetById(string id)
         {
             HttpClient client = new HttpClient();
