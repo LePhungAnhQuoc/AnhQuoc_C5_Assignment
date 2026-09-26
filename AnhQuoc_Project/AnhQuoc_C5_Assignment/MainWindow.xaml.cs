@@ -128,6 +128,7 @@ namespace AnhQuoc_C5_Assignment
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             this.Hide();
+            this.WindowState = WindowState.Maximized;
             GetServerNameAndLoading();
             LoginAndGo();
         }

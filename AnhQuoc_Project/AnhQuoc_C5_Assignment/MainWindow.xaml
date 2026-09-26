@@ -8,9 +8,7 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="Library management program"
-        WindowStartupLocation="CenterScreen"
-        Background="White"
-        Style="{StaticResource wdStyleBig}">
+        Background="White">
     <Grid Name="grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />

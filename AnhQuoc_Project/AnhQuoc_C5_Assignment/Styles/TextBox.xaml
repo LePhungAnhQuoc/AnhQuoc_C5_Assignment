@@ -2,6 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
                     xmlns:helpers="clr-namespace:AnhQuoc_C5_Assignment.Helpers">
+    <!-- Color Palette Definitions -->
+    <SolidColorBrush x:Key="TextBox.Static.Background" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="TextBox.Static.Border" Color="#E0E0E0"/>
+    <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#A0A0A0"/>
+    <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#0078D4"/>
+    <!-- Microsoft Fluent Blue -->
+    <SolidColorBrush x:Key="TextBox.Disabled.Background" Color="#F3F3F3"/>
+    <SolidColorBrush x:Key="TextBox.Disabled.Border" Color="#E5E5E5"/>
+    <SolidColorBrush x:Key="TextBox.Disabled.Foreground" Color="#8A8A8A"/>
+    
+    
     <!-- base style shared by input controls to avoid repetition -->
     <Style x:Key="inputGeneral" TargetType="Control">
         <Setter Property="FontSize" Value="14" />

@@ -156,6 +156,7 @@
     <Compile Include="Converters\User\boFToAgeConverter.cs" />
     <Compile Include="Converters\StatusConvert\StatusConverter.cs" />
     <Compile Include="Converters\Utilities\PriceFormatConverter.cs" />
+    <Compile Include="Converters\Utilities\StringToVisibilityConverter.cs" />
     <Compile Include="DataProvider\APIProvider.cs" />
     <Compile Include="DataProvider\DatabaseFirst.cs" />
     <Compile Include="DataProvider\UnitOfWork\UnitOfForm.cs" />
