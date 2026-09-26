@@ -1,0 +1,190 @@
+﻿<Window x:Class="AnhQuoc_C5_Assignment.frmLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Style="{StaticResource wdStyleGeneral}"
+        SizeToContent="Height" 
+        Width="400"
+        WindowStartupLocation="{StaticResource WSL}">
+    <Window.Resources>
+        <local:PasswordTextConverter x:Key="PasswordTextConverter" />
+        <System:Double x:Key="TextFontSize">16.0</System:Double>
+    </Window.Resources>
+    <!-- Outer gradient background and centered white card -->
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#8A2BE2" Offset="0"/>
+                <GradientStop Color="#FF5ACD" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Border Background="White"
+                CornerRadius="20"
+                Width="420"
+                Padding="20"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Login"
+                           FontSize="34"
+                           FontWeight="Bold"
+                           Foreground="#222"
+                           HorizontalAlignment="Center"
+                           Margin="0 10 0 20" />
+
+                <!-- Username -->
+                <TextBlock Text="Username"
+                           Style="{StaticResource tblGeneral}"
+                           Foreground="#666"
+                           FontSize="13"
+                           FontWeight="SemiBold"
+                           Margin="6 0 0 6"/>
+                <Grid Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="36"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- User icon using Path for crisp rendering -->
+                    <Viewbox Grid.Column="0" Width="18" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="{StaticResource user}"
+                                  Fill="#999"
+                                  Width="24" Height="24"
+                                  Stretch="Fill" />
+                        </Canvas>
+                    </Viewbox>
+                    <TextBox Grid.Column="1"
+                             Name="txtUsername"
+                             Style="{StaticResource txtUnderlineBorder}"
+                             FontSize="16"
+                             Tag="Type your username"
+                             Foreground="#666"
+                             TabIndex="0"
+                             Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
+                             Text="{Binding Account.Username, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+
+                <!-- Password -->
+                <TextBlock Text="Password"
+                           Style="{StaticResource tblGeneral}"
+                           Foreground="#666"
+                           FontSize="13"
+                           FontWeight="SemiBold"
+                           Margin="6 0 0 6"/>
+                <Grid Margin="0 0 0 6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="36"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox Grid.Column="0" Width="18" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="{StaticResource lock}"
+                                  Fill="#999" Stretch="Uniform"/>
+                        </Canvas>
+                    </Viewbox>
+                    <TextBox Grid.Column="1"
+                             Name="boxPassword"
+                             Style="{StaticResource txtUnderlineBorder}"
+                             FontSize="16"
+                             Tag="Type your password"
+                             TabIndex="1"
+                             Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
+                             Foreground="Transparent"
+                             Text="{Binding Account.Password, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 10">
+                    <TextBlock x:Name="tblForgetPass"
+                               Style="{StaticResource tblDisplayInfoLink}"
+                               FontSize="14"
+                               Text="Forgot password?"
+                               Foreground="#a6a6a6"
+                               MouseLeftButtonDown="tblForgetPass_MouseLeftButtonDown" />
+                </StackPanel>
+
+                <!-- Login Button -->
+                <Button Name="btnSignIn"
+                        TabIndex="2"
+                        Height="44"
+                        Margin="0 10"
+                        HorizontalAlignment="Stretch"
+                        BorderThickness="0"
+                        Foreground="White"
+                        FontSize="16"
+                        FontWeight="SemiBold">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#6EE7F3" Offset="0" />
+                            <GradientStop Color="#FF66CC" Offset="1" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="22" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="LOGIN"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <!-- Social -->
+                <TextBlock Text="Or Sign Up Using" Foreground="#777" HorizontalAlignment="Center" Margin="0 14 0 8"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Width="44" Height="44" Background="#3b5998" BorderThickness="0" Foreground="White" FontWeight="Bold" Margin="6,0,6,0">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="22" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Viewbox Width="20" Height="20">
+                            <Path Data="{StaticResource icon_facebook}" Fill="White" Stretch="Uniform" />
+                        </Viewbox>
+                    </Button>
+
+                    <Button Width="44" Height="44" Background="#1DA1F2" BorderThickness="0" Foreground="White" FontWeight="Bold" Margin="6,0,6,0">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="22" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Viewbox Width="20" Height="20">
+                            <Path Data="{StaticResource icon_twitter}" Fill="White" Stretch="Uniform" />
+                        </Viewbox>
+                    </Button>
+
+                    <Button Width="44" Height="44" Background="#DB4437" BorderThickness="0" Foreground="White" FontWeight="Bold" Margin="6,0,6,0">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="22" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Viewbox Width="20" Height="20">
+                            <Path Data="{StaticResource icon_google}" Fill="White" Stretch="Uniform" />
+                        </Viewbox>
+                    </Button>
+                </StackPanel>
+
+                <!-- Sign up link -->
+                <StackPanel Margin="0 24 0 0" HorizontalAlignment="Center">
+                    <TextBlock Text="Or Sign Up Using" Foreground="#777" HorizontalAlignment="Center" />
+                    <TextBlock Text="SIGN UP" Style="{StaticResource tblDisplayInfoLink}" Margin="0 8 0 0" HorizontalAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

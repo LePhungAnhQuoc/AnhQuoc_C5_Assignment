@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34616.47
+# Visual Studio Version 18
+VisualStudioVersion = 18.10.12201.205 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnhQuoc_C5_Assignment", "AnhQuoc_C5_Assignment\AnhQuoc_C5_Assignment.csproj", "{903764DE-6428-414A-9E76-B28B4D5D4380}"
 EndProject

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:helpers="clr-namespace:AnhQuoc_C5_Assignment.Helpers"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         WindowStyle="None"
@@ -17,120 +18,283 @@
     <Window.Resources>
         <local:PasswordTextConverter x:Key="PasswordTextConverter" />
         <System:Double x:Key="TextFontSize">16.0</System:Double>
+
+        <!-- Icon geometries -->
+        <Geometry x:Key="user">M12,12 C14.761,12 17,9.761 17,7 C17,4.239 14.761,2 12,2 C9.239,2 7,4.239 7,7 C7,9.761 9.239,12 12,12 Z M4,20 C4,16.686 7.134,14 12,14 C16.866,14 20,16.686 20,20 L4,20 Z</Geometry>
+        <Geometry x:Key="lock">M17,8 L7,8 C6.447,8 6,8.447 6,9 L6,18 C6,18.553 6.447,19 7,19 L17,19 C17.553,19 18,18.553 18,18 L18,9 C18,8.447 17.553,8 17,8 Z M12,11 C13.105,11 14,11.895 14,13 C14,14.105 13.105,15 12,15 C10.895,15 10,14.105 10,13 C10,11.895 10.895,11 12,11 Z</Geometry>
+
+        <!-- Gradient used by the login button (kept in resources for reuse) -->
+        <LinearGradientBrush x:Key="btnGradientBackground" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="#6EE7F3" Offset="0" />
+            <GradientStop Color="#FF66CC" Offset="1" />
+        </LinearGradientBrush>
     </Window.Resources>
-    <Border BorderBrush="Black"
-            Background="White"
-            BorderThickness="0.3"
-            CornerRadius="10">
-        <StackPanel>
-            <Border BorderThickness="0 0 0 1"
-                    BorderBrush="silver">
-                <Label VerticalContentAlignment="Center" 
-                       HorizontalContentAlignment="Center" 
-                       Padding="20"
-                       FontSize="30"
-                       FontWeight="Medium"
-                       Foreground="Black">Login</Label>
-            </Border>
+    <!-- Outer gradient background and centered white card -->
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#8A2BE2" Offset="0"/>
+                <GradientStop Color="#FF5ACD" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
 
-            <!-- Body -->
-            <Grid x:Name="mainContent"
-                  Height="auto"
-                  Margin="40 30 40 10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-            
-                <StackPanel Grid.Column="0">
-                    <StackPanel.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                        <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
-                        <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
-                        <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
-                        <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
-                    </StackPanel.Resources>
-                    <Grid>
-                        <TextBox Name="txtUsername"
-                                 Style="{StaticResource txtUnderlineBorder}"
-                                 FontSize="{StaticResource TextFontSize}"
-                                 Tag="Username"
-                                 TabIndex="0"
-                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                            <TextBox.Text>
-                                <Binding Path="Account.Username" UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
-                    </Grid>
-                    <Grid>
-                        <TextBox Name="boxPassword" 
-                                 Style="{StaticResource txtUnderlineBorder}"
-                                 FontSize="{StaticResource TextFontSize}"
-                                 TabIndex="1"
-                                 Tag="Password"
-                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
-                                 Foreground="Transparent">
-                            <TextBox.Text>
-                                <Binding Path="Account.Password" UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
+        <Border Background="White"
+                CornerRadius="20"
+                Width="420"
+                Padding="20"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Login"
+                           FontSize="34"
+                           FontWeight="Bold"
+                           Foreground="#222"
+                           HorizontalAlignment="Center"
+                           Margin="0 10 0 20" />
 
-                        <TextBlock Style="{StaticResource tblDisplayOn}"
-                                   FontSize="{Binding FontSize, ElementName=boxPassword}">
-                            <TextBlock.Text>
-                                <Binding 
-                                        Path="Account.Password"
-                                        UpdateSourceTrigger="PropertyChanged" 
-                                        Converter="{StaticResource PasswordTextConverter}">
-                                </Binding>
-                            </TextBlock.Text>
+                <!-- Username -->
+                <TextBlock Text="Username"
+                           Style="{StaticResource tblGeneral}"
+                           Foreground="#666"
+                           FontSize="13"
+                           FontWeight="SemiBold"
+                           Margin="6 0 0 6"/>
+                <Grid Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="36"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- User icon using Path for crisp rendering -->
+                    <Viewbox Grid.Column="0" Width="18" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="{StaticResource user}"
+                                  Fill="#999"
+                                  Width="24" Height="24"
+                                  Stretch="Fill" />
+                        </Canvas>
+                    </Viewbox>
+                    <TextBox Grid.Column="1"
+                             Name="txtUsername"
+                             Style="{StaticResource txtUnderlineBorder}"
+                             FontSize="16"
+                             Tag="Type your username"
+                             Foreground="#666"
+                             TabIndex="0"
+                             Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
+                             Text="{Binding Account.Username, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+
+                <!-- Password -->
+                <TextBlock Text="Password"
+                           Style="{StaticResource tblGeneral}"
+                           Foreground="#666"
+                           FontSize="13"
+                           FontWeight="SemiBold"
+                           Margin="6 0 0 6"/>
+                <Grid Margin="0 0 0 6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="36"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- User icon using Path for crisp rendering -->
+                    <Viewbox Grid.Column="0" Width="18" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Canvas Width="24" Height="24">
+                            <Path Fill="#999" 
+                                  Width="24" Height="24"
+                                  Stretch="Uniform" 
+                                  Data="F1 M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32M540 701v53c0 4.4-3.6 8-8 8h-40c-4.4 0-8-3.6-8-8v-53a48.01 48.01 0 1 1 56 0m152-237H332V240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56z" />
+                        </Canvas>
+                    </Viewbox>
+                    <Grid Grid.Column="1">
+                        <TextBlock x:Name="tblPlaceHolder"
+                                   IsHitTestVisible="False"
+                                   Text="Type your password"
+                                   FontSize="16"
+                                   Foreground="Silver">
+                            <TextBlock.Style>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource tblPlaceHolder}">
+                                        <Setter Property="Visibility" Value="Hidden" />
+                                        <Style.Triggers>
+                                            <!-- Show placeholder when Account.Password is empty OR null -->
+                                            <DataTrigger Binding="{Binding Account.Password}" Value="">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Account.Password}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                            </TextBlock.Style>
                         </TextBlock>
-                    </Grid>
-                </StackPanel>
-            </Grid>
-            
-            <!-- Sub content -->
-            <Grid x:Name="subContent"
-                  Height="auto"
-                  Margin="50 10 40 10">
-                <TextBlock x:Name="tblForgetPass"
-                           Style="{StaticResource tblDisplayInfoLink}"
-                           FontSize="{StaticResource TextFontSize}"
-                           Text="Forget Password?"
-                           FontStyle="Italic"
-                           Foreground="#a6a6a6" 
-                           MouseLeftButtonDown="tblForgetPass_MouseLeftButtonDown"/>
-            </Grid>
-           
-            
-            <StackPanel Name="footer"
-                        Orientation="Vertical"
-                        HorizontalAlignment="Stretch"
-                        Margin="60 20">
-                <Button Name="btnSignIn"
-                        Style="{StaticResource btnLogin}"
-                        TabIndex="2" 
-                        HorizontalAlignment="Stretch"/>
 
-                <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Center"
-                            Margin="0 20 0 0"
-                            Visibility="Collapsed">
-                    <TextBlock Style="{StaticResource tblGeneral}" 
-                               Foreground="#666666" 
-                               Text="Not this system connection ?"
-                               Margin="0 0 5 0"/>
-                    <TextBlock Text="Open here" 
-                               MouseLeftButtonDown="TblOpenConnectForm_MouseLeftButtonDown" 
-                               Style="{StaticResource tblDisplayInfoLink}" 
-                               Foreground="#2691d9" />
+                        <PasswordBox x:Name="boxPassword"
+                                     Style="{StaticResource pwdUnderlineBorder}"
+                                     PasswordChar="●"
+                                     TabIndex="1"
+                                     FontSize="16"
+                                     helpers:PasswordHelper.BindPassword="True"
+                                     helpers:PasswordHelper.BoundPassword="{Binding Account.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </Grid>
+                </Grid>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 10">
+                    <TextBlock x:Name="tblForgetPass"
+                               Style="{StaticResource tblDisplayInfoLink}"
+                               FontSize="14"
+                               Text="Forgot password?"
+                               Foreground="#a6a6a6"
+                               MouseLeftButtonDown="tblForgetPass_MouseLeftButtonDown" />
+                </StackPanel>
+
+                <!-- Login Button -->
+                <Button Name="btnSignIn"
+                        TabIndex="2"
+                        Margin="0 10"
+                        HorizontalAlignment="Stretch"
+                        Height="40"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Background="{StaticResource btnGradientBackground}"
+                        Content="LOGIN">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" CornerRadius="22" Background="{TemplateBinding Background}" RenderTransformOrigin="0.5,0.5">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <Setter TargetName="border" Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.02" ScaleY="1.02" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter TargetName="border" Property="Opacity" Value="0.95" />
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border" Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="0.98" ScaleY="0.98" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter TargetName="border" Property="Opacity" Value="0.9" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <!-- Social -->
+                <TextBlock Text="Or Sign Up Using" Foreground="#777" HorizontalAlignment="Center" Margin="0 14 0 8"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Width="44" Height="44" Background="#3b5998" BorderThickness="0" Foreground="White" Margin="6,0,6,0">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="22" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" RenderTransformOrigin="0.5,0.5">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <TextBlock x:Name="HoverHand" Text="✋" FontSize="12" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-6,-6,0" />
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Cursor" Value="Hand" />
+                                        <Setter TargetName="border" Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.08" ScaleY="1.08" />
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter TargetName="HoverHand" Property="Visibility" Value="Visible" />
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter TargetName="border" Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="0.96" ScaleY="0.96" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Path Data="{StaticResource icon_facebook}"
+                              Fill="White"
+                              Width="18" Height="18"
+                              Stretch="Fill" />
+                    </Button>
+                    <Button Width="44" Height="44" Background="#1DA1F2" BorderThickness="0" Foreground="White" Margin="6,0,6,0">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="22" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" RenderTransformOrigin="0.5,0.5">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <TextBlock x:Name="HoverHand" Text="✋" FontSize="12" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-6,-6,0" />
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Cursor" Value="Hand" />
+                                        <Setter TargetName="border" Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.08" ScaleY="1.08" />
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter TargetName="HoverHand" Property="Visibility" Value="Visible" />
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter TargetName="border" Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="0.96" ScaleY="0.96" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Viewbox Width="20" Height="20">
+                            <Path Fill="White" Stretch="Uniform" Data="M23 3c-.8.35-1.6.6-2.5.71.9-.54 1.6-1.4 1.9-2.4-.8.5-1.7.85-2.7 1.05C19.1 2 18 1.5 16.8 1.5c-2.2 0-4 1.8-4 4 0 .3 0 .6.1.9C9.7 7 6.6 5.3 4.5 2.9c-.3.6-.4 1.3-.4 2 0 1.4.7 2.6 1.8 3.3-.7 0-1.4-.2-2-.6 0 0 0 .1 0 .1 0 1.9 1.3 3.5 3.1 3.9-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.4 1.7 2.4 3.2 2.4-1.1.9-2.5 1.5-4 1.5-.3 0-.6 0-.9-.1 1.6 1 3.5 1.6 5.6 1.6 6.7 0 10.4-5.6 10.4-10.4v-.5c.7-.5 1.3-1.2 1.8-2z" />
+                        </Viewbox>
+                    </Button>
+                    <Button Width="44" Height="44" Background="#DB4437" BorderThickness="0" Foreground="White" Margin="6,0,6,0">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="22" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" RenderTransformOrigin="0.5,0.5">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <TextBlock x:Name="HoverHand" Text="✋" FontSize="12" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-6,-6,0" />
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Cursor" Value="Hand" />
+                                        <Setter TargetName="border" Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.08" ScaleY="1.08" />
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter TargetName="HoverHand" Property="Visibility" Value="Visible" />
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter TargetName="border" Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="0.96" ScaleY="0.96" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Viewbox Width="20" Height="20">
+                            <Path Fill="White" Stretch="Uniform" Data="M21.35 11.1h-9.17v2.92h5.26c-.23 1.5-1.57 3.47-5.26 3.47-3.16 0-5.73-2.64-5.73-5.88 0-3.24 2.57-5.88 5.73-5.88 1.8 0 3 .76 3.69 1.42l2.52-2.43C17.95 2.3 15.81 1.1 12 1.1 6.48 1.1 2 5.58 2 11.1s4.48 10 10 10c5.74 0 9.53-4.02 9.53-9.7 0-.66-.07-1.14-.18-1.3z" />
+                        </Viewbox>
+                    </Button>
+                </StackPanel>
+
+                <!-- Sign up link -->
+                <StackPanel Margin="0 24 0 0" HorizontalAlignment="Center">
+                    <TextBlock Text="Or Sign Up Using" Foreground="#777" HorizontalAlignment="Center" />
+                    <TextBlock Text="SIGN UP" Style="{StaticResource tblDisplayInfoLink}" Margin="0 8 0 0" HorizontalAlignment="Center" />
                 </StackPanel>
             </StackPanel>
-        </StackPanel>
-    </Border>
+        </Border>
+    </Grid>
 </Window>

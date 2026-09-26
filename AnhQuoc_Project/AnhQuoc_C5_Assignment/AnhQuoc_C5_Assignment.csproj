@@ -245,6 +245,7 @@
     <Compile Include="DTOs\ReaderDto.cs" />
     <Compile Include="DTOs\UserAccountLogIn.cs" />
     <Compile Include="DTOs\UserRoleDto.cs" />
+    <Compile Include="Helpers\PasswordHelper.cs" />
     <Compile Include="Mapping\BookStatusMap.cs" />
     <Compile Include="Mapping\StatisticalMap.cs" />
     <Compile Include="Models\Adult.cs">
