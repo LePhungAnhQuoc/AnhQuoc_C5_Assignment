@@ -526,16 +526,6 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        private bool IsAllSelecting()
-        {
-            if (SelectedReader == null)
-            {
-                Utilitys.ShowMessageBox1("Please select reader");
-                return false;
-            }
-            return true;
-        }
-
         private void ReaderBtnConfirmClick(object para)
         {
             ucInputBookInfo = MainWindow.UnitOfForm.UcInputBookInfo(true);

@@ -19,7 +19,7 @@
         <local:BindingProxy x:Key="proxy" Data="{Binding}"/>
         <local:IdAdultToFullNameConverter x:Key="IdAdultToFullNameConverter" />
         <local:IdReaderToExpDateConverter x:Key="IdReaderToExpDateConverter" />
-        <Style TargetType="TextBox" BasedOn="{StaticResource txtLightBorder}">
+        <Style x:Key="txtGeneral" TargetType="TextBox" BasedOn="{StaticResource txtLightBorder}">
             <Setter Property="Width" Value="auto" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
         </Style>
@@ -68,6 +68,7 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Reader ID:" />
                         <TextBox Name="txtIdReader" Grid.Column="1"
+                                 Style="{StaticResource txtGeneral}"
                                  Text="{Binding SelectedReader.Id}"
                                  Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}" />
                     </Grid>
@@ -97,7 +98,8 @@
                                 </i:Interaction.Triggers>
                             </ComboBox>
                             <TextBox Name="txtName"
-                                     Text="{Binding SelectedReader.FullName, Mode=OneWay}">
+                                     Text="{Binding SelectedReader.FullName, Mode=OneWay}"
+                                     Style="{StaticResource txtGeneral}">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="TextChanged">
                                         <i:InvokeCommandAction Command="{Binding ReadertxtReaderFindTextChangedCmd}"
@@ -116,30 +118,8 @@
                         <Label Content="Type:" />
                         <TextBox Name="txtReaderType" Grid.Column="1"
                                  Text="{Binding SelectedReader.ReaderType, Mode=OneWay}"
-                                 IsEnabled="False" />
-                    </Grid>
-
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Expire Date:" />
-                        <TextBox Name="txtExpireDate" Grid.Column="1"
                                  IsEnabled="False"
-                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                            <TextBox.Text>
-                                <Binding Path="SelectedReader.Id" UpdateSourceTrigger="PropertyChanged" Mode="OneWay" Converter="{StaticResource IdReaderToExpDateConverter}">
-                                    <Binding.ValidationRules>
-                                        <local:ExpireDateRule ValidationStep="UpdatedValue">
-                                            <local:ExpireDateRule.Wrapper>
-                                                <local:Wrapper Reader="{Binding Data.SelectedReader, Source={StaticResource proxy}}"/>
-                                            </local:ExpireDateRule.Wrapper>
-                                        </local:ExpireDateRule>
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                                 Style="{StaticResource txtGeneral}" />
                     </Grid>
                 </StackPanel>
 
@@ -163,7 +143,8 @@
                         <TextBox Name="txtIdGuardian" Grid.Column="1"
                                  Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
                                  Text="{Binding Guardian.IdReader}"
-                                 IsEnabled="False" />
+                                 IsEnabled="False"
+                                 Style="{StaticResource txtGeneral}" />
                     </Grid>
 
                     <Grid>
@@ -174,7 +155,8 @@
                         <Label Content="Guardian Name:" />
                         <TextBox Name="txtGuardianName" Grid.Column="1"
                                  Text="{Binding Guardian.IdReader, Mode=OneWay, Converter={StaticResource IdAdultToFullNameConverter}}"
-                                 IsEnabled="False" />
+                                 IsEnabled="False"
+                                 Style="{StaticResource txtGeneral}" />
                     </Grid>
 
                     <Grid>
@@ -183,21 +165,62 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Label Content="Expire Date:" />
-                        <TextBox Name="txtGuardianExpireDate" Grid.Column="1"
-                                 IsEnabled="False"
-                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                            <TextBox.Text>
-                                <Binding Path="Guardian.ExpireDate" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
-                                    <Binding.ValidationRules>
-                                        <local:ExpireDateRule>
-                                            <local:ExpireDateRule.Wrapper>
-                                                <local:Wrapper Reader="{Binding Data.SelectedReader, Source={StaticResource proxy}}"/>
-                                            </local:ExpireDateRule.Wrapper>
-                                        </local:ExpireDateRule>
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                        
+                        <!-- Change textboxes according to reader type -->
+                        <Grid Grid.Column="1"
+                              IsEnabled="False">
+                            <!-- TextBox for adult reader -->
+                            <TextBox Name="txtExpireDate"
+                                     Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding SelectedReader.ReaderType}" Value="Child">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                                <TextBox.Text>
+                                    <Binding Path="SelectedReader.Id" UpdateSourceTrigger="PropertyChanged" Mode="OneWay" Converter="{StaticResource IdReaderToExpDateConverter}">
+                                        <Binding.ValidationRules>
+                                            <local:ExpireDateRule ValidationStep="UpdatedValue">
+                                                <local:ExpireDateRule.Wrapper>
+                                                    <local:Wrapper Reader="{Binding Data.SelectedReader, Source={StaticResource proxy}}"/>
+                                                </local:ExpireDateRule.Wrapper>
+                                            </local:ExpireDateRule>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+
+                            <!-- TextBox for child reader -->
+                            <TextBox Name="txtGuardianExpireDate"
+                                     Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding SelectedReader.ReaderType}" Value="Adult">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                                <TextBox.Text>
+                                    <Binding Path="Guardian.ExpireDate" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                        <Binding.ValidationRules>
+                                            <local:ExpireDateRule>
+                                                <local:ExpireDateRule.Wrapper>
+                                                    <local:Wrapper Reader="{Binding Data.SelectedReader, Source={StaticResource proxy}}"/>
+                                                </local:ExpireDateRule.Wrapper>
+                                            </local:ExpireDateRule>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                        </Grid>
                     </Grid>
 
                     <!-- Placeholder giữ cân bằng hàng với cột bên trái khi Guardian không có field thứ 4 -->
