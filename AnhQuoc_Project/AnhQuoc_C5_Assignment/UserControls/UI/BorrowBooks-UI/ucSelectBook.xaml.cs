@@ -41,6 +41,20 @@ namespace AnhQuoc_C5_Assignment.UserControls.UI.BorrowBooks_UI
             remove { RemoveHandler(BookDetailConfirmEvent, value); }
         }
 
+        public static readonly RoutedEvent BookInfoBtnConfirmEvent =
+  EventManager.RegisterRoutedEvent(
+      "BookInfoBtnConfirm",
+      RoutingStrategy.Bubble,
+      typeof(RoutedEventHandler),
+      typeof(ucSelectBook));
+
+        // CLR event wrapper
+        public event RoutedEventHandler BookInfoBtnConfirm
+        {
+            add { AddHandler(BookInfoBtnConfirmEvent, value); }
+            remove { RemoveHandler(BookInfoBtnConfirmEvent, value); }
+        }
+
         #region Properties
         private ObservableCollection<ucLoanDetailCard> _AllLoanDetailCard;
         public ObservableCollection<ucLoanDetailCard> AllLoanDetailCard
@@ -122,6 +136,12 @@ namespace AnhQuoc_C5_Assignment.UserControls.UI.BorrowBooks_UI
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            var args = new RoutedEventArgs(BookInfoBtnConfirmEvent, this);
+            RaiseEvent(args);
+        }
+
+        private void SelectBookConfirm_Click(object sender, RoutedEventArgs e)
+        {
             SelectedBook = ucBooksTable.SelectedDto;
 
             if (SelectedBook == null)
@@ -173,7 +193,7 @@ namespace AnhQuoc_C5_Assignment.UserControls.UI.BorrowBooks_UI
             selectBookForm.stkWrapButton.Children.Add(confirm);
             selectBookForm.stkWrapButton.Children.Add(cancel);
 
-            confirm.Click += Confirm_Click;
+            confirm.Click += SelectBookConfirm_Click;
             cancel.Click += (s, args) =>
             {
                 if (selectBookForm != null)

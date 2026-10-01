@@ -430,7 +430,7 @@ namespace AnhQuoc_C5_Assignment
         private void OnBookSelected(BookTitleDto selectedBook)
         {
             ucSelectBook ucSelectBook = new ucSelectBook();
-            ucSelectBook.BookInfoBtnConfirm += (s, e) => BookInfoBtnConfirmClick(null);
+            ucSelectBook.BookInfoBtnConfirm += BookInfoBtnConfirmClick;
             var filledBookISBN = bookISBNVM.FillByIdBookTitle(selectedBook.Id, null);
             ucSelectBook.AllBookISBN = bookISBNMap.ConvertToDto(filledBookISBN);
 

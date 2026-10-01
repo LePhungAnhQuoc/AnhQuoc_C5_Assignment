@@ -146,10 +146,6 @@ namespace AnhQuoc_C5_Assignment
                 {
                     var name = Uri.EscapeDataString(p.Name);
                     var valueOfProperty = Utilitys.getValueFromProperty(p, newItem);
-                    if (valueOfProperty == null)
-                    {
-                        Utilitys.CatchExceptionError();
-                    }
                     valueOfProperty = string.Empty;
 
                     var value = Uri.EscapeDataString(valueOfProperty.ToString());
