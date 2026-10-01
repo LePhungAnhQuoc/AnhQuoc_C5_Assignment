@@ -27,12 +27,25 @@ namespace AnhQuoc_C5_Assignment
         public ucInputBookInfo()
         {
             InitializeComponent();
+            if (MainWindow.borrowBookContext != null)
+                this.DataContext = MainWindow.borrowBookContext;
+        }
 
-            #region SetTextBoxMaxLength
-            #endregion
+        private void BooksList_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (!e.Handled)
+            {
+                e.Handled = true;
 
-            var context = MainWindow.borrowBookContext;
-            this.DataContext = context;
+                var eventArg = new MouseWheelEventArgs(e.MouseDevice, e.Timestamp, e.Delta)
+                {
+                    RoutedEvent = UIElement.MouseWheelEvent,
+                    Source = sender
+                };
+
+                var parent = (sender as FrameworkElement)?.Parent as UIElement;
+                parent?.RaiseEvent(eventArg);
+            }
         }
     }
 }

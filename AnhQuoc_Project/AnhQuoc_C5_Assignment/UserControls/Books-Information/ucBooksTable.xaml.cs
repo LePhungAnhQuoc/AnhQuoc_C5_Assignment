@@ -54,6 +54,19 @@ namespace AnhQuoc_C5_Assignment
             DependencyProperty.Register("NumberItems", typeof(int), typeof(ucBooksTable), new PropertyMetadata(10));
 
 
+
+        public ObservableCollection<BookDto> Books
+        {
+            get { return (ObservableCollection<BookDto>)GetValue(BooksProperty); }
+            set { SetValue(BooksProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Books.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty BooksProperty =
+            DependencyProperty.Register(nameof(Books), typeof(ObservableCollection<BookDto>), typeof(ucBooksTable), new PropertyMetadata(null));
+
+
+
         #endregion
 
         #region Events
@@ -70,23 +83,6 @@ namespace AnhQuoc_C5_Assignment
             {
                 _SelectedDto = value;
                 OnPropertyChanged();
-            }
-        }
-
-
-        private ObservableCollection<BookDto> _Books;
-        public ObservableCollection<BookDto> Books
-        {
-            get
-            {
-                return _Books;
-            }
-            set
-            {
-                _Books = value;
-                OnPropertyChanged();
-
-                Modified_Pagination();
             }
         }
         #endregion
@@ -106,12 +102,10 @@ namespace AnhQuoc_C5_Assignment
         {
             InitializeComponent();
             Loaded += UcBooksTable_Loaded;
-            this.DataContext = this;
         }
 
         private void UcBooksTable_Loaded(object sender, RoutedEventArgs e)
         {
-
             if (!AllowPagination)
             {
                 ucPagination.Visibility = Visibility.Collapsed;

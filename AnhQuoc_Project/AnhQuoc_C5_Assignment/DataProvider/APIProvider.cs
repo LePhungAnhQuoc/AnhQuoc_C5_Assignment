@@ -141,14 +141,21 @@ namespace AnhQuoc_C5_Assignment
         private string GetParameterUrl(object newItem)
         {
             var listProps = Utilitys.getPropsFromType(newItem.GetType());
+            var parameters = listProps
+                .Select(p =>
+                {
+                    var name = Uri.EscapeDataString(p.Name);
+                    var valueOfProperty = Utilitys.getValueFromProperty(p, newItem);
+                    if (valueOfProperty == null)
+                    {
+                        Utilitys.CatchExceptionError();
+                    }
+                    valueOfProperty = string.Empty;
 
-            StringBuilder parameter = new StringBuilder();
-            foreach (var prop in listProps)
-            {
-                parameter.Append($"{prop.Name} = " + Utilitys.getValueFromProperty(prop, newItem) + "&");
-            }
-            parameter.Remove(parameter.Length - 1, 1);
-            return parameter.ToString();
+                    var value = Uri.EscapeDataString(valueOfProperty.ToString());
+                    return $"{name}={value}";
+                });
+            return string.Join("&", parameters);
         }
 
         private void GetStreamAndResponse(HttpWebRequest http, Byte[] bytes)

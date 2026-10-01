@@ -1,0 +1,134 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace AnhQuoc_C5_Assignment.UserControls.UI.BorrowBooks_UI
+{
+    /// <summary>
+    /// Interaction logic for ucSelectBook.xaml
+    /// </summary>
+    public partial class ucSelectBook : UserControl, INotifyPropertyChanged
+    {
+        // Routed event to notify parent when book detail confirm should be executed
+        public static readonly RoutedEvent BookDetailConfirmEvent =
+    EventManager.RegisterRoutedEvent(
+        "BookDetailConfirm",
+        RoutingStrategy.Bubble,
+        typeof(RoutedEventHandler),
+        typeof(ucSelectBook));
+
+        // CLR event wrapper
+        public event RoutedEventHandler BookDetailConfirm
+        {
+            add { AddHandler(BookDetailConfirmEvent, value); }
+            remove { RemoveHandler(BookDetailConfirmEvent, value); }
+        }
+
+        private ObservableCollection<BookISBNDto> _AllBookISBN;
+        public ObservableCollection<BookISBNDto> AllBookISBN
+        {
+            get { return _AllBookISBN; }
+            set 
+            { 
+                _AllBookISBN = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<BookDto> _BookByISBN;
+        public ObservableCollection<BookDto> BookByISBN
+        {
+            get { return _BookByISBN; }
+            set 
+            { 
+                _BookByISBN = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        #region PropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
+
+
+
+        public ucSelectBook()
+        {
+            InitializeComponent();
+            this.DataContext = this;
+
+            ucBookISBNsTable.GetParent = this;
+            ucBooksTable.getExceptProperties = () => Constants.exceptDtgBookCreateLoanSlip;
+        }
+
+        public void BookISBNsTable_SelectionChanged(BookISBNDto selectedItem)
+        {
+            if (selectedItem != null)
+            {
+                BookViewModel bookViewModel = UnitOfViewModel.Instance.BookViewModel;
+                BookMap bookMap = UnitOfMap.Instance.BookMap;
+
+                var books = bookViewModel.FillByBookISBN(selectedItem.ISBN, true);
+                var bookDtos = bookMap.ConvertToDto(books);
+                BookByISBN = bookDtos;
+            }
+        }
+
+        private void Confirm_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedBook = ucBooksTable.SelectedDto;
+            if (selectedBook == null)
+            {
+                Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("book"));
+                return;
+            }
+
+            // Kiểm tra tình trạng cuốn sách
+            if (!selectedBook.Status)
+            {
+                Utilitys.ShowMessageBox1(Utilitys.NotifyBookStatus());
+                return;
+            }
+
+            if (selectedBook.IdBookStatus == Constants.bookStatusSpoil)
+            {
+                Utilitys.ShowMessageBox1("This book cannot be borrowed because the book is spoiled");
+                return;
+            }
+
+            var args = new BookDetailConfirmEventArgs(BookDetailConfirmEvent, this, selectedBook);
+            RaiseEvent(args);
+        }
+    }
+
+    public class BookDetailConfirmEventArgs : RoutedEventArgs
+    {
+        public BookDto SelectedBook { get; }
+
+        public BookDetailConfirmEventArgs(RoutedEvent routedEvent, object source, BookDto selectedBook)
+            : base(routedEvent, source)
+        {
+            SelectedBook = selectedBook;
+        }
+    }
+}

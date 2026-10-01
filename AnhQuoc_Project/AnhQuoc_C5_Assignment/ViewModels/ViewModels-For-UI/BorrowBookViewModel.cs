@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnhQuoc_C5_Assignment.UserControls.UI.BorrowBooks_UI;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
@@ -40,7 +41,7 @@ namespace AnhQuoc_C5_Assignment
         private bool handle;
 
         private Stack<object> _storeContent;
-        public Stack<object> storeContent
+        public Stack<object> StoreContent
         {
             get
             {
@@ -57,6 +58,50 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Properties
+        private ObservableCollection<BookTitleDto> _AllBookTitles;
+        public ObservableCollection<BookTitleDto> AllBookTitles
+        {
+            get { return _AllBookTitles; }
+            set 
+            { 
+                _AllBookTitles = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<ucLoanDetailCard> _AllUcLoanDetailCard;
+        public ObservableCollection<ucLoanDetailCard> AllUcLoanDetailCard
+        {
+            get { return _AllUcLoanDetailCard; }
+            set
+            { 
+                _AllUcLoanDetailCard = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<ucBookISBNCard> _AllUcBookISBNCard;
+        public ObservableCollection<ucBookISBNCard> AllUcBookISBNCard
+        {
+            get { return _AllUcBookISBNCard; }
+            set 
+            { 
+                _AllUcBookISBNCard = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _SearchBookNameValue;
+        public string SearchBookNameValue
+        {
+            get { return _SearchBookNameValue; }
+            set 
+            { 
+                _SearchBookNameValue = value; 
+                OnPropertyChanged();
+            }
+        }
+
         private string _InvalidMessage;
         public string InvalidMessage
         {
@@ -185,7 +230,6 @@ namespace AnhQuoc_C5_Assignment
 
 
         public ObservableCollection<BookISBN> AllBookISBN { get; set; }
-        public ObservableCollection<ucBookISBNCard> AllBookISBNCard { get; set; }
         public ObservableCollection<ucLoanDetailCard> AllLoanDetailCard { get; set; }
 
 
@@ -203,6 +247,17 @@ namespace AnhQuoc_C5_Assignment
             set 
             { 
                 _SelectedReader = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private BookTitleDto _SelectedBookTitle;
+        public BookTitleDto SelectedBookTitle
+        {
+            get { return _SelectedBookTitle; }
+            set 
+            { 
+                _SelectedBookTitle = value; 
                 OnPropertyChanged();
             }
         }
@@ -291,7 +346,6 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-
         private LoanDetail _LoanDetail;
         public LoanDetail LoanDetail
         {
@@ -309,6 +363,7 @@ namespace AnhQuoc_C5_Assignment
 
 
         #region RelayCommands
+        public ICommand BookSelectedCommand { get; }
         public RelayCommand ucAddLoanLoadedCmd { get; private set; }
         public RelayCommand ReaderLoadedCmd { get; private set; }
         public RelayCommand BookInfoLoadedCmd { get; private set; }
@@ -317,22 +372,16 @@ namespace AnhQuoc_C5_Assignment
         public RelayCommand ReaderBtnCancelClickCmd { get; private set; }
         public RelayCommand BookInfoBtnConfirmClickCmd { get; private set; }
         public RelayCommand BookInfoBtnCancelClickCmd { get; private set; }
+        public RelayCommand BookInfoBtnSearchClickCmd { get; set; }
 
 
         public RelayCommand ReadercbTxtReaderFindDropDownClosedCmd { get; private set; }
         public RelayCommand ReadercbTxtReaderFindSelectionChangedCmd { get; private set; }
         public RelayCommand ReadertxtReaderFindTextChangedCmd { get; private set; }
-
-
-        // Input book Info
-        public RelayCommand ReadercbTxtBookNameDropDownClosedCmd { get; set; }
-        public RelayCommand ReadercbTxtBookNameSelectionChangedCmd { get; set; }
-        public RelayCommand ReadertxtInputBookNameTextChangedCmd { get; set; }
         #endregion
 
         public BorrowBookViewModel()
         {
-            AllBookISBNCard = new ObservableCollection<ucBookISBNCard>();
             AllReaderTypes = Utilitys.GetListFromEnum<ReaderType>().ToObservableCollection();
             AllReaderLoanDetail = new ObservableCollection<LoanDetail>();
             _AllSelectBookISBNCard = new List<SelectBookISBNCard>();
@@ -378,12 +427,28 @@ namespace AnhQuoc_C5_Assignment
 
             BookInfoBtnConfirmClickCmd = new RelayCommand(null, BookInfoBtnConfirmClick);
             BookInfoBtnCancelClickCmd = new RelayCommand(null, BookInfoBtnCancelClick);
+            BookInfoBtnSearchClickCmd = new RelayCommand(null, BookInfoBtnSearchClick);
 
-            ReadercbTxtBookNameDropDownClosedCmd = new RelayCommand(null, ReadercbTxtBookNameDropDownClosed);
-            ReadercbTxtBookNameSelectionChangedCmd = new RelayCommand(null, ReadercbTxtBookNameSelectionChanged);
-            ReadertxtInputBookNameTextChangedCmd = new RelayCommand(null, ReadertxtInputBookNameTextChanged);
+            BookSelectedCommand = new RelayCommand<BookTitleDto>(OnBookSelected);
             #endregion
 
+            #region Get-data
+            var booktitles = UnitOfViewModel.Instance.BookTitleViewModel?.Repo?.Gets();
+            AllBookTitles = booktitles != null ? bookTitleMap.ConvertToDto(booktitles) : new ObservableCollection<BookTitleDto>();
+            #endregion
+        }
+
+        private void OnBookSelected(BookTitleDto selectedBook)
+        {
+            ucSelectBook ucSelectBook = new ucSelectBook();
+            var filledBookISBN = bookISBNVM.FillByIdBookTitle(selectedBook.Id, null);
+            ucSelectBook.AllBookISBN = bookISBNMap.ConvertToDto(filledBookISBN);
+
+            // Subscribe to routed event from ucSelectBook so BtnBookDetailConfirm executes when ucSelectBook raises it
+            ucSelectBook.AddHandler(ucSelectBook.BookDetailConfirmEvent, new RoutedEventHandler(BtnBookDetailConfirm));
+
+            StoreContent.Push(ucAddLoan.Content);
+            ucAddLoan.Content = ucSelectBook;
         }
 
         private void NewItem()
@@ -529,7 +594,7 @@ namespace AnhQuoc_C5_Assignment
         private void ReaderBtnConfirmClick(object para)
         {
             ucInputBookInfo = MainWindow.UnitOfForm.UcInputBookInfo(true);
-            storeContent.Push(ucAddLoan.Content);
+            StoreContent.Push(ucAddLoan.Content);
             ucAddLoan.Content = ucInputBookInfo;
         }
 
@@ -777,26 +842,24 @@ namespace AnhQuoc_C5_Assignment
         private void BookInfoLoaded(object para)
         {
             // Load form in ucInputBookInfo
-            AllBookISBNCard = new ObservableCollection<ucBookISBNCard>();
             AllLoanDetailCard = new ObservableCollection<ucLoanDetailCard>();
-
-
             LoanDetails = new ObservableCollection<LoanDetail>();
 
             AllBookNames = bookTitleMap.ConvertToDto(ucAddLoan.getBookTitleRepo().Gets());
-            ucInputBookInfo.cbTxtBookName.ItemsSource = AllBookNames;
 
             // Load All Book ISBN In WrapPanel
             AllBookISBN = bookISBNVM.FillByStatus(ucAddLoan.getBookISBNRepo().Gets(), BookISBNStatusValue);
-            AllBookISBNCard.Clear();
-            ConvertToBookISBNCard(AllBookISBN);
-            AddBookISBNCardToWrap();
         }
 
 
         private void NewDetail()
         {
-            int indexId = LoanDetails.Count + loanDetailVM.getMaxIndexId(nameof(LoanDetail.Id));
+            var keyProperties = Utilitys.GetPrimaryKeys(typeof(LoanDetail));
+            if (keyProperties == null || keyProperties.Length == 0 || keyProperties.Length > 1)
+                return;
+
+            var keyProperty = keyProperties[0];
+            int indexId = LoanDetails.Count + loanDetailVM.getMaxIndexId(keyProperty);
 
             LoanDetail = new LoanDetail();
             LoanDetail.Id = loanDetailVM.GetId(indexId);
@@ -843,26 +906,43 @@ namespace AnhQuoc_C5_Assignment
             frmConfirmInformation.ShowDialog();
         }
 
+        private void BookInfoBtnSearchClick(object para)
+        {   
+            // Filter AllBookTitles by SearchBookNameValue
+            if (string.IsNullOrWhiteSpace(SearchBookNameValue))
+            {
+                AllBookTitles = bookTitleMap.ConvertToDto(bookTitleVM.Repo.Gets());
+            }
+            else
+            {
+                var filteredTitles = bookTitleVM.FillContainsName(AllBookTitles, SearchBookNameValue, true);
+                AllBookTitles = bookTitleMap.ConvertToDto(filteredTitles);
+            }
+        }
 
         private void BookInfoBtnCancelClick(object para)
         {
-            ucAddLoan.Content = storeContent.Pop();
+            ucAddLoan.Content = StoreContent.Pop();
         }
 
         private void BtnBookDetailConfirm(object sender, RoutedEventArgs e)
         {
-            NewDetail();
-            LoanDetail.IdBook = SelectedBook.Id;
+            var args = e as BookDetailConfirmEventArgs;
+            if (args != null)
+            {
+                BookDto book = args.SelectedBook;
+                NewDetail();
 
-            LoanDetails.Add(LoanDetail);
+                if (book == null)
+                    return;
+                LoanDetail.IdBook = book.Id;
 
-            ConvertToLoanDetailCard(LoanDetails);
-            AddLoanDetailCardToWrap();
+                LoanDetails.Add(LoanDetail);
 
-
-            AllBookISBN.Remove(AllBookISBN.FirstOrDefault(item => item.ISBN == SelectedISBN.ISBN));
-            AllBookISBNCard.Remove(AllBookISBNCard.FirstOrDefault(item => item.getItem().ISBN == SelectedISBN.ISBN));
-            AddBookISBNCardToWrap();
+                //ConvertToLoanDetailCard(LoanDetails);
+                //AddLoanDetailCardToWrap();
+                AllBookISBN.Remove(AllBookISBN.FirstOrDefault(item => item.ISBN == book.ISBN));
+            }
         }
 
         private void UcLoanDetailCard_btnDeleteClick(object sender, RoutedEventArgs e)
@@ -881,8 +961,6 @@ namespace AnhQuoc_C5_Assignment
 
             AllBookISBN.Add(getISBN);
 
-            ConvertToBookISBNCard(AllBookISBN);
-
             // Add SelectBookISBNCard to UI
             var existingCard = _AllSelectBookISBNCard.FirstOrDefault(item => item.Item.getItem().ISBN == getISBN.ISBN);
 
@@ -891,7 +969,7 @@ namespace AnhQuoc_C5_Assignment
                 Utilitys.CatchExceptionError();
                 return;
             }
-            ucInputBookInfo.wrapBookISBN.Items.Insert(existingCard.Index, existingCard.Item);
+            AllUcBookISBNCard.Insert(existingCard.Index, existingCard.Item);
         }
 
         private void UcBookISBNCard_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -914,7 +992,7 @@ namespace AnhQuoc_C5_Assignment
 
             var selectBookISBNCard = new SelectBookISBNCard();
             selectBookISBNCard.Item = ucBookISBNCard;
-            selectBookISBNCard.Index = ucInputBookInfo.wrapBookISBN.Items.IndexOf(ucBookISBNCard);
+            selectBookISBNCard.Index = AllUcBookISBNCard.IndexOf(ucBookISBNCard);
             _AllSelectBookISBNCard.Add(selectBookISBNCard);
 
             SelectedISBN = ucBookISBNCard.getItem();
@@ -932,32 +1010,13 @@ namespace AnhQuoc_C5_Assignment
                 return;
             }
 
-            OpenSelectBookForm(books);
+            // OpenSelectBookForm(books);
 
             if (SelectedBook == null) // User click cancel button
             {
                 return;
             }
             BtnBookDetailConfirm(null, null);
-        }
-
-
-        private void ConvertToBookISBNCard(ObservableCollection<BookISBN> listbookISBN)
-        {
-            BookViewModel bookViewModel = UnitOfViewModel.Instance.BookViewModel;
-            AllBookISBNCard.Clear();
-            foreach (var bookISBN in listbookISBN)
-            {
-                IEnumerable<Book> books = bookViewModel.FillByBookISBN(bookISBN.ISBN, true);
-                if (books.Count() == 0)
-                    continue;
-                ucBookISBNCard ucBookISBNCard = new ucBookISBNCard();
-                ucBookISBNCard.Width = CardWidth;
-                ucBookISBNCard.Margin = new Thickness(CardMargin);
-                ucBookISBNCard.MouseLeftButtonDown += UcBookISBNCard_MouseLeftButtonDown;
-                ucBookISBNCard.getItem = () => bookISBNMap.ConvertToDto(bookISBN);
-                AllBookISBNCard.Add(ucBookISBNCard);
-            }
         }
 
         private void ConvertToLoanDetailCard(ObservableCollection<LoanDetail> loanDetails)
@@ -983,91 +1042,25 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        private void AddBookISBNCardToWrap()
-        {
-            ucInputBookInfo.wrapBookISBN.Items.Clear();
-            foreach (var card in AllBookISBNCard)
-            {
-                ucInputBookInfo.wrapBookISBN.Items.Add(card);
-            }
-        }
-
         private void AddLoanDetailCardToWrap()
         {
-            ucInputBookInfo.wrapLoanDetail.Children.Clear();
+            AllUcLoanDetailCard.Clear();
             foreach (var ucCard in AllLoanDetailCard)
             {
-                ucInputBookInfo.wrapLoanDetail.Children.Add(ucCard);
+                AllUcLoanDetailCard.Add(ucCard);
             }
         }
 
         #region Input-BookName
-        private void HandleBookName(TextBox txt, ComboBox cmb)
+        private void HandleBookName()
         {
-            if (cmb.SelectedItem == null)
-                return;
-            txt.Text = ((BookTitleDto)cmb.SelectedItem).Name;
+            SearchBookNameValue = SelectedBookTitle?.Name;
         }
 
         private void ReadercbTxtBookNameDropDownClosed(object para)
         {
-            ComboBox cmb = para as ComboBox;
-            if (handle) HandleBookName(ucInputBookInfo.txtInputBookName, cmb);
+            if (handle) HandleBookName();
             handle = true;
-        }
-
-        private void ReadercbTxtBookNameSelectionChanged(object para)
-        {
-            ComboBox cmb = para as ComboBox;
-            handle = !cmb.IsDropDownOpen;
-            HandleBookName(ucInputBookInfo.txtInputBookName, cmb);
-        }
-
-        private void ReadertxtInputBookNameTextChanged(object para)
-        {
-            TxtInputBookName_Filter_TextChanged(ucInputBookInfo.txtInputBookName, ucInputBookInfo.gdInputBookName, AllBookNames);
-        }
-
-        private void TxtInputBookName_Filter_TextChanged(TextBox txtInput, Grid parent, ObservableCollection<BookTitleDto> source)
-        {
-            bool ignoreCase = true;
-            ComboBox comBoBox = Utilitys.FindVisualChild<ComboBox>(parent);
-
-            Action<ObservableCollection<BookISBN>> handleBookISBN = (sourceISBN) =>
-            {
-                AllBookISBNCard.Clear();
-                ConvertToBookISBNCard(AllBookISBN);
-                AddBookISBNCardToWrap();
-            };
-
-            if (Utilitys.IsCheckEmptyString(txtInput.Text))
-            {
-                AllBookISBN = ucAddLoan.getBookISBNRepo().Gets();
-                handleBookISBN(AllBookISBN);
-
-                return;
-            }
-
-            comBoBox.IsDropDownOpen = true;
-
-            ObservableCollection<BookTitle> getfillList = bookTitleVM.FillContainsName(source, txtInput.Text, ignoreCase);
-            ObservableCollection<BookTitleDto> getfillListDto = bookTitleMap.ConvertToDto(getfillList);
-
-            if (getfillListDto.Count == 1 && getfillListDto.First().Name == txtInput.Text)
-            {
-                comBoBox.IsDropDownOpen = false;
-
-                if (ucInputBookInfo.cbTxtBookName.SelectedItem == null)
-                    return;
-
-                BookTitleDto bookTitleDto = ucInputBookInfo.cbTxtBookName.SelectedItem as BookTitleDto;
-
-                AllBookISBN = bookISBNVM.FillByIdBookTitle(bookTitleDto.Id, BookISBNStatusValue);
-                handleBookISBN(AllBookISBN);
-
-                return;
-            }
-            comBoBox.ItemsSource = getfillListDto;
         }
 
         #endregion
@@ -1097,79 +1090,6 @@ namespace AnhQuoc_C5_Assignment
                 price += book.Price * percentValue;
             }
             return price;
-        }
-
-
-        private void OpenSelectBookForm(ObservableCollection<Book> books)
-        {
-            frmDefault frmSelectBooksTable = new frmDefault();
-
-            ucBooksTable ucSelectBooksTable = new ucBooksTable();
-            ucSelectBooksTable.AllowPagination = false;
-
-            ucSelectBooksTable.getExceptProperties = () => Constants.exceptDtgBookCreateLoanSlip;
-            ucSelectBooksTable.Books = bookMap.ConvertToDto(books);
-
-            Button btnConfirmSelectBook = new Button();
-            Button btnCancelSelectBook = new Button();
-
-            btnConfirmSelectBook.Style = Application.Current.FindResource(Constants.styleBtnConfirm) as Style;
-            btnCancelSelectBook.Style = Application.Current.FindResource(Constants.styleBtnCancel) as Style;
-
-            frmSelectBooksTable.frmTitle = "Select book form";
-            frmSelectBooksTable.lblHeader = "Please select book in this ISBN";
-
-            frmSelectBooksTable.Width = 900;
-            frmSelectBooksTable.Height = 500;
-            frmSelectBooksTable.SizeToContent = SizeToContent.Manual;
-
-            bool isConfirm = false;
-            Action<object> confirmHandle = (sender) =>
-            {
-                SelectedBook = ucSelectBooksTable.SelectedDto;
-                if (SelectedBook == null)
-                {
-                    Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("book"));
-                    return;
-                }
-
-                // Kiểm tra tình trạng cuốn sách
-                if (!SelectedBook.Status)
-                {
-                    Utilitys.ShowMessageBox1(Utilitys.NotifyBookStatus());
-                    return;
-                }
-
-                if (SelectedBook.IdBookStatus == Constants.bookStatusSpoil)
-                {
-                    Utilitys.ShowMessageBox1("This book cannot be borrowed because the book is spoiled");
-                    return;
-                }
-
-                isConfirm = true;
-                frmSelectBooksTable.Close();
-            };
-
-
-            btnConfirmSelectBook.Click += (_sender, _e) => confirmHandle(_sender);
-            btnCancelSelectBook.Click += (_sender, _e) =>
-            {
-                frmSelectBooksTable.Close();
-                SelectedBook = null;
-            };
-
-            frmSelectBooksTable.Closing += (_sender, _e) =>
-            {
-                if (isConfirm == false)
-                    SelectedBook = null;
-            };
-
-            ucSelectBooksTable.dgBooks.MouseDoubleClick += (_sender, _e) => confirmHandle(_sender);
-
-            Utilitys.AddItemToFormDefault(frmSelectBooksTable, ucSelectBooksTable, btnConfirmSelectBook, btnCancelSelectBook);
-
-            // Show
-            frmSelectBooksTable.ShowDialog();
         }
     }
 }

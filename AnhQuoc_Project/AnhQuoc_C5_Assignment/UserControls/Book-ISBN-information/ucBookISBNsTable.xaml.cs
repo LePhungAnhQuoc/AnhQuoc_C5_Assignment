@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnhQuoc_C5_Assignment.UserControls.UI.BorrowBooks_UI;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -23,12 +25,43 @@ namespace AnhQuoc_C5_Assignment
     /// </summary>
     public partial class ucBookISBNsTable : UserControl, INotifyPropertyChanged
     {
+        #region dependency properties
+
+
+        public object GetParent
+        {
+            get { return (object)GetValue(GetParentProperty); }
+            set { SetValue(GetParentProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for GetParent.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty GetParentProperty =
+            DependencyProperty.Register(nameof(GetParent), typeof(object), typeof(ucBookISBNsTable), new PropertyMetadata(null));
+
+
+
+
+        public ObservableCollection<BookISBNDto> BookISBNDtos
+        {
+            get { return (ObservableCollection<BookISBNDto>)GetValue(BookISBNDtosProperty); }
+            set { SetValue(BookISBNDtosProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for BookISBNDtos.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty BookISBNDtosProperty =
+            DependencyProperty.Register(nameof(BookISBNDtos), typeof(ObservableCollection<BookISBNDto>), typeof(ucBookISBNsTable), new PropertyMetadata(null));
+
+
+
+        #endregion
+
         #region GetDatas
         public Func<ObservableCollection<BookISBN>> getBookISBNs { get; set; }
         #endregion
 
         #region Fields
         private BookISBNMap bookISBNMap;
+    
         #endregion
 
         #region Events
@@ -37,20 +70,6 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Properties
-        private ObservableCollection<BookISBNDto> _BookISBNDtos;
-        public ObservableCollection<BookISBNDto> BookISBNDtos
-        {
-            get
-            {
-                return _BookISBNDtos;
-            }
-            set
-            {
-                _BookISBNDtos = value;
-                OnPropertyChanged();
-            }
-        }
-
         private BookISBNDto _SelectedDto;
         public BookISBNDto SelectedDto
         {
@@ -81,8 +100,6 @@ namespace AnhQuoc_C5_Assignment
 
             Loaded += ucBookISBNsTable_Loaded;
             dgDatas.MouseDoubleClick += DgDatas_MouseDoubleClick;
-
-            this.DataContext = this;
         }
 
         private void ucBookISBNsTable_Loaded(object sender, RoutedEventArgs e)
@@ -118,6 +135,14 @@ namespace AnhQuoc_C5_Assignment
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             btnDeleteClick?.Invoke(sender, e);
+        }
+
+        private void dgDatas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (GetParent is ucSelectBook ucSelectBook)
+            {
+                ucSelectBook.BookISBNsTable_SelectionChanged(SelectedDto);
+            }
         }
     }
 }

@@ -226,7 +226,7 @@
                               DisplayMemberPath="Name"
                               Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
                         <ComboBox.SelectedItem>
-                            <Binding Path="Item.City" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource provinceToNameConverter}">
+                            <Binding Path="SelectedProvince" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
                                     <local:SelectedItemRule />
                                 </Binding.ValidationRules>

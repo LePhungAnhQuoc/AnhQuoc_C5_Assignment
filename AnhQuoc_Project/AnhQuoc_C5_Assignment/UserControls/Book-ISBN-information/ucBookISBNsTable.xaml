@@ -15,10 +15,11 @@
               ColumnHeaderStyle="{StaticResource dtgColHeaderGeneral}"
               CellStyle="{StaticResource dtgCellGeneral}"
               RowStyle="{StaticResource dtgRowGeneral}"
-              ItemsSource="{Binding Books}"
-              SelectedItem="{Binding SelectedDto}">
+              ItemsSource="{Binding BookISBNDtos, RelativeSource={RelativeSource AncestorType=UserControl}}"
+              SelectedItem="{Binding SelectedDto, RelativeSource={RelativeSource AncestorType=UserControl}}"
+              SelectionChanged="dgDatas_SelectionChanged"
+              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
         <DataGrid.Columns>
-            <DataGridTextColumn Header="Index" Width="auto" Binding="{Binding Converter={StaticResource indexDataGridItemConverter}}" />
             <DataGridTextColumn Header="ISBN" Width="auto" Binding="{Binding ISBN}" />
             <DataGridTextColumn x:Name="dtgTitle" Header="Title" Width="*" Binding="{Binding BookTitle.Name}" />
             <DataGridTextColumn Header="Author" Width="auto" Binding="{Binding Author.Name}" />

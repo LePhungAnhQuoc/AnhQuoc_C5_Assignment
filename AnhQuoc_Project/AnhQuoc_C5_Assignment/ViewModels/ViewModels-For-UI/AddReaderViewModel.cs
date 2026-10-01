@@ -48,6 +48,18 @@ namespace AnhQuoc_C5_Assignment
                 OnPropertyChanged();
             }
         }
+
+        private Province _SelectedProvince;
+        public Province SelectedProvince
+        {
+            get { return _SelectedProvince; }
+            set 
+            { 
+                _SelectedProvince = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
         #region ViewModels
@@ -246,6 +258,8 @@ namespace AnhQuoc_C5_Assignment
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
+            AdultItem.City = SelectedProvince?.Name;
+
             // Validation
             Utilitys.RunAllValidations(mainContentControls);
 

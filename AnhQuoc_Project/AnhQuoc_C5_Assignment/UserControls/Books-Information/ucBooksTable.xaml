@@ -23,8 +23,8 @@
                   ColumnHeaderStyle="{StaticResource dtgColHeaderGeneral}"
                   CellStyle="{StaticResource dtgCellGeneral}"
                   RowStyle="{StaticResource dtgRowGeneral}"
-                  SelectedItem="{Binding SelectedDto}"
-                  ItemsSource="{Binding Books}"
+                  SelectedItem="{Binding SelectedDto, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                  ItemsSource="{Binding Books, RelativeSource={RelativeSource AncestorType=UserControl}}"
                   HorizontalScrollBarVisibility="Disabled"
                   ColumnWidth="*">
             <DataGrid.Columns>
