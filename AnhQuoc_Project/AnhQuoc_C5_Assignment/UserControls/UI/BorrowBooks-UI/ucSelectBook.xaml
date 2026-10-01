@@ -17,16 +17,25 @@
         <!-- Left: ISBNs table -->
         <GroupBox Grid.Row="0" Header="Book ISBNs" Margin="4" FontSize="15" Padding="10">
             <table:ucBookISBNsTable x:Name="ucBookISBNsTable"
-                                    BookISBNDtos="{Binding AllBookISBN}" />
+                                    BookISBNDtos="{Binding AllBookISBN}"
+                                    MouseDoubleClickEvent="MouseDoubleClick"/>
         </GroupBox>
 
         <!-- Right: Books table -->
-        <GroupBox Grid.Row="1" Header="Books" Margin="4" FontSize="15" Padding="10">
-            <table:ucBooksTable x:Name="ucBooksTable"
-                                Books="{Binding BookByISBN}"
-                                AllowPagination="False" />
+        <GroupBox Grid.Row="1" Header="Selected books" Margin="4" FontSize="15" Padding="10">
+            <ListBox x:Name="lstLoanDetail"
+                     HorizontalContentAlignment="Stretch"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     ItemsSource="{Binding AllLoanDetailCard}">
+                <!-- Replace default vertical StackPanel with a WrapPanel -->
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
         </GroupBox>
-        
+
         <!-- Action buttons -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Confirm" Style="{StaticResource btnConfirm}" Click="Confirm_Click"/>

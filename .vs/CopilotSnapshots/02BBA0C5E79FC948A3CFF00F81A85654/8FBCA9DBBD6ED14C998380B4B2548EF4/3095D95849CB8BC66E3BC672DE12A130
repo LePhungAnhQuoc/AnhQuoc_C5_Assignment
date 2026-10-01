@@ -23,9 +23,6 @@ namespace AnhQuoc_C5_Assignment.UserControls.UI.BorrowBooks_UI
     /// </summary>
     public partial class ucSelectBook : UserControl, INotifyPropertyChanged
     {
-        private ucBooksTable ucBooksTable;
-        private frmDefault selectBookForm;
-
         // Routed event to notify parent when book detail confirm should be executed
         public static readonly RoutedEvent BookDetailConfirmEvent =
     EventManager.RegisterRoutedEvent(
@@ -39,18 +36,6 @@ namespace AnhQuoc_C5_Assignment.UserControls.UI.BorrowBooks_UI
         {
             add { AddHandler(BookDetailConfirmEvent, value); }
             remove { RemoveHandler(BookDetailConfirmEvent, value); }
-        }
-
-        #region Properties
-        private ObservableCollection<ucLoanDetailCard> _AllLoanDetailCard;
-        public ObservableCollection<ucLoanDetailCard> AllLoanDetailCard
-        {
-            get { return _AllLoanDetailCard; }
-            set 
-            {
-                _AllLoanDetailCard = value;
-                OnPropertyChanged();
-            }
         }
 
         private ObservableCollection<BookISBNDto> _AllBookISBN;
@@ -75,17 +60,6 @@ namespace AnhQuoc_C5_Assignment.UserControls.UI.BorrowBooks_UI
             }
         }
 
-        private BookDto _SelectedBook;
-        public BookDto SelectedBook
-        {
-            get { return _SelectedBook; }
-            set 
-            { 
-                _SelectedBook = value;
-                OnPropertyChanged();
-            }
-        }
-        #endregion
 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -103,8 +77,8 @@ namespace AnhQuoc_C5_Assignment.UserControls.UI.BorrowBooks_UI
             InitializeComponent();
             this.DataContext = this;
 
-            AllLoanDetailCard = new ObservableCollection<ucLoanDetailCard>();
             ucBookISBNsTable.GetParent = this;
+            ucBooksTable.getExceptProperties = () => Constants.exceptDtgBookCreateLoanSlip;
         }
 
         public void BookISBNsTable_SelectionChanged(BookISBNDto selectedItem)
@@ -122,79 +96,39 @@ namespace AnhQuoc_C5_Assignment.UserControls.UI.BorrowBooks_UI
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            SelectedBook = ucBooksTable.SelectedDto;
-
-            if (SelectedBook == null)
+            var selectedBook = ucBooksTable.SelectedDto;
+            if (selectedBook == null)
             {
                 Utilitys.ShowMessageBox1(Utilitys.NotifyPleaseSelect("book"));
                 return;
             }
 
             // Kiểm tra tình trạng cuốn sách
-            if (!SelectedBook.Status)
+            if (!selectedBook.Status)
             {
                 Utilitys.ShowMessageBox1(Utilitys.NotifyBookStatus());
                 return;
             }
 
-            if (SelectedBook.IdBookStatus == Constants.bookStatusSpoil)
+            if (selectedBook.IdBookStatus == Constants.bookStatusSpoil)
             {
                 Utilitys.ShowMessageBox1("This book cannot be borrowed because the book is spoiled");
                 return;
             }
 
-            var args = new BookDetailConfirmEventArgs(BookDetailConfirmEvent, this, SelectedBook, AllLoanDetailCard);
+            var args = new BookDetailConfirmEventArgs(BookDetailConfirmEvent, this, selectedBook);
             RaiseEvent(args);
-
-            if (selectBookForm != null)
-            {
-                selectBookForm.Close();
-            }
-        }
-
-        // Parent handler for child DataGrid mouse double-click
-        public void MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            ucBooksTable = new ucBooksTable();
-            ucBooksTable.getExceptProperties = () => Constants.exceptDtgBookCreateLoanSlip;
-            ucBooksTable.AllowPagination = false;
-            ucBooksTable.Books = BookByISBN;
-            ucBooksTable.Height = 300;
-
-            Button confirm = new Button();
-            confirm.Style = (Style)Application.Current.FindResource("btnConfirm");
-            Button cancel = new Button();
-            cancel.Style = (Style)Application.Current.FindResource("btnCancel");
-
-            selectBookForm = new frmDefault();
-            selectBookForm.lblHeader = "Select Book information";
-
-            selectBookForm.stkBody.Children.Add(ucBooksTable);
-            selectBookForm.stkWrapButton.Children.Add(confirm);
-            selectBookForm.stkWrapButton.Children.Add(cancel);
-
-            confirm.Click += Confirm_Click;
-            cancel.Click += (s, args) =>
-            {
-                if (selectBookForm != null)
-                {
-                    selectBookForm.Close();
-                }
-            };
-            selectBookForm.ShowDialog();
         }
     }
 
     public class BookDetailConfirmEventArgs : RoutedEventArgs
     {
         public BookDto SelectedBook { get; }
-        public ObservableCollection<ucLoanDetailCard> AllLoanDetailCard { get; set; }
 
-        public BookDetailConfirmEventArgs(RoutedEvent routedEvent, object source, BookDto selectedBook, ObservableCollection<ucLoanDetailCard> allLoanDetailCard)
+        public BookDetailConfirmEventArgs(RoutedEvent routedEvent, object source, BookDto selectedBook)
             : base(routedEvent, source)
         {
             SelectedBook = selectedBook;
-            AllLoanDetailCard = allLoanDetailCard;
         }
     }
 }

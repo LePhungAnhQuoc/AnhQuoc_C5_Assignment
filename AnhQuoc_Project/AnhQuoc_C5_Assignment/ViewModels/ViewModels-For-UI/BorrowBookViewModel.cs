@@ -69,17 +69,6 @@ namespace AnhQuoc_C5_Assignment
             }
         }
 
-        private ObservableCollection<ucLoanDetailCard> _AllUcLoanDetailCard;
-        public ObservableCollection<ucLoanDetailCard> AllUcLoanDetailCard
-        {
-            get { return _AllUcLoanDetailCard; }
-            set
-            { 
-                _AllUcLoanDetailCard = value;
-                OnPropertyChanged();
-            }
-        }
-
         private ObservableCollection<ucBookISBNCard> _AllUcBookISBNCard;
         public ObservableCollection<ucBookISBNCard> AllUcBookISBNCard
         {
@@ -230,7 +219,7 @@ namespace AnhQuoc_C5_Assignment
 
 
         public ObservableCollection<BookISBN> AllBookISBN { get; set; }
-        public ObservableCollection<ucLoanDetailCard> AllLoanDetailCard { get; set; }
+        private ObservableCollection<ucLoanDetailCard> allLoanDetailCard { get; set; }
 
 
         public ObservableCollection<Reader> FillReaderByType { get; set; }
@@ -842,7 +831,6 @@ namespace AnhQuoc_C5_Assignment
         private void BookInfoLoaded(object para)
         {
             // Load form in ucInputBookInfo
-            AllLoanDetailCard = new ObservableCollection<ucLoanDetailCard>();
             LoanDetails = new ObservableCollection<LoanDetail>();
 
             AllBookNames = bookTitleMap.ConvertToDto(ucAddLoan.getBookTitleRepo().Gets());
@@ -931,6 +919,8 @@ namespace AnhQuoc_C5_Assignment
             if (args != null)
             {
                 BookDto book = args.SelectedBook;
+                allLoanDetailCard = args.AllLoanDetailCard;
+
                 NewDetail();
 
                 if (book == null)
@@ -939,8 +929,7 @@ namespace AnhQuoc_C5_Assignment
 
                 LoanDetails.Add(LoanDetail);
 
-                //ConvertToLoanDetailCard(LoanDetails);
-                //AddLoanDetailCardToWrap();
+                ConvertToLoanDetailCard(LoanDetails);
                 AllBookISBN.Remove(AllBookISBN.FirstOrDefault(item => item.ISBN == book.ISBN));
             }
         }
@@ -948,28 +937,9 @@ namespace AnhQuoc_C5_Assignment
         private void UcLoanDetailCard_btnDeleteClick(object sender, RoutedEventArgs e)
         {
             BookDto bookDto = bookMap.ConvertToDto(bookVM.FindById(SelectedDetailCard.Item.IdBook, null));
-
             LoanDetail getLoanDetail = LoanDetails.FirstOrDefault(item => item.Id == SelectedDetailCard.Item.Id);
-
             LoanDetails.Remove(getLoanDetail);
-
             ConvertToLoanDetailCard(LoanDetails);
-            AddLoanDetailCardToWrap();
-
-
-            BookISBN getISBN = bookISBNVM.FindByISBN(bookDto.ISBN, null);
-
-            AllBookISBN.Add(getISBN);
-
-            // Add SelectBookISBNCard to UI
-            var existingCard = _AllSelectBookISBNCard.FirstOrDefault(item => item.Item.getItem().ISBN == getISBN.ISBN);
-
-            if (existingCard == null || existingCard.Item == null)
-            {
-                Utilitys.CatchExceptionError();
-                return;
-            }
-            AllUcBookISBNCard.Insert(existingCard.Index, existingCard.Item);
         }
 
         private void UcBookISBNCard_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -1021,7 +991,7 @@ namespace AnhQuoc_C5_Assignment
 
         private void ConvertToLoanDetailCard(ObservableCollection<LoanDetail> loanDetails)
         {
-            AllLoanDetailCard.Clear();
+            allLoanDetailCard.Clear();
             foreach (var isbn in loanDetails)
             {
                 ucLoanDetailCard ucLoanDetailCard = new ucLoanDetailCard();
@@ -1038,16 +1008,7 @@ namespace AnhQuoc_C5_Assignment
                 };
 
                 ucLoanDetailCard.btnDeleteClick += UcLoanDetailCard_btnDeleteClick;
-                AllLoanDetailCard.Add(ucLoanDetailCard);
-            }
-        }
-
-        private void AddLoanDetailCardToWrap()
-        {
-            AllUcLoanDetailCard.Clear();
-            foreach (var ucCard in AllLoanDetailCard)
-            {
-                AllUcLoanDetailCard.Add(ucCard);
+                allLoanDetailCard.Add(ucLoanDetailCard);
             }
         }
 

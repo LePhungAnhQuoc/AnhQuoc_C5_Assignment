@@ -9,7 +9,10 @@
         Title="{Binding frmTitle, ElementName=window}"
         WindowStartupLocation="{StaticResource WSL}"
         Background="White"
-        Style="{StaticResource wdStyleGeneral}">
+        Style="{StaticResource wdStyleGeneral}"
+        SizeToContent="Manual"
+        Height="500"
+        Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />

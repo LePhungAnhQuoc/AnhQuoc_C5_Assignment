@@ -124,15 +124,8 @@ namespace AnhQuoc_C5_Assignment
 
         private void DgDatas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            // Raise a passthrough MouseDoubleClick event so parent controls can handle it
-            MouseDoubleClickEvent?.Invoke(this, e);
-
-            // preserve existing behavior (invoke info click)
             btnInfo_Click(null, null);
         }
-
-        // Expose a mouse double-click event so parent user controls can subscribe
-        public event MouseButtonEventHandler MouseDoubleClickEvent;
 
         private void btnInfo_Click(object sender, RoutedEventArgs e)
         {
