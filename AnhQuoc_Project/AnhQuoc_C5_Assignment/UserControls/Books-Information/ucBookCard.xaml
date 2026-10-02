@@ -4,23 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
-             mc:Ignorable="d" d:DesignWidth="250"
+             mc:Ignorable="d" 
+             HorizontalAlignment="Stretch"
              Name="YourUserControl">
     <UserControl.Resources>
         <local:PriceFormatConverter x:Key="PriceFormatConverter" />
         <local:IdBookStatusToNameConverter x:Key="IdBookStatusToNameConverter" />
-        
-        <Thickness x:Key="borderDistance" Top="10" Left="10" Right="10" Bottom="10" />
-        <GridLength x:Key="firstColumnWidth">65</GridLength>
-        
+
         <Storyboard x:Key="MouseEnterStoryboard">
-            <DoubleAnimation Duration="0:0:0.300" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" To="-10">
-            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.300" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" To="-5" />
         </Storyboard>
 
         <Storyboard x:Key="MouseLeaveStoryboard">
-            <DoubleAnimation Duration="0:0:0.800" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" To="0">
-            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.800" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" To="0" />
         </Storyboard>
     </UserControl.Resources>
 
@@ -32,109 +28,88 @@
             <BeginStoryboard Storyboard="{StaticResource MouseLeaveStoryboard}"/>
         </EventTrigger>
     </UserControl.Triggers>
-    
+
     <UserControl.RenderTransform>
         <TranslateTransform/>
     </UserControl.RenderTransform>
+    <Border x:Name="container"
+                Style="{StaticResource bdCard}"
+                Focusable="True"
+                HorizontalAlignment="Stretch" 
+                CornerRadius="10"
+                Padding="12">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-    <Grid x:Name="gdContainer">
-        <Grid x:Name="borderEffectContainer"
-              Visibility="Hidden">
-            <Border x:Name="firstBd"
-                    BorderBrush="Black"
-                    Background="{Binding ElementName=YourUserControl, Path=Background}"
-                    BorderThickness="0"
-                    CornerRadius="10">
-                <Border.Effect>
-                    <DropShadowEffect  BlurRadius="16" ShadowDepth="0" Color="Black" Opacity="1" RenderingBias="Quality" />
-                </Border.Effect>
-            </Border>
-        </Grid>
-        
-        <Border Style="{StaticResource bdCard}"
-                Focusable="True">
-            <StackPanel Height="auto">
-                <StackPanel>
-                    <StackPanel.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}">
-                            <Setter Property="FontSize" Value="12" />
-                            <Setter Property="Foreground" Value="{Binding ElementName=YourUserControl, Path=Foreground}" />
-                        </Style>
-                        <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInformation}">
-                            <!--<Setter Property="Margin"--> 
-                        </Style>
-                        <Style TargetType="TextBlock" BasedOn="{StaticResource tblDisplayInfo}">
-                            <Setter Property="FontSize" Value="12" />
-                        </Style>
-                    </StackPanel.Resources>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Book title: " />
-                        <TextBlock Grid.Column="1"
-                                   Text="{Binding Item.BookTitle.Name}" />
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="ISBN: " />
-                        <TextBlock Grid.Column="1"
-                                   Text="{Binding Item.ISBN}" />
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Author: " />
-                        <TextBlock Grid.Column="1"
-                                   Text="{Binding Item.Author.Name}" />
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Language: " />
-                        <TextBlock Grid.Column="1"
-                                   Text="{Binding Item.Language}" />
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Price: " />
-                        <TextBlock Grid.Column="1"
-                    Text="{Binding Item.Price, Converter={StaticResource PriceFormatConverter}}" />
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="{StaticResource firstColumnWidth}" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Status: " />
-                        <TextBlock Grid.Column="1"
-                                   Text="{Binding Item.IdBookStatus, Converter={StaticResource IdBookStatusToNameConverter}}" />
-                    </Grid>
+            <!-- Content Area -->
+            <Grid Grid.Row="0" Margin="0,0,0,12">
+                <Grid.ColumnDefinitions>
+                    <!-- Book Cover Column -->
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Book Information Column -->
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Rounded Cover Image -->
+                <Border Grid.Column="0" 
+                            Width="90" 
+                            Height="120" 
+                            CornerRadius="8" 
+                            Margin="0,0,12,0"
+                            VerticalAlignment="Top"
+                            Background="#F0F0F0"
+                            ClipToBounds="True">
+                    <Image Source="{Binding Item.BookTitle.UrlImage}" 
+                               Stretch="Fill" 
+                               RenderOptions.BitmapScalingMode="HighQuality"/>
+                </Border>
+
+                <!-- Book Metadata -->
+                <StackPanel Grid.Column="1" VerticalAlignment="Top">
+                    <!-- Book Title -->
+                    <TextBlock Text="{Binding Item.BookTitle.Name}" 
+                                   FontWeight="Bold" 
+                                   FontSize="15" 
+                                   Foreground="#212529" 
+                                   TextWrapping="Wrap"
+                                   Margin="0,0,0,2"/>
+
+                    <!-- Publisher -->
+                    <TextBlock Text="{Binding Item.Publisher.Name}" 
+                                   FontSize="12" 
+                                   Foreground="#8C9199" 
+                                   Margin="0,0,0,6"/>
+
+                    <!-- Description with Height Limit -->
+                    <TextBlock Text="{Binding Item.BookTitle.Summary}" 
+                                   FontSize="12" 
+                                   Foreground="#4A4E54" 
+                                   TextWrapping="Wrap" 
+                                   TextTrimming="CharacterEllipsis" 
+                                   MaxHeight="80"
+                                   LineHeight="16"/>
                 </StackPanel>
-                <StackPanel Name="stkWrapButton"
-                            Style="{StaticResource stkWrapButton}"
-                            Margin="0 0 0 10"
+            </Grid>
+
+            <!-- Action Buttons -->
+            <StackPanel Grid.Row="1" 
+                            Name="stkWrapButton"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
                             Visibility="Visible">
-                    <Button Name="btnInfo"
+                <Button Name="btnInfo"
                             Style="{StaticResource btnInfo}"
-                            FontSize="12">More Info</Button>
-                    <Button Name="btnDelete"
+                            Content="More Info"
+                            FontSize="12"/>
+                <Button Name="btnDelete"
                             Style="{StaticResource btnDelete}"
+                            Content="Delete"
                             FontSize="12"
-                            Margin="10 0 0 0"></Button>
-                </StackPanel>
+                            Margin="8,0,0,0"/>
             </StackPanel>
-        </Border>
-    </Grid>
+        </Grid>
+    </Border>
 </UserControl>

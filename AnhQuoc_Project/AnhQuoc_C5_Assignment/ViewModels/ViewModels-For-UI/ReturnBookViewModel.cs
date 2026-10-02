@@ -35,8 +35,6 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Constants
-        private const double CardWidth = 250;
-        private const double CardMargin = 10;
         #endregion
 
         #region Properties
@@ -769,22 +767,16 @@ namespace AnhQuoc_C5_Assignment
                 {
                     fineAmount = 0;
                     SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusNormal;
-                    SelectedUnPaidBookCard.Background = Brushes.White;
-                    SelectedUnPaidBookCard.Foreground = Utilitys.GetColorFromCode("#000000");
                 }
                 else if (reasonDto.Id == Constants.reason2)
                 {
                     fineAmount = SelectedUnPaidBookCard.Item.PriceCurrent;
                     SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusLost;
-                    SelectedUnPaidBookCard.Background = Utilitys.GetColorFromCode("#da3445");
-                    SelectedUnPaidBookCard.Foreground = Utilitys.GetColorFromCode("#ffffff");
                 }
                 else if (reasonDto.Id == Constants.reason3)
                 {
                     fineAmount = 0;
                     SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusSpoil;
-                    SelectedUnPaidBookCard.Background = Utilitys.GetColorFromCode("#f7c300");
-                    SelectedUnPaidBookCard.Foreground = Utilitys.GetColorFromCode("#000000");
                 }
 
                 if (BookPaidsChangedStatus.FirstOrDefault(book => book.Id == SelectedUnPaidBookCard.getItem().Id) == null)
@@ -889,10 +881,6 @@ namespace AnhQuoc_C5_Assignment
             foreach (var book in books)
             {
                 ucBookCard ucUnPaidBookCard = new ucBookCard();
-                ucUnPaidBookCard.Background = Brushes.White;
-                ucUnPaidBookCard.Width = CardWidth;
-                ucUnPaidBookCard.Margin = new Thickness(CardMargin);
-                ucUnPaidBookCard.Focusable = true;
                 ucUnPaidBookCard.MouseLeftButtonDown += UcUnPaidBookCard_MouseLeftButtonDown;
                 ucUnPaidBookCard.getItem = () => book;
                 AllUnPaidBookCard.Add(ucUnPaidBookCard);
@@ -904,16 +892,8 @@ namespace AnhQuoc_C5_Assignment
             ucBookCard card = sender as ucBookCard;
             if (SelectedUnPaidBookCard != null && SelectedUnPaidBookCard == card) return;
 
-            // old card
-            if (SelectedUnPaidBookCard != null)
-            {
-                SelectedUnPaidBookCard.borderEffectContainer.Visibility = Visibility.Hidden;
-            }
-
             //  new card
             SelectedUnPaidBookCard = card;
-            SelectedUnPaidBookCard.borderEffectContainer.Visibility = Visibility.Visible;
-
             UnPaidBookCards_SelectionChanged();
         }
         #endregion
