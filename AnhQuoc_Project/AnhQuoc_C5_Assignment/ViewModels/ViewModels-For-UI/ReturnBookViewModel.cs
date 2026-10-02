@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace AnhQuoc_C5_Assignment
 {
@@ -422,7 +423,6 @@ namespace AnhQuoc_C5_Assignment
 
         public RelayCommand BookcbTxtReasonDropDownClosedCmd { get; set; }
         public RelayCommand BookcbTxtReasonSelectionChangedCmd { get; set; }
-        public RelayCommand BooktxtReasonTextChangedCmd { get; set; }
 
         #endregion
 
@@ -482,10 +482,7 @@ namespace AnhQuoc_C5_Assignment
 
             BookcbTxtReasonDropDownClosedCmd = new RelayCommand(null, BookcbTxtReasonDropDownClosed);
             BookcbTxtReasonSelectionChangedCmd = new RelayCommand(null, BookcbTxtReasonSelectionChanged);
-            BooktxtReasonTextChangedCmd = new RelayCommand(null, BooktxtReasonTextChanged);
             #endregion
-
-
         }
 
         #region AddLoanHistory-Commands
@@ -670,7 +667,6 @@ namespace AnhQuoc_C5_Assignment
             GetBooksFromLoanSlip();
 
             ConvertToUnPaidBookCard(UnPaidBooksOfReader);
-            AddUnPaidBookCardToWrap();
 
 
             // Allocate all detail
@@ -727,14 +723,13 @@ namespace AnhQuoc_C5_Assignment
 
         #region InputReason
 
-        private bool HandleReason(TextBox txt, ComboBox cmb)
+        private bool HandleReason(ComboBox cmb)
         {
             if (cmb.SelectedItem == null)
             {
                 ucRetureBookInfo.txtFineAmount.IsEnabled = false;
                 return false;
             }
-            txt.Text = ((PenaltyReasonDto)cmb.SelectedItem).Name;
             return true;
         }
 
@@ -742,95 +737,75 @@ namespace AnhQuoc_C5_Assignment
         private void BookcbTxtReasonDropDownClosed(object para)
         {
             ComboBox cmb = para as ComboBox;
-            if (handle) HandleReason(ucRetureBookInfo.txtReason, cmb);
+            if (handle) HandleReason(cmb);
             handle = true;
         }
 
         private void BookcbTxtReasonSelectionChanged(object para)
         {
-            ComboBox cmb = para as ComboBox;
-            handle = !cmb.IsDropDownOpen;
-            HandleReason(ucRetureBookInfo.txtReason, cmb);
-        }
+            ComboBox comboBox = para as ComboBox;
+            handle = !comboBox.IsDropDownOpen;
+            HandleReason(comboBox);
 
-        private void BooktxtReasonTextChanged(object para)
-        {
-            TxtInputReason_Filter_TextChanged(ucRetureBookInfo.txtReason, ucRetureBookInfo.gdInputReason, AllReason);
-        }
-
-        private void TxtInputReason_Filter_TextChanged(TextBox txtInput, Grid parent, ObservableCollection<PenaltyReasonDto> sourceDto)
-        {
             bool ignoreCase = true;
-            ComboBox comBoBox = Utilitys.FindVisualChild<ComboBox>(parent);
-
-            ObservableCollection<PenaltyReason> getfillList = null;
-
-            getfillList = reasonVM.FillContainsName(sourceDto, txtInput.Text, ignoreCase, StatusValue);
-            if (getfillList.Count == 1 && getfillList.First().Name == txtInput.Text)
-            {
-                comBoBox.IsDropDownOpen = false;
-
-                PenaltyReason reason = getfillList.First();
-
-                // Debt code
-                if (SelectedReason.Reason != null && SelectedReason.Reason.Id != reason.Id)
-                {
-                    SelectedReason.IsPaided = false;
-                }
-
-                if (SelectedReason.IsPaided == false)
-                {
-                    SelectedReason.Reason = reason;
-                    decimal fineAmount = 0;
-                    if (reason.Id == Constants.reason1)
-                    {
-                        fineAmount = 0;
-                        SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusNormal;
-                        SelectedUnPaidBookCard.Background = Brushes.White;
-                        SelectedUnPaidBookCard.Foreground = Utilitys.GetColorFromCode("#000000");
-                    }
-                    else if (reason.Id == Constants.reason2)
-                    {
-                        fineAmount = SelectedUnPaidBookCard.Item.PriceCurrent;
-                        SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusLost;
-                        SelectedUnPaidBookCard.Background = Utilitys.GetColorFromCode("#da3445");
-                        SelectedUnPaidBookCard.Foreground = Utilitys.GetColorFromCode("#ffffff");
-                    }
-                    else if (reason.Id == Constants.reason3)
-                    {
-                        fineAmount = 0;
-                        SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusSpoil;
-                        SelectedUnPaidBookCard.Background = Utilitys.GetColorFromCode("#f7c300");
-                        SelectedUnPaidBookCard.Foreground = Utilitys.GetColorFromCode("#000000");
-                    }
-
-                    if (BookPaidsChangedStatus.FirstOrDefault(book => book.Id == SelectedUnPaidBookCard.getItem().Id) == null)
-                    {
-                        BookPaidsChangedStatus.Add(SelectedUnPaidBookCard.getItem());
-                    }
-                    
-
-                    Detail.PaidMoney = fineAmount;
-                    SelectedReason.IsPaided = true;
-                }
-
-                if (SelectedReason.Reason != null)
-                {
-                    if (SelectedReason.Reason.Id == Constants.reason2)
-                        ucRetureBookInfo.txtFineAmount.IsEnabled = false;
-                    else
-                        ucRetureBookInfo.txtFineAmount.IsEnabled = true;
-                }
+            PenaltyReasonDto reasonDto = null;
+            if (comboBox.SelectedItem != null)
+                reasonDto = comboBox.SelectedItem as PenaltyReasonDto;
+            if (reasonDto == null)
                 return;
-            }
-            else
-            {
-                ucRetureBookInfo.txtFineAmount.IsEnabled = false;
-            }
-            comBoBox.ItemsSource = reasonMap.ConvertToDto(getfillList);
-            comBoBox.IsDropDownOpen = true;
-        }
 
+            // Debt code
+            if (SelectedReason.Reason != null && SelectedReason.Reason.Id != reasonDto.Id)
+            {
+                SelectedReason.IsPaided = false;
+            }
+
+            if (SelectedReason.IsPaided == false)
+            {
+                PenaltyReason reason = reasonVM.CreateByDto(reasonDto);
+                SelectedReason.Reason = reason;
+                decimal fineAmount = 0;
+                if (reasonDto.Id == Constants.reason1)
+                {
+                    fineAmount = 0;
+                    SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusNormal;
+                    SelectedUnPaidBookCard.Background = Brushes.White;
+                    SelectedUnPaidBookCard.Foreground = Utilitys.GetColorFromCode("#000000");
+                }
+                else if (reasonDto.Id == Constants.reason2)
+                {
+                    fineAmount = SelectedUnPaidBookCard.Item.PriceCurrent;
+                    SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusLost;
+                    SelectedUnPaidBookCard.Background = Utilitys.GetColorFromCode("#da3445");
+                    SelectedUnPaidBookCard.Foreground = Utilitys.GetColorFromCode("#ffffff");
+                }
+                else if (reasonDto.Id == Constants.reason3)
+                {
+                    fineAmount = 0;
+                    SelectedUnPaidBookCard.getItem().IdBookStatus = Constants.bookStatusSpoil;
+                    SelectedUnPaidBookCard.Background = Utilitys.GetColorFromCode("#f7c300");
+                    SelectedUnPaidBookCard.Foreground = Utilitys.GetColorFromCode("#000000");
+                }
+
+                if (BookPaidsChangedStatus.FirstOrDefault(book => book.Id == SelectedUnPaidBookCard.getItem().Id) == null)
+                {
+                    BookPaidsChangedStatus.Add(SelectedUnPaidBookCard.getItem());
+                }
+
+
+                Detail.PaidMoney = fineAmount;
+                SelectedReason.IsPaided = true;
+            }
+
+            if (SelectedReason.Reason != null)
+            {
+                if (SelectedReason.Reason.Id == Constants.reason2)
+                    ucRetureBookInfo.txtFineAmount.IsEnabled = false;
+                else
+                    ucRetureBookInfo.txtFineAmount.IsEnabled = true;
+            }
+            return;
+        }
         #endregion
         
 
@@ -850,13 +825,6 @@ namespace AnhQuoc_C5_Assignment
             Detail = LoanDetailHistoryDtos[index];
 
             SelectedReason = PenaltyReasonPaids[index];
-
-            if (SelectedReason.Reason == null)
-                ucRetureBookInfo.txtReason.Text = string.Empty;
-            else
-            {
-                ucRetureBookInfo.txtReason.Text = SelectedReason.Reason.Name;
-            }
         }
 
 
@@ -936,7 +904,6 @@ namespace AnhQuoc_C5_Assignment
             ucBookCard card = sender as ucBookCard;
             if (SelectedUnPaidBookCard != null && SelectedUnPaidBookCard == card) return;
 
-
             // old card
             if (SelectedUnPaidBookCard != null)
             {
@@ -948,20 +915,7 @@ namespace AnhQuoc_C5_Assignment
             SelectedUnPaidBookCard.borderEffectContainer.Visibility = Visibility.Visible;
 
             UnPaidBookCards_SelectionChanged();
-
-
         }
-
-        private void AddUnPaidBookCardToWrap()
-        {
-            ucRetureBookInfo.wrapUnPaidBooksTable.Children.Clear();
-            foreach (var ucCard in AllUnPaidBookCard)
-            {
-                ucRetureBookInfo.wrapUnPaidBooksTable.Children.Add(ucCard);
-            }
-        }
-
-
         #endregion
 
         #region LoanConfirm-Commands

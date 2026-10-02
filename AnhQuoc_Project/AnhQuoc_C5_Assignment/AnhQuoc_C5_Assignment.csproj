@@ -664,6 +664,7 @@
     <Compile Include="UserControls\UserRole-Information\ucUserRolesTable.xaml.cs">
       <DependentUpon>ucUserRolesTable.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\Behaviours\CurrencyMaskBehavior.cs" />
     <Compile Include="Utilities\CheckProperty\CheckPropertyType.cs" />
     <Compile Include="Utilities\Constants.cs" />
     <Compile Include="Utilities\CheckProperty\IsCheckProperty.cs" />

@@ -12,10 +12,8 @@ namespace AnhQuoc_C5_Assignment
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value == null)
-                return string.Empty;
-            if (Utilitys.IsCheckEmptyString(value.ToString()))
-                return string.Empty;
+            if (value == null || Utilitys.IsCheckEmptyString(value.ToString()))
+                value = 0;
 
             var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
             value = Utilitys.FormatCurrency("VND", System.Convert.ToDecimal(value.ToString()));

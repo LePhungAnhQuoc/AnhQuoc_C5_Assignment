@@ -16,16 +16,10 @@
     </i:Interaction.Triggers>
 
     <UserControl.Resources>
-        <local:BindingProxy x:Key="proxy" Data="{Binding}"/>
-        <Style x:Key="txtGeneral" TargetType="TextBox" BasedOn="{StaticResource txtLightBorder}">
-            <Setter Property="Width" Value="auto" />
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-        </Style>
     </UserControl.Resources>
 
     <Grid Name="gdInputLoanSlip"
-          Style="{StaticResource gdContainerForUserControl}"
-          Margin="15">
+          Style="{StaticResource gdContainerForUserControl}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
@@ -33,11 +27,9 @@
         </Grid.RowDefinitions>
 
         <!-- Title -->
-        <TextBlock Grid.Row="0"
-                   Text="Add New Loan History"
-                   FontSize="20" FontWeight="SemiBold"
-                   Foreground="#1A1A1A"
-                   Margin="0,0,0,15" HorizontalAlignment="Left" />
+        <Label Grid.Row="0"
+                Style="{StaticResource lblTitle}"
+                Content="Add New Loan History"/>
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -81,7 +73,6 @@
                                   Style="{x:Null}"
                                   Grid.Column="1">
                                 <ComboBox Name="cbTxtReaderFind"
-                                          Visibility="Hidden"
                                           Style="{StaticResource cbGeneral}"
                                           DisplayMemberPath="FullName">
                                     <i:Interaction.Triggers>
@@ -136,42 +127,30 @@
                 </StackPanel>
             </GroupBox>
 
-            <GroupBox Grid.Row="1" FontSize="15" Padding="12" Margin="0,0,0,15">
-                <Grid>
-                    <local:ucLoanSlipsTable x:Name="ucLoanSlipsBorrowedTable"
-                                            AllowPagination="False"
-                                            VerticalAlignment="Stretch" />
-                </Grid>
+            <GroupBox Grid.Row="1"
+                      Style="{StaticResource gbDisplayInfo}">
+                <local:ucLoanSlipsTable x:Name="ucLoanSlipsBorrowedTable"
+                                        AllowPagination="False"
+                                        VerticalAlignment="Stretch" />
             </GroupBox>
 
         </Grid>
 
-        <!-- Footer & Actions -->
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-
-            <TextBlock x:Name="txtErrorMessage"
-                       Grid.Column="0"
-                       Style="{StaticResource tblErrorMessage}"
-                       Text="{Binding InvalidMessage}"
-                       VerticalAlignment="Center"
-                       TextWrapping="Wrap" />
-
-            <StackPanel Margin="10 0 0 0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Name="btnConfirm" Content="Confirm"
-                        Width="100" Height="32"
-                        Margin="0,0,10,0"
-                        Style="{StaticResource btnConfirm}"
-                        Command="{Binding ReaderBtnConfirmClickCmd}" />
-                <Button Name="btnCancel" Content="Cancel" 
-                        Width="100" Height="32"
-                        Style="{StaticResource btnCancel}"
-                        Command="{Binding ReaderBtnCancelClickCmd}" />
-            </StackPanel>
-        </Grid>
+        <!-- Footer -->
+        <StackPanel Grid.Row="2"
+                    Style="{StaticResource stkWrapButton}"
+                    Margin="0 20 0 20">
+            <Button Name="btnConfirm" Content="Confirm"
+                    HorizontalAlignment="Stretch"
+                    Style="{StaticResource btnConfirm}"
+                    Command="{Binding ReaderBtnConfirmClickCmd}">
+            </Button>
+            <Button Name="btnCancel" Content="Cancel" 
+                    Style="{StaticResource btnCancel}"
+                    HorizontalAlignment="Stretch"
+                    Margin="10 0 0 0"
+                    Command="{Binding ReaderBtnCancelClickCmd}"/>
+        </StackPanel>
     </Grid>
 
 </UserControl>

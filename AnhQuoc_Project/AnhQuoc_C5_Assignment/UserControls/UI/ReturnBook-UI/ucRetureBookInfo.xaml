@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:AnhQuoc_C5_Assignment"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:behaviors="clr-namespace:AnhQuoc_C5_Assignment.Utilities.Behaviours"
              mc:Ignorable="d" 
              d:DesignWidth="800"
              x:Name="myUserControl">
@@ -18,10 +19,16 @@
     
     <UserControl.Resources>
         <local:PriceFormatConverter x:Key="PriceFormatConverter" />
+        <local:BindingProxy x:Key="proxy" Data="{Binding}"/>
+        <Style x:Key="txtGeneral" TargetType="TextBox" BasedOn="{StaticResource txtLightBorder}">
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
     </UserControl.Resources>
 
     <Grid Name="gdInputLoanHistory"
-          Style="{StaticResource gdContainerForUserControl}">
+          Style="{StaticResource gdContainerForUserControl}"
+          Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
@@ -29,9 +36,11 @@
         </Grid.RowDefinitions>
 
         <!-- Title -->
-        <Label Grid.Row="0"
-                Style="{StaticResource lblTitle}"
-                Content="Add New Loan History"/>
+        <TextBlock Grid.Row="0"
+                   Text="Add New Loan History"
+                   FontSize="20" FontWeight="SemiBold"
+                   Foreground="#1A1A1A"
+                   Margin="0,0,0,15" HorizontalAlignment="Left" />
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -39,122 +48,151 @@
                 <ColumnDefinition Width="1.5*" />
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
+            <Border Grid.Row="1" 
+        Background="White" 
+        BorderBrush="#E2E8F0" 
+        BorderThickness="1" 
+        CornerRadius="6" 
+        Margin="0,0,10,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0"
-                      Background="#3968b4">
-                    <Label Style="{StaticResource lblTitleStyleInBar}"
-                           Content="List book of reader"/>
+                    <!-- Header Bar -->
+                    <Border Grid.Row="0" 
+                Background="#212529" 
+                CornerRadius="5,5,0,0" 
+                Padding="12,10">
+                        <TextBlock Text="List book of reader" 
+                       Foreground="White" 
+                       FontWeight="SemiBold" 
+                       FontSize="14"/>
+                    </Border>
+
+                    <!-- List Container -->
+                    <ListBox Grid.Row="1"
+                             x:Name="lstUnPaidBooks"
+                             BorderThickness="0"
+                             HorizontalContentAlignment="Stretch"
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                             ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                             ItemsSource="{Binding AllUnPaidBookCard}">
+
+                        <!-- Disable Selection and Focus Highlights -->
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="Focusable" Value="False" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="BorderThickness" Value="0" />
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="Margin" Value="4" />
+
+                                <Style.Resources>
+                                    <!-- Remove Selected Background (Focused & Unfocused) -->
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="Transparent" />
+
+                                    <!-- Remove Selected Text Color Shift -->
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="Black" />
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}" Color="Black" />
+                                </Style.Resources>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
                 </Grid>
-                <ScrollViewer Grid.Row="1"
-                              Style="{StaticResource scrollStyleContainWrap}"
-                              VerticalAlignment="Stretch">
-                    <WrapPanel Name="wrapUnPaidBooksTable"
-                               HorizontalAlignment="Stretch">
-                    </WrapPanel>
-                </ScrollViewer>
-            </Grid>
+            </Border>
 
             <Border Grid.Column="1"
-                    Style="{StaticResource bdStyleGroupBox}">
+        Background="#FAFAFA"
+        BorderBrush="#E0E0E0"
+        BorderThickness="1"
+        CornerRadius="6"
+        Padding="16">
                 <StackPanel Name="stkBookDetailInformation">
-                    <StackPanel.Resources>
-                        <Style TargetType="Label" BasedOn="{StaticResource lblGeneral}" />
-                        <Style TargetType="TextBox" BasedOn="{StaticResource txtGeneral}" />
-                        <Style TargetType="ComboBox" BasedOn="{StaticResource cbGeneral}" />
-                        <Style TargetType="DatePicker" BasedOn="{StaticResource dateStyle1}"/>
-                        <Style TargetType="Grid" BasedOn="{StaticResource gdDisplayInputForm}" />
-                    </StackPanel.Resources>
-                    <Grid>
+
+                    <!-- Form Field Unit -->
+                    <Grid Margin="0,0,0,12">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Reader: " />
-
+                        <Label Content="Reader:" VerticalAlignment="Center" Foreground="#555555" FontWeight="Medium"/>
                         <TextBox Name="txtReaderName"
                                  Grid.Column="1"
                                  Text="{Binding SelectedReader.FullName, Mode=OneWay}"
-                                 IsEnabled="False">
-                        </TextBox>
+                                 Style="{StaticResource txtGeneral}"
+                                 IsEnabled="False"/>
                     </Grid>
-                    <Grid>
+
+                    <Grid Margin="0,0,0,12">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Id Loan: " />
+                        <Label Content="Id Loan:" VerticalAlignment="Center" Foreground="#555555" FontWeight="Medium"/>
                         <TextBox Name="txtIdLoan"
                                  Grid.Column="1"
                                  Text="{Binding SelectedLoanSlip.Id, Mode=OneWay}"
-                                 IsEnabled="False">
-                        </TextBox>
+                                 Style="{StaticResource txtGeneral}"
+                                 IsEnabled="False"/>
                     </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Reason: " />
 
-                        <Grid Grid.Column="1"
-                              Name="gdInputReason"
-                              Style="{x:Null}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="8*" />
-                                <ColumnDefinition Width="1*" />
-                            </Grid.ColumnDefinitions>
-                            <ComboBox Grid.Column="0"
-                                      Grid.ColumnSpan="2"
-                                      Name="cbTxtReason"
-                                      Style="{StaticResource cbGeneral}"
-                                      DisplayMemberPath="Name">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="DropDownClosed">
-                                        <i:InvokeCommandAction Command="{Binding BookcbTxtReasonDropDownClosedCmd}" 
-                                                                           CommandParameter="{Binding ElementName=cbTxtReason}" />
-                                    </i:EventTrigger>
-                                    <i:EventTrigger EventName="SelectionChanged">
-                                        <i:InvokeCommandAction Command="{Binding BookcbTxtReasonSelectionChangedCmd}" 
-                                                                           CommandParameter="{Binding ElementName=cbTxtReason}" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </ComboBox>
-                            <TextBox Name="txtReason"
-                                     Grid.Column="0"
-                                     Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="TextChanged">
-                                        <i:InvokeCommandAction Command="{Binding BooktxtReasonTextChangedCmd}"
-                                                                           CommandParameter="{Binding ElementName=txtReason}" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                                <TextBox.Text>
-                                    <Binding Path="InputReason" UpdateSourceTrigger="PropertyChanged">
-                                        <Binding.ValidationRules>
-                                            
-                                            <local:InputUnicodeTextNumberRule />
-                                            
-                                        </Binding.ValidationRules>
-                                    </Binding>
-                                </TextBox.Text>
-                            </TextBox>
-                        </Grid>
-                    </Grid>
-                    <Grid>
+                    <!-- Reason Dropdown/Input Container -->
+                    <Grid Margin="0,0,0,12">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Fine amount: " />
-                        <Grid Grid.Column="1"
-                              Style="{x:Null}">
+                        <Label Content="Reason:" VerticalAlignment="Center" Foreground="#555555" FontWeight="Medium"/>
+                        <ComboBox Grid.Column="1"
+                                    Name="cbTxtReason"
+                                    Style="{StaticResource cbGeneral}"
+                                    DisplayMemberPath="Name"
+                                   ItemsSource="{Binding AllReason}"
+                                  SelectedIndex="0">
+                            <i:Interaction.Triggers>
+
+                                <i:EventTrigger EventName="DropDownClosed">
+
+                                    <i:InvokeCommandAction Command="{Binding BookcbTxtReasonDropDownClosedCmd}" 
+
+                                                                           CommandParameter="{Binding ElementName=cbTxtReason}" />
+
+                                </i:EventTrigger>
+
+                                <i:EventTrigger EventName="SelectionChanged">
+
+                                    <i:InvokeCommandAction Command="{Binding BookcbTxtReasonSelectionChangedCmd}" 
+
+                                                                           CommandParameter="{Binding ElementName=cbTxtReason}" />
+
+                                </i:EventTrigger>
+
+                            </i:Interaction.Triggers>
+                        </ComboBox>
+                    </Grid>
+
+                    <!-- Fine Amount Field -->
+                    <Grid Margin="0,0,0,12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Fine amount:" VerticalAlignment="Center" Foreground="#555555" FontWeight="Medium"/>
+                        <Grid Grid.Column="1">
                             <TextBox Name="txtFineAmount"
                                      Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}"
+                                     Style="{StaticResource txtGeneral}"
                                      IsEnabled="False"
                                      Foreground="Transparent">
                                 <TextBox.Text>
@@ -177,39 +215,46 @@
                             </TextBlock>
                         </Grid>
                     </Grid>
-                    <Grid>
+
+                    <!-- Note Field -->
+                    <Grid Margin="0,0,0,12">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Note: " />
+                        <Label Content="Note:" VerticalAlignment="Center" Foreground="#555555" FontWeight="Medium"/>
                         <TextBox Name="txtNote"
                                  Grid.Column="1"
-                                 Validation.ErrorTemplate="{StaticResource txtErrorTemplate1}">
-                            <TextBox.Text>
-                                <Binding Path="Detail.Note" UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
-                                        
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                                 Height="60"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 Text="{Binding Detail.Note, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource txtGeneral}"/>
                     </Grid>
+
                 </StackPanel>
             </Border>
         </Grid>
 
         <StackPanel Grid.Row="2"
-                    Name="stkWrapButton"
-                    Style="{StaticResource stkWrapButton}">
+            Orientation="Horizontal"
+            HorizontalAlignment="Right"
+            Margin="0,20,0,0">
             <Button Name="btnConfirm"
-                    Style="{StaticResource btnConfirm}"
-                    Content="Confirm"
-                    Command="{Binding BookBtnConfirmClickCmd}" />
+            Content="Confirm"
+            MinWidth="110"
+            Height="36"
+            Cursor="Hand"
+            Style="{StaticResource btnConfirm}"
+            Command="{Binding BookBtnConfirmClickCmd}" />
             <Button Name="btnCancel"
-                    Style="{StaticResource btnCancel}"
-                    Margin="10 0 0 0"
-                    Command="{Binding BookBtnCancelClickCmd}"/>
+            Content="Cancel"
+            MinWidth="100"
+            Height="36"
+            Margin="10,0,0,0"
+            Cursor="Hand"
+            Style="{StaticResource btnCancel}"
+            Command="{Binding BookBtnCancelClickCmd}"/>
         </StackPanel>
     </Grid>
 </UserControl>
