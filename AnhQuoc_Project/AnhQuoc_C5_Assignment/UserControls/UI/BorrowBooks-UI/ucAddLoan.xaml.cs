@@ -25,6 +25,7 @@ namespace AnhQuoc_C5_Assignment
     public partial class ucAddLoan : UserControl
     {
         #region getDatas
+        public Func<Stack<object>> getStoreContent { get; set; }
         public Func<ReaderRepository> getReaderRepo { get; set; }
         public Func<AdultRepository> getAdultRepo { get; set; }
         public Func<ChildRepository> getChildRepo { get; set; }
@@ -42,11 +43,11 @@ namespace AnhQuoc_C5_Assignment
 
         public static BorrowBookViewModel Context; 
 
-        public ucAddLoan()
+        public ucAddLoan(Stack<object> storeContent, ucLoanSlipManagement parent)
         {
             InitializeComponent();
 
-            MainWindow.borrowBookContext = new BorrowBookViewModel();
+            MainWindow.borrowBookContext = new BorrowBookViewModel(storeContent, parent);
             Context = MainWindow.borrowBookContext;
             this.DataContext = Context;
         }

@@ -36,6 +36,7 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Fields
+        private ucLoanSlipManagement parent;
         private List<SelectBookISBNCard> _AllSelectBookISBNCard;
         private ucAddLoan ucAddLoan;
         private bool handle;
@@ -369,8 +370,10 @@ namespace AnhQuoc_C5_Assignment
         public RelayCommand ReadertxtReaderFindTextChangedCmd { get; private set; }
         #endregion
 
-        public BorrowBookViewModel()
+        public BorrowBookViewModel(Stack<object> storeContent, ucLoanSlipManagement parent)
         {
+            StoreContent = storeContent;
+            this.parent = parent;
             AllReaderTypes = Utilitys.GetListFromEnum<ReaderType>().ToObservableCollection();
             AllReaderLoanDetail = new ObservableCollection<LoanDetail>();
             _AllSelectBookISBNCard = new List<SelectBookISBNCard>();
@@ -430,6 +433,7 @@ namespace AnhQuoc_C5_Assignment
         private void OnBookSelected(BookTitleDto selectedBook)
         {
             ucSelectBook ucSelectBook = new ucSelectBook();
+            ucSelectBook.UcAddLoan = ucAddLoan;
             ucSelectBook.BookInfoBtnConfirm += (s, e) => BookInfoBtnConfirmClick(null);
             var filledBookISBN = bookISBNVM.FillByIdBookTitle(selectedBook.Id, null);
             ucSelectBook.AllBookISBN = bookISBNMap.ConvertToDto(filledBookISBN);
@@ -437,8 +441,8 @@ namespace AnhQuoc_C5_Assignment
             // Subscribe to routed event from ucSelectBook so BtnBookDetailConfirm executes when ucSelectBook raises it
             ucSelectBook.AddHandler(ucSelectBook.BookDetailConfirmEvent, new RoutedEventHandler(BtnBookDetailConfirm));
 
-            StoreContent.Push(ucAddLoan.Content);
-            ucAddLoan.Content = ucSelectBook;
+            StoreContent.Push(parent.Content);
+            parent.Content = ucSelectBook;
         }
 
         private void NewItem()
@@ -471,7 +475,7 @@ namespace AnhQuoc_C5_Assignment
 
             ucSelectReaderInfo.ucLoanDetailsBorrowedTable.dgDatas.LoadingRow += DgDatas_LoadingRow;
 
-            ucAddLoan.Content = ucSelectReaderInfo;
+            parent.Content = ucSelectReaderInfo;
 
             NewItem();
         }
@@ -584,8 +588,8 @@ namespace AnhQuoc_C5_Assignment
         private void ReaderBtnConfirmClick(object para)
         {
             ucInputBookInfo = MainWindow.UnitOfForm.UcInputBookInfo(true);
-            StoreContent.Push(ucAddLoan.Content);
-            ucAddLoan.Content = ucInputBookInfo;
+            StoreContent.Push(parent.Content);
+            parent.Content = ucInputBookInfo;
         }
 
         private void ReaderBtnCancelClick(object para)
@@ -911,7 +915,7 @@ namespace AnhQuoc_C5_Assignment
 
         private void BookInfoBtnCancelClick(object para)
         {
-            ucAddLoan.Content = StoreContent.Pop();
+            parent.Content = StoreContent.Pop();
         }
 
         private void BtnBookDetailConfirm(object sender, RoutedEventArgs e)

@@ -140,7 +140,6 @@ namespace AnhQuoc_C5_Assignment
 
             #region Allocations
             listFillLoanSlips = new ObservableCollection<LoanSlip>();
-            storeContent = new Stack<object>();
 
             loanSlipVM = UnitOfViewModel.Instance.LoanSlipViewModel;
             #endregion
@@ -168,9 +167,13 @@ namespace AnhQuoc_C5_Assignment
 
         public void BackToMainPage()
         {
-            this.Content = storeContent.Pop();
-
+            GoBack();
             NewItemFromUcAdd();
+        }
+
+        public void GoBack()
+        {
+            this.Content = storeContent.Pop();
         }
 
         #region Fillter-Methods
@@ -192,8 +195,21 @@ namespace AnhQuoc_C5_Assignment
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            ucAddLoan = MainWindow.UnitOfForm.UcAddLoan(true);
+            ucAddLoan = new ucAddLoan(storeContent, this);
+            ucAddLoan.getReaderRepo = () => MainWindow.UnitOfRepo.ReaderRepo;
+            ucAddLoan.getAdultRepo = () => MainWindow.UnitOfRepo.AdultRepo;
+            ucAddLoan.getChildRepo = () => MainWindow.UnitOfRepo.ChildRepo;
+            ucAddLoan.getProvinceRepo = () => MainWindow.UnitOfRepo.ProvinceRepo;
+            ucAddLoan.getParameterRepo = () => MainWindow.UnitOfRepo.ParameterRepo;
+            ucAddLoan.getLoanDetailRepo = () => MainWindow.UnitOfRepo.LoanDetailRepo;
+            ucAddLoan.getLoanSlipRepo = () => MainWindow.UnitOfRepo.LoanSlipRepo;
+            ucAddLoan.getBookTitleRepo = () => MainWindow.UnitOfRepo.BookTitleRepo;
+            ucAddLoan.getBookISBNRepo = () => MainWindow.UnitOfRepo.BookISBNRepo;
+            ucAddLoan.getBookRepo = () => MainWindow.UnitOfRepo.BookRepo;
+
             ucAddLoan.getParentUc = () => this;
+            ucAddLoan.getStoreContent = () => storeContent;
+            
             storeContent.Push(this.Content);
             this.Content = ucAddLoan;
         }
@@ -204,8 +220,6 @@ namespace AnhQuoc_C5_Assignment
             {
                 return;
             }
-
-
             LoanSlip newLoanSlip = loanSlipVM.CreateByDto(ucAddLoan.Context.LoanSlipDto);
 
             #region AddTo-listFill

@@ -23,6 +23,20 @@ namespace AnhQuoc_C5_Assignment.UserControls.UI.BorrowBooks_UI
     /// </summary>
     public partial class ucSelectBook : UserControl, INotifyPropertyChanged
     {
+
+
+        public ucAddLoan UcAddLoan
+        {
+            get { return (ucAddLoan)GetValue(UcAddLoanProperty); }
+            set { SetValue(UcAddLoanProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for UcAddLoan.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty UcAddLoanProperty =
+            DependencyProperty.Register(nameof(UcAddLoan), typeof(ucAddLoan), typeof(ucSelectBook), new PropertyMetadata(null));
+
+
+
         private ucBooksTable ucBooksTable;
         private frmDefault selectBookForm;
 
@@ -202,6 +216,11 @@ namespace AnhQuoc_C5_Assignment.UserControls.UI.BorrowBooks_UI
                 }
             };
             selectBookForm.ShowDialog();
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            UcAddLoan?.getParentUc?.Invoke().GoBack();
         }
     }
 

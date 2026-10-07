@@ -318,13 +318,6 @@ namespace AnhQuoc_C5_Assignment
             get { return _UcReaderManagement; }
         }
 
-        private Func<bool, ucAddLoan> _UcAddLoan;
-        public Func<bool, ucAddLoan> UcAddLoan
-        {
-            get { return _UcAddLoan; }
-        }
-
-
         private Func<bool, ucUserInformation> _UcUserInformation;
         public Func<bool, ucUserInformation> UcUserInformation
         {
@@ -880,26 +873,6 @@ namespace AnhQuoc_C5_Assignment
                     ucReaderManagement.getProvinceRepo = () => _UnitOfRepo.ProvinceRepo;
                 }
                 return ucReaderManagement;
-            };
-
-            _UcAddLoan = (isReAllocate) =>
-            {
-                if (isReAllocate)
-                {
-                    ucAddLoan = new ucAddLoan();
-
-                    ucAddLoan.getReaderRepo = () => _UnitOfRepo.ReaderRepo;
-                    ucAddLoan.getAdultRepo = () => _UnitOfRepo.AdultRepo;
-                    ucAddLoan.getChildRepo = () => _UnitOfRepo.ChildRepo;
-                    ucAddLoan.getProvinceRepo = () => _UnitOfRepo.ProvinceRepo;
-                    ucAddLoan.getParameterRepo = () => _UnitOfRepo.ParameterRepo;
-                    ucAddLoan.getLoanDetailRepo = () => _UnitOfRepo.LoanDetailRepo;
-                    ucAddLoan.getLoanSlipRepo = () => _UnitOfRepo.LoanSlipRepo;
-                    ucAddLoan.getBookTitleRepo = () => _UnitOfRepo.BookTitleRepo;
-                    ucAddLoan.getBookISBNRepo = () => _UnitOfRepo.BookISBNRepo;
-                    ucAddLoan.getBookRepo = () => _UnitOfRepo.BookRepo;
-                }
-                return ucAddLoan;
             };
 
             _UcUserInformation = (isReAllocate) =>

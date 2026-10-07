@@ -279,3 +279,8 @@ D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Releas
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Release\AnhQuoc_.4D0CC176.Up2Date
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Release\AnhQuoc_C5_Assignment.exe
 D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Release\AnhQuoc_C5_Assignment.pdb
+D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Release\Microsoft.Xaml.Behaviors.dll
+D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Release\Microsoft.Xaml.Behaviors.pdb
+D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\bin\Release\Microsoft.Xaml.Behaviors.xml
+D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Release\UserControls\UI\BorrowBooks-UI\ucSelectBook.g.cs
+D:\Coding\AnhQuoc_C5_Assignment\AnhQuoc_Project\AnhQuoc_C5_Assignment\obj\Release\UserControls\UI\BorrowBooks-UI\ucSelectBook.baml
