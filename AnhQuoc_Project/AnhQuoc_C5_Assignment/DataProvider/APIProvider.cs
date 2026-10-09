@@ -55,8 +55,10 @@ namespace AnhQuoc_C5_Assignment
             catch (Exception ex)
             {
                 // Display the actual exception message for easier debugging
-                MessageBox.Show($"An error occurred when fetching data:\n{ex.Message}", "API Error");
-                Debug.WriteLine(ex.ToString());
+                string messageText = $"An error occurred when fetching data:\n{ex.Message}\n";
+                messageText += "Ensure the API is running before opening the application.";
+
+                MessageBox.Show(messageText, "API Error");
                 return null;
             }
         }

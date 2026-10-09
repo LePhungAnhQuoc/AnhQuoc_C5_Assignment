@@ -31,7 +31,6 @@ namespace AnhQuoc_C5_Assignment
         #endregion
 
         #region Fields
-        private ucSelectBook ucSelectBook;
         private ucLoanSlipManagement parent;
         private List<SelectBookISBNCard> _AllSelectBookISBNCard;
         private ucAddLoan ucAddLoan;

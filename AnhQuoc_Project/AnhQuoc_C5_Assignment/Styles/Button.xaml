@@ -499,14 +499,97 @@
         <Setter Property="BorderThickness" Value="1" />
     </Style>
 
-    <Style TargetType="Button" x:Key="btnBack" BasedOn="{StaticResource btnGeneral}">
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="Content" Value="Go back" />
-        <Setter Property="Margin" Value="0 10 0 10" />
-        <Setter Property="Padding" Value="12 5" />
+    <!-- Modern Back Button Style -->
+    <Style x:Key="btnBack" TargetType="Button">
+        <Setter Property="Background" Value="#1C3F3A"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Padding" Value="16,8"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+            Background="{TemplateBinding Background}"
+            BorderBrush="{TemplateBinding BorderBrush}"
+            BorderThickness="{TemplateBinding BorderThickness}"
+            CornerRadius="10"
+            SnapsToDevicePixels="True">
+                        <Border.Effect>
+                            <!-- Drop Shadow Effect -->
+                            <DropShadowEffect x:Name="shadow" 
+                              BlurRadius="8" 
+                              ShadowDepth="2" 
+                              Direction="270" 
+                              Color="Black" 
+                              Opacity="0.12"/>
+                        </Border.Effect>
 
-        <Setter Property="Background" Value="#ffffff"/>
-        <Setter Property="Foreground" Value="Black"/>
+                        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Margin="{TemplateBinding Padding}">
+                            <TextBlock x:Name="arrow" 
+                       Text="&lt;&lt;" 
+                       Margin="0,0,8,0" 
+                       FontSize="12" 
+                       VerticalAlignment="Center" 
+                       RenderTransformOrigin="0.5,0.5">
+                                <TextBlock.RenderTransform>
+                                    <TranslateTransform x:Name="arrowTransform" X="0"/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+
+                            <ContentPresenter x:Name="contentPresenter" 
+                              Focusable="False" 
+                              RecognizesAccessKey="True" 
+                              VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <!-- Hover State -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#2A5C55"/>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="arrowTransform"
+                                         Storyboard.TargetProperty="X"
+                                         To="-3" Duration="0:0:0.15"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="arrowTransform"
+                                         Storyboard.TargetProperty="X"
+                                         To="0" Duration="0:0:0.15"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                        <!-- Pressed State: Change border background directly -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#122A27"/>
+                        </Trigger>
+
+                        <!-- Disabled State -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="#CCCCCC"/>
+                            <Setter Property="Foreground" Value="#888888"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style TargetType="Button" x:Key="btnConfirm" BasedOn="{StaticResource btnGeneral}">

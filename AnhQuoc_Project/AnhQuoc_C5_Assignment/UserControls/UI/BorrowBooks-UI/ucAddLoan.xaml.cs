@@ -47,7 +47,7 @@ namespace AnhQuoc_C5_Assignment
         {
             InitializeComponent();
 
-            MainWindow.borrowBookContext = new BorrowBookViewModel(storeContent, parent);
+            MainWindow.borrowBookContext = new BorrowBookViewModel(storeContent, parent, this);
             Context = MainWindow.borrowBookContext;
             this.DataContext = Context;
         }

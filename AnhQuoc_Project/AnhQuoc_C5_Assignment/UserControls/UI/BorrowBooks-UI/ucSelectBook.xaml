@@ -38,8 +38,8 @@
 
         <!-- Action buttons -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Confirm" Style="{StaticResource btnConfirm}" Click="Confirm_Click"/>
-            <Button Content="Cancel" Style="{StaticResource btnCancel}" Click="BtnCancel_Click" Margin="10,0,0,0" />
+            <Button Content="Confirm" Width="80" Style="{StaticResource btnConfirm}" Click="Confirm_Click"/>
+            <Button Content="Back" Width="80" Style="{StaticResource btnCancel}" Click="BtnCancel_Click" Margin="10,0,0,0" />
         </StackPanel>
     </Grid>
 </UserControl>

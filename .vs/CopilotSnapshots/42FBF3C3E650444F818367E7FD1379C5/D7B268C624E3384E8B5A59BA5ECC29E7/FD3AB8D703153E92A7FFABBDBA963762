@@ -158,149 +158,151 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <!-- Layer 1: Background and Scrollable Content -->
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-            <!-- Top Background Panel -->
-            <Border Grid.Row="0" Background="#E6E3D3" Height="260" VerticalAlignment="Top">
-                <Border.Clip>
-                    <RectangleGeometry Rect="0,0,2000,260" RadiusX="0" RadiusY="0"/>
-                </Border.Clip>
-            </Border>
+        <!-- Top Background Panel with Soft Curved Bottom Right -->
+        <Border Grid.Row="0" Background="#E6E3D3" Height="260" VerticalAlignment="Top">
+            <Border.Clip>
+                <RectangleGeometry Rect="0,0,2000,260" RadiusX="0" RadiusY="0"/>
+            </Border.Clip>
+        </Border>
 
-            <!-- Main Scrollable Content (Bounded within viewport) -->
-            <ScrollViewer Grid.Row="0" Grid.RowSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                <StackPanel Margin="40,30,40,30">
+        <!-- Main Content Layout -->
+        <ScrollViewer Grid.RowSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Margin="40,30,40,30">
 
-                    <!-- Header Bar -->
-                    <Grid Margin="0,0,0,20">
+                <!-- Header Bar: Profile & Notifications -->
+                <Grid Margin="0,0,0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Discover" FontSize="32" FontWeight="Bold" Foreground="#111111" VerticalAlignment="Center"/>
+                </Grid>
+
+                <!-- Search Bar Container -->
+                <Border Background="White" CornerRadius="12" Padding="6" Width="480" HorizontalAlignment="Left" Effect="{StaticResource SoftShadow}" Margin="0,0,0,30">
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="Discover" FontSize="32" FontWeight="Bold" Foreground="#111111" VerticalAlignment="Center"/>
-                    </Grid>
-
-                    <!-- Search Bar Container -->
-                    <Border Background="White" CornerRadius="12" Padding="6" Width="480" HorizontalAlignment="Left" Effect="{StaticResource SoftShadow}" Margin="0,0,0,30">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0" VerticalAlignment="Center" Margin="10,0">
-                                <TextBox Padding="8 0 0 0" 
-                                         Text="{Binding SearchBookNameValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                         Foreground="#888888" 
-                                         BorderThickness="0" FontSize="13"/>
-                                <TextBlock Text="Search books..." Foreground="#888888" IsHitTestVisible="False" VerticalAlignment="Center" Margin="10,0">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Setter Property="Visibility" Value="Hidden" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding SearchBookNameValue}" Value="">
-                                                    <Setter Property="Visibility" Value="Visible"/>
-                                                </DataTrigger>
-                                                <DataTrigger Binding="{Binding SearchBookNameValue}" Value="{x:Null}">
-                                                    <Setter Property="Visibility" Value="Visible"/>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                            </Grid>
-                            <Button Grid.Column="1" Content="Search" Style="{StaticResource DarkButtonStyle}" 
-                                    Command="{Binding BookInfoBtnSearchClickCmd}" Padding="20,8"/>
+                        <!-- Search Input -->
+                        <Grid Grid.Column="0"
+                              VerticalAlignment="Center"
+                              Margin="10,0">
+                            <TextBox Padding="8 0 0 0" 
+                                    Text="{Binding SearchBookNameValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="#888888" 
+                                 BorderThickness="0" FontSize="13"/>
+                            
+                            <!-- Placeholder Text -->
+                            <TextBlock Text="Search books..." Foreground="#888888" IsHitTestVisible="False" VerticalAlignment="Center" Margin="10,0">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Hidden" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding SearchBookNameValue}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SearchBookNameValue}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                         </Grid>
-                    </Border>
 
-                    <!-- Book Recommendation Section -->
-                    <Grid Margin="0,0,0,10">
-                        <TextBlock Text="Book Recommendation" FontSize="20" FontWeight="SemiBold" Foreground="#444444" VerticalAlignment="Center"/>
+                        <!-- Search Button -->
+                        <Button Grid.Column="1" Content="Search" Style="{StaticResource DarkButtonStyle}" 
+                                Command="{Binding BookInfoBtnSearchClickCmd}"
+                                Padding="20,8"/>
                     </Grid>
+                </Border>
 
-                    <!-- Books List -->
-                    <ListBox x:Name="BooksList" 
-                             ItemsSource="{Binding AllBookTitles}"
-                             Background="Transparent"
-                             BorderThickness="0"
-                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                             ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                             PreviewMouseWheel="BooksList_PreviewMouseWheel">
+                <!-- Book Recommendation Section -->
+                <Grid Margin="0,0,0,10">
+                    <TextBlock Text="Book Recommendation" FontSize="20" FontWeight="SemiBold" Foreground="#444444" VerticalAlignment="Center"/>
+                </Grid>
 
-                        <behaviors:Interaction.Triggers>
-                            <behaviors:EventTrigger EventName="SelectionChanged">
-                                <behaviors:InvokeCommandAction Command="{Binding BookSelectedCommand}" CommandParameter="{Binding SelectedItem, ElementName=BooksList}" />
-                            </behaviors:EventTrigger>
-                        </behaviors:Interaction.Triggers>
+                <!-- Recommendation Book Cards (now data-bound) -->
+                <ListBox Grid.Row="1"
+                         x:Name="BooksList" 
+                         ItemsSource="{Binding AllBookTitles}"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         PreviewMouseWheel="BooksList_PreviewMouseWheel">
 
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="ListBoxItem">
-                                <Setter Property="Padding" Value="0"/>
-                                <Setter Property="Margin" Value="10,0"/>
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="BorderThickness" Value="0"/>
-                                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="ListBoxItem">
-                                            <Border x:Name="ContainerBorder" CornerRadius="12" Background="Transparent" SnapsToDevicePixels="True">
-                                                <ContentPresenter />
-                                            </Border>
-                                            <ControlTemplate.Triggers>
-                                                <Trigger Property="IsSelected" Value="True">
-                                                    <Setter TargetName="ContainerBorder" Property="Background" Value="#FFEFEFEF"/>
-                                                </Trigger>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter TargetName="ContainerBorder" Property="Background" Value="#FFF7F7F7"/>
-                                                </Trigger>
-                                                <Trigger Property="IsEnabled" Value="False">
-                                                    <Setter Property="Opacity" Value="0.5"/>
-                                                </Trigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </ListBox.ItemContainerStyle>
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="SelectionChanged">
+                            <behaviors:InvokeCommandAction Command="{Binding BookSelectedCommand}" CommandParameter="{Binding SelectedItem, ElementName=BooksList}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <UniformGrid Columns="4"/>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
+                    <!-- Xóa viền/khoảng trắng mặc định của ListBoxItem -->
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="Margin" Value="10,0"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <!-- Container border ensures selection/hover visuals respect corner radius -->
+                                        <Border x:Name="ContainerBorder" CornerRadius="12" Background="Transparent" SnapsToDevicePixels="True">
+                                            <ContentPresenter />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter TargetName="ContainerBorder" Property="Background" Value="#FFEFEFEF"/>
+                                            </Trigger>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="ContainerBorder" Property="Background" Value="#FFF7F7F7"/>
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter Property="Opacity" Value="0.5"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
 
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Border Style="{DynamicResource BookCardHoverStyle}" Margin="8,10">
-                                    <Button Command="{Binding DataContext.BookSelectedCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" Style="{StaticResource FlatImageButtonStyle}">
-                                        <Grid Height="260">
-                                            <Rectangle RadiusX="16" RadiusY="16" SnapsToDevicePixels="True">
-                                                <Rectangle.Fill>
-                                                    <ImageBrush ImageSource="{Binding UrlImage}" Stretch="UniformToFill" AlignmentX="Center" AlignmentY="Center" />
-                                                </Rectangle.Fill>
-                                            </Rectangle>
-                                        </Grid>
-                                    </Button>
-                                </Border>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </StackPanel>
-            </ScrollViewer>
-        </Grid>
-
-        <!-- Layer 2: Floating Action Button (Pinned to Viewport Bottom-Right) -->
-        <Button Content="Back" 
-                HorizontalAlignment="Right" 
-                VerticalAlignment="Bottom" 
-                Margin="0,0,50,30"
-                Style="{StaticResource btnBack}"
-                Command="{Binding BookInfoBtnCancelClickCmd}">
-        </Button>
+                    <!-- Hiển thị 4 cột cân bằng trên 1 hàng -->
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="4"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    
+                    <!-- Template cho từng bìa sách -->
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{DynamicResource BookCardHoverStyle}"
+                                    Margin="8,10">
+                                <Button Command="{Binding DataContext.BookSelectedCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" Style="{StaticResource FlatImageButtonStyle}">
+                                    <Grid Height="260">
+                                        <Rectangle RadiusX="16" RadiusY="16" SnapsToDevicePixels="True">
+                                            <Rectangle.Fill>
+                                                <ImageBrush ImageSource="{Binding UrlImage}" Stretch="UniformToFill" AlignmentX="Center" AlignmentY="Center" />
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </Grid>
+                                </Button>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>
